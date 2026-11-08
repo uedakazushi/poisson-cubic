@@ -220,6 +220,76 @@ $P(u)$も中心なので和は中心である。
 同型によって中心元が中心元へ移る。
 \end{proof}
 
+
+\subsection{可換復元の候補となる点曲線}
+\begin{proposition}[楕円点曲線のHesseパラメータ]
+\label{prop:hesse-point-cubic}
+定理\ref{thm:explicit-hesse-center}の条件で$\hbar\ne0$とする。
+$S_{\hbar,t}$のpoint schemeを定める滑らかな平面三次曲線は
+\[
+ E_{\hbar,t}:\quad
+ x^3+y^3+z^3+3\,\vartheta(\hbar,t)xyz=0,
+\quad
+ \boxed{\quad
+ \vartheta(\hbar,t)=
+ \frac{t+\frac{\hbar^2}{3}(1+t^3/4)}
+ {1-\hbar^2t^2/4}
+ \quad}
+ \tag{EP}\label{eq:hesse-point-parameter}
+\]
+である。$\vartheta(0,t)=t$と形式的に延長され、
+\[
+ \Delta_{\hbar,t}
+ =\left(1-\frac{\hbar^2t^2}{4}\right)^3
+  \left(1+\vartheta(\hbar,t)^3\right).
+ \tag{ED}\label{eq:hesse-point-delta}
+\]
+特に$\hbar\in U_t$なら、右辺のHesse三次曲線は滑らかである。
+\end{proposition}
+\begin{proof}
+滑らかな楕円型三次元Sklyanin代数のpoint schemeは
+\[
+ abc(x^3+y^3+z^3)-(a^3+b^3+c^3)xyz=0
+\]
+である\cite{SmithTate,DeLaetLeBruyn}。
+定理の証明で与えた
+$a=1-\hbar t/2$、$b=-(1+\hbar t/2)$、$c=-\hbar$
+について
+\[
+ abc=\hbar(1-\hbar^2t^2/4),\qquad
+ a^3+b^3+c^3
+ =-3\hbar t-\hbar^3(1+t^3/4)
+\]
+を代入し、共通係数$\hbar$で割ると表示を得る。
+最後の恒等式は\eqref{eq:hesse-discriminant}の定義から従う。
+\end{proof}
+\begin{remark}[可換候補と圏同値を区別する]
+\label{rem:hesse-candidate-not-restoration}
+$\hbar=0$では$S_{0,t}$は多項式環なので、
+そのpoint scheme自体は$\PP^2$である。
+$\vartheta(0,t)=t$は楕円点曲線の式の極限であって、
+$\hbar=0$のpoint schemeの同定ではない。
+
+中心三次式$P(u)$の勾配が原点以外で消えなければ
+\[
+ Y_{\hbar,t,P}
+ =V\bigl(f_{\vartheta(\hbar,t)}(x,y,z)+P(u)\bigr)
+\]
+は滑らかな可換三次超曲面であり、元の可換点へ特殊化する。
+これはrotation付き可換復元の自然な\emph{候補}であるが、
+点曲線と中心三次元の構成だけから
+\[
+ (\mathcal K_{B_{\hbar,t,P}},\rho)
+ \simeq(\Ku(Y_{\hbar,t,P}),\rho_Y)
+\]
+を結論することはできない。
+$t=0$では$\vartheta(\hbar,0)=\hbar^2/3$であり、
+本論文に既に証明したFermat型一ブロックの
+可換モデルの係数と一致する。
+一般の$t$での比較には相対Orlov同値、translationの共役、
+および中心三次式の正規化の確認が残る。
+\end{remark}
+
 \begin{remark}[適用範囲と新規性]
 \label{rem:hesse-scope}
 一般の$f_s(x_s,u)$には$u$とactive変数の本質的な
