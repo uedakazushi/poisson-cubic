@@ -1,0 +1,164 @@
+\section{射影完全交叉と斉次多様体のPoisson構造}
+\label{sec:general-poisson-existence}
+本節は三次超曲面のPoisson構造を一般の射影多様体の中に位置づける。
+完全交叉に対する非存在の部分はBr\"uckmannの古典的消滅定理
+（Fu--Hwang \cite[Lemma 4.1]{FuHwangCI} に引用）による。
+本節の既知結果を新規な分類とみなさない。
+
+\subsection{滑らかな射影完全交叉の存在判定}
+\begin{theorem}\label{thm:ci-poisson-existence}
+複素数体上の滑らかな通常の射影完全交叉
+\[
+ X=X_{d_1,\ldots,d_c}\subset\PP^{n+c},
+ \qquad n\ge3,\quad d_j\ge2
+\]
+について、以下は同値である。
+\begin{enumerate}[label=(\arabic*)]
+\item $H^0(X,\bigwedge^2T_X)\ne0$。
+\item $X$は非零の正則Poisson構造を持つ。
+\item 多重次数は空列、$(2)$、$(3)$、$(2,2)$のいずれかである。
+\end{enumerate}
+空列は$\PP^n$を表す。一次式の方程式はあらかじめ除いている。
+\end{theorem}
+\begin{proof}
+$s=\sum_{j=1}^c(d_j-1)$とおく。随伴公式から
+\[
+ \omega_X\simeq\OO_X(-(n+1-s)),\qquad
+ \bigwedge^2T_X\simeq\Omega_X^{n-2}(n+1-s)
+ \tag{2.1}\label{eq:ci-forms}
+\]
+である。Br\"uckmannの消滅\cite[Lemma 4.1]{FuHwangCI}は
+\[
+ H^0(X,\Omega_X^p(k))=0
+ \qquad(1\le p\le n-1,\ k\le p)
+ \tag{2.2}\label{eq:ci-vanishing}
+\]
+を与える。$n\ge3$なので$p=n-2\ge1$を取り、
+$s\ge3$なら$n+1-s\le n-2$ゆえ
+$H^0(X,\bigwedge^2T_X)=0$となる。
+したがって(1)なら$s\le2$であり、$d_j\ge2$より列挙した四種類に限る。
+
+逆に$s\le2$の場合、一般の独立な一次形式
+$L_0,\ldots,L_{n-2}$を選び、射影空間のEuler場
+$E=\sum_i z_i\partial_{z_i}$を用いて
+\[
+ \alpha=\iota_E(dL_0\wedge\cdots\wedge dL_{n-2})
+       \in H^0(X,\Omega_X^{n-2}(n-1))
+\]
+を定める。一般の選択では$\alpha|_X$は非零である。
+$L_0\ne0$上では
+\[
+ \alpha=L_0^{n-1}\,
+ d(L_1/L_0)\wedge\cdots\wedge d(L_{n-2}/L_0)
+\]
+となり、一般点でその核は有理写像
+$X\dashrightarrow\PP^{n-2}$のファイバーに接する
+階数二の可積分分布である。
+$s=2$なら\eqref{eq:ci-forms}によって$\alpha$を
+二重ベクトルに対応させる。
+$s=1$なら非零の一次切断、$s=0$なら非零の二次切断を掛け、
+同じ同型によって対応させる。
+いずれも一般階数二で非零であり、
+可積分分布を定める分解可能二重ベクトルなので
+Schouten条件$[\pi,\pi]=0$を満たす。
+これで(3)から(2)、(2)から(1)が従う。
+\end{proof}
+
+\begin{remark}[曲線と曲面]\label{rem:ci-small-dimension}
+曲線では$\bigwedge^2T_X=0$。
+曲面では$\bigwedge^2T_X=\omega_X^{-1}$で
+Schouten条件は自動的に成立する。
+滑らかな完全交叉曲面の非零Poisson構造の存在条件は
+$s\le3$であり、上記に加えて$(4)$、$(2,3)$、
+$(2,2,2)$のK3完全交叉が現れる。
+従って$n\ge3$は本質的である。
+特異完全交叉には上の消滅をそのまま適用しない。
+\end{remark}
+
+\subsection{トーリック多様体}
+\begin{proposition}\label{prop:toric-poisson}
+次元二以上の複素正規トーリック多様体には
+非零の代数的Poisson括弧がある。
+滑らかなら$\pi\in H^0(X,\bigwedge^2T_X)$で与えられる。
+\end{proposition}
+\begin{proof}
+稠密トーラス$T\simeq(\CC^*)^n$のLie代数の
+一次独立な二元が定める大域導分を$D_1,D_2$とする。
+$T$が可換なので$[D_1,D_2]=0$であり、
+$\pi=D_1\wedge D_2$はJacobi条件を満たす。
+正規トーリックの各不変アフィンチャートで
+$\{f,g\}=D_1(f)D_2(g)-D_2(f)D_1(g)$
+は正則で、貼り合わさる。
+稠密トーラス上では二導分は独立なので非零である。
+\end{proof}
+
+\subsection{滑らかな射影斉次多様体}
+\begin{theorem}\label{thm:homogeneous-poisson}
+$\CC$上の滑らかな連結射影斉次多様体$X$で
+$\dim X\ge2$ならば、$X$は非零の正則Poisson構造を持つ。
+\end{theorem}
+\begin{proof}
+Borel--Remmertの定理\cite{BorelRemmert}により
+$X\simeq A\times G/P$と分解できる。
+$A$はアーベル多様体、$G/P$は半単純群の旗多様体の直積である。
+$A$の並進ベクトル場は可換であり、
+$G/P$の最大トーラスから来る基本ベクトル場も可換である。
+後者で非自明な単純因子の階数が二以上ならば、
+$P$に含まれない単純根$\alpha$と、
+それに隣接する単純根$\beta$に対し、
+$\alpha$および$\alpha+\beta$は接空間の
+一次独立な二つのトーラスウェイトを与える。
+従って最大トーラスの一般軌道は二次元以上である。
+階数一の非自明因子は$\PP^1$であり、
+二つ以上のそのような因子があれば同様に二方向がある。
+残る場合、$\dim X\ge2$から$A$の並進方向を
+必要な数だけ加えられる。
+以上より$X$上に一般点で一次独立な二つの
+可換な大域ベクトル場$D_1,D_2$が存在する。
+その外積は非零で
+$[D_1\wedge D_2,D_1\wedge D_2]=0$を満たす。
+\end{proof}
+\begin{remark}
+非射影の任意の斉次空間に対して同じことを
+示したわけではない。
+次元一では二重ベクトルは常に零となる。
+\end{remark}
+
+\subsection{Poisson量子化の明示性}
+\begin{proposition}\label{prop:poisson-quantization-explicit}
+本論文のPoisson正規形
+$F=\sum_{s=1}^k f_s(x_s,u)$に対し、
+量子化を定める二次関係式は明示的に
+\[
+ [x_{s2},x_{s3}]
+ =\hbar\,\operatorname{sym}_R(\partial_{x_{s1}}f_s),
+ \quad
+ [x_{s3},x_{s1}]
+ =\hbar\,\operatorname{sym}_R(\partial_{x_{s2}}f_s),
+ \quad
+ [x_{s1},x_{s2}]
+ =\hbar\,\operatorname{sym}_R(\partial_{x_{s3}}f_s)
+\]
+と書ける。異なるブロックと中心変数の間の交換子は零である。
+三次中心元$\Omega_\hbar$は零のZariski近傍で存在し、
+有限自由加群間の中心性方程式
+$z\mapsto([z,x_{si}])_{s,i}$の核を解いて選べる。
+しかし任意の入力に一様な閉公式が得られたとは主張しない。
+\end{proposition}
+\begin{proof}
+二次関係式は各ブロックのcyclic potential
+$W_s=x_{s1}x_{s2}x_{s3}-x_{s2}x_{s1}x_{s3}
+-\hbar\,\operatorname{sym}_R(f_s)$のcyclic derivativeである。
+中心元の存在と、核の計算を用いた代数化は
+本論文の量子化節で証明する。
+\end{proof}
+\begin{example}[Fermat型]
+$[x,y]=\hbar z^2$、$[y,z]=\hbar x^2$、
+$[z,x]=\hbar y^2$なら
+\[
+ \Omega=x^3+y^3+z^3
+      -2\hbar^2\operatorname{sym}(xyz)
+\]
+は実際に中心元となる。直接の交換子計算は
+本論文のFermat型の補題にある。
+\end{example}
