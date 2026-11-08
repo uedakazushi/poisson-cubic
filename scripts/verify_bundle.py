@@ -32,7 +32,7 @@ def source_closure(path, seen=None):
 
 
 for name in ("cubic_poisson_rotation", "research_notes"):
-    text = source_closure(ROOT / f"{name}.tex")
+    text = source_closure(ROOT / "tex" / f"{name}.tex")
     labels = re.findall(r"\\label\{([^}]+)\}", text)
     assert len(labels) == len(set(labels)), f"Duplicate labels in {name}"
     refs = set(re.findall(r"\\(?:eqref|ref|pageref)\{([^}]+)\}", text))
@@ -42,7 +42,7 @@ for name in ("cubic_poisson_rotation", "research_notes"):
     for group in re.findall(r"\\cite(?:\[[^]]*\])?\{([^}]+)\}", text):
         citations.update(k.strip() for k in group.split(","))
     assert not citations.difference(bibkeys), f"Missing citations in {name}: {citations.difference(bibkeys)}"
-    assert (ROOT / f"{name}.pdf").is_file(), f"Missing PDF: {name}"
+    assert (ROOT / "pdf" / f"{name}.pdf").is_file(), f"Missing PDF: {name}"
 
 for name in ("verify_algebra.py", "verify_rotation_obstructions.py", "verify_geometry.py"):
     result = subprocess.run([sys.executable, str(ROOT / "computations" / name)],
@@ -51,7 +51,7 @@ for name in ("verify_algebra.py", "verify_rotation_obstructions.py", "verify_geo
         raise AssertionError(result.stdout)
     print(f"PASS {name}")
 
-required = ("00_research_plan.md", "research_plan.pdf", "README.md", "AGENTS.md", "validation.json")
+required = ("00_research_plan.md", "pdf/research_plan.pdf", "README.md", "AGENTS.md", "validation.json")
 for name in required:
     assert (ROOT / name).is_file(), f"Missing required file: {name}"
 
@@ -67,6 +67,8 @@ hash_path = ROOT / "SHA256SUMS"
 if args.write_hashes:
     hash_path.write_text(expected, encoding="utf-8")
 else:
+    if not hash_path.is_file():
+        raise SystemExit("SHA256SUMS missing: rebuild the current PDFs, then run --write-hashes.")
     assert hash_path.read_text(encoding="utf-8") == expected, "Checksum or file inventory mismatch"
 print(json.dumps({"status": "passed", "files_hashed": len(files),
                   "source_closure": "complete", "reference_check": "passed"}, ensure_ascii=False))

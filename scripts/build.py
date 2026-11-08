@@ -29,7 +29,7 @@ results = []
 with tempfile.TemporaryDirectory(prefix="nc-cubic-build-") as temporary:
     work = Path(temporary)
     for name in selected:
-        source = ROOT / f"{name}.tex"
+        source = ROOT / "tex" / f"{name}.tex"
         if name == "research_plan":
             body = subprocess.run(
                 ["pandoc", str(ROOT / "00_research_plan.md"),
@@ -39,7 +39,7 @@ with tempfile.TemporaryDirectory(prefix="nc-cubic-build-") as temporary:
             body = re.sub(r"(?=\\hypertarget\{)", lambda _: "\\Needspace{10\\baselineskip}\n", body)
             source = work / "research_plan.tex"
             source.write_text(
-                "\\input{common}\n"
+                "\\input{tex/common}\n"
                 "\\usepackage{needspace}\n"
                 "\\providecommand{\\tightlist}{\\setlength{\\itemsep}{0pt}\\setlength{\\parskip}{0pt}}\n"
                 "\\hypersetup{pdftitle={研究方針：3次超曲面のPoisson構造と非可換化}}\n"
@@ -71,7 +71,8 @@ with tempfile.TemporaryDirectory(prefix="nc-cubic-build-") as temporary:
                 if p.exists():
                     shutil.copy2(p, diagnostic_dir / p.name)
             raise SystemExit(f"Resolve reference/layout warnings: {name}; diagnostics in {diagnostic_dir}")
-        target = ROOT / f"{name}.pdf"
+        target = ROOT / "pdf" / f"{name}.pdf"
+        target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(work / target.name, target)
         item = {"document": target.name, "passes": pass_number,
                 "undefined_references": 0, "missing_glyphs": 0, "overfull_boxes": 0}
