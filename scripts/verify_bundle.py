@@ -44,7 +44,7 @@ for name in ("cubic_poisson_rotation", "research_notes"):
     assert not citations.difference(bibkeys), f"Missing citations in {name}: {citations.difference(bibkeys)}"
     assert (ROOT / "pdf" / f"{name}.pdf").is_file(), f"Missing PDF: {name}"
 
-for name in ("verify_algebra.py", "verify_rotation_obstructions.py", "verify_geometry.py"):
+for name in ("verify_algebra.py", "verify_rotation_obstructions.py", "verify_geometry.py", "verify_hesse_center.py"):
     result = subprocess.run([sys.executable, str(ROOT / "computations" / name)],
                             cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     if result.returncode:

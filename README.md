@@ -2,7 +2,7 @@
 
 3次超曲面のPoisson構造と非可換量子化：正規形・退化スキーム・rotation付き残余圏
 
-2026年11月8日・統合第3版 / nc-cubic-v3
+2026年11月8日・統合第4版 / nc-cubic-v4
 
 ## 再開の順序
 
@@ -37,3 +37,9 @@ python3 scripts/verify_bundle.py
 `scripts/build.py --only cubic_poisson_rotation` で個別のTeXを組版できます。検証ではソースの参照閉包、引用・ラベルの一意性、厳密計算、ファイル棚卸とSHA256を確認します。PDFが未再生成の場合、検証が失敗・警告することは意図的です。
 
 主要な成果の証明と文献情報は現行TeXに保持しており、外部文献PDFや旧版ZIPを内包しません。公刊・外部査読・Lean形式化は未実施です。
+
+## 今回の研究進展（v4）
+
+`tex/papers/explicit_hesse_center.tex` で滑らかなHesseブロック `f_t=(x³+y³+z³)/3+txyz`（`t³≠-1`）の三次中心元の閉公式と、零を含むパラメータ開集合の判別式を示した。古典的Smith–Tate / De Laet–Le BruynのSklyanin中心元公式のPoisson変形族への翻訳で、一般混合項の問題は未解決。Fermat型の公式を含み、複数の独立ブロックと中心線形シフトへ拡張できる。証明は原典の中心性＋次数別平坦性に依存する。追加した `computations/verify_hesse_center.py` は複数有限体特殊化の次数四交換子の所属検査であり、普遍的証明の代用ではない。
+
+**出力状態**：v4のTeX原稿はmainに含まれるが、既存の `pdf/` は以前の内容のまま。PDF再組版と新しいSHA256SUMSは未完了で、古いPDFをv4と表示してはならない。
