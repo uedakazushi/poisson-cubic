@@ -1,0 +1,86 @@
+{
+  "finite_field": [
+    {
+      "degree_four_relation_rank": 66,
+      "h": 0,
+      "prime": 1009,
+      "t": 0,
+      "three_commutators_in_degree_four_ideal": true
+    },
+    {
+      "degree_four_relation_rank": 66,
+      "h": 0,
+      "prime": 1009,
+      "t": 1,
+      "three_commutators_in_degree_four_ideal": true
+    },
+    {
+      "degree_four_relation_rank": 66,
+      "h": 1,
+      "prime": 1009,
+      "t": 0,
+      "three_commutators_in_degree_four_ideal": true
+    },
+    {
+      "degree_four_relation_rank": 66,
+      "h": 1,
+      "prime": 1009,
+      "t": 1,
+      "three_commutators_in_degree_four_ideal": true
+    },
+    {
+      "degree_four_relation_rank": 66,
+      "h": 7,
+      "prime": 1009,
+      "t": 3,
+      "three_commutators_in_degree_four_ideal": true
+    },
+    {
+      "degree_four_relation_rank": 66,
+      "h": 11,
+      "prime": 1009,
+      "t": 20,
+      "three_commutators_in_degree_four_ideal": true
+    },
+    {
+      "degree_four_relation_rank": 66,
+      "h": 17,
+      "prime": 1009,
+      "t": 200,
+      "three_commutators_in_degree_four_ideal": true
+    },
+    {
+      "degree_four_relation_rank": 66,
+      "h": 23,
+      "prime": 1009,
+      "t": 857,
+      "three_commutators_in_degree_four_ideal": true
+    }
+  ],
+  "limitations": "Polynomial and finite linear-algebra checks only. Not a formal proof of dg equivalences, generation, or family descent.",
+  "status": "passed",
+  "symbolic": {
+    "Fermat_specialization": true,
+    "Sklyanin_discriminant": "-27*h^3*Delta(h,t)",
+    "central_cubic_coefficient_identities": true,
+    "coefficient_field": "Q(h,t,tau)",
+    "constant_model_equation": "h^2*t^3+3*tau*h^2*t^2+12*t+4*h^2-12*tau",
+    "jacobian_minor": "-(1+t^3)^2",
+    "jacobian_minor_column_monomials": [
+      "x**3",
+      "y**3",
+      "z**3",
+      "x**2*y",
+      "y**2*z",
+      "x*z**2",
+      "x**2*z",
+      "y*z**2",
+      "x*y**2"
+    ],
+    "jacobian_minor_size": 9,
+    "partial_t_at_origin": 12,
+    "point_incidence_and_translation_orientation": true,
+    "theta_minus_t": "h^2*(1+t^3)/(3*(1-h^2*t^2/4))",
+    "translation_tangent": -1
+  }
+}

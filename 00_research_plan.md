@@ -1,6 +1,6 @@
 # 研究方針：3次超曲面のPoisson構造と非可換化
 
-2026年11月8日（日本標準時）・統合第4版 / nc-cubic-v4
+2026年11月9日（日本標準時）・統合第5版 / nc-cubic-v5
 
 ## 最初に読むこと
 
@@ -34,9 +34,14 @@ $\Omega_{\hbar,t}=U(\hbar,t)(x^3+y^3+z^3)/3+W(\hbar,t)\operatorname{sym}(xyz)$
 
 証明：標準Sklyanin関係に直して既知の中心公式を適用し、$C-D=\hbar S+(\hbar t/2)(C+D)$を用いて規格化する。零を含む開集合で次数別平坦性により中心性を延長する。次数四で有限体の複数特殊化の交換子が二次関係式の生成するイデアルに属することも厳密検算したが、後者は普遍的証明ではない。
 
-**可換復元の具体的候補**：Hesse量子化の楕円点曲線を定義する三次式は $x^3+y^3+z^3+3\vartheta(\hbar,t)xyz$ であり
-$\vartheta(\hbar,t)=[t+(\hbar^2/3)(1+t^3/4)]/[1-\hbar^2t^2/4]$ と明示できる。$\vartheta(0,t)=t$、$\vartheta(\hbar,0)=\hbar^2/3$。分離した中心三次式 $P(u)$ と組み合わせた可換超曲面 $Y_{\hbar,t,P}=V(f_{\vartheta}(x)+P(u))$ は滑らかな自然候補だが、一般 $t$ のrotation付き同値は未証明。次にSklyaninの中心元正規化、relative Orlov window、translationの共役、外部積生成性を照合する。
-  
+**一ブロックの可換復元**：良い開集合上の各複素ファイバーで、
+$Y=V(f_{\vartheta(h,t)}+P(u))$ がrotation付き可換模型であることを証明した。
+標準Sklyanin中心商を既存の一般楕円ブロック比較へ適用する。平行移動の有限位数性は不要。
+詳細は `tex/elliptic_cubic_reconstruction.tex` と独立論文のPDF（Libraryのv5 bundle）を参照。
+復元cubicは固定$t$で二次から非自明に動く。
+一方、$h^2t^3+3\tau h^2t^2+12t+4h^2-12\tau=0$ 上では残余pairは各ファイバーで一定、
+代数の一次変形は非自明である。相対中心商のTHCR表示まで得たが、相対残余同値は未完成。
+
 **なお未解決**：一般の本質的な中心混合項 $f_s(x_s,u)$ では中心元の閉公式がなく、従来の形式的存在・有限線形方程式による代数化を用いる。今回の明示化は相対saturationとrotation付き可換復元を証明しない。次の課題はこの明示族で相対BeilinsonモデルとOrlov比較を構成し、可換模型との比較に必要な仮定を個別に検証すること。
 
 ## 到達点・証明の所在・状態
@@ -55,6 +60,10 @@ $\vartheta(\hbar,t)=[t+(\hbar^2/3)(1+t^3/4)]/[1-\hbar^2t^2/4]$ と明示でき�
 | Serre互換な完全忠実関手の全射性判定 | 第II部。sourceが非零smooth proper、targetがproperでSerre関手と $HH^0=\mathbb C$ を持つなどの仮定付き。未解決の多ブロックでこれら全てを検証したとは扱わない。 |
 
 「原稿に証明を収めた」「当該論証を点検した」「有限計算を実行した」は異なる状態である。外部査読・Lean形式化は未実施。重要な引用は一次資料と参照箇所を文献表に示す。定理全体の新規性を確定したとは扱わない。
+
+## 一楕円ブロックの研究再開
+
+`elliptic_reconstruction_plan.md` と `tex/reconstruction_notes.tex` に相対化の課題・証明の適用範囲・着手方法を整理した。既存のPoisson分類・退化・多ブロックの証明は保持する。独立論文のPDFはLibraryに保存したv5 bundleにあり、GitHubの既存統合PDFは未再組版である。
 
 ## 優先課題と具体的な着手方法
 

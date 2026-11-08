@@ -1,5 +1,5 @@
 {
-  "version": "nc-cubic-v4",
+  "version": "nc-cubic-v5",
   "date_jst": "2026-11-08",
   "purpose": "Current research continuation bundle; validation is not a formal proof or external peer review.",
   "manuscript_status": {
@@ -105,5 +105,13 @@
     "repository": "https://github.com/uedakazushi/nc-cubic",
     "branch": "main",
     "note": "GitHub main contains updated TeX and computations; PDF source parity and current Library ZIP not yet verified."
+  },
+  "one_elliptic_block_v5": {
+    "paper_source": "tex/elliptic_cubic_reconstruction.tex",
+    "proof_source": "tex/papers/elliptic_reconstruction.tex",
+    "claims": "pointwise rotation-compatible reconstruction, nonzero second-order model deformation, fixed-model curve, relative THCR quotient",
+    "not_claimed": "general relative residual equivalence or arbitrary mixed/multiblock reconstruction",
+    "parent_integrated_pdf": "not rebuilt by this import",
+    "new_pdfs": "in Library ZIP; not yet GitHub blobs"
   }
 }

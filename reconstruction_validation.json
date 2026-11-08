@@ -1,0 +1,105 @@
+{
+  "version": "nc-cubic-elliptic-reconstruction-v5",
+  "date": "2026-11-09",
+  "scope": "Self-contained one-elliptic-block research subproblem; not a replacement for the whole nc-cubic project.",
+  "source_repository": {
+    "repository": "uedakazushi/nc-cubic",
+    "branch": "main",
+    "reviewed_commit": "e61c790f0101585522fa18d8c353d70d2d9bb8c6",
+    "remote_head_rechecked": "e61c790f0101585522fa18d8c353d70d2d9bb8c6"
+  },
+  "manuscript": {
+    "language": "Japanese",
+    "engine": "LuaLaTeX",
+    "status": "research draft with written proofs, not externally peer reviewed",
+    "contributions": [
+      "Explicit application of the existing general elliptic-block reconstruction to every complex fiber on the specified Hesse open set, with no torsion restriction.",
+      "Nonzero second-order marked deformation of the reconstructed cubic.",
+      "Algebraic curve of nontrivial algebra deformations with pointwise constant reconstructed cubic pair.",
+      "Relative THCR presentation of the central quotient, compatible with base change."
+    ],
+    "not_claimed": [
+      "relative dg equivalence of the full residual family",
+      "general essential mixed central-variable terms",
+      "generation for two or more unrestricted infinite-order blocks",
+      "comprehensive novelty determination"
+    ]
+  },
+  "proof_review": {
+    "performed": [
+      "Checked standard Sklyanin parameter and central quotient hypotheses at every specified fiber, including h=0.",
+      "Reviewed elliptic rotation conjugacy, periodicity normalisation, central-variable Koszul generation and finite grading descent.",
+      "Proved the second-order Jacobian class and fixed-model curve statements.",
+      "Reviewed the degree-wise flatness and relative central-quotient argument."
+    ],
+    "primary_source_scope": "Relevant statements/pages in Walton, De Laet-Le Bruyn, Orlov, Cassidy-Conner-Kirkman-Moore, Elagin, Lin-Zhang, Artebani-Dolgachev and Burke-Stevenson inspected; exact versions and references are in the bibliography. External proofs were not all re-proved.",
+    "not_performed": [
+      "external peer review",
+      "proof-assistant formalization",
+      "a fully general relative Orlov comparison"
+    ]
+  },
+  "computations": {
+    "arithmetic": "exact rational-function identities and finite-field linear algebra; no floating point",
+    "script": "computations/verify_reconstruction.py",
+    "certificate": "computations/reconstruction_certificate.json",
+    "result": "passed and certificate re-read/recomputed",
+    "jacobian_minor": "-(1+t^3)^2",
+    "finite_field": "F_1009",
+    "specializations": 8,
+    "limitations": "The computations do not constitute a formal proof of the categorical statements."
+  },
+  "typesetting": {
+    "documents": [
+      {
+        "name": "elliptic_cubic_reconstruction",
+        "path": "pdf/elliptic_cubic_reconstruction.pdf",
+        "pages": 11,
+        "size_bytes": 367895,
+        "pdf_sha256": "956781a0f522ae3110f48d6196098627b5a229b0b3f499f31b60d9b17ce9acbf"
+      },
+      {
+        "name": "reconstruction_notes",
+        "path": "pdf/reconstruction_notes.pdf",
+        "pages": 3,
+        "size_bytes": 219788,
+        "pdf_sha256": "83113b34733f696a7d6a0de1646055040bd4036b46bc8474127b11f949b53e49"
+      },
+      {
+        "name": "research_plan",
+        "path": "pdf/research_plan.pdf",
+        "pages": 3,
+        "size_bytes": 214533,
+        "pdf_sha256": "2ee9343a542c24319ce65e1ead99bc45af7048599ae2e46ce467476d4d521234"
+      }
+    ],
+    "undefined_references": 0,
+    "missing_glyphs": 0,
+    "overfull_boxes": 0,
+    "source_pdf_parity": "Each PDF has a build receipt containing input and PDF SHA256 snapshots.",
+    "visual_review": "All pages rendered as contact sheets; main theorem and central proof pages inspected at reading scale; no observed clipping or overlap. Notes table layout adjusted to avoid an isolated header.",
+    "runtime": {
+      "python": "3.13.5",
+      "sympy": "1.14.0",
+      "lualatex": "This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)",
+      "pandoc": "pandoc 3.1.11.1"
+    }
+  },
+  "integration": {
+    "script": "scripts/integrate_into_repo.py",
+    "tests": "scripts/test_integration.py",
+    "fixture_result": "passed: old proofs preserved, valid paths, collision rejection, changed anchor rejection",
+    "actual_parent_checkout_applied": false,
+    "real_commit_created": false,
+    "remote_pushed": false,
+    "network_operations_in_fixture": false,
+    "parent_monograph_pdf_rebuilt": false
+  },
+  "delivery": {
+    "local_sources_created": true,
+    "local_pdfs_created": true,
+    "library_saved": false,
+    "github_updated": false,
+    "limitation": "This turn exposes read-only repository operations and no Library upload operation. Generated and validated files are provided as local artifacts; no external save or push is claimed."
+  }
+}

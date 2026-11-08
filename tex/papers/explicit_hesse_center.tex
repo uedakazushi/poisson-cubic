@@ -263,31 +263,25 @@ $a=1-\hbar t/2$、$b=-(1+\hbar t/2)$、$c=-\hbar$
 を代入し、共通係数$\hbar$で割ると表示を得る。
 最後の恒等式は\eqref{eq:hesse-discriminant}の定義から従う。
 \end{proof}
-\begin{remark}[可換候補と圏同値を区別する]
-\label{rem:hesse-candidate-not-restoration}
-$\hbar=0$では$S_{0,t}$は多項式環なので、
-そのpoint scheme自体は$\PP^2$である。
-$\vartheta(0,t)=t$は楕円点曲線の式の極限であって、
-$\hbar=0$のpoint schemeの同定ではない。
-
-中心三次式$P(u)$の勾配が原点以外で消えなければ
-\[
- Y_{\hbar,t,P}
- =V\bigl(f_{\vartheta(\hbar,t)}(x,y,z)+P(u)\bigr)
-\]
-は滑らかな可換三次超曲面であり、元の可換点へ特殊化する。
-これはrotation付き可換復元の自然な\emph{候補}であるが、
-点曲線と中心三次元の構成だけから
-\[
- (\mathcal K_{B_{\hbar,t,P}},\rho)
- \simeq(\Ku(Y_{\hbar,t,P}),\rho_Y)
-\]
-を結論することはできない。
-$t=0$では$\vartheta(\hbar,0)=\hbar^2/3$であり、
-本論文に既に証明したFermat型一ブロックの
-可換モデルの係数と一致する。
-一般の$t$での比較には相対Orlov同値、translationの共役、
-および中心三次式の正規化の確認が残る。
+\begin{corollary}[一楕円ブロックのrotation付き可換復元]
+\label{cor:hesse-reconstruction-established}
+$m\ge2$、$V(\partial P)=\{0\}$、$h\in U_t$とする。
+$S_{h,t}[u]/(\Omega_{h,t}+P)$のrotation付き残余圏は
+$Y=V(f_{\vartheta(h,t)}+P)$のrotation付きKuznetsov成分と同値である。
+平行移動の有限位数性は仮定しない。
+\end{corollary}
+\begin{proof}
+$h\ne0$では$\Omega_{h,t}$は標準Sklyanin中心元の非零スカラー倍なので、
+その商は滑らかな点曲線$E_{h,t}$のTHCRであり、自己同型は平行移動である。
+$h=0$でも中心商は同じ$E_{0,t}$の通常の斉次座標環である。
+従って系\ref{cor:elliptic-central-cubic}の全仮定を満たす。
+正規化、rotationの共役、周期性、中心変数の追加と生成性の詳しい証明は
+独立論文\texttt{elliptic\_cubic\_reconstruction.tex}第2--4節にも記す。
+\end{proof}
+\begin{remark}[ファイバーごとの復元と相対復元]
+上の結論は各複素ファイバーでの同値であり、底上の一つの相対同値は未構成である。
+$h=0$の周囲の代数のpoint schemeは$\PP^2$であり、中心商の曲線$E_{0,t}$と区別する。
+本質的な中心混合項と二つ以上の無限位数ブロックの全生成は未解決である。
 \end{remark}
 
 \begin{remark}[適用範囲と新規性]
