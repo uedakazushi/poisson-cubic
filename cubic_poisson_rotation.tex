@@ -1,0 +1,167 @@
+\input{common}
+\hypersetup{pdftitle={3次超曲面のPoisson構造と非可換量子化}}
+\title{3次超曲面のPoisson構造と非可換量子化\\
+\large 正規形・退化スキーム・rotation付き残余圏}
+\author{}
+\date{\DocDate・\DocVersion\\\small 公表用草稿}
+\begin{document}
+\maketitle
+\begin{abstract}
+滑らかな複素3次超曲面のPoisson構造について、一般次元の正規形、退化スキーム、
+および三次の中心元を持つ次数付き量子化を一つの枠組みで扱う。
+Poisson正規形は、Hessianに関する線形条件と不変対称形式を持つLie代数の構造から得られる。
+全退化スキームの方程式を示し、六次元・七次元の場合の完全交叉、有限被覆、非被約構造を記述する。
+量子化から可換幾何を復元する問題では、残余dg圏と標準次数シフトに由来するrotationを同時に記録する。
+可換cubicの形式近傍ではmarkedな可換モデルが存在し、適切なsmooth proper代数的族では
+その存在をétale近傍へ移せる。独立な楕円Sklyaninブロックについては、
+高々一つを除く平行移動が有限位数である場合に明示的な可換モデルを与える。
+
+一方、任意のAS-regularな中心三次商に同じ存在結論を要求することはできない。
+Fermat cubicのZhang twistにより、射影圏が滑らかな可換cubicと同値であり、
+周囲の代数もCalabi--Yauであるにもかかわらず、rotationを保つ可換モデルを持たない四次元の例を構成する。
+その障害はrotation不変Hochschild homologyの次元で検出され、
+相対三次周期性を持つsmooth properな連結族を通じても消えない。
+これにより、一般のAS-regular中心三次商、可換点からの量子化成分、
+形式的復元および有限パラメータでの存在を明確に区別する。
+\end{abstract}
+\tableofcontents
+
+\section{序論}\label{sec:global-intro}
+
+\subsection{二つの問題と一つの橋渡し}
+
+\(X=V(F)\subset\PP(V)\)、\(\dim V=N=n+2\)、\(n\ge3\) を滑らかな複素3次超曲面とする。
+本稿の第一の問題は \(X\) 上のPoisson構造を分類し、その葉と退化を理解することである。
+第二の問題は、その量子化 \(B=A/(\Omega)\) から可換cubicの幾何を回復することである。
+ここで \(A\) は多項式環と同じHilbert級数を持つ次数付きAS-regular代数、
+\(\Omega\) は次数三の中心正則元である。
+両者の間には、\(B\) の残余dg圏と、その次数一のシフトから得られる自己同値という橋渡しがある。
+
+可換cubicに対しては
+\[
+ D^b(X)=\langle\Ku(X),\OO_X,\OO_X(1),\ldots,\OO_X(n-2)\rangle,
+ \qquad
+ \rho_X=\mathbf L_{\OO_X}\circ(-\otimes\OO_X(1))
+\]
+と定める。体上の適切な非可換中心三次商でも、graded matrix factorizationとOrlov windowを通じて
+残余成分 \(\mathcal K_B\) とrotation \(\rho_B\) を考えられる。
+Artin底上では有界coherent圏全体でなく、\(D(\QGr B)^c\) のcompact残余成分を用いる。
+本稿の圏同値はdg enhancementを保つMorita同値であり、rotationとの自然同型を含む。
+三角圏の同値だけからHochschild不変量の同一視を結論することはしない。
+
+\subsection{Poisson分類と量子化}
+
+\(F\) を固定すると、任意の大域bivectorは一意な定数trivector \(P\in\Lambda^3V\) により
+\(\iota_{dF}P\) と表示される。射影空間への延長も一意である。
+非零のPoisson構造の場合、線形座標を選べば
+\[
+ P=\sum_{s=1}^k\partial_{x_{s1}}\wedge\partial_{x_{s2}}\wedge\partial_{x_{s3}},
+ \qquad F=\sum_{s=1}^k f_s(x_s,u),\qquad N=3k+m
+\]
+となり、異なる三変数ブロック間は可換となる。
+中心変数 \(u\) と各ブロックとの混合項は許される。
+この正規形の証明は、三重ベクトルの次元別軌道分類を用いない。
+
+第I部では、Casimir、Poisson超曲面、一般のsymplectic leafを記述し、
+Euler場と \(q^j\) の外積から全退化スキームのイデアルを与える。
+平面三次制限が滑らかな場合には有限平坦なcritical coverを用い、
+六次元の階数四で現れる192点、七次元の階数四で現れる種数577の曲線、
+七次元の階数六でのprimary分解を求める。
+特殊な三変数制限が零となる場合とFermat型の非被約構造も扱う。
+量子化では、potential代数のPBW性、形式的中心元の存在、有限次数線形代数による代数化を分離する。
+この構成だけから \(\qgr B\) のsmoothnessを結論するものではない。
+
+\subsection{可換モデルの存在とその限界}
+
+存在問題を無条件に全ての非可換cubicへ広げると、次の障害がある。
+
+\begin{theorem}[一般的なrotation付き可換復元の反例]\label{thm:overview-negative}
+ 多項式環と同じHilbert級数を持つnoetherian Koszul AS-regular Calabi--Yau代数 \(A\) と、
+ 三次中心正則元 \(\Omega\) であって、次を満たすものが存在する。
+ \(B=A/(\Omega)\) の射影圏は滑らかな可換cubic fourfold \(X\) のcoherent圏と同値であり、
+ 残余圏はsmooth properで、\(\rho_B^3\simeq[2]\) を満たす。
+ しかし、いかなる滑らかな可換cubic fourfold \(Y\) に対しても
+ \[
+ (\mathcal K_B,\rho_B)\not\simeq(\Ku(Y),\rho_Y).
+ \]
+\end{theorem}
+\begin{proof}
+ \(F=\sum_{i=0}^5x_i^3\)、\(\tau=\operatorname{diag}(\zeta,\zeta^2,1,1,1,1)\)、
+ \(\zeta^3=1\ne\zeta\) とし、\(A=\CC[x_0,\ldots,x_5]^\tau\) を右Zhang twistとする。
+ 中心元には \(\Omega=F\) を取る。
+ 定理\ref{thm:zhang-cy-fourfold-counterexample}で全ての仮定を検証し、
+ \(\dim\HH_0(\mathcal K_B)^{\rho_B}=8\) と
+ \(\dim\HH_0(\Ku(Y))^{\rho_Y}=20\) の不一致を証明する。
+\end{proof}
+
+さらに、この反例と標準的cubicのpairは、相対的な \(\rho^3\simeq[2]\) を備えた
+連結smooth proper代数的族では結べない。
+rotation不変Hochschild複体のEuler標数がそれぞれ10と22となり、
+この値が連結底上で一定だからである（系\ref{cor:zhang-cy-component-obstruction}）。
+従って、以下の肯定的結果は、一般の中心三次商の全成分を覆う主張として解釈してはならない。
+
+\begin{enumerate}
+ \item 滑らかなcubicの斉次座標環の次数ごとに有限自由なArtin変形には、
+ rotationを保つ一意なmarked可換cubicモデルが存在する
+ （定理\ref{thm:main}、\ref{thm:pair}）。
+ \item smooth properな代数的dg圏の族とrotationが既に与えられていれば、
+ 可換cubicのpairとなる点のétale近傍で、cubicの族とpair同値を構成できる
+ （定理\ref{thm:etale}）。この結論は一般族の相対saturationを仮定する。
+ \item 独立なSklyaninブロックの和では、全ての \(h_j^6\ne-27\) と、
+ 高々一つを除く平行移動の有限位数性の下で、明示的な可換モデル
+ \[
+ V\!\left(\sum_j(x_j^3+y_j^3+z_j^3+h_j^2x_jy_jz_j)+P(u)\right)
+ \]
+ を得る。\(P\) は原点で孤立臨界点を持つ任意の斉次三次式でよい
+ （定理\ref{thm:global}、\ref{thm:multiblock-model}）。
+ \item 二つ以上の無限位数因子では全生成は未解決だが、
+ properness、Serre互換性、\(\HH^0\) の連結性から完全忠実比較を同値へ強める
+ 十分条件がある（命題\ref{prop:serre-connected-generation}）。
+\end{enumerate}
+
+可換点から出発する特定のPoisson量子化族について、全ての良い有限パラメータに
+可換pairモデルが存在するか、という問題は残る。
+形式的な存在、étale局所的な存在、元の底への降下、全ファイバーでの存在を区別する。
+反例を得た一般AS-regularモジュライの問題と、この特定成分の問題を混同しない。
+
+\subsection{先行研究との関係}
+
+三次元のPoisson構造のGrassmann多様体による記述と、potential代数・PBW量子化の
+既知の構成を、第I部の文献比較で位置づける。
+本稿の一般次元の正規形では、基点をもたないHessian線形系から得るquadratic Lie代数の
+可解根基と高階数単純因子を排除することが中心となる。
+scheme-theoreticな退化の記述は、この正規形を全外積へ適用することで得られる。
+
+Orlov、Etingof--Ginzburg、Cassidy--Conner--Kirkman--Mooreによる
+特異圏・matrix factorization・中心商の比較は既知の基礎結果である
+\cite{Orlov,EG,CCKM}。
+楕円Sklyaninブロックの残余圏と楕円曲線の関係には、
+Cho--Hong--LauおよびLeeの非可換homological mirror symmetryからの先行研究もある
+\cite{CHL,Lee}。
+本稿ではこの基礎同値と、rotationのtranslation成分を共役で消去する計算、
+高次元へ移す外部積の全生成を分けて述べる。
+
+形式復元はHochschild計算と幾何学的Kodaira--Spencer写像
+\cite{BFK,HR,JLLZ}、actual変形とformal moduli problemの比較
+\cite{Lurie,BKP}、および相対生成子の持上げ\cite{DDL}を組み合わせる。
+étale局所実現にはperfect objectの代数的moduli\cite{TV}を用いる。
+一方有限中心の外部積生成については、既知の双方有限中心の結果\cite{ELS}との
+仮定の差を明示して証明する。
+
+Lin--Zhangのpolarized categorical Torelli\cite[Theorem 1.7]{LZ}は、
+二つの可換モデルの一意性を保証する。
+任意の非可換pairが可換cubicから生じるという存在命題を保証するものではない。
+反例に用いるZhang twistとNakayama公式は既知である\cite{ZhangTwist,RRZ}。
+ここではそれらを標準rotationの作用\cite[Proposition 3.12]{Huy}と組み合わせ、
+普遍的な可換pair復元を妨げる具体的な不変量を計算する。
+これらの組合せを含む本稿全体の先行研究上の新規性は確認継続中である。
+
+\part{Poisson構造・退化スキーム・量子化}
+\input{papers/poisson_geometry}
+
+\part{rotation付き残余圏と可換モデル}
+\input{papers/rotation_obstruction}
+\input{papers/rotation_models}
+
+\input{references}
+\end{document}

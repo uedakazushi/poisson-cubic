@@ -1,0 +1,341 @@
+{
+  "version": "nc-cubic-v1",
+  "date_jst": "2026-11-08",
+  "status": "all exact finite computations passed",
+  "limitations": "Does not formalize derived equivalences, Serre formulas, or HKR naturality.",
+  "cubic_threefold": {
+    "relation_exponents": [
+      [
+        0,
+        2,
+        2,
+        2,
+        2
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "all_generator_cubes_central": true,
+    "determinant_weight_mod_3": 1,
+    "nakayama_weights_mod_3": [
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "calabi_yau": false,
+    "pullback_on_H21": {
+      "multiplicities_for_1_omega_omega2": [
+        0,
+        4,
+        1
+      ],
+      "basis": [
+        {
+          "indices": [
+            0
+          ],
+          "weight_mod_3": 2
+        },
+        {
+          "indices": [
+            1
+          ],
+          "weight_mod_3": 1
+        },
+        {
+          "indices": [
+            2
+          ],
+          "weight_mod_3": 1
+        },
+        {
+          "indices": [
+            3
+          ],
+          "weight_mod_3": 1
+        },
+        {
+          "indices": [
+            4
+          ],
+          "weight_mod_3": 1
+        }
+      ]
+    }
+  },
+  "calabi_yau_cubic_fourfold": {
+    "relation_exponents": [
+      [
+        0,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      [
+        2,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        2,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "all_generator_cubes_central": true,
+    "determinant_weight_mod_3": 0,
+    "nakayama_weights_mod_3": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "calabi_yau": true,
+    "pullback_on_primitive_H22": {
+      "multiplicities_for_1_omega_omega2": [
+        8,
+        6,
+        6
+      ],
+      "basis": [
+        {
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "weight_mod_3": 0
+        },
+        {
+          "indices": [
+            0,
+            1,
+            3
+          ],
+          "weight_mod_3": 0
+        },
+        {
+          "indices": [
+            0,
+            1,
+            4
+          ],
+          "weight_mod_3": 0
+        },
+        {
+          "indices": [
+            0,
+            1,
+            5
+          ],
+          "weight_mod_3": 0
+        },
+        {
+          "indices": [
+            0,
+            2,
+            3
+          ],
+          "weight_mod_3": 1
+        },
+        {
+          "indices": [
+            0,
+            2,
+            4
+          ],
+          "weight_mod_3": 1
+        },
+        {
+          "indices": [
+            0,
+            2,
+            5
+          ],
+          "weight_mod_3": 1
+        },
+        {
+          "indices": [
+            0,
+            3,
+            4
+          ],
+          "weight_mod_3": 1
+        },
+        {
+          "indices": [
+            0,
+            3,
+            5
+          ],
+          "weight_mod_3": 1
+        },
+        {
+          "indices": [
+            0,
+            4,
+            5
+          ],
+          "weight_mod_3": 1
+        },
+        {
+          "indices": [
+            1,
+            2,
+            3
+          ],
+          "weight_mod_3": 2
+        },
+        {
+          "indices": [
+            1,
+            2,
+            4
+          ],
+          "weight_mod_3": 2
+        },
+        {
+          "indices": [
+            1,
+            2,
+            5
+          ],
+          "weight_mod_3": 2
+        },
+        {
+          "indices": [
+            1,
+            3,
+            4
+          ],
+          "weight_mod_3": 2
+        },
+        {
+          "indices": [
+            1,
+            3,
+            5
+          ],
+          "weight_mod_3": 2
+        },
+        {
+          "indices": [
+            1,
+            4,
+            5
+          ],
+          "weight_mod_3": 2
+        },
+        {
+          "indices": [
+            2,
+            3,
+            4
+          ],
+          "weight_mod_3": 0
+        },
+        {
+          "indices": [
+            2,
+            3,
+            5
+          ],
+          "weight_mod_3": 0
+        },
+        {
+          "indices": [
+            2,
+            4,
+            5
+          ],
+          "weight_mod_3": 0
+        },
+        {
+          "indices": [
+            3,
+            4,
+            5
+          ],
+          "weight_mod_3": 0
+        }
+      ]
+    },
+    "twisted_rotation_HH0_multiplicities": [
+      8,
+      7,
+      7
+    ],
+    "standard_cubic_rotation_HH0_multiplicities": [
+      20,
+      1,
+      1
+    ],
+    "invariant_Hochschild_Euler_characteristics": {
+      "standard_cubic_pair": 22,
+      "twisted_pair": 10,
+      "assumption": "HH_2 and HH_minus_2 are each one-dimensional and fixed; all odd HH vanish."
+    }
+  }
+}

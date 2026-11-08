@@ -1,0 +1,197 @@
+{
+  "date": "2026-11-08",
+  "version": "nc-cubic-v1",
+  "status": "all exact checks passed",
+  "arithmetic": "rational polynomial identities and exact finite-field enumeration; no floating point",
+  "degree_three_relations_annihilated": 18,
+  "ell_G": 3,
+  "normal_T_certificate": "passed",
+  "standard_center_g_equals_minus_h_G_certificate": "passed",
+  "point_matrix_determinant": "-h*(x^3+y^3+z^3+h^2*x*y*z)",
+  "hesse_singular_parameters": "h^6 + 27 = 0",
+  "hesse_gradient_certificate": "passed",
+  "hesse_singular_point_sufficiency": "passed modulo mu^3-1",
+  "jacobian_dimensions": [
+    {
+      "n": 3,
+      "N": 5,
+      "dim_J3": 10
+    },
+    {
+      "n": 4,
+      "N": 6,
+      "dim_J3": 20
+    },
+    {
+      "n": 5,
+      "N": 7,
+      "dim_J3": 35
+    },
+    {
+      "n": 6,
+      "N": 8,
+      "dim_J3": 56
+    },
+    {
+      "n": 7,
+      "N": 9,
+      "dim_J3": 84
+    }
+  ],
+  "finite_order_point_certificates": {
+    "origin": "[1:-1:0]",
+    "p": "[1:-1:-h]",
+    "double_p": "[h^3+1:h^3-1:-2h]",
+    "tangent_at_double_p_evaluated_on_p": "h^3*(5-h^6)",
+    "translation_orientation": "M(o)*p=0 and M(p)*(2p)=0",
+    "conclusion_with_chord_tangent_group_law": "h^6=5 implies exact order 5",
+    "identities": "curve incidence, tangent incidence, and intersection multiplicity checked exactly"
+  },
+  "universal_ternary_cubic_koszul": {
+    "coefficient_symbols": 10,
+    "exterior_rank": 8,
+    "d_squared": "0",
+    "s_squared": "0",
+    "d_s_plus_s_d": "P times the identity",
+    "coverage": "all ternary cubics, including mixed monomials; no isolated-critical-point assumption is used for this identity"
+  },
+  "infinite_order_parameter_h2": {
+    "curve": "x^3+y^3+z^3+4xyz=0",
+    "good_reduction_primes": [
+      5,
+      11
+    ],
+    "projective_points": {
+      "5": [
+        [
+          0,
+          4,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          2,
+          4,
+          1
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          0,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          1,
+          0
+        ]
+      ],
+      "11": [
+        [
+          0,
+          10,
+          1
+        ],
+        [
+          1,
+          6,
+          1
+        ],
+        [
+          2,
+          2,
+          1
+        ],
+        [
+          2,
+          10,
+          1
+        ],
+        [
+          5,
+          6,
+          1
+        ],
+        [
+          6,
+          1,
+          1
+        ],
+        [
+          6,
+          5,
+          1
+        ],
+        [
+          9,
+          10,
+          1
+        ],
+        [
+          10,
+          0,
+          1
+        ],
+        [
+          10,
+          2,
+          1
+        ],
+        [
+          10,
+          9,
+          1
+        ],
+        [
+          10,
+          1,
+          0
+        ]
+      ]
+    },
+    "counts": {
+      "5": 9,
+      "11": 12
+    },
+    "p": [
+      1,
+      -1,
+      -2
+    ],
+    "double_p": [
+      9,
+      7,
+      -4
+    ],
+    "minus_p": [
+      1,
+      -1,
+      2
+    ],
+    "proof": "Prime-to-p torsion injection forces torsion order to divide 3; p != O and 2p != -p exclude it."
+  },
+  "scope": "Checks algebraic formulas only; categorical proofs are in the manuscript."
+}

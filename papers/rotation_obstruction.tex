@@ -1,0 +1,478 @@
+\section{可換cubic模型の存在を妨げるrotationの不変量}
+\label{sec:rotation-obstruction}
+
+本節では、次数付き代数の条件と、可換cubicのrotationを持つという条件を区別する。
+三次中心正則元を持つAS-regular代数の商というだけでは、可換模型の存在は従わない。
+さらに、商の射影圏が滑らかな可換cubicのcoherent圏と同値であり、周囲の代数が
+Calabi--Yauであっても、与えられたrotationを保つ可換模型が存在しない例がある。
+以下の二つの反例は有限位数のZhang twistで構成する。
+これらが本稿で構成する特定のPoisson量子化族のファイバーであることは主張しない。
+
+\subsection{Serre関手とrotationの必要条件}
+
+\begin{proposition}[Serre--rotation障害]
+\label{prop:serre-rotation-obstruction}
+ \(\cC\) をSerre関手 \(S_{\cC}\) を持つproperなdg圏、
+ \(\rho\) をその自己同値とする。\(N=n+2\ge5\) とし、
+ 滑らかなcubic \(Y^n\subset\PP^{N-1}\) とのenhanced pair同値
+ \[
+ (\cC,\rho)\simeq(\Ku(Y),\rho_Y)
+ \]
+ が存在するなら、
+ \begin{equation}\label{eq:serre-rotation-necessary}
+ S_{\cC}\simeq\rho^{\,3-N}[N-2],\qquad
+ \Theta_N(\cC,\rho):=S_{\cC}\rho^{N-3}[2-N]\simeq\Id
+ \end{equation}
+ である。特に \(\rho^3\simeq[2]\) だけでは十分でない。
+\end{proposition}
+\begin{proof}
+ 可換斉次座標環 \(R_Y=\CC[z_1,\ldots,z_N]/(F_Y)\) のKrull次元は
+ \(N-1\)、標準加群は \(R_Y(3-N)\) である。
+ 滑らかさによって原点以外の錐は正則であり、次数付きAuslander--Reiten双対性は
+ \(\Dsg^{\ZZ}(R_Y)\) のSerre関手を
+ \((3-N)[N-2]\) と与える
+ \cite[Theorem 7, p.~161]{UeyamaIsolated}。
+ Orlovのwindowで内部次数シフト \((1)\) は \(\rho_Y\) に対応するので、
+ \(S_{\Ku(Y)}\simeq\rho_Y^{3-N}[N-2]\) を得る。
+ Serre関手は同値によって保存されるから、pair同値を通してこの式を移せばよい。
+\end{proof}
+
+\subsection{有限位数Zhang twistと次数シフト}
+
+以後 \(\zeta\) は \(\zeta^3=1\)、\(\zeta\ne1\) を満たす。
+\(S=\CC[x_0,\ldots,x_{N-1}]\)、\(F=\sum_i x_i^3\)、
+\(X=V(F)\subset\PP^{N-1}\) とする。
+\(q_i\in\{1,\zeta,\zeta^2\}\) を選び、
+\(\tau(x_i)=q_i x_i\) と置く。\(\tau^3=\Id\)、\(\tau(F)=F\) である。
+\(f:X\to X\) を \(f^*=\tau\) に対応する射影自己同型とする。
+右Zhang twist \(A=S^{\tau}\) の積を、斉次元に対して
+\begin{equation}\label{eq:right-zhang-product}
+ a*b=a\,\tau^{\deg a}(b)
+\end{equation}
+で定義する。右辺の積は元の可換多項式環の積である。
+
+\begin{lemma}\label{lem:zhang-cubic-structure}
+ \(A\) は左右noetherianなKoszul AS-regular domainで、
+ global dimensionは \(N\)、Hilbert級数は \((1-t)^{-N}\) である。
+ 同じ次数付きベクトル空間内の元 \(\Omega=F\in A_3\) は中心正則元であり、
+ \[
+ B=A/(\Omega)\simeq (S/(F))^{\tau},\qquad
+ H_B(t)=\frac{1-t^3}{(1-t)^N}.
+ \]
+ さらに
+ \begin{equation}\label{eq:zhang-qgr-pair}
+ \qgr B\simeq\operatorname{coh}X,\qquad
+ (\mathcal K_B,\rho_B)\simeq
+ (\Ku(X),f_*\rho_X)
+ \end{equation}
+ である。従って \(\mathcal K_B\) はsmooth properで、
+ \(\rho_B^3\simeq[2]\) を満たす。
+\end{lemma}
+\begin{proof}
+ 積\eqref{eq:right-zhang-product}は結合的であり、生成元の関係式は
+ \[
+ x_i*x_j=(q_j/q_i)x_j*x_i\qquad(i<j)
+ \]
+ となる。従って \(A\) はscalarによる可逆なOre拡大の反復である。
+ 順序付き単項式 \(x_0^{a_0}*\cdots*x_{N-1}^{a_{N-1}}\) は
+ 元の可換単項式の非零scalar倍なので基底をなし、domain性とHilbert級数が従う。
+ Ore拡大のHilbert基底定理から左右noetherian性を得る。
+ 多項式環のKoszul分解をtwistすると、\(k\) の長さ \(N\) の線形自由分解になる。
+ その双対もtwistされたKoszul分解であるから
+ \[
+ \operatorname{Ext}^j_A(k,A)=
+ \begin{cases}k(N)&j=N,\\0&j\ne N\end{cases}
+ \]
+ となり、左側にも同じ式が成り立つ。
+ 同じtwistを双加群Koszul分解に施した有限分解、またはOre拡大のglobal dimensionの公式により、
+ global dimensionは \(N\) である。これはZhang twistがAS-regular性を保つことの
+ この場合の具体的な確認である \cite{ZhangTwist,RRZ}。
+
+ 任意の斉次 \(a\in A_d\) に対して
+ \[
+ a*F=a\tau^d(F)=aF,
+ \qquad F*a=F\tau^3(a)=Fa
+ \]
+ であるから、\(F\) は中心的である。
+ domain性から正則であり、\((F)\) の次数付きベクトル空間は元の多項式環の
+ \((F)\) と一致する。このため商も右twistであり、表示したHilbert級数を得る。
+ なお \(x_i*x_i*x_i=q_i^3x_i^3=x_i^3\) なので、
+ \(\Omega\) はtwist後の生成元の三乗和としても同じ元である。
+
+ 次数付き右 \(R=S/(F)\)-加群 \(M\) に、
+ \(m*a=m\tau^{\deg m}(a)\) という作用を入れた加群を \(\mathsf T(M)\) と書く。
+ \(\mathsf T\) は逆twistを逆関手に持つ完全同値で、有限生成性とtorsionを保つ。
+ 従って \(\operatorname{gr}R\simeq\operatorname{gr}B\) および
+ \(\operatorname{coh}X\simeq\qgr B\) を与える。
+
+ 次数シフトの規約を \(M(1)_d=M_{d+1}\) とする。
+ \(\mathsf T(M)(1)\) をuntwistすると、次数 \(d\) の元 \(m\in M_{d+1}\) に対して
+ \[
+ m\cdot a=m*\tau^{-d}(a)=m\tau(a)
+ \]
+ となる。従って、untwist後の \((1)\) は \(M(1)_{\tau}\) であり、
+ coherent圏では \(f_*(-\otimes\OO_X(1))\) に対応する。
+ 特に \(\OO_B(i)\) は \(\OO_X(i)\) に対応する。
+ \(f_*\OO_X\simeq\OO_X\) なので、\(f_*\) は \(\OO_X\) によるleft mutationと可換である。
+ よって残余圏とrotationについて\eqref{eq:zhang-qgr-pair}が従う。
+ \(f_*\) は \(\rho_X\) と可換で、\(f_*^3\simeq\Id\) であるため、
+ \((f_*\rho_X)^3\simeq\rho_X^3\simeq[2]\) となる。
+\end{proof}
+
+\begin{remark}[右twistにおけるNakayamaの規約]
+\label{rem:zhang-nakayama}
+ 上の右twistのNakayama自己同型は
+ \begin{equation}\label{eq:right-twist-nakayama}
+ \mu_A=\tau^{-N}\xi_{\det\tau},\qquad
+ \mu_A(x_i)=\frac{\prod_jq_j}{q_i^N}x_i,
+ \end{equation}
+ と取れる。ここで \(\xi_c\) は次数 \(d\) 上で \(c^d\) 倍する自己同型である。
+ \cite[Theorem 5.4]{RRZ}は左twist
+ \(a\circ b=\sigma^{\deg b}(a)b\) に対して
+ \(\mu=\sigma^N\xi_{\det\sigma}^{-1}\) を与える。
+ \(a\mapsto\tau^{-\deg a}(a)\) は右twistから \(\sigma=\tau^{-1}\) の左twistへの同型であり、
+ この公式を移すと\eqref{eq:right-twist-nakayama}になる。
+ このように左右の規約を固定してから用いる。
+\end{remark}
+
+\subsection{三次元の滑らかな反例}
+
+\begin{theorem}[Serre--rotation条件を破るsmoothな非可換cubic]
+\label{thm:zhang-threefold-counterexample}
+ \(N=5\)、\(\tau=\operatorname{diag}(\zeta,1,1,1,1)\) とし、
+ 補題\ref{lem:zhang-cubic-structure}の \(B\) を取る。
+ この \(B\) はnoetherianなKoszul AS-regular五次元代数の三次中心正則商であり、
+ \(\qgr B\simeq\operatorname{coh}X\) は滑らかなFermat cubic threefoldのcoherent圏と同値である。
+ しかし、いかなる滑らかな可換cubic threefold \(Y\) に対しても
+ \[
+ (\mathcal K_B,\rho_B)\not\simeq(\Ku(Y),\rho_Y).
+ \]
+\end{theorem}
+\begin{proof}
+ 代数の諸性質とsmooth proper性は補題\ref{lem:zhang-cubic-structure}で示した。
+ \(T=f_*|_{\Ku(X)}\) と書くと、同補題により
+ \(\rho_B=T\rho_X\)、\(T^3\simeq\Id\)、\(T\rho_X\simeq\rho_XT\) である。
+ underlying圏は \(\Ku(X)\) なので、そのSerre関手は
+ \(S_X\simeq\rho_X^{-2}[3]\) である。
+ もし可換pair模型が存在すれば、命題\ref{prop:serre-rotation-obstruction}により
+ \[
+ \rho_X^{-2}[3]\simeq (T\rho_X)^{-2}[3]
+       \simeq T^{-2}\rho_X^{-2}[3]
+ \]
+ となり、\(T^2\simeq\Id\) を得る。\(T^3\simeq\Id\) と合わせると \(T\simeq\Id\) となる。
+
+ これはHochschild homologyへの作用に反する。
+ 例外対象のHochschild homologyは次数零だけにあるため、加法性とHKR同型から
+ \[
+ \HH_1(\Ku(X))\simeq\HH_1(X)\simeq H^{2,1}(X)
+ \]
+ である。Griffithsのresidue同型\cite{Griffiths}は
+ \[
+ J(F)_1\xrightarrow{\sim}H^{2,1}(X),\qquad
+ a\longmapsto\operatorname{Res}_X\frac{a\Omega_{\mathrm{proj}}}{F^2},
+ \quad
+ \Omega_{\mathrm{proj}}=
+ \sum_{i=0}^4(-1)^i x_i\,dx_0\wedge\cdots\wedge\widehat{dx_i}\wedge\cdots\wedge dx_4
+ \]
+ と書ける。\(\tau(F)=F\)、\(\tau^*\Omega_{\mathrm{proj}}=(\det\tau)\Omega_{\mathrm{proj}}
+ =\zeta\Omega_{\mathrm{proj}}\) である。
+ \(J(F)=\CC[x_0,\ldots,x_4]/(x_0^2,\ldots,x_4^2)\) だから、
+ \(f^*\) の \(H^{2,1}(X)\) 上の固有値は
+ \[
+ \zeta^2\ \text{が1個},\qquad \zeta\ \text{が4個}
+ \]
+ となる。\(f_*\) の作用はその逆であり、いずれにしても恒等ではない。
+ 従って \(T\not\simeq\Id\) であり、矛盾する。
+\end{proof}
+
+\begin{remark}
+ この例では \(\rho_B^3\simeq[2]\) とsmooth proper性の両方が成立する。
+ 一方、\eqref{eq:right-twist-nakayama}のNakayama自己同型は非自明であり、
+ 周囲の \(A\) はCalabi--Yauではない。
+ 次の例は、この最後の条件を加えても一般的な存在命題が成立しないことを示す。
+\end{remark}
+
+\subsection{Calabi--Yauな周囲を持つ四次元の反例}
+
+\begin{theorem}[Calabi--Yauな非可換cubicのrotation障害]
+\label{thm:zhang-cy-fourfold-counterexample}
+ \(N=6\)、\(\tau=\operatorname{diag}(\zeta,\zeta^2,1,1,1,1)\) とし、
+ 補題\ref{lem:zhang-cubic-structure}の \(A\)、\(B\) を取る。
+ このとき \(A\) は六次元Calabi--Yauなnoetherian Koszul AS-regular代数であり、
+ \(\Omega\) は三次中心正則元である。
+ \(\qgr B\) は滑らかなFermat cubic fourfold \(X\) のcoherent圏と同値であり、
+ \(\mathcal K_B\) はsmooth properな2-Calabi--Yau圏である。
+ \(\rho_B^3\simeq[2]\) および\eqref{eq:serre-rotation-necessary}も満たす。
+ しかし、いかなる滑らかな可換cubic fourfold \(Y\) に対しても
+ \[
+ (\mathcal K_B,\rho_B)\not\simeq(\Ku(Y),\rho_Y).
+ \]
+ より具体的に、Hochschild \emph{homology}の次数零部分について
+ \begin{equation}\label{eq:cy-fourfold-hh0-obstruction}
+ \dim\HH_0(\mathcal K_B)^{\rho_B}=8,
+ \qquad
+ \dim\HH_0(\Ku(Y))^{\rho_Y}=20
+ \end{equation}
+ である。
+\end{theorem}
+\begin{proof}
+ \(\det\tau=1\)、\(\tau^6=\Id\) だから、
+ \eqref{eq:right-twist-nakayama}によって \(\mu_A=\Id\) である。
+ AS-regular性とNakayamaの自明性はCalabi--Yau性を与える
+ \cite[Lemma 1.2, Theorem 5.4]{RRZ}。
+ 残りの代数的性質と \(\mathcal K_B\simeq\Ku(X)\) は
+ 補題\ref{lem:zhang-cubic-structure}による。
+ cubic fourfoldのKuznetsov成分は2-Calabi--Yauなので
+ \(S_{\mathcal K_B}\simeq[2]\) であり、
+ \(\rho_B^{-3}[4]\simeq[2]\) からSerre--rotation条件も成立する。
+
+ Hochschild homologyの作用を計算する。
+ Mukai--HKR同定と残余成分の射影によって
+ \begin{equation}\label{eq:cubic-fourfold-hh0-split}
+ \HH_0(\Ku(X))\simeq
+ H^{2,2}(X)_{\mathrm{prim}}\oplus (A_2\otimes_{\ZZ}\CC)
+ \end{equation}
+ と書ける。ここで前者は20次元、後者は2次元である。
+ \(A_2\) はcubic fourfoldのKuznetsov成分に標準的に含まれる二つのMukai classの張る格子である。
+ \cite[Proposition 3.12]{Huy}により、\(\rho_X\) はprimitive部分上で恒等、
+ \(A_2\) 上で三つの根を巡回置換するので、後者の固有値は \(\zeta,\zeta^2\) である。
+ この記述は一般の滑らかなcubic fourfoldにも成り立つため、
+ \(\dim\HH_0(\Ku(Y))^{\rho_Y}=20\) を得る。
+
+ 射影自己同型 \(f\) の作用は分解\eqref{eq:cubic-fourfold-hh0-split}を保ち、
+ \(A_2\) 上で恒等である。
+ 実際、その二つの標準classは直線 \(\ell\subset X\) 上の
+ \(\OO_\ell(1)\)、\(\OO_\ell(2)\) の残余射影から作られる。
+ \(f\) は直線を直線に送り、全ての直線のcohomology classは同じである。
+ 残余射影のcohomology上の作用は \(\OO_X,\OO_X(1),\OO_X(2)\) から定まり、
+ これらを \(f\) が固定するので、二つのMukai classも固定される。
+ Mukai--HKR同定に入るTodd classは射影自己同型で不変であるから、
+ これは \(\HH_0\) 上の作用についても成立する。
+
+ primitive部分ではresidue表示
+ \[
+ J(F)_3\xrightarrow{\sim}H^{2,2}(X)_{\mathrm{prim}},\qquad
+ a\longmapsto\operatorname{Res}_X\frac{a\Omega_{\mathrm{proj}}}{F^3}
+ \]
+ を用いる。ここでresidue表示はpole filtrationの商を取った
+ \(J(F)_3\simeq\operatorname{Gr}_F^2H^4(X)_{\mathrm{prim}}\) と、
+ Hodge分解による \(\operatorname{Gr}_F^2\simeq H^{2,2}_{\mathrm{prim}}\) の合成を意味する。
+ 射影自己同型は両方の構造を保つ。
+ \(\det\tau=1\)、\(\tau(F)=F\) なので、ここで \(f^*\) の作用は
+ \(J(F)_3\) 上の通常の置換 \(a\mapsto\tau(a)\) に一致する。
+ FermatのJacobian環は \(J(F)=\CC[x_0,\ldots,x_5]/(x_0^2,\ldots,x_5^2)\) であり、
+ 次数三の基底は平方自由な三変数単項式20個である。
+ その固有値を分類すると
+ \[
+ \begin{array}{c|c|c}
+ \text{単項式に含まれる変数}&\text{個数}&\tau\text{の固有値}\\\hline
+ x_0,x_1\text{の両方}&4&1\\
+ x_0,x_1\text{のどちらも含まない}&4&1\\
+ x_0\text{だけ}&6&\zeta\\
+ x_1\text{だけ}&6&\zeta^2
+ \end{array}
+ \]
+ となる。従って \(f_*\) のprimitive部分の固定空間も8次元である。
+
+ 補題\ref{lem:zhang-cubic-structure}から \(\rho_B=f_*\rho_X\) である。
+ primitive部分で \(\rho_X\) は恒等なので、\(\rho_B\) の固定空間は8次元である。
+ \(A_2\) 上では \(f_*\) が恒等であり、\(\rho_X\) に固有値1はない。
+ よって \eqref{eq:cy-fourfold-hh0-obstruction}が成立する。
+ enhanced pair同値は \(\rho\) の \(\HH_0\) 上の作用を共役するので、
+ 固定空間の次元の不一致が同値の不存在を示す。
+\end{proof}
+
+\subsection{smooth properな連結族で保存される不変量}
+
+前の反例と可換cubicのpairとの違いは、連結な圏の族を通じても検出できる。
+Hochschild homologyの各次数の次元が個別に一定であることを仮定せず、
+perfect複体のEuler標数を用いる。
+
+\begin{proposition}[rotation不変Euler標数の局所一定性]
+\label{prop:rotation-euler-locally-constant}
+ \(S\) を複素スキームとし、\(\mathcal C_S\) をsmooth properな代数的dg圏の族とする。
+ \(\rho_S\) は可逆perfect bimoduleで与えられる自己同値の族とし、
+ 整数 \(d>0\)、\(a\in\ZZ\) と自然同型 \(\rho_S^d\simeq[2a]\) を仮定する。
+ 幾何学的点 \(s\) に対して
+ \[
+ \chi_{\rho}(\mathcal C_s)
+   =\sum_{i\in\ZZ}(-1)^i
+        \dim_{\kappa(s)}\HH_i(\mathcal C_s)^{\rho_s}
+ \]
+ と定義する。この和は有限であり、\(s\mapsto\chi_{\rho}(\mathcal C_s)\) は局所一定である。
+ 特に \(S\) が連結なら一定である。
+\end{proposition}
+\begin{proof}
+ 相対Hochschild複体 \(H=\HH(\mathcal C_S/S)\) は \(S\)-perfectであり、
+ 導来底変更と両立する \cite[Lemmas 3.4, 3.6]{PerryIHC}。
+ 実際、étale局所的に \(\mathcal C_S=\Perf(E)\) と書けば、
+ \(H=E\otimes^{\mathbf L}_{E^{\mathrm{op}}\otimes^{\mathbf L}_S E}E\) である。
+ smoothnessによって対角は有限cell双加群の直和因子として表され、propernessによって
+ 各cellをtraceした複体は \(S\)-perfectとなる。perfect性は直和因子で保たれる。
+ これらの構成から底変更も従う。
+
+ \(\rho_S\) が誘導する \(H\) の自己同型を \(r\) と書く。
+ Hochschild homologyの加法性により \([1]\) の誘導作用は \(-1\)、従って
+ \([2a]\) の作用は恒等である \cite[Section 4, Example 5.6]{CisinskiTabuada}。
+ よって \(r^d=1\) であり、
+ \[
+ e=\frac1d\sum_{j=0}^{d-1}r^j\in\operatorname{End}_{D(S)}(H)
+ \]
+ は冪等元である。\(\Perf(S)\) は冪等完備なので、その像 \(H^{\mathrm{inv}}\) はperfectである。
+ 幾何ファイバーで \(e\) の作用は有限巡回群の不変部分への射影であるから、
+ \[
+ H^{-i}(H^{\mathrm{inv}}\otimes_S^{\mathbf L}\kappa(s))
+     =\HH_i(\mathcal C_s)^{\rho_s}.
+ \]
+ perfect複体のファイバーEuler標数は、局所的な有限階数ベクトル束複体の
+ 階数の交代和であるため局所一定である。これが主張である。
+\end{proof}
+
+\begin{corollary}[Calabi--Yau反例と可換pairの連結成分の分離]
+\label{cor:zhang-cy-component-obstruction}
+ 定理\ref{thm:zhang-cy-fourfold-counterexample}のpairは、
+ \(\rho^3\simeq[2]\) を相対的に備えた連結smooth proper代数的dg圏の族によって、
+ 滑らかな可換cubic fourfoldの標準pairに結ぶことができない。
+ 実際、両者の不変Euler標数はそれぞれ
+ \[
+ \chi_{\rho_B}(\mathcal K_B)=10,
+ \qquad
+ \chi_{\rho_Y}(\Ku(Y))=22
+ \]
+ である。
+\end{corollary}
+\begin{proof}
+ cubic fourfoldのKuznetsov成分のHochschild homologyは次数 \(-2,0,2\) にのみあり、
+ 次数 \(-2,2\) は各一次元である。
+ 標準rotationはsymplecticなので、この二つの部分に恒等として作用する
+ \cite[Proposition 3.12]{Huy}。
+ 定理\ref{thm:zhang-cy-fourfold-counterexample}の \(f\) も、
+ \(\det\tau=1\)、\(\tau(F)=F\) により \(H^{3,1}(X)\) のresidueを固定し、
+ その複素共役 \(H^{1,3}(X)\) も固定する。
+ 従って \(f_*\rho_X\) についても \(\HH_{\pm2}\) の不変部分は各一次元である。
+ 次数零の不変部分は\eqref{eq:cy-fourfold-hh0-obstruction}で計算したので、
+ Euler標数はそれぞれ \(1+8+1=10\)、\(1+20+1=22\) となる。
+ 命題\ref{prop:rotation-euler-locally-constant}を適用する。
+\end{proof}
+
+\begin{remark}[量子化族との論理的関係]
+\label{rem:counterexample-quantization-scope}
+ 定理\ref{thm:zhang-cy-fourfold-counterexample}は、
+ 「多項式環と同じHilbert級数を持つCalabi--Yau AS-regular代数の三次中心正則商であり、
+ 射影圏がsmooth properである」という条件による一般的な可換pair復元を反証する。
+ またSerre--rotation条件を追加するだけでも十分でない。
+ underlyingなKuznetsov成分には既に可換模型 \(X\) があるが、指定されたrotationが異なるのである。
+
+ 一方、この代数が本稿の特定のPoisson構造から作る、零パラメータで可換な
+ 中心三次量子化族のファイバーであることは示していない。
+ \(\tau\) の有限位数性は中心元の構成に本質的であり、
+ \(\zeta\) を任意の複素パラメータに置き換えても三次中心元が残るわけではない。
+ 従って本例から、その特定の量子化族に対する存在問題の否定は導かない。
+ 研究目標では、扱う量子化族と残余pairの相対構成を指定し、
+ その上での存在問題を述べる必要がある。
+\end{remark}
+
+\section{完全忠実比較を同値へ強める条件}
+\label{sec:serre-generation}
+
+多ブロック族では、既に構成した完全忠実関手の像が全体を生成するかが問題になる。
+外部積による直接的な生成証明とは別に、properness、Serre関手および連結性から
+本質的全射性を判定できる。ここでの \(\HH^0\) はcohomologyであり、
+前節の反例に用いたhomologyの \(\HH_0\) とは異なる。
+
+\begin{proposition}[Serreと連結性による全生成判定]
+\label{prop:serre-connected-generation}
+ \(\mathcal A\) を非零のsmooth properな、冪等完備pretriangulated dg圏、
+ \(\mathcal D\) をproperな、冪等完備pretriangulated dg圏とする。
+ \(\mathcal D\) はSerre関手 \(S_{\mathcal D}\) を持つとし、
+ dg完全忠実関手 \(\Phi:\mathcal A\to\mathcal D\) が
+ \[
+ \Phi S_{\mathcal A}\simeq S_{\mathcal D}\Phi
+ \]
+ を満たすと仮定する。
+ さらに環 \(\HH^0(\mathcal D)\) が \(0,1\) 以外の冪等元を持たないなら、
+ \(\Phi\) はdg Morita同値である。
+ 特に \(\HH^0(\mathcal D)=\CC\) なら、この連結性条件は満たされる。
+ \(\mathcal D\) のsmoothnessは仮定しなくてよい。
+\end{proposition}
+\begin{proof}
+ まず \(\Phi\) の像がadmissibleであることを示す。
+ \(\mathcal A\) はsmooth properなので、compact generator \(G\) と
+ smooth proper dg代数 \(E=\REnd_{\mathcal A}(G)\) を用いて
+ \(\mathcal A\simeq\Perf(E)\) と書ける。
+ \(D\in\mathcal D\) に対し、\(\RHom_{\mathcal D}(\Phi G,D)\) は
+ \(\mathcal D\) のpropernessにより \(\CC\)-perfectである。
+ smoothなdg代数上では、このようなpseudo-perfect加群はperfectである。
+ 実際、対角 \(E\) を有限cell双加群の直和因子として表し、この加群をtensorすると、
+ \(\CC\)-perfectな係数を持つ有限cell \(E\)-加群の直和因子として表される。
+ したがって \(\mathcal A\) の対象で表現され、\(\Phi\) の右随伴を与える。
+ opposite圏で同じ議論を行えば左随伴も得る。
+ この構成はdg加群の表現可能性として行われるので、随伴もenhancedである。
+
+ \(\mathcal B=\Phi(\mathcal A)^\perp\) とする。
+ \(D\in\mathcal B\)、\(A\in\mathcal A\) に対し、Serre双対性から
+ \[
+ \Hom_{\mathcal D}(D,\Phi A[i])
+ \simeq
+ \Hom_{\mathcal D}(S_{\mathcal D}^{-1}\Phi A[i],D)^*
+ \simeq
+ \Hom_{\mathcal D}(\Phi S_{\mathcal A}^{-1}A[i],D)^*=0
+ \]
+ となる。従って右直交と左直交は一致する。
+ admissibilityによる各対象の分解三角形は、二方向のHom消滅によって分裂する。
+ よって \(\mathcal D\) は \(\Phi(\mathcal A)\) と \(\mathcal B\) の直交直和である。
+ 全てのcohomological shiftのHomが消えるため、これはdg Moritaの意味でも直和分解となる。
+
+ この直和分解は対角双加群の分解を与え、第一成分への射影が
+ \(\HH^0(\mathcal D)=\operatorname{End}(\Delta_{\mathcal D})\) の冪等元になる。
+ \(\mathcal A\ne0\) なのでこの冪等元は零でない。
+ もし \(\mathcal B\ne0\) なら恒等でもないため、仮定に反する。
+ 従って \(\mathcal B=0\) であり、\(\Phi\) は本質的全射である。
+\end{proof}
+
+\begin{corollary}[任意位数の独立ブロックに対する十分条件]
+\label{cor:arbitrary-order-conditional-model}
+ \(N=3r+m\ge5\) とし、全ての \(h_j^6\ne-27\) とする。
+ \(P(u)\) は原点のみを臨界点に持つ中心三次式とし、\(m=0\) では省く。
+ 独立ブロックの代数
+ \[
+ B=\left(\bigotimes_{j=1}^rS_{h_j}\right)[u]
+     \Big/\left(\sum_jG_{h_j}+P(u)\right)
+ \]
+ の通常次数付きMF圏を \(\mathcal K_B\)、次数シフトを \(\rho_B\) とする。
+ 次の三条件を仮定する。
+ \begin{enumerate}
+ \item \(\mathcal K_B\) はproperである。
+ \item Serre関手が存在し、\(S_{\mathcal K_B}\simeq\rho_B^{3-N}[N-2]\) である。
+ \item \(\HH^0(\mathcal K_B)\) は非自明な冪等元を持たない。
+ \end{enumerate}
+ このとき、平行移動の有限位数性を仮定せずに、
+ \[
+ (\mathcal K_B,\rho_B)\simeq
+ \left(\Ku\!\left(V\!\left(\sum_j
+ (x_j^3+y_j^3+z_j^3+h_j^2x_jy_jz_j)+P(u)\right)\right),\rho_Y\right)
+ \]
+ が成り立つ。
+\end{corollary}
+\begin{proof}
+ 各楕円ブロックのdegree shiftを保つ同値、外部積の完全忠実性、
+ および有限群による通常次数への降下から、
+ 表示した滑らかな可換cubic \(Y\) について
+ \(\Phi:\Ku(Y)\to\mathcal K_B\) が得られ、\(\Phi\rho_Y\simeq\rho_B\Phi\) である。
+ 中心三次式 \(P\) は一つの可換因子として扱えばよく、
+ 可換側のequivariant Thom--Sebastianiと非可換側の外部積の完全忠実性は
+ Fermat型への分解を必要としない。
+ \(Y\) の滑らかさは各変数群の勾配の孤立性から従う。
+ \(\Ku(Y)\) は非零のsmooth proper圏であり、
+ \eqref{eq:serre-rotation-necessary}と第2条件はSerre関手との互換性を与える。
+ 命題\ref{prop:serre-connected-generation}を適用すればよい。
+\end{proof}
+
+\begin{remark}[この十分条件の検証状態]
+ この系は、二つ以上の無限位数ブロックの全生成性を無条件に証明したものではない。
+ その場合に残る課題を、三つの明示した圏論的条件へ帰着する結果である。
+ 与えられた量子化族の全ファイバーについて、properness、Serre公式、
+ および \(\HH^0\) の連結性を確認することは依然必要である。
+ 前節の反例が示すように、一般のAS-regular中心商に対しては、
+ 比較する完全忠実関手の存在も自動的には得られない。
+\end{remark}
