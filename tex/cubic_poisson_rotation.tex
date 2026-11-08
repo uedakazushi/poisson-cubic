@@ -1,4 +1,4 @@
-\input{common}
+\input{tex/common}
 \hypersetup{pdftitle={3次超曲面のPoisson構造と非可換量子化}}
 \title{3次超曲面のPoisson構造と非可換量子化\\
 \large 正規形・退化スキーム・rotation付き残余圏}
@@ -27,6 +27,20 @@ Fermat cubicのZhang twistにより、射影圏が滑らかな可換cubicと同�
 \tableofcontents
 
 \section{序論}\label{sec:global-intro}
+
+\subsection{射影完全交叉と斉次多様体の中での位置づけ}
+次元三以上の滑らかな通常の射影完全交叉では、
+非零の正則Poisson構造を持つものは、
+射影空間、二次超曲面、三次超曲面、二次二個の完全交叉に限る
+（定理\ref{thm:ci-poisson-existence}）。
+非存在側には古典的なtwisted differential formsの消滅を用いる
+\cite[Lemma 4.1]{FuHwangCI}。
+曲面にはK3完全交叉が加わるので次元仮定が不可欠である。
+次元二以上のトーリック多様体と滑らかな射影斉次多様体にも
+非零のPoisson構造が存在することをSection
+\ref{sec:general-poisson-existence}で証明する。
+量子化の二次関係式は明示的だが、三次中心元の一般的な
+閉公式が既に得られたという意味ではない。
 
 \subsection{二つの問題と一つの橋渡し}
 
@@ -159,13 +173,15 @@ Lin--Zhangのpolarized categorical Torelli\cite[Theorem 1.7]{LZ}は、
 普遍的な可換pair復元を妨げる具体的な不変量を計算する。
 これらの組合せを含む本稿全体の先行研究上の新規性は確認継続中である。
 
+\input{tex/papers/complete_intersections}
+
 \part{Poisson構造・退化スキーム・量子化}
-\input{papers/poisson_geometry}
+\input{tex/papers/poisson_geometry}
 
 \part{rotation付き残余圏と可換モデル}
-\input{papers/rotation_obstruction}
-\input{papers/rotation_models}
-\input{papers/relative_saturation}
+\input{tex/papers/rotation_obstruction}
+\input{tex/papers/rotation_models}
+\input{tex/papers/relative_saturation}
 
-\input{references}
+\input{tex/references}
 \end{document}
