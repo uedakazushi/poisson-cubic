@@ -27,10 +27,10 @@
 
 ## Hesse型量子化の明示的三次中心元
 
-**今回明示化できた結果（論文 `tex/papers/explicit_hesse_center.tex`）**：滑らかなHesse型三変数ブロック
+**今回明示化できた結果（論文 `tex/papers/explicit_hesse_center.tex`）**：任意の滑らかな三変数三次式（Hesse標準形への線形変換後）
 $f_t=(x^3+y^3+z^3)/3+txyz$、$t^3\ne-1$について、Sklyanin代数の既知の中心三次元（Smith–TateおよびDe Laet–Le Bruyn）をPoisson変形パラメータへ翻訳した閉公式
 $\Omega_{\hbar,t}=U(\hbar,t)(x^3+y^3+z^3)/3+W(\hbar,t)\operatorname{sym}(xyz)$
-を得た。$U(0,t)=1$, $W(0,t)=t$。係数と滑らかな楕円Sklyanin型となるパラメータの判別式を論文内で指定した。$t=0$で従来のFermat公式に一致する。互いに可換な複数ブロックと中心三次式、および中心線形シフトの混合項にも拡張可能。**文献に既にある中心公式の特殊化であり、新規性を主張しない。**
+を得た。$U(0,t)=1$, $W(0,t)=t$。係数と滑らかな楕円Sklyanin型となるパラメータの判別式を論文内で指定した。$t=0$で従来のFermat公式に一致する。Artebani–DolgachevのHesse標準形とJacobian括弧の座標変換則を用い、任意の滑らかな三変数三次式 $g(x)=\lambda f_t(Mx)$ について $\hbar'=\lambda\det(M)\hbar$ と置けば $\Omega^g_\hbar=\lambda\Omega_{\hbar',t}(Mx)$ が中心元となる。互いに可換な複数ブロックと中心三次式、および中心線形シフトの混合項にも拡張可能。**文献に既にある中心公式の特殊化であり、新規性を主張しない。**
 
 証明：標準Sklyanin関係に直して既知の中心公式を適用し、$C-D=\hbar S+(\hbar t/2)(C+D)$を用いて規格化する。零を含む開集合で次数別平坦性により中心性を延長する。次数四で有限体の複数特殊化の交換子が二次関係式の生成するイデアルに属することも厳密検算したが、後者は普遍的証明ではない。
 

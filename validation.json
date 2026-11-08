@@ -15,7 +15,8 @@
     "toric_homogeneous": "Section 2: toric dim>=2 (normal as Poisson derivations, smooth as bivector) and smooth projective homogeneous dim>=2",
     "quantization": "Quadratic relations explicit via cyclic potential; central cubic algebraizable from kernel in general; explicit closed formula in Fermat case.",
     "hesse_explicit_center": "Closed polynomial central cubic for smooth Hesse f=(S/3)+txyz, t^3 != -1, derived from Smith-Tate / De Laet-Le Bruyn; general mixed center terms remain open.",
-    "hesse_discriminant": "Explicit nonzero Zariski open containing h=0 defined by U(h,t)*(1-h^2*t^2/4)*Delta(h,t)."
+    "hesse_discriminant": "Explicit nonzero Zariski open containing h=0 defined by U(h,t)*(1-h^2*t^2/4)*Delta(h,t).",
+    "ternary_generic_center": "For every smooth ternary cubic over C, central degree-three lift explicit after Hesse linear normal form and parameter rescaling h'=lambda det(M) h. Derived via classical Hesse normal form, not a general mixed-center theorem."
   },
   "proof_review": {
     "performed": [
@@ -24,7 +25,8 @@
       "Rotation reconstruction assumptions and Sklyanin external-product generation scope",
       "Zhang-twist center, shift convention, Nakayama condition, and Hochschild character obstruction",
       "Invariant Euler characteristic and conditional Serre-connected generation criterion",
-      "Relative gluing smoothness reduction and formal MF 3-periodicity (theorem numbering for Orlov checked against primary text)."
+      "Relative gluing smoothness reduction and formal MF 3-periodicity (theorem numbering for Orlov checked against primary text).",
+      "Coordinate covariance of Jacobian Poisson bracket, including determinant rescaling under linear changes, and Artebani–Dolgachev Lemma 1."
     ],
     "independent_review": "Main obstruction and its literature applications were independently reviewed.",
     "external_theorems": "Specific versions and theorem/section references are recorded in the bibliography; external proofs were not fully re-proved.",

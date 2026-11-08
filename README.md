@@ -43,3 +43,5 @@ python3 scripts/verify_bundle.py
 `tex/papers/explicit_hesse_center.tex` で滑らかなHesseブロック `f_t=(x³+y³+z³)/3+txyz`（`t³≠-1`）の三次中心元の閉公式と、零を含むパラメータ開集合の判別式を示した。古典的Smith–Tate / De Laet–Le BruynのSklyanin中心元公式のPoisson変形族への翻訳で、一般混合項の問題は未解決。Fermat型の公式を含み、複数の独立ブロックと中心線形シフトへ拡張できる。証明は原典の中心性＋次数別平坦性に依存する。追加した `computations/verify_hesse_center.py` は複数有限体特殊化の次数四交換子の所属検査であり、普遍的証明の代用ではない。
 
 **出力状態**：v4のTeX原稿はmainに含まれるが、既存の `pdf/` は以前の内容のまま。PDF再組版と新しいSHA256SUMSは未完了で、古いPDFをv4と表示してはならない。
+
+滑らかな任意の三変数三次式もHesse標準形へ線形変換できる（Artebani–Dolgachev, Lemma 1）。従って新しい `tex/papers/explicit_hesse_center.tex` の系では、`g(x)=λ f_t(Mx)` に対して `ħ'=λ det(M) ħ` として `Ω^g_h=λ Ω_{ħ',t}(Mx)` と明示する。一般の中心混合項には拡張していない。
