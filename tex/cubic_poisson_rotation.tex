@@ -11,6 +11,7 @@
 および三次の中心元を持つ次数付き量子化を一つの枠組みで扱う。
 Poisson正規形は、Hessianに関する線形条件と不変対称形式を持つLie代数の構造から得られる。
 全退化スキームの方程式を示し、六次元・七次元の場合の完全交叉、有限被覆、非被約構造を記述する。
+さらに滑らかなHesse型ブロックでは代数的な三次中心元を多項式の閉公式で求める。
 量子化から可換幾何を復元する問題では、残余dg圏と標準次数シフトに由来するrotationを同時に記録する。
 可換cubicの形式近傍ではmarkedな可換モデルが存在し、適切なsmooth proper代数的族では
 その存在をétale近傍へ移せる。独立な楕円Sklyaninブロックについては、
@@ -41,6 +42,9 @@ Fermat cubicのZhang twistにより、射影圏が滑らかな可換cubicと同�
 \ref{sec:general-poisson-existence}で証明する。
 量子化の二次関係式は明示的だが、三次中心元の一般的な
 閉公式が既に得られたという意味ではない。
+ただし滑らかなHesse型ブロックでは、既知のSklyanin中心元の公式を
+量子化パラメータに翻訳することで明示的な中心元と除外すべき
+パラメータの判別式を得る（第\ref{sec:explicit-hesse-center}節）。
 
 \subsection{二つの問題と一つの橋渡し}
 
@@ -177,6 +181,7 @@ Lin--Zhangのpolarized categorical Torelli\cite[Theorem 1.7]{LZ}は、
 
 \part{Poisson構造・退化スキーム・量子化}
 \input{tex/papers/poisson_geometry}
+\input{tex/papers/explicit_hesse_center}
 
 \part{rotation付き残余圏と可換モデル}
 \input{tex/papers/rotation_obstruction}
