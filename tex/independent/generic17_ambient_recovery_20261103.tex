@@ -1,0 +1,843 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{luatexja-fontspec}
+\usepackage{enumitem,booktabs,array}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\IfFileExists{/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc}{%
+  \setmainjfont[Path=/usr/share/fonts/opentype/noto/]{NotoSerifCJK-Regular.ttc}%
+}{\setmainjfont{HaranoAjiMincho-Regular}}
+\setlength{\textwidth}{15.6cm}
+\setlength{\oddsidemargin}{0.25cm}
+\setlength{\evensidemargin}{0.25cm}
+\setlength{\textheight}{22.6cm}
+\setlength{\topmargin}{-0.2cm}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{1pt}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{remark}[theorem]{注意}
+\newtheorem{definition}[theorem]{定義}
+\renewcommand{\proofname}{証明}
+\newcommand{\C}{\mathbb C}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\A}{\mathbb A}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\cB}{\mathcal B}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cI}{\mathcal I}
+\newcommand{\cQ}{\mathcal Q}
+\newcommand{\cZ}{\mathcal Z}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\qgr}{\operatorname{qgr}}
+\newcommand{\gldim}{\operatorname{gldim}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Proj}{\operatorname{Proj}}
+\newcommand{\Frac}{\operatorname{Frac}}
+\newcommand{\trdeg}{\operatorname{trdeg}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\PGL}{\mathrm{PGL}}
+\newcommand{\Lie}{\operatorname{Lie}}
+\newcommand{\Z}{\operatorname{Z}}
+\newcommand{\Tens}{\operatorname{T}}
+\newcommand{\CY}{\mathrm{CY}}
+\newcommand{\AS}{\mathrm{AS}}
+\newcommand{\nc}{\mathrm{nc}}
+\newcommand{\Symm}{\operatorname{sym}}
+\title{一般の17次元非可換三次三様体族と\\内在的な非可換射影四空間の復元}
+\author{公表準備用研究原稿（著者情報未記入）}
+\date{2026年11月3日・v4}
+\begin{document}
+\maketitle
+\begin{abstract}
+複素数体上，五つの次数１生成元を持つ二次 Koszul Artin--Schelter 正則代数
+$B$ と中心正則三次元 $G\in B_3$ の商 $A=B/(G)$ を考える．
+相対三変数 Jacobian potential を用いて，この型の中心三次対の41次元既約な
+代数的族を構成する．中心一次平面を固定した35次元の係数空間に対し，
+18次元の座標変換群の一般軌道と横断的な17係数正規形を与え，
+不変有理関数体の超越次数が17であることを示す．横断性は
+31次の有理数係数行列の非零行列式によって証明する．
+さらに，非可換 cubic の偏極付き三つ組
+$(\qgr A,\OO_A,(1))$ から自然な $\mathbb Z$-代数を作り，
+二次合成の核だけで定義する包絡が元の５次元 AS 正則代数 $B$ に一致し，
+三次の核が中心方程式の直線 $\C G$ を復元することを証明する．
+十分な滑らかさと中心の条件の下では，構造対象付き導来圏の Serre 関手から
+偶数 Veronese を再構成し，中心二次曲線を使って次数１の選択なしに $B$ を復元できる．
+扱う同型は原則として次数付き代数同型，または構造対象と次数シフトを保つ偏極付き圏同値である．
+この族が非可換 cubic の全成分を尽くすこと，および無標識導来圏による分類は主張しない．
+\end{abstract}
+\tableofcontents
+
+\section{Introduction：主張と先行研究}\label{sec:intro}
+非可換射影空間を次数付き AS 正則代数の $\qgr$ として扱う立場は
+Artin--Schelter \cite{AS} と Artin--Zhang \cite{AZ} の枠組みに属する．
+可換な cubic threefold $X\subset\PP^4$ は５変数多項式環の三次正則元による
+商として記述される．その非可換類似として，次の組を考える：
+\begin{equation}\label{eq:data}
+ (B,[G]),\qquad B=\Tens(V)/(R_2),\quad\dim V=5,\quad
+ G\in\Z(B)_3\setminus\{0\},\quad A=B/(G).
+\end{equation}
+ここで $B$ は連結次数付き，noetherian，Koszul，AS 正則次元５であり，
+$[G]$ は非零スカラー倍を同一視した中心正則元の直線である．
+本稿はこの型の\emph{一つの具体的な既約族の一般点}を扱い，
+$A$ から $B$ を内在的に復元する．任意の非可換三次三様体が
+\eqref{eq:data} の形に書けるとは仮定も主張もしない．
+
+\paragraph{半古典極限と既知の分類.}
+Loray--Pereira--Touzet \cite[Theorem~9.1]{LPT} と
+Mayanskiy \cite[Theorem~1]{Mayanskiy} は，固定した滑らかな cubic threefold の
+射影 Poisson 空間が Pl\"ucker 埋め込みされた $\operatorname{Gr}(2,5)$ であることを示した．
+その結果は「固定した可換 cubic の方向が７次元」であることを示唆するが，
+17次元の\emph{有限係数の非可換代数族}を直接与えるわけではない．
+Pym \cite[Proposition~2.9, Theorem~2.10]{Pym} は，射影空間の
+Calabi--Yau 型の量子変形と二次 Poisson 構造の成分の関係を証明し，
+非可換 $\PP^3$ の場合に具体的な分類を与えた．本稿は
+「周囲の量子構造に中心三次方程式を指定する」という別の incidence を対象にする．
+
+\paragraph{代数構成の入力.}
+三変数 Sklyanin 代数と楕円曲線の対応，次数３の中心元および
+twisted homogeneous coordinate ring については
+Artin--Tate--Van den Bergh \cite{ATV} が基本的な文献である．
+Mori--Smith \cite[Theorem~4.2(1)]{MS} によって，
+滑らかな平面三次式を用いた Jacobian 型二次関係式は
+３次元 Calabi--Yau／AS 正則代数を与える．
+Berger--Taillefer \cite{BT} は低次 potential の PBW 変形を扱い，
+Etingof--Ginzburg \cite[Proposition~7.3.1(ii), Theorem~3.3.2]{EG} は
+それを Calabi--Yau 性と中心元の存在に結び付けた．
+同論文付録の Rains による $\widetilde E_6$ 型中心元の有限公式も重要な入力である
+\cite[\S9.1]{EG}．以下ではこの文献群を二つの中心一次変数に相対化する．
+
+\paragraph{復元の位置付け.}
+Artin--Zhang \cite{AZ} が扱う偏極付き三つ組の section algebra から
+次数付き代数を回復する一般原理と，
+「三次関係は二次関係を変えない」という初等的な観察を組み合わせると，
+ambient の quadratic envelope が得られる．一方，構造対象だけを残して
+次数シフトを忘れる場合には，Yekutieli--Zhang \cite{YZ} の Serre 双対に基づく
+偶数 Veronese の復元が使える．この後半には明示的な追加仮定が必要である．
+
+本稿で扱う新規性の候補は，\emph{全混合係数を許す相対中心三次族，
+17係数の横断的正規形，およびそれと二次包絡の一体化}にある．
+個別の結論が先行研究で未発表であることまで確認したわけではない．
+特に AS 正則性の一般論，PBW 定理，中心元の原公式，section algebra の復元自体は
+既知の結果として明記する．
+
+\paragraph{主定理.}
+第\ref{sec:construction}節で有限型の41次元中心三次対の族を，
+第\ref{sec:normal}節でそれを支配する17係数正規形と一般の非同型性を，
+第\ref{sec:reconstruction}節で二次包絡による ambient の内在的復元を証明する．
+第\ref{sec:serre}節は，必要な条件を明示した Serre 関手による強化である．
+
+\section{相対 Jacobian 型の中心三次族}\label{sec:construction}
+本節では基礎体を $k=\C$ とする．$U=ku\oplus kv$ と
+$W=kx\oplus ky\oplus kz$ を置き，すべての生成元に次数１を与える．
+$F\in\Sym^3(W\oplus U)$ を
+\begin{equation}\label{eq:Ffull}
+ F=f_3(x,y,z)+Q_2(x,y,z;u,v)+L_1(x,y,z;u,v)+g(u,v)
+\end{equation}
+と書く．$f_3$ は $x,y,z$ に関して次数３，$Q_2$ は次数２，
+$L_1$ は次数１，$g\in\Sym^3U$ であり，それぞれ全次数３で斉次とする．
+
+\begin{definition}\label{def:B}
+$\Symm$ を可換単項式の完全対称化とする．$B_F$ を
+\begin{equation}\label{eq:B}
+ B_F=\frac{k\langle x,y,z,u,v\rangle}{
+ \bigl([u,-],[v,-],\ [x,y]-\Symm(F_z),\
+ [y,z]-\Symm(F_x),\ [z,x]-\Symm(F_y)\bigr)}
+\end{equation}
+で定義する．$g(u,v)$ は右辺の微分に現れない．
+\end{definition}
+
+\begin{lemma}[平面三次式の相対 PBW 性]\label{lem:pbw}
+$E=V(f_3)\subset\PP(W^*)$ が滑らかなら，$B_F$ は
+$k[u,v]$ 上自由であり，$x,y,z$-次数による濾過について
+\begin{align}\label{eq:gr}
+ \gr_{x,y,z}B_F&\simeq S_{f_3}\otimes_k k[u,v],\\
+ S_{f_3}&:=k\langle x,y,z\rangle/\bigl([x,y]-\Symm((f_3)_z),\ 
+\notag\\[-2pt]
+ &\hspace{8em}[y,z]-\Symm((f_3)_x),\ [z,x]-\Symm((f_3)_y)\bigr).
+\end{align}
+さらに $S_{f_3}$ は noetherian な３次元 Koszul AS 正則 Calabi--Yau 整域で，
+$B_F$ は noetherian な５次元 Koszul AS 正則整域となる．とくに
+\begin{equation}\label{eq:HilbertB}
+ H_{B_F}(t)=(1-t)^{-5}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Mori--Smith \cite[Theorem~4.2(1)]{MS} により，滑らかな $f_3$ から得た
+$S_{f_3}$ は３次元 Calabi--Yau であり，したがって上記の
+AS 正則性と Koszul 性を持つ．$u,v$ を中心的な係数とみなし，
+\eqref{eq:B} の三つの関係を
+$S_{f_3}$ の potential に対する次数２以下の cyclic potential の摂動と解釈する．
+各 $(u,v)=(s,t)\in k^2$ への特殊化について，
+Berger--Taillefer および Etingof--Ginzburg の PBW 定理
+\cite[Proposition~7.3.1(ii)]{EG} により，$x,y,z$-濾過の随伴次数付き代数は
+$S_{f_3}$ に等しい．
+
+$S_{f_3}$ の斉次な語の基底を選ぶ．元の関係式を用い，語を最高 $x,y,z$-次数から
+下げる帰納法により，選んだ語の持上げは $k[u,v]$ 上 $B_F$ を生成する．
+この持上げの有限 $k[u,v]$-線形関係があれば，各 $(s,t)$ への特殊化で
+PBW 基底間の関係を与えるので，その全係数は $k[u,v]$ の全閉点で零となり，
+したがって零である．これで自由性および \eqref{eq:gr} が得られる．
+特に $u,v$ は $B_F$ 上の正則中心列である．
+
+$B_F/(u,v)\simeq S_{f_3}$ なので，中心正則元に関する
+AS 正則性の上昇を二度適用すれば次元５の AS 正則性が得られる
+\cite[Propositions~2.1, 2.3]{CKS}．noetherian 性は中心正則拡大の
+標準定理，Koszul 性は中心一次元による change-of-rings，整域性は
+\eqref{eq:gr} の整域性に従う．$u,v$ を加えた次数計数から \eqref{eq:HilbertB} を得る．
+\end{proof}
+
+\begin{lemma}[ambient の Calabi--Yau 性]\label{lem:CY}
+補題\ref{lem:pbw} の仮定の下で $B_F$ の中山自己同型は恒等であり，
+$B_F$ は５次元 Calabi--Yau 代数である．
+\end{lemma}
+\begin{proof}
+AS 正則性から $B_F$ は skew Calabi--Yau であり，中山自己同型を $\nu$ とする．
+中山双加群の左右の中心作用は一致するため，$\nu$ は中心 $k[u,v]$ を
+各点固定する．すなわち $\nu(u)=u,\nu(v)=v$ である．
+したがって各 $(s,t)\in k^2$ について $\nu$ は
+$B_F/(u-s,v-t)$ に自己同型を誘導する．
+Zhou--Shen--Lu の正規元による中山自己同型の特殊化公式
+\cite[Propositions~2.6, 3.6]{ZSL} により，この自己同型は
+特殊化代数の中山自己同型である．
+一方，特殊化代数は低次 potential の摂動であり，
+Etingof--Ginzburg の定理\cite[Theorem~3.3.2(i)]{EG} によって
+３次元 Calabi--Yau である．特殊化代数は随伴次数付き整域
+$S_{f_3}$ を持つので，単元は $k^\times$ のみである．
+従って特殊化された $\nu$ は恒等である．
+$B_F$ は $k[u,v]$ 上自由だから，
+$\nu(x)-x,\nu(y)-y,\nu(z)-z$ が全 $(s,t)$ で零になることから
+それらは零である．よって $\nu=\mathrm{id}$．
+\end{proof}
+
+\begin{lemma}[一般点での三次中心元]\label{lem:center}
+$E=V(f_3)$ が滑らかな開集合のある非空開部分で
+\begin{equation}\label{eq:centS}
+ \Z(S_{f_3})_1=\Z(S_{f_3})_2=0,\qquad
+ \dim_k\Z(S_{f_3})_3=1
+\end{equation}
+が成立する．その開部分をさらに縮小し，三次中心の非零元
+$\Omega_{f_3}\in\Z(S_{f_3})_3$ を代数的に選ぶ．
+すると\eqref{eq:B} の $Q_2,L_1$ の全係数に関して代数的に変わる
+\begin{equation}\label{eq:G}
+ \mathcal G_F=\Omega_{f_3}+C_2(F)+C_1(F)\in\Z(B_F)_3
+\end{equation}
+が存在する．$C_2$ は $x,y,z$-次数２で $u,v$ に線形，$C_1$ は
+$x,y,z$-次数１で $u,v$ に二次であり，$x,y,z$-次数０の部分を零とする
+規格化によって一意である．特に
+\begin{equation}\label{eq:Gg}
+ G_F=\mathcal G_F+g(u,v)
+\end{equation}
+も中心元であり，$B_F$ 上正則である．
+\end{lemma}
+\begin{proof}
+具体的に $f_3=(x^3+y^3+z^3)/3$ では，
+$S_{f_3}=k\langle x,y,z\rangle/([x,y]-z^2,[y,z]-x^2,[z,x]-y^2)$ であり，
+自由語の次数１から４の関係行列を有理数上で消去すると，
+次数１，２，３の中心の次元は順に $0,0,1$ になる．
+この有限計算は付属 \texttt{verify\_center\_sklyanin.py} で再現できる．
+三変数 Sklyanin 代数の楕円曲線と translation の表示
+\cite{ATV,EG} において，$\tau,\tau^2\ne1$ となる一般の点では
+低次数中心が零であり，中心三次元の空間は一次元である．
+この条件を中心性の次数４以下の有限行列の rank として書けば
+非空 Zariski 開条件になり，その上では \eqref{eq:centS} の
+核は階数１の代数的線束をなす．非零小行列式を反転した
+chart 上で $\Omega_{f_3}$ を選べる．
+
+$u,v$ を数値へ特殊化した三変数の非斉次 potential を考える．
+\cite[Theorem~3.3.2(ii)]{EG} は $x,y,z$-濾過次数３以下に
+非スカラー中心元が存在することを保証する．その最高次数の記号は
+\eqref{eq:centS} により $\Omega_{f_3}$ の非零定数倍であり，
+係数を規格化できる．補正項の $x,y,z$-次数２および１の係数は
+それぞれ６個および３個の未知数を持ち，中心性は線形方程式
+\begin{equation}\label{eq:centerlinear}
+ M(\mathbf a,\mathbf b)c=d(\mathbf a,\mathbf b)
+\end{equation}
+で表される．ここで $\mathbf a$ は非斉次二次 potential の係数，
+$\mathbf b$ は一次 potential の係数である．
+零定数部分で \eqref{eq:centerlinear} の同次解が非零なら，
+$x,y,z$-濾過次数２以下の非スカラー中心元を与え，
+最高記号を取ると \eqref{eq:centS} に矛盾する．
+よって $M$ は全特殊化で階数９を持つ．各特殊化に解が存在するので，
+一定 rank のベクトル束写像の余核中で $d$ の像は全閉点で零となる．
+基底を被約な多項式係数環としたからその像は零であり，
+唯一の代数的な解が存在する．
+
+$\mathbf a$ に重み１，$\mathbf b$ に重み２を与える
+$\mathbb G_m$-作用と規格化の一意性から，$C_2$ は
+$\mathbf a$ に一次，$C_1$ は $\mathbf a$ に二次・$\mathbf b$ に一次である．
+$\mathbf a$ を $u,v$ の一次式，$\mathbf b$ を二次式に置けば
+\eqref{eq:G} の斉次中心元を得る．
+$\Omega_{f_3}$ は \eqref{eq:gr} の整域における非零元なので，
+$G_F$ は $B_F$ の非零正則元である．
+\end{proof}
+
+\begin{theorem}[41次元の中心三次対の代数的族]\label{thm:incidence}
+$U=\langle u,v\rangle$ を固定し，$F$ の35係数を動かす．
+補題\ref{lem:center} の非空 Zariski 開条件を課したパラメータ空間
+$\mathcal T_U$ 上，$F\mapsto(B_F,[G_F])$ は代数的な中心三次対の族となる．
+商
+\begin{equation}\label{eq:A}
+ A_F=B_F/(G_F)
+\end{equation}
+は各次数で基底上局所自由であり，
+\begin{equation}\label{eq:HseriesA}
+ H_{A_F}(t)=\frac{1-t^3}{(1-t)^5},\qquad
+ (\dim A_1,\dim A_2,\dim A_3)=(5,15,34).
+\end{equation}
+$U$ を $\operatorname{Gr}(2,5)$ 上で動かすと，この族のパラメータ空間は
+$6+35=41$ 次元の既約な有限型空間を与える．その ambient 二次代数の
+係数空間は $6+31=37$ 次元であり，一般の固定 ambient の上で
+中心三次直線の選択に４次元の自由度がある．
+\end{theorem}
+\begin{proof}
+一般の斉次三次式の係数は $\binom{7}{3}=35$ 個であり，
+$F$ に含まれる $g\in\Sym^3U$ の係数は４個である．
+$B_F$ の関係式は $F$ の $x,y,z$ 偏微分から決まり，$g$ には依存しない．
+補題\ref{lem:center} の $\mathcal G_F$ は最高 $x,y,z$-次数成分によって規格化され，
+$G_F=\mathcal G_F+g$ であるから，$g$ の異なる４係数は
+同じ ambient 内の異なる中心三次直線を与える．
+補題\ref{lem:pbw} および補題\ref{lem:center} により，$B_F$ は整域，$G_F$ は
+中心正則である．$B_F$ の任意の次数に対して中心正則元による完全列
+\[
+ 0\longrightarrow B_F(-3)\xrightarrow{\cdot G_F}
+ B_F\longrightarrow A_F\longrightarrow0
+\]
+が成立し，\eqref{eq:HseriesA} が従う．
+相対的には，固定次数で有限生成自由加群間の表示行列の rank が
+全閉点で一定なので，次数成分は局所自由となる．
+$U$ の変化は Grassmannian 上の局所 chart ごとに同じ構成で与えられ，
+全体の既約次元は $\dim\operatorname{Gr}(2,5)+35=41$ である．
+\end{proof}
+
+\begin{remark}[正則性の二つの意味]\label{rem:regularity}
+本定理は ambient $B_F$ の５次元 AS 正則性，$G_F$ の正則性，
+$A_F$ の相対平坦性を示す．これだけで任意の閉点について
+$\gldim(\qgr A_F)=3$ が従うわけではない．
+量子的な楕円境界が滑らかな固定 ambient について，十分一般の
+中心三次係数で tails が滑らかになるという議論には，
+中心局所化と非可換 generic smoothness の結果
+\cite{RSVdB,Rains} が必要である．
+本稿の17次元性および復元定理は，この追加の全閉点での
+Zariski 開性を仮定しない．
+\end{remark}
+
+\section{generic な17係数正規形と真の変形次元}\label{sec:normal}
+ここで重要なのは，41係数から形式的に24を引くことだけではない．
+実際の座標変換の一般軌道が24次元であり，17個の係数だけを持つ族が
+その有理商を支配することを示す．
+
+\subsection{中心一次平面と群作用}
+\begin{lemma}[一次中心による平面の復元]\label{lem:U}
+補題\ref{lem:center} の開集合では
+\begin{equation}\label{eq:Z1}
+ \Z(B_F)_1=U=ku\oplus kv.
+\end{equation}
+したがって，次数付き代数 $B_F$ の自己同型は $U$ を保存する．
+\end{lemma}
+\begin{proof}
+$u,v$ は中心である．$w\in (B_F)_1$ が中心なら，
+$x,y,z$-次数に関する最高記号は $S_{f_3}[u,v]$ の中心である．
+その $x,y,z$-次数が１なら，$\Z(S_{f_3})_1=0$ に矛盾する．
+よって $w\in U$ である．
+\end{proof}
+
+$P\subset\PGL(W\oplus U)$ を平面 $U$ の保存群とする．
+標識された基底 $(x,y,z;u,v)$ に関して，$P$ は
+\[
+ \left(\begin{array}{cc}M&C\\0&N\end{array}\right),\qquad
+ M\in\GL_3,\quad N\in\GL_2,\quad C\in\operatorname{Mat}_{3\times2}
+\]
+の同時スカラー倍を同一視した群である．したがって
+\begin{equation}\label{eq:dimP}
+ \dim P=9+4+6-1=18,
+ \qquad\dim\PGL_5=24.
+\end{equation}
+Jacobian 括弧は変数変換に対し $\det M$ の重みを持つ．
+したがって ambient 二次関係式の係数 $F$ の
+$\Sym^3U$ 以外の31成分への Lie 作用は
+\begin{equation}\label{eq:Lie}
+ \delta_{M,N,C}F=(\operatorname{tr}M)F
+ -\sum_{i=1}^{3}\bigl((Mx)_i+(Cs)_i\bigr)\partial_{x_i}F
+ -\sum_{j=1}^{2}(Ns)_j\partial_{s_j}F,
+ \qquad s=(u,v)^t,
+\end{equation}
+を $\Sym^3U$ で割った像である．
+\emph{中心元の規格化は変数変換で binary cubic の補正を受け得る}ため，
+以下の横断性は最初に ambient の31方向で確かめ，
+最後に独立な中心三次の４方向を加える．
+この順序なら中心元の gauge に関する余分な同変性は不要である．
+
+\subsection{17係数の表示}
+\begin{theorem}[17係数の横断的代数的族]\label{thm:17}
+$M_1,M_2,M_3\in k[u,v]_2$, $g\in k[u,v]_3$ として
+\begin{equation}\label{eq:F17}
+\boxed{\begin{aligned}
+ F_{17}={}&a(x^3+y^3+z^3)+bxyz\\
+ &+ux^2+\alpha vy^2+\beta(u+v)z^2\\
+ &+M_1(u,v)x+M_2(u,v)y+M_3(u,v)z+g(u,v).
+\end{aligned}}
+\end{equation}
+この族の係数は
+\begin{equation}\label{eq:count17}
+ (a,b,\alpha,\beta)\quad\text{の４個},\qquad
+ (M_1,M_2,M_3)\quad\text{の９個},\qquad
+ g\quad\text{の４個}
+\end{equation}
+であり，合計17個である．
+非空 Zariski 開集合 $T\subset\A^{17}$ 上で
+$F=F_{17}$ を \eqref{eq:B}, \eqref{eq:Gg} に代入すると
+$A_F=B_F/(G_F)$ は次数ごとに平坦な代数的族となる．
+その一般点の次数付き代数同型類は17次元分だけ動く．
+より正確には，この族から第\ref{sec:construction}節の
+中心三次対の Rosenlicht 有理商への有理写像は支配的かつ一般に有限で，
+\begin{equation}\label{eq:17mod}
+ \trdeg_k k(\cI)^{\PGL_5}=41-24=17.
+\end{equation}
+ここで $\cI$ は構成した中心三次対の41次元既約族の像の閉包とする．
+\end{theorem}
+\begin{proof}
+まず35係数空間での一般の cubic $F$ の $f_3$ が滑らかな
+平面三次式を定めるとする．古典的 Hesse 正規形
+\cite[\S2, Lemma~2.1]{AD} により，
+$\GL_3$ の座標変換で $f_3=a(x^3+y^3+z^3)+bxyz$ と書ける．
+$b\ne0$ とし，$x,y,z$ を $u,v$ の一次式だけ平行移動すると，
+三つの交差二次項 $xy,yz,zx$ に付く二元一次式６係数を消せる．
+残る３つの二元一次式が $\PP(U)$ 上に互いに異なる零点を持つ一般点では，
+$\PGL(U)$ でそれらを $u,v,u+v$ に変換し，
+相対スカラーで第一の係数を１に規格化すれば \eqref{eq:F17} になる．
+ただし Hesse 変換の選択は有限多価であり，この議論だけで
+有理商の一般次数が１であるとはいわない．
+
+さらに代数的な横断性を有理数体で独立に検算する．
+\eqref{eq:F17} の次の点を取る：
+\begin{align}\label{eq:F0}
+ F_0={}&3(x^3+y^3+z^3)+5xyz+ux^2+2vy^2+3(u+v)z^2\notag\\
+ &+(u^2+uv+2v^2)x+(2u^2+3uv+v^2)y\\
+ &+(u^2+4uv+5v^2)z+u^3+u^2v+2uv^2+3v^3.\notag
+\end{align}
+$\mathfrak{gl}_3\oplus\mathfrak{gl}_2\oplus\operatorname{Mat}_{3\times2}$
+の19個の行列係数に対する微分 \eqref{eq:Lie} の像を取り，
+これと \eqref{eq:F17} の方向のうち $g$ 以外の13方向とを
+$\Sym^3(W\oplus U)/\Sym^3U$ の31個の単項式に展開する．
+同時スカラー１方向を除いた $31\times31$ の行列について
+\begin{equation}\label{eq:det}
+ \boxed{\det M_{31}=-5538243375000\ne0}
+\end{equation}
+となる．行と列の取り方を付録\ref{app:rank}に固定した．
+この計算は有理数体上の厳密計算であり，
+付属 \texttt{verify\_17\_slice.py} で再現できる．
+したがって ambient 二次代数の31方向において，
+$P$ の一般軌道は18次元で，13係数正規形は横断的である．
+
+残りの $\Sym^3U$ の４係数は，固定 ambient の上の
+$[\mathcal G_F+g]$ の４次元のアフィン chart である．
+よって全中心三次対の固定 $U$ での一般軌道も18次元であり，
+17係数正規形は一般軌道に横断する．
+$U$ が \eqref{eq:Z1} によって intrinsic なので，
+一般の同型がこれ以外の６次元の pencil 方向を
+同一視してしまうことはない．
+$U$ を動かすと $\cI$ の次元は41，$\PGL_5$ の一般軌道の次元は
+$6+18=24$ である．Rosenlicht の有理商の定理 \cite{Rosenlicht}
+と次元公式により \eqref{eq:17mod} を得る．
+\end{proof}
+
+\begin{remark}[定義域と17次元の意味]\label{rem:meaning}
+この次元は $\PGL_5$ による同型軌道についての値であり，
+実際に $A$ の次数付き同型類に対応することは
+次節の復元定理\ref{thm:ambient}で保証する．
+$\PGL_5$ の一般 stabilizer が有限であることは示したが，
+自明であることや有限次数が１であることは示していない．
+また $T$ の各点で $\qgr A$ が滑らかであるとは主張しない．
+\end{remark}
+
+\section{内在的 $\mathbb Z$-代数と ambient 非可換 $\PP^4$ の復元}\label{sec:reconstruction}
+\subsection{二次包絡の構成}
+$(\mathcal C,\OO,T)$ を $k$-線形 Abel 圏，指定対象 $\OO$，
+自己同値 $T$ からなる偏極付き三つ組とする．
+$E_i=T^{-i}\OO$ と置き，$i\le j$ に対して
+\begin{equation}\label{eq:Zalg}
+ \cZ_{ij}=\Hom_{\mathcal C}(E_j,E_i),\qquad
+ \cZ_{ij}\,\cZ_{jk}\longrightarrow\cZ_{ik}
+\end{equation}
+を射の合成で定義する．これは $\mathbb Z$-代数である．
+$\cZ_{i,i+1}$ で生成する自由 $\mathbb Z$-代数を取り，
+各 $i$ について
+\begin{equation}\label{eq:rel2}
+ \mathcal R_i=
+ \ker\bigl(\cZ_{i,i+1}\otimes\cZ_{i+1,i+2}
+ \longrightarrow\cZ_{i,i+2}\bigr)
+\end{equation}
+が生成する二次関係のみを課した $\mathbb Z$-代数を
+$\operatorname{Quad}(\cZ)$ と記す．
+この操作は三つ組の同値に関して関手的である．
+
+\begin{lemma}[section algebra の全次数での復元]\label{lem:section}
+$A$ を connected graded，次数１生成，左右 noetherian な
+AS Gorenstein 代数とし，injective dimension を $\ge2$ とする．
+$\OO_A=\pi_A A$，$T=(1)$ に対し，自然な写像
+\begin{equation}\label{eq:section}
+ A\longrightarrow \bigoplus_{n\ge0}
+ \Hom_{\qgr A}(\OO_A,\OO_A(n))
+\end{equation}
+は次数付き代数同型である．
+\end{lemma}
+\begin{proof}
+AS Gorenstein 性により，$\Ext_A^i(k,A)=0$ が $i=0,1$ で成立する．
+有限次元次数付き加群は $k$ のシフトを商とする有限 filtration を持つので，
+任意の有限次元 $L$ について
+$\Hom_{\operatorname{gr} A}(L,A(n))=
+\Ext^1_{\operatorname{gr} A}(L,A(n))=0$ である．
+$0\to A_{\ge r}\to A\to A/A_{\ge r}\to0$ に適用し，
+$A_n\to\Hom_{\operatorname{gr}A}(A_{\ge r},A(n))$ を同型とする．
+商圏の Hom は右辺の直極限なので \eqref{eq:section} を得る．
+積の両立性は次数シフトを挟んだ射の合成の定義から従う．
+これは Artin--Zhang の section algebra の一般理論のこの場合の直接的帰結である
+\cite{AZ,YZ}．
+\end{proof}
+
+\begin{theorem}[canonical quadratic envelope による ambient の復元]\label{thm:ambient}
+$B$ を次数１生成の二次 connected graded 代数，
+$0\ne G\in\Z(B)_3$ を中心正則元，$A=B/(G)$ とする．
+$V=A_1$ とおき
+\begin{equation}\label{eq:Qcan}
+ B_{\mathrm{can}}(A)=
+ \frac{\Tens(V)}{\left\langle
+ \ker\bigl(V\otimes V\longrightarrow A_2\bigr)
+ \right\rangle}
+\end{equation}
+と定義すると
+\begin{equation}\label{eq:recover}
+ B_{\mathrm{can}}(A)\simeq B,
+ \qquad
+ \ker\bigl((B_{\mathrm{can}})_3\longrightarrow A_3\bigr)=kG.
+\end{equation}
+特に第\ref{sec:normal}節の一般の17次元族では
+$B_{\mathrm{can}}$ は５次元 Koszul AS 正則で，
+$H_B(t)=(1-t)^{-5}$ である．
+$A$ が補題\ref{lem:section} の条件を満たすとき，
+$B_{\mathrm{can}}$ と中心三次直線は
+$(\qgr A,\OO_A,(1))$ の $\mathbb Z$-代数\eqref{eq:Zalg} の
+二次包絡から復元される．
+商写像 $B\twoheadrightarrow A$ は自然な完全忠実 Abel 関手
+\begin{equation}\label{eq:embedding}
+ \boxed{\qgr A\hookrightarrow\qgr B}
+\end{equation}
+を誘導する．
+\end{theorem}
+\begin{proof}
+三次関係 $G$ は次数１，２に何も課さないから，
+$A_1=B_1$, $A_2=B_2$ である．従って
+$\ker(A_1\otimes A_1\to A_2)$ は $B$ の二次関係の空間そのものである．
+$B$ は二次関係だけで定義されているため，最初の同型を得る．
+さらに $(G)_3=B_0 G B_0=kG$ なので第二の等式も得る．
+
+第\ref{sec:construction}節の $B_F$ は二次 Koszul AS 正則であり，
+$A_F=B_F/(G_F)$ は AS Gorenstein，injective dimension 4，index 2
+なので，補題\ref{lem:section} が適用できる．
+そのとき $\cZ_{ij}\cong A_{j-i}$ であり，
+\eqref{eq:rel2} の二次関係の核は \eqref{eq:Qcan} の核と一致する．
+従って $\operatorname{Quad}(\cZ)$ は $B$ の付随 $\mathbb Z$-代数である．
+
+$A$-加群を $B$-加群と見る制限関手は完全忠実であり，
+次数付き有限次元 torsion の条件も一致するので，
+それが \eqref{eq:embedding} を与える．
+ここで完全忠実なのは Abel 圏の関手であり，
+$D^b(\qgr A)\to D^b(\qgr B)$ の完全忠実性ではない．
+\end{proof}
+
+\begin{corollary}[17次元は偏極付き同型類の真の次元]\label{cor:17}
+第\ref{sec:normal}節の一般点で，二つの三次商 $A_F,A_{F'}$ が
+次数付き代数として同型なら，それらの中心三次対
+$(B_F,[G_F])$ と $(B_{F'},[G_{F'}])$ も次数付き同型である．
+逆も成り立つ．したがって定理\ref{thm:17}の17次元は，
+実際の非可換 cubic の次数付き同型類の次元である．
+同じ結論は三つ組 $(\qgr A,\OO_A,(1))$ の同値類にも成り立つ．
+\end{corollary}
+\begin{proof}
+前者は定理\ref{thm:ambient}による．逆は明らかである．
+偏極付き三つ組の同値は補題\ref{lem:section}によって
+section algebra の同型を誘導する．
+\end{proof}
+
+\begin{remark}[抽象的な判定問題]\label{rem:abstract}
+任意の $\mathbb Z$-代数に二次包絡を取ることはできるが，
+その AS 正則性は一般には従わない．本族では\emph{先に}
+補題\ref{lem:pbw}で５次元 AS 正則性を証明し，
+次に定理\ref{thm:ambient}で同じ $B$ が intrinsic に得られることを示した．
+また無標識な一般 $\mathbb Z$-代数の１周期性も自動的でない．
+\end{remark}
+
+\section{Serre 関手からの復元：次数シフトを指定しない強化}\label{sec:serre}
+ここでは復元の入力を $(D^b(\qgr A),\OO_A)$ に弱める．
+\emph{この節だけ} $\qgr A$ の有限大域次元を追加仮定する．
+この仮定のもとで本族の Serre 関手は
+\begin{equation}\label{eq:Serre}
+ \mathsf S\simeq(-2)[3],\qquad
+ \Theta:=\mathsf S^{-1}[3]\simeq(2)
+\end{equation}
+となる．これは補題\ref{lem:CY} の Calabi--Yau ambient と，
+次数３中心正則商の AS Gorenstein 双対化を組み合わせた
+非可換 Serre 双対 \cite{YZ} の帰結である．
+したがって指定された構造対象から，偶数 Veronese
+\begin{equation}\label{eq:even}
+ R=\bigoplus_{n\ge0}\Hom(\OO_A,\Theta^n\OO_A)
+ \simeq A^{(2)}=\bigoplus_{n\ge0}A_{2n}
+\end{equation}
+が内在的に得られる．
+
+\begin{lemma}[一般混合族の次数２中心]\label{lem:center2}
+第\ref{sec:construction}節の族で $S_{f_3}$ の次数１，２の中心が零で，
+$G_F$ の最高 $x,y,z$-次数記号が非零とする．
+このとき
+\begin{equation}\label{eq:center2}
+ \Z(B_F)_2=\Z(A_F)_2=\Sym^2\langle u,v\rangle.
+\end{equation}
+\end{lemma}
+\begin{proof}
+\eqref{eq:gr} の最高 $x,y,z$-次数記号を取れば
+$\Z(B_F)_2=\Sym^2U$ が従う．
+$\overline Q\in\Z(A_F)_2$ を $Q\in(B_F)_2$ に持ち上げる．
+$\ker((B_F)_3\to(A_F)_3)=kG_F$ なので
+\[
+ [Q,x]=c_xG_F,\quad [Q,y]=c_yG_F,\quad [Q,z]=c_zG_F
+\]
+と書ける．$G_F$ が中心的なので Jacobi 恒等式から
+$[Q,[x,y]]=[Q,[y,z]]=[Q,[z,x]]=0$ を得る．
+\eqref{eq:B} に代入し，$G_F$ の正則性と
+完全対称化の微分公式を用いると
+\[
+ \sum_{i=x,y,z}c_i\,\partial_i\partial_j F=0,
+ \qquad j=x,y,z
+\]
+となる．$u=v=0$ で制限すれば
+$\partial_j(\sum_i c_i\partial_i f_3)=0$ である．
+括弧内は斉次二次式なので零である．
+$(c_x,c_y,c_z)\ne0$ なら $f_3$ は一つの定数方向に依存せず，
+$V(f_3)\subset\PP^2$ が特異になる．従って $c_i=0$ で，
+$Q\in\Z(B_F)_2=\Sym^2U$ を得る．
+\end{proof}
+
+\begin{proposition}[偶数環からの奇数次数復元]\label{prop:evenrecover}
+$A$ が連結次数付き代数で，$S=k[u,v]\subset\Z(A)$ に対して
+$S$ 上自由，$\Z(A)_2=S_2$ とする．
+このとき $R=A^{(2)}$ の次数付き同型類から $A$ の次数付き同型類が
+復元される．二つの持上げの差は奇数次数への符号 $-1$ の作用である．
+\end{proposition}
+\begin{proof}
+$z\in\Z(R)_n$ とし，$a\in A$ の次数が奇数なら，
+$ua\in R$ だから $u[z,a]=[z,ua]=0$ である．
+$u$ の正則性より $[z,a]=0$ なので
+$\Z(R)=\Z(A)^{(2)}$ である．特に $\Z(R)_1=S_2$ が生成する
+中心部分代数は
+\begin{equation}\label{eq:conic}
+ D=k[u^2,uv,v^2]\simeq k[a,b,c]/(ac-b^2).
+\end{equation}
+この次数１の滑らかな二次曲線から $S=k[u,v]$ は
+符号 $\pm1$ を除いて回復する．
+$D$-加群としての $R$ とこの被覆から，中心局所化
+\[
+ T_u=R[(u^2)^{-1}]\otimes_{D[(u^2)^{-1}]}S[u^{-1}],\qquad
+ T_v=R[(v^2)^{-1}]\otimes_{D[(v^2)^{-1}]}S[v^{-1}]
+\]
+を作ると，偶奇の次数を分けた積写像によって
+$T_u\simeq A[u^{-1}]$, $T_v\simeq A[v^{-1}]$ となる．
+$A$ は $S$ 上自由なので，共通局所化の中で
+\[
+ A[u^{-1}]\cap A[v^{-1}]=A
+\]
+が成立する．よって $A=T_u\cap T_v$ として復元される．
+$D$ の次数付き自己同型の $S$ への持上げが二通りであることと，
+その差が $u,v\mapsto -u,-v$ であることから，最後の主張を得る．
+\end{proof}
+
+\begin{corollary}[構造対象付き導来圏からの ambient の復元]\label{cor:Serre}
+第\ref{sec:normal}節の一般点で，$\qgr A_F$ が有限大域次元を持ち，
+補題\ref{lem:center2}の仮定が成立するとする．
+このとき $(D^b(\qgr A_F),\OO_{A_F})$ から
+$A_F$ の次数付き同型類を復元でき，従って
+$B_{\mathrm{can}}$ と中心三次直線 $[G_F]$ も復元できる．
+次数シフト $(1)$ を入力とする必要はない．
+\end{corollary}
+\begin{proof}
+\eqref{eq:Serre}, \eqref{eq:even} により偶数 Veronese が得られる．
+補題\ref{lem:pbw} と中心正則元の最高 $x,y,z$-次数記号の正則性から
+$\gr_{x,y,z}A_F\simeq (S_{f_3}/(\Omega_{f_3}))\otimes k[u,v]$ を得る．
+$S_{f_3}/(\Omega_{f_3})$ の斉次基底を持ち上げれば，
+PBW と同じ次数帰納法により $A_F$ は $k[u,v]$ 上自由である．
+補題\ref{lem:center2}および命題\ref{prop:evenrecover}によって
+$A_F$ を回復でき，定理\ref{thm:ambient}を適用する．
+\end{proof}
+
+\begin{remark}[正確な射程]
+系\ref{cor:Serre}の入力には依然として $\OO_A$ が指定されている．
+構造対象を忘れた任意の導来同値や，残余圏のみからの ambient 復元は
+本稿の結論ではない．また本稿はこの追加仮定が17係数族の
+すべての閉点で成立するとは主張しない．
+\end{remark}
+
+\section{結論と検証状態}\label{sec:status}
+本稿で得られた内容は，\textbf{17係数の有限型代数族が
+一般の中心三次対を有限重複で支配し，その同型類が真に17次元動くこと}と，
+\textbf{偏極付き非可換 cubic 自身の $\mathbb Z$-代数の二次包絡から
+ambient の５次元 AS 正則代数および中心三次方程式を復元できること}である．
+第\ref{sec:serre}節の強化には明示した smoothness の条件が付く．
+
+数学的な論拠を三種類に区別する．
+第一に，Mori--Smith，Berger--Taillefer，Etingof--Ginzburg，Artin--Zhang，
+Yekutieli--Zhang 等の既知の定理を引用している．
+第二に，相対 PBW と中心元の定数 rank の相対化，群作用の正規形，二次包絡の復元，
+次数２中心の Hessian 証明は本稿内で論理を記述した．
+第三に，\eqref{eq:det} は付属コードで有理数体上の厳密な行列式として実行した．
+これらを混同しない．本稿の全数学的主張について形式証明や独立な
+網羅的再監査が済んだとは主張しない．公表前には相対中心元の
+全係数による正則化，より広い先行文献との初出比較，
+Serre の仮定の適用範囲を引き続き監査する必要がある．
+
+\appendix
+\section{17係数正規形の正確な行列証明書}\label{app:rank}
+係数を $\mathbb Q$ 上で計算する．単項式基底は
+\[
+ x^iy^jz^ku^\ell v^{3-i-j-k-\ell},\quad
+ i,j,k,\ell\ge0,\quad i+j+k+\ell\le3
+\]
+を辞書式の添字順で並べる．$i+j+k>0$ の31単項式だけを行として取り出す．
+19個の群方向は $M_{ij}$（$1\le i,j\le3$）９個，
+$N_{ij}$（$1\le i,j\le2$）４個，
+$C_{ij}$（$1\le i\le3,1\le j\le2$）６個の順に
+\eqref{eq:Lie} の係数微分を並べる．このうち最初の１列を除く．
+13個の正規形方向は
+\[
+ x^3+y^3+z^3,\ xyz,\ vy^2,\ (u+v)z^2,\quad
+ x(u^2,uv,v^2),\ y(u^2,uv,v^2),\ z(u^2,uv,v^2)
+\]
+の順である．得られる $31\times31$ 行列の行列式は
+\[
+ -5538243375000=-2^3\cdot3^5\cdot5^6\cdot7^2\cdot61^2.
+\]
+付属の \texttt{verify\_17\_slice.py} は \eqref{eq:F0} に対して
+これを厳密整数計算で再現する．中心三次方向
+$u^3,u^2v,uv^2,v^3$ を最後に付け足すと，
+$35\times35$ 行列式も同じ非零値となる．
+したがって binary cubic に入る量子的な正規化補正の詳細を仮定せずに
+横断性を結論できる．
+
+\begin{thebibliography}{99}
+\bibitem{AS}
+M.~Artin and W.~F.~Schelter,
+\textit{Graded algebras of global dimension 3},
+Adv. Math. \textbf{66} (1987), 171--216.
+
+\bibitem{AZ}
+M.~Artin and J.~J.~Zhang,
+\textit{Noncommutative projective schemes},
+Adv. Math. \textbf{109} (1994), 228--287.
+\href{https://doi.org/10.1006/aima.1994.1087}{doi:10.1006/aima.1994.1087}.
+
+\bibitem{ATV}
+M.~Artin, J.~Tate and M.~Van den Bergh,
+\textit{Some algebras associated to automorphisms of elliptic curves},
+in \textit{The Grothendieck Festschrift}, Vol.~I,
+Birkh\"auser (1990), 33--85.
+\href{https://doi.org/10.1007/978-0-8176-4574-8_3}{doi:10.1007/978-0-8176-4574-8\_3}.
+
+\bibitem{AD}
+M.~Artebani and I.~Dolgachev,
+\textit{The Hesse pencil of plane cubic curves},
+Enseign. Math. \textbf{55} (2009), 235--273,
+\href{https://doi.org/10.4171/LEM/55-3-3}{doi:10.4171/LEM/55-3-3}.
+
+\bibitem{BT}
+R.~Berger and R.~Taillefer,
+\textit{Poincar\'e--Birkhoff--Witt deformations of Calabi--Yau algebras},
+J. Noncommut. Geom. \textbf{1} (2007), 241--270,
+\href{https://doi.org/10.4171/JNCG/6}{doi:10.4171/JNCG/6},
+\href{https://arxiv.org/abs/math/0610112}{arXiv:math/0610112}.
+
+\bibitem{CKS}
+A.~Chirvasitu, R.~Kanda and S.~P.~Smith,
+\textit{New Artin--Schelter regular and Calabi--Yau algebras via normal extensions},
+\href{https://arxiv.org/abs/1706.05754}{arXiv:1706.05754v3},
+\href{https://doi.org/10.1090/tran/7672}{doi:10.1090/tran/7672}.
+
+\bibitem{EG}
+P.~Etingof and V.~Ginzburg,
+\textit{Noncommutative del Pezzo surfaces and Calabi--Yau algebras},
+J. Eur. Math. Soc. \textbf{12} (2010), 1371--1416,
+\href{https://doi.org/10.4171/JEMS/235}{doi:10.4171/JEMS/235},
+\href{https://arxiv.org/abs/0709.3593}{arXiv:0709.3593v4}.
+
+\bibitem{LPT}
+F.~Loray, J.~V.~Pereira and F.~Touzet,
+\textit{Foliations with trivial canonical bundle on Fano 3-folds},
+Math. Nachr. \textbf{286} (2013), 921--940,
+\href{https://arxiv.org/abs/1112.3871}{arXiv:1112.3871}.
+
+\bibitem{Mayanskiy}
+E.~Mayanskiy,
+\textit{Poisson cohomology of two Fano threefolds},
+J. Algebra \textbf{424} (2015), 21--45,
+\href{https://doi.org/10.1016/j.jalgebra.2014.08.049}{doi:10.1016/j.jalgebra.2014.08.049},
+\href{https://arxiv.org/abs/1303.5916}{arXiv:1303.5916}.
+
+\bibitem{MS}
+I.~Mori and S.~P.~Smith,
+\textit{The classification of 3-Calabi--Yau algebras with 3 generators and 3 quadratic relations},
+Math. Z. (2017),
+\href{https://doi.org/10.1007/s00209-016-1824-5}{doi:10.1007/s00209-016-1824-5},
+\href{https://arxiv.org/abs/1502.07403}{arXiv:1502.07403v2}.
+
+\bibitem{Pym}
+B.~Pym,
+\textit{Quantum deformations of projective three-space},
+Adv. Math. \textbf{281} (2015), 1216--1241,
+\href{https://doi.org/10.1016/j.aim.2015.06.005}{doi:10.1016/j.aim.2015.06.005},
+\href{https://arxiv.org/abs/1403.6444}{arXiv:1403.6444}.
+
+\bibitem{Rains}
+E.~M.~Rains,
+\textit{Filtered deformations of elliptic algebras},
+\href{https://arxiv.org/abs/2107.13540}{arXiv:2107.13540v2},
+\S2, Theorem~2.13.
+
+\bibitem{RSVdB}
+J.~V.~Rennemo, E.~Segal and M.~Van den Bergh,
+\textit{A non-commutative Bertini theorem},
+J. Noncommut. Geom. \textbf{13} (2019), 609--616,
+\href{https://doi.org/10.4171/JNCG/334}{doi:10.4171/JNCG/334},
+\href{https://arxiv.org/abs/1705.01366}{arXiv:1705.01366v2}.
+
+\bibitem{Rosenlicht}
+M.~Rosenlicht,
+\textit{Some basic theorems on algebraic groups},
+Amer. J. Math. \textbf{78} (1956), 401--443.
+
+\bibitem{YZ}
+A.~Yekutieli and J.~J.~Zhang,
+\textit{Serre duality for noncommutative projective schemes},
+Proc. Amer. Math. Soc. \textbf{125} (1997), 697--707,
+\href{https://doi.org/10.1090/S0002-9939-97-03782-9}{doi:10.1090/S0002-9939-97-03782-9}.
+
+\bibitem{ZSL}
+G.-S.~Zhou, Y.~Shen and D.-M.~Lu,
+\textit{Skew Calabi--Yau property of normal extensions},
+Manuscripta Math. \textbf{161} (2020), 125--140,
+\href{https://doi.org/10.1007/s00229-018-1064-6}{doi:10.1007/s00229-018-1064-6},
+\href{https://arxiv.org/abs/1709.09292}{arXiv:1709.09292}.
+
+\bibitem{Zhang}
+J.~J.~Zhang,
+\textit{Twisted graded algebras and equivalences of graded categories},
+Proc. London Math. Soc. \textbf{72} (1996), 281--311,
+\href{https://doi.org/10.1112/plms/s3-72.2.281}{doi:10.1112/plms/s3-72.2.281}.
+\end{thebibliography}
+\end{document}
