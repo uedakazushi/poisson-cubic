@@ -1,10 +1,10 @@
 # 研究方針：3次超曲面のPoisson構造と非可換化
 
-2026年11月8日（日本標準時）・統合第2版 / nc-cubic-v2
+2026年11月8日（日本標準時）・統合第3版 / nc-cubic-v3
 
 ## 最初に読むこと
 
-このファイルを最初に読み、`cubic_poisson_rotation.pdf` の序論と必要な証明、次に `research_notes.pdf` の対応する課題へ進む。現行の成果と必要な証明は本リポジトリ内に統合してあり、旧ZIP・過去の会話・旧入力原稿を再取得する必要はない。
+このファイルを最初に読み、`pdf/cubic_poisson_rotation.pdf` の序論と必要な証明、次に `pdf/research_notes.pdf` の対応する課題へ進む。現行の成果と必要な証明は本リポジトリ内に統合してあり、旧ZIP・過去の会話・旧入力原稿を再取得する必要はない。
 
 中心問題は、滑らかな可換cubicのPoisson構造を量子化した次数付き代数 $B=A/(\Omega)$ に対し、標準次数シフトから作るrotationを備えた残余dg圏が、ある滑らかな可換cubicのrotation付きKuznetsov成分になるか、という存在問題である。存在した可換モデルの一意性にはpolarized categorical Torelliを使う。存在と一意性は別の主張である。
 
@@ -17,6 +17,13 @@
 後者は $\rho^3\simeq[2]$ を保つsmooth properな代数的pair族の連結底上で一定である。従ってこの例は、標準的な可換cubicのpairとそのような族では結べない。これは、可換点から出発する特定の量子化族の良い成分に対する反例と、任意のAS-regular中心三次商に対する反例とを区別する理由でもある。
 
 元の量子化問題は放棄せず、**可換点を含む量子化成分における存在、相対saturation、有限パラメータでの到達範囲**を第一目標とする。一般AS-regularモジュライの全成分を同じ存在定理で覆う目標は、この反例によって不可能と分かった。
+
+## 完全交叉・斉次多様体のPoisson存在と量子化の明示性
+
+- 論文Section 2：複素数体上の滑らかな通常射影完全交叉、次元 n≥3 では、非零Poisson構造の存在と多重次数が空列（射影空間）、(2)、(3)、(2,2)であることが同値。非存在はBrückmannの消滅（Fu–Hwang Lemma 4.1）、存在は階数二の可積分分布で示す。既知の消滅定理の応用であり、新規性は未確認。次元2には(4)、(2,3)、(2,2,2)のK3曲面も現れる。
+- 次元2以上の正規トーリック多様体にはトーラス導分の外積による代数的Poisson括弧がある。複素滑らか射影斉次多様体もBorel–Remmert分解と可換な二つの基本ベクトル場から構成できる。非射影の任意の斉次空間は主張しない。
+- 三次Poisson正規形について周囲のAS-regular量子化の二次関係式はcyclic potentialで明示できる。三次中心元は一般には形式的存在と有限行列の核の計算による代数化であり、統一閉公式は未確認。Fermat型については閉公式を証明済み。
+- 本研究の第一目標は引き続きPoisson量子化成分からのrotation付き可換復元。相対saturationや実際の有限パラメータの存在は未解決のまま区別する。
 
 ## 到達点・証明の所在・状態
 
@@ -67,7 +74,7 @@
 
 `python3 computations/verify_algebra.py` は中心元、Hesse判別式、有限位数・無限位数の点、Koszul恒等式を厳密検算する。`python3 computations/verify_rotation_obstructions.py` はZhang twistの交換係数、中心性、Nakayama係数、Hochschild作用に使う文字数を整数演算で検証する。`python3 computations/verify_geometry.py` は完全交叉のChern数・次数・種数・Euler標数・Hodge数の数値を厳密検算する。圏同値や幾何学的証明の計算機形式化ではない。
 
-`python3 scripts/build.py` はLuaLaTeXで論文と研究ノートを組版し、Pandocから研究方針のPDFを生成する。中間物は一時ディレクトリに置く。`python3 scripts/verify_bundle.py` は参照・ファイル構成・証明書・チェックサムを確認する。最終的な実行状況は `validation.json` に記す。
+`python3 scripts/build.py` は `tex/` のLuaLaTeX原稿から `pdf/` に論文と研究ノートを組版し、Pandocから研究方針のPDFを生成する。中間物は一時ディレクトリに置く。`python3 scripts/verify_bundle.py` は参照・ファイル構成・証明書・チェックサムを確認する。最終的な実行状況は `validation.json` に記す。現行TeX更新後のPDFは未再組版であり、`pdf/` は旧版の内容のままである。整合するPDFとチェックサムを再生成する必要がある。
 
 ## 研究一般の原則と保存許可
 
