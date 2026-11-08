@@ -1,6 +1,6 @@
 # 研究方針：3次超曲面のPoisson構造と非可換化
 
-2026年11月8日（日本標準時）・統合第1版 / nc-cubic-v1
+2026年11月8日（日本標準時）・統合第2版 / nc-cubic-v2
 
 ## 最初に読むこと
 
@@ -39,9 +39,15 @@
 
 ### 1. 可換点を含む量子化族の相対saturation
 
-量子化 $B_U=A_U/(\Omega)$ の零の近傍で、残余圏とrotationを有限表示の代数的dg族として構成する。`research_notes.pdf` の相対Beilinson仮定(RB1)–(RB2)、有限相対Koszul分解、対角の有限証明書を出発点とする。
+**今回の還元（公表用原稿「相対saturationへの二つの還元」節に証明）**：相対properな超曲面圏が有限相対例外列と残余圏のdg半直交分解を持つ場合、両者の相対smoothnessは同値である。よって `Λ_R=REnd(⊕_{i=0}^{N-1} O_{B_R}(i))` の対角について一つの有限perfect証明書を構成すれば十分で、残余圏 `Γ_R` の対角を独立に持ち上げる必要はない。これはgluingの既知の一般原理の相対版で、新規性は未確認。
 
-完了条件は、生成子の自己Homが底上perfect、対角bimoduleがenveloping algebra上perfect、rotationと随伴が導来底変更と両立することを、それぞれ証明すること。各Artin切断のsmooth proper性だけを有限型模型の存在に読み替えない。これが完成すれば論文のétale局所実現定理を適用できる。
+また、中心三次元のgraded matrix factorizationでは内部シフト `(1)^3 ≃ [2]` が基底変更と両立して成立する。相対Orlov同値で内部シフトがrotationへ移るなら、相対的なrotationの自己同値性・周期性が従う。相対Orlov同値そのものは未構成。
+
+**未解決の核心**：特定のPoisson量子化族に対する(RB1)–(RB2)・相対例外列を証明し、可換点での有限Beilinson対角証明書を `Λ_R^e` 上へ持ち上げる。さらに相対Orlov同値を構成する。零ファイバーのsmoothnessだけからZariski開でのsmoothnessを結論しない。
+
+**具体的な手順**：まず量子化代数のKoszul分解とその双対から相対局所cohomology (H) と任意の底変更への両立を検証する。次に `Λ_R` の明示的なmonadモデルを作り、対角の有限cell複体 `P→Λ_R` とその零ファイバーでの擬同型を求める。これができればconeのperfect supportの議論で零のZariski近傍のsaturationを得る。最後に相対graded matrix factorizationと残余圏のdg比較を作り、rotationを識別する。
+
+**達成判定**：上記の有限証明書・基底変更・相対Orlov同値が、`C[ħ]` の実在するZariski開近傍上で示されていること。Artin切断上の存在だけでは達成としない。smooth proper pairからの可換復元（変形空間への像・étale局所実現・大域降下）はその先の別課題。
 
 ### 2. 二つの無限位数Sklyaninブロックの全生成
 

@@ -2,7 +2,7 @@
 
 **3次超曲面のPoisson構造と非可換量子化：正規形・退化スキーム・rotation付き残余圏**
 
-2026年11月8日（日本標準時）・統合第1版 / `nc-cubic-v1`
+2026年11月8日（日本標準時）・統合第2版 / `nc-cubic-v2`
 
 ## 読む順序
 
@@ -83,3 +83,9 @@ python3 scripts/verify_bundle.py
 原稿の生成、数学の証明点検、有限計算、組版、PDFの表示確認、GitHubへの反映は別の状態として扱う。実行結果と限界は `validation.json` を参照する。外部査読とLean形式化は未実施。主要な外部定理の適用箇所と確認した版は文献表に記載している。
 
 研究の区切りごとのbundle保存は再承認不要。一般研究原則と保存許可は研究方針に記載する。PR・GitHub Actionsを使わず、`main` の通常更新で現在の研究一式を管理する。
+
+## 相対saturationの還元（v2）
+
+公表用原稿の `papers/relative_saturation.tex` に、相対properな半直交分解での smoothness の同値、全超曲面圏の対角一本への有限証明書の還元、中心三次元の graded matrix factorization の `(1)^3 ≃ [2]` を証明した。gluingはOrlovの既知定理の相対版であり、新規性未確認。相対Beilinson仮定、実際の有限証明書、相対Orlov同値、可換復元の存在は未解決のまま区別する。
+
+**組版状態**：更新したTeX原稿をGitHubに保存したが、GitHub上の既存PDF三点はv1からの再生成を今回行っていない。したがってPDFと現行TeXは一致しない。再生成は `python3 scripts/build.py`。今回独立にLuaLaTeX組版した相対saturationの3ページ補助PDFは会話の成果物として配布する。
