@@ -1,0 +1,190 @@
+\section{Hesse型Poisson量子化の明示的な三次中心元}
+\label{sec:explicit-hesse-center}
+本節では量子化の定理が与える三次中心元を、滑らかなHesse型
+三変数ブロックについて閉公式で指定する。
+この公式はSklyanin代数の既知の中心三次式
+\cite[Theorem 1およびSection 2]{DeLaetLeBruyn}
+（原式は\cite[p.~35, Remark (1)]{SmithTate}）
+のPoisson量子化パラメータへの代入である。
+従って中心元の存在という既知の結果自体を新規な主張とはしない。
+本研究で有用なのは、$0$を含む明示的なパラメータ開集合と
+$\hbar=0$での留数を正規化した公式を同時に得ることである。
+
+\subsection{公式と適用開集合}
+$t\in\CC$、$t^3\ne-1$とし、
+\[
+ f_t(x,y,z)=\frac{x^3+y^3+z^3}{3}+txyz
+\]
+と置く。$\hbar$を次数零のパラメータとして、
+\[
+ [y,z]=\hbar\left(x^2+\frac{t}{2}(yz+zy)\right),
+ \quad
+ [z,x]=\hbar\left(y^2+\frac{t}{2}(zx+xz)\right),
+ \quad
+ [x,y]=\hbar\left(z^2+\frac{t}{2}(xy+yx)\right)
+ \tag{H}\label{eq:hesse-commutators}
+\]
+による次数付き代数を$S_{\hbar,t}$と書く。
+ここで
+\[
+ S=x^3+y^3+z^3,\quad
+ C=xyz+yzx+zxy,\quad
+ D=yxz+xzy+zyx,\quad T=(C+D)/6.
+\]
+次の$\hbar$の多項式を定める：
+\[
+ U(\hbar,t)=1+\frac{\hbar^2t^2}{2}
+  +\frac{\hbar^4t}{6}-\frac{\hbar^4t^4}{48},
+ \qquad
+ W(\hbar,t)=
+ \frac{(4-\hbar^2t^2)
+ (12t+\hbar^2(t^3-8))}{48}.
+ \tag{HU}\label{eq:hesse-UW}
+\]
+また
+\[
+ \Delta_{\hbar,t}=
+ \left(t+\frac{\hbar^2}{3}
+       \left(1+\frac{t^3}{4}\right)\right)^3
+  +\left(1-\frac{\hbar^2t^2}{4}\right)^3.
+ \tag{HD}\label{eq:hesse-discriminant}
+\]
+と置く。$\Delta_{0,t}=1+t^3\ne0$である。
+
+\begin{theorem}[Hesse中心三次式の閉公式]
+\label{thm:explicit-hesse-center}
+$t^3\ne-1$に対し、
+\[
+ U_t=\{\hbar\in\mathbb A^1_{\CC}:
+   U(\hbar,t)(1-\hbar^2t^2/4)\Delta_{\hbar,t}\ne0\}
+\]
+とする。$0\in U_t$であり、
+各$\hbar\in U_t$に対して
+$S_{\hbar,t}$は三生成元のKoszul AS-regular domainで、
+Hilbert級数$(1-z)^{-3}$を持つ。
+元
+\[
+ \boxed{\quad
+ \Omega_{\hbar,t}=
+   \frac{U(\hbar,t)}3(x^3+y^3+z^3)
+   +W(\hbar,t)\operatorname{sym}(xyz)
+ \quad}
+ \tag{HC}\label{eq:hesse-central-element}
+\]
+は$S_{\hbar,t}$の次数三の中心正則元であり、
+$\Omega_{0,t}=f_t$である。
+特に$t=0$では
+$\Delta_{\hbar,0}=1+\hbar^6/27$で、
+\[
+ \Omega_{\hbar,0}
+ =\frac{x^3+y^3+z^3}{3}
+   -\frac{2\hbar^2}{3}\operatorname{sym}(xyz)
+\]
+を得る。
+\end{theorem}
+\begin{proof}
+$q=\hbar t/2$、
+$a=1-q$、$b=-(1+q)$、$c=-\hbar$と置く。
+\eqref{eq:hesse-commutators}は
+\[
+ ayz+bzy+cx^2=0,\quad
+ azx+bxz+cy^2=0,\quad
+ axy+byx+cz^2=0
+\]
+となる。$\hbar\ne0$かつ
+$(1-\hbar^2t^2/4)\Delta_{\hbar,t}\ne0$なら、
+$abc\ne0$で、標準Sklyaninの
+\[
+ (a^3+b^3+c^3)^3\ne(3abc)^3
+\]
+が成り立つ。
+実際、左辺の差は
+$-27\hbar^3\Delta_{\hbar,t}$である。
+従ってこの開部分では点曲線が滑らかな楕円曲線であり、
+$S_{\hbar,t}$は三次元Sklyanin AS-regular domainである
+\cite{SmithTate,DeLaetLeBruyn}。
+$\hbar=0$の代数は可換多項式環である。
+
+既知の中心元の公式は
+\[
+ G=a(b^3-c^3)C+
+   b(c^3-a^3)D+
+   c(a^3-b^3)S
+ \tag{G}\label{eq:hesse-sklyanin-G}
+\]
+である\cite[Section 2]{DeLaetLeBruyn}。
+一方、三つの定義関係式にそれぞれ$x,y,z$を左から掛けて足すと
+\[
+ C-D=\hbar S+\frac{\hbar t}{2}(C+D)
+ \tag{R}\label{eq:hesse-CD}
+\]
+を得る。この等式で$G$を$S,C+D$で表し、
+$a,b,c$を代入して係数を整理すると
+\[
+ G=-9\hbar\left(
+       \frac{U(\hbar,t)}3S+
+       \frac{W(\hbar,t)}6(C+D)\right)
+   =-9\hbar\Omega_{\hbar,t}.
+ \tag{I}\label{eq:hesse-G-identity}
+\]
+これは$\hbar$で割る操作をせずに成立する多項式恒等式である。
+$\hbar\ne0$の滑らかな楕円Sklyanin開部分では
+$G$が中心なので$\Omega_{\hbar,t}$も中心である。
+各次数成分が$\hbar$について有限自由であることは
+三次元SklyaninのHilbert級数と零ファイバーにおける
+同じ級数、および元論文のPBW構成から従う。
+従って各交換子$[\Omega_{\hbar,t},x]$等は
+有限自由加群の切断として稠密開集合上で零であり、
+$U_t$の全体で零となる。
+$\Omega_{0,t}=f_t$は$T_0=xyz$と
+$U(0,t)=1$、$W(0,t)=t$から分かる。
+既知のSklyanin中心元$G$は楕円開部分で非零であり、
+代数はdomainだから正則である。
+零ファイバーでも$f_t$は非零因子である。
+\end{proof}
+
+\begin{corollary}[中心変数と独立ブロックの閉公式]
+\label{cor:hesse-block-center}
+相異なる三変数ブロック$x_s=(x_s,y_s,z_s)$と
+中心変数$u$について
+\[
+ F=\sum_{s=1}^k
+ \left(\frac{x_s^3+y_s^3+z_s^3}{3}
+       +t_sx_sy_sz_s\right)+P(u),
+ \qquad t_s^3\ne-1,
+\]
+$P$は任意の斉次三次式とする。
+各ブロックに\eqref{eq:hesse-commutators}を課し、
+異なるブロック間と$u$を可換に取る。
+各$U_{t_s}$の共通開部分で
+\[
+ \Omega_\hbar
+   =\sum_s\Omega_{\hbar,t_s}+P(u)
+ \tag{HB}\label{eq:hesse-multiblock}
+\]
+は次数三の中心元で、$\Omega_0=F$である。
+各$u$の一次形式$\ell_{si}(u)$を選んで
+$x_{si}$を$x_{si}+\ell_{si}(u)$に置き換えた
+非自明な混合項を含むPoissonブロックでも、
+同じ置換による明示公式が成立する。
+\end{corollary}
+\begin{proof}
+各$S_{\hbar,t_s}$の中心元は他のブロックと可換であり、
+$P(u)$も中心なので和は中心である。
+中心線形シフトは生成元の次数付き同型を定め、
+同型によって中心元が中心元へ移る。
+\end{proof}
+
+\begin{remark}[適用範囲と新規性]
+\label{rem:hesse-scope}
+一般の$f_s(x_s,u)$には$u$とactive変数の本質的な
+混合項があり、必ずしも上の中心シフト形にはならない。
+その場合の中心元は依然として形式的存在と
+有限自由加群間の線形方程式による代数化で定まる。
+また、\eqref{eq:hesse-central-element}は
+周囲の量子化と中心元の明示式であり、
+残余dg圏の相対saturationや
+rotation付き可換復元を結論するものではない。
+中心元の基本公式は古典的Sklyanin理論に由来し、
+本節のHesseパラメータへの翻訳の新規性は未確認である。
+\end{remark}
