@@ -45,3 +45,5 @@ python3 scripts/verify_bundle.py
 **出力状態**：v4のTeX原稿はmainに含まれるが、既存の `pdf/` は以前の内容のまま。PDF再組版と新しいSHA256SUMSは未完了で、古いPDFをv4と表示してはならない。
 
 滑らかな任意の三変数三次式もHesse標準形へ線形変換できる（Artebani–Dolgachev, Lemma 1）。従って新しい `tex/papers/explicit_hesse_center.tex` の系では、`g(x)=λ f_t(Mx)` に対して `ħ'=λ det(M) ħ` として `Ω^g_h=λ Ω_{ħ',t}(Mx)` と明示する。一般の中心混合項には拡張していない。
+
+Hesse量子化のpoint schemeの楕円曲線は `θ(h,t)=[t+(h²/3)(1+t³/4)]/(1-h²t²/4)` によるHesse式であり、`Y=V(f_θ+P(u))` が自然な可換cubic候補となる（`θ(0,t)=t`）。一般の `t` に対するrotation付き圏同値は**未証明**。Fermat型 `t=0` では既存の復元模型の係数を回復する。

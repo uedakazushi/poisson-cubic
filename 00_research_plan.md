@@ -34,6 +34,9 @@ $\Omega_{\hbar,t}=U(\hbar,t)(x^3+y^3+z^3)/3+W(\hbar,t)\operatorname{sym}(xyz)$
 
 証明：標準Sklyanin関係に直して既知の中心公式を適用し、$C-D=\hbar S+(\hbar t/2)(C+D)$を用いて規格化する。零を含む開集合で次数別平坦性により中心性を延長する。次数四で有限体の複数特殊化の交換子が二次関係式の生成するイデアルに属することも厳密検算したが、後者は普遍的証明ではない。
 
+**可換復元の具体的候補**：Hesse量子化の楕円点曲線を定義する三次式は $x^3+y^3+z^3+3\vartheta(\hbar,t)xyz$ であり
+$\vartheta(\hbar,t)=[t+(\hbar^2/3)(1+t^3/4)]/[1-\hbar^2t^2/4]$ と明示できる。$\vartheta(0,t)=t$、$\vartheta(\hbar,0)=\hbar^2/3$。分離した中心三次式 $P(u)$ と組み合わせた可換超曲面 $Y_{\hbar,t,P}=V(f_{\vartheta}(x)+P(u))$ は滑らかな自然候補だが、一般 $t$ のrotation付き同値は未証明。次にSklyaninの中心元正規化、relative Orlov window、translationの共役、外部積生成性を照合する。
+  
 **なお未解決**：一般の本質的な中心混合項 $f_s(x_s,u)$ では中心元の閉公式がなく、従来の形式的存在・有限線形方程式による代数化を用いる。今回の明示化は相対saturationとrotation付き可換復元を証明しない。次の課題はこの明示族で相対BeilinsonモデルとOrlov比較を構成し、可換模型との比較に必要な仮定を個別に検証すること。
 
 ## 到達点・証明の所在・状態
