@@ -1,105 +1,45 @@
-# 研究方針：3次超曲面のPoisson構造と非可換化
+# 研究方針：非可換cubicの三論文と境界研究
 
-2026年11月9日（日本標準時）・統合第5版 / nc-cubic-v5
+**2026年11月9日・現行整理版 v6**
 
 ## 最初に読むこと
 
-このファイルを最初に読み、`pdf/cubic_poisson_rotation.pdf` の序論と必要な証明、次に `pdf/research_notes.pdf` の対応する課題へ進む。現行の成果と必要な証明は本リポジトリ内に統合してあり、旧ZIP・過去の会話・旧入力原稿を再取得する必要はない。
+本ファイルを最初に読み、次に `research_notes.md` で主張の状態と証明の所在を確認する。中心の公表用原稿は、論文A `tex/poisson_cubic_quantization.tex`、論文B `tex/generic17_ambient_recovery.tex`、論文C `tex/rotation_cubic_reconstruction.tex`。Brill–Noether・Pfaffian・Reye・特異圏は `tex/boundary/` および `pdf/boundary/` の独立研究として扱う。詳細な証明は原稿本体へ置く。
 
-中心問題は、滑らかな可換cubicのPoisson構造を量子化した次数付き代数 $B=A/(\Omega)$ に対し、標準次数シフトから作るrotationを備えた残余dg圏が、ある滑らかな可換cubicのrotation付きKuznetsov成分になるか、という存在問題である。存在した可換モデルの一意性にはpolarized categorical Torelliを使う。存在と一意性は別の主張である。
+## 現在の目標と達成基準
 
-## 現在の結論と対象の区別
+第一目標は、可換点と接続した一般17次元中心三次対族の良い稠密開に対し、滑らかなrotation付き残余dg圏と可換cubicの模型を実際に構成し、同値のmarking・大域降下・一般ファイバーを記述すること。これを偏極付きambientの復元と混同しない。
 
-**AS-regularな周囲と三次の中心元だけで定義した任意の非可換cubicについて、rotation付き可換モデルが存在する、という一般命題は偽である。smooth proper性や周囲のCalabi–Yau性を追加しても一般には偽である。**
+公表用論文の整理は、A＝Poisson分類・退化・量子化、B＝一般17係数の量子中心三次対とambient復元、C＝rotation付き可換復元と障害、の論理的分割を正本とする。境界研究には公表価値がある証明を保持し、一般17次元族への論理的依存関係を明記する。
 
-具体例は、Fermat cubic fourfoldの次数付き座標環を $\tau=\operatorname{diag}(\omega,\omega^2,1,1,1,1)$、$\omega^3=1\ne\omega$ でZhang twistしたもの。周囲は6次元Koszul AS-regular Calabi–Yau代数、三次の元 $\Omega$ は中心正則、射影圏は元の滑らかなcubicのcoherent圏と同値である。しかしrotationのHochschild homologyへの作用では、$\dim HH_0^{\rho}=8$ となり、任意の標準的な可換cubic fourfoldの値20と異なる。全Hochschild homologyのrotation不変部分のEuler標数も10と22で異なる。
+## 主要な到達点と状態
 
-後者は $\rho^3\simeq[2]$ を保つsmooth properな代数的pair族の連結底上で一定である。従ってこの例は、標準的な可換cubicのpairとそのような族では結べない。これは、可換点から出発する特定の量子化族の良い成分に対する反例と、任意のAS-regular中心三次商に対する反例とを区別する理由でもある。
+| 対象 | 結論 | 状態・所在 |
+|---|---|---|
+| A：Poisson・量子化 | 三次超曲面のPoisson正規形、退化、中心三次の代数的量子化、Hesse明示式 | `tex/papers/poisson_geometry.tex`、`complete_intersections.tex`、`explicit_hesse_center.tex` に証明 |
+| B：17次元一般族 | 41次元中心対incidence、24次元一般座標軌道、17係数横断正規形 | `tex/generic17_ambient_recovery.tex` に証明；31×31行列式は厳密計算による |
+| B：偏極付きambient復元 | section ℚ-algebra の二次包絡で五次元AS-regular ambientと三次中心直線を復元 | 構造対象・次数シフトおよびsection環の仮定付き。無標識導来圏やKuのみの復元とは異なる |
+| C：明示的な可換模型 | 一楕円Sklyaninブロック・分離した中心三次式の良い各複素fiberでrotation付き模型を構成 | `tex/papers/rotation_models.tex`、`elliptic_reconstruction.tex` |
+| C：形式復元と障害 | markedな形式近傍、条件付きétale局所実現、Zhang twist反例 | `rotation_obstruction.tex`、`relative_saturation.tex`。一般の有限パラメータ存在は未証明 |
+| 境界研究 | Brill–Noether・Pfaffian接触、Reye停留平面、中心商の特異圏 | 独立原稿・原PDFに主張と証明あり。高次計算・原PDFしかない部分は未完全再検証 |
 
-元の量子化問題は放棄せず、**可換点を含む量子化成分における存在、相対saturation、有限パラメータでの到達範囲**を第一目標とする。一般AS-regularモジュライの全成分を同じ存在定理で覆う目標は、この反例によって不可能と分かった。
+**誤って結論してはいけない事項**：AS-regularと中心三次商だけでsmooth properな残余圏は従わない。広い非可換cubic全体のrotation付き可換復元はCalabi–Yau Zhang twist反例により偽。一般17次元族の可換復元・全相対saturation・二つ以上の無限位数ブロックの生成は未解決。一般17次元族の17次元という次元一致と可換側の17次元幾何モジュライの双有理同値は別問題。
 
-## 完全交叉・斉次多様体のPoisson存在と量子化の明示性
+## 数学的に優先する次の課題
 
-- 論文Section 2：複素数体上の滑らかな通常射影完全交叉、次元 n≥3 では、非零Poisson構造の存在と多重次数が空列（射影空間）、(2)、(3)、(2,2)であることが同値。非存在はBrückmannの消滅（Fu–Hwang Lemma 4.1）、存在は階数二の可積分分布で示す。既知の消滅定理の応用であり、新規性は未確認。次元2には(4)、(2,3)、(2,2,2)のK3曲面も現れる。
-- 次元2以上の正規トーリック多様体にはトーラス導分の外積による代数的Poisson括弧がある。複素滑らか射影斉次多様体もBorel–Remmert分解と可換な二つの基本ベクトル場から構成できる。非射影の任意の斉次空間は主張しない。
-- 三次Poisson正規形について周囲のAS-regular量子化の二次関係式はcyclic potentialで明示できる。三次中心元は一般には形式的存在と有限行列の核の計算による代数化であり、統一閉公式は未確認。一方、Fermat型から滑らかなHesse型全体に明示的閉公式を拡張した（古典的Sklyanin中心元に基づく）。
-- 本研究の第一目標は引き続きPoisson量子化成分からのrotation付き可換復元。相対saturationや実際の有限パラメータの存在は未解決のまま区別する。
+1. 一般17次元混合族の非空Zariski開で相対Beilinson仮定、有限対角証明書、相対Orlov同値、smooth propernessとrotationの底変更を確立する。
+2. 幾何的候補 `(Y,Λ,ξ)`、`Y⊂ℙ⁴` smooth cubic、`Λ≅ℙ²`、`ξ∈Pic⁰(Y∩Λ)` に対し、相対Picard上の評価核とgluingを構成し、中心三次対との大域的対応を示す。次元 `17=10+6+1` は構成の証明でない。
+3. 17係数族のgenerically finiteな正規形に対してgeneric fiberの実際の次数・stabilizer・Zhang twistの同一視を求める。
+4. 境界研究のうち独立した高次Pfaffianの計算証明書、Reye停留平面のmonodromy、中心商の正則性を論文ごとの仮定と原PDFに基づいて検証する。未確認なら状態を下げる。
 
-## Hesse型量子化の明示的三次中心元
+## 配布と再現
 
-**今回明示化できた結果（論文 `tex/papers/explicit_hesse_center.tex`）**：任意の滑らかな三変数三次式（Hesse標準形への線形変換後）
-$f_t=(x^3+y^3+z^3)/3+txyz$、$t^3\ne-1$について、Sklyanin代数の既知の中心三次元（Smith–TateおよびDe Laet–Le Bruyn）をPoisson変形パラメータへ翻訳した閉公式
-$\Omega_{\hbar,t}=U(\hbar,t)(x^3+y^3+z^3)/3+W(\hbar,t)\operatorname{sym}(xyz)$
-を得た。$U(0,t)=1$, $W(0,t)=t$。係数と滑らかな楕円Sklyanin型となるパラメータの判別式を論文内で指定した。$t=0$で従来のFermat公式に一致する。Artebani–DolgachevのHesse標準形とJacobian括弧の座標変換則を用い、任意の滑らかな三変数三次式 $g(x)=\lambda f_t(Mx)$ について $\hbar'=\lambda\det(M)\hbar$ と置けば $\Omega^g_\hbar=\lambda\Omega_{\hbar',t}(Mx)$ が中心元となる。互いに可換な複数ブロックと中心三次式、および中心線形シフトの混合項にも拡張可能。**文献に既にある中心公式の特殊化であり、新規性を主張しない。**
+LuaLaTeXで `tex/` の各公表用原稿を `pdf/` に組版する。全体を一冊にして重複掲載しない。計算は `computations/`、再生成・静的監査は `scripts/` に置く。PDFにしか証明が現存しない境界結果は、その再生成制約を `research_notes.md` に明記して保持する。過去のPDF抽出TXTや移送用の二分割TeXを現行bundleへ入れない。GitHub上の既存ファイル削除とbundleからの除外を区別する。
 
-証明：標準Sklyanin関係に直して既知の中心公式を適用し、$C-D=\hbar S+(\hbar t/2)(C+D)$を用いて規格化する。零を含む開集合で次数別平坦性により中心性を延長する。次数四で有限体の複数特殊化の交換子が二次関係式の生成するイデアルに属することも厳密検算したが、後者は普遍的証明ではない。
-
-**一ブロックの可換復元**：良い開集合上の各複素ファイバーで、
-$Y=V(f_{\vartheta(h,t)}+P(u))$ がrotation付き可換模型であることを証明した。
-標準Sklyanin中心商を既存の一般楕円ブロック比較へ適用する。平行移動の有限位数性は不要。
-詳細は `tex/elliptic_cubic_reconstruction.tex` と独立論文のPDF（Libraryのv5 bundle）を参照。
-復元cubicは固定$t$で二次から非自明に動く。
-一方、$h^2t^3+3\tau h^2t^2+12t+4h^2-12\tau=0$ 上では残余pairは各ファイバーで一定、
-代数の一次変形は非自明である。相対中心商のTHCR表示まで得たが、相対残余同値は未完成。
-
-**なお未解決**：一般の本質的な中心混合項 $f_s(x_s,u)$ では中心元の閉公式がなく、従来の形式的存在・有限線形方程式による代数化を用いる。今回の明示化は相対saturationとrotation付き可換復元を証明しない。次の課題はこの明示族で相対BeilinsonモデルとOrlov比較を構成し、可換模型との比較に必要な仮定を個別に検証すること。
-
-## 到達点・証明の所在・状態
-
-| 内容 | 状態と所在 |
-| --- | --- |
-| 滑らかなcubicのbivectorの表示、一意延長、HessianによるPoisson正規形 | 論文第I部に証明。Lie代数を用いる基点自由補題を含む。複素数値点の分類であり、Poissonパラメータスキームの被約性は主張しない。 |
-| Casimir、symplectic leaf、全退化スキーム | 第I部に式と証明。滑らかな平面三次制限など、追加仮定を各命題に明記。 |
-| sixfold・sevenfoldの192点、種数577、非被約構造 | 第I部に幾何と数値計算を保持。一般性条件と特殊Fermat型の差を区別。 |
-| 三次の中心元を持つ代数的量子化 | 第I部。形式的中心持上げに使うformalityとCalabi–Yau双対性、PBWと代数化を分離。射影圏のsmoothnessはこの構成だけでは結論しない。 |
-| markedな形式復元 | 第II部。次数ごとに有限自由なArtin変形からcompact残余圏を作り、marked cubic変形を復元。actual変形とHochschild形式変形の比較には明記した文献を使用。 |
-| 代数的pair族のétale局所実現 | 第II部。族が既にsmooth properな代数的dg模型を持つことを仮定。元の底への大域降下や全ファイバー存在は含まない。 |
-| 一つの楕円Sklyaninブロックと任意の孤立中心三次式 | 第II部。$h^6\ne-27$ において明示的な可換モデルとrotationを保つ同値。非可換変数との混合項は対象外。 |
-| 多ブロック・高々一つの無限位数因子 | 第II部。一方有限中心の外部積生成を用いる。二つ以上の無限位数因子の全生成は未解決。 |
-| AS型およびCY型の滑らかなrotation反例 | 第II部の反例節。Zhang twist、Serre関手、Hochschild作用による完全な証明を記載。有限な文字計算を厳密検算。先行研究上の新規性は未確認。 |
-| Serre互換な完全忠実関手の全射性判定 | 第II部。sourceが非零smooth proper、targetがproperでSerre関手と $HH^0=\mathbb C$ を持つなどの仮定付き。未解決の多ブロックでこれら全てを検証したとは扱わない。 |
-
-「原稿に証明を収めた」「当該論証を点検した」「有限計算を実行した」は異なる状態である。外部査読・Lean形式化は未実施。重要な引用は一次資料と参照箇所を文献表に示す。定理全体の新規性を確定したとは扱わない。
-
-## 一楕円ブロックの研究再開
-
-`elliptic_reconstruction_plan.md` と `tex/reconstruction_notes.tex` に相対化の課題・証明の適用範囲・着手方法を整理した。既存のPoisson分類・退化・多ブロックの証明は保持する。独立論文のPDFはLibraryに保存したv5 bundleにあり、GitHubの既存統合PDFは未再組版である。
-
-## 優先課題と具体的な着手方法
-
-### 1. 可換点を含む量子化族の相対saturation
-
-**今回の還元（公表用原稿「相対saturationへの二つの還元」節に証明）**：相対properな超曲面圏が有限相対例外列と残余圏のdg半直交分解を持つ場合、両者の相対smoothnessは同値である。よって `Λ_R=REnd(⊕_{i=0}^{N-1} O_{B_R}(i))` の対角について一つの有限perfect証明書を構成すれば十分で、残余圏 `Γ_R` の対角を独立に持ち上げる必要はない。これはgluingの既知の一般原理の相対版で、新規性は未確認。
-
-また、中心三次元のgraded matrix factorizationでは内部シフト `(1)^3 ≃ [2]` が基底変更と両立して成立する。相対Orlov同値で内部シフトがrotationへ移るなら、相対的なrotationの自己同値性・周期性が従う。相対Orlov同値そのものは未構成。
-
-**未解決の核心**：特定のPoisson量子化族に対する(RB1)–(RB2)・相対例外列を証明し、可換点での有限Beilinson対角証明書を `Λ_R^e` 上へ持ち上げる。さらに相対Orlov同値を構成する。零ファイバーのsmoothnessだけからZariski開でのsmoothnessを結論しない。
-
-**具体的な手順**：まず量子化代数のKoszul分解とその双対から相対局所cohomology (H) と任意の底変更への両立を検証する。次に `Λ_R` の明示的なmonadモデルを作り、対角の有限cell複体 `P→Λ_R` とその零ファイバーでの擬同型を求める。これができればconeのperfect supportの議論で零のZariski近傍のsaturationを得る。最後に相対graded matrix factorizationと残余圏のdg比較を作り、rotationを識別する。
-
-**達成判定**：上記の有限証明書・基底変更・相対Orlov同値が、`C[ħ]` の実在するZariski開近傍上で示されていること。Artin切断上の存在だけでは達成としない。smooth proper pairからの可換復元（変形空間への像・étale局所実現・大域降下）はその先の別課題。
-
-### 2. 二つの無限位数Sklyaninブロックの全生成
-
-最小対象は独立な二ブロック、中心変数なし。粗化次数 $3e_1=3e_2$ を保った外部積生成条件(G)を証明する。THCRの係数付き対角分解、軸torsionを保持する局所化、粗化次数でのみ存在する加群を含めた生成を調べる。
-
-別経路として、完全忠実比較に対しproperness、Serre互換性、$HH^0=\mathbb C$ を検証し、論文の全射性判定を使う。この判定は障害の所在を減らすが、それらの仮定の証明を代替しない。二因子が解ければ、残る有限中心因子は現行の生成定理で追加できる。
-
-### 3. 非可換ブロックと中心変数の混合項
-
-一般正規形の $f_s(x_s,u)$ では、関係式が $u$ に依存する。通常の $\partial/\partial u_i$ は係数代数の導分とは限らないため、分離形に対するKoszul支持論をそのまま使わない。相対楕円曲線、THCR、Orlov window、translationの相対的共役を構成する。
-
-### 4. 量子化成分とrotationの大域的不変量
-
-標準的cubic成分を識別する条件を調べる。Serre関手とrotationの関係、およびrotation不変Hochschild Euler標数は必要条件だが、十分条件とは主張しない。CY fourfold反例の値10と標準値22を基準例として保持する。étale局所モデルの底への降下、monodromy、実現開部分の境界は別問題として扱う。
-
-## 再現方法と検証範囲
-
-`python3 computations/verify_algebra.py` は中心元、Hesse判別式、有限位数・無限位数の点、Koszul恒等式を厳密検算する。`python3 computations/verify_rotation_obstructions.py` はZhang twistの交換係数、中心性、Nakayama係数、Hochschild作用に使う文字数を整数演算で検証する。`python3 computations/verify_geometry.py` は完全交叉のChern数・次数・種数・Euler標数・Hodge数の数値を厳密検算する。圏同値や幾何学的証明の計算機形式化ではない。
-
-`python3 scripts/build.py` は `tex/` のLuaLaTeX原稿から `pdf/` に論文と研究ノートを組版し、Pandocから研究方針のPDFを生成する。中間物は一時ディレクトリに置く。`python3 scripts/verify_bundle.py` は参照・ファイル構成・証明書・チェックサムを確認する。最終的な実行状況は `validation.json` に記す。現行TeX更新後のPDFは未再組版であり、`pdf/` は旧版の内容のままである。整合するPDFとチェックサムを再生成する必要がある。
+新しい三論文A/CのPDFはソースの再組版が完了した場合のみ現行版と称する。現行PDFとTeXの同一性、引用・ラベルの閉包、主要計算、ZIPの整合性を確認する。外部査読・Lean検証は行っていない。組版済みの結果と未再組版部分を混同しない。
 
 ## 研究一般の原則と保存許可
+
 
 以下は個別の数学的計画と区別して継続適用する一般原則である。
 
