@@ -1,0 +1,62 @@
+{
+  "version": "v14",
+  "date_jst": "2026-11-10",
+  "scope": "Self-contained current paper-C section, not a replacement for the entire parent nc-cubic project.",
+  "parent_commit_read": "4f2eb328a2249a173f0c658cdb744277f041ff1d",
+  "mathematics": {
+    "proved_in_manuscript_and_argument_reviewed": [
+      "Local Serre trace pairing under proper dg model and marked smooth cubic special fiber",
+      "Rotation autoequivalence with explicit inverse T^-1 R_O, without residual smoothness",
+      "Relative Serre autoequivalence and finite trace-cone open certificate",
+      "Full coherent recovery under residual smoothness",
+      "Finite-type spread of the smooth proper pair via known descent theorems"
+    ],
+    "conditional": [
+      "Generic commutative cubic realization assumes actual local quantization, residual diagonal perfectness (SM), and the explicitly stated local realization principle (ER)"
+    ],
+    "not_proved": [
+      "General residual diagonal perfectness",
+      "General ER",
+      "All-component quantum inputs",
+      "Coherent relative rho^3=[2] identification",
+      "All-points realization or unique descent"
+    ],
+    "novelty": "Unconfirmed; standard mutation, smoothness/gluing and descent inputs are distinguished.",
+    "formal_proof_assistant": "not used"
+  },
+  "computations": {
+    "exact_arithmetic": "SymPy over Q(r,u); no parameter sampling",
+    "unique_overlaps_checked": 2,
+    "central_commutators_checked": 6,
+    "negative_controls": "Both naive mixed central lifts have nonzero x,y,z commutators",
+    "special_fiber_smoothness": "Complete elementary branch elimination in research_notes.md; branch nonvanishing values checked exactly",
+    "not_checked": [
+      "Second-block all-degree flatness independently",
+      "Categorical equivalence by computation",
+      "Residual diagonal by computation"
+    ]
+  },
+  "artifact_validation": {
+    "manuscript_pages": 10,
+    "lualatex_passes": 3,
+    "undefined_references": 0,
+    "undefined_citations": 0,
+    "missing_glyphs": 0,
+    "overfull_boxes": 0,
+    "labels_checked": 41,
+    "bibliography_keys_checked": 6,
+    "source_pdf_parity": "SHA256 checked against build_receipt.json",
+    "visual_review": "All 10 pages rendered with Poppler and inspected as contact sheets; inverse-rotation proof page inspected at reading scale",
+    "exact_input_code": "executed and rerun successfully"
+  },
+  "external_persistence": {
+    "library_explicit_save": "not executed: exposed Library connector functions are read-only",
+    "github_main_update": "not executed: no available repository write action or authenticated git runtime",
+    "prior_bundle_materialization": "Tool returned paths but runtime files were absent; not extracted or used as a byte source",
+    "existing_remote_files": "not changed or deleted"
+  },
+  "environment": {
+    "python": "3.13.5",
+    "sympy": "1.14.0"
+  }
+}

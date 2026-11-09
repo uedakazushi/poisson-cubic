@@ -1,6 +1,12 @@
 # 研究ノート：全Poisson成分の支配的chartと相対復元
 
-**2026年11月10日・v13。現在有効な知識・障害の整理。**
+**2026年11月10日・v15。現在有効な知識・障害の整理。**
+
+## v14以降の現行成果・未解決
+
+証明全文：`reconstruction/tex/rotation_saturation_reduction.tex`。非楕円量子化の検算：`reconstruction/computations/verify_nonelliptic_inputs.py`。局所proper残余模型では `rho=L_O(1)` に逆 `(-1)R_O` を与える論証を原稿に記載。残余smoothness (SM) から全coherent残余比較および有限型spreadを導く（各原稿の仮定と外部定理の適用は独立の最終監査が必要）。**一般可換復元の存在はSMと局所実現原理ERに依存し、未完成。** 次は節点・尖点二成分で有限perfect双加群 `P` と増大射 `P→Gamma_R` を構成し特殊ファイバーで擬同型を実証する。ambient Koszul対角を残余対角と同一視しない。
+
+保存はGitHub `main` のみを正本とし、Libraryはpush実失敗時の緊急避難に限定する。v14の全文原稿、現在の結果、入力コードはGitHub内に保持する。
 
 ## 1. 主定理の位置と、取り除けた前提
 
@@ -54,7 +60,7 @@ Brill–Noether・Pfaffian接触・Reye・特異圏の独立研究は親リポ�
 
 全cubicの滑らかさには中心混合項 `u x²` が本質的。量子関係の多重線形化で得る行列式曲線もgenericなhで節点・尖点型を保つが、これはpoint scheme全体、AS-regular性、相対残余圏、可換復元を証明するものではない。一般化Jacobianは節点でG_m、尖点でG_aなので、滑らかな楕円Picardへの有理写像障害を無条件に適用しない。
 
-検算の再現：`python3 computations/verify_nonelliptic_components.py`。論文A全体の最新PDFはこの追加に対応して未再組版。独立追加節のPDFはLibraryのv11 bundleに収録する。
+検算の再現：`python3 computations/verify_nonelliptic_components.py`。論文A全体の最新PDFはこの追加に対応して未再組版。独立追加節のPDFはGitHubの現行ソースから再組版する。
 
 ## 7. 次の具体的作業
 

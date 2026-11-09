@@ -1,0 +1,693 @@
+\documentclass[a4paper,10pt]{ltjsarticle}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{enumitem,booktabs,array,longtable}
+\usepackage[unicode,hidelinks]{hyperref}
+\usepackage{bookmark}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{hypothesis}[theorem]{仮定}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{注意}
+\newcommand{\Perf}{\operatorname{Perf}}
+\newcommand{\RHom}{\operatorname{RHom}}
+\newcommand{\REnd}{\operatorname{REnd}}
+\newcommand{\thick}{\operatorname{thick}}
+\newcommand{\Cone}{\operatorname{Cone}}
+\newcommand{\Ku}{\operatorname{Ku}}
+\newcommand{\qgr}{\operatorname{qgr}}
+\newcommand{\QGr}{\operatorname{QGr}}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\Dsg}{D_{\mathrm{sg}}^b}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cK}{\mathcal K}
+\newcommand{\cD}{\mathcal D}
+\newcommand{\otL}{\otimes^{\mathbf L}}
+\newcommand{\dd}{^{\vee}}
+\newcommand{\LL}{\mathbf L}
+\newcommand{\RR}{\mathbf R}
+\title{非可換三次超曲面の局所rotationと\protect\\可換復元のsaturation還元}
+\author{nc-cubic 研究原稿C・独立読解用の現行節}
+\date{2026年11月10日・v14}
+\begin{document}
+\maketitle
+\begin{abstract}
+滑らかな三次超曲面に特殊化するproperな局所dg模型から出発し、標準rotation
+$\rho=\LL_{\OO}\circ(1)$の逆関手を$(\!-1)\circ\RR_{\OO}$として構成する。
+証明は一つのSerre traceを持ち上げるものであり、残余dg圏のsmoothnessを必要としない。
+さらに残余の対角がperfectなら、線束生成部分と全coherent導来圏の同定、
+およびrotation付きpairの有限型開集合への降下が従うことを示す。
+この結果により、既に局所量子化が得られたPoisson成分のgenericな可換復元は、
+残余対角のperfect性と、別に明記するétale局所実現原理に還元される。
+一般の残余smoothnessも局所実現原理そのものも、本稿で証明済みとは扱わない。
+\end{abstract}
+\tableofcontents
+
+\section{問題、既知の入力、主結果}\label{sec:intro}
+本研究の目標は、任意の$n\ge3$と滑らかな複素三次超曲面$X^n$について、
+そのPoissonスキームの各被約既約成分の幾何学的一般点で、構成した量子化の残余dg圏を
+可換な滑らかな三次超曲面のrotation付きKuznetsov成分として実現することである。
+全てのAS-regular中心三次商の全点に同じ存在を要求する問題ではない。
+
+以下の全ての圏、関手、自然変換にはdg enhancementを保ち、底変更はMorita底変更を意味する。
+圏の同値を単なる三角圏の同値へ弱めない。
+$R$上properとは対象間の全導来Homが$R$-perfectであること、smoothとは対角が
+包絡dg圏上perfectであることをいう。
+$V^\vee=\RHom_R(V,R)$とし、直交条件は全cohomological shiftで課す。
+
+\begin{hypothesis}[局所圏論的入力]\label{hyp:categorical}
+$(R,\mathfrak m,k)$はnoetherian局所環である。
+$\cC$は$R$-properな冪等完備pretriangulated dg圏で、dg自己同値$T$と対象$\OO$を持つ。
+$\OO_i=T^i\OO$と書き、有限個の$\OO_i$の直和$E$が$\cC$を古典的に生成する。
+ある滑らかな三次超曲面$X\subset\mathbb P^{n+1}_k$、$n\ge3$に対し、指定された同値
+\[
+ (\cC_k,T_k,\OO_k)\simeq(\Perf(X),-\otimes\OO_X(1),\OO_X)
+ \tag{L}\label{eq:local-input}
+\]
+がある。ここで$\cC_k$は導来Morita底変更の冪等完備化であり、対象間のHomの
+底変更写像はこの同定と両立する。
+\end{hypothesis}
+
+$a=n-1$と置く。相対例外列$\OO_0,\ldots,\OO_{a-1}$と、その右直交
+\[
+ \cK=\langle\OO_0,\ldots,\OO_{a-1}\rangle^\perp\subset\cC
+\]
+を得ることは以下で証明する。
+
+\begin{theorem}[rotationの自己同値性]\label{thm:rotation}
+仮定\ref{hyp:categorical}の下で
+\[
+ \rho=\LL_{\OO}\circ T:\cK\longrightarrow\cK
+\]
+はdg自己同値であり、その逆関手は
+\[
+ \boxed{\ \rho^{-1}=T^{-1}\circ\RR_{\OO}\big|_{\cK}\ }.
+ \tag{R}\label{eq:inverse}
+\]
+評価・余評価のconeから、両合成と恒等関手との自然な同型が得られる。
+この主張には$\cK$のsmoothnessを仮定しない。
+\end{theorem}
+
+\begin{theorem}[saturation後に従う二つの帰結]\label{thm:summary}
+第\ref{sec:projective}節の局所中心三次商$B$とそのproper模型
+$\cC_B=\thick\{\OO(j)\}$、$\cK_B=\Perf(\Gamma_R)$を考える。
+追加条件
+\[
+ \Gamma_R\in\Perf(\Gamma_R^{\mathrm{op}}\otL_R\Gamma_R)
+ \tag{SM}\label{eq:SM}
+\]
+を仮定すると、次が成立する。
+\begin{enumerate}[label=(\arabic*)]
+\item $\cC_B=D^b(\qgr B)$であり、線束生成残余圏は全coherent残余圏と一致する。
+\item $R=(R_0)_{\mathfrak m}$、$R_0$が有限型複素整域なら、
+$\mathfrak m$を含むある主開集合上へ$(\Perf(\Gamma_R),\rho)$は
+smooth properな代数的dg圏と可逆perfect双加群のpairとして降下する。
+\end{enumerate}
+従って、これら二項を\eqref{eq:SM}とは独立な未解決仮定として重ねて課す必要はない。
+\end{theorem}
+
+この二定理と、仮定\ref{hyp:ER}の局所実現原理を合わせたgeneric復元を
+定理\ref{thm:generic}に記す。\eqref{eq:SM}自体の証明とは区別する。
+
+\subsection{先行研究との関係と主張の状態}
+mutationの基本操作は既知である。ここでの要点は、特殊ファイバーのSerre traceから
+局所底上の必要な双対性を作り、逆rotationが残余圏を保つことを実際に証明する点にある。
+「properだから任意の関手に随伴がある」とは主張しない。
+
+有界非可換射影導来圏についてはBurke--Stevenson
+\cite[Proposition 4.18, Lemmas 6.1--6.2, Theorem 6.4]{BS}を使う。
+smooth proper dg代数の有限型底への降下はToën\cite[Théorème 1]{Toen}の定理である。
+perfect加群のfiltered colimitに関する性質は同論文F4、
+Toën--Vaquié\cite[Lemma 2.10]{TV}による。
+これらの既知の定理を本研究の新結果として数えない。
+Orlov\cite[Theorem 3.25]{Orlov}のgluing判定は体上の記述なので、
+第\ref{sec:fullness}節では必要な方向を一般の可換底上の双加群三角で証明する。
+
+Lin--Zhang\cite[\S2.1, Theorem 2.2, Proposition 2.4]{LZ2026}は、幾何的な相対admissible成分について、
+同値核の変形障害の消去と代数的correspondenceを扱う。
+その入力には相対perfect projectorと底変更の両立があり、非幾何的なdg族をsourceとする
+本稿の(ER)へ直接適用したとは扱わない。
+
+本稿のrotation定理と、その後の還元命題には証明を記す。
+具体的量子化への適用は第\ref{sec:projective}節の入力の検証に依存する。
+全Poisson成分での局所量子化の存在、\eqref{eq:SM}、仮定\ref{hyp:ER}は別問題である。
+本稿の組合せとしての新規性は未確定であり、外部査読・証明支援系による形式検証は行っていない。
+
+\section{一つのSerre traceの持上げ}\label{sec:trace}
+\begin{lemma}[perfect複体に対する局所Nakayama]\label{lem:nakayama}
+$V\in\Perf(R)$が$V\otL_Rk=0$を満たせば$V=0$である。
+$V\otL_Rk\simeq k[0]$なら$V\simeq R[0]$である。
+\end{lemma}
+\begin{proof}
+有限自由加群からなる有界複体を取り、微分行列の単元成分を順次消去する。
+残った最小複体の微分は全て$\mathfrak m$に値を取り、剰余上では零になる。
+剰余が零なら全ての項が零であり、剰余が$k[0]$なら次数零の階数一の項だけが残る。
+\end{proof}
+
+\begin{lemma}[例外列と残余生成子]\label{lem:exceptional}
+$\OO_0,\ldots,\OO_{a-1}$は相対例外列である。
+$\cC=\langle\cK,\OO_0,\ldots,\OO_{a-1}\rangle$を持ち、
+\[
+ p=\LL_{\OO_0}\circ\cdots\circ\LL_{\OO_{a-1}},\qquad G=p(E)
+\]
+は$\cK$の生成子である。$\Gamma_R=\REnd(G)$は$R$-perfectである。
+\end{lemma}
+\begin{proof}
+単位写像$R\to\RHom(\OO_i,\OO_i)$のconeと、$j>i$について
+$\RHom(\OO_j,\OO_i)$は$R$-perfectで、その剰余は零である。
+特殊ファイバーでの消滅は三次超曲面の線束コホモロジーから従う。
+補題\ref{lem:nakayama}を適用する。
+proper性により、各例外対象への左右のHomはperfectであり、評価・余評価は$\cC$の対象を保つ。
+右端から左mutationを繰り返すと指定した右直交への射影$p$を得る。
+$E$の生成性から$p(E)$の生成性が従い、proper性から$\Gamma_R$は$R$-perfectである。
+\end{proof}
+
+\begin{proposition}[持ち上げたSerre pairing]\label{prop:trace}
+ある射
+\[
+ \operatorname{tr}:\RHom_{\cC}(\OO_a,\OO[n])\longrightarrow R
+\]
+を選べて、任意の$M\in\cC$について合成とtraceが与える写像
+\[
+ \beta_M:\RHom_{\cC}(M,\OO[n])
+ \longrightarrow\RHom_{\cC}(\OO_a,M)^\vee
+ \tag{D}\label{eq:duality}
+\]
+は擬同型である。従って
+\[
+ M\in{}^\perp\OO\quad\Longleftrightarrow\quad M\in\OO_a^\perp.
+ \tag{O}\label{eq:orthogonals}
+\]
+\end{proposition}
+\begin{proof}
+$L=\RHom(\OO_a,\OO[n])$は$R$-perfectである。
+$\omega_X=\OO_X(-a)$より、$L\otL_Rk\simeq k[0]$であり、
+非零射$L_k\to k$はスカラー倍を除いて$X$のSerre traceである。
+補題\ref{lem:nakayama}から$L\simeq R$なので、そのtraceを還元にもつ同型を一つ選ぶ。
+
+合成$\RHom(M,\OO[n])\otL\RHom(\OO_a,M)\to L$とtraceから
+\eqref{eq:duality}を作る。両辺が$R$-perfectなのでconeもperfectである。
+導来底変更、合成、perfect双対は両立する。剰余上の$\beta_M$は
+$S_X(\OO_X(a))=\OO_X[n]$に対するSerre dualityそのものなので擬同型である。
+再び補題\ref{lem:nakayama}を使う。
+双対はperfect複体上保守的なので\eqref{eq:orthogonals}を得る。
+\end{proof}
+
+\begin{remark}
+これは対角加群の持上げではない。底上perfectであることが既知のHom複体に対して
+一つのtrace射を選び、そのconeにNakayamaを適用したものである。
+$\Gamma_R$が包絡代数上perfectであるという主張は含まれない。
+\end{remark}
+
+\section{逆rotationの構成}\label{sec:rotation}
+$V\in\cC$についてmutationを次のfunctorial triangleで定める：
+\begin{align}
+ \RHom(\OO,V)\otL_R\OO&\longrightarrow V
+       \longrightarrow\LL_{\OO}V,\label{eq:left}\tag{LM}\\
+ \RR_{\OO}V&\longrightarrow V
+       \longrightarrow\RHom(V,\OO)^\vee\otL_R\OO.
+       \label{eq:right}\tag{RM}
+\end{align}
+proper性により全ての項は$\cC$に属する。
+
+\begin{lemma}[直交圏間のmutation]\label{lem:mutation}
+$\LL_{\OO}$と$\RR_{\OO}$は互いに逆な同値
+\[
+ {}^\perp\OO\ \underset{\RR_{\OO}}{\stackrel{\LL_{\OO}}{\rightleftarrows}}\ \OO^\perp
+\]
+を与える。
+\end{lemma}
+\begin{proof}
+\eqref{eq:left}に$\RHom(\OO,-)$を適用すると、評価により最初の写像は同型となる。
+従って$\LL_{\OO}V\in\OO^\perp$である。
+\eqref{eq:right}に$\RHom(-,\OO)$を適用し、perfect二重双対性を使うと
+$\RR_{\OO}V\in{}^\perp\OO$となる。
+両mutationは$\OO\otL_R\Perf(R)$を零に送る。
+$V\in{}^\perp\OO$なら$\RR_{\OO}V\simeq V$なので、
+\eqref{eq:left}へ$\RR_{\OO}$を適用して
+$\RR_{\OO}\LL_{\OO}V\simeq V$を得る。
+同様に$W\in\OO^\perp$について
+$\LL_{\OO}\RR_{\OO}W\simeq W$である。
+全ての射は評価・余評価から作るため、対象に自然である。
+\end{proof}
+
+\begin{proof}[定理\ref{thm:rotation}の証明]
+まず$M\in\cK$なら$1\le i<a$に対し
+$\RHom(\OO_i,TM)=\RHom(\OO_{i-1},M)=0$である。
+$\RHom(\OO_i,\OO)=0$なので、\eqref{eq:left}によるmutation後もこの消滅は保たれる。
+$i=0$の消滅は左mutationの定義から従い、$\rho M\in\cK$を得る。
+さらに
+\[
+ \RHom(\OO_a,TM)=\RHom(\OO_{a-1},M)=0
+\]
+と命題\ref{prop:trace}から$TM\in{}^\perp\OO$である。
+
+次に$N\in\cK$として$Q=\RR_{\OO}N$と置く。
+$Q\in{}^\perp\OO$なので命題\ref{prop:trace}から$\RHom(\OO_a,Q)=0$。
+$1\le i<a$について\eqref{eq:right}に$\RHom(\OO_i,-)$を適用すると、
+$N\in\cK$と$\RHom(\OO_i,\OO)=0$により$\RHom(\OO_i,Q)=0$を得る。
+従って$0\le j<a$に対し
+\[
+ \RHom(\OO_j,T^{-1}Q)=\RHom(\OO_{j+1},Q)=0.
+\]
+これは$\psi=T^{-1}\RR_{\OO}$が$\cK$を保つことを示す。
+
+補題\ref{lem:mutation}より、$TM\in{}^\perp\OO$と$N\in\OO^\perp$に対して
+\[
+ \psi\rho M=T^{-1}\RR_{\OO}\LL_{\OO}TM\simeq M,
+ \qquad
+ \rho\psi N=\LL_{\OO}\RR_{\OO}N\simeq N.
+\]
+これらはdg自然同型であり、定理が従う。
+\end{proof}
+
+\begin{corollary}[底変更]\label{cor:rotation-bc}
+Homの導来底変更が成立し、properな模型と$T,\OO$が保たれる底変更について、
+上のrotation、逆rotation、両合成の同型は底変更と両立する。
+\end{corollary}
+\begin{proof}
+perfect双対、評価、余評価、有限cone、$T^{\pm1}$はこの底変更と両立する。
+逆関手の同型はそれらのfunctorial triangleから作ったので、独立に同型を持ち上げる必要はない。
+\end{proof}
+
+\begin{remark}[周期性とは異なる]
+本定理は$\rho^3\simeq[2]$を証明しない。
+中心三次商のgraded singularity categoryでの$(3)\simeq[2]$と、射影残余圏上の
+$\LL_{\OO}(1)$の比較にはwindowの同定が必要である。
+特殊ファイバーで同型である二つの関手を、自然変換を構成せずに局所底上で同一視してはならない。
+\end{remark}
+
+\section{Serre関手と有限の開条件}\label{sec:serre}
+\begin{proposition}[局所Serre関手]\label{prop:serre}
+仮定\ref{hyp:categorical}の$\cC$には相対Serre自己同値$S_{\cC}$が存在し、対象として
+\[
+ S_{\cC}(\OO_i)\simeq\OO_{i-a}[n]\qquad(i\in\mathbb Z)
+\]
+を満たす。$\cK$は$\cC$で両側admissibleであり、相対Serre自己同値を持つ。
+\end{proposition}
+\begin{proof}
+\eqref{eq:duality}を$T$で移すと
+$M\mapsto\RHom(\OO_i,M)^\vee$は$\OO_{i-a}[n]$で表現される。
+この表現可能性を持つ第一変数の集合は、有限cone、shift、直和因子で閉じている。
+$E$が生成子なので全ての第一変数で表現可能であり、dg YonedaによりSerre準関手を得る。
+二重双対性からこれは完全忠実である。その像は生成子$T^{-a}E[n]$を含むので本質的全射である。
+
+有限相対例外列の生成部分は左右随伴を持つ。
+Serre関手は左直交を右直交へ移すので、その右直交$\cK$も両側admissibleとなる。
+包含$i:\cK\to\cC$の右随伴を$i^!$とすれば、$i^!S_{\cC}i$がそのSerre関手である。
+\end{proof}
+
+\begin{remark}
+対象$\OO_i$上の同型から、関手として$S_{\cC}=T^{-a}[n]$とは結論しない。
+生成対象上の自己Homへの作用を比較する必要があり、Nakayama型のtwistを見落としてはならない。
+\end{remark}
+
+\begin{proposition}[代数的proper族の有限trace証明書]\label{prop:open}
+有限型noetherianスキーム$S$上に、properなdg圏の族$\cC_S$、$T$、$\OO$、
+有限個のtwistからなる生成子$E$が実際に存在するとする。
+点$s$で\eqref{eq:local-input}が成立すれば、$s$のZariski開近傍$U$上で
+$\LL_{\OO}T$と$T^{-1}\RR_{\OO}$は残余圏の互いに逆な自己同値となる。
+$U$は有限個のperfect複体の消滅条件で定められる。
+\end{proposition}
+\begin{proof}
+有限個の単位写像のconeと逆順Homの消滅開集合で縮小し、相対例外列を得る。
+$L=\RHom(\OO_a,\OO[n])$は$s$で階数一・振幅零なので、さらに縮小して
+次数零の線束となる。$s$の近傍で自明化してtraceを選ぶ。
+有限のperfect複体
+\[
+ W=\Cone\!\left(\RHom(E,\OO[n])
+              \xrightarrow{\beta_E}\RHom(\OO_a,E)^\vee\right)
+ \tag{FC}\label{eq:finite-certificate}
+\]
+は$s$で零である。そのコホモロジーのsupportを除くと$W=0$になる。
+$\beta_M$が擬同型となる$M$の全体はthickなので、$E$の生成性から全ての$M$で成り立つ。
+あとは第\ref{sec:rotation}節の証明をそのまま適用できる。
+\end{proof}
+
+\begin{remark}
+\eqref{eq:finite-certificate}は有限の圏論的証明書の\emph{形式}であり、
+具体的$\Gamma_R$の行列を書き下して数値計算したという意味ではない。
+この命題はproper族が有限型底上に既にある場合の主張であり、その族自身の降下を代替しない。
+\end{remark}
+
+\section{局所中心三次商からの入力}\label{sec:projective}
+ここでは本稿で使う既存局所模型を、具体的な代数的仮定まで遡って記す。
+本節は親リポジトリ\cite{Repo}の\texttt{local\_projective\_model.tex}と同じ範囲の結果であり、
+本稿の新しいrotation論証と区別する。必要な推論を以下に再構成する。
+
+\begin{hypothesis}[次数別flatな局所量子化]\label{hyp:algebra}
+$R$は有限型複素代数の局所化である正則局所環、$d=\dim R$、$N=n+2\ge5$とする。
+$A=\bigoplus_{j\ge0}A_j$は中央$R$-代数、$A_0=R$で、各$A_j$は有限自由であり、
+$A_k\simeq k[z_1,\ldots,z_N]$である。
+$\Omega\in Z(A)_3$の剰余$F$は滑らかな三次超曲面を定める。
+$B=A/(\Omega)$、$a=N-3$とする。
+\end{hypothesis}
+
+\begin{proposition}[局所proper模型の入力検証]\label{prop:local-model}
+仮定\ref{hyp:algebra}の下で$A,B$は左右noetherianで、$\Omega$は中心正則元である。
+$\cC_B=\thick_R\{\OO(j):j\in\mathbb Z\}\subset D^b(\qgr B)$は仮定\ref{hyp:categorical}を満たす。
+生成子は$E=\bigoplus_{i=0}^{N-1}\OO(i)$でよい。
+また全ての$M\in D^b(\qgr B)$について$\RHom(E,M)$は$R$-perfectであり、$E$はこの大きい圏で弱生成子である。
+\end{proposition}
+
+\begin{proof}
+\emph{(i) noetherian性と自由分解。}
+一般に$D_j$が有限$R$-加群で$D/\mathfrak mD$が右noetherianなら、
+$\operatorname{gr}_{\mathfrak m}D$は$(D/\mathfrak mD)[t_1,\ldots,t_e]$の商なので右noetherianである。
+斉次右イデアル$I$の随伴次数付きイデアルの有限個の二重斉次生成元を持ち上げ、
+それらの生成するイデアルを$J$とする。最低$\mathfrak m$次数を順に消すと
+$I_j\subset J_j+\mathfrak m^qD_j$を全ての$q$で得る。
+有限$R$-加群$D_j/J_j$にKrull交叉を適用して$I_j=J_j$となる。
+任意の右イデアルは内部次数の最高項を用いて同様に有限生成となる。左側も同じである。
+
+$D,M$が次数別有限自由で、剰余上の$M_k$が有限階数自由加群による有限graded分解を持つとする。
+第零項の生成元の像を持ち上げると、次数別Nakayamaから全射となる。
+その核は各次数で分裂直和因子なので有限自由であり、剰余上の核も正しく得られる。
+これを反復すると同じshiftと階数の分解を持ち上げられる。最後の核は次数別Nakayamaで零である。
+この操作を多項式環のKoszul分解と対角Koszul分解に適用し、
+$R$の$A$-分解および$A$の$A^e$-分解を得る。項はそれぞれ
+$A(-j)^{\binom Nj}$と$A^e(-j)^{\binom Nj}$、$0\le j\le N$である。
+全分解は次数別$R$-splitなので任意の通常の底変更で完全性を保つ。
+対角分解を加群とテンソルすれば$\operatorname{gldim}A\le N+d$となる。
+次数一生成と二次関係も、剰余上からの同じ持上げで従う。
+
+\emph{(ii) Gorenstein性と中心商。}
+Koszul分解を$A$で双対化すると、各内部次数は有界有限自由$R$-複体である。
+剰余上の完全性と補題\ref{lem:nakayama}から、内部次数$-N$、cohomological degree $N$以外は零となる。
+この唯一の箇所では$R$が残る。従って左右で
+\[
+ \operatorname{R\underline{Hom}}_A(R,A)\simeq R(N)[-N].
+\]
+$\Omega:A_{j-3}\to A_j$の剰余は単射で、列数大の小行列式に単元がある。
+従って各次数で分裂単射であり、$\Omega$は正則、$B_j$は有限自由となる。
+長さ一の$A$-分解からchange-of-rings
+\[
+ \operatorname{R\underline{Hom}}_A(M,A)
+ \simeq\operatorname{R\underline{Hom}}_B(M,B)(3)[-1]
+\]
+を得る。$M=R$を代入すると
+$\operatorname{R\underline{Hom}}_B(R,B)=R(a)[-(N-1)]$である。
+$A$の有限大域次元から$B$の左右injective dimensionは高々$N+d-1$となる。
+$B$は商なのでnoetherianである。
+
+\emph{(iii) 線束Homとその底変更。}
+Burke--Stevenson\cite[Lemmas 6.1--6.2]{BS}により$B$は$\chi$と有限cohomological dimensionを満たす。
+$M_\ell=B/B_{\ge\ell}$を内部次数で濾過すると、その商は$B_j\otimes_RR(-j)$である。
+上のGorenstein型から、これらの$B$へのExtは次数$N-1$、内部次数$-a-j$にのみ存在する。
+各固定内部次数$t$では$j=-t-a$という唯一の層が寄与し、$\ell>j$で安定する。
+従って局所コホモロジーは
+\[
+ H^q(R\tau B)_t=
+ \begin{cases}B_{-t-a}^\vee&q=N-1,\\0&q\ne N-1.\end{cases}
+\]
+三角$R\tau B\to B\to R\omega\pi B$から
+\[
+ \operatorname{Ext}^p(\OO(i),\OO(j))=
+ \begin{cases}
+ B_{j-i}&p=0,\\ B_{i-j-a}^\vee&p=n,\\0&\text{その他}
+ \end{cases}
+ \tag{H}\label{eq:line-hom}
+\]
+となる。$a>0$なので二群が同じ差で同時に非零となることはない。
+
+底変更はコホモロジー階数の一致だけでなく、自然な導来Hom写像について確認する。
+$M_\ell$の有限階数graded自由分解を取り、各内部次数で$R$-splitにする。
+$\underline{\operatorname{Hom}}_B(P_\bullet,B)_t$は下に有界な有限自由複体で、
+そのコホモロジーは一つの次数の有限自由加群である。
+$R$は有限大域次元なので、完全な射影複体のcycleにdimension shiftingを適用すると
+完全部分は分裂する。従って通常のテンソルが導来テンソルを計算する。
+項ごとのHom底変更と、各$t$で安定するfiltered colimitを使えば、線束Homの自然な底変更が従う。
+この議論は$R'\!$が正則noetherian・有限大域次元で$A\otimes_RR'$がnoetherianである
+通常の底変更に適用され、特に剰余体と分数体に適用される。
+
+\emph{(iv) 有限生成と特殊ファイバー。}
+Burke--Stevenson\cite[Theorem 6.4]{BS}を$A$に適用すると、$\Dsg(\gr A)=0$より
+任意の連続した$N$個のtwistが$D^b(\qgr A)$を生成する。
+$A\to B$は有限Tor振幅を持ち、導来制限は$\OO_A(j)$を$\OO_B(j)$へ送る。
+よって全twistは$E$のthick閉包に入る。
+\eqref{eq:line-hom}から$\REnd(E)$は$R$-perfectで、有限cone・直和因子によって$\cC_B$全体がproperとなる。
+自然なHom底変更は積と両立し、有限cone・冪等完備化へ延長できる。
+特殊ファイバーで全twistは$\Perf(X)$を生成するため、\eqref{eq:local-input}を得る。
+
+\emph{(v) 全coherent圏へのHom。}
+\cite[Proposition 4.18]{BS}の有界導来sectionは$D^b(\qgr B)$を$D^b(\gr_{\ge i}B)$へ送る。
+各内部次数の成分は有限$R$-加群である。従って固定した$j$について
+$\RHom(\OO(j),M)$は有界かつ有限生成コホモロジーを持つ。
+$R$の正則性よりこれは$R$-perfectである。
+$\RHom(E,M)=0$なら全twistからのHomが零であり、導来sectionの各次数が零になる。
+同命題の完全忠実性から$M=0$となる。
+\end{proof}
+
+\begin{corollary}[局所量子化のrotation]\label{cor:local-rotation}
+仮定\ref{hyp:algebra}の残余部分圏$\cK_B$上で
+$\rho=\LL_{\OO}(1)$は自己同値であり、$\rho^{-1}=(-1)\RR_{\OO}$である。
+残余smoothnessは仮定しない。
+\end{corollary}
+
+\section{smoothnessと全coherent残余圏}\label{sec:fullness}
+\begin{lemma}[smooth代数上のpseudo-perfect加群]\label{lem:pseudoperfect}
+$H$は可換環$R$上smoothなdg代数とする。
+$H$-加群$V$の基礎$R$複体がperfectなら、$V$は$H$-perfectである。
+\end{lemma}
+\begin{proof}
+対角$H$は$H^e$の有限cone・shift・直和因子から作られる。
+これに$V\otL_H-$を作用させると、自由双加群の像は$V\otL_RH$である。
+$V$が$R$-perfectなのでこれは$H$-perfectであり、その有限操作で$V$が得られる。
+これは\cite[Lemma 2.8(2)]{TV}、\cite[F6]{Toen}の性質の直接の証明である。
+\end{proof}
+
+\begin{lemma}[弱生成子による全体の回収]\label{lem:fullness}
+$\cD$を冪等完備dg圏、$E\in\cD$を弱生成子とし、$H=\REnd(E)$と置く。
+全ての$M\in\cD$について$\RHom(E,M)$が$R$-perfectで、$H$が$R$上smoothなら
+$\cD=\thick_R(E)$である。
+\end{lemma}
+\begin{proof}
+$V=\RHom(E,M)$は補題\ref{lem:pseudoperfect}により$H$-perfectである。
+$\thick(E)\simeq\Perf(H)$から、それに対応する$N\in\thick(E)$を選ぶ。
+任意の$N\in\thick(E)$について、自然な写像
+\[
+ \RHom_{\cD}(N,M)\longrightarrow
+ \RHom_H(\RHom(E,N),\RHom(E,M))
+\]
+は擬同型である。これは$N=E$のdg Yonedaから有限操作で延長すればよい。
+従って選んだ加群同型を射$N\to M$へ戻せる。
+そのconeは$E$からの全Homが零なので、弱生成性により零となる。
+\end{proof}
+
+\begin{proposition}[相対gluingのsmoothness]\label{prop:gluing}
+$R$-properで有限生成なdg圏$\cC$が、両側admissibleな半直交分解
+$\cC=\langle\cK,\OO_0,\ldots,\OO_{a-1}\rangle$を持つとする。
+$\OO_i$が相対例外対象なら、$\cC$が$R$上smoothであることと$\cK$が$R$上smoothであることは同値である。
+\end{proposition}
+\begin{proof}
+まず二成分のgluingを考える。生成子を取り、零である方向のHom複体を零に置き換えると、
+次の三角dg代数にMorita同値な模型を得る：
+\[
+ H=\begin{pmatrix}A&M\\0&D\end{pmatrix},\qquad e+f=1.
+\]
+$A,D$がsmoothで$M$が$R$-perfectなら、$A\otL_RD^{\mathrm{op}}$もsmoothなので
+補題\ref{lem:pseudoperfect}から$M$は$A$-$D$双加群としてperfectである。
+次の対角の三角を用いる：
+\[
+ He\otL_A M\otL_D fH\longrightarrow
+ (He\otL_A eH)\oplus(Hf\otL_D fH)
+ \longrightarrow H.
+ \tag{G}\label{eq:gluing-diagonal}
+\]
+最初の射は$m$を左右どちら側に掛けるかの差、二番目は乗法である。
+homotopy-flatな模型を取り各$e,f$成分を見れば、対角成分は恒等射、
+交差成分は$M\to M\oplus M\to M$のsplit完全列であり、この三角が確認できる。
+
+$A$の対角の有限perfect表示を両側から誘導すれば$He\otL_A eH$は$H^e$-perfectとなる。
+$D$の項も同様である。$M$のperfect性から第一項も$H^e$-perfectなので、$H$の対角はperfectとなる。
+各例外成分$\Perf(R)$を一つずつ加える帰納法により、$\cK$のsmoothnessから$\cC$のsmoothnessを得る。
+この議論は体を仮定せず、Orlov\cite[Theorem 3.25]{Orlov}の必要な方向を相対化したものである。
+
+逆に$\cC$がsmoothなら、その有限perfect対角を$\cK$の両変数へ制限する。
+左右随伴により、制限された表現可能加群は再び表現可能である。
+したがって制限はperfect性を保ち、$\cK$の対角もperfectとなる。
+\end{proof}
+
+\begin{proof}[定理\ref{thm:summary}(1)の証明]
+命題\ref{prop:serre}により$\cK_B$は両側admissibleである。
+\eqref{eq:SM}と命題\ref{prop:gluing}から$\cC_B$がsmoothとなる。
+命題\ref{prop:local-model}の最後の主張と補題\ref{lem:fullness}により
+$\cC_B=D^b(\qgr B)$となる。
+同じ例外列の右直交を取れば、線束生成残余圏と全coherent残余圏が一致する。
+既存の有界Orlov分解との同定も、この右直交を用いるwindowで得られる。
+ただし任意の導来底変更に関するOrlov核のcoherenceまで主張しているのではない。
+\end{proof}
+
+\section{smooth proper pairの有限型底への降下}\label{sec:spread}
+\begin{proposition}[局所pairのspread]\label{prop:spread}
+$R=(R_0)_{\mathfrak m}$を有限型複素整域の局所化とする。
+$\Gamma_R$が$R$上smooth properで、$\rho$が$\Perf(\Gamma_R)$の$R$-linear dg自己同値なら、
+ある$f\in R_0\setminus\mathfrak m$と$U=\operatorname{Spec}R_0[f^{-1}]$上の
+smooth proper dg代数$\Gamma_U$、可逆perfect双加群$P_U$が存在し、
+局所化後に$(\Perf(\Gamma_R),\rho)$を与える。
+\end{proposition}
+\begin{proof}
+$R=\varinjlim_{f\notin\mathfrak m}R_0[f^{-1}]$である。
+Toën\cite[Théorème 1]{Toen}により$\Gamma_R$は、ある段階のsmooth proper dg代数へ降下する。
+$\rho$とその逆関手を表すMorita双加群を$P,Q$とする。
+その基礎$R$複体は、生成子とその像のHomで計算できるのでperfectである。
+$\Gamma_R^e$もsmoothであるから、補題\ref{lem:pseudoperfect}により
+$P,Q\in\Perf(\Gamma_R^e)$である。
+
+perfect加群のfiltered colimit性\cite[F4]{Toen}\cite[Lemma 2.10]{TV}により
+$P,Q$と逆同型
+\[
+ P\otL_{\Gamma_R}Q\simeq\Gamma_R,
+ \qquad Q\otL_{\Gamma_R}P\simeq\Gamma_R
+\]
+を有限の段階へ降下できる。射、逆射、および有限個の合成が恒等となる関係も、
+同じfiltered colimit性を使ってさらに一段階先で成立させられる。
+従って降下した$P_U$は可逆なperfect双加群である。
+元の$\rho$との同定は$R$上で保たれる。
+\end{proof}
+
+\begin{proof}[定理\ref{thm:summary}(2)の証明]
+系\ref{cor:local-rotation}により$\rho$は実在するdg自己同値である。
+\eqref{eq:SM}と既存のproper性の下で命題\ref{prop:spread}を適用する。
+\end{proof}
+
+\begin{remark}
+この証明は、$R$-perfectなdg代数を有限階数のstrict dg代数と同一視しない。
+個々の高次$A_\infty$積の分母を無限に列挙して一つの開集合を得ようとする議論も不要である。
+smoothnessが与えるhomotopical finite presentationが有限型降下を可能にする。
+\end{remark}
+
+\section{generic可換復元への正確な還元}\label{sec:reconstruction}
+\begin{hypothesis}[étale局所実現原理]\label{hyp:ER}
+有限型複素スキーム$S$上のsmooth proper dg圏と可逆perfect双加群のpair
+$(\cK_S,\rho_S)$があり、複素点$s$で
+$(\cK_s,\rho_s)\simeq(\Ku(X),\rho_X)$となるとする。
+このとき$s$のpointed étale近傍$V\to S$上に滑らかな三次超曲面族$Y/V$と
+rotationを保つenhanced同値
+$(\cK_V,\rho_V)\simeq(\Ku(Y/V),\rho_{Y/V})$が存在する。
+これを\textup{(ER)}と呼ぶ。
+\end{hypothesis}
+
+本稿では(ER)を仮定として扱う。親原稿の\texttt{rotation\_models.tex}の
+\texttt{thm:etale}には論証が記されているが、その形式変形比較と実現スタックの
+smoothnessを本稿で全面的に再検証したとは扱わない。
+Toën--Vaquié\cite[Theorem 3.6]{TV}の対象moduliの代数性だけから(ER)は従わない。
+
+\begin{theorem}[局所saturationからgeneric復元へ]\label{thm:generic}
+$S$を滑らかな既約有限型複素スキーム、$s\in S(\CC)$、$R=\OO_{S,s}$とする。
+$R$上に仮定\ref{hyp:algebra}の量子化があり、残余対角条件\eqref{eq:SM}と(ER)が成立するとする。
+$K=\CC(S)$と置くと、ある有限分離拡大$L/K$、滑らかな三次超曲面$Y_L$、
+rotationを保つenhanced同値
+\[
+ (\cK_{B_L}^{\mathrm{coh}},\LL_{\OO}(1))
+       \simeq (\Ku(Y_L),\rho_{Y_L})
+ \tag{CR}\label{eq:reconstruction}
+\]
+が存在する。ここで左辺は全coherent残余圏である。
+\end{theorem}
+\begin{proof}
+局所proper模型と定理\ref{thm:rotation}から$(\Perf(\Gamma_R),\rho)$を得る。
+\eqref{eq:SM}によりsmooth properとなるので、命題\ref{prop:spread}から$s$を含む開集合$U\subset S$へ
+pairを降下する。その$s$-ファイバーは元の$(\Ku(X),\rho_X)$である。
+(ER)を適用してpointed étale近傍$V\to U$と$Y/V$を得る。
+指定点を通る既約成分を選ぶと、その像は$U$の非空開集合を含む。
+étale射は準有限なので、その関数体$L$は$K$の有限分離拡大である。
+
+線束Homの自然な分数体底変更と有限mutationにより、
+$\Gamma_R\otL_RL$は実際の$B_L$の線束生成残余圏を表す。
+smoothnessは底変更で保存されるので、第\ref{sec:fullness}節を$L$上で適用して
+線束生成部分と全coherent残余圏を同定する。
+従ってgenericファイバーで\eqref{eq:reconstruction}を得る。
+\end{proof}
+
+\begin{corollary}[Poisson成分に対する適用範囲]\label{cor:component}
+Poisson既約成分$Z$を支配する滑らかな既約chart $S$と可換点$s$があり、
+$\CC(S)/\CC(Z)$が有限分離であるとする。
+$s$の局所環上で仮定\ref{hyp:algebra}、\eqref{eq:SM}、(ER)を満たせば、
+$Z$の関数体の有限分離拡大上に\eqref{eq:reconstruction}の可換模型が存在する。
+\end{corollary}
+\begin{proof}
+定理\ref{thm:generic}を適用し、二つの有限分離拡大を合成する。
+\end{proof}
+
+\begin{remark}[残る仮定の量化]
+各Poisson成分に一つ、この局所入力を実現すればよい。
+全成分での量子化自体が本稿から生じるわけではない。
+また(ER)の監査によって追加のcoherentな周期性データが必要となる場合は、
+そのデータの構成を入力へ追加しなければならない。
+本稿の自己同値性を周期性の証明の代わりにしてはならない。
+\end{remark}
+
+\section{非楕円型への適用と未解決の核心}\label{sec:remaining}
+親プロジェクトの二つの非楕円型成分では、可換点の局所環は
+$R=\CC[r,s]_{(r,s)}$、$N=7$、$n=5$、$a=4$である。
+その全次数flatなambientと中心三次商の構成を入力すれば、系\ref{cor:local-rotation}により
+\[
+ \rho^{-1}=(-1)\RR_{\OO}
+\]
+が局所残余圏上に存在する。節点型・尖点型の純三次ブロックの滑らかさは使わない。
+具体的な係数と中心式は研究ノートに記す。
+
+次の二点は依然として証明が必要である。
+第一に、$\Gamma_R$の対角が$\Gamma_R^e$上perfectであること。
+第二に、(ER)の形式変形比較と代数的実現の全ての仮定を確認すること。
+前者が得られれば、全coherent圏との同定と有限型pairへのspreadは本稿の定理で処理できる。
+
+\begin{proposition}[Serre自己同値はsmoothnessを含意しない]\label{prop:warning}
+体$k$上の$H=k[\epsilon]/(\epsilon^2)$に対し、$\Perf(H)$はproperでSerre関手が恒等であるがsmoothではない。
+\end{proposition}
+\begin{proof}
+$\epsilon$の係数を取るtraceは非退化な対称Frobenius pairingを与え、$H^\vee\simeq H$は双加群同型である。
+従ってperfect加群上のSerre関手は$-\otL_HH^\vee\simeq\mathrm{id}$である。
+一方、単純加群$k$は
+$\cdots\xrightarrow{\epsilon}H\xrightarrow{\epsilon}H\to k\to0$
+という無限最小分解を持ち、$H$-perfectでない。
+$H$がsmoothなら補題\ref{lem:pseudoperfect}に反する。
+\end{proof}
+
+この例は局所量子化が非smoothであることを示す反例ではない。
+今回構成したSerre関手・逆rotationだけでは対角perfectnessの証明にならないことを示している。
+対角の持上げ、形式的Artin切断、底上perfectなHom複体という三種類の有限性を区別する必要がある。
+
+\begin{thebibliography}{99}
+\bibitem{BS} Jesse Burke and Greg Stevenson,
+\emph{The derived category of a graded Gorenstein ring},
+arXiv:1507.00830v1 (2015).
+\url{https://arxiv.org/abs/1507.00830}.
+参照：Definition 5.1, Proposition 4.18, Lemmas 6.1--6.2, Theorem 6.4.
+\bibitem{Toen} Bertrand Toën,
+\emph{Anneaux de définition des dg-algèbres propres et lisses},
+arXiv:math/0611546v3 (2010).
+\url{https://arxiv.org/abs/math/0611546}.
+参照：Théorème 1, F4, F6.
+\bibitem{TV} Bertrand Toën and Michel Vaquié,
+\emph{Moduli of objects in dg-categories},
+arXiv:math/0503269v5 (2007).
+\url{https://arxiv.org/abs/math/0503269}.
+参照：Lemmas 2.8, 2.10, Corollary 2.13, Theorem 3.6.
+\bibitem{Orlov} Dmitri Orlov,
+\emph{Smooth and proper noncommutative schemes and gluing of DG categories},
+arXiv:1402.7364v5 (2015).
+\url{https://arxiv.org/abs/1402.7364}.
+参照：Proposition 3.8, Theorem 3.25（体上）.
+\bibitem{LZ2026} Xun Lin and Shizhuo Zhang,
+\emph{Categorical Torelli and Fourier--Mukai partners of hypersurfaces},
+arXiv:2611.05915v1 (2026年11月4日).
+\url{https://arxiv.org/abs/2611.05915}.
+参照：\S2.1, Theorem 2.2, Proposition 2.4. 本稿の(ER)の無条件な入力としては用いない。
+\bibitem{Repo} nc-cubic project,
+\emph{一般次元の局所代数的模型、非楕円型量子化、およびrotation付き可換復元},
+commit \texttt{4f2eb328a2249a173f0c658cdb744277f041ff1d}, 2026年11月10日JST.
+\url{https://github.com/uedakazushi/nc-cubic}.
+一次原稿：\texttt{tex/papers/local\_projective\_model.tex},
+\texttt{nonelliptic\_quantization.tex}, \texttt{rotation\_models.tex}.
+局所模型の入力および本稿が仮定とする(ER)を区別して参照する。
+\end{thebibliography}
+\end{document}

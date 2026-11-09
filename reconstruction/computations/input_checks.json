@@ -1,0 +1,50 @@
+{
+  "date_jst": "2026-11-10",
+  "version": "v14",
+  "scope": "Existing nonelliptic input identities only; no proof of residual smoothness, ER, or categorical equivalence.",
+  "cuspidal": {
+    "coefficient_ring": "Q[r,u]",
+    "overlap_xyz": "identically zero",
+    "center_commutators": {
+      "x": "identically zero",
+      "y": "identically zero",
+      "z": "identically zero"
+    },
+    "naive_mixed_lift_nonzero_commutators": [
+      "x",
+      "y",
+      "z"
+    ],
+    "normal_word_cache_size": 69
+  },
+  "nodal": {
+    "coefficient_ring": "Q[r,u,(4-r^2)^-1]",
+    "overlap_xyz": "identically zero",
+    "center_commutators": {
+      "x": "identically zero",
+      "y": "identically zero",
+      "z": "identically zero"
+    },
+    "naive_mixed_lift_nonzero_commutators": [
+      "x",
+      "y",
+      "z"
+    ],
+    "normal_word_cache_size": 67
+  },
+  "special_fiber_smoothness": {
+    "u_zero": "Analytic elimination proof in research_notes.md; not inferred from finite sampling.",
+    "u_one_small_branch_9_times_Fu": [
+      27,
+      31,
+      35,
+      39
+    ],
+    "u_one_nodal_nonzero_branch_9_times_Fu": [
+      2943,
+      2947,
+      2951,
+      2955
+    ]
+  }
+}

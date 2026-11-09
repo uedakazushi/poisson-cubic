@@ -1,6 +1,14 @@
 # 研究方針：一般次元・各Poisson成分の可換復元
 
-**2026年11月10日・v13。再開時は最初に本ファイルを読む。**
+**2026年11月10日・v15。再開時は最初に本ファイルを読む。**
+
+## 正本・最優先研究（2026-11-10・v15）
+
+**GitHub `uedakazushi/nc-cubic` の `main` だけを正本とする。** 研究再開はこのファイル、`research_notes.md`、`reconstruction/README.md` と `reconstruction/tex/rotation_saturation_reduction.tex` の順で読む。旧bundle・会話履歴・Libraryは不要とする。
+
+最優先は **一般次元・全Poisson既約成分の一般点でのrotation付き可換復元定理**。非楕円二成分に対して残余dg代数の対角perfect性(SM)の具体的有限証明書 `P -> Gamma_R` を構成し、並行してétale局所実現原理(ER)の変形論・同値模様の仮定を厳密に監査する。既に原稿にあるrotation逆関手、(SM)から全coherent比較と有限型spreadの還元は上記v14全文原稿に保持する。証明の記載と今回の独立検証は区別する。一般可換復元は依然として(SM),(ER)に依存し、無条件には未証明。
+
+研究の区切りにはソース・全証明・方針・ノート・再現コードをGitHubへ通常のfast-forwardでpushし、遠隔headとファイルを再取得して確認する。**ChatGPT Libraryへの保存はGitHub pushが実際に失敗した場合だけの緊急避難とし、成功時には保存しない。** GitHub Actions、force push、PRは通常使わない。新しい作業でソースと計算を変えた場合は `reconstruction/README.md` の再現コマンドを実行する。親論文A/B/C全体の組版は `python3 scripts/build.py` で行う（未実行なら未実行と報告する）。
 
 ## 目標と達成基準
 
@@ -47,7 +55,7 @@
 
 今回の自己完結な部分研究bundleは、全成分に共通する還元定理の再開用であり、親リポジトリのA・B・Cと境界研究を置き換えるものではない。入力となる未完成の圏論的仮定は本文に全て書いてあり、旧bundleを取得し直さずこの部分研究を再開できる。
 
-`python3 scripts/build_components.py` で日本語LuaLaTeXの抜粋と、方針・ノートのPDFを再生成する。`python3 computations/verify_componentwise_reconstruction.py` はSymPyによる厳密計算。`python3 scripts/verify_components.py` は参照、証明書、ソース・PDFのハッシュを検証する。生成・検証・Library保存・GitHub更新は別々に記録する。
+`python3 scripts/build_components.py` で日本語LuaLaTeXの抜粋と、方針・ノートのPDFを再生成する。`python3 computations/verify_componentwise_reconstruction.py` はSymPyによる厳密計算。`python3 scripts/verify_components.py` は参照、証明書、ソース・PDFのハッシュを検証する。生成・検証・GitHubへの反映確認・GitHub更新は別々に記録する。
 
 ## 非楕円型が一般点に残るPoisson既約成分
 
@@ -74,6 +82,6 @@
 5. 研究ノートは現在有効な知識・着想・反例・本質的障害・文献比較を整理し、作業日誌、会話、試行全履歴、重複した証明は置かない。再取得しにくい情報は簡潔に保持し、原資料の保存だけで内容の統合を代用しない。
 6. 再開は本方針を最初に読み、目標・達成基準・到達点・核心・次の着手方法を確認する。最新の対象bundleだけで継続できるよう、記法・ファイル名・参照・主張状態を整合させる。
 7. 現行の方針・ノート・原稿・PDF・文献・検証コード・必要な入力と証明書のみを収録する。旧ZIP、旧原稿、バックアップ、変更履歴、ログ、キャッシュ、中間生成物、重複ファイルを除く。容量やページ数の固定上限を目的にしない。
-8. 研究の区切りごとに日付・版を付け、ユーザーの再承認を求めず研究継続bundleをLibraryへ保存してよい。Libraryの既存ファイルの削除は許可に含まれない。生成・検証・保存に実際に成功した状態だけを報告し、失敗・未実行・制約を明記する。
+8. GitHub `main` を唯一の正本とし、研究の区切りに証明全文・方針・ノート・再現資産をfast-forward pushし遠隔確認する。ChatGPT Libraryへの保存はGitHub pushの実際の失敗時の緊急退避に限り、既存Libraryの削除は許可されていない。
 
 GitHub `uedakazushi/nc-cubic` の `main` は通常のfast-forwardで更新する。force push、PR、GitHub Actionsは使わず、リモートの追加変更を確認して保持する。
