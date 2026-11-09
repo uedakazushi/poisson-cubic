@@ -62,7 +62,7 @@ if args.run_computations:
                          cwd=ROOT,capture_output=True,text=True)
         if r.returncode: raise AssertionError(f"{script}: {r.stdout}\n{r.stderr}")
         print(f"PASS exact computation {script}")
-    for name in ("verify_generic17_slice.py","verify_split_codimension.py"):
+    for name in ("verify_generic17_slice.py","verify_split_codimension.py","verify_mixed_center.py"):
         # The second test is stored directly under computations/.
         path=(ROOT/"computations"/"independent"/name) if name=="verify_generic17_slice.py" else (ROOT/"computations"/name)
         r=subprocess.run([sys.executable,str(path)],

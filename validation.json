@@ -1,5 +1,5 @@
 {
-  "version": "nc-cubic-v8",
+  "version": "nc-cubic-v9",
   "date_jst": "2026-11-09",
   "commit_date": "as updated by GitHub",
   "purpose": "Current three-paper restructuring; not peer-reviewed",
@@ -13,8 +13,8 @@
     "B": {
       "path": "tex/generic17_ambient_recovery.tex",
       "scope": "41-dimensional incidence, generic 17 parameters, polarized ambient",
-      "source_status": "Added the explicit 7=6 moving plane +1 Poisson scale tangent exact sequence, and a no-go for a fixed-(X,Lambda) rational map from Poisson G_m to elliptic Pic0. Proofs written, exact rational witness run.",
-      "pdf_status": "16-page LuaLaTeX PDF regenerated locally (3 passes); new theorem page 10 inspected; PDF saved to Library but not GitHub binary."
+      "source_status": "Includes mixed 15-direction existing center formula (universal identity not independently re-proved this turn), a new conditional uniqueness theorem for first central-normal jets and a relative Picard fiberwise no-go theorem under finite etale covers.",
+      "pdf_status": "19-page v9 standalone PDF locally compiled from expanded paper B source with equivalent section contents, 3 passes, warnings clear; PDF saved to Library in v9 bundle, not synced to GitHub binary."
     },
     "C": {
       "path": "tex/rotation_cubic_reconstruction.tex",
@@ -37,7 +37,7 @@
     "A_C_static": "All labels, references and bibliography keys in input closure checked by connector code.",
     "B_local_typesetting": "13 pages LuaLaTeX built, no undefined refs/cites in final pass. Generated PDF not synchronized to GitHub.",
     "boundary": "Preserved original proof source; LaTeX typesetting and high-order certificates not re-run here.",
-    "library_bundle": "Paper B self-contained nc-cubic-generic17_v8_20261109.zip and PDF/TeX saved to Library in this turn",
+    "library_bundle": "nc-cubic-generic17_v9_20261109.zip uploaded, 19-page PDF included; source closure and actual hashes must be compared for each distribution",
     "split_codimension": {
       "script": "computations/verify_split_codimension.py",
       "arithmetic": "exact rational SymPy",
@@ -68,6 +68,21 @@
     "picard_rational_no_go": {
       "scope": "Single-valued rational map of a fixed (X,Lambda) G_m Poisson scaling fiber to Pic0(C) is constant; not for multivalued finite correspondence",
       "proof": "Properness and Riemann-Hurwitz in paper B"
+    },
+    "mixed_center": {
+      "file": "computations/verify_mixed_center.py",
+      "exact_field": "F_1009",
+      "specializations": 15,
+      "degree4_free_words": 625,
+      "ideal_rank": 555,
+      "negative_control": "h^2 A^2 z /6 omitted => noncentral",
+      "scope": "finite exact checks, not universal proof",
+      "primary_source": "Etingof-Ginzburg JEMS 2010 Appendix Section 9; earlier current-repository internal §14 technical PDF"
+    },
+    "relative_picard": {
+      "status": "proven in manuscript",
+      "scope": "generic scale fibers over Grassmann, including connected finite etale covers",
+      "limitation": "does not exclude branched correspondences, moving cubic or formal reconstruction"
     }
   },
   "build": {

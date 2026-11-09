@@ -1,5 +1,5 @@
 \documentclass[11pt,a4paper]{ltjsarticle}
-\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm,mathrsfs}
 \usepackage{luatexja-fontspec}
 \usepackage{enumitem,booktabs,array}
 \usepackage{xcolor}
@@ -74,6 +74,7 @@ $(\qgr A,\OO_A,(1))$ から自然な $\mathbb Z$-代数を作り，
 偶数 Veronese を再構成し，中心二次曲線を使って次数１の選択なしに $B$ を復元できる．
 扱う同型は原則として次数付き代数同型，または構造対象と次数シフトを保つ偏極付き圏同値である．
 この族が非可換 cubic の全成分を尽くすこと，および無標識導来圏による分類は主張しない．
+混合量子中心の一次持上げの一意性と、Poissonスカラーの相対Picardへの有理写像の障害も示す。
 \end{abstract}
 \tableofcontents
 
@@ -138,7 +139,7 @@ ambient の quadratic envelope が得られる．一方，構造対象だけを�
 第\ref{sec:normal}節でそれを支配する17係数正規形と一般の非同型性を，
 第\ref{sec:reconstruction}節で二次包絡による ambient の内在的復元を証明する．
 第\ref{sec:split-codimension}節で分離型の余次元を確定し、
-一般の混合項を扱う必要性を示す．
+第\ref{sec:mixed-quantum-center}節で混合中心の一次持上げと相対Picardの障害を示す。
 同節ではさらに、可換cubicの変形へ忘れたときの核を
 平面の移動6方向とPoissonのスカラー1方向へ分解し、
 スカラーを固定楕円曲線のPicard点と直接同一視する
@@ -722,6 +723,8 @@ Poisson中心三次対の\emph{有理商}についての結論であり、
 無標識導来圏やKuznetsov成分のモジュライの余次元だと
 読み替えてはいけない。
 \end{remark}
+
+\input{tex/papers/mixed_center_picard}
 
 \section{内在的 $\mathbb Z$-代数と ambient 非可換 $\PP^4$ の復元}\label{sec:reconstruction}
 \subsection{二次包絡の構成}

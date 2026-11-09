@@ -1,6 +1,6 @@
 # nc-cubic — 三つの中心論文と独立した境界研究
 
-**2026年11月9日・整理版v8**
+**2026年11月9日・整理版v9**
 
 再開時は [研究方針](00_research_plan.md) を最初に読み、[研究ノート](research_notes.md) を確認する。
 
@@ -54,3 +54,7 @@ Bの偏極付きambient復元とCのrotation付き可換復元は別の主張。
 ### 17次元族の新しい幾何的障害（v8）
 
 論文Bに `prop:vertical-seven`（17→10の核は平面移動6とPoissonスカラー1）、`prop:poisson-picard-obstruction`（元のcubicと平面を固定すると非零PoissonスカラーのG_mから楕円Picardへ非定数一価有理写像はない）を追加。第一優先課題は混合6方向に沿い量子化後の可換模型も変える相対的な復元の構成。日本語LuaLaTeX論文Bは16ページに再組版しLibraryへPDFと現行bundleを保存済み。GitHubへのPDFバイナリ同期は未実施。
+
+### 混合中心の検算と相対Picardの障害（v9）
+
+論文Bは `tex/papers/mixed_center_picard.tex` を読み込み、既存の全15混合方向の中心式、一次持上げの一意性、Grassmann族の相対Picardへのスカラー方向の有理写像の障害を扱う。厳密有限体検査は `python3 computations/verify_mixed_center.py`（Python標準ライブラリのみ）。全係数の普遍的中心性を今回独立に再証明したとは扱わない。独立部分研究用19ページPDFと自己完結v9 ZIPはLibraryに保存済み。GitHub上の論文B PDFはまだ旧版で、現行TeXから再生成する必要がある。

@@ -1,6 +1,6 @@
 # 研究方針：非可換cubicの三論文と境界研究
 
-**2026年11月9日・現行整理版 v8**
+**2026年11月9日・現行整理版 v9**
 
 ## 最初に読むこと
 
@@ -24,6 +24,16 @@
 | 境界研究 | Brill–Noether・Pfaffian接触、Reye停留平面、中心商の特異圏 | 独立原稿・原PDFに主張と証明あり。高次計算・原PDFしかない部分は未完全再検証 |
 
 **誤って結論してはいけない事項**：AS-regularと中心三次商だけでsmooth properな残余圏は従わない。広い非可換cubic全体のrotation付き可換復元はCalabi–Yau Zhang twist反例により偽。一般17次元族の可換復元・全相対saturation・二つ以上の無限位数ブロックの生成は未解決。一般17次元族の17次元という次元一致と可換側の17次元幾何モジュライの双有理同値は別問題。
+
+## 本質的混合15方向の量子中心と相対Picardの制約
+
+論文Bの `tex/papers/mixed_center_picard.tex` ではFermat型の本質的混合6+9方向を全て含む中心三次式の既存表示を、現在の規約で整理する。普遍的中心公式自体はEtingof–Ginzburg (2010), Appendix §9のRains計算と本研究の既存技術稿 `pdf/ambient/central_pair_formal_moduli.pdf` §14を参照し、新規性を主張しない。今回独立に行ったのは有限体 F₁₀₀₉ 上15特殊化の次数四関係イデアル検算（階数555）であり、普遍恒等式の証明とは区別する。 `h²A²z/6` を省くと中心性が失われる負例も確認した。
+
+新たに証明した命題 `prop:mixed-center-jet-unique`：基礎Sklyanin代数の次数二中心が零で、中心変数の平方零PBW族が次数別自由なら、固定中心三次元の一次混合持上げは存在すれば一意である。存在そのものは既存の量子化結果を使う。
+
+幾何的命題 `prop:relative-scalar-picard`：固定cubicの平面Grassmann開部分にわたる楕円曲線族の相対Picardへの、有理なPoissonスカラー束からの相対写像はスカラー方向に定数である。幾何学的一般繊維で連結な有限étale被覆を許しても同様。これは元のcubicと平面を保持する素朴な有理模型への障害であり、量子化後のYを動かすrotation付き復元を否定しない。
+
+**次の核心**：混合中心が明示できてもsmooth proper性や相対Orlov同値は従わない。量子化後の可換cubic Y、平面、Picard点を同時に変化させる相対Kodaira–Spencer写像の構成を優先する。
 
 ## Poissonスカラーと楕円Picard点の大域的障害
 
