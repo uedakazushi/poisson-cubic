@@ -55,7 +55,7 @@
 \newcommand{\Symm}{\operatorname{sym}}
 \title{一般の17次元非可換三次三様体族と\\内在的な非可換射影四空間の復元}
 \author{公表準備用研究原稿（著者情報未記入）}
-\date{2026年11月3日・v4}
+\date{2026年11月9日・v8}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -139,6 +139,10 @@ ambient の quadratic envelope が得られる．一方，構造対象だけを�
 第\ref{sec:reconstruction}節で二次包絡による ambient の内在的復元を証明する．
 第\ref{sec:split-codimension}節で分離型の余次元を確定し、
 一般の混合項を扱う必要性を示す．
+同節ではさらに、可換cubicの変形へ忘れたときの核を
+平面の移動6方向とPoissonのスカラー1方向へ分解し、
+スカラーを固定楕円曲線のPicard点と直接同一視する
+大域的な一価有理写像が存在しないことも示す．
 第\ref{sec:serre}節は，必要な条件を明示した Serre 関手による強化である．
 
 \section{相対 Jacobian 型の中心三次族}\label{sec:construction}
@@ -595,6 +599,116 @@ $(Y,\Lambda,\xi)$の$10+6+1$は整合的である。
 超平面pencilの6方向とPoissonスカラーの1方向を持つ。
 しかしこの計算だけでは、量子化後の可換cubic$Y$、平面$\Lambda$、
 楕円曲線上の直線束$\xi$を関手的に構成したことにはならない。
+\end{remark}
+
+\begin{proposition}[七次元の核の幾何的分解]\label{prop:vertical-seven}
+命題\ref{prop:jacobian-forgetful-tangent}の仮定の下で、
+$W=\langle x,y,z\rangle$、$U=\langle u,v\rangle$を
+\emph{一次形式の空間}とする。分離点$F=f(x)+g(u,v)$で、
+\[
+ \mathsf T_{F,U}:=\Sym^3(W\oplus U)/T_F(\mathcal P\cdot F),
+ \qquad R_F=\Sym(W\oplus U)/(F_x,F_y,F_z,F_u,F_v)
+\]
+とおく。一次形式の部分空間$U$で指定される平面
+$\Lambda=V(U)\simeq\PP^2$の変形空間は
+$T_{\Lambda}\operatorname{Gr}(2,W\oplus U)
+\simeq\operatorname{Hom}(U,W)$である。
+$L\in\operatorname{Hom}(U,W)$の基底表示を
+$L(u)=\ell_u(x)$、$L(v)=\ell_v(x)$とすれば、
+次の短完全列が成立する：
+\[
+ 0\longrightarrow
+ \mathbb C[f]\oplus T_{\Lambda}\operatorname{Gr}(2,W\oplus U)
+ \xrightarrow{\ \iota\ } \mathsf T_{F,U}
+ \xrightarrow{\ \mathrm{Jac}\ } (R_F)_3
+ \longrightarrow0,
+ \tag{V}\label{eq:vertical-seven-exact}
+\]
+\[
+ \iota(a,L)=[\,a f+\ell_u(x)g_u(u,v)+\ell_v(x)g_v(u,v)\,].
+ \tag{VM}\label{eq:vertical-moving-plane}
+\]
+左端の一次元方向はPoisson双ベクトルの大きさを変える方向であり、
+六次元方向は可換cubicそのものを変えずに指定した平面を動かす方向である。
+\end{proposition}
+\begin{proof}
+$F$のJacobianイデアルの三次部分を変数の双次数に分けると、
+\[
+ J(F)_3=
+ W\langle f_x,f_y,f_z\rangle\ \oplus\
+ U\langle f_x,f_y,f_z\rangle\ \oplus\
+ W\langle g_u,g_v\rangle\ \oplus\
+ U\langle g_u,g_v\rangle.
+\]
+$f$が滑らかな平面三次式であることから
+第一項の次元は$10-\dim(R_f)_3=9$、第二項は6である。
+$g$が重根を持たない二元三次式なので
+第三項は6、第四項は4であり、全体の次元は25となる。
+一方、$\mathcal P$の無限小作用は、
+第一項において$\mathrm{SL}(W)$の8次元方向を占め、
+第二項ではshearによる全6方向を占め、
+第四項では$\mathrm{GL}(U)$による全4方向を占める。
+ここで$\mathrm{GL}(U)$が$\Sym^3U$に作用する微分は同型である：
+重根のない三点の組の射影的安定化群が有限だからである。
+従って放物型軌道の次元は$8+6+4=18$であり、
+$W\langle g_u,g_v\rangle$の第三項には寄与しない。
+また$\mathbb Cf\subset W\langle f_x,f_y,f_z\rangle$は
+$\mathrm{SL}(W)$の8次元接方向と独立である。
+実際、滑らかな平面三次式の判別式は$\mathrm{SL}(W)$不変で
+$f\mapsto(1+\varepsilon)f$で非零の一次変化を持つ。
+従って$J(F)_3/T_F(\mathcal P\cdot F)$は
+$\mathbb C[f]\oplus W\langle g_u,g_v\rangle$に一致する。
+$g_u,g_v$は二元二次式として一次独立なので、
+後者は$\operatorname{Hom}(U,W)$と同一視される。
+最後に$\operatorname{Gr}(2,W\oplus U)$の平面変形は
+$U\mapsto\langle u+\varepsilon\ell_u(x),
+ v+\varepsilon\ell_v(x)\rangle$で記述される。
+$g$へこの置換を適用したときの一次変化が
+\eqref{eq:vertical-moving-plane}の第二項に一致する。
+$F$のJacobian商への射は全射だから、短完全列が得られる。
+\end{proof}
+
+\begin{proposition}[PoissonスカラーをPicardパラメータと直接同一視できない]\label{prop:poisson-picard-obstruction}
+$X\subset\PP^4$を滑らかな可換cubic、$\Lambda\simeq\PP^2$を
+$C=X\cap\Lambda$が滑らかな平面三次曲線となる平面とする。
+$X$と$\Lambda$を固定し、非零Poisson構造のスカラー倍
+$\lambda\pi$、$\lambda\in\mathbb G_m$だけを変化させる。
+この一変数族から$\operatorname{Pic}^0(C)$への任意の
+有理写像は定数である。
+とくに、同じ$X$と$\Lambda$を保つような
+Poissonパラメータ$\lambda$と楕円Picardパラメータ$\xi$の間には、
+支配的な有理対応を与える一価の有理写像は存在しない。
+\end{proposition}
+\begin{proof}
+$\operatorname{Pic}^0(C)$は滑らかな射影的種数1曲線である。
+$\mathbb G_m\dashrightarrow\operatorname{Pic}^0(C)$という有理写像は、
+領域を$\PP^1$に埋め込めば、曲線上の有理写像に関する
+正規性とターゲットの固有性により
+$\PP^1\to\operatorname{Pic}^0(C)$に延長される。
+標数0で$\PP^1$から種数1曲線への非定数射は
+Riemann--Hurwitz公式に反する。
+従って有理写像は定数である。
+この議論は$(X,\Lambda)$を変数とする基底の
+一般幾何ファイバー上でも成立する。
+\end{proof}
+\begin{remark}[復元に必要な非自明な幾何変化]\label{rem:picard-obstruction-scope}
+滑らかなcubic threefold上の非零Poisson構造を射影化すると
+$\operatorname{Gr}(2,5)$になることは既知である
+\cite{LPT,Mayanskiy}。
+非零スカラーまで保持するとその錐から零切断を除いた
+$\mathbb G_m$束であり、固定cubic上で$6+1$次元を持つ。
+一方$(Y,\Lambda,\xi)$の$\xi$は固定$(Y,\Lambda)$上では
+楕円曲線$\operatorname{Pic}^0(Y\cap\Lambda)$を動く。
+従って$17=10+6+1$という次元一致を、
+可換cubicと平面を両方固定したまま
+$\mathbb G_m$パラメータを楕円曲線の点へ置き換える
+大域的な有理同一視と解釈してはならない。
+実際の量子化後の可換復元では、元の$X$と異なる$Y$を選ぶか、
+平面やmarkingを非自明に変化させる必要があり得る。
+一ブロックHesse模型の$\vartheta(h,t)-t\ne0$は
+そのような基底の移動が起こる明示的な例である。
+この命題は一般のrotation付き可換復元の存在を否定しない。
+また、有限被覆を介する多価の代数的対応の不存在も主張しない。
 \end{remark}
 
 \begin{remark}[可換復元への帰結]

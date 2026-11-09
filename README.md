@@ -1,6 +1,6 @@
 # nc-cubic — 三つの中心論文と独立した境界研究
 
-**2026年11月9日・整理版v7**
+**2026年11月9日・整理版v8**
 
 再開時は [研究方針](00_research_plan.md) を最初に読み、[研究ノート](research_notes.md) を確認する。
 
@@ -50,3 +50,7 @@ Bの偏極付きambient復元とCのrotation付き可換復元は別の主張。
 論文Bの命題 `prop:split-codimension` と系 `cor:split-normal-directions` は、分離した一楕円ブロックの有理商次元が2であり、一般17次元族には本質的混合方向が15あることを証明する。法線は中心変数一次の6方向と二次の9方向に分かれる。検算は `python3 computations/verify_split_codimension.py`。最新の論文Bは15ページのPDFをローカルで組版・目視確認済みだが、GitHub上のPDFへの同期は別途検証する。A/Cの現行PDFは未再組版。
 
 通常の可換cubicへのJacobian忘却の接空間（論文B命題 `prop:jacobian-forgetful-tangent`）も計算した：17→10は全射・核7、法線15→9・核6。これは量子化後の可換復元写像の構成ではない。厳密計算を同じ検証スクリプトに含めた。
+
+### 17次元族の新しい幾何的障害（v8）
+
+論文Bに `prop:vertical-seven`（17→10の核は平面移動6とPoissonスカラー1）、`prop:poisson-picard-obstruction`（元のcubicと平面を固定すると非零PoissonスカラーのG_mから楕円Picardへ非定数一価有理写像はない）を追加。第一優先課題は混合6方向に沿い量子化後の可換模型も変える相対的な復元の構成。日本語LuaLaTeX論文Bは16ページに再組版しLibraryへPDFと現行bundleを保存済み。GitHubへのPDFバイナリ同期は未実施。

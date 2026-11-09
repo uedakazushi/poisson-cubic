@@ -1,5 +1,5 @@
 {
-  "version": "nc-cubic-v7",
+  "version": "nc-cubic-v8",
   "date_jst": "2026-11-09",
   "commit_date": "as updated by GitHub",
   "purpose": "Current three-paper restructuring; not peer-reviewed",
@@ -13,8 +13,8 @@
     "B": {
       "path": "tex/generic17_ambient_recovery.tex",
       "scope": "41-dimensional incidence, generic 17 parameters, polarized ambient",
-      "source_status": "Split-locus codimension 15 and normal-direction decomposition added with full proofs; exact tangent/orbit rank witness computed.",
-      "pdf_status": "15-page PDF locally regenerated from exact same TeX Git blob; no undefined references, missing characters or overfull errors; visually checked pages 8-10. GitHub PDF not synchronized."
+      "source_status": "Added the explicit 7=6 moving plane +1 Poisson scale tangent exact sequence, and a no-go for a fixed-(X,Lambda) rational map from Poisson G_m to elliptic Pic0. Proofs written, exact rational witness run.",
+      "pdf_status": "16-page LuaLaTeX PDF regenerated locally (3 passes); new theorem page 10 inspected; PDF saved to Library but not GitHub binary."
     },
     "C": {
       "path": "tex/rotation_cubic_reconstruction.tex",
@@ -37,7 +37,7 @@
     "A_C_static": "All labels, references and bibliography keys in input closure checked by connector code.",
     "B_local_typesetting": "13 pages LuaLaTeX built, no undefined refs/cites in final pass. Generated PDF not synchronized to GitHub.",
     "boundary": "Preserved original proof source; LaTeX typesetting and high-order certificates not re-run here.",
-    "library_bundle": "B continuation bundle v7 prepared separately; receipt to be reported upon successful upload.",
+    "library_bundle": "Paper B self-contained nc-cubic-generic17_v8_20261109.zip and PDF/TeX saved to Library in this turn",
     "split_codimension": {
       "script": "computations/verify_split_codimension.py",
       "arithmetic": "exact rational SymPy",
@@ -59,6 +59,15 @@
         "forgetful_kernel_dimension": 7,
         "status": "proved symbolically in manuscript, finite rational witness verified"
       }
+    },
+    "vertical_tangent": {
+      "scope": "At a smooth split ternary/binary cubic F=f(x)+g(u,v), 0->C[f]+Hom(U,W)->T_poisson,17->Jac(F)_3,10->0",
+      "proof": "Written in paper B",
+      "finite_verification": "Exact rational model; orbit 18 + vertical 7=Jacobian degree-three ideal 25"
+    },
+    "picard_rational_no_go": {
+      "scope": "Single-valued rational map of a fixed (X,Lambda) G_m Poisson scaling fiber to Pic0(C) is constant; not for multivalued finite correspondence",
+      "proof": "Properness and Riemann-Hurwitz in paper B"
     }
   },
   "build": {
