@@ -1,5 +1,5 @@
 {
-  "version": "nc-cubic-v9",
+  "version": "nc-cubic-v10-general-components",
   "date_jst": "2026-11-09",
   "commit_date": "as updated by GitHub",
   "purpose": "Current three-paper restructuring; not peer-reviewed",
@@ -83,6 +83,10 @@
       "status": "proven in manuscript",
       "scope": "generic scale fibers over Grassmann, including connected finite etale covers",
       "limitation": "does not exclude branched correspondences, moving cubic or formal reconstruction"
+    },
+    "general_components": {
+      "source": "tex/papers/all_poisson_components.tex",
+      "status": "formal algebraic lemmas written and checked; global existence of uniform quantization and relative saturation NOT proved"
     }
   },
   "build": {
@@ -90,5 +94,12 @@
     "checks": "python3 scripts/verify_bundle.py",
     "strict": "python3 scripts/verify_bundle.py --require-pdfs",
     "notes": "Stale PDFs must not be reported as current"
+  },
+  "research_scope": {
+    "primary": "Every irreducible component of the affine Poisson scheme of smooth cubic n-folds for arbitrary n>=3; generic point of each component",
+    "subcase": "The 17-dimensional nc-cubic threefold family is only one test family",
+    "distinguish": "The full noncommutative AS-regular cubic moduli space may contain components unrelated to Poisson commutative cones; existing Zhang twist counterexamples disprove all-points universal realization but not generic behavior on every component",
+    "math_result": "Every irreducible Poisson cone component contains zero; a base-change-compatible algebraic smooth proper residual pair near zero implies generic geometric realization on that component, conditional on the manuscript's etale realization theorem",
+    "dimension_split": "For n not congruent 1 mod3, rotation determined by Serre and shifts if rho^3=[2] and S=rho^(1-n)[n]; n congruent 1 mod3 requires rotation data"
   }
 }

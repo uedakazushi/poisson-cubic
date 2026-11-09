@@ -1,6 +1,8 @@
-# nc-cubic — 三つの中心論文と独立した境界研究
+# nc-cubic — 一般次元・全Poisson既約成分への可換復元
 
 **2026年11月9日・整理版v9**
+
+研究の究極目標は一般次元$n\ge3$の任意のPoisson既約成分genericでrotation付き可換cubic模型を構成すること。一般17次元族はその一つの技術的テストケースである。
 
 再開時は [研究方針](00_research_plan.md) を最初に読み、[研究ノート](research_notes.md) を確認する。
 
