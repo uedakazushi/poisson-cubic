@@ -56,3 +56,7 @@ python3 reconstruction/scripts/verify.py
 ## PDFの追跡とソース復旧（2026-11-10）
 
 原則としてTeXと検証コードのみをGitで追跡し、PDFは`latexmk`で`build/`へ生成する。独立した二次ジェットの結果は `papers/independent/poisson_second_jet.tex` に再構成し、以前のPDFの追跡を解除した。現在のPDF原本の例外リストは `papers/pdf-only/README.md` と `notes/pdf-only/README.md` に記録する。対応ソースが未確認の資料を、数学的証明が失われる状態で機械的に削除しない。
+
+## 未照合PDFと関連TeXの整理TODO
+
+追跡中PDF9本と関連TeXの対応候補、全証明の照合・組版・追跡解除の条件は [`TODO_PDF_SOURCES.md`](TODO_PDF_SOURCES.md) に管理する。取り込み済みの別原稿は `sources/candidates/` に暫定配置し、現行の主論文は上書きしない。

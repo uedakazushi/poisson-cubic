@@ -4,3 +4,5 @@
 
 - `notes/pdf-only/finite_smoothness_notes.pdf`
 - `notes/pdf-only/categorical_boundary_notes.pdf`
+
+個別PDFと対応TeX候補、追跡解除までのチェック項目は [`TODO_PDF_SOURCES.md`](../../TODO_PDF_SOURCES.md) に記載する。
