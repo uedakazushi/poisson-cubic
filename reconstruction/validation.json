@@ -50,10 +50,11 @@
     "exact_input_code": "executed and rerun successfully"
   },
   "external_persistence": {
-    "library_explicit_save": "not executed: exposed Library connector functions are read-only",
-    "github_main_update": "not executed: no available repository write action or authenticated git runtime",
-    "prior_bundle_materialization": "Tool returned paths but runtime files were absent; not extracted or used as a byte source",
-    "existing_remote_files": "not changed or deleted"
+    "github_main_commit_for_source": "31252b84b702b15f1b672636cf8f115b084a430b",
+    "github_remote_verification": "13 committed file blob SHA values checked by fetching the files back",
+    "github_policy": "GitHub main canonical; Library used only after an actual failed push",
+    "library_save": "not performed",
+    "parent_papers": "retained without full rebuild in this update"
   },
   "environment": {
     "python": "3.13.5",
