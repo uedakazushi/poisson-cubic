@@ -1,6 +1,6 @@
 # nc-cubic：一般次元・各Poisson成分の可換復元
 
-**2026-11-10・v16。正本はこのGitHubリポジトリのmainのみ。** 最初に `00_research_plan.md`、次に `research_notes.md` を読む。Library保存はpush実失敗時の緊急避難だけとする。
+**2026-11-10・v17。正本はこのGitHubリポジトリのmainのみ。** 最初に `00_research_plan.md`、次に `research_notes.md` を読む。Library保存はpush実失敗時の緊急避難だけとする。
 
 ## 現在の中心結果
 
@@ -32,3 +32,7 @@ python3 reconstruction/scripts/verify.py
 Python 3.10以上、LuaLaTeX、LuaTeX-ja/ltjsarticleと標準数学パッケージが必要。詳細は `reconstruction/README.md`。計算は有理数上の厳密演算であり、圏同値の計算機形式化ではない。
 
 親三論文全体は `python3 scripts/build.py`。今回の検証対象は独立組版と二つの計算証明書であり、親全体を再組版したとは扱わない。
+
+## Hochschild障害の現在有効な公式（論文C）
+
+`reconstruction/tex/hochschild_obstructions.tex` に、BFKの固定sector公式から導かれる三次障害群の全次元の整理を記す。`HH³(Ku(X))^rotation=0` は全 n≥3、無偏極の HH³ は cubic sevenfold でのみ二次元。非楕円cubic fivefoldではHH³=0。これは一次の形式的障害に関する情報であり、残余smoothness (SM) の証明ではない。原稿の再生は `reconstruction/README.md` を参照する。

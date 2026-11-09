@@ -59,7 +59,8 @@ def main() -> None:
         require(digest(ROOT/receipt[field]) == receipt[field+'_sha256'],
                 'Build receipt mismatch: '+field)
     pairs = [('verify_nonelliptic_inputs.py', 'input_checks.json'),
-             ('verify_etale_inputs.py', 'etale_input_checks.json')]
+             ('verify_etale_inputs.py', 'etale_input_checks.json'),
+             ('verify_hochschild_sectors.py', 'hochschild_sector_checks.json')]
     with tempfile.TemporaryDirectory(prefix='nc-cubic-check-') as tmp:
         for script, certificate in pairs:
             dest = Path(tmp)/certificate
@@ -73,10 +74,10 @@ def main() -> None:
     for p in ROOT.rglob('*'):
         require(p.suffix not in {'.aux', '.log', '.toc', '.out', '.pyc', '.zip'},
                 'Unwanted intermediate/archive: '+str(p))
-    print(json.dumps({'version': 'v16', 'tex_inputs': len(seen), 'labels': len(labels),
+    print(json.dumps({'version': 'v17', 'tex_inputs': len(seen), 'labels': len(labels),
                       'bibliography_keys': len(bibs), 'reference_integrity': 'passed',
                       'source_pdf_hash_parity': 'passed',
-                      'exact_input_recomputation': 'passed (both certificates)',
+                      'exact_input_recomputation': 'passed (three certificates)',
                       'categorical_proofs': 'not machine-verified'},
                      ensure_ascii=False, indent=2))
 

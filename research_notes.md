@@ -1,6 +1,6 @@
 # 研究ノート：可換復元の現在有効な知識と障害
 
-**2026年11月10日・v16。GitHub mainだけを正本とする。** 詳細な局所模型・具体式は `reconstruction/research_notes.md`、証明全文は `reconstruction/tex/rotation_saturation_reduction.tex` とそのinputに置く。
+**2026年11月10日・v17。GitHub mainだけを正本とする。** 詳細な局所模型・具体式は `reconstruction/research_notes.md`、証明全文は `reconstruction/tex/rotation_saturation_reduction.tex` とそのinputに置く。
 
 ## 1. 復元の論理と現在の核心
 
@@ -65,3 +65,7 @@ Cの一楕円ブロックの良い複素ファイバーでの比較、有限位�
 `reconstruction/README.md` の二つの計算、build、verifyを実行する。参照とハッシュは全TeX inputを含む。計算的確認と圏論的証明は別である。最優先の次作業は非楕円二成分の有限残余対角証明書の構成。研究の量化は一般次元・各成分を保ちつつ、具体的量子化のある成分から実証する。
 
 GitHubへ全文と再現資産を保存し遠隔確認する。Libraryはpushが実際に失敗した場合だけの緊急退避とする。
+
+## Hochschildの第三次数障害（現行の確定した整理）
+
+滑らかなN変数三次F（n=N−2≥3）に対するBFK Theorem 5.39の恒等sectorは偶数次 q=2r にJ(F)_{3r}を与え、μ₃の非自明二sectorは3|Nなら次数q=N/3に各一次元を与える。二sectorのrotation固有値はζ,ζ²。したがってHH³はN=9の場合だけC²で、全N≥5でHH³のrotation不変部分は零。具体的検証は`reconstruction/tex/hochschild_obstructions.tex` と同じディレクトリの整数証明書を参照。形式変形の一次障害の消滅と有限型でのSMを混同しない。

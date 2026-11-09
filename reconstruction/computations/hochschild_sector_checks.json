@@ -1,0 +1,142 @@
+{
+  "reference": "Ballard-Favero-Katzarkov (2014), Theorem 5.39",
+  "method": "exact integer sector bookkeeping; this does not verify the external theorem",
+  "cubic_fivefold_N7": [
+    {
+      "N": 7,
+      "dimension": 0,
+      "jacobian_sector": 1,
+      "twisted_sectors": 0,
+      "total": 1,
+      "rotation_fixed": 1
+    },
+    {
+      "N": 7,
+      "dimension": 1,
+      "jacobian_sector": 0,
+      "twisted_sectors": 0,
+      "total": 0,
+      "rotation_fixed": 0
+    },
+    {
+      "N": 7,
+      "dimension": 2,
+      "jacobian_sector": 35,
+      "twisted_sectors": 0,
+      "total": 35,
+      "rotation_fixed": 35
+    },
+    {
+      "N": 7,
+      "dimension": 3,
+      "jacobian_sector": 0,
+      "twisted_sectors": 0,
+      "total": 0,
+      "rotation_fixed": 0
+    },
+    {
+      "N": 7,
+      "dimension": 4,
+      "jacobian_sector": 7,
+      "twisted_sectors": 0,
+      "total": 7,
+      "rotation_fixed": 7
+    }
+  ],
+  "cubic_fourfold_N6": [
+    {
+      "N": 6,
+      "dimension": 0,
+      "jacobian_sector": 1,
+      "twisted_sectors": 0,
+      "total": 1,
+      "rotation_fixed": 1
+    },
+    {
+      "N": 6,
+      "dimension": 1,
+      "jacobian_sector": 0,
+      "twisted_sectors": 0,
+      "total": 0,
+      "rotation_fixed": 0
+    },
+    {
+      "N": 6,
+      "dimension": 2,
+      "jacobian_sector": 20,
+      "twisted_sectors": 2,
+      "total": 22,
+      "rotation_fixed": 20
+    },
+    {
+      "N": 6,
+      "dimension": 3,
+      "jacobian_sector": 0,
+      "twisted_sectors": 0,
+      "total": 0,
+      "rotation_fixed": 0
+    },
+    {
+      "N": 6,
+      "dimension": 4,
+      "jacobian_sector": 1,
+      "twisted_sectors": 0,
+      "total": 1,
+      "rotation_fixed": 1
+    }
+  ],
+  "cubic_sevenfold_N9": [
+    {
+      "N": 9,
+      "dimension": 0,
+      "jacobian_sector": 1,
+      "twisted_sectors": 0,
+      "total": 1,
+      "rotation_fixed": 1
+    },
+    {
+      "N": 9,
+      "dimension": 1,
+      "jacobian_sector": 0,
+      "twisted_sectors": 0,
+      "total": 0,
+      "rotation_fixed": 0
+    },
+    {
+      "N": 9,
+      "dimension": 2,
+      "jacobian_sector": 84,
+      "twisted_sectors": 0,
+      "total": 84,
+      "rotation_fixed": 84
+    },
+    {
+      "N": 9,
+      "dimension": 3,
+      "jacobian_sector": 0,
+      "twisted_sectors": 2,
+      "total": 2,
+      "rotation_fixed": 0
+    },
+    {
+      "N": 9,
+      "dimension": 4,
+      "jacobian_sector": 84,
+      "twisted_sectors": 0,
+      "total": 84,
+      "rotation_fixed": 84
+    },
+    {
+      "N": 9,
+      "dimension": 5,
+      "jacobian_sector": 0,
+      "twisted_sectors": 0,
+      "total": 0,
+      "rotation_fixed": 0
+    }
+  ],
+  "HH3_zero_except_n7": true,
+  "HH3_rotation_fixed_zero_all": true,
+  "HH2_fixed_matches_J3": true,
+  "jacobian_hilbert": "(1+t)^N"
+}

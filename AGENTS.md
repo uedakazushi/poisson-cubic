@@ -19,6 +19,10 @@
 4. `reconstruction/README.md` の検算・組版・検証を実行する。新しいTeX inputは全てbuild receiptのハッシュと参照検査に含める。PDFはソースから再生成し、不要なバイナリ・旧版・ログ・キャッシュは蓄積しない。
 5. 親論文A/B/C全体の組版は `python3 scripts/build.py`。未実行なら独立組版の成功と混同しない。生成・数学的監査・計算・組版・GitHub反映・遠隔確認を区別して報告する。
 
+## 現在の障害理論の追加データ
+- `reconstruction/tex/hochschild_obstructions.tex` にBFK sector公式から `HH³(Ku(X))^rho=0`（全n≥3）を導出し、非楕円cubic fivefoldで `HH³=0` を示した。形式的第一障害の消滅をSMの証明と混同しない。
+- `reconstruction/computations/verify_hochschild_sectors.py` に有限次元の整数sector検算を記録。既知の外部定理の証明やHochschild群の形式化とは呼ばない。
+
 ## 数学的な正確性
 
 証明済み、条件付き、未完成、予想、計算的観察を区別し、仮定と所在を示す。証明の記載と今回の独立監査を混同しない。

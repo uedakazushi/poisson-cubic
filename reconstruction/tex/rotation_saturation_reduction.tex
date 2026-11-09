@@ -35,7 +35,7 @@
 \newcommand{\RR}{\mathbf R}
 \title{非可換三次超曲面の局所rotationと\protect\\可換復元のsaturation還元}
 \author{nc-cubic 研究原稿C・独立読解用の現行節}
-\date{2026年11月10日・v16}
+\date{2026年11月10日・v17}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -46,6 +46,8 @@ $\rho=\LL_{\OO}\circ(1)$の逆関手を$(\!-1)\circ\RR_{\OO}$として構成す�
 およびrotation付きpairの有限型開集合への降下が従うことを示す。
 さらに同値双加群の持上げ障害をrotation不変部分で消去し、
 実在するsmooth properなdg族に対するétale局所実現原理を証明する。
+BFKの固定sector公式から全次元のrotation不変な三次Hochschild障害の消滅を示し、
+特に非楕円cubic fivefoldで\(\mathrm{HH}^3=0\)を得る。
 従って、所定の局所量子化が得られたPoisson成分のgenericな可換復元は、
 残余対角のperfect性へ還元される。一般の残余smoothnessは未証明である。
 \end{abstract}
@@ -568,6 +570,7 @@ smoothnessが与えるhomotopical finite presentationが有限型降下を可能
 \end{remark}
 
 \input{tex/etale_realization}
+\input{tex/hochschild_obstructions}
 
 \section{generic可換復元への正確な還元}\label{sec:reconstruction}
 \begin{theorem}[局所saturationからgeneric復元へ]\label{thm:generic}

@@ -1,7 +1,7 @@
 {
-  "version": "v16",
+  "version": "v17",
   "date_jst": "2026-11-10",
-  "parent_commit_read": "e8423fc1c33d27da19709b6677eb0f5707925793",
+  "parent_commit_read": "38fe4d4905e5c2d7214b2991bb37f923fe0e1ceb",
   "scope": "Current full paper-C export plus a shared section input by the parent paper; not a replacement for papers A/B/C or boundary results.",
   "mathematics": {
     "proofs_written_and_argument_reviewed": [
@@ -10,14 +10,16 @@
       "Actual equivalence-bimodule obstruction cancellation, including rotation invariance and intertwiner lifting",
       "Etale realization of actual smooth proper cubic pairs in every dimension n>=3",
       "Generic realization for a component with the stated quantum input, conditional on residual smoothness only",
-      "Explicit 35-monomial geometric deformation slices for the two nonelliptic fivefold examples"
+      "Explicit 35-monomial geometric deformation slices for the two nonelliptic fivefold examples",
+      "BFK fixed-sector bookkeeping: HH3(Ku(X))^rotation=0 for all smooth cubic n>=3, HH3(Ku(X))=0 unless n=7, and the two n=7 sectors have nontrivial cubic-root eigenvalues"
     ],
     "not_proved": [
       "Residual diagonal perfectness (SM)",
       "All-component quantum inputs",
       "Explicit coefficients of the reconstructed cubic",
       "A chosen coherent relative rho^3=[2] identification",
-      "All-points realization or unique global descent"
+      "All-points realization or unique global descent",
+      "Any categorical or equivariant obstruction theory automatically yielding relative residual diagonal smoothness from the Hochschild parity calculation"
     ],
     "external_inputs": "Primary-source module moduli and obstruction theory, known cubic HH/KS calculations, and smoothness/etale-section results. Assumptions and exact references are in the manuscript.",
     "novelty": "Not comprehensively established; not an external referee report or formal proof."
@@ -30,18 +32,19 @@
       "Categorical equivalence",
       "Etale realization",
       "Residual smoothness"
-    ]
+    ],
+    "hochschild_sector_arithmetic": "Exact integer computation N=5..60; source BFK theorem not computer-proved"
   },
   "artifact_validation": {
-    "manuscript_pages": 14,
+    "manuscript_pages": 15,
     "lualatex_passes": 3,
-    "tex_inputs": 3,
+    "tex_inputs": 4,
     "undefined_references": 0,
     "undefined_citations": 0,
     "missing_glyphs": 0,
     "overfull_boxes": 0,
     "source_pdf_parity": "SHA256 for all three TeX inputs and PDF in generated build_receipt.json",
-    "visual_review": "All fourteen rendered pages inspected; central proof and explicit-slice pages inspected at reading scale",
+    "visual_review": "Fifteen pages rendered as contact sheet; new Hochschild sector proof inspected at reading size",
     "parent_full_papers_build": "Not executed in this work session; existing sources preserved and shared section/reference inputs updated"
   },
   "persistence_policy": {

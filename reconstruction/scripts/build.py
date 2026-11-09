@@ -12,7 +12,7 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'tex/rotation_saturation_reduction.tex'
 PDF = ROOT / 'pdf/rotation_saturation_reduction.pdf'
-INPUTS = [SOURCE, ROOT/'tex/etale_realization.tex', ROOT/'tex/etale_references.tex']
+INPUTS = [SOURCE, ROOT/'tex/etale_realization.tex', ROOT/'tex/hochschild_obstructions.tex', ROOT/'tex/etale_references.tex']
 
 
 def digest(p: Path) -> str:
@@ -53,7 +53,7 @@ def main() -> None:
         PDF.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(work / (SOURCE.stem+'.pdf'), PDF)
     receipt = {
-        'version': 'v16', 'date_jst': '2026-11-10',
+        'version': 'v17', 'date_jst': '2026-11-10',
         'source': str(SOURCE.relative_to(ROOT)), 'source_sha256': digest(SOURCE),
         'tex_inputs': {str(p.relative_to(ROOT)): digest(p) for p in INPUTS},
         'pdf': str(PDF.relative_to(ROOT)), 'pdf_sha256': digest(PDF),
@@ -61,7 +61,7 @@ def main() -> None:
                                  capture_output=True, check=True).stdout.splitlines()[0],
         'passes': 3, 'typesetting_failures': checks,
         'source_date_epoch': env['SOURCE_DATE_EPOCH'],
-        'scope': 'Current standalone paper-C export, including the full etale proof. '
+        'scope': 'Current standalone paper-C export, including the full etale proof and Hochschild sectors. '
                  'Not a rebuild of all parent papers A/B/C.',
     }
     (ROOT/'build_receipt.json').write_text(

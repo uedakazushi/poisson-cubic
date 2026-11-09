@@ -1,6 +1,6 @@
 # 研究ノート：rotation・対角・局所可換実現
 
-**2026年11月10日・v16。現在有効な知識を整理する。**
+**2026年11月10日・v17。現在有効な知識を整理する。**
 
 ## 1. 今回の中心となる有限データ
 
@@ -114,3 +114,7 @@ A（Poisson・量子化）、B（17次元族・ambient）、C（rotation付き�
 所定の局所量子化に対しては、SMから全coherent比較とspread、ER、generic復元が従う。残る最優先課題は第4節の有限残余対角証明書。全成分での量子化、全点の復元、大域降下、既存の全証明の独立監査は未了。
 
 GitHub mainだけを正本とし、研究の区切りに全文と再現資産をpushして遠隔確認する。Libraryはpushが実際に失敗した場合の緊急退避だけに使う。
+
+## Hochschildの奇数次sectorと形式的障害
+
+BFK Theorem 5.39に従えば、非自明μ₃-sectorは3|Nの場合にq=N/3に限り二次元で、そのrotation固有値はζ,ζ²。恒等sectorは偶数次のみ。従って`HH³(Ku(X))^rho=0`は全cubic n≥3で成立し、n=5では`(dim HH⁰,...,dim HH⁴)=(1,0,35,0,7)`。n=7の場合のみHH³自体は二次元。通常の第一Morita変形障害が消えることは、残余対角SMの実在的な証明書を与えることではない。本文`tex/hochschild_obstructions.tex`と検算`computations/verify_hochschild_sectors.py`を参照する。

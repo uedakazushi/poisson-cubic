@@ -1,10 +1,10 @@
 {
-  "version": "nc-cubic-v16",
+  "version": "nc-cubic-v17",
   "date_jst": "2026-11-10",
   "research_scope": "For every n>=3 and each reduced cubic Poisson component, seek generic rotation-compatible commutative realization.",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library is emergency-only after an actual failed push.",
   "current_validation": "reconstruction/validation.json",
-  "current_proof_section": "reconstruction/tex/etale_realization.tex",
+  "current_proof_section": "reconstruction/tex/hochschild_obstructions.tex",
   "papers": {
     "A": {
       "source": "tex/poisson_cubic_quantization.tex",
@@ -16,7 +16,7 @@
     },
     "C": {
       "source": "tex/rotation_cubic_reconstruction.tex",
-      "status": "Shared full etale-realization proof integrated. The 14-page current reconstruction export was rebuilt and checked; full parent C was not rebuilt."
+      "status": "Shared étale-realization proof and BFK sector obstruction section integrated. The 15-page reconstruction export was rebuilt and checked; full parent C was not rebuilt."
     }
   },
   "current_results": [
@@ -24,14 +24,16 @@
     "Residual smoothness implies full coherent comparison and finite-type spread",
     "Etale realization for actual smooth proper dg pairs, by equivariant bimodule obstruction cancellation",
     "For the stated local quantum input, generic commutative reconstruction conditional only on residual diagonal perfectness",
-    "Explicit exact 35-parameter geometric deformation slices for nodal and cuspidal fivefold examples"
+    "Explicit exact 35-parameter geometric deformation slices for nodal and cuspidal fivefold examples",
+    "Cubic HH3 parity: rotation-invariant part vanishes in every dimension n>=3; ordinary HH3=2 only for cubic sevenfold (n=7), and is zero for the two cubic fivefold test components"
   ],
   "unresolved": [
     "Residual diagonal perfectness (SM)",
     "All-component uniform quantum input",
     "Explicit reconstructed coefficients",
     "Coherence with a chosen rho^3=[2] isomorphism",
-    "All-points realization and unique global descent"
+    "All-points realization and unique global descent",
+    "An actual relative diagonal lift; the Hochschild cubic-root parity does not imply smoothness"
   ],
   "retained_inputs": {
     "componentwise_reduction": {
