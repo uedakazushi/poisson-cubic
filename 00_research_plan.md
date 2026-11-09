@@ -4,7 +4,7 @@
 
 ## 正本と最優先目標
 
-**GitHub `uedakazushi/nc-cubic` の `main` だけを正本とする。** 次に `research_notes.md`、`reconstruction/README.md`、現行原稿 `reconstruction/tex/rotation_saturation_reduction.tex` を読む。旧bundle、会話履歴、Libraryを再開の前提にしない。
+**GitHub `uedakazushi/nc-cubic` の `main` だけを正本とする。** 次に `notes/research_notes.md`、`reconstruction/README.md`、現行原稿 `papers/reconstruction/rotation_saturation_reduction.tex` を読む。旧bundle、会話履歴、Libraryを再開の前提にしない。
 
 任意の n≥3、滑らかな複素cubic X、Poissonスキームの任意の被約既約成分 Z の幾何学的一般点で、構成した量子化の残余dg圏を滑らかな可換cubicのrotation付きKuznetsov成分として実現することを最優先する。有限分離体拡大・marking・降下の範囲を明記する。全てのAS-regular中心三次商の全点での存在、任意の量子化の同一視、n=1,2への無条件拡張は目標に含めない。広いAS類のZhang twist反例を、Poisson成分のgenericな存在の否定と取り違えない。
 
@@ -13,14 +13,14 @@
 1. 各非零Poisson成分を、滑らかな係数chart T とスカラー h を用いる S=T×A¹ で支配する。必要なら有限étale被覆でブロック座標を固定する。特異な錐の頂点への量子化の降下はgenericな存在の前提ではない。
 2. 所定の次数別自由な中心三次量子化が正則局所底上にあれば、properな線束生成残余dg代数 Γ_R が得られる。標準rotationは、残余smoothnessを仮定せず、逆 `(-1) R_O` を持つ。
 3. **残余対角のperfect性 (SM)** があれば、全coherent残余圏との同定とsmooth proper pairの有限型開集合へのspreadが従う。
-4. **étale局所実現 (ER) は、実在するsmooth proper pairを入力とする定理として証明を収録した。** 同値双加群の小拡大障害はrotation不変HH²に入り、幾何的Kodaira–Spencer写像で消せる。HH¹=0でintertwinerも持ち上がる。actual perfect加群のmoduliの代数性と無限小判定からétale局所実現を得る。証明は `reconstruction/tex/etale_realization.tex`。
+4. **étale局所実現 (ER) は、実在するsmooth proper pairを入力とする定理として証明を収録した。** 同値双加群の小拡大障害はrotation不変HH²に入り、幾何的Kodaira–Spencer写像で消せる。HH¹=0でintertwinerも持ち上がる。actual perfect加群のmoduliの代数性と無限小判定からétale局所実現を得る。証明は `papers/reconstruction/etale_realization.tex`。
 5. 従って、**所定の局所量子化が既にある成分ではgeneric可換復元の未解決入力は(SM)に集約される。** 全成分の量子化入力も一括して解決したわけではない。
 
 この整理により、(ER)を未証明仮定として重ねて課す必要はなくなった。親原稿のactual/formal変形比較を全て再監査したという意味ではなく、同値双加群を直接持ち上げる独立の論証を用いる。自己同値一つを指定したpairを扱い、選択した `rho^3=[2]` のcoherenceまで入力・結論に含めない。
 
 ## Hochschild障害の現在有効な整理
 
-BFKの一次資料の固定sector公式より、滑らかなcubic n-fold (n≥3) のKuについて、`HH³(Ku(X))=0`（n≠7）、n=7のとき`HH³=C²`で、その二方向はrotationの非自明な三乗根固有空間に分かれる。したがって**全次元で `HH³(Ku(X))^rho=0`**。特にn=5の節点・尖点二例では `(dim HH^0,...,dim HH^4)=(1,0,35,0,7)` である。証明は `reconstruction/tex/hochschild_obstructions.tex`。整数sector計算は `reconstruction/computations/verify_hochschild_sectors.py` で再現できる。
+BFKの一次資料の固定sector公式より、滑らかなcubic n-fold (n≥3) のKuについて、`HH³(Ku(X))=0`（n≠7）、n=7のとき`HH³=C²`で、その二方向はrotationの非自明な三乗根固有空間に分かれる。したがって**全次元で `HH³(Ku(X))^rho=0`**。特にn=5の節点・尖点二例では `(dim HH^0,...,dim HH^4)=(1,0,35,0,7)` である。証明は `papers/reconstruction/hochschild_obstructions.tex`。整数sector計算は `reconstruction/computations/verify_hochschild_sectors.py` で再現できる。
 
 この事実は通常のMorita変形の一次障害の候補群を消すが、任意のrotation付き変形のcoherentな障害理論、実在する残余対角の持上げ、代数化は独立である。**残余smoothness (SM) は未証明のまま**であり、本研究の最優先課題を変更しない。
 
@@ -42,7 +42,7 @@ R=C[r,s]_(r,s)、Γ_R=REnd(G) に対し、実際の有限perfect双加群 P と�
 
 ## 他の現在有効な成果の保持
 
-論文A `tex/poisson_cubic_quantization.tex` はPoisson正規形・退化・量子化、論文B `tex/generic17_ambient_recovery.tex` は17次元中心三次対と偏極付きambient復元、論文C `tex/rotation_cubic_reconstruction.tex` はrotation付き復元と障害を扱う。`reconstruction/` は論文Cの現行証明の独立組版入口であり第四の主論文ではない。
+論文A `papers/poisson_cubic_quantization.tex` はPoisson正規形・退化・量子化、論文B `papers/generic17_ambient_recovery.tex` は17次元中心三次対と偏極付きambient復元、論文C `papers/rotation_cubic_reconstruction.tex` はrotation付き復元と障害を扱う。`reconstruction/` は論文Cの現行証明の独立組版入口であり第四の主論文ではない。
 
 17次元族では分離型の有理商は2次元、法線は6+9=15次元、元の可換cubicのJacobian変形への17次元接写像の核は平面移動6とPoissonスカラー1である。これを量子化後の可換模型への写像と同一視しない。固定したcubic・平面上のスカラー束から楕円Picardへの有理写像障害は、動く模型や分岐対応を否定しない。
 
@@ -67,3 +67,9 @@ Brill–Noether、Pfaffian接触、Reye、中心商の特異圏は独立の境�
 7. **Library保存はGitHub pushが実際に失敗した場合だけの緊急避難に限定する。** 成功時に保存しない。退避は未同期と復帰手順を明示し、既存Libraryファイルは明示指示なしに削除しない。
 8. 現行方針・ノート・全証明・最小限のコード/入力/証明書/再現手順だけを管理する。旧ZIP、旧原稿、履歴、ログ、キャッシュ、重複物は含めない。数学的内容や検証可能性を犠牲にした固定容量制限は設けない。
 9. 生成・計算・組版・GitHub登録・遠隔確認は別々に報告する。日付・版を付け、欠落・参照切れ・組版・必要な計算を確認する。未実行・失敗・再現上の制約は正確に記す。
+
+## 現行の研究資産の配置
+
+主論文A/B/Cは `papers/`、現行研究ノートは `notes/`。研究再開時は本方針→`notes/research_notes.md`→`notes/reconstruction.md`→`papers/rotation_cubic_reconstruction.tex` の順で読む。独立組版入口は `papers/reconstruction/rotation_saturation_reduction.tex`。LuaLaTeXの再生成はリポジトリルートで `latexmk papers/rotation_cubic_reconstruction.tex` とする。`build/` の生成PDFはGitに含めず、ソース未確認PDFは保全のため `papers/pdf-only/` に例外的に置く。
+
+※ PDF原本のうち研究ノート二本は `notes/pdf-only/`、論文系八本は `papers/pdf-only/` に分類した。その他のPDFは生成対象でありGit追跡しない。

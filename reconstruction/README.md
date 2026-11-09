@@ -6,7 +6,7 @@
 
 ## 数学的状態
 
-`tex/rotation_saturation_reduction.tex` は局所模型と還元を記し、`tex/etale_realization.tex` と `tex/hochschild_obstructions.tex` を直接inputする。後者は親論文Cからも同じファイルを読む。
+`papers/reconstruction/rotation_saturation_reduction.tex` は局所模型と還元を記し、`papers/reconstruction/etale_realization.tex` と `papers/reconstruction/hochschild_obstructions.tex` を直接inputする。後者は親論文Cからも同じファイルを読む。
 
 実在するsmooth proper dg族と可逆perfect双加群が、一点でsmooth cubicのKuとrotationに一致すれば、étale局所的に可換cubic族となることを、実際の同値双加群の障害消去で証明した。負HH消滅、HH¹=0、幾何的KSのrotation不変HH²への全射を使う。原稿に証明を記載して点検したが、外部査読・Lean形式検証ではない。新規性の包括的確認は未了。
 
@@ -25,8 +25,18 @@ python3 reconstruction/scripts/build.py
 python3 reconstruction/scripts/verify.py
 ```
 
-PDFは `reconstruction/pdf/rotation_saturation_reduction.pdf` に生成される。buildは全TeX inputをハッシュ化し、verifyはinput閉包・ラベル・引用・source/PDFの対応と三つの厳密計算証明書を確認する。日付を固定して組版するが、別バージョンのTeXエンジンでのPDFのバイト同一性は保証しない。PDFや中間生成物はGitで重複管理しない。
+PDFは `build/rotation_saturation_reduction.pdf` に生成される。buildは全TeX inputをハッシュ化し、verifyはinput閉包・ラベル・引用・source/PDFの対応と三つの厳密計算証明書を確認する。日付を固定して組版するが、別バージョンのTeXエンジンでのPDFのバイト同一性は保証しない。PDFや中間生成物はGitで重複管理しない。
 
 中心検算はQ(r,u)上のDiamond重なりと中心交換子を、変形slice検算は整数・有理数上の84×49行列と35次元補空間を扱う。BFK sector整数検算は既知の公式から導かれた次数・次元・非自明固有値の算術を検証する。これらを圏同値や残余smoothnessの計算機形式化と呼ばない。
 
 親三論文全体の再組版は別の検証であり、今回の独立組版成功から推論しない。生成・検証・GitHub登録・遠隔確認の実際の状態を区別する。Libraryはpush実失敗時だけの緊急避難である。
+
+## パス移動後の実行方法
+
+TeX原稿は `papers/reconstruction/`、ノートは `notes/reconstruction.md`、生成PDFはルート `build/` に統一した。Gitに生成PDFは登録しない。
+
+```sh
+latexmk papers/reconstruction/rotation_saturation_reduction.tex
+python3 reconstruction/scripts/build.py
+python3 reconstruction/scripts/verify.py
+```

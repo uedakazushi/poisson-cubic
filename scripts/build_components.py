@@ -15,9 +15,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
-    "componentwise_reconstruction": ("tex/exports/componentwise_reconstruction.tex", "pdf/sections/componentwise_reconstruction.pdf"),
-    "research_plan": ("00_research_plan.md", "pdf/research_plan.pdf"),
-    "research_notes": ("research_notes.md", "pdf/research_notes.pdf"),
+    "componentwise_reconstruction": ("papers/exports/componentwise_reconstruction.tex", "build/sections/componentwise_reconstruction.pdf"),
+    "research_plan": ("00_research_plan.md", "build/research_plan.pdf"),
+    "research_notes": ("notes/research_notes.md", "build/research_notes.pdf"),
 }
 PREAMBLE = r'''\documentclass[a4paper,11pt]{ltjsarticle}
 \usepackage[margin=24mm,headheight=16pt]{geometry}

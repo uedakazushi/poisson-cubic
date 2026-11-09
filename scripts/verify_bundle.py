@@ -32,7 +32,7 @@ def source_closure(path,seen=None):
     return s
 
 for name in PAPERS:
-    body=source_closure(ROOT/"tex"/f"{name}.tex")
+    body=source_closure(ROOT/"papers"/f"{name}.tex")
     labels=re.findall(r"\\label\{([^}]+)\}",body)
     refs=re.findall(r"\\(?:eqref|ref|pageref)\{([^}]+)\}",body)
     bibkeys=re.findall(r"\\bibitem(?:\[[^]]*\])?\{([^}]+)\}",body)
@@ -43,7 +43,7 @@ for name in PAPERS:
     assert len(bibkeys)==len(set(bibkeys)),f"Duplicate bibliography keys: {name}"
     assert not set(refs)-set(labels),(name,"undefined refs",set(refs)-set(labels))
     assert not set(citeitems)-set(bibkeys),(name,"undefined cites",set(citeitems)-set(bibkeys))
-    pdf=ROOT/"pdf"/f"{name}.pdf"
+    pdf=ROOT/"build"/f"{name}.pdf"
     if not pdf.exists():
         print(f"PENDING PDF: {pdf.relative_to(ROOT)}")
         if args.require_pdfs: raise AssertionError(f"Missing current PDF: {name}")
@@ -51,7 +51,7 @@ for name in PAPERS:
         print(f"PDF EXISTS (source parity not established by this test): {pdf.relative_to(ROOT)}")
     print(f"PASS source closure: {name}; labels={len(labels)}, citations={len(citeitems)}")
 
-for needed in ("00_research_plan.md","research_notes.md","README.md","validation.json"):
+for needed in ("00_research_plan.md","notes/research_notes.md","README.md","validation.json"):
     assert (ROOT/needed).exists(),f"Missing {needed}"
 
 if args.run_computations:

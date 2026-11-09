@@ -55,5 +55,11 @@
   "environment": {
     "python": "3.13.5",
     "sympy": "1.14.0"
+  },
+  "layout": {
+    "paper_source": "papers/reconstruction/rotation_saturation_reduction.tex",
+    "notes": "notes/reconstruction.md",
+    "build_output": "build/rotation_saturation_reduction.pdf",
+    "ignore_generated_pdfs": true
   }
 }

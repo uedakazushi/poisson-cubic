@@ -32,7 +32,7 @@ R=(R0)_m は主開集合の座標環のfiltered colimit。Gammaがsmooth proper�
 
 ## 3. 非楕円二成分の具体的入力
 
-以下の表示は親論文A `tex/papers/nonelliptic_quantization.tex`（commit 4f2eb328a2249a173f0c658cdb744277f041ff1d）の入力を、再開に必要な形で記す。次数零は r,s、次数一は x,y,z,a,b,c,u。異なるブロックの生成元は可換、uは中心。
+以下の表示は親論文A `papers/sections/nonelliptic_quantization.tex`（commit 4f2eb328a2249a173f0c658cdb744277f041ff1d）の入力を、再開に必要な形で記す。次数零は r,s、次数一は x,y,z,a,b,c,u。異なるブロックの生成元は可換、uは中心。
 
 第一ブロック：
 
@@ -91,13 +91,13 @@ Serre関手の存在はsmoothnessを含意しない。Perf(k[epsilon]/epsilon²)
 
 ## 5. étale局所実現の証明と一次資料
 
-証明全文は `tex/etale_realization.tex`。対象は実在するsmooth proper pairであり、properだけの残余模型にはまだ適用できない。
+証明全文は `papers/reconstruction/etale_realization.tex`。対象は実在するsmooth proper pairであり、properだけの残余模型にはまだ適用できない。
 
 小拡大での同値双加群の障害はHH²に入る。両側の自己同値のliftと還元上のintertwinerに対する障害の自然性により、その類はrotation不変となる。幾何的KSの全射でsourceを修正して障害を消し、HH¹=0でintertwinerを持ち上げる。actual perfect対象と射のmoduli、unit/counitの消滅開条件、無限小smoothness、étale sectionまで確認する。これでERを独立仮定として残す必要はない。
 
 HH³=0、Hochschild cochainのformality、抽象的Hochschild変形が全てactualであることは使わない。選択したrho³=[2]のcoherenceはpairのデータに含めない。親rotation_models.texの形式変形比較を全て再監査したとの主張でもない。
 
-一次資料：Toën–Vaquié, math/0503269v5, Theorem 3.6/Corollaries 3.15,3.17,3.19、Lowen, 0707.2602v1, Theorem 4.8。BFK Theorem 5.39、Huybrechts–Rennemo Lemma 2.19/§3.3、JLLZ Theorem 4.4(2)、Huybrechts Proposition 3.12でcubicの入力を確認。正確な書誌とリンクは tex/etale_references.tex。
+一次資料：Toën–Vaquié, math/0503269v5, Theorem 3.6/Corollaries 3.15,3.17,3.19、Lowen, 0707.2602v1, Theorem 4.8。BFK Theorem 5.39、Huybrechts–Rennemo Lemma 2.19/§3.3、JLLZ Theorem 4.4(2)、Huybrechts Proposition 3.12でcubicの入力を確認。正確な書誌とリンクは papers/reconstruction/etale_references.tex。
 
 Lin–Zhang, *Categorical Torelli and Fourier–Mukai partners of hypersurfaces*, arXiv:2611.05915v1 (2026-11-04), §§2.1–2.3は重要な比較資料である。同論文Theorem 2.2/Proposition 2.4は幾何的な両側のsmooth projective familyとrelative admissible component、perfect projectorを仮定する。本稿は同じ障害消去原理を非幾何的targetに使えるMorita双加群で定式化し、rotation不変性とintertwinerを別々に証明する。同論文を仮定未確認で直接適用しない。新規性は未確定。
 
@@ -117,4 +117,4 @@ GitHub mainだけを正本とし、研究の区切りに全文と再現資産を
 
 ## Hochschildの奇数次sectorと形式的障害
 
-BFK Theorem 5.39に従えば、非自明μ₃-sectorは3|Nの場合にq=N/3に限り二次元で、そのrotation固有値はζ,ζ²。恒等sectorは偶数次のみ。従って`HH³(Ku(X))^rho=0`は全cubic n≥3で成立し、n=5では`(dim HH⁰,...,dim HH⁴)=(1,0,35,0,7)`。n=7の場合のみHH³自体は二次元。通常の第一Morita変形障害が消えることは、残余対角SMの実在的な証明書を与えることではない。本文`tex/hochschild_obstructions.tex`と検算`computations/verify_hochschild_sectors.py`を参照する。
+BFK Theorem 5.39に従えば、非自明μ₃-sectorは3|Nの場合にq=N/3に限り二次元で、そのrotation固有値はζ,ζ²。恒等sectorは偶数次のみ。従って`HH³(Ku(X))^rho=0`は全cubic n≥3で成立し、n=5では`(dim HH⁰,...,dim HH⁴)=(1,0,35,0,7)`。n=7の場合のみHH³自体は二次元。通常の第一Morita変形障害が消えることは、残余対角SMの実在的な証明書を与えることではない。本文`papers/reconstruction/hochschild_obstructions.tex`と検算`computations/verify_hochschild_sectors.py`を参照する。

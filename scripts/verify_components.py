@@ -29,7 +29,7 @@ def main() -> None:
     parser.add_argument("--check-hashes", action="store_true")
     parser.add_argument("--source-only", action="store_true")
     args = parser.parse_args()
-    paths = closure(ROOT / "tex/exports/componentwise_reconstruction.tex")
+    paths = closure(ROOT / "papers/exports/componentwise_reconstruction.tex")
     body = "\n".join(p.read_text(encoding="utf-8") for p in sorted(paths))
     labels = re.findall(r"\\label\{([^}]+)\}", body)
     refs = re.findall(r"\\(?:eqref|ref|pageref)\{([^}]+)\}", body)

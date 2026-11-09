@@ -4,18 +4,18 @@
   "research_scope": "For every n>=3 and each reduced cubic Poisson component, seek generic rotation-compatible commutative realization.",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library is emergency-only after an actual failed push.",
   "current_validation": "reconstruction/validation.json",
-  "current_proof_section": "reconstruction/tex/hochschild_obstructions.tex",
+  "current_proof_section": "papers/reconstruction/hochschild_obstructions.tex",
   "papers": {
     "A": {
-      "source": "tex/poisson_cubic_quantization.tex",
+      "source": "papers/poisson_cubic_quantization.tex",
       "status": "All existing proofs retained; whole manuscript not rebuilt or fully re-audited in this session."
     },
     "B": {
-      "source": "tex/generic17_ambient_recovery.tex",
+      "source": "papers/generic17_ambient_recovery.tex",
       "status": "Existing proofs and exact computations retained; existing PDF not asserted current; no full re-audit in this session."
     },
     "C": {
-      "source": "tex/rotation_cubic_reconstruction.tex",
+      "source": "papers/rotation_cubic_reconstruction.tex",
       "status": "Shared étale-realization proof and BFK sector obstruction section integrated. The 15-page reconstruction export was rebuilt and checked; full parent C was not rebuilt."
     }
   },
@@ -37,12 +37,12 @@
   ],
   "retained_inputs": {
     "componentwise_reduction": {
-      "source": "tex/papers/all_poisson_components.tex",
+      "source": "papers/sections/all_poisson_components.tex",
       "validation": "validation_components.json",
       "scope": "Scalar charts and finite-jet center algebraization; its earlier conditional ER input now has the separate current proof."
     },
     "nonelliptic_components": {
-      "source": "tex/papers/nonelliptic_poisson_components.tex",
+      "source": "papers/sections/nonelliptic_poisson_components.tex",
       "script": "computations/verify_nonelliptic_components.py",
       "certificate": "computations/nonelliptic_components_certificate.json",
       "ranks": [
@@ -56,13 +56,13 @@
       "this_session": "Prior exact certificate retained; full 35-column Jacobi calculation not rerun."
     },
     "nonelliptic_quantization": {
-      "source": "tex/papers/nonelliptic_quantization.tex",
+      "source": "papers/sections/nonelliptic_quantization.tex",
       "script": "computations/verify_nonelliptic_quantization.py",
       "certificate": "computations/nonelliptic_quantization_certificate.json",
       "this_session": "Current first-block overlap/centrality checks rerun by reconstruction/computations/verify_nonelliptic_inputs.py; whole ambient theorem not machine-formalized."
     },
     "local_projective_model": {
-      "source": "tex/papers/local_projective_model.tex",
+      "source": "papers/sections/local_projective_model.tex",
       "script": "computations/verify_local_projective_model.py",
       "certificate": "computations/local_projective_certificate.json",
       "scope": "Regular local degreewise-free input, proper model, bounded Orlov decomposition. Current rotation and conditional fullness results are in reconstruction/."
@@ -74,5 +74,13 @@
     "verify": "python3 reconstruction/scripts/verify.py",
     "parent_build": "python3 scripts/build.py"
   },
-  "limits": "Proofs written and reviewed, exact algebraic computation, typesetting, remote persistence, external review, novelty, and formal verification are separate statuses. Parent PDFs are not claimed current."
+  "limits": "Proofs written and reviewed, exact algebraic computation, typesetting, remote persistence, external review, novelty, and formal verification are separate statuses. Parent PDFs are not claimed current.",
+  "organization": {
+    "current": "2026-11-10",
+    "papers": "papers/",
+    "notes": "notes/",
+    "latexmk": ".latexmkrc",
+    "generated_pdf": "build/ (Git ignored)",
+    "pdf_only_sources": "papers/pdf-only/ (8) and notes/pdf-only/ (2)"
+  }
 }

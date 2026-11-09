@@ -3,7 +3,7 @@
 この文書は前回の研究継続bundle `nc-cubic-reconstruction_v14_20261110.zip` の主要な数学的到達点を、GitHub 上で参照可能な形にした研究ノートである。**完全な LuaLaTeX 原稿および PDF はこのファイルに含まれない。** 原稿での証明記載と独立検証を区別する。
 
 ## 局所設定
-正則局所複素底 `(R,m,k)` 上の次数別自由な量子化 `A` と中心正則三次元 `Omega` を仮定する。特殊ファイバーは滑らかな cubic の斉次座標環。 `B=A/(Omega)` とし、`C_B=thick{O(j)}`、`K_B^lin=<O,...,O(a-1)>^perp` (`a=n-1`) とする。詳細な仮定は `tex/papers/local_projective_model.tex` に従う。
+正則局所複素底 `(R,m,k)` 上の次数別自由な量子化 `A` と中心正則三次元 `Omega` を仮定する。特殊ファイバーは滑らかな cubic の斉次座標環。 `B=A/(Omega)` とし、`C_B=thick{O(j)}`、`K_B^lin=<O,...,O(a-1)>^perp` (`a=n-1`) とする。詳細な仮定は `papers/sections/local_projective_model.tex` に従う。
 
 ## 1. Rotation 候補の逆関手（証明案を含む）
 既存の完全忠実な候補 `rho=L_O o (1)` について、右mutationから `rho^{-1}=(-1) o R_O` を構成する。鍵は特殊ファイバーのSerre traceを底へ持ち上げ、perfect Hom複体の間の双対性写像が剰余で同型であることから局所Nakayamaを適用し、`{}^perp O = O(a)^perp` を得る点である。左右mutationの三角を使い、二つの合成が恒等となることを確認する。残余smoothnessは仮定しない。

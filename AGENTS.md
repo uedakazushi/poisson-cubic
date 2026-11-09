@@ -1,15 +1,15 @@
 # AGENTS.md — nc-cubicの継続指示
 
-**GitHub `uedakazushi/nc-cubic` の `main` だけが正本。** 最初に `00_research_plan.md`、次に `research_notes.md`、`reconstruction/README.md` を読む。旧ZIP・会話・Libraryを再開の前提にしない。
+**GitHub `uedakazushi/nc-cubic` の `main` だけが正本。** 最初に `00_research_plan.md`、次に `notes/research_notes.md`、`reconstruction/README.md` を読む。旧ZIP・会話・Libraryを再開の前提にしない。
 
 ## 最優先の研究
 
 一般次元n≥3、全Poisson既約成分の一般点でのrotation付き可換復元を最優先する。
-現在、実在するsmooth proper pairに対するétale局所実現(ER)は `reconstruction/tex/etale_realization.tex` に、同値双加群の障害消去による証明がある。これは残余smoothnessを証明する定理ではない。
+現在、実在するsmooth proper pairに対するétale局所実現(ER)は `papers/reconstruction/etale_realization.tex` に、同値双加群の障害消去による証明がある。これは残余smoothnessを証明する定理ではない。
 
 当面は節点・尖点二成分の残余対角perfect性(SM)を、有限perfect双加群と実際の射 `P→Gamma_R` で示す。量子化が得られた成分では、SMからfull coherent比較、pairのspread、ER、generic可換復元へ進む。全成分の量子化入力は別途必要。
 
-現行の独立組版入口は `reconstruction/tex/rotation_saturation_reduction.tex`。局所rotationの逆、gluing、full coherent比較、spreadの既存の全証明を保持する。三論文A/B/Cと独立境界研究を削除・要約で代替しない。
+現行の独立組版入口は `papers/reconstruction/rotation_saturation_reduction.tex`。局所rotationの逆、gluing、full coherent比較、spreadの既存の全証明を保持する。三論文A/B/Cと独立境界研究を削除・要約で代替しない。
 
 ## 永続的な保存・再現規則
 
@@ -20,7 +20,7 @@
 5. 親論文A/B/C全体の組版は `python3 scripts/build.py`。未実行なら独立組版の成功と混同しない。生成・数学的監査・計算・組版・GitHub反映・遠隔確認を区別して報告する。
 
 ## 現在の障害理論の追加データ
-- `reconstruction/tex/hochschild_obstructions.tex` にBFK sector公式から `HH³(Ku(X))^rho=0`（全n≥3）を導出し、非楕円cubic fivefoldで `HH³=0` を示した。形式的第一障害の消滅をSMの証明と混同しない。
+- `papers/reconstruction/hochschild_obstructions.tex` にBFK sector公式から `HH³(Ku(X))^rho=0`（全n≥3）を導出し、非楕円cubic fivefoldで `HH³=0` を示した。形式的第一障害の消滅をSMの証明と混同しない。
 - `reconstruction/computations/verify_hochschild_sectors.py` に有限次元の整数sector検算を記録。既知の外部定理の証明やHochschild群の形式化とは呼ばない。
 
 ## 数学的な正確性
@@ -32,3 +32,13 @@ SMなしにERを適用しない。perfect対象moduliの代数性だけで可換
 中心三次商やambientの対角だけから残余smoothnessを結論しない。自己同値性と、指定した `rho^3=[2]` のcoherenceは別である。35係数sliceの計算はSMや復元写像の閉公式を証明しない。
 
 一次資料で仮定・参照箇所を確認し、新規性未確認なら明記する。誤りがあれば依存する本文・要約・方針も直す。日本語LuaLaTeXを既定とし、現在有効な証明を論理的な順序で保持する。
+
+## 永続的なディレクトリ・ビルド・PDF規則（2026-11-10）
+
+1. 主要公表原稿は `papers/`、研究ノートは `notes/` に置く。公表前の未完成結果も証明全文を保持する。再開はルート `00_research_plan.md` から始める。
+2. 原稿やノートを移動するときは全 `\\input`、引用・参照、検算・ビルドスクリプト、検証台帳のパスを同時に直す。旧パスに重複するファイルを残さない。
+3. 組版はルート `.latexmkrc` と `latexmk papers/rotation_cubic_reconstruction.tex` などを使い、LuaLaTeXで `build/` にPDFと中間生成物を作る。生成PDFはGitで追跡しない。例外の `papers/pdf-only/` は完全な原稿TeXを未確認の原本だけで、内容を失わないよう保持する。
+4. 再現テストは `python3 scripts/verify_bundle.py`、`python3 reconstruction/scripts/build.py`、`python3 reconstruction/scripts/verify.py`。実行していない組版や数学的形式検証を成功したと報告しない。
+5. 正本はGitHub `main`、LibraryはGitHub push実失敗時のみの緊急退避。GitHub Actions、force pushは使わない。
+
+※ PDF原本のうち研究ノート二本は `notes/pdf-only/`、論文系八本は `papers/pdf-only/` に分類した。その他のPDFは生成対象でありGit追跡しない。
