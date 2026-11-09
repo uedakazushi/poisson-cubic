@@ -53,7 +53,7 @@
 
 ## 再現・配布
 
-今回の自己完結な部分研究bundleは、全成分に共通する還元定理の再開用であり、親リポジトリのA・B・Cと境界研究を置き換えるものではない。入力となる未完成の圏論的仮定は本文に全て書いてあり、旧bundleを取得し直さずこの部分研究を再開できる。
+本GitHub内の `reconstruction/` は、可換復元の局所rotation・saturation還元について、証明全文と再生成資産を備える現行の研究部分であり、論文A・B・Cと境界研究を置き換えるものではない。入力となる未完成の圏論的仮定は本文に全て書いてあり、旧bundleを取得し直さずGitHubだけからこの部分研究を再開できる。
 
 `python3 scripts/build_components.py` で日本語LuaLaTeXの抜粋と、方針・ノートのPDFを再生成する。`python3 computations/verify_componentwise_reconstruction.py` はSymPyによる厳密計算。`python3 scripts/verify_components.py` は参照、証明書、ソース・PDFのハッシュを検証する。生成・検証・GitHubへの反映確認・GitHub更新は別々に記録する。
 
