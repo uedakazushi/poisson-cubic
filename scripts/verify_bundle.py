@@ -62,8 +62,11 @@ if args.run_computations:
                          cwd=ROOT,capture_output=True,text=True)
         if r.returncode: raise AssertionError(f"{script}: {r.stdout}\n{r.stderr}")
         print(f"PASS exact computation {script}")
-    r=subprocess.run([sys.executable,str(ROOT/"computations"/"independent"/"verify_generic17_slice.py")],
-                     cwd=ROOT,capture_output=True,text=True)
-    if r.returncode: raise AssertionError(f"verify_generic17_slice.py: {r.stdout}\n{r.stderr}")
-    print("PASS exact computation verify_generic17_slice.py")
+    for name in ("verify_generic17_slice.py","verify_split_codimension.py"):
+        # The second test is stored directly under computations/.
+        path=(ROOT/"computations"/"independent"/name) if name=="verify_generic17_slice.py" else (ROOT/"computations"/name)
+        r=subprocess.run([sys.executable,str(path)],
+                         cwd=ROOT,capture_output=True,text=True)
+        if r.returncode: raise AssertionError(f"{name}: {r.stdout}\n{r.stderr}")
+        print(f"PASS exact computation {name}")
 print("Static audit complete. Mathematical categorical proofs are not formalized.")

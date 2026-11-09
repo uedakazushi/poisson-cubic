@@ -129,11 +129,16 @@ ambient の quadratic envelope が得られる．一方，構造対象だけを�
 個別の結論が先行研究で未発表であることまで確認したわけではない．
 特に AS 正則性の一般論，PBW 定理，中心元の原公式，section algebra の復元自体は
 既知の結果として明記する．
+分離した一楕円ブロックは中心対の有理商で余次元15を占めるため、
+その明示的可換復元を一般17次元族へ無条件に延長することはできない
+（命題\ref{prop:split-codimension}）。
 
 \paragraph{主定理.}
 第\ref{sec:construction}節で有限型の41次元中心三次対の族を，
 第\ref{sec:normal}節でそれを支配する17係数正規形と一般の非同型性を，
 第\ref{sec:reconstruction}節で二次包絡による ambient の内在的復元を証明する．
+第\ref{sec:split-codimension}節で分離型の余次元を確定し、
+一般の混合項を扱う必要性を示す．
 第\ref{sec:serre}節は，必要な条件を明示した Serre 関手による強化である．
 
 \section{相対 Jacobian 型の中心三次族}\label{sec:construction}
@@ -458,6 +463,96 @@ $6+18=24$ である．Rosenlicht の有理商の定理 \cite{Rosenlicht}
 $\PGL_5$ の一般 stabilizer が有限であることは示したが，
 自明であることや有限次数が１であることは示していない．
 また $T$ の各点で $\qgr A$ が滑らかであるとは主張しない．
+\end{remark}
+
+\section{分離型の余次元と一般混合項の不可避性}
+\label{sec:split-codimension}
+一楕円Sklyaninブロックと独立な中心三次式からなる分離型は、
+rotation付き可換復元の明示的な成功例である。
+しかし、それが本稿の17次元一般族を支配するわけではない。
+その理由を中心一次平面を固定した係数空間で正確に述べる。
+
+\begin{proposition}[分離型は余次元15]
+\label{prop:split-codimension}
+$W=\langle x,y,z\rangle$、$U=\langle u,v\rangle$、
+$\mathcal T=\Sym^3(W\oplus U)$とする（$\dim\mathcal T=35$）。
+$W$上の滑らかな三次形式$f$、$U$上の一般の三次形式$g$、
+および$L\in\Hom(U,W)$からなる
+\[
+ F_{f,g,L}(x,u)=f(x+L(u))+g(u)
+ \tag{S}\label{eq:split-family}
+\]
+の像$\mathcal S\subset\mathcal T$は既約な20次元構成可能集合
+の閉包を持ち、$\mathcal T$内で余次元15である。
+さらに、中心平面$U$を保つ本稿の放物型座標変換群
+$\mathcal P$の一般軌道が18次元であるため、
+$\mathcal S$の有理商は次元2である。
+従って、一般17次元の中心三次対の有理商において、
+分離型の像は余次元15の真の特殊部分をなす。
+\end{proposition}
+\begin{proof}
+$f$の係数は10、$g$は4、$L$は6で、全20変数である。
+$L=0$における微分は$f$と$g$の係数方向のほか、
+\[
+ u f_x,\ u f_y,\ u f_z,\quad
+ v f_x,\ v f_y,\ v f_z
+ \tag{T}\label{eq:split-tangent}
+\]
+を与える。$f$が滑らかなら$f_x,f_y,f_z$は定数係数で一次独立である。
+実際、定数線形関係があれば$f$はある座標に依存しない錐となり、
+射影平面三次曲線は特異になる。
+従って\eqref{eq:split-tangent}の六方向は独立で、
+$\Sym^3W$と$\Sym^3U$の14方向とも次数で分離される。
+ゆえに微分の階数は20であり、$\dim\overline{\mathcal S}=20$。
+
+群$\mathcal P$は、$W$内と$U$内の線形座標変換、
+$W$への$U$のshearを含み、$F$への作用は本稿の
+Poisson中心三次対の規約（式\eqref{eq:Lie}）による。
+この群は$\mathcal S$を保つ。
+一般の滑らかな$f$と重根のない二元三次式$g$は、
+それぞれ射影的な安定化群が有限である。
+$L=0$で$f$を固定するshearの無限小方向は
+\eqref{eq:split-tangent}の独立性から消える。
+従って$\mathcal P$の有効な一般安定化群は有限であり、
+一般軌道の次元は18となる。
+ゆえに有理商の次元は$20-18=2$。
+全係数空間の一般有理商は第\ref{sec:normal}節により
+$35-18=17$次元なので、その差は15である。
+\end{proof}
+
+\begin{corollary}[本質的な混合項の一次近似]
+\label{cor:split-normal-directions}
+分離点$F=f(x)+g(u)$で、上の分離型の係数空間内の法線空間は
+固定した分解$W\oplus U$の下で自然に
+\[
+ N_{\mathcal S/\mathcal T,F}
+ \simeq U\otimes\bigl(\Sym^2W/\langle f_x,f_y,f_z\rangle\bigr)
+ \ \oplus\ W\otimes\Sym^2U,
+ \qquad \dim N_{\mathcal S/\mathcal T,F}=6+9=15
+ \tag{N}\label{eq:split-normal-directions}
+\]
+と同定される。前者が中心変数に一次の本質的な混合項、
+後者が中心変数に二次の混合項を表す。
+\end{corollary}
+\begin{proof}
+全三次式の混合部分は
+$\Sym^2W\otimes U\oplus W\otimes\Sym^2U$である。
+分離型の接空間の混合部分は、線形shearによる
+$\langle f_x,f_y,f_z\rangle\otimes U$と一致する。
+滑らかな$f$では三偏導関数が独立なので
+その商を取れば上式を得る。
+\end{proof}
+
+\begin{remark}[可換復元への帰結]
+\label{rem:split-implication}
+分離型のrotation付き可換復元が成立しても、
+それだけでは17次元一般点の可換復元は得られない。
+線形shearで除去できない本質的な混合項に対する
+相対Orlov比較・smooth proper性・rotationの同定が必要である。
+ここで求めた余次元は、中心平面を指定する
+Poisson中心三次対の\emph{有理商}についての結論であり、
+無標識導来圏やKuznetsov成分のモジュライの余次元だと
+読み替えてはいけない。
 \end{remark}
 
 \section{内在的 $\mathbb Z$-代数と ambient 非可換 $\PP^4$ の復元}\label{sec:reconstruction}

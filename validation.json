@@ -1,5 +1,5 @@
 {
-  "version": "nc-cubic-v6",
+  "version": "nc-cubic-v7",
   "date_jst": "2026-11-09",
   "commit_date": "as updated by GitHub",
   "purpose": "Current three-paper restructuring; not peer-reviewed",
@@ -13,8 +13,8 @@
     "B": {
       "path": "tex/generic17_ambient_recovery.tex",
       "scope": "41-dimensional incidence, generic 17 parameters, polarized ambient",
-      "source_status": "existing standalone proof retained",
-      "pdf_status": "existing PDF source parity not rechecked; a 13-page LuaLaTeX compilation was independently performed locally"
+      "source_status": "Split-locus codimension 15 and normal-direction decomposition added with full proofs; exact tangent/orbit rank witness computed.",
+      "pdf_status": "14-page PDF locally regenerated from exact same TeX Git blob; no undefined references, missing characters or overfull errors; visually checked pages 8-9. GitHub PDF not synchronized."
     },
     "C": {
       "path": "tex/rotation_cubic_reconstruction.tex",
@@ -30,14 +30,25 @@
   "mathematical_status": {
     "proven_in_manuscripts": "Poisson cubic normal form; 17-parameter family and graded-polarized quadratic ambient recovery; specified one-block rotation equivalences and obstruction examples.",
     "conditional": "Serre-even-Veronese recovery, etale algebraic realization, relative Beilinson models, finite-center multiblock comparison.",
-    "open": "generic 17-dimensional rotation-marked commutative realization; relative smooth proper saturation and global descent; full multiblock generation.",
+    "open": "generic 17-dimensional rotation-marked commutative realization; relative smooth proper saturation and global descent; full multiblock generation. Six linear-central and nine quadratic-central essential mixed directions require relative comparison.",
     "limitations": "Results from independent imports have not been independently fully proof-audited or externally novelty-verified."
   },
   "verification": {
     "A_C_static": "All labels, references and bibliography keys in input closure checked by connector code.",
     "B_local_typesetting": "13 pages LuaLaTeX built, no undefined refs/cites in final pass. Generated PDF not synchronized to GitHub.",
     "boundary": "Preserved original proof source; LaTeX typesetting and high-order certificates not re-run here.",
-    "library_bundle": "not yet saved"
+    "library_bundle": "B continuation bundle v7 prepared separately; receipt to be reported upon successful upload.",
+    "split_codimension": {
+      "script": "computations/verify_split_codimension.py",
+      "arithmetic": "exact rational SymPy",
+      "witness": "F=x^3+y^3+z^3+3xyz+u^3+2u^2v+3uv^2+5v^3",
+      "ranks": {
+        "split_tangent": 20,
+        "parabolic_orbit": 18,
+        "combined": 20
+      },
+      "claim": "codim 15 in Poisson-center incidence quotient, not in unmarked Ku moduli"
+    }
   },
   "build": {
     "command": "python3 scripts/build.py",

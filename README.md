@@ -1,6 +1,6 @@
 # nc-cubic — 三つの中心論文と独立した境界研究
 
-**2026年11月9日・整理版v6**
+**2026年11月9日・整理版v7**
 
 再開時は [研究方針](00_research_plan.md) を最初に読み、[研究ノート](research_notes.md) を確認する。
 
@@ -44,3 +44,7 @@ Bの偏極付きambient復元とCのrotation付き可換復元は別の主張。
 - 論文B：既存の対応する原PDFを `pdf/generic17_ambient_recovery.pdf` に配置。TeXは独立組版で13ページを確認済みだが、GitHub上のPDFとの完全ハッシュ一致は未確認。
 - 論文C：ソースの相互参照・文献を静的検証済み。PDFは新ソースから未組版。
 - 独立した境界研究：全ての元原PDFを分類し、編集可能なソースがあるものは明示。高次計算の全再検証は未完了。
+
+### 分離型の余次元15と再現
+
+論文Bの命題 `prop:split-codimension` と系 `cor:split-normal-directions` は、分離した一楕円ブロックの有理商次元が2であり、一般17次元族には本質的混合方向が15あることを証明する。法線は中心変数一次の6方向と二次の9方向に分かれる。検算は `python3 computations/verify_split_codimension.py`。最新の論文Bは14ページのPDFをローカルで組版・目視確認済みだが、GitHub上のPDFへの同期は別途検証する。A/Cの現行PDFは未再組版。
