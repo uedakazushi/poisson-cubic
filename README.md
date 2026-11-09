@@ -49,6 +49,10 @@ latexmk papers/reconstruction/rotation_saturation_reduction.tex
 python3 reconstruction/scripts/verify.py
 ```
 
-ルート `.latexmkrc` によりLuaLaTeXを用い、全生成PDFをGit対象外の `build/` に出力する。ソース未確認のPDF原本だけは `papers/pdf-only/` に保全する。詳しくは `papers/README.md` と `notes/README.md` を参照。
+ルート `.latexmkrc` によりLuaLaTeXを用い、全生成PDFをGit対象外の `build/` に出力する。完全なTeXソースを確認できないPDF原本だけは、例外リストに従って `papers/pdf-only/` と `notes/pdf-only/` に暫定保存する。詳しくは `papers/README.md` と `notes/README.md` を参照。
 
-※ PDF原本のうち研究ノート二本は `notes/pdf-only/`、論文系八本は `papers/pdf-only/` に分類した。その他のPDFは生成対象でありGit追跡しない。
+※ PDF原本のうち研究ノート二本は `notes/pdf-only/`、論文系七本は `papers/pdf-only/` に分類した。その他のPDFは生成対象でありGit追跡しない。
+
+## PDFの追跡とソース復旧（2026-11-10）
+
+原則としてTeXと検証コードのみをGitで追跡し、PDFは`latexmk`で`build/`へ生成する。独立した二次ジェットの結果は `papers/independent/poisson_second_jet.tex` に再構成し、以前のPDFの追跡を解除した。現在のPDF原本の例外リストは `papers/pdf-only/README.md` と `notes/pdf-only/README.md` に記録する。対応ソースが未確認の資料を、数学的証明が失われる状態で機械的に削除しない。
