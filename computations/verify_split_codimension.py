@@ -28,3 +28,24 @@ r_span=sp.Matrix.hstack(*(vec(q) for q in orbit+split)).rank()
 assert (r_tangent,r_orbit,r_span)==(20,18,20)
 print('PASS (exact Q): coefficients=35; split tangent=20; parabolic orbit=18; total span=20')
 print('PASS: codim=15 in the coefficient space and quotient; quotient dimensions split=2, total=17')
+
+
+# Jacobian-ring tangent of smooth cubic F=f(x)+g(u).
+# f has Jacobian Hilbert function (1,3,3,1); g has (1,2,1).
+J=[q*sp.diff(F,w) for w in X for q in X]
+Jmat=sp.Matrix.hstack(*(vec(q) for q in J))
+assert Jmat.rank()==25
+mixed_linear=[q*x**a*y**b*z**(2-a-b) for q in (u,v)
+              for a in range(3) for b in range(3-a)]
+mixed_quadratic=[q*t for q in (x,y,z) for t in (u**2,u*v,v**2)]
+center=[u**a*v**(3-a) for a in range(4)]
+
+def jacobian_image_dimension(vectors):
+    return sp.Matrix.hstack(Jmat,*(vec(q) for q in vectors)).rank()-25
+
+assert (jacobian_image_dimension(split[:10]),
+        jacobian_image_dimension(mixed_linear),
+        jacobian_image_dimension(mixed_quadratic),
+        jacobian_image_dimension(center))==(1,6,3,0)
+print('PASS (exact Q): cubic Jacobian tangent = 1 + 6 + 3 = 10; forgetful kernel = 7')
+print('PASS: split quotient maps to 1-dim image; its 15-dim normal maps to 9-dim image with 6-dim kernel')

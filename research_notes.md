@@ -26,6 +26,11 @@ Poisson正規形は三変数Jacobianブロックと中心変数。量子化は�
 
 固定分離点の法線は `U⊗(Sym²W/⟨f_x,f_y,f_z⟩) ⊕ W⊗Sym²U`、各次元6と9。まず6方向の量子化と中心補正を追い、次に残り9方向の相対Orlov比較・saturationへ進む。有限計算 `computations/verify_split_codimension.py` は有理数体上で接空間階数20・軌道階数18を再現するが、一般の圏同値の証明ではない。
 
+## Bと可換Jacobian変形の接空間比較
+
+分離cubic `F=f(x)+g(u)` のJacobian環は分離テンソル積で、三次変形空間の次元は `1+6+3=10`。17次元のPoisson中心三次対の係数/放物型軌道の接空間から10次元の通常の可換cubicのJacobian変形空間へは全射で、核7次元。
+分離型の商2次元は可換cubic変形へ1次元に写り、法線15次元は9次元に写って6次元が核になる。これを `17=10+6+1` の幾何模型の示唆として扱う。ただしこの忘却対象は最初の可換三次式であって、量子化後のrotation付き復元による可換モデルとは未同定である。本文命題 `prop:jacobian-forgetful-tangent` と `computations/verify_split_codimension.py` 参照。
+
 ## C：rotation付き可換復元と障害
 
 形式的marked復元、一定のsmooth proper代数的dg族の下でのétale局所復元、一楕円ブロックのファイバーごとの可換同値を得る。Hesse係数 `θ(h,t)=[t+h²(1+t³/4)/3]/[1-h²t²/4]`。固定tで可換模型のmarkedな二次変形は非自明。θ一定の代数曲線上で非可換代数が動いても各fiberの残余pairが同じ可換模型となる。底上の相対同値は証明していない。

@@ -18,7 +18,7 @@
 |---|---|---|
 | A：Poisson・量子化 | 三次超曲面のPoisson正規形、退化、中心三次の代数的量子化、Hesse明示式 | `tex/papers/poisson_geometry.tex`、`complete_intersections.tex`、`explicit_hesse_center.tex` に証明 |
 | B：17次元一般族 | 41次元中心対incidence、24次元一般座標軌道、17係数横断正規形 | `tex/generic17_ambient_recovery.tex` に証明；31×31行列式は厳密計算による |
-| B：偏極付きambient復元 | section ℚ-algebra の二次包絡で五次元AS-regular ambientと三次中心直線を復元 | 構造対象・次数シフトおよびsection環の仮定付き。無標識導来圏やKuのみの復元とは異なる |
+| B：偏極付きambient復元 | section Z-algebra の二次包絡で五次元AS-regular ambientと三次中心直線を復元 | 構造対象・次数シフトおよびsection環の仮定付き。無標識導来圏やKuのみの復元とは異なる |
 | C：明示的な可換模型 | 一楕円Sklyaninブロック・分離した中心三次式の良い各複素fiberでrotation付き模型を構成 | `tex/papers/rotation_models.tex`、`elliptic_reconstruction.tex` |
 | C：形式復元と障害 | markedな形式近傍、条件付きétale局所実現、Zhang twist反例 | `rotation_obstruction.tex`、`relative_saturation.tex`。一般の有限パラメータ存在は未証明 |
 | 境界研究 | Brill–Noether・Pfaffian接触、Reye停留平面、中心商の特異圏 | 独立原稿・原PDFに主張と証明あり。高次計算・原PDFしかない部分は未完全再検証 |
@@ -28,11 +28,12 @@
 ## 数学的な優先順位と達成基準
 
 **最優先 P1：一般17次元族への可換復元の橋渡し。** 論文Bの命題「分離型は余次元15」と系「本質的な混合項の一次近似」を参照。滑らかな分離点の35係数の接空間は20次元、中心平面を保つ座標変換軌道は18次元で、分離型の有理商は2次元。一般族は17次元なので、既存の一楕円ブロック復元の成功例だけではgeneric pointを覆わない。
+さらに、元の可換cubicへのJacobian忘却写像では接空間が17→10に全射、核7。分離型の2方向は1方向に写り、その法線15方向の像は9方向・核は6方向である（論文B命題 `prop:jacobian-forgetful-tangent`）。これは幾何学的な `10+6+1` と整合するが、可換模型・楕円直線束の構成ではない。
 本質的な混合方向の法線空間は
 `U⊗(Sym²W/⟨f_x,f_y,f_z⟩) ⊕ W⊗Sym²U`、次元 `6+9=15`。優先して中心変数に一次の6方向を含む相対Sklyanin量子化を扱い、その上で二次の9方向へ拡張する。
 達成基準は混合係数を持つ実在の非空Zariski開で相対Beilinsonの局所cohomology、有限対角証明書、相対Orlov比較、rotationと任意の導来底変更を証明すること。閉ファイバーのsmoothnessだけを開性の証明としない。
 
-**P2：三論文A・Cの公表品質と組版。** 論文A・Cはソース入力・引用・ラベルの静的監査を通過しているが、最新版PDFは未再組版。完成条件は各LuaLaTeXの独立ビルド、未定義参照・missing glyph・overfullの解消、主要ページの目視確認と現行ソースの一致である。論文Bは今回の新しい命題・系を含む14ページPDFをローカルで再組版し、読み取り・参照・組版警告のないことを確認（GitHubへのPDF配信は別状態）。
+**P2：三論文A・Cの公表品質と組版。** 論文A・Cはソース入力・引用・ラベルの静的監査を通過しているが、最新版PDFは未再組版。完成条件は各LuaLaTeXの独立ビルド、未定義参照・missing glyph・overfullの解消、主要ページの目視確認と現行ソースの一致である。論文Bは今回の新しい命題・系を含む15ページPDFをローカルで再組版し、読み取り・参照・組版警告のないことを確認（GitHubへのPDF配信は別状態）。
 
 **P3：一般の幾何模型と相対Picardによるgluing。** 幾何的候補 `(Y,Λ,ξ)`、`Y⊂ℙ⁴` smooth cubic、`Λ≅ℙ²`、`ξ∈Pic⁰(Y∩Λ)` に対し、相対Picard上の評価核とgluingを構成して中心三次対との対応を示す。次元 `17=10+6+1` は構成・同値の証明ではない。一般次数、monodromy、Zhang twistの同一視を追跡する。
 

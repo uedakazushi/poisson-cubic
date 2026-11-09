@@ -14,7 +14,7 @@
       "path": "tex/generic17_ambient_recovery.tex",
       "scope": "41-dimensional incidence, generic 17 parameters, polarized ambient",
       "source_status": "Split-locus codimension 15 and normal-direction decomposition added with full proofs; exact tangent/orbit rank witness computed.",
-      "pdf_status": "14-page PDF locally regenerated from exact same TeX Git blob; no undefined references, missing characters or overfull errors; visually checked pages 8-9. GitHub PDF not synchronized."
+      "pdf_status": "15-page PDF locally regenerated from exact same TeX Git blob; no undefined references, missing characters or overfull errors; visually checked pages 8-10. GitHub PDF not synchronized."
     },
     "C": {
       "path": "tex/rotation_cubic_reconstruction.tex",
@@ -47,7 +47,18 @@
         "parabolic_orbit": 18,
         "combined": 20
       },
-      "claim": "codim 15 in Poisson-center incidence quotient, not in unmarked Ku moduli"
+      "claim": "codim 15 in Poisson-center incidence quotient, not in unmarked Ku moduli",
+      "jacobian": {
+        "degree3_ideal_rank": 25,
+        "cubic_deformation_dimension": 10,
+        "mixed_image_dimensions": [
+          6,
+          3
+        ],
+        "normal_kernel_dimension": 6,
+        "forgetful_kernel_dimension": 7,
+        "status": "proved symbolically in manuscript, finite rational witness verified"
+      }
     }
   },
   "build": {

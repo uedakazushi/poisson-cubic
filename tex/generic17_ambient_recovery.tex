@@ -543,6 +543,60 @@ $\langle f_x,f_y,f_z\rangle\otimes U$と一致する。
 その商を取れば上式を得る。
 \end{proof}
 
+\begin{proposition}[可換cubicへの忘却と$17=10+7$の接空間]
+\label{prop:jacobian-forgetful-tangent}
+上の分離点$F=f(x)+g(u)$で、$f$が滑らかな平面三次式、
+$g$が重根のない二元三次式とする。$J(F)$を$F$のJacobianイデアルとすると、
+\[
+  J(F)_3^{\mathrm{quot}}:=\Sym^3(W\oplus U)/J(F)_3
+   \simeq J(f)_3^{\mathrm{quot}}
+     \oplus\bigl(J(f)_2^{\mathrm{quot}}\otimes J(g)_1^{\mathrm{quot}}\bigr)
+     \oplus\bigl(J(f)_1^{\mathrm{quot}}\otimes J(g)_2^{\mathrm{quot}}\bigr)
+\]
+であり、三項の次元は順に$1,6,3$、合計10である。
+ここで$J(f)_d^{\mathrm{quot}}=(\Sym W/(f_x,f_y,f_z))_d$、
+$J(g)_d^{\mathrm{quot}}=(\Sym U/(g_u,g_v))_d$とする。
+放物型軌道の接空間を割った17次元の変形空間から、
+元の可換cubicのJacobian変形空間への自然な線形射
+\[
+ \Sym^3(W\oplus U)/T_F(\mathcal P\cdot F)
+ \longrightarrow J(F)_3^{\mathrm{quot}}
+ \tag{J}\label{eq:forgetful-Jacobian}
+\]
+は全射で、その核は7次元である。
+分離型の2次元商に由来する方向の像は1次元、
+その余次元15の法線からの像は9次元であり、
+法線の核の次元は6である。
+\end{proposition}
+\begin{proof}
+$f$と$g$の勾配は別変数の正則列だから、Jacobian環は
+$J(f)^{\mathrm{quot}}\otimes J(g)^{\mathrm{quot}}$に分解し、
+Hilbert級数はそれぞれ$(1+t)^3$と$(1+t)^2$となる。
+従って次数3には$(3,0),(2,1),(1,2)$の三組だけが寄与し、
+次元は$1+3\cdot2+3\cdot1=10$である。
+$\mathcal P$の軌道の無限小作用は$F$のスカラー倍と
+$X_j\partial_i F$の線形結合である。
+Euler等式により$F\in J(F)_3$なので、
+\eqref{eq:forgetful-Jacobian}はwell-definedであり全射である。
+その次元差は$17-10=7$。
+分離型の接空間の純三次方向は$\Sym^3W\oplus\Sym^3U$、
+残りは$u f_i,v f_i$なので、Jacobian環への像は
+$J(f)_3^{\mathrm{quot}}$の1次元のみである。
+さらに系\ref{cor:split-normal-directions}の法線の第一項は
+$J(f)_2^{\mathrm{quot}}\otimes J(g)_1^{\mathrm{quot}}$の6方向に写り、
+第二項は$J(f)_1^{\mathrm{quot}}\otimes J(g)_2^{\mathrm{quot}}$の3方向に写る。
+よって法線からの像は9次元、核は$15-9=6$である。
+\end{proof}
+\begin{remark}[幾何学的17次元候補との関係]
+\label{rem:forgetful-geometry-not-model}
+この接空間の$17=10+7$と、幾何学的候補
+$(Y,\Lambda,\xi)$の$10+6+1$は整合的である。
+実際、元の可換cubicを固定するPoisson方向は
+超平面pencilの6方向とPoissonスカラーの1方向を持つ。
+しかしこの計算だけでは、量子化後の可換cubic$Y$、平面$\Lambda$、
+楕円曲線上の直線束$\xi$を関手的に構成したことにはならない。
+\end{remark}
+
 \begin{remark}[可換復元への帰結]
 \label{rem:split-implication}
 分離型のrotation付き可換復元が成立しても、
