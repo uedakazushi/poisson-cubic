@@ -1,0 +1,113 @@
+\section{本質的混合項の量子中心と相対Picardの制約}
+\label{sec:mixed-quantum-center}
+分離型を越える量子化では中心変数一次の補正が最初の課題となる。
+以下の中心元表示はEtingof--Ginzburg \cite[\S9]{EG} のRains型計算および
+本研究の既存の技術稿 \texttt{pdf/ambient/central\_pair\_formal\_moduli.pdf}
+第14節にある結果のFermat規格化であり、新しい中心公式とは主張しない。
+今回の独立計算は有限体の次数四イデアル所属検査である。
+
+\subsection{全15混合方向の中心三次元}
+$f=(x^3+y^3+z^3)/3$、$U=\langle u,v\rangle$とし、
+$A,B,C\in U$、$D,E,H\in\Sym^2U$、$g\in\Sym^3U$を任意に取る。
+\begin{equation}\label{eq:full-mixed-fermat}
+ F=f+Axy+Byz+Czx+Dx+Ey+Hz+g
+\end{equation}
+とおき、$u,v$を中心変数として
+\begin{equation}\label{eq:full-mixed-brackets}
+ [x,y]=hF_z,\quad[y,z]=hF_x,\quad[z,x]=hF_y
+\end{equation}
+の右辺を完全対称化して読む。$T=xyz+xzy+yxz+yzx+zxy+zyx$、
+$\operatorname{sym}(xy)=(xy+yx)/2$とする。
+
+\begin{remark}[既存原稿の全混合中心元と検算状態]\label{rem:full-mixed-center}
+既存の技術稿の中心元の表示は、現在の規約で
+\begin{align}\label{eq:full-mixed-center}
+\Omega_h={}&\frac{x^3+y^3+z^3}{3}-\frac{h^2}{9}T\notag\\
+&+A\left(\operatorname{sym}(xy)+\frac{h^4}{18}z^2\right)
+ +B\left(\operatorname{sym}(yz)+\frac{h^4}{18}x^2\right)
+ +C\left(\operatorname{sym}(zx)+\frac{h^4}{18}y^2\right)\notag\\
+&+\left(D+\frac{h^2B^2}{6}-\frac{h^4AC}{18}\right)x
+ +\left(E+\frac{h^2C^2}{6}-\frac{h^4AB}{18}\right)y\notag\\
+&+\left(H+\frac{h^2A^2}{6}-\frac{h^4BC}{18}\right)z+g(u,v)
+\end{align}
+となり、$h=0$で$F$に特殊化する。
+既存原稿の全係数による普遍的中心性の証明を今回独立に再実行してはいない。
+新たな \texttt{computations/verify\_mixed\_center.py} では
+$p=1009$、$h=0,1,2,5,13$、各$h$に3組ずつ混合係数を代入して、
+次数四の自由語625個における二次関係式の生成部分空間
+（階数555）に全ての交換子が属することを確認した。
+有限特殊化の成功は普遍的な証明ではない。
+$A\ne0$だけの模型で$h^2A^2z/6$を省くと
+$h=1$の次数四検査で中心性が失われることも確認した。
+\end{remark}
+
+\subsection{一次中心持上げの一意性}
+\begin{proposition}\label{prop:mixed-center-jet-unique}
+$S_h=\CC\langle x,y,z\rangle/
+([x,y]-hz^2,[y,z]-hx^2,[z,x]-hy^2)$とし、
+$Z(S_h)_2=0$を仮定する。
+$R=\CC[u,v]/(u,v)^2$上の\eqref{eq:full-mixed-brackets}の
+量子化族$\mathcal B_R$が次数ごとに$R$-自由なら、
+固定された$S_h$の次数三の中心元$\Omega_{h,0}$への
+次数三の中心持上げ$\Omega_R\in Z(\mathcal B_R)_3$は、
+存在すれば一意である。
+\end{proposition}
+\begin{proof}
+二つの持上げの差$\Delta$は$(u,v)(\mathcal B_R)_3$に属し、
+次数別自由性と平方零条件により
+$\Delta=uQ+vR'$、$Q,R'\in(S_h)_2$と一意に書ける。
+$\Delta$の中心性を各生成元$a=x,y,z$との交換子に適用すると
+$u[Q,a]+v[R',a]=0$を得る。
+$u,v$が独立な平方零係数なので、
+$Q,R'\in Z(S_h)_2=0$。従って$\Delta=0$。
+\end{proof}
+\begin{remark}[一次混合6方向の明示的持上げ]
+\eqref{eq:full-mixed-center}を$(u,v)^2=0$に制限すると
+\[
+ \Omega_h^{(1)}
+ =\frac{x^3+y^3+z^3}{3}-\frac{h^2}{9}T
+ +A\left(\operatorname{sym}(xy)+\frac{h^4}{18}z^2\right)
+ +B\left(\operatorname{sym}(yz)+\frac{h^4}{18}x^2\right)
+ +C\left(\operatorname{sym}(zx)+\frac{h^4}{18}y^2\right).
+\]
+これが全ての一次混合6方向の持上げの表示である。
+命題\ref{prop:mixed-center-jet-unique}の一意性自体は、
+既存の中心公式を仮定しない独立した証明である。
+$h=0$では$Z(S_0)_2\ne0$なので適用しない。
+\end{remark}
+
+\subsection{相対Picardに対するスカラー方向の障害}
+\begin{proposition}\label{prop:relative-scalar-picard}
+$X\subset\PP^4$を滑らかなcubic threefoldとし、
+$T_0\subset\operatorname{Gr}(2,H^0(\PP^4,\OO(1)))$を、
+指定する平面$\Lambda_U=V(U)$との切断$C_U=X\cap\Lambda_U$が
+滑らかな楕円曲線になる非空開部分とする。
+$\mathscr C\to T_0$を楕円曲線族、
+$\mathscr P=\operatorname{Pic}^0(\mathscr C/T_0)$を相対Picardとする。
+非零Poisson錐の$\mathbb G_m$-束
+$\mathscr L^\times\to T_0$から$\mathscr P$への
+$T_0$-上の任意の有理写像は、稠密開部分において
+$\mathscr L^\times\to T_0$を通じて有理的に因子化する。
+すなわちPoissonスカラー方向には定数である。
+幾何学的一般ファイバーで連結な有限\emph{étale}被覆を許しても同様である。
+\end{proposition}
+\begin{proof}
+$K=\CC(T_0)$とする。$\mathscr L^\times$の一般ファイバーは
+$\mathbb G_{m,K}$である。
+$\overline K$へ移すと、与えられた有理写像は
+$\mathbb G_m\dashrightarrow E$、$E$は種数1曲線となる。
+固有性によって$\PP^1\to E$に延長されるが、
+Riemann--Hurwitz公式から定数である。
+従ってもとの写像は一般ファイバーに沿って定数であり、
+$T_0$上の有理sectionを通じて因子化する。
+また代数閉体上の$\mathbb G_m$の連結有限étale被覆は
+$t\mapsto t^n$型で、その源も$\mathbb G_m$である。
+同じ議論が適用できる。
+\end{proof}
+\begin{remark}[復元への含意と限界]
+元の$X$とPoisson pencil $U$を幾何側でも固定したまま、
+非零スカラーを楕円Picardの非自明な点へ送る大域有理模型は存在しない。
+しかし量子化後に別の可換cubic $Y$や平面が動く比較、
+分岐被覆を介した多価対応、形式局所同値の不存在は結論しない。
+一般のrotation付き可換復元に必要な相対Orlov比較は未構成である。
+\end{remark}
