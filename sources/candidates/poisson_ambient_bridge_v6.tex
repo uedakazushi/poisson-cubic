@@ -1,0 +1,173 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{xcolor}
+\usepackage[unicode,colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!50!black]{hyperref}
+\usepackage{enumitem}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\qgr}{\operatorname{qgr}}
+\newcommand{\Ku}{\operatorname{Ku}}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{注意}
+\renewcommand{\proofname}{証明}
+\title{Poisson pencil と17次元非可換cubic族の対応\\\large 中心三次対・二次包絡・可換復元の位置づけ}
+\author{}
+\date{2026年11月9日・統合版 v6（研究原稿）}
+\begin{document}
+\maketitle
+\begin{abstract}
+一般の非可換cubic threefoldを、五生成元二次AS正則代数の中心三次商として扱う研究と、
+滑らかなcubicのPoisson量子化・rotation付きKuznetsov成分の研究を同じ記法で結ぶ。
+二つの一次Casimirを固定すると、周囲の二次Poisson括弧が三次式から忘れる情報が
+正確に二元三次式の四係数であることを証明する。
+41次元の中心三次対incidenceと17次元の一般有理商を区別し、
+後者の有限係数横断性を有理数体上の行列式で再検算する。
+偏極付きsection環が存在するとき、内在的二次包絡からambient代数と中心三次直線を復元する。
+無標識の導来同値とrotation付き可換復元は別問題であり、一般族については未解決である。
+\end{abstract}
+
+\section{三つの層と対象の固定}
+基礎体は$\CC$とする。$V=W\oplus U$、$\dim W=3$、$\dim U=2$とし、
+$W$の線形座標を$x,y,z$、$U$の線形座標を$u,v$と書く。
+滑らかな三次超曲面$X_F=V(F)\subset\PP(V)$、$F\in\Sym^3V^*$に対して、
+三変数Jacobian型のアフィンPoisson二重ベクトルを
+\begin{equation}\label{eq:poisson}
+q_F=F_x\,\partial_y\wedge\partial_z
+    +F_y\,\partial_z\wedge\partial_x
+    +F_z\,\partial_x\wedge\partial_y
+\end{equation}
+と定める。$u,v$は一次Casimirであり、$F$もCasimirとなる。
+固定した$F$に対する非零Poisson構造の分類は
+Loray--Pereira--Touzet、Mayanskiyの結果である\cite{LPT,May}。
+以後、量子化を与えるambient代数を$B$、中心三次商を$A=B/(G)$と書く。
+$\qgr A$の構造対象と次数シフトを保持した偏極付き圏と、
+$\Ku(A)$およびrotationのみを残した圏とを混同しない。
+
+\section{四つのCasimir係数と41次元のincidence}
+\begin{proposition}[Poisson括弧が忘れる四つの係数]\label{prop:forget}
+$U=\langle u,v\rangle$と三変数のJacobian型表示\eqref{eq:poisson}を固定する。
+任意の斉次三次式$F,F'$に対して
+\[
+q_F=q_{F'}\quad\Longleftrightarrow\quad F'-F\in\Sym^3 U.
+\]
+非零スカラー倍を同一視した二重ベクトルについては、$q_{F'}=c q_F$ならば
+$F'=cF+g(u,v)$である。
+\end{proposition}
+\begin{proof}
+$q_{F'}=q_F$ならば三つの係数を比較して
+$\partial_x(F'-F)=\partial_y(F'-F)=\partial_z(F'-F)=0$を得る。
+標数零なので$F'-F$は$u,v$だけの三次式である。逆向きは明らかである。
+スカラー$c$の場合には$F'$と$cF$に同じ議論を適用する。
+\end{proof}
+\begin{corollary}[incidenceの次元]\label{cor:41}
+$U\in\Gr(2,5)$、$F\in\Sym^3V^*$を変数とし、
+$V(F)$および$V(F|_{u=v=0})$の滑らかさを課す非空開部分は既約で41次元である。
+固定$U$では三次式の35係数のうち、周囲の括弧が忘れるものは
+$\dim\Sym^3U=4$係数である。
+\end{corollary}
+\begin{proof}
+$\dim\Gr(2,5)=6$かつ$\dim\Sym^3\CC^5=35$である。
+滑らかさは開条件で、滑らかな例が存在する。
+固定した$U$での差の記述は命題\ref{prop:forget}による。
+\end{proof}
+
+\section{一般17次元族と再検算の範囲}
+中心三次商を与える代数的な一つの族は、$B_F$の二次関係を
+\[
+[u,-]=[v,-]=0,\quad
+[x,y]=\operatorname{sym}(F_z),\quad
+[y,z]=\operatorname{sym}(F_x),\quad
+[z,x]=\operatorname{sym}(F_y)
+\]
+と定め、相対PBW性と中心三次元$G_F$を構成するものである。
+これについての十分な仮定と証明は、独立論文
+\emph{一般の17次元非可換三次三様体族と内在的な非可換射影四空間の復元}
+（現行ソース\texttt{tex/papers/generic\_nc\_cubic\_ambient.tex}）にある。
+\begin{proposition}[一般次元の計算に基づく帰結]\label{prop:17}
+上記独立論文の相対PBW、中心元の一定rank構成、一般軌道有限安定性の仮定の下で、
+一般の中心三次対の次数付き同型類の有理パラメータ数は17である。
+具体的な17係数正規形の横断性は、31次正方行列の非零行列式
+\[
+\det M_{31}=-5538243375000
+\]
+で保証される。この数値は今回、有理数体上の厳密演算で再検算した。
+\end{proposition}
+\begin{proof}
+固定$U$での35係数空間に、$U$を保つ座標変換群の18次元軌道が作用する。
+原稿の17係数切片が一般軌道に横断的であることは、
+接行列の明示した31次小行列式の非零性から従う。
+$U$を動かす$\Gr(2,5)$の六方向と全体の$\mathrm{PGL}_5$の24方向を合わせると、
+41次元incidenceの一般軌道が24次元である。
+$41-24=17$を得る。
+相対中心元の存在と同型類の正確な同定には独立論文の仮定が必要であり、
+この行列式だけから任意の非可換cubicの分類を結論するものではない。
+\end{proof}
+
+\section{偏極付き圏からの内在的二次包絡}
+\begin{theorem}[二次包絡]\label{thm:envelope}
+$B=T(V)/(R_2)$を次数1で生成する二次代数、$G\in Z(B)_3$を中心正則元、
+$A=B/(G)$とする。偏極付き圏
+$(\qgr A,\OO_A,(1))$のsection環について
+\[
+A_d\simeq\operatorname{Hom}_{\qgr A}(\OO_A,\OO_A(d))\quad(d\ge0)
+\]
+が積と両立して成立すると仮定する。
+そのとき偏極付き圏から
+\[
+B\simeq T(A_1)/\ker(A_1\otimes A_1\longrightarrow A_2)
+\]
+を再構成できる。さらに$B_3\to A_3$の核は一次元$\CC G$である。
+\end{theorem}
+\begin{proof}
+イデアル$(G)$の最低次数が3なので$A_1=B_1$、$A_2=B_2$である。
+従って二次乗法の核は$B$を定義する関係空間$R_2$に等しく、上の二次包絡は$B$となる。
+次数3で$(G)$の部分はスカラー倍$\CC G$だけなので核はその直線である。
+section環の仮定から$A_1,A_2$と積は偏極付き圏だけから関手的に得られる。
+\end{proof}
+\begin{remark}
+この復元は$\OO_A$と$(1)$を忘れた導来圏の同値や、
+Kuznetsov成分のrotation付き同値からの復元を意味しない。
+また一般の$A$の二次包絡がAS正則になるという主張でもない。
+\end{remark}
+
+\section{可換復元の到達条件}
+可換側の大域幾何学的候補は、滑らかなcubic threefold
+$Y\subset\PP^4$、平面$\Lambda\simeq\PP^2$、
+滑らかな楕円曲線$C=Y\cap\Lambda$、
+非自明な$\xi\in\operatorname{Pic}^0(C)$の組 $(Y,\Lambda,\xi)$である。
+可換cubicのモジュライ次元10、平面の選択6、楕円曲線のPicard方向1という
+次元比較は17を与える。しかし、
+一般の中心三次対からこの組を関手的に構成する写像と、
+その逆・一般ファイバー・rotation付き同値は未証明である。
+
+今回の統合で得る論理的な分担は次の通りである。
+\begin{enumerate}[label=(\roman*)]
+\item Poissonの正規形と代数的量子化：三次式とCasimirの記法を固定する。
+\item 17次元中心三次対：相対PBW、中心三次式、一般軌道、偏極付き二次包絡を扱う。
+\item 楕円一ブロック：各良い複素ファイバーでのrotation付き可換模型を扱う。
+\item 一般混合係数：相対smoothnessと相対Orlov比較、幾何学的gluingの存在を別途示す。
+\end{enumerate}
+全Poissonスキームの形式局所構造、Brill--Noether境界、Pfaffian接触商、
+Reye停留平面と中心三次商の特異性には関連する独立の公表用原稿がある。
+これらの高次計算と定理の全てを今回独立に再監査したものではない。
+
+\begin{thebibliography}{9}
+\bibitem{LPT} F. Loray, J. V. Pereira and F. Touzet,
+\emph{Foliations with trivial canonical bundle on Fano 3-folds},
+Math. Nachr. 286 (2013), 921--940, Theorems 7.1, 9.1.
+\url{https://arxiv.org/abs/1112.3871}.
+\bibitem{May} E. Mayanskiy, \emph{Poisson cohomology of two Fano threefolds},
+J. Algebra 424 (2015), 21--45, Theorem 1.
+\url{https://arxiv.org/abs/1303.5916}.
+\bibitem{AZ} M. Artin and J. J. Zhang, \emph{Noncommutative projective schemes},
+Adv. Math. 109 (1994), 228--287.
+\url{https://doi.org/10.1006/aima.1994.1087}.
+\end{thebibliography}
+\end{document}
