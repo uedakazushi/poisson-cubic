@@ -1,6 +1,6 @@
 # 研究方針：一般次元・各Poisson成分の可換復元
 
-**2026年11月9日・v11。再開時は最初に本ファイルを読む。**
+**2026年11月10日・v13。再開時は最初に本ファイルを読む。**
 
 ## 目標と達成基準
 
@@ -54,6 +54,14 @@
 滑らかなcubic fivefold上に、一般点で節点型または尖点型の純三次ブロックを持つ二次元Poisson既約成分を構成した。論文A `tex/papers/nonelliptic_poisson_components.tex` の定理 `ne:main` に証明を置き、`computations/verify_nonelliptic_components.py` と `computations/nonelliptic_components_certificate.json` で全Jacobi接行列（35列、階数33）、整数小行列式、滑らかさと一般階数4を検証する。各成分の一般点で非楕円性が残るため、楕円Sklyaninブロックのみを扱う相対復元理論では全成分を覆えない。これは可換復元の反例ではない。
 
 相対saturationの最優先試験例をこの二つの成分とし、中心変数との混合を保った全ポテンシャルに対する相対Koszul・有限対角証明書・相対Orlov比較を目指す。純ブロックの滑らかさは仮定しない。既存の支配的chartと有限jet中心代数化の結果は保持し、今回の証明を置換・上書きしない。
+
+## 一般次元の局所射影模型と非楕円型量子化（現行成果）
+
+節点・尖点型の二つのPoisson既約成分について、中心混合項を保持する二パラメータの次数別flatなKoszul AS-regular ambientと三次中心正則商を構成した。PBWと中心性は普遍的な書換え恒等式と検算証明書で確認し、周囲の相対対角分解も得た。論文Aの `tex/papers/nonelliptic_quantization.tex` に証明を保持する。
+
+一般次元では、正則局所環上の次数別有限自由な量子化で、零ファイバーが多項式環、中心三次元が滑らかなcubicに特殊化する場合、有限相対Koszul分解、中央Gorenstein商、有界Orlov型分解、線束Homの底変更を導く。線束生成部分からproperな残余dg代数を構成し、特殊ファイバーはKu(X)。rotation候補は完全忠実で、特異圏の(3)=[2]は中央自己交叉から従う。論文Cの `tex/papers/local_projective_model.tex` を参照。
+
+**未解決：** 残余対角のperfectness、全coherent残余圏との同定、rotation候補の本質的全射性、相対Orlovの全導来底変更、支配的有限型chartへのspread、一般次元・全Poisson成分のgeneric可換復元。周囲の対角と残余の対角を同一視しない。
 
 ## 研究一般の原則と保存許可
 

@@ -1,6 +1,6 @@
 # nc-cubic：一般次元・各Poisson成分への可換復元
 
-2026年11月9日・v11。最初に `00_research_plan.md`、次に `research_notes.md` を読む。
+2026年11月10日・v13。最初に `00_research_plan.md`、次に `research_notes.md` を読む。
 
 ## 現行の構成
 
@@ -44,3 +44,8 @@ python3 scripts/verify_components.py
 ## 非楕円型Poisson既約成分
 
 論文Aの `tex/papers/nonelliptic_poisson_components.tex` に、滑らかなcubic fivefoldで節点・尖点型ブロックが一般点に残る二つのPoisson既約成分を追加。厳密証明書と再現コードは `computations/nonelliptic_components_certificate.json` と `computations/verify_nonelliptic_components.py`。この結果は一般の可換復元を否定せず、相対saturationの対象に非楕円型を含める必要性を示す。論文Aの統合PDFは未再組版。
+
+
+## 一般次元の局所射影模型と非楕円型量子化（現行成果）
+
+論文Aに非楕円二成分の相対量子化・中心三次商・周囲対角、論文Cに一般次元の局所proper射影模型と完全忠実なrotation候補を統合。検証コード・証明書は `computations/`。残余smoothness・一般可換復元は未解決。現行A/Cの統合PDFは未再組版。

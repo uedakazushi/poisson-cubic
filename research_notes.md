@@ -1,6 +1,6 @@
 # 研究ノート：全Poisson成分の支配的chartと相対復元
 
-**2026年11月9日・v11。現在有効な知識・障害の整理。**
+**2026年11月10日・v13。現在有効な知識・障害の整理。**
 
 ## 1. 主定理の位置と、取り除けた前提
 
@@ -59,3 +59,8 @@ Brill–Noether・Pfaffian接触・Reye・特異圏の独立研究は親リポ�
 ## 7. 次の具体的作業
 
 genericなブロック正規形の滑らかな係数chart上で、周囲の相対Koszul分解と中心商の局所cohomologyを構成する。有限のproper残余dg模型が得られたら、対角証明書の持上げを実際の有限データにする。中心行列の代数化と、圏の対角の代数化を混同しない。必要な量子化を構成できた成分から進めるが、研究の量化は一般次元・各既約成分のまま保つ。
+
+
+## 一般次元の局所射影模型と非楕円型量子化（現行成果）
+
+論文A：`tex/papers/nonelliptic_quantization.tex` に非楕円二成分のPBW・中心元・周囲相対対角の証明。論文C：`tex/papers/local_projective_model.tex` に正則局所底上の相対Koszul、Orlov、proper線束生成残余、rotation完全忠実性と特異圏周期性の証明。証明の所在と状態は `validation.json`。検算は `computations/verify_nonelliptic_quantization.py` および `computations/verify_local_projective_model.py`。新しい検算は整数Hilbert/Homの検算であり、圏論的形式化ではない。

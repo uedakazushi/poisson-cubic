@@ -1,0 +1,470 @@
+\section{一般次元の局所代数的模型：仮定と主定理}
+\label{lp:sec:main}
+本節では、既に構成された次数別flatな量子化から、射影化のproperなdg模型を作る。
+Poisson成分のブロック数、純ブロックの楕円性、有限中心性は仮定しない。
+ただし、量子化代数そのものの全次数flatnessは入力である。
+基底は完備化やArtin切断ではなく、可換点における実在の正則局所環とする。
+
+\begin{definition}[局所入力]\label{lp:def:input}
+$(R,\mathfrak m,k)$を有限生成複素代数の局所化である正則局所環とし、
+$d=\dim R$、$N\ge5$とする。
+$A=\bigoplus_{j\ge0}A_j$は中央$R$-代数、$A_0=R$で、各$A_j$は有限自由$R$-加群、
+$A\otimes_R k\simeq k[z_1,\ldots,z_N]$を次数付き代数として満たすとする。
+$\Omega\in Z(A)_3$が与えられ、その剰余$F$は滑らかな
+$cubic\ X=V(F)\subset\mathbb P^{N-1}_k$を定めるとする。
+$B=A/(\Omega)$、$n=N-2$、$a=N-3$と置く。
+内部shiftは$M(j)_q=M_{q+j}$、複体はcohomological conventionを用いる。
+\end{definition}
+
+\begin{theorem}[局所proper模型と有界Orlov分解]\label{lp:thm:main}
+定義\ref{lp:def:input}の下で以下が成立する。
+\begin{enumerate}[label=(\arabic*)]
+\item $A,B$は左右noetherianである。$A$の$R$上の対角には長さ$N$の有限自由双加群分解があり、
+$\operatorname{gldim}A\le N+d$である。$\Omega$は中心正則で、各$B_j$は有限自由、
+その形成は任意の通常の底変更と両立する。
+\item 左右で
+\[
+ \operatorname{R\underline{Hom}}_A(R,A)\simeq R(N)[-N],\qquad
+ \operatorname{R\underline{Hom}}_B(R,B)\simeq R(a)[-(N-1)].
+ \tag{G}\label{lp:eq:G}
+\]
+$B$は有限左右injective dimensionを持ち、Burke--Stevensonの意味でGorensteinである。
+従って通常の有界三角圏について、$D^b(\operatorname{qgr}B)$は
+$D_{\rm sg}^b(\operatorname{gr}B)$と$a$個の$\operatorname{Perf}(R)$成分による
+Orlov型半直交分解を持つ。特異圏では自然な三次周期性$(3)\simeq[2]$が成立する。
+\item $\mathcal O(j)=\pi B(j)$とすると
+\[
+ \operatorname{Ext}^p_{\operatorname{qgr}B}(\mathcal O(i),\mathcal O(j))\simeq
+ \begin{cases}
+ B_{j-i}&p=0,\\
+ B_{i-j-a}^{\vee}&p=n,\\
+ 0&\text{その他}
+ \end{cases}\qquad (B_q=0\text{ for }q<0).
+ \tag{H}\label{lp:eq:H}
+\]
+ここで$(-)^\vee=\operatorname{Hom}_R(-,R)$である。
+この計算の自然な導来Homの底変更写像は、命題\ref{lp:prop:basechange}の通常の底変更で擬同型となる。
+\item $\mathcal C_B=\operatorname{thick}_R\{\mathcal O(j):j\in\mathbb Z\}$を
+$D^b(\operatorname{qgr}B)$の標準dg enhancement内の冪等完備な部分と定めると、
+\[
+ E=\bigoplus_{i=0}^{N-1}\mathcal O(i),\qquad
+ \mathcal C_B=\operatorname{thick}_R(E)\simeq\operatorname{Perf}(\Lambda_R),
+ \quad\Lambda_R=\operatorname{REnd}(E)\in\operatorname{Perf}(R).
+ \tag{P}\label{lp:eq:proper-model}
+\]
+\item $\mathcal K_B^{\rm lin}=\mathcal C_B\cap
+\langle\mathcal O,\ldots,\mathcal O(a-1)\rangle^\perp$は
+有限個のmutationにより生成対象$G$を持ち、
+$\mathcal K_B^{\rm lin}\simeq\operatorname{Perf}(\Gamma_R)$、
+$\Gamma_R=\operatorname{REnd}(G)\in\operatorname{Perf}(R)$である。
+特殊ファイバーでは$\mathcal C_B\otimes_R^{\mathbf L}k\simeq\operatorname{Perf}(X)$、
+$\mathcal K_B^{\rm lin}\otimes_R^{\mathbf L}k\simeq\operatorname{Ku}(X)$を得る。
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}[主張しないこと]\label{lp:rem:limits}
+$\Gamma_R$の底上proper性と$\Gamma_R^e$上の対角perfect性は異なる。
+本定理は後者、一般の可換cubic模型の存在、有限型開集合へのdg構造のspread、
+任意の導来基底上のOrlov同値を結論しない。
+$\mathcal C_B=D^b(\operatorname{qgr}B)$や
+$\mathcal K_B^{\rm lin}=D_{\rm sg}^b(\operatorname{gr}B)$も一般には主張しない。
+上付き${\rm lin}$は、線束と有限操作から作る部分圏を全coherent残余圏と区別するための記号である。
+本稿の結論は条件付きgeneric復元の入力のうち、proper模型・有界Orlov分解を具体化するものである。
+\end{remark}
+
+\subsection{先行研究と本節の寄与}
+非可換射影圏のsection functorはArtin--Zhangの枠組み\cite{LP-AZ}に属する。
+次数零部が体でないGorenstein環の有界Orlov分解には
+Burke--Stevenson\cite[Definition 5.1, Lemmas 6.1--6.2, Theorem 6.4]{LP-BS}を用いる。
+dg生成対象によるMorita表示はKeller\cite[Theorem 3.8]{LP-Keller}の一般理論である。
+これらの定理自体を新しい結果とは扱わない。
+以下では、与えられた量子化に対してnoetherian性・Gorenstein型・Homの底変更・有限生成を導き、
+既存原稿で別途仮定していた相対proper模型の条件を正則局所基底で検証する。
+この組合せの新規性は未確認であり、外部査読や形式証明は未実施である。
+
+\section{局所基底でのnoetherian性と有限Koszul持上げ}
+\label{lp:sec:lift}
+\begin{lemma}[次数別有限性を用いたnoetherian性]\label{lp:lem:noetherian}
+$(R,\mathfrak m)$をnoetherian局所環、$D=\bigoplus_{j\ge0}D_j$を中央$R$-代数とし、
+各$D_j$は有限$R$-加群とする。
+$D/\mathfrak mD$が右noetherianなら$D$は右noetherianである。左にも同様である。
+\end{lemma}
+\begin{proof}
+$\mathfrak m$の有限生成元を選ぶと、
+$(D/\mathfrak mD)[t_1,\ldots,t_e]\twoheadrightarrow\operatorname{gr}_{\mathfrak m}D$
+という中央変数の多項式拡大からの全射がある。
+従って右辺は右noetherianである。
+斉次右イデアル$I\subset D$に誘導filtration $I\cap\mathfrak m^qD$を入れる。
+その随伴次数イデアルの有限個の二重斉次生成元を、$f_1,\ldots,f_r\in I$へ持ち上げ、
+$J=\sum f_iD$とする。
+$x\in I_j$の最低$\mathfrak m$-次数記号を消す操作を繰り返すと、任意の$q$について
+$x\in J_j+\mathfrak m^qD_j$を得る。
+$D_j/J_j$は有限$R$-加群だからKrull交叉定理より$x\in J_j$である。
+従って全ての斉次右イデアルは有限生成である。
+任意の右イデアルには内部次数の上昇filtrationを入れ、最高次数項のイデアルの
+有限生成元を持ち上げる。内部次数の有限降下により元のイデアルも有限生成である。
+この証明は$R$の完備性を使わず、各内部次数における有限性を使う。
+\end{proof}
+
+\begin{lemma}[次数別分裂する自由分解の持上げ]\label{lp:lem:resolution}
+$D$の各次数が有限自由$R$-加群で、$M$も各次数有限自由とする。
+$\overline M$が$\overline D=D/\mathfrak mD$上、有限階数の次数付き自由加群による
+有限分解$\overline P_\bullet$を持つなら、同じ項の階数とshiftを持つ
+$D$-自由分解$P_\bullet\to M$を持ち上げられる。
+分解は各内部次数で$R$-加群の分裂完全列であり、任意の通常の底変更後も完全である。
+\end{lemma}
+\begin{proof}
+$\overline P_0$の生成元の像を$M$の同じ次数へ持ち上げる。
+各次数の余核は有限$R$-加群で剰余が零なのでNakayamaの補題で零である。
+$P_0\twoheadrightarrow M$は各次数で有限自由加群への全射だから分裂し、
+核は各次数有限自由となる。剰余体への底変更後の核も正しく計算される。
+核の生成元を$\overline P_1$から同様に持ち上げ、帰納する。
+最後の核は各次数有限自由かつ剰余が零であるから零である。
+各段階の内部次数別分裂により、底変更後にも完全性が残る。
+\end{proof}
+
+\begin{proposition}[全次数の相対Koszul性とambientの対角]\label{lp:prop:koszul}
+定義\ref{lp:def:input}の$A$は次数一で生成され、二次関係で定まる。
+$R$の左右$A$-加群としての分解と、$A$の$A^e=A\otimes_RA^{\rm op}$-加群としての分解は
+それぞれ
+\[
+ P_j=A(-j)^{\binom Nj},\qquad
+ Q_j=A^e(-j)^{\binom Nj}\quad(0\le j\le N)
+ \tag{K}\label{lp:eq:koszul}
+\]
+という項を持ち、全ての通常の底変更と両立する。
+特に$A$は$R$上smoothで、$\operatorname{gldim}A\le N+d$である。
+\end{proposition}
+\begin{proof}
+$A_1$の剰余は$N$変数の空間であり、そのliftによる自由代数からの写像は
+各次数のNakayamaにより全射となる。
+多項式環の$k$のKoszul分解に補題\ref{lp:lem:resolution}を適用すると$P_\bullet$を得る。
+第一次関係が次数二で生成されることもこの構成から従う。
+同様に$A$を$A^e$-加群として見て、多項式環の対角Koszul分解を持ち上げると$Q_\bullet$を得る。
+$A$は$R$上の自由加群（次数別の直和）なので$Q_\bullet$は右$A$-加群としても分裂完全である。
+任意の左$A$-加群$M$を右からテンソルすると、項$A\otimes_R M$の有限直和からなる長さ$N$の分解になる。
+$\operatorname{gldim}R=d$より各項の$A$-射影次元は高々$d$。
+従って$\operatorname{pd}_A M\le N+d$で、右側も同様である。
+\end{proof}
+
+\begin{proposition}[相対Gorenstein型と中心商]\label{lp:prop:gorenstein}
+式\eqref{lp:eq:G}が成立する。$B$は左右noetherian、各次数有限自由で、
+左右injective dimensionは高々$N+d-1$である。
+\end{proposition}
+\begin{proof}
+補題\ref{lp:lem:noetherian}を$A$に適用する。
+$P_\bullet$を$A$で双対化した有界複体は、各内部次数で有限自由$R$-複体である。
+剰余上ではKoszul双対性により、内部次数$-N$・cohomological degree $N$以外で完全。
+有限自由有界複体の剰余が完全なら、単元行列成分の消去とNakayamaにより複体自身も分裂完全である。
+内部次数$-N$では最後の項$R$のみ残る。従って$\operatorname{R\underline{Hom}}_A(R,A)=R(N)[-N]$を得る。
+左側も同じである。
+
+各次数での$\Omega:A_{j-3}\to A_j$の剰余は非零多項式$F$の乗法で単射。
+行列の列数と同じ大きさの小行列式の一つが単元なので、この写像は局所基底変換で分裂単射となる。
+よって$\Omega$は正則、$B_j$は自由で、全底変更と両立する。
+中央正則元に対するchange-of-ringsは
+\[
+ \operatorname{R\underline{Hom}}_A(M,A)
+ \simeq\operatorname{R\underline{Hom}}_B(M,B)(3)[-1]
+ \quad(M\in D(\operatorname{Gr}B))
+ \tag{CR}\label{lp:eq:change-rings}
+\]
+を与える。これは$0\to A(-3)\xrightarrow{\Omega}A\to B\to0$から
+$\operatorname{R\underline{Hom}}_A(B,A)=B(3)[-1]$を計算し、導来随伴を使った式である。
+$M=R$を代入して$B$の式\eqref{lp:eq:G}を得る。
+一般の$M$に適用すると、$A$の有限大域次元から$B$の有限injective dimensionが従う。
+商なのでnoetherian性も成り立つ。
+\end{proof}
+
+\section{射影化の局所コホモロジーと底変更}
+\label{lp:sec:cohomology}
+$\tau$を$B_{\ge1}$-torsion functor、$\pi:\operatorname{Gr}B\to\operatorname{QGr}B$を商関手とする。
+Burke--Stevenson\cite[Section 4, Lemmas 6.1--6.2]{LP-BS}により、
+上記のGorenstein型と$R$-flatnessは$\chi$と必要な有限cohomological dimensionを与える。
+従って$D^b(\operatorname{qgr}B)$を$D(\operatorname{QGr}B)$で計算でき、導来sectionの三角
+\[
+ R\tau(B)\longrightarrow B\longrightarrow R\omega\pi(B)\longrightarrow
+ \tag{LC}\label{lp:eq:torsion}
+\]
+を使用できる。
+
+\begin{lemma}[局所コホモロジーの各次数]\label{lp:lem:local-cohomology}
+$d_B=N-1$とすると
+\[
+ H^q(R\tau B)_t=
+ \begin{cases}
+  B_{-t-a}^{\vee}&q=d_B,\\
+  0&q\ne d_B
+ \end{cases}
+ \tag{LC'}\label{lp:eq:localcohom}
+\]
+である。負添字は零とする。
+\end{lemma}
+\begin{proof}
+$M_\ell=B/B_{\ge\ell}$の次数filtrationの商は
+$B_j\otimes_R R(-j)$（$0\le j<\ell$）である。
+式\eqref{lp:eq:G}と$B_j$の自由性により、各商の$B$への導来Homは次数$d_B$に集中し、
+その内部次数は$-a-j$のみである。
+長完全列によって$\operatorname{Ext}_B^q(M_\ell,B)=0$（$q\ne d_B$）。
+内部次数$t$では$j=-t-a$のただ一層だけが寄与するので、その層が含まれれば群は$B_j^\vee$となる。
+$\ell>j$で推移写像は同型である。
+$R\tau B=\varinjlim_\ell\operatorname{R\underline{Hom}}_B(M_\ell,B)$のcohomologyを取ればよい。
+\end{proof}
+
+\begin{proof}[式\eqref{lp:eq:H}の証明]
+$\operatorname{RHom}_{\operatorname{QGr}B}(\pi B,\pi B(t))$
+は導来sectionの内部次数$t$に一致する。
+式\eqref{lp:eq:torsion}と補題\ref{lp:lem:local-cohomology}を用いると
+$H^0=B_t$、$H^{N-2}=B_{-t-a}^\vee$で、それ以外は零となる。
+$a>0$なので同じ$t$に対して二群が同時に非零となることはない。
+従ってこれはcohomology次元だけでなく、各Hom複体が有限自由加群の一つのshiftであることを示す。
+$i$のtwistを外せば式\eqref{lp:eq:H}である。
+\end{proof}
+
+\begin{proposition}[線束Homの底変更]\label{lp:prop:basechange}
+$R\to R'$を有限大域次元のnoetherian正則環への通常の準同型で、$A'=A\otimes_RR'$が左右noetherianであるものとする。
+$B'=B\otimes_RR'$と置けば自然な写像
+\[
+ \operatorname{RHom}_{\operatorname{qgr}B}(\mathcal O(i),\mathcal O(j))
+ \otimes_R^{\mathbf L}R'
+ \longrightarrow
+ \operatorname{RHom}_{\operatorname{qgr}B'}(\mathcal O'(i),\mathcal O'(j))
+ \tag{BC}\label{lp:eq:bc}
+\]
+は擬同型である。
+特に任意の剰余体$R\to\kappa(\mathfrak p)$、および正則noetherian局所環への局所準同型には適用できる。
+\end{proposition}
+\begin{proof}
+$A,B$の有限相対分解と$B$の正則中心商表示は底変更と両立するので、
+$A',B'$も対応するGorenstein型、有限injective dimension、$\chi$を持つ。
+剰余体については中央の商・局所化によりnoetherian性を得る。
+局所準同型の場合は剰余が多項式環なので補題\ref{lp:lem:noetherian}を再適用できる。
+
+まず$R$の有限大域次元により$-\otimes_R^{\mathbf L}R'$は有限Tor振幅を持ち、
+有界coherent graded複体を有界coherent複体へ送り、torsionを保つ。
+従って射影商の有界導来圏にも底変更が定義される。
+自然な底変更写像そのものを確認するため、$M_\ell$を有限階数graded自由$B$-加群の分解$P_\bullet$で計算する。
+$M_\ell$は内部次数別$R$-自由なので、そのsyzygyを各次数で分裂させて、分解の全底変更を保てる。
+固定した内部次数$t$で$C^\bullet=\operatorname{\underline{Hom}}_B(P_\bullet,B)_t$は
+下に有界な有限自由$R$-加群の複体であり、前補題の証明により、
+cohomologyは有限自由加群の一つの次数にしか現れない。
+$R$の大域次元は有限なので、cohomologyが全て射影なこの複体は、そのcohomology複体にhomotopy同値である。
+実際、射影加群からなる完全複体のcycleについてdimension shiftingを$d+1$回適用すると、
+全cycleが射影となり複体が分裂する。
+従って$C^\bullet$の導来テンソルは通常のテンソルで計算できる。
+有限階数自由分解上ではHomと底変更が項ごとに可換であるため、$M_\ell$のHomの底変更を得る。
+各$t$で安定するfiltered colimitと式\eqref{lp:eq:torsion}を通せば\eqref{lp:eq:bc}となる。
+\end{proof}
+
+\section{有限生成proper部分圏と残余圏}
+\label{lp:sec:proper}
+\begin{proof}[有界Orlov分解と有限生成の証明]
+命題\ref{lp:prop:gorenstein}の結果はBurke--StevensonのDefinition 5.1の仮定を満たす。
+$R$は有限大域次元で、$A,B$は中央$R$-flatなので、同論文Lemma 6.2によって$\chi$を満たす。
+Theorem 6.4を$A$へ適用すると、$D_{\rm sg}^b(\operatorname{gr}A)=0$であるため
+任意の連続した$N$個のtwistが$D^b(\operatorname{qgr}A)$を生成する。
+$B$への導来制限は$0\to A(-3)\to A\to B\to0$により有限Tor振幅を持ち、
+torsionをtorsionに送るので射影商へ降りる。
+この関手は$\mathcal O_A(j)$を$\mathcal O_B(j)$へ送る。
+従って全ての$\mathcal O_B(j)$は$E$から有限回のcone・直和因子で作られる。
+これが式\eqref{lp:eq:proper-model}の生成性である。
+
+$B$へのTheorem 6.4は、$a>0$より$a$個のtwistとgraded singularity categoryによる半直交分解を与える。
+この有界分解の向きは引用定理の規約に従う。以下では線束生成部分における右直交を別に構成する。
+この有界三角圏の同値を、任意の導来基底変更と両立するdg同値へ強めたとは主張しない。
+\end{proof}
+
+\begin{proposition}[properな残余dg代数]\label{lp:prop:residual}
+$\mathcal E=\langle\mathcal O,\ldots,\mathcal O(a-1)\rangle$とする。
+各成分は$\operatorname{Perf}(R)$であり、$\mathcal C_B$で
+\[
+ \mathcal C_B=\langle\mathcal K_B^{\rm lin},\mathcal O,\ldots,\mathcal O(a-1)\rangle
+ \tag{SOD}\label{lp:eq:sod}
+\]
+を持つ。$p=L_{\mathcal O}\circ\cdots\circ L_{\mathcal O(a-1)}$と置くと
+$G=p(E)$は$\mathcal K_B^{\rm lin}$を生成する。
+$\Gamma_R=\operatorname{REnd}(G)$の底上の複体はperfectであり、
+命題\ref{lp:prop:basechange}の底変更でこの構成はMorita同値まで可換である。
+\end{proposition}
+\begin{proof}
+式\eqref{lp:eq:H}から$\operatorname{RHom}(\mathcal O(i),\mathcal O(i))=R$で、
+$0\le i<j\le a-1$なら$\operatorname{RHom}(\mathcal O(j),\mathcal O(i))=0$である。
+全$\mathcal C_B$の対象間のHomは、$E$間のperfect Homから有限cone・直和因子で作られるので$R$-perfectである。
+従って各例外成分の左右随伴はHomとその$R$-双対で定義でき、mutationは有限操作となる。
+右端の例外対象から順に左mutationして$p$を作ると、$p(\mathcal C_B)$は正確に$\mathcal E^\perp$である。
+$E$の生成性より$G$が生成し、$\operatorname{REnd}(G)$も$R$-perfectとなる。
+標準dg enhancementと生成対象のdg Yonedaを用いればMorita表示を得る\cite[Theorem 3.8]{LP-Keller}。
+
+式\eqref{lp:eq:bc}は生成対象間の全導来Homと積に自然なので、有限coneと冪等完備化へ延長すると
+線束生成部分圏の底変更で完全忠実性を得る。像は全線束を生成するのでMorita同値である。
+評価写像とそのconeも底変更に可換で、$p,G$についても同じである。
+特殊ファイバーでは$X$は滑らかで、全twistは$\operatorname{Perf}(X)=D^b(\operatorname{coh}X)$を生成する。
+右直交は通常のKuznetsov成分なので主定理(5)が従う。
+\end{proof}
+
+\begin{lemma}[局所proper圏の完全忠実性の持上げ]\label{lp:lem:ff-lift}
+$\mathcal C,\mathcal D$を$R$-properな冪等完備dg圏とし、対象間のHomが剰余体への導来底変更と可換であるとする。
+$\Phi:\mathcal C\to\mathcal D$を底変更と両立するexactなdg関手とする。
+$\Phi_k$が完全忠実なら$\Phi$も完全忠実である。
+さらに$\Phi_k$が同値で、$\Phi$が右または左随伴を持つなら$\Phi$は同値である。
+\end{lemma}
+\begin{proof}
+任意の対象$M,N$に対し、Hom上の自然な写像のconeは$R$-perfectで、その剰余は零である。
+局所環上の導来Nakayamaによりconeは零となるので完全忠実性を得る。
+また$Q\in\mathcal D$について$Q_k=0$なら、その自己Homの剰余も零である。
+従って$\operatorname{RHom}(Q,Q)=0$、特に恒等射が零なので$Q=0$となる。
+$\Phi$の像が片側admissibleであれば、任意の対象は像とその直交成分によるtriangleを持つ。
+直交成分の対象$Q$は剰余上で$\Phi_k(\mathcal C_k)$と直交し、$\Phi_k$の同値性から$Q_k=0$。
+したがって$Q=0$であり、像は全体である。
+\end{proof}
+
+\begin{proposition}[標準rotation候補の完全忠実性]\label{lp:prop:rotation-candidate}
+$\widetilde\rho=L_{\mathcal O}\circ(1)$は$\mathcal K_B^{\rm lin}$を保つ完全忠実なexact dg自己関手であり、
+特殊ファイバーでは通常のrotationとなる。
+上記の底変更と両立する。
+本節だけでは全基底上の本質的全射性と$\widetilde\rho^3\simeq[2]$を主張しない。
+\end{proposition}
+\begin{proof}
+$M\in\mathcal E^\perp$なら
+$\operatorname{RHom}(\mathcal O(j),M(1))=0$（$1\le j\le a$）。
+$L_{\mathcal O}$は$\mathcal O$からのHomを零にする。
+$1\le j<a$について$\operatorname{RHom}(\mathcal O(j),\mathcal O)=0$だから、
+このmutationは他の必要な直交条件を壊さない。
+twistは線束生成部分圏を保ち、mutationも有限操作なので自己関手を得る。
+基底変更は前命題の証明と同じである。
+特殊ファイバーでは滑らかなcubicの標準rotationであり自己同値なので、
+補題\ref{lp:lem:ff-lift}によって$R$上で完全忠実になる。
+\end{proof}
+\begin{remark}[自己同値化を残す理由]
+補題\ref{lp:lem:ff-lift}により、$\widetilde\rho$に有限対象を保つ片側随伴を構成すれば、
+本質的全射性も従う。しかしproper性だけから任意のexact関手が随伴を持つとは限らない。
+本稿ではこの随伴の存在を仮定なしに付け加えない。
+同様に、$\widetilde\rho^3\to[2]$という自然変換を実際に構成し、特殊ファイバーで同型と示せれば、
+対象ごとのconeに導来Nakayamaを適用して全体で同型にできる。
+自然変換の持上げそのものを、その特殊ファイバーでの存在で代用してはならない。
+\end{remark}
+
+\subsection{中心商の導来自己交叉と特異圏の周期性}
+\begin{proposition}[三次周期性の代数的な構成]\label{lp:prop:sing-period}
+本節の仮定で、graded singularity categoryには自然な同型
+\[
+ (3)\simeq[2]
+ \qquad\text{on }D_{\rm sg}^b(\operatorname{gr}B)
+ \tag{PER}\label{lp:eq:period}
+\]
+が存在する。ここでは射影残余圏のsmoothnessを使わない。
+\end{proposition}
+\begin{proof}
+$Q=B\otimes_A^{\mathbf L}B$をgraded $B$-双加群とする。
+中央正則元の長さ一分解から、$H^0(Q)=B$、
+$H^{-1}(Q)=(\Omega)/(\Omega)^2\simeq B(-3)$で、他のcohomologyは零である。
+この同定は$B$-双加群として成立する。導来双加群の標準truncationは
+\[
+ B(-3)[1]\longrightarrow Q\longrightarrow B
+ \xrightarrow{\eta}B(-3)[2]
+\]
+を与える。
+任意の$M\in D^b(\operatorname{gr}B)$に$M\otimes_B^{\mathbf L}-$を作用させると
+\[
+ M(-3)[1]\longrightarrow M\otimes_A^{\mathbf L}B\longrightarrow M
+ \xrightarrow{\eta_M}M(-3)[2]
+\]
+となる。$A$はnoetherianで有限大域次元なので$M$は$A$上perfectであり、
+中項は$B$上perfectである。従って$\eta_M$はgraded singularity categoryで同型となる。
+$\eta$が双加群射から来ることにより$M$に自然である。
+内部shiftを三つ戻すと式\eqref{lp:eq:period}を得る。
+\end{proof}
+\begin{remark}[二種類のrotationを混同しない]
+有界Orlov同値で内部shift $(1)$を移せば、全coherent残余圏には
+三乗が$[2]$となる自己同値$\rho_{\rm sg}$を定義できる。
+他方、命題\ref{lp:prop:rotation-candidate}は線束生成部分に
+$\widetilde\rho=L_{\mathcal O}\circ(1)$を具体的に構成する。
+この二つの関手を指定したwindowで同定し、全体での底変更とcoherenceを確認する作業は別である。
+本稿は通常の中心商から得る特異圏の周期性そのものを未解決とはしないが、
+上の同定を省略して線束生成残余部分の相対rotationが完成したとは主張しない。
+また$Q$を$B\oplus B(-3)[1]$と双加群として分裂させてはならない。
+その拡張類$\eta$こそが周期性を与えている。
+\end{remark}
+
+\section{非楕円成分への適用と有限計算}
+\label{lp:sec:application}
+前稿で構成した二パラメータ非楕円量子化の係数環は
+$R_{\mathrm C}^0=\CC[r,s]$、$R_{\mathrm N}^0=\CC[r,s,(4-r^2)^{-1}]$である。
+可換点$(r,s)=(0,0)$で局所化すると、どちらも正則局所環
+$R=\CC[r,s]_{(r,s)}$になる。
+各次数の自由性（局所化前は局所自由性）、七生成元の多項式環への特殊化、
+中心三次元は前稿の全次数PBW構成から得られる。
+従って主定理は$N=7,n=5,a=4$で適用できる。
+この適用は節点・尖点の純ブロックの滑らかさを仮定しない。
+既存の中心元・PBW性の証明と再現コードは本bundleの別論文に保持している。
+
+\begin{corollary}[二つの成分の局所proper残余模型]\label{lp:cor:nonelliptic}
+上の二つの成分に対し、$R=\CC[r,s]_{(r,s)}$上の実在するproperな残余dg代数
+$\Gamma_R$と完全忠実な標準rotation候補を構成できる。
+その特殊ファイバーは前稿の滑らかな$cubic\ fivefold$のKuznetsov成分とrotationである。
+$B$は有界Orlov分解を持つ。
+ただしこの残余dg代数の相対smoothnessは未証明である。
+\end{corollary}
+
+\begin{proposition}[線束生成子のcohomology階数]\label{lp:prop:ranks}
+$b_q=\binom{N-1+q}{N-1}-\binom{N-4+q}{N-1}$（負次数の項は零）とする。
+$\Lambda_R=\operatorname{REnd}(\bigoplus_{i=0}^{N-1}\mathcal O(i))$について
+\begin{align*}
+ \rank_R H^0(\Lambda_R)&=\sum_{q=0}^{N-1}(N-q)b_q
+ =\binom{2N}{N-1}-\binom{2N-3}{N-4},\\
+ \rank_R H^{N-2}(\Lambda_R)&=3+2N+\binom{N+1}{2}.
+\end{align*}
+それ以外のcohomologyは零である。$N=7$では階数は$2838$と$45$である。
+\end{proposition}
+\begin{proof}
+第0次は差$j-i=q\ge0$を持つ組が$N-q$個あることから得る。
+二つのbinomial和にhockey-stick公式を二回使うと閉公式になる。
+上の次数は$i-j\ge a=N-3$だけが寄与し、差$a,a+1,a+2$を持つ組はそれぞれ3,2,1個である。
+$B_0=R$、$\rank B_1=N$、$\rank B_2=\binom{N+1}{2}$を代入する。
+\end{proof}
+
+\begin{remark}[cohomologyの表はdg積の代用品ではない]\label{lp:rem:ainfty}
+上の数値から$\Lambda_R$や$\Gamma_R$のdg積・高次積を復元したとは主張しない。
+特に$H^0(\Lambda_R)\oplus H^{N-2}(\Lambda_R)[-(N-2)]$を
+自動的に同じdg代数のsquare-zero模型とみなしてはならない。
+計算コードはbinomial恒等式、Homの三角的消滅、例外成分の数を整数で確認するだけで、
+noetherian性・Orlov定理・dg Morita同値を形式化したものではない。
+\end{remark}
+
+\section{残余smoothnessに残る正確な問題}
+\label{lp:sec:remaining}
+構成した$\Gamma_R\in\operatorname{Perf}(R)$について、なお必要なのは
+\[
+ \Gamma_R\in\operatorname{Perf}(\Gamma_R^{\rm op}\otimes_R^{\mathbf L}\Gamma_R).
+ \tag{SM}\label{lp:eq:smoothness}
+\]
+周囲$A$の対角の有限分解は主定理で得たが、式\eqref{lp:eq:smoothness}ではない。
+$\Gamma_R\otimes_Rk$がsmoothであることだけから、代数的な有限対角分解の持上げを結論しない。
+実際のperfect複体$P$と$P\to\Gamma_R$を構成して一ファイバーで擬同型とすれば、
+coneの底上perfect性からその消滅を開近傍へ広げられる。
+この判定は有効だが、$P$と射を構成する仕事を代替しない。
+
+同様に、通常の有界Orlov分解があることから、任意の導来基底でのdg同値、
+標準rotationの可逆bimodule表示、三次周期性のcoherenceを無条件に結論してはならない。
+本稿ではproperな線束生成部分を先に作り、その自己関手候補までを構成した。
+全coherent残余圏の比較、標準rotationの本質的全射性と相対周期性の同定は次の課題である。
+
+\begin{remark}[局所環と有限型開集合を区別する]
+$R$は可換点の局所環なので、全次数にわたるNakayamaは同一の$R$上で使える。
+しかしこれだけで、元の有限型基底の一つのZariski開集合上に
+全ての無限次数条件が広がったとはいえない。
+有限の自由分解・有限個の行列の個別のspreadと、proper dg代数の全高次積のspreadも区別する。
+実際に代数的なsmooth proper pairを得た後に、既存原稿Cのétale局所実現原理(ER)を適用する。
+(ER)の圏論的入力は本稿で再証明していない。
+\end{remark}
+
+\begin{remark}[同じHom階数でもsmoothとは限らない]
+本稿の線束Homの計算は、非零三次式$F$が特異であっても成り立つ。
+例えば$F=z_1^2z_2+z_3^3+\cdots+z_N^3$は$[0:1:0:\cdots:0]$で特異だが、
+同じHilbert級数と命題\ref{lp:prop:ranks}の階数を持つ。
+可換射影超曲面の$\operatorname{Perf}$はこの場合smoothでない。
+実際、smooth properならcohomologically finiteなmoduleはperfectであり、
+特異点のskyscraperもperfectとなって、その局所環の正則性に矛盾する。
+この標準的な対角判定は\cite[Proposition 3.31]{LP-Orlov}のsmooth/properの枠組みに属する。
+従って階数表だけをsaturationの証明書として使うことはできない。
+\end{remark}
