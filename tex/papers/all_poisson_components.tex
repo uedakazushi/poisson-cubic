@@ -1,0 +1,113 @@
+\section{一般次元におけるPoisson既約成分ごとの可換復元}
+\label{sec:all-poisson-components}
+
+本節の一般問題は、固定した三次元族ではなく、任意の$n\ge3$と
+滑らかなcubic $X^n$について、Poissonスキームの\emph{各既約成分}の
+一般点の量子化からrotation付き可換模型を得ることである。
+任意のAS-regular中心三次商を無条件に対象とする問題とは区別する。
+
+\begin{proposition}[Poisson錐の各既約成分は可換点を含む]
+\label{prop:all-components-cone}
+$X$を滑らかな複素射影多様体とし、
+\[
+\operatorname{Pois}(X)=
+\left\{\pi\in H^0(X,\bigwedge^2T_X)\mid[\pi,\pi]=0\right\}
+\]
+をアフィンPoissonスキームとする。
+その被約化の任意の既約成分$Z$は零Poisson構造$0$を含む。
+$X$が滑らかなcubicであれば、同じ主張はcubicも変化させる
+相対Poissonスキームの各既約成分について成り立つ。
+\end{proposition}
+\begin{proof}
+Jacobi方程式は$\pi$について二次斉次である。
+従って$\mathbb G_m$は各Poissonスキームに$\pi\mapsto t\pi$で作用する。
+連結な$\mathbb G_m$は有限個の既約成分の集合を自明に作用するので、
+$Z$はこの作用で不変である。
+$z=(X,\pi)\in Z$について
+$\mathbb A^1\to\operatorname{Pois}$、
+$t\mapsto(X,t\pi)$は零まで定義され、
+$t\ne0$で像が$Z$にあるから$(X,0)\in Z$である。
+固定$X$の場合も同じである。
+\end{proof}
+
+\begin{theorem}[各Poisson成分の一般点へ進むための条件付き原理]
+\label{thm:all-components-conditional}
+$n\ge3$とし、$Z$を滑らかなcubic $X^n$上の
+アフィンPoissonスキームの被約な既約成分とする。
+$0\in U\subset Z$をZariski開近傍とし、
+$U$上に中心三次商の代数的な次数別flat量子化族が存在すると仮定する。
+さらに、その残余dg圏と標準rotation
+$(\mathcal K_U,\rho_U)$が$U$-linearなsmooth proper
+代数的pair族をなし、零ファイバーが
+$(\Ku(X),\rho_X)$とenhanced同値であると仮定する。
+本論文のétale局所復元定理\ref{thm:etale}がこの族に適用できるなら、
+$0$を含む非空開部分$U^\circ\subset U$が存在し、
+各複素点におけるpairは滑らかな可換cubicのpairと同値である。
+特に$Z$の幾何学的一般点は、有限分離拡大の後、
+rotation付き可換cubic模型を持つ。
+\end{theorem}
+\begin{proof}
+命題\ref{prop:all-components-cone}により$0\in Z$である。
+仮定と定理\ref{thm:etale}から$0$を通るpointed étale近傍で
+相対cubicとrotationを保つ同値が存在する。
+その像は非空Zariski開であり、既約な$Z$で稠密である。
+generic point上ではétale近傍の支配成分の剰余体が
+$\mathbb C(Z)$の有限分離拡大となるので結論を得る。
+\end{proof}
+\begin{remark}[何が未証明か]
+\label{rem:all-components-gap}
+上の定理は\emph{条件付き}である。
+個々のPoisson構造の一パラメータ量子化の存在から、
+その成分$Z$全体の零近傍における有限型の一つのflat量子化族は
+自動的には従わない。
+特にブロック数の変化、中心元のchart間の接着、
+相対Beilinson条件、有限対角証明書、相対Orlov比較と底変更を
+一様に確立する必要がある。
+また、射影化されたPoissonパラメータ空間そのものには零点は無い。
+ここで用いるのはその\emph{アフィン錐}である。
+\end{remark}
+
+\begin{proposition}[次元の合同類とrotationのSerre関手からの復元]
+\label{prop:all-components-rotation-serre}
+$n\ge3$、$\mathcal K$をSerre関手$S_{\mathcal K}$を持つ
+$k$-linear smooth proper dg圏、$\rho$を自己同値とし、
+\[
+ \rho^3\simeq[2],\qquad
+ S_{\mathcal K}\simeq\rho^{1-n}[n]
+ \tag{SR}\label{eq:all-components-serre}
+\]
+を仮定する。
+$n\not\equiv1\pmod3$なら、$3a+(1-n)b=1$を満たす
+整数$a,b$に対して
+\[
+ \boxed{\quad \rho\simeq S_{\mathcal K}^{\,b}[\,2a-nb\,]\quad}
+ \tag{R}\label{eq:all-components-rotation}
+\]
+である。従ってこの範囲では、上の二恒等式を満たす
+rotationの同型類はSerre関手とshiftから決まる。
+$n\equiv1\pmod3$なら二恒等式からは
+$S_{\mathcal K}\simeq[(n+2)/3]$しか導かれず、
+$\rho$の同型類は一般に決定されない。
+\end{proposition}
+\begin{proof}
+前半は$\gcd(3,n-1)=1$によるBézout等式から
+$\rho=(\rho^3)^a(\rho^{1-n})^b
+\simeq[2a]S_{\mathcal K}^{\,b}[-nb]$
+を得る。
+$n\equiv1\pmod3$なら$n-1=3m$なので
+$S_{\mathcal K}\simeq(\rho^3)^{-m}[n]
+\simeq[n-2m]=[(n+2)/3]$となる。
+この式だけから$\rho$を復元できないことは、
+本論文のcubic fourfoldに対するZhang twistのrotation障害の例が示す。
+\end{proof}
+\begin{remark}[全非可換成分との区別]
+\label{rem:all-components-nc-scope}
+任意のAS-regular中心三次商\emph{全ての点}の
+rotation付き可換復元は本論文のZhang twist反例で偽である。
+ただし個別の反例点だけで、非可換中心三次対の任意の
+既約成分の\emph{一般点}における可換復元を否定したことにはならない。
+Poisson零点を含む各成分の問題と、
+可換点に接続しない非可換モジュライ成分の問題は別に扱う。
+$n=1,2$ではKuznetsov残余圏とPoisson変形問題の範囲が変わるため、
+本節の$n\ge3$の条件付き原理をそのまま拡張しない。
+\end{remark}
