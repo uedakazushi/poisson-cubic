@@ -40,3 +40,7 @@ python3 scripts/verify_components.py
 有限特殊化を使わず、記号多項式と自由代数恒等式を検証する。ただし圏論的同値や一般saturationの計算機形式化ではない。生成・組版・ハッシュ照合・Library保存・GitHub反映は別の状態として `validation_components.json` と最終応答で報告する。
 
 既存のA・B・C全体のPDFを今回再生成したとは扱わない。親リポジトリの古いPDFをv11の組版結果と表示しない。GitHubへPDFバイナリが同期されていない場合は、Libraryの現行部分bundleのPDFを参照する。
+
+## 非楕円型Poisson既約成分
+
+論文Aの `tex/papers/nonelliptic_poisson_components.tex` に、滑らかなcubic fivefoldで節点・尖点型ブロックが一般点に残る二つのPoisson既約成分を追加。厳密証明書と再現コードは `computations/nonelliptic_components_certificate.json` と `computations/verify_nonelliptic_components.py`。この結果は一般の可換復元を否定せず、相対saturationの対象に非楕円型を含める必要性を示す。論文Aの統合PDFは未再組版。

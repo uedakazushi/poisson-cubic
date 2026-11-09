@@ -49,6 +49,12 @@
 
 `python3 scripts/build_components.py` で日本語LuaLaTeXの抜粋と、方針・ノートのPDFを再生成する。`python3 computations/verify_componentwise_reconstruction.py` はSymPyによる厳密計算。`python3 scripts/verify_components.py` は参照、証明書、ソース・PDFのハッシュを検証する。生成・検証・Library保存・GitHub更新は別々に記録する。
 
+## 非楕円型が一般点に残るPoisson既約成分
+
+滑らかなcubic fivefold上に、一般点で節点型または尖点型の純三次ブロックを持つ二次元Poisson既約成分を構成した。論文A `tex/papers/nonelliptic_poisson_components.tex` の定理 `ne:main` に証明を置き、`computations/verify_nonelliptic_components.py` と `computations/nonelliptic_components_certificate.json` で全Jacobi接行列（35列、階数33）、整数小行列式、滑らかさと一般階数4を検証する。各成分の一般点で非楕円性が残るため、楕円Sklyaninブロックのみを扱う相対復元理論では全成分を覆えない。これは可換復元の反例ではない。
+
+相対saturationの最優先試験例をこの二つの成分とし、中心変数との混合を保った全ポテンシャルに対する相対Koszul・有限対角証明書・相対Orlov比較を目指す。純ブロックの滑らかさは仮定しない。既存の支配的chartと有限jet中心代数化の結果は保持し、今回の証明を置換・上書きしない。
+
 ## 研究一般の原則と保存許可
 
 以下は上の個別計画と区別する恒久的原則である。

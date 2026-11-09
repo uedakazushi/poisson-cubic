@@ -48,6 +48,14 @@ Brill–Noether・Pfaffian接触・Reye・特異圏の独立研究は親リポ�
 
 一次資料としてStacksの00MC（完備化の忠実平坦性）、0BDK（perfect複体の消滅開集合）、055U（smooth射のétale局所section）を確認。Toën–Vaquié, arXiv:math/0503269v5, Theorem 3.6の適用範囲を確認したが、外部論文全体の証明は再証明していない。
 
+## 非楕円Poisson成分の厳密証明書
+
+論文Aの `ne:main` は、固定した滑らかなcubic fivefold上で二次元Poisson既約成分の一般点が節点型または尖点型の純三次ブロックを持つことを示す。三重ベクトルの35次元空間に対する全Jacobi接行列の階数は33。整数小行列式は節点型 `2^24·3^12`、尖点型 `-2^33·3^12`。計算はQ上の厳密行列演算であり、有限体の標本検査ではない。support内の縮約二形式の平方零スキームから三変数ブロックの内在性を示す。
+
+全cubicの滑らかさには中心混合項 `u x²` が本質的。量子関係の多重線形化で得る行列式曲線もgenericなhで節点・尖点型を保つが、これはpoint scheme全体、AS-regular性、相対残余圏、可換復元を証明するものではない。一般化Jacobianは節点でG_m、尖点でG_aなので、滑らかな楕円Picardへの有理写像障害を無条件に適用しない。
+
+検算の再現：`python3 computations/verify_nonelliptic_components.py`。論文A全体の最新PDFはこの追加に対応して未再組版。独立追加節のPDFはLibraryのv11 bundleに収録する。
+
 ## 7. 次の具体的作業
 
 genericなブロック正規形の滑らかな係数chart上で、周囲の相対Koszul分解と中心商の局所cohomologyを構成する。有限のproper残余dg模型が得られたら、対角証明書の持上げを実際の有限データにする。中心行列の代数化と、圏の対角の代数化を混同しない。必要な量子化を構成できた成分から進めるが、研究の量化は一般次元・各既約成分のまま保つ。

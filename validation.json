@@ -5,14 +5,51 @@
   "current_validation": "validation_components.json",
   "current_proof_section": "tex/papers/all_poisson_components.tex",
   "papers": {
-    "A": {"source": "tex/poisson_cubic_quantization.tex", "status": "Existing proofs retained; full manuscript not re-audited or rebuilt in v11."},
-    "B": {"source": "tex/generic17_ambient_recovery.tex", "status": "Existing proofs and exact computations retained; GitHub PDF is not asserted current; no full re-audit in v11."},
-    "C": {"source": "tex/rotation_cubic_reconstruction.tex", "status": "Componentwise section rewritten, preserving old main labels; standalone six-page section export rebuilt. Whole paper C not rebuilt."}
+    "A": {
+      "source": "tex/poisson_cubic_quantization.tex",
+      "status": "Existing proofs retained; full manuscript not re-audited or rebuilt in v11."
+    },
+    "B": {
+      "source": "tex/generic17_ambient_recovery.tex",
+      "status": "Existing proofs and exact computations retained; GitHub PDF is not asserted current; no full re-audit in v11."
+    },
+    "C": {
+      "source": "tex/rotation_cubic_reconstruction.tex",
+      "status": "Componentwise section rewritten, preserving old main labels; standalone six-page section export rebuilt. Whole paper C not rebuilt."
+    }
   },
-  "new_reductions": ["Smooth dominant scalar charts without descent at the cone vertex", "Finite-jet algebraization of formal central kernels", "Conditional generic realization from one commutative point on a saturated chart"],
-  "unresolved": ["Componentwise uniform PBW/AS-regular construction", "Actual relative residual dg model and perfect diagonal lifting", "General rotation-compatible commutative reconstruction and descent"],
+  "new_reductions": [
+    "Smooth dominant scalar charts without descent at the cone vertex",
+    "Finite-jet algebraization of formal central kernels",
+    "Conditional generic realization from one commutative point on a saturated chart"
+  ],
+  "unresolved": [
+    "Componentwise uniform PBW/AS-regular construction",
+    "Actual relative residual dg model and perfect diagonal lifting",
+    "General rotation-compatible commutative reconstruction and descent"
+  ],
   "boundary": "All pre-existing technical proofs and unique PDF-only sources retained; high-order certificates not re-executed.",
   "validation_limits": "Written and reviewed algebraic proofs are distinct from exact symbolic tests and from unperformed categorical formalization, external review, or comprehensive novelty determination.",
   "pdf_delivery": "Only section export, plan and notes regenerated locally; latest PDF binaries supplied in the scoped Library bundle, not synchronized to GitHub.",
-  "reproduction": {"build": "python3 scripts/build_components.py", "verify_sources": "python3 scripts/verify_components.py --source-only", "verify_pdfs": "python3 scripts/verify_components.py"}
+  "reproduction": {
+    "build": "python3 scripts/build_components.py",
+    "verify_sources": "python3 scripts/verify_components.py --source-only",
+    "verify_pdfs": "python3 scripts/verify_components.py"
+  },
+  "nonelliptic_components": {
+    "source": "tex/papers/nonelliptic_poisson_components.tex",
+    "script": "computations/verify_nonelliptic_components.py",
+    "certificate": "computations/nonelliptic_components_certificate.json",
+    "result": "Two reduced generically smooth 2-dimensional irreducible Poisson components on smooth cubic fivefolds with generic nodal or cuspidal intrinsic ternary blocks",
+    "exact_ranks": [
+      33,
+      33
+    ],
+    "determinants": [
+      "2^24*3^12",
+      "-2^33*3^12"
+    ],
+    "verification": "Exact rational symbolic computation and integer minor certificates executed on local bundle; no categorical equivalence proved",
+    "pdf": "Standalone supplement in Library ZIP; integrated paper A PDF not rebuilt"
+  }
 }
