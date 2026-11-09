@@ -1,117 +1,48 @@
 {
-  "version": "nc-cubic-v5",
-  "date_jst": "2026-11-08",
-  "purpose": "Current research continuation bundle; validation is not a formal proof or external peer review.",
-  "manuscript_status": {
-    "language": "Japanese",
-    "typesetting": "LuaLaTeX",
-    "publication_status": "public-facing research draft, not published or peer reviewed",
-    "newness": "Primary sources and exact applicable statements checked; comprehensive novelty is not asserted.",
-    "universal_AS_cubic_existence": "Disproved by a smooth Calabi-Yau Zhang-twist example in Theorem 10.6.",
-    "specified_Poisson_quantization_family": "General finite-parameter existence remains open; formal, etale-local, and explicit block cases are separated.",
-    "relative_saturation_reduction": "Proved conditionally under RB1-RB2, relative exceptional SOD and proper dg model; smoothness C iff residual smoothness; no general relative diagonal lift constructed.",
-    "relative_rotation_periodicity": "Formal identity (1)^3=[2] in graded matrix factorizations. Transfer to residual category conditional on relative Orlov equivalence.",
-    "complete_intersection_existence": "Section 2: over C smooth ordinary projective CI dim>=3, nonzero Poisson iff Pn, quadric, cubic, or (2,2); relies on classical Brueckmann vanishing.",
-    "toric_homogeneous": "Section 2: toric dim>=2 (normal as Poisson derivations, smooth as bivector) and smooth projective homogeneous dim>=2",
-    "quantization": "Quadratic relations explicit via cyclic potential; central cubic algebraizable from kernel in general; explicit closed formula in Fermat case.",
-    "hesse_explicit_center": "Closed polynomial central cubic for smooth Hesse f=(S/3)+txyz, t^3 != -1, derived from Smith-Tate / De Laet-Le Bruyn; general mixed center terms remain open.",
-    "hesse_discriminant": "Explicit nonzero Zariski open containing h=0 defined by U(h,t)*(1-h^2*t^2/4)*Delta(h,t).",
-    "ternary_generic_center": "For every smooth ternary cubic over C, central degree-three lift explicit after Hesse linear normal form and parameter rescaling h'=lambda det(M) h. Derived via classical Hesse normal form, not a general mixed-center theorem.",
-    "point_scheme_candidate": "For h!=0 in the Hesse elliptic open, point curve has Hesse coefficient theta=[t+h^2(1+t^3/4)/3]/[1-h^2*t^2/4]; commutative Y_theta,P is only candidate for arbitrary t, not a proven rotation pair equivalence."
-  },
-  "proof_review": {
-    "performed": [
-      "Poisson normal form and basepoint-free quadratic Lie algebra argument",
-      "Degeneracy ideals, special examples, and PBW/center algebraization",
-      "Rotation reconstruction assumptions and Sklyanin external-product generation scope",
-      "Zhang-twist center, shift convention, Nakayama condition, and Hochschild character obstruction",
-      "Invariant Euler characteristic and conditional Serre-connected generation criterion",
-      "Relative gluing smoothness reduction and formal MF 3-periodicity (theorem numbering for Orlov checked against primary text).",
-      "Coordinate covariance of Jacobian Poisson bracket, including determinant rescaling under linear changes, and Artebani–Dolgachev Lemma 1.",
-      "Symbolic check of point curve parameter theta and its Fermat t=0 specialization."
-    ],
-    "independent_review": "Main obstruction and its literature applications were independently reviewed.",
-    "external_theorems": "Specific versions and theorem/section references are recorded in the bibliography; external proofs were not fully re-proved.",
-    "not_performed": [
-      "external peer review",
-      "Lean or other proof-assistant formalization"
-    ]
-  },
-  "exact_computations": {
-    "arithmetic": "Python standard library; integers, rational polynomials and finite fields; no floating point",
-    "scripts": [
-      {
-        "script": "computations/verify_algebra.py",
-        "certificate": "computations/verification.json",
-        "status": "passed"
-      },
-      {
-        "script": "computations/verify_rotation_obstructions.py",
-        "certificate": "computations/rotation_obstructions.json",
-        "status": "passed"
-      },
-      {
-        "script": "computations/verify_geometry.py",
-        "certificate": "computations/geometry_verification.json",
-        "status": "passed",
-        "checks": 34
-      },
-      {
-        "script": "computations/verify_hesse_center.py",
-        "status": "tested_equivalent_implementation_in_container",
-        "scope": "Eight finite field specializations at p=1009; not universal proof."
-      }
-    ],
-    "limitations": "Finite certificates verify algebraic and numerical calculations, not categorical equivalences, generation or geometric smoothness."
-  },
-  "typesetting": {
-    "runtime": {
-      "python": "Python 3.12.14",
-      "lualatex": "This is LuaHBTeX, Version 1.17.0 (TeX Live 2023/Debian)",
-      "pandoc": "pandoc 3.1.3"
+  "version": "nc-cubic-v6",
+  "date_jst": "2026-11-09",
+  "commit_date": "as updated by GitHub",
+  "purpose": "Current three-paper restructuring; not peer-reviewed",
+  "papers": {
+    "A": {
+      "path": "tex/poisson_cubic_quantization.tex",
+      "scope": "Poisson classification, degeneracy, quantization, Hesse center",
+      "source_status": "separated; static references checked",
+      "pdf_status": "not regenerated"
     },
-    "undefined_references": 0,
-    "missing_glyphs": 0,
-    "overfull_boxes": 0,
-    "visual_review": "All pages inspected as contact sheets; title, new counterexample proofs, Euler proof and summary table inspected at reading scale. Research plan inspected at reading scale after layout correction.",
-    "visual_outcome": "No observed clipping, overlaps, blank missing pages or unreadable glyphs.",
-    "documents": [
-      {
-        "path": "cubic_poisson_rotation.pdf",
-        "pages": 78,
-        "size_bytes": 968746
-      },
-      {
-        "path": "research_notes.pdf",
-        "pages": 25,
-        "size_bytes": 561414
-      },
-      {
-        "path": "research_plan.pdf",
-        "pages": 5,
-        "size_bytes": 227505
-      }
-    ],
-    "v2_status": "New supplementary three-page LuaLaTeX PDF compiled separately; integrated PDF in repository remains v1 and is not claimed rebuilt in v2.",
-    "v3_status": "TeX files reorganized into tex/, PDFs relocated into pdf/ without rebuilding; PDF content is old (v1), source–PDF parity not yet achieved. Old checksums deleted.",
-    "v4_status": "Latest integrated TeX includes Hesse center chapter, but PDFs in pdf/ have NOT been regenerated. No current verified checksum manifest."
+    "B": {
+      "path": "tex/generic17_ambient_recovery.tex",
+      "scope": "41-dimensional incidence, generic 17 parameters, polarized ambient",
+      "source_status": "existing standalone proof retained",
+      "pdf_status": "existing PDF source parity not rechecked; a 13-page LuaLaTeX compilation was independently performed locally"
+    },
+    "C": {
+      "path": "tex/rotation_cubic_reconstruction.tex",
+      "scope": "rotation-marked reconstruction, conditional etale, Zhang twist obstruction, elliptic one block, relative saturation",
+      "source_status": "separated; static references checked",
+      "pdf_status": "not regenerated"
+    }
   },
-  "reproduction": {
-    "build": "python3 scripts/build.py",
-    "check": "python3 scripts/verify_bundle.py",
-    "dependencies": "README.md"
+  "boundary": {
+    "scope": "Brill–Noether/Pfaffian formal contact, stationary Reye, Azumaya and singularities",
+    "status": "Original technical TeX and source-only PDFs preserved; some high-order computational certificates and editable PDF sources not available; no blanket claim of proof re-review."
   },
-  "delivery": {
-    "repository": "https://github.com/uedakazushi/nc-cubic",
-    "branch": "main",
-    "note": "GitHub main contains updated TeX and computations; PDF source parity and current Library ZIP not yet verified."
+  "mathematical_status": {
+    "proven_in_manuscripts": "Poisson cubic normal form; 17-parameter family and graded-polarized quadratic ambient recovery; specified one-block rotation equivalences and obstruction examples.",
+    "conditional": "Serre-even-Veronese recovery, etale algebraic realization, relative Beilinson models, finite-center multiblock comparison.",
+    "open": "generic 17-dimensional rotation-marked commutative realization; relative smooth proper saturation and global descent; full multiblock generation.",
+    "limitations": "Results from independent imports have not been independently fully proof-audited or externally novelty-verified."
   },
-  "one_elliptic_block_v5": {
-    "paper_source": "tex/elliptic_cubic_reconstruction.tex",
-    "proof_source": "tex/papers/elliptic_reconstruction.tex",
-    "claims": "pointwise rotation-compatible reconstruction, nonzero second-order model deformation, fixed-model curve, relative THCR quotient",
-    "not_claimed": "general relative residual equivalence or arbitrary mixed/multiblock reconstruction",
-    "parent_integrated_pdf": "not rebuilt by this import",
-    "new_pdfs": "in Library ZIP; not yet GitHub blobs"
+  "verification": {
+    "A_C_static": "All labels, references and bibliography keys in input closure checked by connector code.",
+    "B_local_typesetting": "13 pages LuaLaTeX built, no undefined refs/cites in final pass. Generated PDF not synchronized to GitHub.",
+    "boundary": "Preserved original proof source; LaTeX typesetting and high-order certificates not re-run here.",
+    "library_bundle": "not yet saved"
+  },
+  "build": {
+    "command": "python3 scripts/build.py",
+    "checks": "python3 scripts/verify_bundle.py",
+    "strict": "python3 scripts/verify_bundle.py --require-pdfs",
+    "notes": "Stale PDFs must not be reported as current"
   }
 }

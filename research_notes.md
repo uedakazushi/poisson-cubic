@@ -38,6 +38,14 @@ Reye / 停留平面：275停留平面・550曲線、monodromy、非被約局所�
 
 Artin--Zhang（偏極付きsection algebra、`doi:10.1006/aima.1994.1087`）、Mori--Smith（三変数Jacobian代数、`arXiv:1502.07403`）、Etingof--Ginzburg（中心・PBW、`arXiv:0709.3593`）、Lin--Zhang（polarized categorical Torelli、`arXiv:2310.09927`）、Toën--Vaquié（dg圏の対象のmoduli、`arXiv:math/0503269`）。正確な箇所・仮定・既知主張と本研究の区別は各論文の文献表を参照。新規性の包括的監査は未完了。
 
+## 一楕円ブロックの相対化に固有の核心
+
+固定した滑らかなHesse係数tについて `R=ℂ[h,(UbΔ)^{-1}]` 上の相対THCR表示から開始する。Burke–Stevenson（arXiv:1507.00830、Definition 5.1とTheorem 6.4）を使うには左右noetherian性、相対Gorenstein性、window、底変更、relative perfect部分でのdg比較を別々に検証する。相対楕円曲線の線束 `O(p-o)` は平行移動を共役する候補だが、相対rotationと三次周期性を含む同値をまだ構成していない。二次変形のJacobian類の非零性を示すことと、残余pair変形の相対Kodaira–Spencer写像の核を求めることも別問題。
+
+## 現行のPDF-only資料の扱い
+
+`pdf/ambient/` は中心対・有限次数正則性の技術的原PDF、`pdf/quantization/` は一般混合SklyaninとPoisson二次ジェット、`pdf/boundary/` はBrill–Noether・Pfaffian・Reye・特異圏の独立原稿である。編集可能なTeXが存在しない部分については、既存のPDFを唯一の証明として保存し、PDF抽出テキストを正本としない。可換復元の論文Cにその証明を無断で移植しない。
+
 ## 再開時の作業
 
 まずA–C各論文の仮定と用語を整合させ、Bの相対中心とCの相対Beilinson仮定を比較する。次にgeneric `(Y,Λ,ξ)` に対する実際のgluing対象とrotationを構成し、中心三次対との有限型対応・降下を証明する。補助計算が成立しただけでは大域復元の完成とは扱わない。
