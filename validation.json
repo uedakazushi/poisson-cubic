@@ -1,72 +1,76 @@
 {
-  "version": "nc-cubic-v13",
+  "version": "nc-cubic-v16",
   "date_jst": "2026-11-10",
-  "research_scope": "Arbitrary n>=3 and every reduced irreducible component of the cubic Poisson scheme; the 17-dimensional threefold family remains a test case.",
-  "current_validation": "validation_components.json",
-  "current_proof_section": "tex/papers/all_poisson_components.tex",
+  "research_scope": "For every n>=3 and each reduced cubic Poisson component, seek generic rotation-compatible commutative realization.",
+  "authoritative": "GitHub uedakazushi/nc-cubic main; Library is emergency-only after an actual failed push.",
+  "current_validation": "reconstruction/validation.json",
+  "current_proof_section": "reconstruction/tex/etale_realization.tex",
   "papers": {
     "A": {
       "source": "tex/poisson_cubic_quantization.tex",
-      "status": "Existing proofs retained; full manuscript not re-audited or rebuilt in v11."
+      "status": "All existing proofs retained; whole manuscript not rebuilt or fully re-audited in this session."
     },
     "B": {
       "source": "tex/generic17_ambient_recovery.tex",
-      "status": "Existing proofs and exact computations retained; GitHub PDF is not asserted current; no full re-audit in v11."
+      "status": "Existing proofs and exact computations retained; existing PDF not asserted current; no full re-audit in this session."
     },
     "C": {
       "source": "tex/rotation_cubic_reconstruction.tex",
-      "status": "Componentwise section rewritten, preserving old main labels; standalone six-page section export rebuilt. Whole paper C not rebuilt."
+      "status": "Shared full etale-realization proof integrated. The 14-page current reconstruction export was rebuilt and checked; full parent C was not rebuilt."
     }
   },
-  "new_reductions": [
-    "Smooth dominant scalar charts without descent at the cone vertex",
-    "Finite-jet algebraization of formal central kernels",
-    "Conditional generic realization from one commutative point on a saturated chart"
+  "current_results": [
+    "Local rotation inverse without residual smoothness",
+    "Residual smoothness implies full coherent comparison and finite-type spread",
+    "Etale realization for actual smooth proper dg pairs, by equivariant bimodule obstruction cancellation",
+    "For the stated local quantum input, generic commutative reconstruction conditional only on residual diagonal perfectness",
+    "Explicit exact 35-parameter geometric deformation slices for nodal and cuspidal fivefold examples"
   ],
   "unresolved": [
-    "Componentwise uniform PBW/AS-regular construction",
-    "Actual relative residual dg model and perfect diagonal lifting",
-    "General rotation-compatible commutative reconstruction and descent"
+    "Residual diagonal perfectness (SM)",
+    "All-component uniform quantum input",
+    "Explicit reconstructed coefficients",
+    "Coherence with a chosen rho^3=[2] isomorphism",
+    "All-points realization and unique global descent"
   ],
-  "boundary": "All pre-existing technical proofs and unique PDF-only sources retained; high-order certificates not re-executed.",
-  "validation_limits": "Written and reviewed algebraic proofs are distinct from exact symbolic tests and from unperformed categorical formalization, external review, or comprehensive novelty determination.",
-  "pdf_delivery": "Only section export, plan and notes regenerated locally; latest PDF binaries supplied in the scoped Library bundle, not synchronized to GitHub.",
+  "retained_inputs": {
+    "componentwise_reduction": {
+      "source": "tex/papers/all_poisson_components.tex",
+      "validation": "validation_components.json",
+      "scope": "Scalar charts and finite-jet center algebraization; its earlier conditional ER input now has the separate current proof."
+    },
+    "nonelliptic_components": {
+      "source": "tex/papers/nonelliptic_poisson_components.tex",
+      "script": "computations/verify_nonelliptic_components.py",
+      "certificate": "computations/nonelliptic_components_certificate.json",
+      "ranks": [
+        33,
+        33
+      ],
+      "determinants": [
+        "2^24*3^12",
+        "-2^33*3^12"
+      ],
+      "this_session": "Prior exact certificate retained; full 35-column Jacobi calculation not rerun."
+    },
+    "nonelliptic_quantization": {
+      "source": "tex/papers/nonelliptic_quantization.tex",
+      "script": "computations/verify_nonelliptic_quantization.py",
+      "certificate": "computations/nonelliptic_quantization_certificate.json",
+      "this_session": "Current first-block overlap/centrality checks rerun by reconstruction/computations/verify_nonelliptic_inputs.py; whole ambient theorem not machine-formalized."
+    },
+    "local_projective_model": {
+      "source": "tex/papers/local_projective_model.tex",
+      "script": "computations/verify_local_projective_model.py",
+      "certificate": "computations/local_projective_certificate.json",
+      "scope": "Regular local degreewise-free input, proper model, bounded Orlov decomposition. Current rotation and conditional fullness results are in reconstruction/."
+    }
+  },
+  "boundary": "All pre-existing technical proofs and unique PDF-only sources retained; high-order boundary calculations not rerun.",
   "reproduction": {
-    "build": "python3 scripts/build_components.py",
-    "verify_sources": "python3 scripts/verify_components.py --source-only",
-    "verify_pdfs": "python3 scripts/verify_components.py"
+    "build": "python3 reconstruction/scripts/build.py",
+    "verify": "python3 reconstruction/scripts/verify.py",
+    "parent_build": "python3 scripts/build.py"
   },
-  "nonelliptic_components": {
-    "source": "tex/papers/nonelliptic_poisson_components.tex",
-    "script": "computations/verify_nonelliptic_components.py",
-    "certificate": "computations/nonelliptic_components_certificate.json",
-    "result": "Two reduced generically smooth 2-dimensional irreducible Poisson components on smooth cubic fivefolds with generic nodal or cuspidal intrinsic ternary blocks",
-    "exact_ranks": [
-      33,
-      33
-    ],
-    "determinants": [
-      "2^24*3^12",
-      "-2^33*3^12"
-    ],
-    "verification": "Exact rational symbolic computation and integer minor certificates executed on local bundle; no categorical equivalence proved",
-    "pdf": "Standalone supplement in Library ZIP; integrated paper A PDF not rebuilt"
-  },
-  "nonelliptic_quantization_v12": {
-    "source": "tex/papers/nonelliptic_quantization.tex",
-    "script": "computations/verify_nonelliptic_quantization.py",
-    "certificate": "computations/nonelliptic_quantization_certificate.json",
-    "claim": "Two explicit flat families, PBW, central cubic and finite ambient diagonal",
-    "not_proved": "Residual saturation, relative Orlov comparison, commutative reconstruction",
-    "verification": "Symbolic identities and external cited theorems; no categorical formalization"
-  },
-  "local_projective_model_v13": {
-    "source": "tex/papers/local_projective_model.tex",
-    "script": "computations/verify_local_projective_model.py",
-    "certificate": "computations/local_projective_certificate.json",
-    "input": "Regular local R, degreewise finite free deformation of polynomial algebra, central cubic with smooth commutative specialization",
-    "claim": "Local proper line-generated residual dg model, fully faithful rotation candidate, singularity periodicity, bounded Orlov decomposition",
-    "not_proved": "Residual smoothness, essential surjectivity, full coherent residual identification, arbitrary derived base change, global finite-type spread",
-    "pdf": "Integrated paper A/C PDFs not rebuilt"
-  }
+  "limits": "Proofs written and reviewed, exact algebraic computation, typesetting, remote persistence, external review, novelty, and formal verification are separate statuses. Parent PDFs are not claimed current."
 }

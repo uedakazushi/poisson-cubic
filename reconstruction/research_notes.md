@@ -1,6 +1,6 @@
 # 研究ノート：rotation・対角・局所可換実現
 
-**2026年11月10日・v14。現在有効な知識を整理する。**
+**2026年11月10日・v16。現在有効な知識を整理する。**
 
 ## 1. 今回の中心となる有限データ
 
@@ -89,27 +89,28 @@ u≠0ならu=1とする。各a,b,cは0または−2/3であり、a²+b²+c²=4j/
 
 Serre関手の存在はsmoothnessを含意しない。Perf(k[epsilon]/epsilon²)は対称FrobeniusによりSerre=idだが、単純加群の無限分解から非smoothである。原稿最後の命題に証明がある。この例は今回の量子化の反例ではなく、証明方法の境界を示す。
 
-## 5. (ER)の一次資料比較
+## 5. étale局所実現の証明と一次資料
 
-既存原稿Cの `rotation_models.tex` の `thm:etale` は、形式的可換モデルと同値核/intertwinerのmoduliからétale局所存在を主張する。本稿では(ER)を独立仮定として再掲した。全てのArtin変形の検出、rotationの同型の代数性、持上げのcoherenceを未確認のまま完了にしない。
+証明全文は `tex/etale_realization.tex`。対象は実在するsmooth proper pairであり、properだけの残余模型にはまだ適用できない。
 
-2026年11月4日公開の Xun Lin–Shizhuo Zhang, *Categorical Torelli and Fourier–Mukai partners of hypersurfaces*, arXiv:2611.05915v1 を確認した。
+小拡大での同値双加群の障害はHH²に入る。両側の自己同値のliftと還元上のintertwinerに対する障害の自然性により、その類はrotation不変となる。幾何的KSの全射でsourceを修正して障害を消し、HH¹=0でintertwinerを持ち上げる。actual perfect対象と射のmoduli、unit/counitの消滅開条件、無限小smoothness、étale sectionまで確認する。これでERを独立仮定として残す必要はない。
 
-- §2.1の設定は滑らかな射影族、smoothな底、相対admissible成分、perfectな射影核と底変更の両立である。
-- Theorem 2.2は、幾何的変形からHH²への写像が全射のとき、一方の幾何的変形を固定して同値核の小拡大障害を他方の変形で消去する。
-- Proposition 2.4は負のHH消滅等の下で代数的なsmooth correspondenceへ移す。
-- これは本研究の非幾何的source dg族に対する(ER)を、そのまま引用できる定理ではない。障害理論の比較資料として重要である。
+HH³=0、Hochschild cochainのformality、抽象的Hochschild変形が全てactualであることは使わない。選択したrho³=[2]のcoherenceはpairのデータに含めない。親rotation_models.texの形式変形比較を全て再監査したとの主張でもない。
 
-URL: https://arxiv.org/abs/2611.05915
-確認した本文: https://arxiv.org/html/2611.05915v1, §§2.1–2.3。
+一次資料：Toën–Vaquié, math/0503269v5, Theorem 3.6/Corollaries 3.15,3.17,3.19、Lowen, 0707.2602v1, Theorem 4.8。BFK Theorem 5.39、Huybrechts–Rennemo Lemma 2.19/§3.3、JLLZ Theorem 4.4(2)、Huybrechts Proposition 3.12でcubicの入力を確認。正確な書誌とリンクは tex/etale_references.tex。
 
-その他の一次資料は原稿文献表を正本とする。Burke–Stevensonの有界section、Toënのfiltered-colimit降下、Toën–Vaquiéのperfect加群、Orlovの体上gluing判定の仮定を確認した。論文全体の独立再証明や包括的な新規性調査は未了。
+Lin–Zhang, *Categorical Torelli and Fourier–Mukai partners of hypersurfaces*, arXiv:2611.05915v1 (2026-11-04), §§2.1–2.3は重要な比較資料である。同論文Theorem 2.2/Proposition 2.4は幾何的な両側のsmooth projective familyとrelative admissible component、perfect projectorを仮定する。本稿は同じ障害消去原理を非幾何的targetに使えるMorita双加群で定式化し、rotation不変性とintertwinerを別々に証明する。同論文を仮定未確認で直接適用しない。新規性は未確定。
 
-## 6. 親プロジェクトとの接続
+## 6. 非楕円例の35係数slice
 
-親mainの確認対象はcommit 4f2eb328a2249a173f0c658cdb744277f041ff1d。
-論文A（Poisson・量子化）、B（17次元族・偏極付きambient）、C（rotation付き可換復元）と境界研究の構成を保持する。
+第3節のF_C,F_Nについて、84個の三次単項式の空間の中で49個の z_j partial_i F の係数行列を取る。`computations/verify_etale_inputs.py` が有理数上の階数49と、35個の単項式補空間を確認する。採用小行列式はCで2^15·3^26、Nで−2^6·3^25。SymPyの計算と独立した整数Bareiss消去の結果が一致する。商への射影が座標変換方向を消し、35単項式には恒等であることも確認する。
 
-本稿の結果を親Cへ統合する際は、`local_projective_model.tex` のrotation候補の命題を、trace・右mutationを使う自己同値定理へ置換する。残課題欄では、全coherent比較とfinite-type spreadを(SM)の帰結として整理する。(SM)・(ER)そのもの、全成分での量子化入力は未完成のまま残す。論文A/Bの既存証明や境界研究を削除しない。
+35単項式の全リストは原稿の er:prop:slice と computations/etale_input_checks.json に保持する。これをsourceとすれば各小拡大の障害を35係数で消せる。ただし実際の障害類や量子パラメータ(r,s)からその係数への関数は未計算。SMの証明にもなっていない。
 
-今回の成果物は親全体の新しい第四論文を提案するものではなく、Cの現行部分を独立読解できる形にしたものである。親への実際の同期は未実行。
+## 7. 親プロジェクトと次の核心
+
+A（Poisson・量子化）、B（17次元族・ambient）、C（rotation付き復元）と境界研究の構成を保つ。この独立組版はCの一部であり、親Cはétale実現節と文献を同じソースから読む。局所rotation・Serre・gluing・spreadの証明全文はこの原稿に保持する。
+
+所定の局所量子化に対しては、SMから全coherent比較とspread、ER、generic復元が従う。残る最優先課題は第4節の有限残余対角証明書。全成分での量子化、全点の復元、大域降下、既存の全証明の独立監査は未了。
+
+GitHub mainだけを正本とし、研究の区切りに全文と再現資産をpushして遠隔確認する。Libraryはpushが実際に失敗した場合の緊急退避だけに使う。

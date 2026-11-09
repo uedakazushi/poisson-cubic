@@ -35,7 +35,7 @@
 \newcommand{\RR}{\mathbf R}
 \title{非可換三次超曲面の局所rotationと\protect\\可換復元のsaturation還元}
 \author{nc-cubic 研究原稿C・独立読解用の現行節}
-\date{2026年11月10日・v14}
+\date{2026年11月10日・v16}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -44,9 +44,10 @@ $\rho=\LL_{\OO}\circ(1)$の逆関手を$(\!-1)\circ\RR_{\OO}$として構成す�
 証明は一つのSerre traceを持ち上げるものであり、残余dg圏のsmoothnessを必要としない。
 さらに残余の対角がperfectなら、線束生成部分と全coherent導来圏の同定、
 およびrotation付きpairの有限型開集合への降下が従うことを示す。
-この結果により、既に局所量子化が得られたPoisson成分のgenericな可換復元は、
-残余対角のperfect性と、別に明記するétale局所実現原理に還元される。
-一般の残余smoothnessも局所実現原理そのものも、本稿で証明済みとは扱わない。
+さらに同値双加群の持上げ障害をrotation不変部分で消去し、
+実在するsmooth properなdg族に対するétale局所実現原理を証明する。
+従って、所定の局所量子化が得られたPoisson成分のgenericな可換復元は、
+残余対角のperfect性へ還元される。一般の残余smoothnessは未証明である。
 \end{abstract}
 \tableofcontents
 
@@ -113,7 +114,7 @@ smooth properな代数的dg圏と可逆perfect双加群のpairとして降下す
 従って、これら二項を\eqref{eq:SM}とは独立な未解決仮定として重ねて課す必要はない。
 \end{theorem}
 
-この二定理と、仮定\ref{hyp:ER}の局所実現原理を合わせたgeneric復元を
+この二定理と、定理\ref{er:thm:ER}の局所実現定理を合わせたgeneric復元を
 定理\ref{thm:generic}に記す。\eqref{eq:SM}自体の証明とは区別する。
 
 \subsection{先行研究との関係と主張の状態}
@@ -130,14 +131,16 @@ Toën--Vaquié\cite[Lemma 2.10]{TV}による。
 Orlov\cite[Theorem 3.25]{Orlov}のgluing判定は体上の記述なので、
 第\ref{sec:fullness}節では必要な方向を一般の可換底上の双加群三角で証明する。
 
-Lin--Zhang\cite[\S2.1, Theorem 2.2, Proposition 2.4]{LZ2026}は、幾何的な相対admissible成分について、
+Lin--Zhang\cite[\S2.1, Theorem 2.2, Proposition 2.4]{ERLinZhang}は、幾何的な相対admissible成分について、
 同値核の変形障害の消去と代数的correspondenceを扱う。
-その入力には相対perfect projectorと底変更の両立があり、非幾何的なdg族をsourceとする
-本稿の(ER)へ直接適用したとは扱わない。
+その入力には相対perfect projectorと底変更の両立がある。
+第\ref{er:sec:etale}節では、同じ障害消去原理を実際のperfect双加群のmoduliで定式化し、
+非幾何的なtargetとrotation intertwinerを含めて証明する。
+同論文をそのまま非幾何的なdg族へ適用したとは扱わない。
 
 本稿のrotation定理と、その後の還元命題には証明を記す。
 具体的量子化への適用は第\ref{sec:projective}節の入力の検証に依存する。
-全Poisson成分での局所量子化の存在、\eqref{eq:SM}、仮定\ref{hyp:ER}は別問題である。
+全Poisson成分での局所量子化の存在と\eqref{eq:SM}は未解決である。
 本稿の組合せとしての新規性は未確定であり、外部査読・証明支援系による形式検証は行っていない。
 
 \section{一つのSerre traceの持上げ}\label{sec:trace}
@@ -564,25 +567,12 @@ $P,Q$と逆同型
 smoothnessが与えるhomotopical finite presentationが有限型降下を可能にする。
 \end{remark}
 
+\input{tex/etale_realization}
+
 \section{generic可換復元への正確な還元}\label{sec:reconstruction}
-\begin{hypothesis}[étale局所実現原理]\label{hyp:ER}
-有限型複素スキーム$S$上のsmooth proper dg圏と可逆perfect双加群のpair
-$(\cK_S,\rho_S)$があり、複素点$s$で
-$(\cK_s,\rho_s)\simeq(\Ku(X),\rho_X)$となるとする。
-このとき$s$のpointed étale近傍$V\to S$上に滑らかな三次超曲面族$Y/V$と
-rotationを保つenhanced同値
-$(\cK_V,\rho_V)\simeq(\Ku(Y/V),\rho_{Y/V})$が存在する。
-これを\textup{(ER)}と呼ぶ。
-\end{hypothesis}
-
-本稿では(ER)を仮定として扱う。親原稿の\texttt{rotation\_models.tex}の
-\texttt{thm:etale}には論証が記されているが、その形式変形比較と実現スタックの
-smoothnessを本稿で全面的に再検証したとは扱わない。
-Toën--Vaquié\cite[Theorem 3.6]{TV}の対象moduliの代数性だけから(ER)は従わない。
-
 \begin{theorem}[局所saturationからgeneric復元へ]\label{thm:generic}
 $S$を滑らかな既約有限型複素スキーム、$s\in S(\CC)$、$R=\OO_{S,s}$とする。
-$R$上に仮定\ref{hyp:algebra}の量子化があり、残余対角条件\eqref{eq:SM}と(ER)が成立するとする。
+$R$上に仮定\ref{hyp:algebra}の量子化があり、残余対角条件\eqref{eq:SM}が成立するとする。
 $K=\CC(S)$と置くと、ある有限分離拡大$L/K$、滑らかな三次超曲面$Y_L$、
 rotationを保つenhanced同値
 \[
@@ -596,7 +586,7 @@ rotationを保つenhanced同値
 局所proper模型と定理\ref{thm:rotation}から$(\Perf(\Gamma_R),\rho)$を得る。
 \eqref{eq:SM}によりsmooth properとなるので、命題\ref{prop:spread}から$s$を含む開集合$U\subset S$へ
 pairを降下する。その$s$-ファイバーは元の$(\Ku(X),\rho_X)$である。
-(ER)を適用してpointed étale近傍$V\to U$と$Y/V$を得る。
+定理\ref{er:thm:ER}を適用してpointed étale近傍$V\to U$と$Y/V$を得る。
 指定点を通る既約成分を選ぶと、その像は$U$の非空開集合を含む。
 étale射は準有限なので、その関数体$L$は$K$の有限分離拡大である。
 
@@ -610,7 +600,7 @@ smoothnessは底変更で保存されるので、第\ref{sec:fullness}節を$L$�
 \begin{corollary}[Poisson成分に対する適用範囲]\label{cor:component}
 Poisson既約成分$Z$を支配する滑らかな既約chart $S$と可換点$s$があり、
 $\CC(S)/\CC(Z)$が有限分離であるとする。
-$s$の局所環上で仮定\ref{hyp:algebra}、\eqref{eq:SM}、(ER)を満たせば、
+$s$の局所環上で仮定\ref{hyp:algebra}と\eqref{eq:SM}を満たせば、
 $Z$の関数体の有限分離拡大上に\eqref{eq:reconstruction}の可換模型が存在する。
 \end{corollary}
 \begin{proof}
@@ -620,9 +610,9 @@ $Z$の関数体の有限分離拡大上に\eqref{eq:reconstruction}の可換模�
 \begin{remark}[残る仮定の量化]
 各Poisson成分に一つ、この局所入力を実現すればよい。
 全成分での量子化自体が本稿から生じるわけではない。
-また(ER)の監査によって追加のcoherentな周期性データが必要となる場合は、
-そのデータの構成を入力へ追加しなければならない。
-本稿の自己同値性を周期性の証明の代わりにしてはならない。
+定理\ref{er:thm:ER}は自己同値一つを指定したpairについての定理である。
+可換模型から周期性同型を移すことはできるが、特定のmatrix factorization表示の
+周期性とのcoherenceまで自動的に同定したとは扱わない。
 \end{remark}
 
 \section{非楕円型への適用と未解決の核心}\label{sec:remaining}
@@ -635,10 +625,55 @@ $R=\CC[r,s]_{(r,s)}$、$N=7$、$n=5$、$a=4$である。
 が局所残余圏上に存在する。節点型・尖点型の純三次ブロックの滑らかさは使わない。
 具体的な係数と中心式は研究ノートに記す。
 
-次の二点は依然として証明が必要である。
-第一に、$\Gamma_R$の対角が$\Gamma_R^e$上perfectであること。
-第二に、(ER)の形式変形比較と代数的実現の全ての仮定を確認すること。
-前者が得られれば、全coherent圏との同定と有限型pairへのspreadは本稿の定理で処理できる。
+この二成分に対する残る核心は、$\Gamma_R$の対角が$\Gamma_R^e$上perfectであることにある。
+これが得られれば、全coherent比較、pairのspread、定理\ref{er:thm:ER}により
+一般点のrotation付き可換模型が有限分離拡大上に存在する。
+本稿はこの対角perfect性を証明したものではない。
+
+\subsection{非楕円二成分に対する具体的な可換変形slice}
+変数の順を$(x,y,z,a,b,c,u)$とし、
+\[
+ F_\epsilon=f_\epsilon+ux^2+a^3+b^3+c^3+u(a^2+b^2+c^2)+u^3,
+ \quad f_C=xz^2+y^3,\quad f_N=xyz+y^3+z^3
+\]
+と置く。これらの滑らかさは研究ノートの勾配消去で確認されている。
+\begin{proposition}[35係数の横断slice：厳密線形代数の証明書]\label{er:prop:slice}
+次の単項式集合はそれぞれ$J(F_C)_3$と$J(F_N)_3$の基底を与える。
+\begin{align*}
+\mathcal M_C=\{&axy,bxy,cxy,abx,acx,bcx,yz^2,ayz,byz,cyz,uyz,\\
+ &aby,acy,auy,bcy,buy,cuy,u^2y,az^2,bz^2,cz^2,uz^2,\\
+ &abz,acz,bcz,buz,cuz,u^2z,abc,abu,acu,bcu,bu^2,cu^2,u^3\},\\
+\mathcal M_N=\{&abx,acx,bcx,ay^2,by^2,cy^2,ayz,byz,cyz,uyz,\\
+ &aby,acy,bcy,buy,cuy,u^2y,az^2,bz^2,cz^2,uz^2,abz,acz,\\
+ &auz,bcz,buz,cuz,u^2z,abc,abu,acu,au^2,bcu,bu^2,cu^2,u^3\}.
+\end{align*}
+従って$V(F_\epsilon+\sum_{m\in\mathcal M_\epsilon}t_m m)$の滑らかな開部分は、
+原点で定理\ref{er:thm:criterion}の幾何的接写像が同型となる35次元のsource族である。
+\end{proposition}
+\begin{proof}
+84個の三次単項式を、変数番号の非減少三つ組の辞書式順で並べる。
+84行49列の整数行列$M_\epsilon$の列を$z_j\partial_iF_\epsilon$の係数ベクトルとする。
+列は$i$を先、$j$を後に増加させて並べる。
+上記$\mathcal M_\epsilon$に対応する35行を除いた49行の小行列を$D_\epsilon$とすると、
+整数のfraction-free消去により
+\[
+ \det D_C=2^{15}3^{26},\qquad \det D_N=-2^6 3^{25}
+\]
+を得る。独立な二つの決定的アルゴリズムによる検算を
+\texttt{computations/verify\_etale\_inputs.py}に収める。
+これは有限体の標本検査ではなく、上で完全に指定した整数行列の行列式計算である。
+残りの行を$U$、採用した行を$P$とすると、
+$v\mapsto v_U-(M_\epsilon)_U D_\epsilon^{-1}v_P$は$M_\epsilon$を零へ送り、
+$\mathcal M_\epsilon$の単項式上では恒等となる。この二恒等式も有理数上で検算する。
+よって84次元の三次形式空間は、49次元の座標変換方向と表示した35次元の空間の直和である。
+Euler等式により$F_\epsilon$自身も前者に入る。補題\ref{er:lem:cubic}で接写像の主張を得る。
+\end{proof}
+
+\begin{remark}
+この基底は局所実現のsourceを具体化するものであり、量子化パラメータ$(r,s)$から
+$t_m$への閉公式を計算したものではない。各小拡大の実際の障害類が得られれば、
+その消去をこの35係数で行える。smoothness証明書を代替する計算でもない。
+\end{remark}
 
 \begin{proposition}[Serre自己同値はsmoothnessを含意しない]\label{prop:warning}
 体$k$上の$H=k[\epsilon]/(\epsilon^2)$に対し、$\Perf(H)$はproperでSerre関手が恒等であるがsmoothではない。
@@ -671,23 +706,19 @@ arXiv:math/0611546v3 (2010).
 \emph{Moduli of objects in dg-categories},
 arXiv:math/0503269v5 (2007).
 \url{https://arxiv.org/abs/math/0503269}.
-参照：Lemmas 2.8, 2.10, Corollary 2.13, Theorem 3.6.
+参照：Lemmas 2.8, 2.10, Corollary 2.13, Theorem 3.6, Corollaries 3.15, 3.17, 3.19.
 \bibitem{Orlov} Dmitri Orlov,
 \emph{Smooth and proper noncommutative schemes and gluing of DG categories},
 arXiv:1402.7364v5 (2015).
 \url{https://arxiv.org/abs/1402.7364}.
 参照：Proposition 3.8, Theorem 3.25（体上）.
-\bibitem{LZ2026} Xun Lin and Shizhuo Zhang,
-\emph{Categorical Torelli and Fourier--Mukai partners of hypersurfaces},
-arXiv:2611.05915v1 (2026年11月4日).
-\url{https://arxiv.org/abs/2611.05915}.
-参照：\S2.1, Theorem 2.2, Proposition 2.4. 本稿の(ER)の無条件な入力としては用いない。
 \bibitem{Repo} nc-cubic project,
 \emph{一般次元の局所代数的模型、非楕円型量子化、およびrotation付き可換復元},
 commit \texttt{4f2eb328a2249a173f0c658cdb744277f041ff1d}, 2026年11月10日JST.
 \url{https://github.com/uedakazushi/nc-cubic}.
 一次原稿：\texttt{tex/papers/local\_projective\_model.tex},
 \texttt{nonelliptic\_quantization.tex}, \texttt{rotation\_models.tex}.
-局所模型の入力および本稿が仮定とする(ER)を区別して参照する。
+局所模型の入力、親原稿の形式的復元と、本稿の双加群による局所実現証明を区別する。
+\input{tex/etale_references}
 \end{thebibliography}
 \end{document}
