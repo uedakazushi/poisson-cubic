@@ -1,0 +1,23 @@
+{
+  "version": "v11",
+  "ring": "ZZ[h]",
+  "identity": "[3(x^3+y^3+z^3)-h^2(xyz+xzy+yxz+yzx+zxy+zyx),x] = sum coefficient * prefix * relation * suffix",
+  "relations": ["xy-yx-hzz", "yz-zy-hxx", "zx-xz-hyy"],
+  "terms": [
+    {"coefficient": [-3], "prefix": "", "relation": 1, "suffix": "yy"},
+    {"coefficient": [0,0,1], "prefix": "", "relation": 1, "suffix": "zx"},
+    {"coefficient": [0,0,-1], "prefix": "x", "relation": 1, "suffix": "z"},
+    {"coefficient": [-3], "prefix": "y", "relation": 1, "suffix": "y"},
+    {"coefficient": [0,0,-1], "prefix": "z", "relation": 1, "suffix": "x"},
+    {"coefficient": [0,0,1], "prefix": "xz", "relation": 1, "suffix": ""},
+    {"coefficient": [-3], "prefix": "yy", "relation": 1, "suffix": ""},
+    {"coefficient": [0,0,2], "prefix": "", "relation": 2, "suffix": "xx"},
+    {"coefficient": [0,-3], "prefix": "", "relation": 2, "suffix": "yz"},
+    {"coefficient": [0,0,-1], "prefix": "x", "relation": 2, "suffix": "x"},
+    {"coefficient": [0,0,-1], "prefix": "xx", "relation": 2, "suffix": ""},
+    {"coefficient": [0,3], "prefix": "yz", "relation": 2, "suffix": ""},
+    {"coefficient": [3], "prefix": "", "relation": 3, "suffix": "zz"},
+    {"coefficient": [3], "prefix": "z", "relation": 3, "suffix": "z"},
+    {"coefficient": [3], "prefix": "zz", "relation": 3, "suffix": ""}
+  ]
+}

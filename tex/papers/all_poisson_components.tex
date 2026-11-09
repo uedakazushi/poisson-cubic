@@ -1,113 +1,345 @@
-\section{一般次元におけるPoisson既約成分ごとの可換復元}
+\section{一般次元・各Poisson成分の支配的chartと可換復元}
 \label{sec:all-poisson-components}
 
-本節の一般問題は、固定した三次元族ではなく、任意の$n\ge3$と
-滑らかなcubic $X^n$について、Poissonスキームの\emph{各既約成分}の
-一般点の量子化からrotation付き可換模型を得ることである。
-任意のAS-regular中心三次商を無条件に対象とする問題とは区別する。
+本節の目標は、任意の$n\ge3$、滑らかな複素cubic $X^n$と、
+アフィンPoissonスキームの各被約既約成分$Z$について、
+その幾何学的一般点でrotation付き可換模型を構成することである。
+特定の三様体の17次元族や、一つの階数の層に限定しない。
+以下では、証明する代数幾何的な還元と、まだ仮定である圏論的な実現原理を区別する。
+新規性の包括的な確認は行っておらず、線形代数・錐のchart・完備化の忠実平坦性自体は標準的である。
+本節の寄与は、これらを全Poisson成分の問題へ組み合わせ、
+\emph{特異な錐の頂点上への降下を、genericな存在定理の前提から外す}ことである。
 
-\begin{proposition}[Poisson錐の各既約成分は可換点を含む]
+\subsection{各成分の零点と滑らかな支配的chart}
+
+\begin{proposition}[Poisson錐の成分と零点]
 \label{prop:all-components-cone}
 $X$を滑らかな複素射影多様体とし、
 \[
-\operatorname{Pois}(X)=
-\left\{\pi\in H^0(X,\bigwedge^2T_X)\mid[\pi,\pi]=0\right\}
+ E_X=H^0(X,\textstyle\bigwedge^2T_X),\qquad
+ \operatorname{Pois}(X)=\{\pi\in E_X:[\pi,\pi]=0\}
 \]
-をアフィンPoissonスキームとする。
-その被約化の任意の既約成分$Z$は零Poisson構造$0$を含む。
-$X$が滑らかなcubicであれば、同じ主張はcubicも変化させる
-相対Poissonスキームの各既約成分について成り立つ。
+とおく。その被約化の各既約成分はスカラー作用で不変で、零を含む。
+滑らかなcubicを動かす相対Poissonスキームでも、各成分は
+その成分にある$(X,\pi)$に対応する$(X,0)$を含む。
 \end{proposition}
 \begin{proof}
 Jacobi方程式は$\pi$について二次斉次である。
-従って$\mathbb G_m$は各Poissonスキームに$\pi\mapsto t\pi$で作用する。
-連結な$\mathbb G_m$は有限個の既約成分の集合を自明に作用するので、
-$Z$はこの作用で不変である。
-$z=(X,\pi)\in Z$について
-$\mathbb A^1\to\operatorname{Pois}$、
-$t\mapsto(X,t\pi)$は零まで定義され、
-$t\ne0$で像が$Z$にあるから$(X,0)\in Z$である。
-固定$X$の場合も同じである。
+既約成分$Z$に対し、$\mathbb G_m\times Z$の作用像の閉包は既約で$Z$を含む。
+$Z$の極大性からその閉包は$Z$であり、スカラー作用は$Z$を保つ。
+$t\mapsto t\pi$を$\mathbb A^1$まで延長すると、閉性から$0\in Z$となる。
+相対の場合は$t\mapsto(X,t\pi)$とすればよい。
 \end{proof}
 
-\begin{theorem}[各Poisson成分の一般点へ進むための条件付き原理]
-\label{thm:all-components-conditional}
-$n\ge3$とし、$Z$を滑らかなcubic $X^n$上の
-アフィンPoissonスキームの被約な既約成分とする。
-$0\in U\subset Z$をZariski開近傍とし、
-$U$上に中心三次商の代数的な次数別flat量子化族が存在すると仮定する。
-さらに、その残余dg圏と標準rotation
-$(\mathcal K_U,\rho_U)$が$U$-linearなsmooth proper
-代数的pair族をなし、零ファイバーが
-$(\Ku(X),\rho_X)$とenhanced同値であると仮定する。
-本論文のétale局所復元定理\ref{thm:etale}がこの族に適用できるなら、
-$0$を含む非空開部分$U^\circ\subset U$が存在し、
-各複素点におけるpairは滑らかな可換cubicのpairと同値である。
-特に$Z$の幾何学的一般点は、有限分離拡大の後、
-rotation付き可換cubic模型を持つ。
+\begin{theorem}[滑らかなスカラーchart]
+\label{cw:thm:chart}
+$Z\ne\{0\}$を有限次元複素ベクトル空間$E$内の被約既約アフィン錐とする。
+$\mathbb PZ$の滑らかな稠密アフィン開部分$T$と正則写像
+$p:T\to Z\setminus\{0\}$を選べて、
+\[
+ S=T\times\mathbb A^1_h,\qquad
+ c:S\longrightarrow Z,\quad (t,h)\longmapsto h p(t)
+ \tag{C}\label{cw:eq:contraction}
+\]
+は次を満たす。
+$S$は滑らかな既約スキーム、$c$は支配的双有理、
+$c(t,0)=0$であり、$c|_{T\times\mathbb G_m}$は$Z$の稠密開部分への同型である。
+とくに$\mathbb C(S)=\mathbb C(Z)$である。
 \end{theorem}
 \begin{proof}
-命題\ref{prop:all-components-cone}により$0\in Z$である。
-仮定と定理\ref{thm:etale}から$0$を通るpointed étale近傍で
-相対cubicとrotationを保つ同値が存在する。
-その像は非空Zariski開であり、既約な$Z$で稠密である。
-generic point上ではétale近傍の支配成分の剰余体が
-$\mathbb C(Z)$の有限分離拡大となるので結論を得る。
+$\mathbb PZ$は被約既約で、標数零なので滑らかな稠密開部分を持つ。
+その非空開部分を、ある線形座標$z_0\ne0$の射影chartの中に取り、さらにアフィンに縮める。
+代表を$z_0(p(t))=1$と規格化すれば、$p$は正則である。
+$h\ne0$では逆写像は
+\[
+ z\longmapsto\bigl([z],z_0(z)\bigr)
+\]
+であり、像は$z_0\ne0$かつ$[z]\in T$という開集合である。
+これが双有理性を含む全主張を証明する。
 \end{proof}
-\begin{remark}[何が未証明か]
-\label{rem:all-components-gap}
-上の定理は\emph{条件付き}である。
-個々のPoisson構造の一パラメータ量子化の存在から、
-その成分$Z$全体の零近傍における有限型の一つのflat量子化族は
-自動的には従わない。
-特にブロック数の変化、中心元のchart間の接着、
-相対Beilinson条件、有限対角証明書、相対Orlov比較と底変更を
-一様に確立する必要がある。
-また、射影化されたPoissonパラメータ空間そのものには零点は無い。
-ここで用いるのはその\emph{アフィン錐}である。
+
+\begin{remark}[頂点での降下はgenericな目標には不要]
+\label{cw:rem:no-cone-descent}
+$Z$が頂点で特異でも$S$は滑らかである。
+$S$上の量子化族が$Z$へ降下するとは主張しない。
+しかし一般点の模型を求めるだけなら、同じ関数体を持つ$S$上での構成で足りる。
+$t$を一つ固定した曲線ではなく、\emph{$T$の全方向を含む族}を保つことが重要である。
+射影Poisson空間そのものに零点はなく、式\eqref{cw:eq:contraction}の$h=0$が可換ファイバーを与える。
+相対Poissonスキームについても、その射影化内の滑らかな稠密chartで
+相対tautological lineを自明化すれば同じ構成ができる。
+零切断内にのみ含まれる成分は、もともと可換な族として別に扱う。
 \end{remark}
 
-\begin{proposition}[次元の合同類とrotationのSerre関手からの復元]
-\label{prop:all-components-rotation-serre}
-$n\ge3$、$\mathcal K$をSerre関手$S_{\mathcal K}$を持つ
-$k$-linear smooth proper dg圏、$\rho$を自己同値とし、
+\begin{proposition}[ブロック正規形の有限被覆上の固定]
+\label{cw:prop:normal-form-cover}
+$K=\mathbb C(T)$とし、genericなPoisson構造の三重ベクトル$P$と三次式$F$が
+$\overline K$上で、ある$N=3k+m$について
 \[
- \rho^3\simeq[2],\qquad
- S_{\mathcal K}\simeq\rho^{1-n}[n]
- \tag{SR}\label{eq:all-components-serre}
+ P=\sum_{s=1}^k\partial_{x_{s1}}\wedge\partial_{x_{s2}}\wedge\partial_{x_{s3}},
+ \qquad F=\sum_{s=1}^k f_s(x_s,u)
+ \tag{B}\label{cw:eq:block-form}
 \]
-を仮定する。
-$n\not\equiv1\pmod3$なら、$3a+(1-n)b=1$を満たす
-整数$a,b$に対して
-\[
- \boxed{\quad \rho\simeq S_{\mathcal K}^{\,b}[\,2a-nb\,]\quad}
- \tag{R}\label{eq:all-components-rotation}
-\]
-である。従ってこの範囲では、上の二恒等式を満たす
-rotationの同型類はSerre関手とshiftから決まる。
-$n\equiv1\pmod3$なら二恒等式からは
-$S_{\mathcal K}\simeq[(n+2)/3]$しか導かれず、
-$\rho$の同型類は一般に決定されない。
+という正規形を持つと仮定する。
+$T$を縮めると、整な有限étale全射$T'\to T$が存在し、
+この順序付きブロック、中心変数、座標変換を全て$T'$上で正則に選べる。
+$S'=T'\times\mathbb A^1_h\to Z$は支配的でgenerically finiteであり、
+$h=0$は可換なcubicの族を与える。
 \end{proposition}
 \begin{proof}
-前半は$\gcd(3,n-1)=1$によるBézout等式から
-$\rho=(\rho^3)^a(\rho^{1-n})^b
-\simeq[2a]S_{\mathcal K}^{\,b}[-nb]$
-を得る。
-$n\equiv1\pmod3$なら$n-1=3m$なので
-$S_{\mathcal K}\simeq(\rho^3)^{-m}[n]
-\simeq[n-2m]=[(n+2)/3]$となる。
-この式だけから$\rho$を復元できないことは、
-本論文のcubic fourfoldに対するZhang twistのrotation障害の例が示す。
+座標変換、各ブロックの基底、三次式の係数を未知数とすると、
+\eqref{cw:eq:block-form}と座標変換の可逆性は有限個の多項式方程式・不等式である。
+$\overline K$上の解の有限個の座標は$K$の有限拡大$L$に属する。
+標数零なので$L/K$は分離的である。
+原始元の最小多項式を取り、係数の分母と判別式を反転すると、
+$T$の開部分上に関数体$L$の有限étale被覆$T'$を得る。
+解の座標に現れる有限個の分母は、そのノルムをさらに反転して全て可逆にできる。
+これで座標変換と式が$T'$全体へ広がる。
+有限étale被覆と式\eqref{cw:eq:contraction}の合成は、$h\ne0$で有限étaleである。
 \end{proof}
-\begin{remark}[全非可換成分との区別]
-\label{rem:all-components-nc-scope}
-任意のAS-regular中心三次商\emph{全ての点}の
-rotation付き可換復元は本論文のZhang twist反例で偽である。
-ただし個別の反例点だけで、非可換中心三次対の任意の
-既約成分の\emph{一般点}における可換復元を否定したことにはならない。
-Poisson零点を含む各成分の問題と、
-可換点に接続しない非可換モジュライ成分の問題は別に扱う。
-$n=1,2$ではKuznetsov残余圏とPoisson変形問題の範囲が変わるため、
-本節の$n\ge3$の条件付き原理をそのまま拡張しない。
+\begin{remark}
+この命題の正規形の存在は論文AのPoisson正規形を入力とする。
+その証明を本節で再検証したとは扱わない。
+$k$は選んだ成分のgenericなブロック数であり、$k$が同じ成分を同一視しない。
+また、各$f_s(x_s,0)$が滑らかな平面三次曲線を定めるという仮定は置いていない。
 \end{remark}
+
+\subsection{有限行列による中心三次元の代数化}
+
+\begin{lemma}[genericな形式解の有限jetを保つ代数化]
+\label{cw:lem:linear-algebraization}
+$R$を有限生成整域、$K=\operatorname{Frac}(R)$、
+$M(h)\in\operatorname{Mat}_{a\times b}(R[h])$とする。
+$\widehat z\in K[[h]]^b$が$M\widehat z=0$を満たすなら、
+任意の整数$r\ge0$について、$R$の非零元$s$と
+$q(h)\in R_s[h]$、$q(0)\in R_s^\times$、および
+\[
+ z\in R_s[h,q^{-1}]^b,
+ \qquad Mz=0,\qquad z\equiv\widehat z\pmod {h^{r+1}}
+ \tag{L}\label{cw:eq:linear-approx}
+\]
+が存在する。合同は$K[[h]]^b$内で解釈する。
+行列$M$のrankが$h=0$で一定であることは仮定しない。
+\end{lemma}
+\begin{proof}
+$\mathcal O=K[h]_{(h)}$とし、$z_{\le r}\in K[h]^b$を$\widehat z$の$r$次切断とする。
+$Mz_{\le r}$は$h^{r+1}$で割れるから
+\[
+ b_r=-h^{-r-1}Mz_{\le r}\in K[h]^a
+\]
+と置ける。形式解$w=(\widehat z-z_{\le r})/h^{r+1}$は$Mw=b_r$を満たす。
+$\mathcal O\to K[[h]]$は忠実平坦である\cite[Tag 00MC]{Stacks}。
+従って$\operatorname{coker}(M:\mathcal O^b\to\mathcal O^a)$における$b_r$の像は零で、
+$Mv=b_r$を満たす$v\in\mathcal O^b$が存在する。
+$z=z_{\le r}+h^{r+1}v$とすれば所要の合同と恒等式を得る。
+$v$の共通分母を$q\in K[h]$、$q(0)\ne0$と取る。
+$K$の係数に現れる有限個の分母と$q(0)$を$R$で反転すると、
+式\eqref{cw:eq:linear-approx}を得る。
+\end{proof}
+
+\begin{corollary}[次数三の中心持上げの一様化]
+\label{cw:cor:center-algebraization}
+$\mathcal A$を$R[h]$上の次数一生成代数とし、
+$\mathcal A_3,\mathcal A_4$が有限自由、$\mathcal A/(h)$が可換とする。
+$\mathcal A_1$の生成元$x_1,\ldots,x_N$に対し
+\[
+ M_h:\mathcal A_3\longrightarrow\mathcal A_4^{\oplus N},
+ \qquad z\longmapsto h^{-1}([z,x_1],\ldots,[z,x_N])
+ \tag{Z}\label{cw:eq:center-matrix}
+\]
+は有限行列で表される。
+$\mathcal A_K$の次数別$h$-進完備化に中心三次元$\widehat\Omega$があり、
+$\widehat\Omega\bmod h=F$なら、前補題の局所化後に
+$\Omega\in Z(\mathcal A_{R_s[h,q^{-1}]})_3$、$\Omega\bmod h=F$を取れる。
+指定した任意の有限jetも保持できる。
+Hilbert級数が$(1-t)^{-N}$のPBW族なら、未知数の数と方程式の数はそれぞれ
+\[
+ b=\binom{N+2}{3},\qquad a=N\binom{N+3}{4}
+\]
+であり、$h$の打切り次数によって無限に増やす必要はない。
+\end{corollary}
+\begin{proof}
+$\mathcal A/(h)$が可換で$\mathcal A_4$が自由なので、各交換子を$h$で一意に割れる。
+中心性は生成元との交換子が全て零であることと同値である。
+前補題をこの行列に適用する。
+\end{proof}
+\begin{remark}[この代数化が証明しないこと]
+\label{cw:rem:center-limit}
+形式中心元の存在と、適用する周囲の代数$\mathcal A$の構成はこの系の入力である。
+係数方向を縮めることは許すが、$q(0)$は可逆なので縮めた基底の零切断は全て残る。
+この議論は中心元を\emph{代数的な有理式}にするものであり、
+全ての形式係数を一致させること、全Poisson錐上の普遍中心元、
+全次数PBW性、AS-regular性、相対saturationを証明するものではない。
+\end{remark}
+
+\begin{lemma}[正則中心商の次数別flatness]
+\label{cw:lem:flat-quotient}
+$D$を有限型基底、$\mathcal A$を$D$上の次数付き代数で各次数が有限局所自由とする。
+全ての幾何学的ファイバーが整域で、$\Omega\in Z(\mathcal A)_3$が
+各ファイバーで非零であれば、$\mathcal B=\mathcal A/(\Omega)$は各次数で有限局所自由である。
+$H_{\mathcal A_s}(t)=(1-t)^{-N}$なら
+$H_{\mathcal B_s}(t)=(1-t^3)/(1-t)^N$である。
+\end{lemma}
+\begin{proof}
+各次数$d$で$\Omega:\mathcal A_{d-3}\to\mathcal A_d$は
+全ての幾何学的ファイバーで単射である。
+有限局所自由加群の行列の極大小行列式を用いると、この写像は局所的に分裂した単射で、
+余核は有限局所自由である。従って主張とHilbert級数の式を得る。
+\end{proof}
+
+\subsection{一つの可換ファイバーから成分の一般点へ}
+
+\begin{definition}[条件 (ER)]
+\label{cw:def:ER}
+本節で条件 (ER) とは次の局所実現原理を指す。
+有限型複素スキーム$D$上のsmooth properな代数的dg圏と
+可逆perfect bimoduleで表されるrotationの族$(\mathcal K_D,\rho_D)$が、
+ある複素点$d$で滑らかなcubicの標準pairとenhanced同値なら、
+$d$のpointed étale近傍で相対cubicとrotationを保つ同値が存在する。
+これは現行論文Cの\texttt{rotation\_models.tex}にある
+\texttt{thm:etale}を\emph{入力}とする条件である。
+本節ではその形式変形論・実現スタックの証明全体を再証明しない。
+Toën--Vaquié \cite[Theorem 3.6]{TV} はperfect対象のmoduliの代数性を与える入力だが、
+それ単独が条件 (ER) の証明ではない。
+\end{definition}
+
+\begin{theorem}[支配的chart上の一可換点によるgeneric復元]
+\label{thm:all-components-conditional}\label{cw:thm:generic}
+$X^n$、$n\ge3$を滑らかなcubic、$Z\ne\{0\}$を
+$\operatorname{Pois}(X)_{\mathrm{red}}$の任意の既約成分とする。
+定理\ref{cw:thm:chart}と命題\ref{cw:prop:normal-form-cover}の
+$S'=T'\times\mathbb A^1_h\to Z$を使う。
+ある点$s_0=(t_0,0)$を含む開部分$V\subset S'$上に、
+実際の次数別flatな量子化中心三次商と、これに対応する
+smooth properな代数的残余pair族$(\mathcal K_V,\rho_V)$があり、
+$s_0$で$(\mathcal K_{s_0},\rho_{s_0})\simeq(\Ku(X),\rho_X)$とする。
+条件 (ER) が成立すれば、$V$の稠密開部分の各幾何学的ファイバーは
+滑らかな可換cubicのrotation付きpairを持つ。
+特に$\mathbb C(Z)$のある有限分離拡大上で、その構成したgenericな量子化の可換模型が存在する。
+\end{theorem}
+\begin{proof}
+条件 (ER) のétale近傍の像$W\subset V$は$s_0$を含む開集合である。
+$S'$は既約だから$W$は稠密で、$W\cap\{h\ne0\}$は非空である。
+$S'\to Z$は$h\ne0$で$Z$の稠密開部分への有限étale射なので、その像も開で稠密である。
+étale近傍の支配的な成分のgeneric residue fieldは
+$\mathbb C(S')$の有限分離拡大であり、
+$\mathbb C(S')/\mathbb C(Z)$も有限分離なので結論を得る。
+\end{proof}
+\begin{remark}[量化と降下]
+\label{rem:all-components-gap}
+定理は\emph{構成した}量子化族についての条件付き存在であり、
+同じPoisson初項を持つ任意の非同値な量子化を同一視しない。
+$Z$上に量子化そのものが既に降下している場合には、
+$Z$の稠密開の各幾何学的ファイバーについて結論を読むこともできる。
+そうでなければ、有限支配被覆上のgeneric模型の存在として読む。
+また、多ブロック生成性はこの方法で独立の前提にする必要はないが、
+その代わり全体の残余圏についてsmooth proper性を示す必要がある。
+\end{remark}
+
+\begin{proposition}[有限対角証明書によるsaturationの開近傍]
+\label{cw:prop:diagonal-certificate}
+$R$をNoether環、$\Lambda$を$R$上のdg代数で$\Lambda\in\Perf(R)$とする。
+$\Lambda^e=\Lambda^{\mathrm{op}}\otimes_R^{\mathbf L}\Lambda$と置く。
+実際に
+\[
+ P\in\Perf(\Lambda^e),\qquad \alpha:P\to\Lambda
+ \tag{D}\label{cw:eq:diagonal-certificate}
+\]
+が構成され、ある点$s$で$\alpha_s$が擬同型なら、$s$のZariski開近傍で
+$\Lambda$はsmooth properである。この結論は導来底変更と両立する。
+\end{proposition}
+\begin{proof}
+$\Lambda^e$は$R$-perfectなので、$P$も$R$-perfectである。
+従って$C=\operatorname{Cone}(\alpha)$は$R$-perfectで、$C\otimes_R^{\mathbf L}\kappa(s)=0$。
+有限個の項からなる有限局所自由複体で表すと、ファイバーの非零コホモロジーの存在座は閉である。
+よって$s$の開近傍で$C=0$であり、$\Lambda\simeq P\in\Perf(\Lambda^e)$を得る。
+perfect性と擬同型の導来引戻しの両立性から最後の主張も従う
+\cite[Tag 0BDK]{Stacks}。
+\end{proof}
+\begin{remark}
+ここで必要なのは\emph{既に持ち上がった}式\eqref{cw:eq:diagonal-certificate}である。
+特殊ファイバーの対角がperfectであるだけから、その持上げを結論してはいない。
+また$R$-perfectとは底上の複体の性質であって、
+有限自由$R$-加群だけからなる\emph{厳密なdg代数模型}の存在を仮定していない。
+\end{remark}
+
+\subsection{次元合同類と残る未解決条件}
+
+\begin{proposition}[Serre関手からのrotationの復元]
+\label{prop:all-components-rotation-serre}
+smooth properなdg圏と自己同値$\rho$が
+\begin{equation}\label{eq:all-components-serre}
+ \rho^3\simeq[2],\qquad S\simeq\rho^{1-n}[n]
+\end{equation}
+を満たすとする。
+$n\not\equiv1\pmod3$なら、$3a+(1-n)b=1$を満たす整数$a,b$に対して
+\begin{equation}\label{eq:all-components-rotation}
+ \rho\simeq S^b[2a-nb].
+\end{equation}
+特に$n\equiv0\pmod3$なら$\rho\simeq S[-n/3]$、
+$n\equiv2\pmod3$なら$\rho\simeq S^{-1}[(n+4)/3]$である。
+$n\equiv1\pmod3$ならこれらの式から$S\simeq[(n+2)/3]$を得るが、
+rotationの同型類は一般には決定されない。
+\end{proposition}
+\begin{proof}
+$\gcd(3,n-1)=1$のときBézout等式を用いて
+$\rho=(\rho^3)^a(\rho^{1-n})^b$とする。
+$n-1=3m$の場合は$S\simeq[n-2m]$である。
+この後者の場合の追加の曖昧さは、論文Cの四次元Zhang twist反例で実際に現れる。
+\end{proof}
+
+\begin{example}[全体が滑らかでも純ブロックは特異になり得る]
+\label{cw:ex:singular-block}
+$\mathbb P^6$内のcubic fivefold
+\[
+ F=x^3+y^3+u z^2+a^3+b^3+c^3+u^3=0
+\]
+と、三重ベクトル
+$P=\partial_x\wedge\partial_y\wedge\partial_z+
+\partial_a\wedge\partial_b\wedge\partial_c$を考える。
+$F$は滑らかで、$\iota_{dF}P$は一般階数4のPoisson構造である。
+しかし第一ブロックの$u=0$での純三次式$x^3+y^3$は特異である。
+\end{example}
+\begin{proof}
+勾配の零点では$x=y=a=b=c=0$、$uz=0$、$z^2+3u^2=0$なので、$z=u=0$である。
+よってアフィン錐の特異点は原点のみである。
+二ブロックは互いに可換で$u$はCasimir、各ブロックはJacobian括弧なのでJacobi恒等式を満たす。
+$u\ne0$のchartで両ブロックが非零となる点は存在し、そのとき階数は4である。
+$x^3+y^3=0$は$[0:0:1]$で特異である。
+\end{proof}
+\begin{remark}
+この例が、そのPoisson既約成分の\emph{一般点}でも特異ブロックを強制するとは主張しない。
+全点に対する議論で、全体の滑らかさから各純ブロックの楕円性を仮定してはならないという注意である。
+\end{remark}
+
+\begin{remark}[全非可換成分との区別]\label{rem:all-components-nc-scope}
+任意のAS-regular中心三次商の全点での復元は既存のZhang twist反例により偽である。
+個別の反例点だけではPoisson既約成分の一般点での復元は否定されない。
+本節は$n\ge3$を対象とし、曲線・cubic surfaceへ圏論的入力を無条件に拡張しない。
+\end{remark}
+
+本節により、generic復元では、Poisson錐の頂点上への量子化の降下、
+全成分の分類、全パラメータでの模型の存在を先に解く必要はなくなった。
+残る本質的な仕事は、各成分を支配する上のchartで
+\emph{実際の}相対PBW代数と中心正則商を構成し、
+残余圏のproper模型、有限対角証明書、rotationと相対Orlov比較を得ることである。
+形式中心の存在が分かれば中心元だけの代数化は補題\ref{cw:lem:linear-algebraization}で処理できるが、
+これを残余圏のsaturationの証明と混同しない。
+
+\subsection{有限計算と証明書の範囲}
+
+添付コードは、$\operatorname{Gr}(2,5)$の標準chartと錐の縮約、
+上の特異ブロック例の勾配・Jacobi恒等式、中心行列の線形代数化の例を有理数係数で確認する。
+さらに、三変数Fermat量子化の中心元については、
+有限特殊化ではなく\emph{$\mathbb Q[h]$上の自由代数恒等式}を証明書として収録した。
+$r_1=xy-yx-hz^2$、$r_2=yz-zy-hx^2$、$r_3=zx-xz-hy^2$、
+$D=x^3+y^3+z^3$、$T=xyz+xzy+yxz+yzx+zxy+zyx$とすると、
+\begin{align*}
+ [3D-h^2T,x]={}&-3r_1y^2+h^2r_1zx-h^2xr_1z-3yr_1y-h^2zr_1x
+ +h^2xzr_1-3y^2r_1\\
+ &+2h^2r_2x^2-3hr_2yz-h^2xr_2x-h^2x^2r_2+3hyzr_2\\
+ &+3r_3z^2+3zr_3z+3z^2r_3.
+\end{align*}
+語ごとの係数比較でこの式を確認でき、巡回置換で$y,z$との交換子も得る。
+従って$(D/3-h^2T/9)$はこの三変数商で中心的である。
+この証明書は全混合項の中心公式、PBW性、圏同値の検証ではなく、
+標準的なFermat入力について特殊値$h=0$を除外しない普遍的検証である。

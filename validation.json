@@ -1,105 +1,18 @@
 {
-  "version": "nc-cubic-v10-general-components",
+  "version": "nc-cubic-v11",
   "date_jst": "2026-11-09",
-  "commit_date": "as updated by GitHub",
-  "purpose": "Current three-paper restructuring; not peer-reviewed",
+  "research_scope": "Arbitrary n>=3 and every reduced irreducible component of the cubic Poisson scheme; the 17-dimensional threefold family remains a test case.",
+  "current_validation": "validation_components.json",
+  "current_proof_section": "tex/papers/all_poisson_components.tex",
   "papers": {
-    "A": {
-      "path": "tex/poisson_cubic_quantization.tex",
-      "scope": "Poisson classification, degeneracy, quantization, Hesse center",
-      "source_status": "separated; static references checked",
-      "pdf_status": "not regenerated"
-    },
-    "B": {
-      "path": "tex/generic17_ambient_recovery.tex",
-      "scope": "41-dimensional incidence, generic 17 parameters, polarized ambient",
-      "source_status": "Includes mixed 15-direction existing center formula (universal identity not independently re-proved this turn), a new conditional uniqueness theorem for first central-normal jets and a relative Picard fiberwise no-go theorem under finite etale covers.",
-      "pdf_status": "19-page v9 standalone PDF locally compiled from expanded paper B source with equivalent section contents, 3 passes, warnings clear; PDF saved to Library in v9 bundle, not synced to GitHub binary."
-    },
-    "C": {
-      "path": "tex/rotation_cubic_reconstruction.tex",
-      "scope": "rotation-marked reconstruction, conditional etale, Zhang twist obstruction, elliptic one block, relative saturation",
-      "source_status": "separated; static references checked",
-      "pdf_status": "not regenerated"
-    }
+    "A": {"source": "tex/poisson_cubic_quantization.tex", "status": "Existing proofs retained; full manuscript not re-audited or rebuilt in v11."},
+    "B": {"source": "tex/generic17_ambient_recovery.tex", "status": "Existing proofs and exact computations retained; GitHub PDF is not asserted current; no full re-audit in v11."},
+    "C": {"source": "tex/rotation_cubic_reconstruction.tex", "status": "Componentwise section rewritten, preserving old main labels; standalone six-page section export rebuilt. Whole paper C not rebuilt."}
   },
-  "boundary": {
-    "scope": "Brill–Noether/Pfaffian formal contact, stationary Reye, Azumaya and singularities",
-    "status": "Original technical TeX and source-only PDFs preserved; some high-order computational certificates and editable PDF sources not available; no blanket claim of proof re-review."
-  },
-  "mathematical_status": {
-    "proven_in_manuscripts": "Poisson cubic normal form; 17-parameter family and graded-polarized quadratic ambient recovery; specified one-block rotation equivalences and obstruction examples.",
-    "conditional": "Serre-even-Veronese recovery, etale algebraic realization, relative Beilinson models, finite-center multiblock comparison.",
-    "open": "generic 17-dimensional rotation-marked commutative realization; relative smooth proper saturation and global descent; full multiblock generation. Six linear-central and nine quadratic-central essential mixed directions require relative comparison.",
-    "limitations": "Results from independent imports have not been independently fully proof-audited or externally novelty-verified."
-  },
-  "verification": {
-    "A_C_static": "All labels, references and bibliography keys in input closure checked by connector code.",
-    "B_local_typesetting": "13 pages LuaLaTeX built, no undefined refs/cites in final pass. Generated PDF not synchronized to GitHub.",
-    "boundary": "Preserved original proof source; LaTeX typesetting and high-order certificates not re-run here.",
-    "library_bundle": "nc-cubic-generic17_v9_20261109.zip uploaded, 19-page PDF included; source closure and actual hashes must be compared for each distribution",
-    "split_codimension": {
-      "script": "computations/verify_split_codimension.py",
-      "arithmetic": "exact rational SymPy",
-      "witness": "F=x^3+y^3+z^3+3xyz+u^3+2u^2v+3uv^2+5v^3",
-      "ranks": {
-        "split_tangent": 20,
-        "parabolic_orbit": 18,
-        "combined": 20
-      },
-      "claim": "codim 15 in Poisson-center incidence quotient, not in unmarked Ku moduli",
-      "jacobian": {
-        "degree3_ideal_rank": 25,
-        "cubic_deformation_dimension": 10,
-        "mixed_image_dimensions": [
-          6,
-          3
-        ],
-        "normal_kernel_dimension": 6,
-        "forgetful_kernel_dimension": 7,
-        "status": "proved symbolically in manuscript, finite rational witness verified"
-      }
-    },
-    "vertical_tangent": {
-      "scope": "At a smooth split ternary/binary cubic F=f(x)+g(u,v), 0->C[f]+Hom(U,W)->T_poisson,17->Jac(F)_3,10->0",
-      "proof": "Written in paper B",
-      "finite_verification": "Exact rational model; orbit 18 + vertical 7=Jacobian degree-three ideal 25"
-    },
-    "picard_rational_no_go": {
-      "scope": "Single-valued rational map of a fixed (X,Lambda) G_m Poisson scaling fiber to Pic0(C) is constant; not for multivalued finite correspondence",
-      "proof": "Properness and Riemann-Hurwitz in paper B"
-    },
-    "mixed_center": {
-      "file": "computations/verify_mixed_center.py",
-      "exact_field": "F_1009",
-      "specializations": 15,
-      "degree4_free_words": 625,
-      "ideal_rank": 555,
-      "negative_control": "h^2 A^2 z /6 omitted => noncentral",
-      "scope": "finite exact checks, not universal proof",
-      "primary_source": "Etingof-Ginzburg JEMS 2010 Appendix Section 9; earlier current-repository internal §14 technical PDF"
-    },
-    "relative_picard": {
-      "status": "proven in manuscript",
-      "scope": "generic scale fibers over Grassmann, including connected finite etale covers",
-      "limitation": "does not exclude branched correspondences, moving cubic or formal reconstruction"
-    },
-    "general_components": {
-      "source": "tex/papers/all_poisson_components.tex",
-      "status": "formal algebraic lemmas written and checked; global existence of uniform quantization and relative saturation NOT proved"
-    }
-  },
-  "build": {
-    "command": "python3 scripts/build.py",
-    "checks": "python3 scripts/verify_bundle.py",
-    "strict": "python3 scripts/verify_bundle.py --require-pdfs",
-    "notes": "Stale PDFs must not be reported as current"
-  },
-  "research_scope": {
-    "primary": "Every irreducible component of the affine Poisson scheme of smooth cubic n-folds for arbitrary n>=3; generic point of each component",
-    "subcase": "The 17-dimensional nc-cubic threefold family is only one test family",
-    "distinguish": "The full noncommutative AS-regular cubic moduli space may contain components unrelated to Poisson commutative cones; existing Zhang twist counterexamples disprove all-points universal realization but not generic behavior on every component",
-    "math_result": "Every irreducible Poisson cone component contains zero; a base-change-compatible algebraic smooth proper residual pair near zero implies generic geometric realization on that component, conditional on the manuscript's etale realization theorem",
-    "dimension_split": "For n not congruent 1 mod3, rotation determined by Serre and shifts if rho^3=[2] and S=rho^(1-n)[n]; n congruent 1 mod3 requires rotation data"
-  }
+  "new_reductions": ["Smooth dominant scalar charts without descent at the cone vertex", "Finite-jet algebraization of formal central kernels", "Conditional generic realization from one commutative point on a saturated chart"],
+  "unresolved": ["Componentwise uniform PBW/AS-regular construction", "Actual relative residual dg model and perfect diagonal lifting", "General rotation-compatible commutative reconstruction and descent"],
+  "boundary": "All pre-existing technical proofs and unique PDF-only sources retained; high-order certificates not re-executed.",
+  "validation_limits": "Written and reviewed algebraic proofs are distinct from exact symbolic tests and from unperformed categorical formalization, external review, or comprehensive novelty determination.",
+  "pdf_delivery": "Only section export, plan and notes regenerated locally; latest PDF binaries supplied in the scoped Library bundle, not synchronized to GitHub.",
+  "reproduction": {"build": "python3 scripts/build_components.py", "verify_sources": "python3 scripts/verify_components.py --source-only", "verify_pdfs": "python3 scripts/verify_components.py"}
 }

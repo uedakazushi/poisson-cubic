@@ -1,0 +1,37 @@
+{
+  "arithmetic": "exact Q-polynomial/free-algebra identities",
+  "chart": {
+    "chart": "cone over Gr(2,5), p01=h",
+    "plucker_equations": 5,
+    "inverse_coordinates": 6,
+    "status": "passed"
+  },
+  "linear_example": {
+    "scope": "illustration of the linear lemma, not a universal cubic center",
+    "denominator": "1-s*h",
+    "verified_jet_order": 4,
+    "status": "passed"
+  },
+  "singular_block": {
+    "n": 5,
+    "jacobi_triples": 35,
+    "rank_witness": 4,
+    "gradient_radical": "all seven variables",
+    "pure_first_block": "x^3+y^3, singular at [0:0:1]",
+    "status": "passed"
+  },
+  "center": {
+    "base_ring": "ZZ[h]",
+    "relations": 3,
+    "certificate_terms": 15,
+    "cyclic_commutators": 3,
+    "uses_h_inverse": false,
+    "scope": "universal Fermat centrality only, not the full mixed family",
+    "status": "passed"
+  },
+  "not_verified": [
+    "general relative saturation",
+    "general PBW on a component chart",
+    "formal/etale categorical reconstruction theorem"
+  ]
+}
