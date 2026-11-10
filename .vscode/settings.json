@@ -1,0 +1,23 @@
+{
+  "latex-workshop.latex.recipe.default": "latexmk (repository root)",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (repository root)",
+      "tools": ["latexmk-root"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk-root",
+      "command": "latexmk",
+      "args": [
+        "-r",
+        "%WORKSPACE_FOLDER%/.latexmkrc",
+        "-cd-",
+        "%DOC_EXT%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/build",
+  "latex-workshop.latex.autoBuild.run": "onSave"
+}
