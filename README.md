@@ -1,6 +1,18 @@
 # nc-cubic：Poisson構造・代数的量子化・可換復元
 
-**2026-11-10・v25。正本はGitHub main。** 最初に [研究方針](00_research_plan.md)、次に [研究ノート](notes/research_notes.md) を読む。
+**2026-11-10・v26。正本はGitHub main。** 最初に [研究方針](00_research_plan.md)、次に [研究ノート](notes/research_notes.md) を読む。
+
+## 曲率付き絶対対角からの有限積と可換候補（v26）
+
+**実際の非可換入力に対する計算結果、ただし残余rotation積との比較は未証明。** 混合族の λ=1 の指定中心対について、絶対曲率付き対角の閉自己準同型の合成を Q(h) 上で計算した。その対称積の核を積分すると
+[
+\widetilde F_h=(x^3+y^3+z^3)/3+v^3+h^2xyz/3+(1+h^6/54)uxy-h^4uz^2/18-h^2u^2z/12+(1+29h^6/648+h^{12}/4374)u^3
+]
+を得る。四変数の積は6×10行列、勾配変換の行列式は 1+h^6/27。これは有限の有理関数体上の計算であり、h=0で正則な中間ホモトピー・実際の残余圏との比較・一般λの式・generic rotation付き圏同値を証明したものではない。相対対角ではu³補正を検出できず、絶対対角を用いる必要がある。
+
+**証明と再現：** papers/reconstruction/curved_diagonal_recovery.tex、computations/curved_diagonal.py、computations/absolute_diagonal.py、computations/verify_curved_diagonal.py、computations/curved_diagonal_certificate.json。研究上の障害は notes/curved_diagonal.md に整理。検算は `python3 computations/verify_curved_diagonal.py --output build/curved_diagonal_certificate.json`、出力と追跡中の証明書を照合する（重い厳密計算）。前回の検算記録と証明書を保持するが、この統合時点で長時間の完全再計算は未実施。
+
+**次の課題：** (1) h=0で極を持つ中間ホモトピーと閉行列をDVR核飽和で正則化する。(2) 曲率付き絶対対角の積と残余dg圏の導来自然変換・rotation積との合成を保つ比較を証明する。(3) 比較が成立した後にgeneric可換模型と圏同値を検証する。SM/ERと指定生成子のgeneric生成性は独立した未解決課題として保持する。
 
 ## 三つの目標
 
@@ -113,7 +125,7 @@ Python 3.10以上、SymPy、LuaLaTeX、LuaTeX-ja/ltjsarticleと標準数学パ�
 詳細は [reconstruction/README.md](reconstruction/README.md) と [validation.json](validation.json)。
 PDFとbuild receiptはGit対象外のbuild/へ生成する。主論文receiptは全TeX inputを含む。
 
-**v25の検証状態：** 既存の二次星積・tensor・積行列の厳密検算はv22ソースでPASS。新しい指標商と交換対合の自由代数恒等式も別途SymPyで厳密検算した。現行v25の論文A/B/Cは新節追加後にまだ全体組版・receipt検査していない（従前は133頁・32 inputsを組版済み）。既存の具体計算証明書と独立SM/ERの検算も再実行した。A/Bを含めた詳細はvalidation.jsonを参照。これらは圏論的証明の形式検証や外部査読ではない。
+**v26の検証状態：** 既存の二次星積・tensor・積行列の厳密検算はv22ソースでPASS。新しい指標商と交換対合の自由代数恒等式も別途SymPyで厳密検算した。現行v26の論文A/B/Cは新節追加後にまだ全体組版・receipt検査していない（従前は133頁・32 inputsを組版済み）。既存の具体計算証明書と独立SM/ERの検算も再実行した。A/Bを含めた詳細はvalidation.jsonを参照。これらは圏論的証明の形式検証や外部査読ではない。
 
 ## 資料の配置と保存
 

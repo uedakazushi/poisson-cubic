@@ -1,6 +1,18 @@
 # AGENTS.md — nc-cubicの研究継続指示
 
-**2026-11-10・v25。GitHub uedakazushi/nc-cubic の main が唯一の正本。** 最初に00_research_plan.md、次にnotes/research_notes.mdとreconstruction/README.mdを読む。旧ZIP・会話・Libraryを再開の前提にしない。
+**2026-11-10・v26。GitHub uedakazushi/nc-cubic の main が唯一の正本。** 最初に00_research_plan.md、次にnotes/research_notes.mdとreconstruction/README.mdを読む。旧ZIP・会話・Libraryを再開の前提にしない。
+
+## 曲率付き絶対対角からの有限積と可換候補（v26）
+
+**実際の非可換入力に対する計算結果、ただし残余rotation積との比較は未証明。** 混合族の λ=1 の指定中心対について、絶対曲率付き対角の閉自己準同型の合成を Q(h) 上で計算した。その対称積の核を積分すると
+[
+\widetilde F_h=(x^3+y^3+z^3)/3+v^3+h^2xyz/3+(1+h^6/54)uxy-h^4uz^2/18-h^2u^2z/12+(1+29h^6/648+h^{12}/4374)u^3
+]
+を得る。四変数の積は6×10行列、勾配変換の行列式は 1+h^6/27。これは有限の有理関数体上の計算であり、h=0で正則な中間ホモトピー・実際の残余圏との比較・一般λの式・generic rotation付き圏同値を証明したものではない。相対対角ではu³補正を検出できず、絶対対角を用いる必要がある。
+
+**証明と再現：** papers/reconstruction/curved_diagonal_recovery.tex、computations/curved_diagonal.py、computations/absolute_diagonal.py、computations/verify_curved_diagonal.py、computations/curved_diagonal_certificate.json。研究上の障害は notes/curved_diagonal.md に整理。検算は `python3 computations/verify_curved_diagonal.py --output build/curved_diagonal_certificate.json`、出力と追跡中の証明書を照合する（重い厳密計算）。前回の検算記録と証明書を保持するが、この統合時点で長時間の完全再計算は未実施。
+
+**次の課題：** (1) h=0で極を持つ中間ホモトピーと閉行列をDVR核飽和で正則化する。(2) 曲率付き絶対対角の積と残余dg圏の導来自然変換・rotation積との合成を保つ比較を証明する。(3) 比較が成立した後にgeneric可換模型と圏同値を検証する。SM/ERと指定生成子のgeneric生成性は独立した未解決課題として保持する。
 
 ## 目標と優先順位
 
@@ -46,7 +58,7 @@ rotationの低次数sector計算と、Serre関手だけからrotationを得るgc
 
 ## 現行版の検証状態
 
-公開コードの二次厳密計算と既存証明書の再検算はPASS。論文Cの従前版は133頁・32 inputsで組版・表示確認済み。現行v25は新inputの追加後に全体組版・receipt検査が未実施。各原稿の組版・receipt・描画の状態はvalidation.jsonを確認する。ソースが変わった場合は共通bibliographyを使うA/B/Cのreceiptを更新し、古いPDFを現行版として提示しない。
+公開コードの二次厳密計算と既存証明書の再検算はPASS。論文Cの従前版は133頁・32 inputsで組版・表示確認済み。現行v26は新inputの追加後に全体組版・receipt検査が未実施。各原稿の組版・receipt・描画の状態はvalidation.jsonを確認する。ソースが変わった場合は共通bibliographyを使うA/B/Cのreceiptを更新し、古いPDFを現行版として提示しない。
 
 ## 保存・再現・配置
 

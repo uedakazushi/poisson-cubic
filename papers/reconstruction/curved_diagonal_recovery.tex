@@ -1,0 +1,324 @@
+% 2026-11-10 / v26; finite curved diagonal and genuine noncommutative tests.
+\section{曲率付き対角からの有限計算}
+\label{cd:sec:finite-diagonal}
+
+本節では、代数的非可換入力から有限の行列を実際に作る。
+結論の範囲を最初に固定する。中心差を用いた対角の行列因子分解と、
+その自己準同型の積は構成・計算する。一方、それが射影残余圏の
+導来自然変換の積に一致することは本節の結論ではない。
+この区別は、曲率付き双加群の導来圏と包絡代数上の導来圏が一般には異なるという
+Guan--Holstein--Lazarev--Rasmussenの指摘\cite[Theorem~4.7, Theorem~6.14, Remark~6.16]{CDGHLR}
+にも対応する。
+
+\subsection{有界分解の有限曲率化}
+$R$を可換$\mathbb Q$-代数、$A$を非負内部次数付き$R$-代数とする。
+各$A_d$は有限自由、$A_0=R$と仮定する。
+右$Q=A^{\mathrm{op}}\otimes_R A$-加群としての対角$A$に、
+有限自由な線形分解
+\[
+ 0\longrightarrow P_N\longrightarrow\cdots\longrightarrow P_0
+ \xrightarrow{\epsilon} A\longrightarrow0,\qquad
+ P_p=E_p\otimes_R Q,\quad \deg E_p=p
+\]
+が与えられたとする。$E_p$は有限自由である。
+中心三次元$\Omega\in A_3$について
+$f=\Omega^{\mathrm{op}}\otimes1-1\otimes\Omega$と置く。
+これは$Q$の中心に属し、対角$A$を零化する。
+
+\begin{theorem}[有限個の高次ホモトピー]
+\label{cd:thm:finite-curvature}
+内部次数$3j$、鎖次数$2j-1$の写像
+$s_j:P_p\to P_{p+2j-1}$を、
+\[
+ ds_1+s_1d=f\,\mathrm{id},\qquad
+ ds_j+s_jd=-\sum_{a=1}^{j-1}s_as_{j-a}\quad(j\ge2)
+\]
+となるように選べる。
+$j>\lfloor(N+1)/2\rfloor$では$s_j=0$としてよい。
+$s_j$の行列係数は$Q_{j+1}$に属する。
+$P_p$をコホモロジー次数$-p$に置き、
+$\deg(t)=(2,-3)$とすれば
+\[
+ D=P\otimes_R R[t,t^{-1}],\qquad
+ \mathcal D=d+\sum_{j\ge1}t^js_j,
+ \qquad \mathcal D^2=tf\,\mathrm{id}
+\]
+を得る。この和は有限で、$N=5$なら$s_1,s_2,s_3$だけである。
+\end{theorem}
+\begin{proof}
+$\operatorname{End}_Q(P)$には鎖次数を一つ下げる微分
+$\delta T=dT-(-1)^{|T|}Td$を入れる。
+$f\,\mathrm{id}$が誘導する$A$上の写像は零なので、
+有界射影分解の比較定理により$\delta s_1=f\,\mathrm{id}$を解ける。
+
+$s_1,\ldots,s_{j-1}$が構成されたとする。
+$O_j=\sum_{a=1}^{j-1}s_as_{j-a}$の鎖次数は$2j-2$である。
+既存の式を代入して$\delta O_j$を展開すると、三重積は相殺し、
+残る$f s_{j-1}-s_{j-1}f$も中心性によって零となる。
+鎖次数が正であるため、対応する負次数の
+$\operatorname{Ext}_Q(A,A)$は零であり、$\delta s_j=-O_j$を解ける。
+内部次数ごとにこの議論を行えば、$s_j$を内部次数$3j$に選べる。
+$p$次の生成元から$p+2j-1$次の生成元への係数次数は
+$3j-(2j-1)=j+1$である。
+
+$2j-1>N$ならその鎖次数の写像は存在しない。
+このとき$O_j$の鎖次数も$N$を超えれば自明に零である。
+残る可能性は$2j-2=N$の場合だけだが、そこでの閉元は境界であり、
+境界を与える鎖次数$N+1$の写像空間が零なので$O_j=0$となる。
+これで有限和の全恒等式が成立する。
+\end{proof}
+
+この構成は高次ホモトピーの標準的な持上げ議論であり、原理そのものの新規性を主張しない。
+本研究で利用する点は、内部次数によって必要な係数空間と計算上限が固定されることである。
+高次ホモトピーを特殊ファイバーでだけ作るのではなく、実際の$R$上で解く。
+
+\subsection{小さい複体と、積を計算する大きい複体}
+$A[t,t^{-1}]$には零微分を入れる。$f$はこの加群を零化するので、
+\[
+ C_r=\operatorname{Hom}_Q(D,A[t,t^{-1}])_r,
+ \qquad d_C\phi=-(-1)^{|\phi|}\phi\mathcal D
+\]
+は複体である。ここで添字$r$は内部次数である。
+\begin{proposition}[各双次数の有限性]
+\label{cd:prop:small-complex}
+\[
+ C_r^q=\bigoplus_{\substack{0\le p\le N\\p\equiv q\ (2)}}
+ A_{\,r+(3q-p)/2}\otimes_R E_p^\vee,
+ \qquad A_d=0\ (d<0).
+\]
+一方、$\mathcal E_r=\operatorname{Hom}_Q(D,D)_r$の$(p,s)$ブロックは
+\[
+ Q_{\,r+(3q-p+s)/2}\otimes_R
+ \operatorname{Hom}_R(E_p,E_s),\qquad q-p+s\equiv0\pmod2
+\]
+である。増大射は擬同型$\mathcal E_r\to C_r$を誘導する。
+従って$H^0(C_r)$の元を$\mathcal E_r$の閉元へ持ち上げ、行列を合成して
+再び$C$へ送ることで、次数付き代数$H^0(\mathcal E_\bullet)$の積を計算できる。
+\end{proposition}
+\begin{proof}
+$P_p$上の写像が$t^a$を含むとき、全コホモロジー次数は$q=p+2a$である。
+内部次数$r$の条件は係数の次数を$r+p+3a$にするので、最初の式を得る。
+$P_s$を値域とする場合は$q=p-s+2a$となり、同様に第二の式を得る。
+$p,s$の範囲は有界だから各項は有限自由である。
+
+$t$の指数でフィルターすると、$d$による微分は指数を保ち、
+各$t^js_j$は指数を正に増やす。
+固定したコホモロジー次数・内部次数では、とり得る$t$の指数は有限集合である。
+増大射のconeの随伴次数複体は
+\[
+ \operatorname{Hom}_Q(P,P)\longrightarrow
+ \operatorname{Hom}_Q(P,A)
+\]
+のconeの内部次数成分と、その$t$倍からなる。
+$P$が有界射影分解であるからこれは非輪状である。
+各次数で有限なフィルトレーションに沿って閉元を順に消去することにより、
+曲率補正後のconeも非輪状となる。
+積は$\mathcal E$の通常の合成から運ぶので、持上げの選択によらず結合的である。
+この議論は$C$上の係数を単純に掛けることを正当化するものではない。
+\end{proof}
+
+$N=5$、$\operatorname{rank}E_p=\binom5p$、
+$\dim A_d=\binom{d+4}{4}$なら、必要な小複体は
+\[
+\begin{array}{c|ccc}
+ r& C_r^{-1}&C_r^0&C_r^1\\\hline
+ 1&0&15&126\\
+ 2&5&70&330
+\end{array}
+\]
+である。これらはコチェイン空間の次元であり、$H^0$の次元ではない。
+$\mathcal E$による閉元の持上げ・合成も含め、必要な係数は$A$の内部次数六以下で扱える。
+実際、$s_j$の構成に必要な係数次数は最大五であり、
+$r=1,2$、$q=-1,0,1$の$\mathcal E_r^q$に現れる$Q$の係数次数は最大六である。
+これは分解の全次数での完全性を有限次数の検査で置き換える主張ではない。
+
+\subsection{混合非可換入力と相対的な実計算}
+$u$を中心変数とし、$K=\mathbb Q(h)$上で
+\[
+ [y,z]=h(x^2+\lambda uy),\qquad
+ [z,x]=h(y^2+\lambda ux),\qquad [x,y]=hz^2
+\]
+を課す。$a=\lambda u$、$T$を$xyz$の六語の和として
+\[
+ \Omega_{\mathrm{act}}
+ =\frac{x^3+y^3+z^3}{3}-\frac{h^2}{9}T
+ +\frac a2(xy+yx)+\frac{h^2a^2}{6}z+\frac{h^4a}{18}z^2
+\]
+を指定する。これは現行の混合試験族の入力である。
+相対計算では$Q=A^{\mathrm{op}}\otimes_{K[u]}A$を使う。
+三つの関係式を$r_x,r_y,r_z$とすれば、分解の階数は$(1,3,3,1)$で、
+$d_1=(x_L-x_R,y_L-y_R,z_L-z_R)$、$d_2$は関係式の非可換差分、
+$d_3=(x_L-x_R,y_L-y_R,z_L-z_R)^{\mathsf t}$となる。
+非可換差分は、各語$w=a_1\cdots a_m$を
+\[
+ \partial^{\mathrm{nc}}_i(w)
+ =\sum_{a_j=x_i}(a_1\cdots a_{j-1})_L
+                  (a_{j+1}\cdots a_m)_R
+\]
+へ送る操作であり、$u$は係数として扱う。
+
+この相対分解の完全性は、既存の全Artin PBW入力からも確認できる。
+$\mathbb Q[h]_{(h)}$上の各内部次数成分は有限自由であり、
+$h=0$では中心$u$を底に置いた通常のKoszul対角分解となる。
+増大射を含む有界複体に次数別のNakayamaを適用して完全性を得た後、
+$h$を反転する。PBW性を本節の有限数値検査だけから推論しない。
+
+\begin{proposition}[相対対角の低次数積の厳密計算]
+\label{cd:prop:relative-formula}
+上の相対分解から構成した$C$について、一般の$h,\lambda$で
+$\dim H^0(C_1)=4$、$\dim H^0(C_2)=7$である。
+次数一の閉元をその$P_0$成分が$u,x,y,z$となるように規格化すると、
+積は対称かつ全射であり、その核は次の三次式の
+$x,y,z$偏微分によって張られる：
+\begin{align*}
+ G^{\mathrm{rel}}_{h,\lambda}={}&
+ \frac{x^3+y^3+z^3}{3}+\frac{h^2}{3}xyz
+ +\lambda\left(1+\frac{h^6}{54}\right)uxy\\
+ &-\frac{h^4\lambda}{18}uz^2
+ -\frac{h^2\lambda^2}{12}u^2z.
+\end{align*}
+これは特定の$h$での補間ではなく、$\mathbb Q(h)$上の有限行列計算である。
+\end{proposition}
+\begin{proof}[計算証明と再現手順]
+$\lambda=1$について、付属コードは定義された関係式の次数別商から積を構成する。
+$d^2=0$、$ds_1+s_1d=f$、
+$ds_2+s_2d=-s_1^2$を有理関数体上で検査する。
+小複体の次元は$r=1$で$(0,7,34)$、$r=2$で$(3,22,70)$であり、
+微分の階数は順に$(0,3)$、$(3,12)$となる。
+次数一の四閉元を実際の閉行列に持ち上げ、全十六個の合成を求める。
+反対称積が境界となることと、対称積の階数七を検査した結果、その核は
+\[
+\begin{split}
+ x^2+\frac{h^2}{3}yz+\left(1+\frac{h^6}{54}\right)uy,\
+ y^2+\frac{h^2}{3}xz+\left(1+\frac{h^6}{54}\right)ux,\
+ z^2+\frac{h^2}{3}xy-\frac{h^4}{9}uz-\frac{h^2}{12}u^2
+\end{split}
+\]
+となる。これらは表示した三次式の偏微分である。
+一般の$\lambda\ne0$では中心変数の置換$u\mapsto\lambda u$を用いる。
+特殊層での次元の不変性は、この置換だけから主張しない。
+証明書は分解・高次ホモトピー・閉元の持上げと積の有限データを保持する。
+\end{proof}
+
+\begin{remark}[中心の三次式は相対対角からは見えない]
+$\Omega$に$g(u)$を加えても、相対包絡代数内では
+$g(u)_L-g(u)_R=0$である。
+従って相対計算だけでは$u^3$の係数を決められない。
+特に$G^{\mathrm{rel}}+u^3+v^3$を、元の非可換cubicの復元先と宣言してはならない。
+また表示の$h^6uxy$係数を、そのまま既存の同変正規形の未知係数と同一視しない。
+絶対対角、中心方向の微分、座標規格化の比較が別に必要である。
+\end{remark}
+
+\subsection{絶対模型への接続と比較条件}
+絶対模型では$u$を底に含めず、四生成元の二次関係の空間$W_2$から
+\[
+ W_3=(V\otimes W_2)\cap(W_2\otimes V),\qquad
+ W_4=(V\otimes W_3)\cap(W_3\otimes V)
+\]
+を計算する。次元は$(1,4,6,4,1)$である。
+中心元には$u^3$も含める。
+独立な$v$と$v^3$は一変数のKoszul因子とのテンソル積で加えられる。
+\begin{proposition}[絶対対角から得られる全次数の三次式]
+\label{cd:prop:absolute-formula}
+$\lambda=1$、$K=\mathbb Q(h)$とし、中心元を
+$\Omega_{\mathrm{act}}+u^3$に固定する。
+絶対模型の$H^0(C_1),H^0(C_2)$の次元はそれぞれ四、六である。
+次数一の元を$P_0$成分$u,x,y,z$で規格化すると、その対称積の核は
+\begin{align*}
+ q_u&=\left(3+\frac{h^6}{54}\right)u^2-\frac{h^2}{6}uz+xy,\\
+ q_x&=x^2+\frac{h^2}{3}yz+\left(1+\frac{h^6}{54}\right)uy,\\
+ q_y&=y^2+\frac{h^2}{3}xz+\left(1+\frac{h^6}{54}\right)ux,\\
+ q_z&=z^2-\frac{h^4}{18}uz-
+              \left(\frac{13h^2}{12}+\frac{h^8}{162}\right)u^2
+\end{align*}
+で張られる。$B(h)=1+29h^6/648+h^{12}/4374$と置くと、
+\begin{align}
+G_h={}&\frac{x^3+y^3+z^3}{3}+\frac{h^2}{3}xyz
+ +\left(1+\frac{h^6}{54}\right)uxy\notag\\
+ &-\frac{h^4}{18}uz^2-\frac{h^2}{12}u^2z+B(h)u^3
+ \label{cd:eq:absolute-polynomial}
+\end{align}
+はこの核を勾配空間とする。
+\end{proposition}
+\begin{proof}[計算証明および積分]
+絶対Koszul空間は二次関係の交叉から計算する。各空間を、昇順の語の係数が
+単位行列となるように規格化する。
+付属コードは$\mathbb Q(h)$上で全ての曲率恒等式を検査した後、
+四つの次数一閉元を実際の閉じた自己準同型へ持ち上げる。
+持上げは$t$の指数と入力の鎖次数に沿う有限の線形方程式で行い、
+構成後に$\mathcal DF-F\mathcal D=0$を全ブロックで再検査する。
+全十六個の積を合成して増大射で$C_2$へ送り、境界で割る。
+小複体の次元は$r=1$で$(0,10,56)$、$r=2$で$(4,35,120)$、
+微分の階数はそれぞれ$(0,6)$、$(4,25)$である。
+積の反対称部分が境界であること、対称積の階数が六であること、
+表示した四つの二次式がその核の基底であることを厳密に検査する。
+この計算には、三次式$G_h$を入力していない。
+計算後の積分検査においてのみ右辺の候補を使う。
+
+積分は手計算でも確認できる。$L=1+h^6/54$として
+\[
+ \partial_xG_h=q_x,\quad \partial_yG_h=q_y,\quad
+ \partial_zG_h=q_z+\frac{h^2}{3}q_u,\quad
+ \partial_uG_h=Lq_u-\frac{h^4}{18}q_z.
+\]
+この基底変換の行列式は
+\[
+ \det A=L+\frac{h^6}{54}=1+\frac{h^6}{27}\ne0
+ \quad\text{in }\mathbb Q(h).
+\]
+従って表示した三次式の勾配空間は求める核に等しい。
+これは有限個の有理値による補間ではない。
+\end{proof}
+
+\begin{corollary}[五変数の代数的候補]
+上の絶対対角に、独立な$v$と曲率$v^3$の一変数因子をテンソルする。
+低次数の自己準同型代数の次元は五、十となり、その対称積の核は
+$G_h+v^3$の勾配空間である。
+$V(G_h+v^3)\subset\mathbb P^4$は$h=0$を含む非空開集合上で滑らかである。
+\end{corollary}
+\begin{proof}
+一変数の小複体は、可逆な周期変数を除いて$3v^2$によるKoszul複体であり、
+そのコホモロジーは$K[v]/(v^2)$である。
+四変数模型とのテンソル積とK\"unnethにより、次数一には$v$の一方向、
+次数二には$v$と既存の四方向の積だけが加わる。
+従って核には$v^2$が加わる。これは$G_h+v^3$の勾配空間である。
+$h=0$は元の滑らかな$F_1$である。
+実際、全偏微分が零なら$z=v=0$であり、$u=0$なら$x=y=0$、
+$u\ne0$なら$x^2=-uy,y^2=-ux,xy=-3u^2$から
+$9u^4=-3u^4$となって矛盾する。
+射影族の滑らかさの開性から一般の$h$での滑らかさを得る。
+\end{proof}
+
+\begin{remark}[generic計算と局所正則化]
+今回保存した行列の一部には$h=0$で極がある。
+特に絶対模型の高次ホモトピー、閉元の持上げ、商の基底には
+負の$h$冪が現れる。次数一の選んだ閉元と最終的な三次式が正則であることと、
+選んだ計算模型全体が$h=0$で正則であることは別である。
+本節の積計算の底は$\mathbb Q(h)$であり、これをそのまま
+$\mathbb Q[[h]]$へテンソルして比較したとは主張しない。
+局所核の飽和を使った模型の選び直しと、完成底での比較が次の課題である。
+\end{remark}
+
+\begin{remark}[何を決定したか]
+式\eqref{cd:eq:absolute-polynomial}は、実際の非可換関係式から作った
+\emph{曲率付き対角の自己準同型積}の核を積分したものである。
+指定されたformalityが与える$W_h$との形式線形同値や、
+非可換射影残余圏とのgeneric同値を証明したわけではない。
+二次jetは既存の式と一致するが、その一致だけで全次数の比較を結論しない。
+絶対計算は$\lambda=1$についての恒等式であり、任意の$\lambda$への公式は未確定とする。
+\end{remark}
+
+最終的に必要なのは、上の行列代数から得た積と
+\[
+ \bigoplus_{r=0}^2H^0\operatorname{RHom}_{\mathcal C^e}
+        (\Delta,P^{\otimes^{\mathbf L}r})
+\]
+との合成を保つ比較である。内部shiftとの両立と、同変化に現れる非恒等sectorの扱いも必要である。
+Guanほか\cite[Theorem~6.14]{CDGHLR}の比較は、包絡代数の有限ホモロジー次元、
+coherence、外積に関するCondition~1を仮定する。
+同論文Remark~6.16は最後の条件を対角対象に関する条件へ弱めるが、
+本研究の一般混合非可換族でその条件を確認したことにはならない。
+同論文Theorem~4.7が無条件に扱うHochschild複体と、
+有限対角から得る複体を、名前が似ているという理由で同一視しない。
+本節の有限計算はこの比較問題を残しつつ、代数的入力からの方程式抽出に
+具体的な計算対象を与えるものである。

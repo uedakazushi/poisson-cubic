@@ -136,4 +136,22 @@ with tempfile.TemporaryDirectory(prefix="nc-cubic-finite-recovery-") as td:
         (ROOT/"computations/finite_recovery_certificate.json").read_text(encoding="utf-8")), "finite recovery certificate mismatch"
     print("PASS exact finite algebraic recovery (synthetic commutative input, not nc category)")
 
+# The curved diagonal certificate is a large exact Q(h) witness. Validate its
+# structure and tracked source dependencies without rerunning the costly full
+# symbolic elimination on every bundle audit. For a full rerun, execute
+# computations/verify_curved_diagonal.py --output build/curved_diagonal_certificate.json
+# and compare the regenerated JSON with the tracked certificate.
+curved_sources = [
+    "papers/reconstruction/curved_diagonal_recovery.tex",
+    "papers/reconstruction/curved_diagonal_references.tex",
+    "computations/curved_diagonal.py",
+    "computations/absolute_diagonal.py",
+    "computations/verify_curved_diagonal.py",
+    "notes/curved_diagonal.md",
+]
+assert all((ROOT / p).is_file() for p in curved_sources)
+curved = json.loads((ROOT / "computations/curved_diagonal_certificate.json").read_text(encoding="utf-8"))
+assert all(k in curved for k in ("relative", "absolute", "five_variable_extension", "not_proved"))
+print("PASS curved diagonal tracked certificate structure (full symbolic recomputation separate)")
+
 print("Source/receipt and exact algebra audit complete. Categorical proofs are not formalized.")

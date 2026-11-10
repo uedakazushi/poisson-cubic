@@ -1,6 +1,6 @@
 {
-  "version": "nc-cubic-v25",
-  "date": "2026-11-10",
+  "version": "nc-cubic-v26",
+  "date": "2026-11-11",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only after an actual GitHub publication failure.",
   "scope": "Complete finite algebraic recovery proof and algorithms integrated; actual nc low rotation product, its completed-base comparison and generic equivalence remain open.",
   "current_entry": "00_research_plan.md",
@@ -97,22 +97,22 @@
       "source": "papers/rotation_cubic_reconstruction.tex",
       "build_completed": false,
       "source_pdf_receipt_verified": false,
-      "current_source": "v25",
-      "reason": "Current v25 parent paper not typeset or source/PDF receipt verified after integration."
+      "current_source": "v26",
+      "reason": "Current v26 shared sources have not been rebuilt or receipt verified."
     },
     "A": {
       "source": "papers/poisson_cubic_quantization.tex",
       "build_completed": false,
       "source_pdf_receipt_verified": false,
-      "current_source": "v25",
-      "reason": "Current v25 parent paper not typeset or source/PDF receipt verified after integration."
+      "current_source": "v26",
+      "reason": "Current v26 shared sources have not been rebuilt or receipt verified."
     },
     "B": {
       "source": "papers/generic17_ambient_recovery.tex",
       "build_completed": false,
       "source_pdf_receipt_verified": false,
-      "current_source": "v25",
-      "reason": "Current v25 parent paper not typeset or source/PDF receipt verified after integration."
+      "current_source": "v26",
+      "reason": "Current v26 shared sources have not been rebuilt or receipt verified."
     },
     "standalone_SM_ER": {
       "source": "papers/reconstruction/rotation_saturation_reduction.tex",
@@ -147,7 +147,7 @@
     "sympy": "1.14.0",
     "note": "Finite exact SymPy checks executed and certificate regenerated on 2026-11-10; parent A/B/C not built for v25."
   },
-  "persistence": "GitHub main is authoritative; remote ref and source blobs verified separately after push; no PDF tracked and Library is used only after a failed GitHub push.",
+  "persistence": "v26 sources and certificate committed to GitHub main; verify remote commit and blobs separately.",
   "finite_algebraic_recovery": {
     "proof": "papers/reconstruction/finite_algebraic_recovery.tex",
     "standalone": "papers/finite_algebraic_recovery.tex",
@@ -159,5 +159,22 @@
     "synthetic_input_not_nc": true,
     "actual_nc_product_constructed": false,
     "generic_equivalence_proved": false
+  },
+  "curved_diagonal_recovery": {
+    "proof": "papers/reconstruction/curved_diagonal_recovery.tex",
+    "standalone": "papers/curved_diagonal_recovery.tex",
+    "notes": "notes/curved_diagonal.md",
+    "code": [
+      "computations/curved_diagonal.py",
+      "computations/absolute_diagonal.py",
+      "computations/verify_curved_diagonal.py"
+    ],
+    "certificate": "computations/curved_diagonal_certificate.json",
+    "scope": "Actual mixed nc input at lambda=1; absolute curved diagonal products over Q(h)",
+    "actual_residual_rotation_product_comparison_proved": false,
+    "intermediate_regular_at_h_zero": false,
+    "generic_equivalence_proved": false,
+    "certificate_in_repository": true,
+    "full_recomputation_in_this_integration": false
   }
 }
