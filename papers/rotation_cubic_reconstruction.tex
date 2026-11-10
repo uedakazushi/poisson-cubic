@@ -1,37 +1,39 @@
 \input{papers/common}
 \hypersetup{pdftitle={非可換三次超曲面のrotation付き可換復元}}
 \title{非可換三次超曲面のrotation付き可換復元\\
-\large 具体的方程式・一次変形・存在の障害}
+\large 明示的な二次模型・形式的復元・代数化の障害}
 \author{}
-\date{2026年11月10日・論文C（研究草稿 v21）}
-\fancyhead[R]{\small 2026-11-10 / v21}
+\date{2026年11月10日・論文C（研究草稿 v22）}
+\fancyhead[R]{\small 2026-11-10 / v22}
 \begin{document}
 \maketitle
 \begin{abstract}
-滑らかな可換cubicのPoisson量子化とその中心三次商から得る
-残余dg圏について、標準次数シフトに対応するrotationを保持した
-可換モデルの存在を研究する。
-形式的なmarked復元、実在するsmooth proper代数的族でのétale局所実現、
-明示的な楕円Sklyanin一ブロックと一方有限中心の多ブロック比較を整理する。
-一方、Calabi--YauなZhang twistの例は任意のAS-regular中心三次商の
-rotation付き可換復元が偽であることを示す。
-一般混合項・二つ以上の無限位数ブロック・相対saturationは未解決である。
-偏極付きambient復元（論文B）からrotation付き存在は自動的に従わない。
-本研究の究極の目標は、一般次元でPoissonスキームの任意の既約成分の一般点を扱うことである。
-各成分が零Poisson構造を含むことと、次元合同類によるrotationの復元可能性を整理する。
-étale局所実現には、同値双加群の障害をrotation不変部分で消去する独立の証明を与える。
-一般混合型では可換模型の存在は未解決である。
-その方程式をrotationの低次数積から抽出する有限手順と、
-cubic threefoldの純Poisson方向の一次消滅を示す。
-分離型の既知のHessian公式を圏比較に結び付け、
-最小混合試験族の三次中心元を全パラメータの閉公式で構成する。
-候補の具体化と、残余対角のperfect性を用いる存在証明を並行して進める。
+滑らかな射影cubicを定める斉次三次式$F$と、
+多項式環の次数付き結合形式変形$A_h$、
+$F$を持ち上げる中心三次元$\Omega_h$から、可換形式三次式$W_h$を構成する。
+Kontsevich formalityで中心元を実際のPoisson Casimirへ戻し、
+勾配Koszul複体の完全性と次数を用いて、非可換Poisson項を曲率を保つgaugeで消す。
+有限arityのbar同型を任意の有限rank twisted complexへ延長し、
+全有限Artin切断および次数別完備基底上で、内部shiftと三次周期性を保つMF同値を得る。
+さらに相対特異圏と有限windowを用い、Artin底上の線束生成残余pairをMF pairと同定する。
+最小混合試験族については、可換模型の二次項
+$xyz/3-\lambda^2u^2z/12$と、低次数rotation積の全行列を求める。
+そのJacobian類は$(1/3+\lambda^3/36)[xyz]$である。
+中心元の単純な可換化と、この復元式は異なる。
+低rotation次数の積からの有限積分法、cubic threefoldの純Poisson方向の一次消滅、
+既存の楕円ブロック比較、局所smoothness判定とétale実現も保持する。
+形式的復元の存在と、非零の複素パラメータへの代数化は区別する。
+一般混合型のgeneric復元はなお未完成であり、全AS-regular中心三次商の全点へ
+rotation付き復元を拡張することにはZhang twistによる反例がある。
+本稿の新しい組合せの先行研究上の初出は未確認である。
 \end{abstract}
 \tableofcontents
 \section{序論と対象の区別}\label{sec:paperC-introduction}
-本稿では、五つ以上の次数一生成元を持つKoszul AS-regular代数
+本稿の代数的入力は、五つ以上の次数一生成元を持つKoszul AS-regular代数
 \(A_\hbar\) と三次中心正則元 \(\Omega_\hbar\) の商
-\(B_\hbar=A_\hbar/(\Omega_\hbar)\) を扱う。
+\(B_\hbar=A_\hbar/(\Omega_\hbar)\) である。
+形式的なMF復元では、より直接に、多項式環の次数付きflat形式変形と
+滑らかな古典三次式を持ち上げる中心元だけを仮定する。
 論文Bでは逆に周囲を \(B\)、中心三次商を \(A\) と書くため、
 両論文の記号を混同しない。
 本稿の対象は残余dg圏 \(\mathcal K_\hbar\) と
@@ -64,9 +66,28 @@ Torelli型定理が示す可換模型の一意性と、
 Kuznetsov成分の一次変形として消えることを、Todd補正を含めて示す。
 第\ref{em:sec:comparison}節では、Mori--SmithのHessian公式を
 分離型の可換模型へ適用し、中心元の単純な可換化が二次で異なることを示す。
-第\ref{mt:sec:family}節では、最小混合試験族の三次中心元と
-全Artin切断でのPBW性を証明し、復元先の二次項を求める入力を固定する。
-いずれも一般混合型の存在や相対smoothnessを無条件に結論するものではない。
+第\ref{mt:sec:family}節で、最小混合試験族の三次中心元と全Artin切断PBWを証明する。
+第\ref{cg:sec:comparison}節で有限curved gaugeを実際のMF同値へ延長し、
+第\ref{kj:sec:second-jet}節で混合族の二次方程式とrotation積を決定する。
+第\ref{fo:sec:formal-cubic}節では、一般の斉次中心三次形式変形に対して、
+一ブロックの仮定なしに全次数の可換MF模型を構成する。
+第\ref{am:sec:comparison}節ではArtin底上の線束生成残余pairとの比較を証明する。
+この形式的な存在結果から、非零パラメータの代数的復元や相対対角のperfect性を
+直ちには結論しない。
+
+\subsection{先行研究と本稿で直接証明する比較}
+Kontsevichのformalityと中心へのtangent mapは既知である\cite{PKontsevich}。
+C\u{a}ld\u{a}raru--Tuのgraded twisted complexとMFの比較\cite[Theorem~2.12]{CT}、
+およびTuのKoszul dualityの枠組み\cite{CGTu}を参照するが、
+本稿が必要とする非可換Artin底上の有限rank比較は、有限arityのbar同型から直接構成する。
+二次星積の係数はDito\cite{KJDito}、曲率の二輪の消滅はShoikhet\cite{KJShoikhet}に依存する。
+この二種類のgraphを区別した上で、指定された量子中心対の可換三次式を計算する。
+Artin底でのstabilizationには、Chenの有限ambient projective dimensionを持つ
+Gorenstein-projective加群に関する結果\cite{AMChen}を用い、
+exact圏とdg商からenhanced比較を構成する。
+これらの既知結果そのものを本研究の成果とは扱わない。
+一般形式三次対の復元、混合族の積表、相対windowとの組合せと同じ一般性の
+先行結果が存在しないことまでを確認したわけではない。
 
 \input{papers/reconstruction/explicit_jacobian_recovery}
 \input{papers/reconstruction/poisson_first_order}
@@ -76,6 +97,11 @@ Kuznetsov成分の一次変形として消えることを、Todd補正を含め�
 \input{papers/sections/elliptic_reconstruction}
 \input{papers/reconstruction/explicit_model_comparison}
 \input{papers/reconstruction/mixed_test_family}
+\input{papers/reconstruction/curved_gauge_comparison}
+\input{papers/reconstruction/kontsevich_second_jet}
+\input{papers/reconstruction/formal_cubic_mf_reconstruction}
+\input{papers/reconstruction/artin_residual_mf_comparison}
+\input{papers/reconstruction/artin_smoothness_obstruction}
 \input{papers/reconstruction/etale_realization}
 \input{papers/reconstruction/hochschild_obstructions}
 \input{papers/sections/all_poisson_components}

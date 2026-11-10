@@ -1,0 +1,227 @@
+% 2026-11-10 / v22
+\section{全てのArtin切断のsmoothnessから完備基底のsmoothnessは従わない}
+\label{as:sec:obstruction}
+
+本節では、有限Artin基底での生成子の持上げと、
+完備局所基底での生成性の間にある障害を明示する。
+出発点となる$\mathbb P^1$上の生成対象の変形例は、
+SashaのMathOverflow回答\cite{AMSasha}にある既知の例である。
+以下の四次元strict dg模型、および全Artin切断の相対smoothnessと
+generic fiberの非smoothnessを併記した整理の先行研究上の初出は未確認である。
+
+この例は、非可換cubicから構成した本稿の$\Gamma_R$が非smoothであることを示すものではない。
+示すのは、底上proper、滑らかな特殊ファイバー、
+全ての有限Artin切断の相対smoothnessという抽象的条件だけでは、
+完備基底上の相対smoothnessを結論できないという事実である。
+
+\subsection{生成対象がgeneric fiberで生成しなくなる族}
+
+$R=\CC[[h]]$、$K=\CC((h))$、$X=\mathbb P^1_R$とし、
+$H^0(X,\mathcal O_X(1))$の基底を$s,t$とする。
+ここで$s,t$は射影直線の一次sectionであり、
+MFの周期変数$t$とは無関係である。
+混同を避けるため、本節でのみこの記号を用いる。
+二項perfect複体
+\begin{equation}\label{as:eq:P}
+ P_h=\bigl[\mathcal O_X(-1)\xrightarrow{\,hs\,}\mathcal O_X\bigr]
+\end{equation}
+をcohomological degrees $-1,0$に置く。
+
+特殊ファイバーでは微分が零なので
+\[
+ P_0\simeq\mathcal O_{\mathbb P^1}\oplus
+                  \mathcal O_{\mathbb P^1}(-1)[1].
+\]
+これは$\operatorname{Perf}(\mathbb P^1)$の古典的生成対象である。
+一方、generic fiberでは$h$は可逆なので、
+$s$の零点$p$について
+\[
+ P_h\otimes_R K\simeq\mathcal O_p.
+\]
+$\mathcal O_p$から有限coneと直和因子によって作る対象のsupportは$p$に含まれるため、
+$\mathcal O_p$は$\operatorname{Perf}(\mathbb P^1_K)$を生成しない。
+従って$P_h$も$\operatorname{Perf}(\mathbb P^1_R)$を生成しない。
+実際、生成していれば、その有限生成操作を$K$へ底変更することで
+generic fiberでも生成してしまう。
+
+\begin{lemma}[各有限切断では生成する]\label{as:lem:artin-generation}
+$R_N=R/(h^{N+1})$とし、$P_N=P_h\otimes_RR_N$とする。
+このとき$P_N$は$\operatorname{Perf}(\mathbb P^1_{R_N})$を生成する。
+\end{lemma}
+\begin{proof}
+射影直線の相対Beilinson分解により、perfect圏の底変更と
+perfect対象間のHomの導来底変更は$R_N\to\CC$と両立する。
+従って補題\ref{am:lem:generator}のInd圏における議論を、そのまま
+$\operatorname{Perf}(\mathbb P^1_{R_N})$に適用できる。
+具体的には、$P_N$と右直交するInd対象$M$について、
+$P_N$のcompact性と底変更から
+\[
+ \operatorname{RHom}(P_0,M\otimes_{R_N}^{\mathbf L}\CC)=0
+\]
+となる。$P_0$は生成対象なので$M\otimes_{R_N}^{\mathbf L}\CC=0$である。
+$R_N$の有限$h$-filtrationにより
+$R_N\in\operatorname{thick}_{D(R_N)}(\CC)$だから、$M=0$となる。
+これで$P_N$のcompact生成性、従ってperfect圏の古典的生成性を得る。
+
+ここで用いた射影直線の有限模型は、対角の完全列
+\[
+ 0\longrightarrow\mathcal O(-1,-1)
+ \longrightarrow\mathcal O
+ \longrightarrow\mathcal O_\Delta\longrightarrow0
+\]
+から得られる。従ってこの底変更の主張は、非正則なArtin基底でも成立する。
+\end{proof}
+
+\subsection{四次元strict dg代数}
+
+\begin{proposition}[底上properな明示的dg模型]\label{as:prop:dg-model}
+$\Gamma_R=\operatorname{RHom}_X(P_h,P_h)$は、次のstrict unital dg代数で表される：
+\begin{equation}\label{as:eq:dg-algebra}
+ \Gamma_R^0=Re_-\oplus Re_+,\qquad
+ \Gamma_R^1=Rs\oplus Rt,\qquad
+ \Gamma_R^q=0\quad(q\ne0,1),
+\end{equation}
+\[
+ d(e_-)=hs,\qquad d(e_+)=-hs,\qquad d(s)=d(t)=0.
+\]
+$e_-,e_+$は互いに直交する冪等元で、単位は$e_-+e_+$である。
+$s,t$は$e_-$から$e_+$へのdegree一の射であり、
+\[
+ e_+s=s=se_-,\qquad e_+t=t=te_-,
+\]
+その他の冪等元と射の積、および二本の射同士の積は零である。
+特に$\Gamma_R$は$R$上perfectである。
+この模型の形成は各$R_N$と$K$への導来底変更と両立する。
+\end{proposition}
+\begin{proof}
+$P_h$の二つの項の間のsheaf Homは
+$\mathcal O_X(-1),\mathcal O_X,\mathcal O_X(1)$の直和である。
+これらの一次以上のcohomologyは零なので、
+大域Homの二項複体が$\operatorname{RHom}$を実際に計算する。
+degree $-1$の大域Homは$H^0(\mathcal O_X(-1))=0$であり、
+degree零は二つの項のscalar endomorphism、degree一は
+$H^0(\mathcal O_X(1))=Rs\oplus Rt$である。
+複体の微分を$D=hs$とすると、endomorphismの微分は
+$f\mapsto Df-(-1)^{|f|}fD$なので、表示した微分を得る。
+積はendomorphismの合成そのものである。
+
+この計算は有限自由$R$-加群とその積だけからなり、
+同じline bundle cohomologyの消滅は各底変更後も成立する。
+従って通常のtensorがこの模型の導来底変更を計算し、
+底変更後の$P_h$のderived endomorphismを与える。
+\end{proof}
+
+\begin{lemma}[generic fiberの外積代数模型]\label{as:lem:generic}
+$E=K[\epsilon]/(\epsilon^2)$に$|\epsilon|=1$、零微分を与える。
+このとき
+\[
+ E\longrightarrow\Gamma_R\otimes_R K,\qquad
+ 1\longmapsto e_-+e_+,\qquad \epsilon\longmapsto t
+\]
+はdg代数のquasi-isomorphismである。
+\end{lemma}
+\begin{proof}
+単位と積と微分を保つことは式\eqref{as:eq:dg-algebra}から直ちに分かる。
+$h$が可逆なので
+\[
+ H^0(\Gamma_R\otimes_R K)=K(e_-+e_+),\qquad
+ H^1(\Gamma_R\otimes_R K)=(Ks\oplus Kt)/Ks=K\cdot[t]
+\]
+であり、他のcohomologyは零である。
+従って上の写像は全てのcohomologyで同型となる。
+\end{proof}
+
+\subsection{無限derived tensorによる非smoothness}
+
+\begin{lemma}[degree一の外積代数はsmoothでない]
+\label{as:lem:exterior-not-smooth}
+前補題の$E$は$K$上properだが、homologically smoothではない。
+\end{lemma}
+\begin{proof}
+augmentation $E\to K$によって$K$を左右の$E$-加群とする。
+左$E$-加群のsemifree resolution
+\[
+ Q=\bigoplus_{n\ge0}Eu_n,\qquad |u_n|=0,\qquad
+ d(u_0)=0,\quad d(u_n)=\epsilon u_{n-1}\quad(n\ge1)
+\]
+を考える。$Q\to K$は$u_0\mapsto1$、$u_n\mapsto0$（$n\ge1$）で与える。
+$n$に関する増大filtrationはsemifree filtrationであり、
+$d^2=0$は$\epsilon^2=0$による。
+degree零のcycleは$Ku_0$だけであり、degree一の全ての元
+$\epsilon u_n$は$d(u_{n+1})$である。
+従って$Q\to K$はquasi-isomorphismである。
+
+右からaugmentation加群$K$をtensorすると
+\[
+ K\otimes_E^{\mathbf L}K
+ \simeq K\otimes_E Q
+ =\bigoplus_{n\ge0}Ku_n
+\]
+となり、右辺の微分は零で、全ての$u_n$はdegree零にある。
+従って$H^0(K\otimes_E^{\mathbf L}K)$は無限次元である。
+もし$K$が$E$上perfectなら、このderived tensorは
+有限個の$K$のshiftから有限coneと直和因子で作られ、
+有限次元の有界cohomologyを持つはずなので矛盾する。
+
+さらに、もし$E$の対角が$E^{\rm op}\otimes_KE$上perfectなら、
+その有限cell表示の一方の$E$-作用へ$-\otimes_E^{\mathbf L}K$を施すと、
+$K$の有限$E$-cell表示を得る。
+これは$K$が$K$上perfectであることを用いる。
+従ってsmoothnessは$K\in\operatorname{Perf}(E)$を含意するが、
+直前でこれを否定した。
+よって$E$はhomologically smoothでない。
+一方、$E$自体は二次元の有界$K$-複体なのでproperである。
+\end{proof}
+
+\begin{theorem}[全Artin切断ではsmoothだが完備基底ではsmoothでない族]
+\label{as:thm:obstruction}
+命題\ref{as:prop:dg-model}の$\Gamma_R$は、次の全ての性質を持つ。
+\begin{enumerate}
+ \item $\Gamma_R$は$R$上perfectなstrict dg代数である。
+ \item $\Gamma_R\otimes_R^{\mathbf L}\CC$は$\CC$上smoothである。
+ \item 各$N\ge0$に対し
+ $\Gamma_R\otimes_R^{\mathbf L}R_N$は$R_N$上smoothである。
+ \item $\Gamma_R\otimes_R K$は$K$上smoothでなく、
+ $\Gamma_R$も$R$上smoothでない。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+第一項は有限自由模型から従う。
+補題\ref{as:lem:artin-generation}により$P_N$は
+$\operatorname{Perf}(\mathbb P^1_{R_N})$の生成対象であり、
+命題\ref{as:prop:dg-model}の底変更から
+\[
+ \operatorname{Perf}(\Gamma_R\otimes_R^{\mathbf L}R_N)
+ \simeq\operatorname{Perf}(\mathbb P^1_{R_N})
+\]
+となる。
+相対射影直線の対角は前述の二項線束分解を持つので、
+このperfect圏は$R_N$上smoothである。
+smoothnessはdg Morita同値で不変だから、第二・第三項を得る。
+
+補題\ref{as:lem:generic}と
+\ref{as:lem:exterior-not-smooth}からgeneric fiberはsmoothでない。
+$\Gamma_R$が$R$上smoothなら、そのperfect対角の表示を
+flatな底変更$R\to K$へ移してgeneric fiberもsmoothとなるため、矛盾する。
+従って第四項も成立する。
+\end{proof}
+
+\begin{remark}[この反例から分かる研究上の境界]
+$R_N\in\operatorname{thick}_{D(R_N)}(\CC)$はArtin基底での生成子の持上げを支える。
+しかし$R=\CC[[h]]$は$D(R)$で$\CC$の有限coneと直和因子から作れない。
+実際、そのような対象を$K$へtensorすると零になるが、$R\otimes_RK=K\ne0$である。
+上の族では、この違いが生成性とsmoothnessの実際の破綻として現れる。
+
+従って、全Artin比較の両立性だけから、完備基底上の生成性や相対smoothnessを補ってはならない。
+可換側がsmooth properな射影族であることだけでも、変形した対象の生成性は保証されない。
+現在の非可換cubicの残余模型については、その特別なwindow・生成対象に対する追加の有限生成証明、
+または対角の具体的なperfect表示が必要である。
+本例は、その特別な主張を否定してはいない。
+
+なお本例の$R$上のcohomologyは
+$H^0(\Gamma_R)=R$、$H^1(\Gamma_R)=Rt\oplus(R/hR)s$であり、
+cohomologyの底上flatnessは満たさない。
+この例が否定する仮定の範囲を、証明していない別の仮定へ広げてはならない。
+例\ref{cg:ex:artin-singularity}はMFと絶対特異圏の区別を示すものであり、
+本節のsmoothnessの持上げ障害とは別の反例である。
+\end{remark}

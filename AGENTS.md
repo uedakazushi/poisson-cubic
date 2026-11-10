@@ -1,6 +1,6 @@
 # AGENTS.md — nc-cubicの研究継続指示
 
-**2026-11-10・v21。GitHub uedakazushi/nc-cubic の main が唯一の正本。** 最初に00_research_plan.md、次にnotes/research_notes.mdとreconstruction/README.mdを読む。旧ZIP・会話・Libraryを再開の前提にしない。
+**2026-11-10・v22。GitHub uedakazushi/nc-cubic の main が唯一の正本。** 最初に00_research_plan.md、次にnotes/research_notes.mdとreconstruction/README.mdを読む。旧ZIP・会話・Libraryを再開の前提にしない。
 
 ## 目標と優先順位
 
@@ -12,15 +12,17 @@
 
 ## 現行の証明方針
 
-**方程式抽出と圏同値の存在を並行して進める。** SMを先に完成する一本の経路に限定しない。一ブロック分離型を明示的基準例とし、三次元の本質的混合項の二次jetへ進む。非楕円fivefoldのSM・一般次元への拡張も維持する。
+**全次数の形式MF復元と全有限Artinの線束残余比較から、指定生成子のgeneric比較と代数化へ進む。** 証明本文と仮定を確認してから新しい推論を行う。
 
-- papers/reconstruction/explicit_model_comparison.tex：点曲線はf+h² det Hess(f)/24。Mori–Smithの既知公式を本稿の規約に移したもの。適切なAS-regular性・滑らかな楕円中心商・独立な中心変数追加の仮定で可換模型に使う。圏同値は既存er:thm:mainとブロック比較・生成性に依存する。行列式の恒等式だけから同値を結論しない。
-- papers/reconstruction/explicit_jacobian_recovery.tex：導来自然変換の次数一・二の積から勾配空間を抽出し、可積分線形系でcubicを求める。一般nc入力では積の対称性を先に検査する。成功は唯一の候補を与えるが、同値の存在は証明しない。ambientの二次関係やpoint schemeをこの積の代わりに入れない。
-- papers/reconstruction/poisson_first_order.tex：cubic threefoldの純bivector部分はHH²(Ku)への制限で消える。純Poisson KS類・残余への制限との両立を確認し、可換族の存在を仮定すればF_h=F+O(h²)。全次数の定数性、全奇数次消滅、一般次元、SMへ拡張しない。
+- formal_cubic_mf_reconstruction.tex：全Hochschild cochainsまで含めたformalityでπ_hと中心Casimir W_hを求める。勾配Koszulの次数論でπ_h=[Ξ_h,W_h], [Ξ_h,π_h]=0。全Artinと次数別完備底上の有限rank MF同値を得る。一ブロックは不要。代数化・generic本質全射は結論しない。
+- curved_gauge_comparison.tex：F₀=0で写像と逆写像が有限arityであるbar同型をTwへ延長する。Qのh-adic冪零性を仮定しない。flowはF_(2r+1)=O(h^r)。
+- kontsevich_second_jet.tex：混合族の可換式はF_lambda+h²(xyz/3−lambda²u²z/12)、Jacobian係数はc(lambda)=1/3+lambda³/36。低Nat積を完全な10×15行列で決定した。星積eyeと曲率wheelを区別する。半古典πだけで高次Wを決めない。
+- artin_residual_mf_comparison.tex：ambient-perfectな相対特異圏、Chen、exact dg商、finite totalization、window i=4−dで線束残余pairをMFと同定する。am:prop:Gamma-basechangeが既存Γ_RのArtin底変更を扱う。絶対D_sgへ置換しない。
+- artin_smoothness_obstruction.tex：特殊fiberと全Artinでsmoothでもgenericがnon-smoothとなるrank4のproper dg反例を保持する。既知のP¹生成子退化例に基づく。本研究のnc cubic Γの反例ではなく、cohomology-flatな模型の反例でもない。
+- mixed_test_family.tex：指定中心元の閉式、全パラメータ中心性、全Artin PBWを保持。非零hの全AS性はArtin計算だけでは従わない。
+- explicit_jacobian_recovery.tex、poisson_first_order.tex、explicit_model_comparison.texの有限積分、一次消滅、分離型Hessian比較の全証明を保持する。候補の一意性と存在、一般次数と三次元の特別な結論を区別する。
 
-次の入力はF_lambda=(x³+y³+z³)/3+u³+v³+lambda*u*x*y（滑らかさはlambda³≠−3）。papers/reconstruction/mixed_test_family.tex に三次中心元の閉式・全パラメータ中心性の自由代数証明書・全Artin切断PBWの証明がある。これは非可換側の入力の完成であり、非零hの全AS性・残余SM・カテゴリカルな積の計算ではない。h³を法としてrotationの低次数積と可換候補の二次類を求め、分離点lambda=0で[G₂]=[xyz]/3を再現する。
-
-同変復元の存在を仮定すると、対角群のcharacterから[G₂]=c(lambda)[xyz]に絞られる。Hessian候補c_H=(12+lambda³)/36は研究ノートに未検証案として置く。計算にこの値を先に組み込まず、圏から独立に求める。
+次に行う数学的課題は、完備MF同値における指定残余生成子の像、genericでの実際の生成性、有限cone/retractまたは対角の証明書を求めること。全Artinで生成することからgeneric生成性を推論しない。混合族のh³,h⁴とlambda³=−12の高次項も計算対象とする。
 
 ## 維持する存在証明の経路
 
@@ -28,7 +30,7 @@
 - notes/sm_bar_and_spreading.texの有限bar右逆判定、papers/sections/minimal_ainfty_arity.texの残余Γと線束生成子Λのsmoothness同値を使う。実際の有限perfect双加群と増大射が必要。
 - H=H⁰⊕Hⁿの最小A∞模型でm_k=0 unless k=2 mod n。fivefoldのm₇、m₁₂、二次障害を区別する。arity証明書は係数計算やSMではない。低次数復元に役立つかを確認して計算順序を選ぶ。
 - 節点・尖点二成分はpapers/sections/nonelliptic_quantization.texの全次数PBW量子化を使う。35係数sliceの検算は復元写像の計算ではない。係数方向も保つ相対量子化は全成分では未完成。
-- Artin切断のperfectness、Hom階数、Serre自己同値、周囲の対角からSMを結論しない。現行dg負例の特殊ファイバー代数はsmoothではなく、SM不成立の反例ではない。
+- Artin切断のperfectness、Hom階数、Serre自己同値、周囲の対角からSMを結論しない。旧dg加群負例の特殊fiber代数は非smoothであるが、新しいartin_smoothness_obstruction.texは特殊fiberも全Artinもsmoothな一般dg反例を与える。どちらも指定nc cubic Γの反例と同一視しない。
 
 ## 正確性と先行研究
 
@@ -37,6 +39,10 @@
 rotationの低次数sector計算と、Serre関手だけからrotationを得るgcd条件を混同しない。全次数の自然変換環をJacobian環と同一視しない。正しいHilbert級数だけでは可積分性も圏同値も従わない。
 
 中心元の可換表示と可換模型は異なる。分離Fermat例の二次項はそれぞれ−2h²xyz/3と+h²xyz/3。元のcubicが全量子化で復元されるとは主張しない。一次交換子だけで高次の復元先を決めない。
+
+## 現行版の検証状態
+
+公開コードの二次厳密計算と既存証明書の再検算はPASS。論文Cは133頁・32 inputsで組版・表示確認を行った。各原稿の組版・receipt・描画の状態はvalidation.jsonを確認する。ソースが変わった場合は共通bibliographyを使うA/B/Cのreceiptを更新し、古いPDFを現行版として提示しない。
 
 ## 保存・再現・配置
 

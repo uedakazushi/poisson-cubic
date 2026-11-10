@@ -1,144 +1,141 @@
 # 研究方針：cubicのPoisson構造・量子化・可換復元
 
-**2026年11月10日・v21。再開時は最初に本ファイルを読む。**
+**2026年11月10日・v22。再開時は最初に本ファイルを読む。**
 
-## 正本と研究の中心
+## 正本と現在の目標
 
 **GitHub uedakazushi/nc-cubic の main を唯一の正本とする。** 次に notes/research_notes.md、論文C papers/rotation_cubic_reconstruction.tex を読む。旧ZIP・会話・Libraryを再開の前提にしない。
 
-最優先は、与えられた非可換cubicから、同じKuznetsov成分とrotationを持つ滑らかな可換cubicを構成すること。**方程式の抽出と圏同値の存在を二つの作業として進める。** 一般の相対smoothnessを先に完了する一本の経路に限定せず、明示例から候補を作る経路と、smoothness・étale実現により存在を保証する経路を照合する。
+最優先の目標は、構成した非可換cubicの少なくとも幾何学的一般ファイバーについて、同じKuznetsov成分とrotationを持つ滑らかな可換cubicを構成すること。元の可換cubicへの復元を要求するのではなく、量子中心対から復元先の方程式を求める。全パラメータに一価の有理閉公式が存在するとは仮定しない。
 
-方針の理由は、一ブロック分離型に既に具体的模型があり、一般次元でもrotationの次数一・二の積が分かれば方程式抽出は有限線形計算になることである。ただし低次数積やHilbert関数の一致は圏同値を保証しない。従来のSM還元・有限bar模型・A∞計算は有効な存在証明の経路として保持する。
+現在の直接経路は、Kontsevich formalityの中心写像から可換Casimir W を取り出し、Wを曲率として保持したままPoisson項を消去する方法である。混合試験族の二次式と内部shift付きMF同値が得られ、Koszul次数論によって一般の斉次中心三次形式変形にも延びた。形式的MF復元とArtin底の射影残余模型との相対比較を証明し、非零パラメータへの代数化を次の核心として扱う。
 
-## 三つの目標と対象
+一般の代数的可換復元は未完成。SM・ER・有限bar対角による存在経路も保持する。この方針変更は、形式的な可換模型を直接構成する経路が具体化したためであり、元のgeneric復元目標を放棄するものではない。
 
-\(X^n=V(F)\subset\mathbb P^{n+1}_{\mathbb C}\)、\(n\ge3\)、\(N=n+2\) とする。周囲はN個の次数一生成元を持つ \(\mathrm{nc}\mathbb P^{n+1}\) である。
+## 三つの目標と達成条件
 
-1. **Poisson構造の構造定理。** 三変数Jacobianブロック正規形・逆構成・一般階数。論文A papers/sections/poisson_geometry.tex の thm:pg-normal に証明あり。全既約成分・交叉の完全分類は達成条件ではない。
-2. **個々のPoisson構造の代数的量子化。** 各固定 \((X,\pi)\) に対し、\(0\in U\subset\mathbb A^1_h\) 上の次数別平坦な族 \(B_h=A_h/(\Omega_h)\) を構成する。各周囲はKoszul AS-regular、\(\Omega_h\) は中心三次正則元、\(B_0=\mathbb C[z]/(F)\)。同ファイルの thm:pg-quantization に証明あり。全Poisson係数方向を保つ一様相対量子化は、これより強い未解決問題。
-3. **構成した非可換cubicの可換復元。** 所定の量子化の少なくとも幾何学的一般ファイバーで、滑らかな \(Y_h\) と
+\(X^n=V(F)\subset\mathbb P^{n+1}\)、\(n\ge3\)、\(N=n+2\) とする。周囲はN個の次数一生成元を持つ \(\mathrm{nc}\mathbb P^{n+1}\)。
+
+1. **Poisson構造の構造定理。** 三変数Jacobianブロック正規形・逆構成・一般階数。論文A papers/sections/poisson_geometry.tex の thm:pg-normal に証明あり。全既約成分と交叉の完全分類を達成条件とはしない。
+2. **各固定Poisson構造の代数的量子化。** \(0\in U\subset\mathbb A^1_h\) 上で、Koszul AS-regularな周囲 \(A_h\)、中心三次正則元 \(\Omega_h\)、次数別flatな商 \(B_h\)、\(B_0=\mathbb C[z]/(F)\) を構成する。同ファイルの thm:pg-quantization に証明あり。全Poisson係数方向を保つ一様相対量子化は、これより強い未解決問題。
+3. **構成した量子化のgeneric可換復元。** 必要な有限分離拡大・étale被覆を明示して
    \[
    (\mathcal K(B_h),\rho_{B_h})\simeq(\operatorname{Ku}(Y_h),\rho_{Y_h})
    \]
-   を構成する。必要な有限分離拡大・étale被覆を明示する。**一般混合型では未完成。** 方程式の具体的抽出を中心課題に含めるが、全パラメータに一価の有理閉公式があるとは要求しない。
+   を構成する。一般混合型で未完成。Kuだけの同値と指定rotationを保つ同値を区別する。
 
-「証明あり」は原稿に証明がある状態であり、全外部入力の独立監査・形式証明の完了ではない。任意のAS-regular中心三次商の全点復元は、Zhang twistによるrotation付き反例があるため範囲外。Kuだけの同値と、指定rotationを保つ同値を区別する。
+任意のAS-regular中心三次商の全点復元にはZhang twistによるrotation付き反例があり、この範囲には広げない。「証明あり」は本文に証明があるという状態で、全既存結果の独立監査・外部査読・形式証明の完了ではない。
 
-## 現在使える具体的結果
+## 現在の主要な到達点
 
-### 一ブロック分離型のHessian公式
+### 一般形式的MF復元
 
-三変数三次式fの対称Jacobian量子化 \([y,z]=h\,\mathrm{sym}(f_x)\) と巡回式を考える。\(K(v)w=v\times w\) とすると
+\(S=\mathbb C[z_1,\ldots,z_N]\)、\(F\in S_3\)、\(V(F)\)を滑らかとする。単位と内部次数を保つ結合形式変形 \(A_h\cong S[[h]]\) と、斉次中心三次元 \(\Omega_h\equiv F\bmod h\) を入力する。積が最初からbidifferentialであることは仮定しない。
+
+formalityと全Hochschild cochainへの包含により、形式的斉次二次Poisson tensor \(\pi_h=O(h)\) と代数同型 \(\Phi_h\) を選ぶ。周期変数を入れる前のdegree −1の中心同型から、実際の三次Casimir \(W_h\) を
 \[
-\det\left(K(v)-\frac h2\operatorname{Hess}(f)\right)
-=-3h\left(f+\frac{h^2}{24}\det\operatorname{Hess}(f)\right).
+\mathcal U^{\pi_h}(W_h)=\Phi_h(\Omega_h)
 \]
-これはMori–Smithの既知の点曲線公式を本稿の規約で表した恒等式である。新規な発見とは称しない。
+で求める。
 
-適切な三次元AS-regular性、滑らかな楕円THCRとなる中心商、独立な中心変数の三次式Pの孤立臨界点を仮定すると、既存の楕円ブロック比較と中心変数追加の定理により、良いファイバーで
+勾配Koszul複体の完全性と次数により、一意な定数係数trivector \(\Xi_h\in h\wedge^3\mathbb C^N[[h]]\) が存在し、
 \[
-Y_h=V\left(f+\frac{h^2}{24}\det\operatorname{Hess}(f)+P(u)\right)
+\pi_h=[\Xi_h,W_h],\qquad[\Xi_h,\pi_h]=0.
 \]
-を可換模型として使える。papers/reconstruction/explicit_model_comparison.tex を参照。圏同値の入力は papers/sections/elliptic_reconstruction.tex にあり、行列式の計算成功とは別である。
+後者にはJacobi恒等式が必要である。rank4・係数次数1のKoszul cycleの原像はrank5・係数次数−1となるため消える。
 
-Hesse形 \(f_t=(x^3+y^3+z^3)/3+txyz\) では
+\(\deg t=(2,-3)\) とすれば
 \[
-\theta(h,t)=\frac{t+h^2(1+t^3/4)/3}{1-h^2t^2/4},\qquad Y_h=V(f_\theta+P).
+\exp(\operatorname{ad}(\Xi_h/t))(-tW_h+\pi_h)=-tW_h.
 \]
-特にt=0で復元先の補正は \(+h^2xyz/3\)。中心元の表示を可換化した式では \(-2h^2xyz/3\) であり、差はJacobian環で非零。中心元の可換表示・PBW記号・代数のabelianizationを復元式と同一視しない。
+これを全有限Artin切断 \(R_r=\mathbb C[h]/(h^{r+1})\) で有限階数graded MFへ移す。bar写像は \(F_{2j+1}=O(h^j)\)、arity≤2r+1で、逆も有限である。内部shiftと三次周期性を保持する。一ブロック、独立中心変数、事前の残余SMを入力に加えない。
 
-### 一般次元の方程式抽出
+証明は papers/reconstruction/curved_gauge_comparison.tex と formal_cubic_mf_reconstruction.tex。固定内部次数の成分内で収束を取れば、次数別完備な \(\mathbb C[[h]]\) 上の有限rank graded MFにも同値を得る。ただし非零の複素数hへの特殊化や、任意の対象を持つgeneric MF圏への比較は別に確認する。
 
-対角双加群 \(\Delta\) とrotation双加群Pから
+### 明示的な二次公式と混合族
+
+対称関係 \([z_i,z_j]=h\,\mathrm{sym}(\pi^{ij})\)、PBW性、中心元 \(\Omega=\mathrm{sym}(F+h^2C)\) を仮定すると、h³=0で
 \[
-V=H^0\operatorname{RHom}(\Delta,P),\quad
-W=H^0\operatorname{RHom}(\Delta,P\otimes^{\mathbf L}P),\quad
-\mu:V\otimes V\to W
+W_2=F+h^2\left(C-\frac1{48}\sum_{i,k}Q_{ik}F_{ik}\right),
+\quad
+Q_{ik}=\sum_{j,l}(\partial_l\pi^{ij})(\partial_j\pi^{kl})
 \]
-を計算する。可換cubicでは \(V=J(F)_1,\ W=J(F)_2\) で、積はJacobian環の積。N≥5では次数一・二に非恒等sectorの例外はない。
+が内部shift付き可換MF模型である。一次の中心補正を含めないという仮定を明示する。この有限jetの系は、入力が全次数へ延長できることを必要としない。
 
-積の対称性・全射性と \((\dim V,\dim W)=(N,\binom N2)\) を検査し、\(K=\ker(\operatorname{Sym}^2V\to W)\) の基底を \(q_a\) とする。
+混合入力
 \[
-\sum_a A_{ia}\partial_jq_a=\sum_a A_{ja}\partial_iq_a
+F_\lambda=(x^3+y^3+z^3)/3+u^3+v^3+\lambda uxy,\qquad\lambda^3\ne-3
 \]
-というN²未知数の線形系に可逆解があり、Kに共通射影零点がなければ
+について、指定中心元は \(a=\lambda u\)、Tをxyzの六語の和として
 \[
-F_A=\frac13\sum_{i,a}x_iA_{ia}q_a
-\]
-が滑らかな候補を与える。候補は射影同型を除いて一意だが、固定座標ではscalar倍まで一意とは限らない。
-
-証明は papers/reconstruction/explicit_jacobian_recovery.tex。**検査成功は同値存在の証明ではない。** 任意の非可換表示から上記導来自然変換を有限計算で求める方法も、まだ完成していない。既知の可換入力からの検算を、非可換残余圏の計算と報告しない。
-
-### cubic threefoldの一次消滅
-
-通常のHKRの純bivector部分について
-\[
-H^0(X,\wedge^2T_X)\longrightarrow HH^2(\operatorname{Ku}(X))
-\]
-は零である。Todd補正を局所divergenceで処理し、JLLZの作用写像の単射性を適用した証明は papers/reconstruction/poisson_first_order.tex。
-
-量子化のKS類が純Poissonであり、enhanced残余への制限と両立することを確認した上で、可換模型族が存在すればmarked座標変換により \(F_h=F+h^2G_2+O(h^3)\) とできる。全次数の定数性、全奇数次消滅、一般次元、SMは結論しない。G₂は選択した量子化の高次データに依存し得るので、Poisson括弧だけの普遍不変量とはまだ呼ばない。
-
-## 優先順位と次の具体的着手
-
-### 優先1：三次元の最小混合例の二次項
-
-最初の入力を
-\[
-F_\lambda=(x^3+y^3+z^3)/3+u^3+v^3+\lambda uxy
-\]
-とする。古典cubicの滑らかさは λ³≠−3 と同値。uxyはFermatのJacobian環で非零なので、単なる一次の座標移動ではない。\(a=\lambda u\)、\(T=\sum_{\sigma\in S_3}x_{\sigma(1)}x_{\sigma(2)}x_{\sigma(3)}\) とすると、対称Jacobian関係に対する三次中心元は
-\[
-\Omega_{h,\lambda}=\frac{x^3+y^3+z^3}{3}-\frac{h^2}{9}T
+\Omega=\frac{x^3+y^3+z^3}{3}-\frac{h^2}{9}T
 +\frac a2(xy+yx)+\frac{h^2a^2}{6}z+\frac{h^4a}{18}z^2+u^3+v^3.
 \]
-中心性を全パラメータで自由代数の多項式恒等式により証明した。全Artin切断のPBW性と中心商の次数別平坦性も証明した。papers/reconstruction/mixed_test_family.tex を参照。これは非可換側の入力であり、可換復元先ではない。非零hの全AS-regular性や残余SMは、この計算からは結論しない。
+全パラメータ中心性と全Artin切断PBWは mixed_test_family.tex に証明がある。
 
-対角有限群のcharacterをχとすると、\(J(F_\lambda)_3^\chi=\mathbb C[xyz]\)、\(J(F_\lambda)_3^{\chi^2}=0\) を計算できる。従ってmarked同変復元が存在するという条件下では、最初の非自明な係数は \([G_2]=c(\lambda)[xyz]\) の一変数に絞られる。同変復元の存在やc(λ)自体を求めたわけではない。Hessian由来の未検証案は研究ノートに記載する。
+kontsevich_second_jet.tex では
+\[
+\widehat F_\lambda
+=F_\lambda+h^2\left(\frac{xyz}{3}-\frac{\lambda^2u^2z}{12}\right)\pmod{h^3}
+\]
+とのMF同値を構成した。中心元のWeyl記号は \(F-h^2H_{\rm act}/12\)、星積への対称化補正は \(+h^2H_{\rm act}/8\) なので、結果は \(H_{\rm act}/24\)。Ditoのeye項とShoikhetのtangent-wheel消滅を区別する。
 
-1. 固定した対称量子関係と三次中心元から純Poisson KS条件を確認し、残余への制限との両立を示す。
-2. 残余dg模型・rotation双加群の次数一・二の導来自然変換を、まず \(\mathbb C[h]/(h^3)\) 上で求める。分離点ではHessian式と照合する。
-3. 可積分線形系から \([G_2]\in J(F_\lambda)_3\) を求める。同変比較が確認できれば未知量はc(λ)一つであり、λ=0でc(0)=1/3を再現する。Hessian由来の候補との一致・不一致を判定する。
-4. 同値双加群の持上げ、または下記SM・ER経路で存在を証明する。三次jetの一致のみで圏同値を結論しない。
+\[
+[G_2]=\left(\frac13+\frac{\lambda^3}{36}\right)[xyz],
+\qquad
+G_2-\left(\frac13+\frac{\lambda^3}{36}\right)xyz
+=-\frac{\lambda^2z}{36}\partial_uF_\lambda.
+\]
+係数1/36は重みからの予測ではなく計算結果である。u′=u−h²λ²z/36で \(F_\lambda(x,y,z,u',v)+h^2(1/3+\lambda^3/36)xyz\) に直せる。λ³=−12では二次類が零になるが、高次の消滅は結論しない。MF pairの低rotation積は本文の10×15行列で完全に指定した。
 
-低次数の候補計算を省いて全m₇,m₁₂等の係数計算だけに集中しない。低次数Homの底変更・有限性にSMが必要な箇所では、その仮定を隠さず有限bar模型へ戻る。
+### Artin底の射影残余比較
 
-### 優先2：存在証明を同時に進める
+papers/reconstruction/artin_residual_mf_comparison.tex の am:thm:comparison と am:cor:formal-residual に証明があり、独立に点検した。d個の変数、a=d−3について、周囲でperfectな相対特異圏を介した
+\[
+\Psi=\operatorname{stab}\circ(\mathbf R\omega -)_{\ge4-d}
+\]
+が、線束生成残余圏 \(\mathcal K_B^{\rm lin}\) と有限rank graded MFを同定し、\(\Psi\rho\simeq(1)\Psi\) を与える。Homの自然な底変更・nilpotent perturbation・Ind圏での生成性を個別に示した。am:prop:Gamma-basechange は既存の正則局所模型Γ_Rの非正則Artin商への底変更を扱う。
 
-現行のétale局所実現ERは、**実在するsmooth proper dg族**とrotationが一点で幾何的pairに一致することを入力とする。幾何的KSの全射、同値双加群のrotation不変障害、HH¹消滅、actual moduliの代数性を使う。証明は papers/reconstruction/etale_realization.tex。これは非幾何的族のsmoothnessの証明ではない。
+したがって全有限Artin切断で、同じW_hにより、非可換の線束生成残余pairを可換cubicのperfect Kuznetsov成分へ復元できる。非正則底の全有界coherent圏をperfect圏と同一視しない。
 
-SM経路ではproper残余dg代数Γの実際の有限perfect対角と増大射を構成する。notes/sm_bar_and_spreading.tex の有限bar-skeletonの右逆判定を使う。線束生成子Λの相対smoothnessとSMの同値は papers/sections/minimal_ainfty_arity.tex にある。
+### 形式的smoothnessからgenericへ進めない明示的反例
 
-最小A∞模型 \(H=H^0\oplus H^n\) では \(m_k=0\) unless \(k\equiv2\bmod n\)。fivefoldではm₇,m₁₂と \(\delta m_{12}=-[m_7,m_7]/2\) を区別する。現行arity証明書は必要条件の検算であり、実際の係数・有限対角は与えない。
+papers/reconstruction/artin_smoothness_obstruction.tex の四次元free dg模型Γは、R=C[[h]]上properで、特殊fiberと全Artin切断がsmoothだが、generic fiberは非smoothである。既知のP¹上の生成子退化例を用い、genericの外積dg代数に無限Torを持つaugmentation加群を構成する。これは一般的な持上げ原理の反例であり、本研究のnc cubicに指定されたΓの反例ではない。反例のcohomologyはh-torsionを持つ。現行線束模型Λの有限自由なH⁰⊕Hⁿという追加条件下の持上げは否定していない。特殊fiberのsmoothnessと全Artin同値だけからSMを結論する経路は使わない。
 
-### 優先3：非楕円fivefold・一般成分
+### 維持する既存成果
 
-節点・尖点二成分の二パラメータ量子化は papers/sections/nonelliptic_quantization.tex に具体式・全次数PBW・周囲の有限対角がある。残余SMと低次数rotation積は未計算。本質的混合項ux²は中心線形shiftだけでは除去できず、Hessian公式を直接適用しない。
+- 分離型の点曲線 \(f+h^2\det\operatorname{Hess}(f)/24\) はMori–Smithの既知公式。適切な楕円中心商と独立中心変数Pの仮定で既存のブロック比較を使う。式の恒等式だけで圏同値を結論しない。
+- rotation次数一・二の自然変換の積から勾配空間Kを求め、可積分行列Aを解き、\(F=\sum_i x_i(Aq)_i/3\) で候補を抽出する。共通射影零点なし・可逆解が必要。候補の射影的一意性と存在を区別する。
+- cubic threefoldの純ordinary-HKR bivectorはHH²(Ku)への制限で零。pure Poisson KSと残余制限の両立を確認した上で適用する。一般次元・全次数定数性・SMには拡張しない。
+- 非楕円fivefoldの節点・尖点成分、全次数PBW、35係数slice、有限bar右逆判定、A∞arity制約、論文Bの17次元族・余次元15・核7等の有効な証明を保持する。
+- BFK sectorによりHH³のrotation不変部分は全n≥3で零。形式的障害消滅はSMそのものではない。
+- \(q_i=x_i^2+x_{i+1}x_{i+2}\)（mod5）は正しい完全交差Hilbert級数を持つが積分不能。Hilbert級数やHom階数だけで復元を判定しない。
 
-35係数可換変形sliceは verify_etale_inputs.py で検算済みだが、量子パラメータから35係数への写像ではない。各Poisson成分のgenericへの拡張には係数chartを保つ相対量子化・必要な底変更・SMまたは直接比較を確認する。rank層と既約成分を同一視しない。
+## 未解決の核心と次の着手
 
-## 保持する成果と障害
+1. **完備底・genericへの比較。** Artin残余比較は証明した。次は次数別完備MF同値が、既存Γの指定生成子を可換側の生成子へ送ることを、特殊fiberだけに頼らず示す。失敗例は artin_smoothness_obstruction.tex。実際の有限cone/retract表示、または指定生成子の像の明示的計算を優先する。Λの対象の添字・内部次数・積の向きから、対角の持上げが有限filtrationを保つかを調べる。有限rankのA∞双加群を作るだけでは有限cell性を結論しない。通常の有限自由代数へMorita帰着できる場合の十分条件と証明は研究ノートに置く。
+2. **高次の具体式。** 混合族のh³,h⁴係数について、結合積のPoisson逆像、中心tangent map、gaugeを順に計算する。二次Hessian公式の全次数への外挿はしない。λ³=−12を有用な判別点にする。
+3. **代数化とgeneric。** 完備底上の実際のgraded MF同値から、指定残余生成子・generic base change・有限型へのspreadを追う。Artinでのkのdescendabilityは \(\mathbb C[[h]]\) では使えない。可換smooth proper族でも生成子の性質は一般に開条件ではない。全有限jetの成功だけでSMを結論しない。
+4. **SM・ER経路。** 実際のproper残余dg代数Γの有限perfect対角と増大射、または有限bar-skeletonの右逆を構成する。ERには実在するsmooth proper pairを入力する。周囲の対角やSerre関手は代用にならない。
+5. **全Poisson成分。** スカラーchartと必要な有限分離・étale底変更を使い、係数方向を保つ相対量子化を確認する。rank層と既約成分を同一視しない。
 
-- 論文AはPoisson正規形・量子化、Bは17次元族・偏極付きambient復元、Cは可換模型・rotation・障害を扱う。ambient復元とKuからの可換実現を区別する。17次元族の分離型の余次元15、接写像の核7等の証明は既存原稿に保持する。
-- BFK sector計算による \(HH^3(\operatorname{Ku}(X))^\rho=0\) は全n≥3。無偏極のHH³はn=7のみ二次元。形式的障害消滅はSMではない。
-- Artin切断のperfectnessだけで実際の相対perfectnessを結論しない。現行負例の特殊ファイバー代数はsmoothではなく、今回のSMの反例ではない。
-- \(q_i=x_i^2+x_{i+1}x_{i+2}\)（添字mod5）は共通射影零点を持たずHilbert級数 \((1+t)^5\) だが、積分線形系の核は零。正しいHilbert級数と二次完全交差性はJacobian性を保証しない。この例が非可換cubicから生じるとは主張しない。
-- 中心商、Serre関手、逆rotation、\(\rho^3\simeq[2]\)、選んだ周期同型のcoherenceは別のデータ。ERは自己同値一つのpairを扱う。
-- 独立境界研究・未照合PDF原本8件はnc-cubic2、Reye研究はreyeに保全。原PDFの完全TeX照合は未了。周辺資料の全面再構築を可換復元より優先しない。
+反例 \(\mathrm{MF}(R[x],x)=0\ne D_{\rm sg}(R)\)、\(R=\mathbb C[\epsilon]/\epsilon^2\) を保持する。非正則Artin底で絶対特異圏との比較を流用しない。
 
-## 再現と証明の状態
+## 検証と再開
 
-計算・組版手順は reconstruction/README.md。新しい線形復元、Hessian恒等式、二次比較は厳密有理計算で検証する。論文Cと独立SM/ER節をそれぞれ組版し、全inputの参照・引用・ハッシュを確認する。
+新しい数学的証明は本文に記載し、独立に点検した。外部査読・Lean形式証明・包括的な新規性確認は未実施。Kontsevich、Dito、Shoikhet、Căldăraru–Tu、Tu、Chen等の一次資料と適用箇所をbibliographyに記録する。
 
-初等証明を本文に記載して内部点検したが、外部査読・Lean形式証明ではない。Lin–Zhang、Huybrechts–Rennemo、JLLZ、Calaque–Rossi–Van den Bergh、Mori–Smith、Ueda–Yoshinaga、Hwangの一次資料を参照し、既知結果の応用と具体的計算を区別する。新規性の初出が未確認なら明記する。
+二次星積・tensor・積行列の厳密検算は公開コードでPASSした。論文Cは133頁・32 TeX inputsでLuaLaTeX組版し、参照・引用・glyph・overfullの検査と表示確認を行った。既存三つの具体計算証明書、arity証明書、独立SM/ERの三証明書も再生成して照合した。計算のJSONを手で復元したものは収録しない。各原稿の正確な状態はvalidation.jsonを読む。
+
+再開時はvalidation.jsonの各原稿の状態を確認する。計算と全inputの参照・引用検査は公開コードで再実行した。既存の計算資産と証明全文はmainに保持する。独立SM/ER節とA/Bの組版は別状態として記録する。
 
 ## 研究一般の原則と保存規則
 
-1. 数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合し研究価値を最大化する。方針変更の理由・達成点・未解決点は現在有効な方針として整理し、時系列の履歴を蓄積しない。
-2. 証明済み、条件付き、未完成、予想、計算的観察を分け、仮定・依存・証明所在を示す。証明の記載、独立監査、計算実行は別状態。誤りは依存箇所も更新する。
-3. 重要な文献は一次資料で適用範囲を確認し、未確認の書誌・新規性を補作しない。外部PDFや検索結果を大量収録しない。
-4. 公表価値ある成果と証明全文を日本語LuaLaTeXで保持し、既存成果を削らず論理的に統合する。ノートは着想・計算・例・反例・障害を整理し、日誌や重複証明にしない。
-5. **研究の区切りごとに承認を求めず、方針・ノート・証明全文・コード/入力/証明書/再現手順をmainへ通常のfast-forwardで反映する。** remote変更を保持し、force push・PR・GitHub Actionsは使わない。反映後にremote refと主要blobを再取得する。
+1. 数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して研究価値を最大化する。重要な方針変更の理由・達成点・残る問題は現行方針として書き直し、時系列の履歴を蓄積しない。
+2. 証明済み、条件付き、未完成、予想、計算的観察を分け、仮定・依存・証明所在を示す。証明の記載、独立監査、計算実行を区別し、誤りが判明した場合は依存する主張と要約も更新する。
+3. 重要文献は一次資料を確認し、未確認の書誌や新規性を補作しない。外部PDF・検索結果は大量収録しない。
+4. 公表価値のある成果と証明全文を日本語LuaLaTeXで保持し、既存成果を削らず論理的に統合する。ノートは着想・例・反例・障害・必要な文献比較を整理し、作業日誌や重複証明にはしない。
+5. **研究の区切りごとに承認を求めず、方針・ノート・論文の証明全文・必要なコード/入力/証明書/再現手順をmainへ通常のfast-forwardで反映する。** remote変更を保持し、force push・無断PR・GitHub Actionsは使わない。反映後にremote refと主要blobを再取得する。
 6. **Library保存はGitHub反映が実際に失敗した場合だけの緊急避難。** 成功時には二重保存しない。退避時は未同期と復帰手順を明示し、既存Libraryファイルは明示指示なしに削除しない。
-7. 現行版の自己完結した一式を保つ。旧ZIP・履歴・ログ・キャッシュ・重複物は加えない。数学的内容・検証可能性を固定容量制限のため削らない。
-8. 日付・版・参照を揃え、生成・計算・組版・GitHub登録・遠隔確認を区別して報告する。TeXはルート.latexmkrcからLuaLaTeXでbuild/に生成し、PDFをGit追跡しない。未実行・失敗・再現上の制約は明示する。
+7. 最新一式だけで研究を再開できる構成とする。旧ZIP・旧稿・変更履歴・作業ログ・キャッシュ・バックアップ・重複物を収録しない。軽量化のために有効な数学的内容や必要な証明を削らない。
+8. 日付・版・参照を揃え、生成・計算・組版・保存・遠隔確認を別々に報告する。LuaLaTeXはルート.latexmkrcからbuild/へ生成し、PDFをGit追跡しない。未実行・失敗・再現上の制約を明示する。

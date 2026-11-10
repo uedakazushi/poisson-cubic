@@ -112,4 +112,19 @@ with tempfile.TemporaryDirectory(prefix="nc-cubic-explicit-") as td:
         assert json.loads(dest.read_text())==json.loads((ROOT/"computations"/certificate).read_text()), certificate
         print(f"PASS exact certificate: {certificate}")
 
+# This certificate is regenerated, not reconstructed by hand or stored redundantly.
+# Its matrix interpretation as a categorical product uses the manuscript proofs.
+with tempfile.TemporaryDirectory(prefix="nc-cubic-second-jet-") as td:
+    dest=Path(td)/"kontsevich_second_jet.json"
+    run=subprocess.run(
+        [sys.executable, str(ROOT/"computations/verify_kontsevich_second_jet.py"),
+         "--output", str(dest)],
+        cwd=ROOT, capture_output=True, text=True, timeout=180)
+    assert run.returncode==0, run.stdout+run.stderr
+    actual=json.loads(dest.read_text(encoding="utf-8"))
+    assert actual["jacobian_product"]["square_minor_determinant"]=="9"
+    assert actual["mixed_star_product"]["cubic_weyl_symmetrization_count"]==35
+    assert actual["mixed_star_product"]["generator_associators_checked"]==125
+    print("PASS exact Kontsevich second-jet identities (categorical proofs are separate)")
+
 print("Source/receipt and exact algebra audit complete. Categorical proofs are not formalized.")

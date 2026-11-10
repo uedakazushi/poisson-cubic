@@ -58,7 +58,7 @@ def main():
         if any(failures.values()):
             raise SystemExit("Typesetting checks failed: " + json.dumps(failures))
         receipt = {
-            "version": "v21",
+            "version": "v22",
             "source": source.relative_to(ROOT).as_posix(),
             "tex_inputs": {p.relative_to(ROOT).as_posix(): sha(p) for p in sorted(inputs)},
             "build_config_sha256": sha(ROOT / ".latexmkrc"),

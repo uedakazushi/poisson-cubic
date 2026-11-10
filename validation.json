@@ -1,8 +1,8 @@
 {
-  "version": "nc-cubic-v21",
+  "version": "nc-cubic-v22",
   "date": "2026-11-10",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only after an actual GitHub publication failure.",
-  "scope": "Explicit equations and equivalence existence for the constructed Poisson quantizations, n>=3; general mixed reconstruction remains open.",
+  "scope": "Explicit second-jet reconstruction, all-order graded MF reconstruction and all finite Artin line-generated residual pair reconstruction; generic algebraization remains open.",
   "current_entry": "00_research_plan.md",
   "proofs_written_and_reviewed": [
     {
@@ -19,69 +19,140 @@
     },
     {
       "source": "papers/reconstruction/mixed_test_family.tex",
-      "content": "Universal polynomial central cubic; smooth classical fiber iff lambda^3 != -3; PBW and central-quotient flatness at every Artin truncation; character eigenspaces. Restriction G2=c(lambda)[xyz] assumes marked equivariant reconstruction."
+      "content": "Universal central cubic and all Artin PBW; smooth iff lambda^3 != -3; character calculations. The second coefficient and residual comparison are now determined in the separate new sections."
+    },
+    {
+      "source": "papers/reconstruction/curved_gauge_comparison.tex",
+      "content": "Finite bounded-arity curved bar isomorphisms and inverses extend to arbitrary finite-rank twisted matrices; strict units, internal shift, periodicity and all Artin flow bounds are checked."
+    },
+    {
+      "source": "papers/reconstruction/kontsevich_second_jet.tex",
+      "content": "Dito second-order star product, Weyl symmetrization, distinct Shoikhet tangent-wheel vanishing, specified center image F+h^2 H_active/24, MF equivalence and low rotation multiplication. c(lambda)=1/3+lambda^3/36."
+    },
+    {
+      "source": "papers/reconstruction/formal_cubic_mf_reconstruction.tex",
+      "content": "Full Hochschild formality including normalized units and weight components, actual inverse center map, constant trivector from the regular gradient Koszul complex, all Artin and degreewise-complete finite-rank MF pair equivalence. No single-block assumption."
+    },
+    {
+      "source": "papers/reconstruction/artin_residual_mf_comparison.tex",
+      "content": "Ambient-perfect relative singularity quotient; enhanced stabilization via exact dg quotients and finite totalization; Artin line-bundle and MF Hom base change; Ind-category generator lifting; finite window and rotation; Gamma_R Artin comparison; perfect commutative residual pair reconstruction."
+    },
+    {
+      "source": "papers/reconstruction/artin_smoothness_obstruction.tex",
+      "content": "Known P1 degeneration of a generator, explicit rank-four proper dg family, smooth special fiber and all Artin cuts but nonsmooth generic fiber; infinite derived-tensor proof. This does not disprove the specified cubic Gamma or a cohomology-flat variant."
+    },
+    {
+      "source": "notes/research_notes.md",
+      "content": "Elementary sufficient condition: a finite free ordinary algebra over C[[h]] with smooth special fiber is relatively smooth, by idempotent lifting and R-split kernels. This does not establish smoothness for the current positive-cohomology A-infinity model."
     }
   ],
   "retained_without_full_reaudit": [
-    "Full proofs of papers A and B.",
-    "Existing elliptic block equivalence, suspension/generation comparison, and earlier formal reconstruction.",
-    "Existing relative SM/ER and minimal A-infinity arguments; shared input compiled and exact ancillary certificates rerun."
+    "Full mathematical proofs of papers A and B; shared bibliography and build checks updated. Paper B also receives a missing CC macro alias, corrected external source link, two layout fixes, current date, and a scope sentence distinguishing Artin comparison from generic reconstruction.",
+    "Existing elliptic block, suspension, generation and earlier formal arguments; no claim to a full independent reaudit of all retained sections.",
+    "Existing SM/ER and minimal A-infinity proofs retained; specified exact certificates rerun."
   ],
   "primary_references_checked": [
     "Mori-Smith, arXiv:1502.07403v2, Lemma 7.1 and Theorem 7.2, pp.23-25.",
     "Lin-Zhang, arXiv:2310.09927v2, Theorem 3.5, Remark 3.6 and Section 5; distinguish Proposition 3.7 coprimality restriction.",
     "Jacovskis-Lin-Liu-Zhang, arXiv:2203.08187v3, Theorems 3.11 and 4.4(2).",
     "Calaque-Rossi-Van den Bergh, Annals 176 (2012), Theorem 1.4.",
-    "Ueda-Yoshinaga, Hokkaido Math. J. 38 (2009), Lemma 3; Hwang, JMSJ 78 (2026), Theorems 1.5-1.6."
+    "Ueda-Yoshinaga, Hokkaido Math. J. 38 (2009), Lemma 3; Hwang, JMSJ 78 (2026), Theorems 1.5-1.6.",
+    "Kontsevich, q-alg/9709040, Sections 4.4-4.6, 6.4, 8.2 and 8.3.3.1; LMP66 (2003),157-216.",
+    "Dito, math/9905080, Eq.(3), printed p.5; bivector rescaled by 1/2.",
+    "Shoikhet, math/0007080, Section1.3, zero inward tangent-wheel weight W2; distinct from the star-product eye.",
+    "Caldararu-Tu, NYJM19 (2013),305-342, Theorem2.12; Tu, Compositio150 (2014),1549-1578, arXiv1009.4151 Sections2.2,6.1.",
+    "Chen, arXiv2402.11613v3, Theorems2.10,7.2 and Corollary2.11; dg enhancement is constructed in this manuscript.",
+    "Sasha, MathOverflow question256391, answer of2016-12-05; Stacks Project Tags0BQT,09M1.",
+    "Arinkin-Caldararu, arXiv1007.1671v2, coefficient self-intersection obstruction; retained as a research-note warning."
   ],
   "not_established": [
-    "Actual derived V,W and multiplication for the mixed or nonelliptic nc residual category.",
-    "The mixed reconstruction coefficient c(lambda). The Hessian value (12+lambda^3)/36 is an unverified working hypothesis in notes only.",
-    "Existence or equivariance of the mixed reconstruction.",
-    "Relative residual diagonal perfectness (SM), actual general mixed equivalence, or all-component uniform quantum input.",
-    "All nonzero-h AS-regularity or global algebraic flatness of the new mixed input solely from its Artin PBW argument.",
+    "Generic algebraic reconstruction for general mixed quantizations, convergence or algebraization of W_h and of the equivalence.",
+    "Generation by the specified residual object after complete-base comparison or generic localization.",
+    "Residual relative diagonal perfectness SM for the specified general mixed/nonelliptic cubic model.",
+    "A general special-to-generic smoothness theorem under the additional cohomology-flat minimal A-infinity hypotheses.",
+    "Closed higher mixed coefficients h^3,h^4 and full algebraic equations; no all-order constancy at lambda^3=-12.",
+    "Uniform relative quantization retaining all Poisson coefficient directions, all-point reconstruction, or unique global descent.",
+    "All nonzero-h AS-regularity and global algebraic flatness of the mixed presentation solely from its Artin PBW proof.",
     "External referee approval, Lean verification, or comprehensive novelty determination."
   ],
   "executed_exact_checks": [
-    "computations/verify_explicit_jacobian_recovery.py: rational linear algebra, exact gradients and common-zero tests; nonintegrable example rank25 with minor15872.",
-    "computations/verify_explicit_model_comparison.py: general ten-coefficient Hessian determinant, Hesse specialization and second-order Jacobian discrepancy.",
-    "computations/verify_mixed_test_family.py: three polynomial free-algebra identities over QQ[h,a], overlap, finite jets and negative control; independently rerun.",
-    "computations/verify_minimal_ainfty_arity.py: combinatorial arity and index-pattern certificate only.",
-    "reconstruction/scripts/verify.py: existing nonelliptic quantum-input, tangent-slice and Hochschild-sector certificates."
+    "Published reconstructed computations/verify_kontsevich_second_jet.py independently executed: universal Q=-2adj(H), contraction=-6det(H), mixed Poisson/Casimir, 3 commutators, 35 cubic symmetrizations, 125 generator associators, specified center image, 5x15 gradient and 10x15 product, minor9, Euler and c(lambda) identity.",
+    "scripts/verify_bundle.py --require-pdfs: all A/B/C source/PDF receipts, source closures, distinct labels and bibliography keys, resolved references/citations; existing exact Jacobian, Hessian-model, mixed-center and arity certificates regenerated and matched; new second-jet certificate regenerated in a temporary directory. Exit 0.",
+    "reconstruction/scripts/verify.py: independent SM/ER source closure, source/PDF receipt and three exact nonelliptic/tangent/sector certificates passed."
   ],
   "typesetting": {
     "C": {
       "source": "papers/rotation_cubic_reconstruction.tex",
-      "pages": 104,
-      "tex_inputs": 24,
+      "pages": 133,
+      "tex_inputs": 32,
+      "source_pdf_receipt_verified": true,
+      "build_completed": true,
+      "failures": {
+        "undefined_references": false,
+        "undefined_citations": false,
+        "missing_glyphs": false,
+        "overfull_boxes": false
+      },
+      "pdf_sha256": "a8b4ae648f46f6291ea01e66f2d60d72dc2dc6e11c9cd67d8e5facfc97229e50"
+    },
+    "A": {
+      "source": "papers/poisson_cubic_quantization.tex",
+      "pages": 46,
+      "tex_inputs": 19,
+      "build_completed": true,
       "source_pdf_receipt_verified": true,
       "failures": {
         "undefined_references": false,
         "undefined_citations": false,
         "missing_glyphs": false,
         "overfull_boxes": false
-      }
+      },
+      "pdf_sha256": "98f9f53fe2103ef92ce412bcce6c1402f4f989ad0195fbcf4709cd29e35b886e"
+    },
+    "B": {
+      "source": "papers/generic17_ambient_recovery.tex",
+      "pages": 18,
+      "tex_inputs": 2,
+      "build_completed": true,
+      "source_pdf_receipt_verified": true,
+      "failures": {
+        "undefined_references": false,
+        "undefined_citations": false,
+        "missing_glyphs": false,
+        "overfull_boxes": false
+      },
+      "nonfatal_warnings": [
+        "Math font size substitution 4.5pt to 5pt.",
+        "Math tokens omitted in PDF bookmarks; body text and equations render correctly."
+      ],
+      "pdf_sha256": "0b9dcc86770bc6bc3c020e5f35ec2100cac271353b1fdea87642fcd0e5d8aa5b"
     },
     "standalone_SM_ER": {
       "source": "papers/reconstruction/rotation_saturation_reduction.tex",
       "pages": 15,
       "tex_inputs": 4,
       "source_pdf_receipt_verified": true,
+      "build_completed": true,
       "failures": {
         "undefined_references": false,
         "undefined_citations": false,
         "missing_glyphs": false,
         "overfull_boxes": false
-      }
+      },
+      "pdf_sha256": "e0e482cde806ea74fe2f2b672d997aee7691c44910eed4e7b24c00636dd16eb6"
     },
-    "A_B": "Source closures and references checked; PDFs not rebuilt in this session.",
-    "visual_review": "All pages rendered to contact sheets; new proof pages and selected standalone pages inspected at reading size. No clipping, overlaps or blank-page defects found.",
+    "visual_review": {
+      "C": "All 133 pages rendered and inspected in six contact sheets; pages89,93,101 also inspected at reading size; no clipping, overlaps, glyph loss or blank-page defects observed.",
+      "A_B": "All A46 pages and B18 pages inspected in contact sheets; corrected B pages11-12 also inspected at reading size. No clipping, overlaps, glyph loss or unintended blank pages observed.",
+      "standalone_SM_ER": "All 15 pages inspected in a contact sheet; no clipping, overlaps or unintended blank pages observed."
+    },
     "reproduction": "README.md and reconstruction/README.md; generated PDFs, receipts, caches and logs are ignored by Git.",
-    "engine": "This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)"
+    "engine": "LuaHBTeX1.18.0 (TeX Live2025/dev/Debian), LuaTeX-ja and standard math packages."
   },
   "environment": {
     "python": "3.12.14",
-    "sympy": "1.14.0"
+    "sympy": "1.14.0",
+    "note": "Current published code and source/PDF receipts were executed and checked. A user-level LuaLaTeX configuration reuses installed package assets. PDF byte identity across different TeX engine/package versions is not guaranteed."
   },
-  "persistence": "This file records local source, computation and typesetting validation. Remote ref and blobs are verified separately after publication."
+  "persistence": "This file records current mathematical, code and typesetting verification. Remote ref, full tree and changed blobs are checked separately after publication."
 }

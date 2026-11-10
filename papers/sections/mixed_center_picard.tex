@@ -2,7 +2,7 @@
 \label{sec:mixed-quantum-center}
 分離型を越える量子化では中心変数一次の補正が最初の課題となる。
 以下の中心元表示はEtingof--Ginzburg \cite[\S9]{EG} のRains型計算および
-本研究の既存の技術稿 \texttt{pdf/ambient/central\_pair\_formal\_moduli.pdf}
+本研究の\href{https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pdf-only/ambient/central_pair_formal_moduli.pdf}{既存の中心三次対技術稿}
 第14節にある結果のFermat規格化であり、新しい中心公式とは主張しない。
 今回の独立計算は有限体の次数四イデアル所属検査である。
 
@@ -64,11 +64,13 @@ $Q,R'\in Z(S_h)_2=0$。従って$\Delta=0$。
 \begin{remark}[一次混合6方向の明示的持上げ]
 \eqref{eq:full-mixed-center}を$(u,v)^2=0$に制限すると
 \[
+\begin{aligned}
  \Omega_h^{(1)}
- =\frac{x^3+y^3+z^3}{3}-\frac{h^2}{9}T
- +A\left(\operatorname{sym}(xy)+\frac{h^4}{18}z^2\right)
- +B\left(\operatorname{sym}(yz)+\frac{h^4}{18}x^2\right)
+ ={}&\frac{x^3+y^3+z^3}{3}-\frac{h^2}{9}T
+ +A\left(\operatorname{sym}(xy)+\frac{h^4}{18}z^2\right)\\
+ &+B\left(\operatorname{sym}(yz)+\frac{h^4}{18}x^2\right)
  +C\left(\operatorname{sym}(zx)+\frac{h^4}{18}y^2\right).
+\end{aligned}
 \]
 これが全ての一次混合6方向の持上げの表示である。
 命題\ref{prop:mixed-center-jet-unique}の一意性自体は、
@@ -109,5 +111,7 @@ $t\mapsto t^n$型で、その源も$\mathbb G_m$である。
 非零スカラーを楕円Picardの非自明な点へ送る大域有理模型は存在しない。
 しかし量子化後に別の可換cubic $Y$や平面が動く比較、
 分岐被覆を介した多価対応、形式局所同値の不存在は結論しない。
-一般のrotation付き可換復元に必要な相対Orlov比較は未構成である。
+一般の非零パラメータでのrotation付き可換復元に必要な比較は未完成である。
+有限Artin底での線束生成残余pairと相対MFの比較は、
+論文CのArtin残余比較の節で扱う。
 \end{remark}

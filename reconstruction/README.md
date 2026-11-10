@@ -1,6 +1,6 @@
 # 可換復元：局所rotation・saturation・étale実現
 
-**2026-11-10・v21。研究全体の正本はGitHub main。最初にルートの00_research_plan.mdを読む。**
+**2026-11-10・v22。研究全体の正本はGitHub main。最初にルートの00_research_plan.mdを読む。**
 
 このディレクトリは論文Cの現行証明を独立組版する入口であり、第四の主論文ではない。旧bundleやLibraryを取得せず再開できる。既存の局所rotation・Serre関手・full coherent比較・spreadの全証明を保持した。
 
@@ -29,7 +29,7 @@ PDFは `build/rotation_saturation_reduction.pdf` に生成される。buildは�
 
 中心検算はQ(r,u)上のDiamond重なりと中心交換子を、変形slice検算は整数・有理数上の84×49行列と35次元補空間を扱う。BFK sector整数検算は既知の公式から導かれた次数・次元・非自明固有値の算術を検証する。これらを圏同値や残余smoothnessの計算機形式化と呼ばない。
 
-親三論文全体の再組版は別の検証であり、今回の独立組版成功から推論しない。生成・検証・GitHub登録・遠隔確認の実際の状態を区別する。Libraryはpush実失敗時だけの緊急避難である。
+親三論文全体の組版は独立SM/ER入口とは別の検証である。v22の組版の実際の状態はルートvalidation.jsonを参照する。生成・検証・GitHub登録・遠隔確認の実際の状態を区別する。Libraryはpush実失敗時だけの緊急避難である。
 
 ## パス移動後の実行方法
 
@@ -46,13 +46,14 @@ SMの有限bar対角・generic spreadingの証明は `notes/sm_bar_and_spreading
 
 ## 具体的な方程式の抽出と二次比較（親論文C）
 
-親Cは papers/reconstruction/explicit_jacobian_recovery.tex、poisson_first_order.tex、explicit_model_comparison.tex、mixed_test_family.tex を読み、低次数rotation積からの有限積分、三次元の一次消滅、Mori–SmithのHessian式と分離型の二次比較、最小混合族の三次中心元と全Artin切断PBWを扱う。これらはSM/ERの独立入口とは別のinput閉包に属する。
+親Cは従来の有限積分・一次消滅・分離型Hessian式・混合中心とPBWに加え、curved_gauge_comparison.tex、kontsevich_second_jet.tex、formal_cubic_mf_reconstruction.tex、artin_residual_mf_comparison.tex、artin_smoothness_obstruction.texを読む。全次数の形式MF復元、全Artinの線束残余比較、混合二次係数1/3+lambda³/36、低rotation積、およびgenericへの移行を妨げる一般dg反例を記載する。これらはSM/ERの独立入口とは別のinput閉包に属する。
 
 ```sh
 python3 computations/verify_explicit_jacobian_recovery.py --output /tmp/nc-cubic-jacobian.json
 python3 computations/verify_explicit_model_comparison.py --output /tmp/nc-cubic-explicit-model.json
 python3 computations/verify_mixed_test_family.py --output /tmp/nc-cubic-mixed.json
-python3 scripts/build.py --only rotation_cubic_reconstruction
+python3 computations/verify_kontsevich_second_jet.py --output build/kontsevich_second_jet_certificate.json
+python3 scripts/build.py
 python3 scripts/verify_bundle.py
 ```
 
@@ -60,4 +61,9 @@ python3 scripts/verify_bundle.py
 
 混合族の証明書は `python3 computations/verify_mixed_test_family.py` で再生成できる。自由代数の三つの多項式恒等式を有理数演算で検算し、中心性を全パラメータで証明する。有限h-jetによる独立検算と、非零hのAS性・圏同値とは区別する。
 
-主論文のbuildはbuild/<paper>.receipt.jsonへ全inputのハッシュ、PDFハッシュ、エンジン、組版警告を記録する。verify_bundleはreceiptがある原稿についてsource/PDF対応を検査し、三つの新しい計算証明書も再生成して照合する。A/Bを再組版しない場合は、そのPDFが現行だと報告しない。
+主論文のbuildはbuild/<paper>.receipt.jsonへ全inputのハッシュ、PDFハッシュ、エンジン、組版警告を記録する。verify_bundleはreceiptがある原稿についてsource/PDF対応を検査し、既存三つの具体計算証明書を再生成して照合する。二次Kontsevich計算は一時JSONへ再生成して恒等式・行列を検算し、未確認のJSONを手で復元したものとは照合しない。A/Bを再組版しない場合は、そのPDFが現行だと報告しない。
+
+
+## v22の検証と再開
+
+公開コードの二次検算はPASSした。論文Cは133頁で組版・表示確認を行い、独立SM/ERも組版・receipt・検算がPASSした。各原稿の詳細はルートvalidation.jsonを参照する。共通bibliographyも更新したため、古いA/B/Cのreceiptが残る環境では三論文を再組版してからverify_bundleを実行する。コードはgraph積分、formality、圏同値を形式証明するものではない。詳しい状態はルートvalidation.jsonを読む。

@@ -147,7 +147,7 @@ Artin切断の計算だけから結論していない。
 従って中心三次商も次数別に平坦で、Hilbert級数は
 $(1-t^3)/(1-t)^5$である。
 
-\subsection{二次jetと、復元先に残る計算}
+\subsection{二次jetと基底表示の区別}
 
 sorted PBW表示に直すと\eqref{mt:eq:center}は
 \begin{align}\label{mt:eq:second-jet}
@@ -271,11 +271,12 @@ $z\mapsto z-hc u$という同変な座標変換で取り除ける。
 この区別を保ったうえで、残余圏の計算が求める二次変形類を
 一つの係数$c(\lambda)$に絞れる。
 
-次に必要なのは、$B_{h,\lambda}=A_{h,\lambda}/(\Omega_{h,\lambda})$の
-残余dg圏からrotation付きの乗法を計算し、可換模型の
-$G_2\in J(F_\lambda)_3$を取り出すことである。
-本節の中心式の$h^2$係数を$G_2$と同一視しない。
-残余圏のsmoothness、実際の圏同値、一般混合型の可換復元は本節では証明していない。
+第\ref{kj:sec:second-jet}節では星積・指定中心元・曲率を照合し、
+$G_2=xyz/3-\lambda^2u^2z/12$、$c(\lambda)=1/3+\lambda^3/36$を実際に求める。
+同節の積表はMF比較によって得られ、
+第\ref{am:sec:comparison}節の相対windowにより線束生成残余pairにも移る。
+本節の中心式の$h^2$係数をそのまま$G_2$と同一視するものではない。
+一般の非零パラメータへの代数化と残余対角のperfect性は、別の未解決問題である。
 
 証明書の再現は
 \texttt{python3 computations/verify\_mixed\_test\_family.py}

@@ -1,41 +1,85 @@
 # 研究ノート：可換復元の現在有効な知識と障害
 
-**2026年11月10日・v21。GitHub mainだけを正本とする。** 具体的復元・一次消滅の証明は論文Cの現行inputに、局所rotation・SM・ERの詳細は `notes/reconstruction.md` と対応原稿に置く。
+**2026年11月10日・v22。GitHub mainだけを正本とする。** 最初に00_research_plan.mdを読む。証明全文は論文Cの現行input、局所rotation・SM・ERの詳細はnotes/reconstruction.mdと対応原稿に置く。
 
-## 三目標の区別と現状
+## 目標と到達範囲
 
-構造定理 `thm:pg-normal` と個々のPoisson構造の代数的量子化 `thm:pg-quantization` は、論文A（`papers/sections/poisson_geometry.tex`）に証明が記載されている。後者は \(X^n\subset\mathbb P^{n+1}\) の各固定Poisson構造について、\(0\in U\subset\mathbb A^1_\hbar\) 上のKoszul AS-regular代数と中心三次商を与える定理であり、Poisson係数空間を同時に動かす一様族の存在定理ではない。新規性の網羅的監査と全外部入力の再証明は未実施。
+Poisson構造定理 thm:pg-normal と個々のPoisson構造の代数的量子化 thm:pg-quantization は論文Aに証明がある。各固定構造の量子化と、全Poisson係数方向を保つ一様相対量子化を区別する。一般の代数的generic可換復元は未完成。新規性の網羅的確認と全既存証明の独立再監査は完了していない。
 
-三番目の目標は、こうして構成した非可換cubicのgenericファイバーをrotation付きの可換cubic Kuznetsov成分として実現すること。任意のAS-regular中心三次商全体の全点についての復元は要求しない。各成分のgeneric点への一様相対化は強化課題であり、個別量子化定理の欠落と混同しない。
+現在は、一般の斉次中心三次形式変形について可換MF模型を構成し、全有限Artin切断で線束生成残余pairに移すところまで証明した。非零パラメータへの代数化、完備底からgenericへの生成性、実際の残余対角perfect性は別に残る。任意のAS-regular中心三次商の全点復元にはrotation付き反例がある。
 
-## 具体的な方程式を得るための現在の知識
+## 一般形式復元の機構
 
-方程式抽出と圏同値存在を並行して進める。分離型に既に閉公式があるため、一般のSMを先に完成する経路だけに研究を限定しない。次の入力は三次元の本質的混合項lambda*u*x*yであり、分離点との二次比較を基準とする。
+証明は papers/reconstruction/formal_cubic_mf_reconstruction.tex。S=C[z₁,…,z_d]、滑らかな射影三次式F、多項式環の単位・内部次数を保つ結合形式変形A_h、斉次中心三次元Ω_hを入力する。
 
-- **分離型の閉式。** 対称Jacobian量子化の多重線形化はM(v)=K(v)−h HessMatrix(f)/2。Mori–Smithの既知恒等式 det M=−3h(f+h² det HessMatrix(f)/24) を、本稿の量子化規約で初等的に証明した。滑らかな楕円中心商と独立な中心変数Pの仮定で、既存ブロック比較が可換模型 f+h²Hess(f)/24+P を与える。証明は papers/reconstruction/explicit_model_comparison.tex。
-- **単純可換化の失敗。** Hesse型では復元先の二次類は +(1+t³)[xyz]/3、中心元の可換表示は −2(1+t³)[xyz]/3。差は非零。literal abelianizationはさらにactive三変数を冪零にし、Proj次元を3落とす。元のcubicへの全次数の同値を期待する根拠にはならない。
-- **有限抽出。** V=Hom_dg(Id,rho)、W=Hom_dg(Id,rho²) の積が対称・全射で正しい次元を持つとき、K=ker(Sym²V→W)を求める。Kの基底qに対する可積分行列Aの線形系、det A≠0、共通射影零点なしを検査し、F=Σx_i(Aq)_i/3で積分する。滑らかな解は射影同型を除いて一意。Fermatでは積分解空間がN次元なのでscalar倍までの一意性は偽。証明は papers/reconstruction/explicit_jacobian_recovery.tex。
-- **数値条件では不足。** mod5でq_i=x_i²+x_(i+1)x_(i+2)とすると共通零点は原点だけ、Hilbert級数は(1+t)^5だが、可積分線形系はrank25で核零。25次小行列式15872が証明書にある。この例がnc cubicから生じるとは主張しない。
-- **三次元の一次消滅。** 純bivectorの通常HKR類はHH²(Ku)への制限で零。局所divergenceによりpi♯c1(K)=0を示してTodd補正を消し、JLLZのHochschild作用の単射性を適用する。pure Poisson KSと残余への制限の両立を確認し、可換族の存在を仮定すればF_h=F+O(h²)。証明は papers/reconstruction/poisson_first_order.tex。高次定数性・一般次元・SMは結論しない。
-- **最小混合族の入力。** F_lambda=(x³+y³+z³)/3+u³+v³+lambda*u*x*yはlambda³≠−3で滑らか。papers/reconstruction/mixed_test_family.tex に三次中心元の閉式と、全パラメータ中心性を与える自由代数の3恒等式を全文記載した。全Artin切断でのmonic PBWと中心商の次数別flatnessも証明した。h²(lambda*u)²z/6を落とすと中心性が壊れる負例、sorted表示に現れる一次項と復元先の一次類を区別する注意も同節にある。非零hの全AS性、残余SM、rotation積、復元G₂はこの計算では得られていない。
+1. T_poly→D_poly→全normalized Hochschild cochains のformalityを使い、A_hを形式的斉次二次Poisson tensor π_hの星積へ移す。既存の積がbidifferentialであるとは仮定しない。
+2. 周期変数を導入する前に、degree −1の中心同型から実際の三次Casimir W_h を求める。このdegreeには境界が入らないので、中心のcohomology classだけの同定ではない。
+3. 全偏微分のKoszul完全性により、π_h=[Ξ_h,W_h]となる一意の定数係数trivector Ξ_h を求める。Jacobi恒等式により[Ξ_h,π_h]はrank4・係数次数1のKoszul cycleとなり、その原像の係数次数が−1になるので零である。分解可能なΞや一ブロック性は不要。
+4. deg t=(2,−3)で exp(ad(Ξ_h/t))(−tW_h+π_h)=−tW_h。curved gaugeのTaylor arityは1と3、flowはF_(2r+1)=O(h^r)。有限Artinでは有限和、次数別完備底では各固定成分内で収束する。
+5. 有限rank twisting行列Qがhの倍数でなくても、対象・射への挿入和と逆写像が定義される。証明は curved_gauge_comparison.tex。これが(1)と(3)=[2]を保つ実際のMF同値を与える。
 
-これらの復元原理は既知のJacobian・symmetrizer理論を利用し、Hessian公式も既知である。具体的比較・検査器・一次消滅の帰結としての初出は未確認。計算コードは既知の可換多項式と二次関係を入力し、まだ一般nc残余圏のV,W,積を算出していない。二次の復元係数は、半古典Poisson括弧だけでなく選択した量子化の高次データに依存し得る。
+pure π_h=hπとcanonical中心U^(hπ)(F)を選んだ対は元のFへ戻る。しかし与えられた対称関係の代数と指定中心元については、π_h自体にも高次補正があり得る。半古典πだけで高次W_hを決めない。有限jetの代数同定はその後のformality持上げで保てる。
 
-### 混合族の二次係数：確定した方向と未検証の値
+## 明示的二次式と混合族の積
 
-三乗根の対角作用 `(x,y,u,z,v) -> (alpha*x,beta*y,gamma*u,delta*z,epsilon*v)`、alpha*beta*gamma=1、chi=alpha*beta*delta、h->chi*hは量子族を保つ。三次Jacobian環のchi固有空間はC[xyz]、chi²固有空間は零。証明は papers/reconstruction/mixed_test_family.tex。従ってmarked同変復元の存在を仮定すれば、二次類は[G₂]=c(lambda)[xyz]である。これはc(lambda)の値や同変復元の存在を決定していない。
-
-lambdaも動かす場合、全mu₃⁵についてkappa=alpha*beta*gamma、lambda->kappa⁻¹lambdaとすれば量子族全体が同変になる。この作用まで復元が両立する場合にはc(zeta*lambda)=c(lambda)であり、lambda=0の周りの形式的係数はC[[lambda³]]に入る。既知のc(0)=1/3を合わせると、最初の未知混合補正はlambda³h²の係数に現れる。これは同変性を仮定した重みの帰結であり、係数の計算ではない。
-
-**未検証の作業仮説。** active三変数のHessian行列式は
+対称二次関係 [z_i,z_j]=h sym(π^{ij}) とPBW性、中心元Ω=sym(F+h²C)を仮定した二次jetの公式は
 \[
-H_{\rm act}=8xyz-2\lambda^2u^2z.
+W_2=F+h^2\left(C-\frac1{48}Q_{ik}F_{ik}\right),
+\qquad Q_{ik}=(\partial_l\pi^{ij})(\partial_j\pi^{kl}).
 \]
-構成した中心元の対称表示を可換にしたとき、h²係数は正確に−H_act/12となる。分離型との類推から、可換復元先に対してH_act/24という候補が自然に浮かぶ。Jacobian関係3u²+lambda*xy=0を用いると、候補類は
+全次数への延長を仮定しない有限jetの系である。一次の中心補正を含めないという入力条件がある。
+
+混合族は
 \[
-[G_2^{\rm Hess}]=\frac{12+\lambda^3}{36}[xyz].
+F_\lambda=(x^3+y^3+z^3)/3+u^3+v^3+\lambda uxy,\quad\lambda^3\ne-3.
 \]
-これはlambda=0の既知値1/3と一致するが、一般lambdaでは圏データからの検証を一切行っていない。中心元の係数から復元係数を推定する推論を証明として使わない。次の計算ではこの式を結論として組み込まず、rotation積から独立にc(lambda)を求めて比較する。特にlambda³=−12でも古典cubicは滑らかであり、この候補が二次で零になる点は有用な判別試験になる。
+mixed_test_family.texの指定中心元・全Artin PBWを使うと、kontsevich_second_jet.texにより
+\[
+\widehat F_\lambda=F_\lambda+h^2\left(xyz/3-\lambda^2u^2z/12\right)
+\quad\bmod h^3
+\]
+との内部shift付きMF同値が得られる。Artin相対比較を合成すると線束生成残余pairにも適用できる。
+
+active Hessian H_act=8xyz−2λ²u²z、Q=−2 adj(Hessian)である。中心のWeyl記号はF−h²H_act/12だが、星積対称化はT(F)=F+h²H_act/8なので、実際の曲率はF+h²H_act/24となる。Ditoの星積eye項は非零、Shoikhetのboundaryのないtangent-wheel W₂は零であり、同じgraphとして扱わない。
+
+\[
+[G_2]=c(\lambda)[xyz],\quad c(\lambda)=1/3+\lambda^3/36,
+\qquad G_2-c(\lambda)xyz=-\lambda^2z\,\partial_uF_\lambda/36.
+\]
+u′=u−h²λ²z/36で座標正規化できる。λ³=−12はsmoothだが二次変形類が零となる点であり、高次項を判別する入力になる。高次消滅は主張しない。u=0への単純な制限では、中心平面自体を動かすこの座標補正を捉えられない。
+
+MFのR-linearなNat(Id,(1))は自由rank5、Nat(Id,(2))はrank10。相対対角Koszul/sector計算により後者はJ(\widehat F)_2で、全文の10×15積表と5×15勾配核が原稿にある。平方minorは9。このカテゴリカルな同定は本文の定理であり、検算scriptがnc Nat complexを直接構成したわけではない。
+
+対角群のcharacterは二次方向をC[xyz]に制限するが、係数1/36は重みだけでは求まらない。λも動かす作用からc(ζλ)=c(λ)が従うという観察は、同変性の確認と高次項の候補削減に有用である。
+
+### 二次変形類の内在的定義
+
+Lを変形dg Lie代数、α=ha+h²bをMC元、一次類が零でa=dξとする。gauge exp(hξ)で一次項を消すと、
+\[
+\alpha'=h^2\left(b+\tfrac12[\xi,a]\right),\qquad
+\kappa_2=\left[b+\tfrac12[\xi,a]\right]\in H^1(L)
+\]
+を得る。d b=−[a,a]/2、d[ξ,a]=[a,a]なので閉じている。別のξ′=ξ+z、dz=0では差は[ z,a ]/2=d[z,ξ]/2。一次項が零の代表間の恒等mod h gaugeも二次項を境界だけ変える。したがってκ₂は一次自明化の選択によらない。
+
+L=CC•(K)[1]ならH¹L=HH²(K)。h↦χhの同変変形ではκ₂の重みはχ⁻²である。この議論自体は可換模型の存在を仮定しないが、入力の残余変形とそのKS同定は必要。新規性を主張する補題ではなく、方向制約を圏内部で使うための整理である。
+
+## Artin底で射影残余pairへ移す
+
+artin_residual_mf_comparison.tex のam:thm:comparison、am:prop:Gamma-basechange、am:cor:formal-residualを参照。絶対D_sg(B)ではなく、Res_A M∈Perf(A)を満たす複体による相対商を使う。Chenの加群論的入力とexact Frobenius圏のdg商を通してstabilizationを構成する。finite totalizationのcontractionも本文に明記した。
+
+windowはi=4−d。線束sectionのこの切断は例外列を消し、残る三つの線束の像から三つのresidue stabilizationを得る。線束HomとMF Homを、特殊fiberのsplit contractionに対するnilpotent perturbationで有限free複体へ縮約し、自然なderived base changeを確認する。無界な自由複体を無条件にK-flatとする議論は使わない。
+
+生成性はInd圏とR_N∈thick(k)により持ち上げる。rotationは(RωM)_(4−d)=RHom(O(d−4),M)=0から内部shiftと同定する。これらは全coherent圏の有限cohomological dimensionを仮定しない。可換側では線束がPerf(Y_N)を生成するため、perfect Kuznetsov成分への復元を得る。
+
+Artin基底でMFと絶対特異圏を混同しないための例はR=C[ε]/ε²、A=R[x]、W=x。Q²=xの微分でMFは零だがD_sg(R)は零でない。全文証明はcurved_gauge_comparison.tex。
+
+## 維持する具体的復元原理
+
+- 分離型の点曲線 f+h² det Hess(f)/24 はMori–Smithの既知公式。適切な楕円中心商と独立な中心変数Pの仮定で既存ブロック比較に使える。explicit_model_comparison.texに証明とHesse特殊化を保持する。
+- 低次数rotation積の核Kから可積分行列Aを解き、F=Σx_i(Aq)_i/3を求める。可逆性と共通射影零点なしが必要。射影的一意性は存在とは別で、Fermatの積分解空間はscalar一次元ではない。explicit_jacobian_recovery.texを参照。
+- q_i=x_i²+x_(i+1)x_(i+2)（mod5）は正しい完全交差Hilbert級数を持つが可積分行列の核が零。rank25とminor15872が証明書にある。この例がnc cubicから生じるとは主張しない。
+- cubic threefoldの純ordinary-HKR bivectorのHH²(Ku)への制限は零。Todd補正・JLLZの作用の単射性を扱った証明はpoisson_first_order.tex。pure Poisson KSと残余制限の両立が入力であり、高次定数性・一般次元・SMへ拡張しない。
+- 中心のsorted PBW表示には一次項が現れても、可換復元の一次類とは別である。混合中心式のh²(λu)²z/6を落とすと中心性が壊れる。全パラメータ中心性と全Artin PBWの証明は保持する。
 
 ## 1. SM・ERによる存在証明の経路
 
@@ -97,7 +141,7 @@ Cの一楕円ブロックの良い複素ファイバーでの比較、有限位�
 
 ## 8. 再現と次の着手
 
-`reconstruction/README.md` の計算、build、verifyを実行する。参照とハッシュは全TeX inputを含む。計算的確認と圏論的証明は別である。最優先の次作業は、構成した三次元混合試験族について、純Poisson KSと残余制限の両立を確認し、rotationの低次数積と復元先の二次類を計算すること。有限残余対角証明書による存在経路と、非楕円fivefoldでの一般次元への検証を並行する。
+`reconstruction/README.md` の計算、build、verifyを実行する。参照とハッシュは全TeX inputを含む。計算的確認と圏論的証明は別である。最優先の次作業は、完備MF同値による指定残余生成子の像とgenericでの生成性を、有限cone/retract表示によって確認すること。混合族のh³,h⁴とλ³=−12も計算対象にする。公開コードの厳密検算はPASSし、論文Cの組版・表示を確認した。各原稿の詳細な検証状態はvalidation.jsonを確認する。
 
 GitHubへ全文と再現資産を保存し遠隔確認する。Libraryはpushが実際に失敗した場合だけの緊急退避とする。
 
@@ -107,7 +151,7 @@ GitHubへ全文と再現資産を保存し遠隔確認する。Libraryはpushが
 
 ## SMの回復済み反例から分かること
 
-`notes/source_recovery/dg_perfectness_counterexamples.tex` は、原PDF [nc-cubic2のfinite_smoothness_notes.pdf](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/pdf-only/finite_smoothness_notes.pdf) の第23節（pp.26–31）をTeXで復元したもの。例えば `R=k[[h]]`、`Lambda=R⊕R eps⊕R eta`（`|eps|=|eta|=1`、積零）上の `d(e)=h e eps` で定まるdg加群 `M` は、`R`-perfect、特殊ファイバー `M_k\simeq Lambda_k` はperfect、さらに全Artin切断 `M/(h^a)` もperfectだが、一般ファイバーでnonperfectとなる。したがって `M` 自体は相対的にnonperfect。**この例の特殊ファイバー代数 `Lambda_k` はsmoothではない**ため、`Gamma_R` のSMを否定する反例ではない。
+`notes/source_recovery/dg_perfectness_counterexamples.tex` は、原PDF [nc-cubic2のfinite_smoothness_notes.pdf](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/pdf-only/finite_smoothness_notes.pdf) の第23節（pp.26–31）をTeXで復元したもの。例えば `R=k[[h]]`、`Lambda=R⊕R eps⊕R eta`（`|eps|=|eta|=1`、積零）上の `d(e)=h e eps` で定まるdg加群 `M` は、`R`-perfect、特殊ファイバー `M_k\simeq Lambda_k` はperfect、さらに全Artin切断 `M/(h^a)` もperfectだが、一般ファイバーでnonperfectとなる。したがって `M` 自体は相対的にnonperfect。**この例の特殊ファイバー代数 `Lambda_k` はsmoothではない**。特殊fiberがsmoothである場合も一般の持上げ原理は偽であり、次の独立な例で確認する。どちらも、本研究のnc cubicに指定されたΓ_RのSMを否定したものではない。
 
 回復稿には `R=k[[h]]` で特殊化 `P_k` がperfect、`N` が底上perfectなら `RHom_Gamma(P,N)` は底上perfectとなるという補助結果もある。しかし **Hochschild cochainsの底上有限性は対角perfectnessではない**。今後は有限cell/retractの実際の底上持上げ、増大射およびホモトピーの有限個の整合式を構成する。単なるすべてのArtin切断での成功を証明書の代用にしない。
 
@@ -116,3 +160,42 @@ GitHubへ全文と再現資産を保存し遠隔確認する。Libraryはpushが
 回復原稿 `notes/sm_bar_and_spreading.tex` は、`Gamma_R ∈ Perf(R)` なら相対二側bar解消の有限skeleton `P_d` は `Gamma_R^e`-perfectで、`hocolim_d P_d ≃ Gamma_R` となり、**SMと「あるdで `P_d → Gamma_R` が導来右逆を持つ」は同値**であることを証明する。特殊ファイバーの右逆だけで底上の右逆を得ることはできない。
 
 また `R` noetherian整域でproperなdg模型のgeneric fiberがsmoothなら、perfect dg加群のfiltered-colimit descentとconeのgeneric消滅から、ある非空局所化で相対smoothになる。ただしspecial smoothnessだけではgeneric smoothnessはまだ得られない。以上は [nc-cubic2のfinite_smoothness_notes.pdf](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/pdf-only/finite_smoothness_notes.pdf) の第18--21節（pp.23--25）の有効な補題・証明を整理したもので、元の34ページ全体のTeX化ではない。この存在証明経路の核心は、実際の有限bar右逆（または同等の有限対角証明書）を非楕円二成分で構成することである。現在の全体方針では、三次元混合族からの方程式抽出も同時に進める。
+
+
+## 全Artin切断がsmoothでもgenericが非smoothとなる例
+
+全文証明は papers/reconstruction/artin_smoothness_obstruction.tex。P¹_R上の
+P_h=[O(−1) --hs→ O]を使う。特殊fiber O⊕O(−1)[1] は生成子、genericは点のskyscraperで生成子でない。この幾何的退化例はSashaの2016年MathOverflow回答にある既知例で、一次資料と参照先をbibliographyに記録した。
+
+Γ_R=RHom(P_h,P_h)にはrank4のstrict dg模型がある：
+Γ⁰=Re_-⊕Re_+、Γ¹=Rs⊕Rt、d(e_-)=hs、d(e_+)=−hs。
+R-perfect、特殊fiberと全Artin切断はsmoothだが、genericはE=K[ε]/ε²、|ε|=1へquasi-isomorphicである。augmentation Kのsemifree分解Q=⊕_(n≥0)E u_n、|u_n|=0、du_n=εu_(n−1)から、K⊗^L_E Kはdegree0に無限次元となる。よってEはnon-smooth。
+
+したがって「特殊fiber smooth＋全Artin同値＋proper」だけではSMもgeneric smoothnessも出ない。smooth properな可換幾何の中に対象を実現しても生成性の持上げは自動的ではない。今回の形式的MF同値について、Γの指定生成子が可換側の生成子を実際に生成するという追加の証明、または有限対角証明書が必要となる。この反例の存在は、nc cubicの目標そのものの反例ではない。
+
+
+### cohomology-flatな線束模型に残る具体課題
+
+上の反例ではH¹にh-torsionがあり、cohomology-flatな場合を否定しない。現行Λ_RのH⁎=H⁰⊕Hⁿは両成分が有限自由で、SMΓとSMΛの同値によりΛ側で検討できる。固定有限自由加群上のminimal A∞族について、特殊fiberのsmoothnessから少なくともgeneric smoothnessを導けるかを確認する。具体的には、特殊fiberの対角の有限cell表示を、Artin次数によらないcell数とshiftの上界を保って持ち上げられるかを調べる。各次数で別々の有限表示があるだけでは足りない。この追加flatness下で適用可能な一般定理は今回の一次文献調査から確証できておらず、未解決の補題として扱う。
+
+minimal $A_\infty$模型の対角をHPLで持ち上げる際は、「基礎加群が有限rank」と「有限cellである」を区別する。後者には有限filtrationを保つ上三角性が必要である。現行$\Lambda_R$の対象の添字・内部次数・積の向きが、このfiltrationを全次数で保つかを次に調べる。正次数$H^n$があるため、通常の有限次元代数の射影分解の議論をそのまま流用しない。
+
+### 通常の有限自由代数へ帰着できる場合の十分条件
+
+次は標準的な持上げ議論であり、新規性を主張しない。$R=\mathbb C[[h]]$、$A$を有限自由な通常の$R$-代数とし、$A_0=A/hA$が$\mathbb C$上homologically smoothなら、$A$は$R$上homologically smoothである。
+
+**証明。** $B=A^{\mathrm{op}}\otimes_R A$と置き、対角$A_0$の有限射影$B/hB$-分解$\overline P_\bullet\to A_0$を取る。$B$は有限$R$-加群として$h$進完備なので、行列冪等元を持ち上げて各$\overline P_j$を有限射影$B$-加群$P_j$へ持ち上げられる。$P_0$の射影性でaugmentationを$P_0\to A$へ持ち上げると、余核は有限$R$-加群で剰余が零だからNakayamaにより全射である。$A$は$R$-自由なのでこの全射は$R$-分裂し、核$K_1$は有限自由で、その剰余は特殊分解の核と一致する。同じ操作を$P_j\twoheadrightarrow K_j$に繰り返し、各核の自由性と正しい剰余を保つ。最後の$\overline P_\ell\simeq K_\ell/hK_\ell$を持ち上げた全射$P_\ell\to K_\ell$の核も$R$-自由で、剰余が零だからNakayamaにより零である。従って対角$A$に有限射影$B$-分解ができる。特にgeneric fiberもsmoothである。$\square$
+
+この十分条件は、族がこのような通常代数に$R$-linear Morita同値となるtilting模型を持つ場合にも使える。現行$\Lambda_R$の指定線束生成対象は正次数の自己Extを持つのでtiltingではなく、この条件を満たす別の模型があるとは未証明である。
+
+## Cartier自己交差の係数付き分裂を仮定しない
+
+閉埋込みj:Y→Pについて、Lj*j_*O_Yのformalityと、任意のperfect Mに対するO_Y-linearな分裂は別である。生成の証明ではStacks Project Tags 0BQT, 09M1のcompact生成を用いる。
+
+具体的にSegre quadric Y=P¹×P¹⊂P³、M=O_Y(1,0)を取る。座標行列 (X_ij) による分解は
+\[
+0\to O_{\mathbf P^3}(-1)^2\to O_{\mathbf P^3}^2\to j_*M\to0.
+\]
+したがってLj*j_*M=[O_Y(-1,-1)^2→O_Y²]。RHom_Y(M,−)の二項はO_Y(-2,-1)^2とO_Y(-1,0)^2の導来切断で、両者とも全cohomologyが零である。一方、M⊕M(-2,-2)[1]ならHom(M,M)=Cが残る。従ってそのような分裂は、Mが線束であっても成立しない。
+
+一般の障害との関係はArinkin–Căldăraru, *When is the self-intersection of a subvariety a fibration?*, arXiv:1007.1671v2, §§2.1–2.2, Propositions 2.6, 2.10（https://arxiv.org/abs/1007.1671）を参照。この反例そのものの検証は上の二項複体計算で完結する。

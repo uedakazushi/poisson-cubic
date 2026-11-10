@@ -1,0 +1,411 @@
+% 2026-11-10 / v22
+\section{有限curved gaugeからgraded MF同値への比較}
+\label{cg:sec:comparison}
+
+本節では、有限Artin基底上のcurved $A_\infty$ bar同型を、
+有限rankのgraded matrix factorizationへ実際に延長する。
+必要なのは、特殊ファイバーでのquasi-isomorphismだけではなく、
+零項成分を持たず、写像と逆写像のarityが有限であるbar同型である。
+この条件の下では、twisting行列が冪零でなくても全ての評価式が有限になる。
+
+Kontsevichのformality定理
+\cite[Sections~5--6, 特にSection~6.4]{PKontsevich}と、
+curved twisted complexの枠組み
+\cite[Theorem~2.12]{CT}\cite[Sections~2.2, 6.1]{CGTu}
+を用いる。
+Tuの結果は曲率・内部次数を扱う先例であり、
+以下の非可換Artin基底上の有限rank比較を、そのまま引用して済ませるものではない。
+本節では有限性、逆写像、内部シフトの保存をそれぞれ確認する。
+この組合せの新規性は未確認である。
+
+\subsection{周期変数と有限rank模型}
+
+$\CC$-代数$R$上の内部次数付き代数を考え、
+内部次数三の中心元を$W$とする。
+周期変数$t$を加え、その二種類の次数を
+\begin{equation}\label{cg:eq:bidegree}
+ \deg_{\rm coh}(t)=2,\qquad \deg_{\rm int}(t)=-3,\qquad
+ \deg_{\rm coh}(z_i)=0,\quad \deg_{\rm int}(z_i)=1
+\end{equation}
+と定める。$h$の両次数は零とする。
+$t$は可逆な係数であり、以下の多重微分作用素で$t$を微分しない。
+
+曲率の符号を$m_0=-tW$とする。
+有限個のcohomological・内部shiftを持つ自由加群$E$上で、
+cohomological degree一、内部次数零の行列$Q$が
+\[
+ m_0+Q^2=-tW+Q^2=0
+\]
+を満たすことが、graded MFの条件である。
+この周期表示では$t$の作用が指定された同型$(3)\simeq[2]$を与える。
+有限自由模型に有限coneと直和因子を加えた圏を
+$\MF^{\ZZ}$と書く。一般のcurved $A_\infty$構造では、
+同じ記法の対象条件を$\sum_{k\ge0}m_k(Q,\ldots,Q)=0$とする。
+
+\subsection{有限bar同型のtwisted complexへの延長}
+
+以下では$sE=E[1]$を用い、$sQ$の次数が零となるsuspension規約を採用する。
+全ての符号はsuspended tensor coalgebraのKoszul規約で固定する。
+
+\begin{lemma}[有限arityのbar同型とtwisted complex]
+\label{cg:lem:tw-extension}
+$m,m'$をstrictly unitalなcurved $A_\infty$構造とし、
+それらのarityは有界であるとする。
+対応するbar coderivationを$b,b'$とする。
+零項成分を持たないbar coalgebra同型$\mathcal F$で
+\[
+ \mathcal F b=b'\mathcal F,\qquad F_0=0
+\]
+を満たすものがあり、$\mathcal F$と$\mathcal F^{-1}$の
+Taylor成分がともに有限arityであると仮定する。
+さらに両写像はstrictly unitalとする。
+このとき$\mathcal F$は、有限rankのcurved twisted complexの間の
+実際の$A_\infty$同値へ延長される。
+対象に対する式は
+\begin{equation}\label{cg:eq:object-map}
+ Q'=\sum_{k\ge1}F_k(Q,\ldots,Q)
+\end{equation}
+である。内部次数と$t$の作用を保つ$\mathcal F$の場合、
+この同値は内部シフトと$(3)\simeq[2]$を保つ。
+\end{lemma}
+\begin{proof}
+まず有限個のshiftの直和に対して、$F_k$を行列成分の
+合成可能な添字列に沿って作用させる。
+各$k$について有限和なので、同じbar恒等式が行列上でも成立する。
+
+tensor長について完備化したcoalgebra
+$\widehat T^c(sE)=\prod_{r\ge0}(sE)^{\otimes r}$を用いる。
+$F_k=0$（$k>L$）なら、出力長$r$の成分に寄与する入力長は
+$r$から$Lr$までである。
+従って$\mathcal F$はこの完備化上で定義され、連続である。
+逆写像についても同じである。
+$b,b'$もarityが有界なので連続であり、曲率の零項成分はtensor長を一つ増やすだけである。
+ここでは$Q$の冪零性を仮定していない。
+
+$q=sQ$と置き、
+\[
+ e^q=\sum_{r\ge0}q^{\otimes r}
+\]
+を考える。
+bar写像がcoalgebra写像で$F_0=0$であることから
+\[
+ \mathcal F(e^q)=e^{q'},\qquad
+ q'=\sum_{k\ge1}\overline F_k(q,\ldots,q)
+\]
+となる。上線はsuspension後のTaylor成分を表す。
+$Q$のMaurer--Cartan方程式は$b(e^q)=0$と同値である。
+従って
+\[
+ b'(e^{q'})=b'\mathcal F(e^q)=\mathcal F b(e^q)=0
+\]
+であり、式\eqref{cg:eq:object-map}は実際に対象を与える。
+
+対象$Q_0,\ldots,Q_n$とsuspendedな射$a_1,\ldots,a_n$に対し、
+functorの$n$項成分を
+\begin{equation}\label{cg:eq:morphism-insertions}
+ \sum_{r_0,\ldots,r_n\ge0}
+ \overline F_{n+r_0+\cdots+r_n}
+ (q_n^{\otimes r_n},a_n,q_{n-1}^{\otimes r_{n-1}},
+ \ldots,a_1,q_0^{\otimes r_0})
+\end{equation}
+と定める。
+arity上界により、この和も有限である。
+これは
+$e^{q_n}\otimes a_n\otimes e^{q_{n-1}}\otimes\cdots
+\otimes a_1\otimes e^{q_0}$
+への$\mathcal F$の作用を出力長一に射影したものである。
+同じtensorへの$\mathcal F b=b'\mathcal F$の作用を展開すると、
+twisted structureと式\eqref{cg:eq:morphism-insertions}の
+$A_\infty$ functor恒等式を得る。
+曲率に由来する項は各$q_j$のMaurer--Cartan方程式で消える。
+
+$\mathcal F^{-1}$に同じ構成を行う。
+twistingの挿入公式はbar写像の合成と可換なので、
+二つのtwisted functorの合成は
+$\mathcal F^{-1}\mathcal F=\Id$および
+$\mathcal F\mathcal F^{-1}=\Id$のtwistingに等しい。
+従って得られる二つのfunctorは実際に互いに逆である。
+strict unitは、正のarity成分のnormalized性から保たれる。
+有限rankは基礎となる有限自由加群を変更しないことから保たれる。
+
+内部次数零の写像は内部shiftと可換し、
+$R[t,t^{-1}]$-多重線形性は$t$の作用と可換する。
+従って内部シフトと指定された周期同型を保つ。
+有限cone・冪等完備化へ延長することで、対応するdg Morita同値も得る。
+\end{proof}
+
+\begin{lemma}[任意の有限Artin次数でのflowのarity]
+\label{cg:lem:artin-flow}
+$R_N=\CC[h]/(h^{N+1})$とする。
+$\gamma_s$を、補助変数$s$に関して多項式であるdegree零のcoderivationとし、
+$\gamma_s\in h$、その非零Taylor成分はarity一と三だけとする。
+このとき
+\[
+ \partial_s\mathcal F_s=\gamma_s\mathcal F_s,\qquad
+ \mathcal F_0=\Id
+\]
+の解は有限の順序付き積分で与えられるbar coalgebra同型である。
+$\mathcal F_1$とその逆のTaylor成分は
+\begin{equation}\label{cg:eq:general-arity}
+ \begin{aligned}
+ F_0&=0,\qquad F_1=\Id+O(h),\\
+ F_{2r+1}&=O(h^r)\quad(1\le r\le N),\\
+ F_{2r}&=0,\qquad F_k=0\quad(k>2N+1).
+ \end{aligned}
+\end{equation}
+を満たす。
+$\gamma_s$がnormalizedで内部次数と$t$の作用を保つなら、
+解と逆写像もstrictly unitalで、同じ次数と作用を保つ。
+\end{lemma}
+\begin{proof}
+解を
+\[
+ \mathcal F_s=\Id+
+ \sum_{j=1}^{N}
+ \int_{0\le u_j\le\cdots\le u_1\le s}
+ \gamma_{u_1}\cdots\gamma_{u_j}\,
+ du_j\cdots du_1
+\]
+と置く。$j$個のcoderivationの合成は$h^j$の倍数なので、
+$j>N$の項は零である。
+積分は$\CC$上の多項式の積分であり、解析的な収束を用いない。
+この有限式を微分するとflow方程式を満たす。
+同じ方程式の解の一意性は$h$の次数ごとの帰納法から従う。
+
+$\gamma_s$のcoderivation恒等式により、
+$\Delta\mathcal F_s$と
+$(\mathcal F_s\otimes\mathcal F_s)\Delta$は同じflow方程式と初期条件を満たす。
+従って$\mathcal F_s$はcoalgebra写像である。
+$\mathcal F_s-\Id\in h$なので
+\[
+ \mathcal F_s^{-1}
+ =\sum_{j=0}^{N}(\Id-\mathcal F_s)^j
+\]
+も有限式で定義される。
+
+零項成分がないので$F_0=0$である。
+coderivationの三項成分を一回使うごとに、
+一つのTaylor成分を作る入力数は二つ増える。
+従ってarity $2r+1$には少なくとも$r$回のcoderivationが必要であり、
+その$h$進位数は少なくとも$r$である。
+高々$N$回しか合成できないためarityは$2N+1$以下で、偶数arityは現れない。
+逆flowまたは上の有限逆級数にも同じ数え上げが適用できる。
+
+normalizedなcoderivationのflowは単位を固定し、
+二項以上で単位を含む成分を生じさせない。
+内部次数と$t$に関する多重線形性は合成・積分・逆写像で保存される。
+\end{proof}
+
+\subsection{曲率を含むKontsevich写像の有限性}
+
+\begin{lemma}[arity、曲率入力、単位]
+\label{cg:lem:arity}
+Kontsevichのaffine formality写像を$\mathcal U$とする。
+関数を$k$個、bivectorを$\ell$個入力したTaylor成分の出力arityは
+$2-2k$である。
+一個のtrivectorに加えて関数を$k$個、bivectorを$\ell$個入力した場合は
+$3-2k$である。
+負のarityの成分は零である。
+従って前者はarity零または二、後者はarity一または三に限られる。
+各bivectorとtrivectorが$h$の倍数であれば、固定した有限Artin次数で
+必要となるTaylor和は全て有限である。
+正のarityの成分はnormalizedである。
+\end{lemma}
+\begin{proof}
+$n$個のinternal vertexと$r$個のboundary vertexを持つ
+Kontsevichの配置空間の次元は$2n+r-2$である。
+関数には出る辺がなく、bivectorには二本、trivectorには三本の辺がある。
+関数$k$個とbivector $\ell$個の場合、辺数は$2\ell$、$n=k+\ell$なので
+\[
+ 2\ell=2(k+\ell)+r-2,\qquad r=2-2k.
+\]
+一個のtrivectorを加えると
+\[
+ 3+2\ell=2(1+k+\ell)+r-2,\qquad r=3-2k.
+\]
+従ってどちらも関数入力は高々一個である。
+曲率の関数が$h$の倍数でなくても、このarity制約が関数入力数を制限する。
+他の入力は$h$の倍数なので、固定した$h$次数ではその入力数も有界である。
+
+単位を一つのboundary入力へ置く。
+その頂点へ辺が入れば、定数の微分を含むので零となる。
+辺が入らない場合、積分する微分形式はそのboundary頂点を忘れる写像で
+一つ低い次元の配置空間から引き戻される。
+$n\ge2$なら忘却後も配置空間は安定であり、最高次元の積分は零になる。
+$n=1$の成分はHKR写像そのものなので、正のarityでは単位を微分して零になる。
+これがnormalized性を与える。
+
+全ての式を係数環$R[t,t^{-1}]$へ多重線形に拡張する。
+$t$を微分する辺は導入しないため、この拡張は$t$の作用を保つ。
+\end{proof}
+
+\subsection{二次Artin基底での実際のMF同値}
+
+$S=\CC[x,y,z,u_1,\ldots,u_m]$とし、
+\[
+ R_2=\CC[h]/(h^3),\qquad
+ \xi=\partial_x\wedge\partial_y\wedge\partial_z,\qquad
+ \pi=[\xi,F]
+\]
+と置く。$F,D\in S_3$、$W=F+h^2D$とする。
+$\pi$は三つのactive変数のJacobian Poisson tensorであり、
+passive変数は係数として扱う。
+$\pi=[\xi,F]$という符号規約を用いる。
+Kontsevichの星積を$*$、関数のtangent mapを
+\[
+ C_h(f)=\sum_{j=0}^{2}\frac{h^j}{j!}
+       \mathcal U_{j+1}(f,\pi,\ldots,\pi)
+\]
+と書く。
+
+\begin{theorem}[有限curved gaugeによるgraded MF比較]
+\label{cg:thm:mf-comparison}
+上のデータに対して、$h=0$で恒等となる$R_2$-linearな同値
+\begin{equation}\label{cg:eq:MF-comparison}
+ \MF^{\ZZ}\bigl((S\otimes R_2,*),C_h(W)\bigr)
+ \simeq
+ \MF^{\ZZ}(S\otimes R_2,W)
+\end{equation}
+が存在する。
+これは有限rank対象の$A_\infty$同値から得られるdg Morita同値であり、
+内部シフト$(1)$と周期同型$(3)\simeq[2]$を保つ。
+この比較自体には$V(F)$の滑らかさを仮定しない。
+\end{theorem}
+\begin{proof}
+周期多重vector場の側で
+\[
+ \alpha=-tW+h\pi,\qquad \eta=h\xi/t
+\]
+と置く。
+$\alpha$のcohomological degreeは一、$\eta$のそれは零であり、
+両者の内部次数は零である。
+$[\pi,F]=[\pi,\pi]=0$であり、
+$[h\pi,W]=0$は$h^3=0$の下で成立するため、$\alpha$はMaurer--Cartan元である。
+$\xi,\pi$の脚は三つのactive変数だけを走るので
+$[\xi,\pi]=0$である。従って
+\begin{equation}\label{cg:eq:gauge-calculation}
+ [\eta,-tW]=-h\pi,\qquad [\eta,h\pi]=0,\qquad
+ \exp(\operatorname{ad}\eta)(-tW+h\pi)=-tW.
+\end{equation}
+ここで$h^3[\xi,D]$の項は零である。
+
+$\alpha_s=-tW+(1-s)h\pi$とすると
+$\partial_s\alpha_s=[\eta,\alpha_s]$である。
+Kontsevich写像をこの経路へ適用する。
+補題\ref{cg:lem:arity}により全ての必要なTaylor和は有限であり、
+曲率が$h$の倍数でないことによる収束問題は生じない。
+始点のcurved構造は
+\[
+ b_0\quad\longleftrightarrow\quad (*,-tC_h(W))
+\]
+であり、終点は
+\[
+ b_1\quad\longleftrightarrow\quad (\mu,-tW)
+\]
+である。$\mu$は通常の可換積である。
+関数入力を含む項は零項曲率だけであり、
+二個以上の関数入力はarityにより消えるので、これ以外の演算は現れない。
+
+formalityによるgauge生成元を
+\[
+ \gamma_s=\mathcal U^{\alpha_s}(\eta)
+ =\sum_{n\ge0}\frac1{n!}
+   \mathcal U_{n+1}(\eta,\alpha_s,\ldots,\alpha_s)
+\]
+と書く。
+gaugeの符号は$\partial_s b_s=[\gamma_s,b_s]$となる規約に従う。
+補題\ref{cg:lem:arity}により$\gamma_s$のarityは一と三に限られ、
+$\gamma_s=O(h)$である。
+正のarity成分はnormalizedであり、内部次数と$t$の作用を保つ。
+
+補題\ref{cg:lem:artin-flow}を$N=2$で適用する。
+得られる実際のbar同型$\mathcal F$は
+\[
+ \mathcal F b_0=b_1\mathcal F,\qquad
+ F_0=0,\qquad F_1=\Id+O(h),\quad F_3=O(h),\quad F_5=O(h^2)
+\]
+を満たし、その他のarity成分は零である。
+逆写像にも同じ上界がある。
+従って補題\ref{cg:lem:tw-extension}を適用できる。
+対象の像は特に
+\[
+ Q'=F_1(Q)+F_3(Q,Q,Q)+F_5(Q,Q,Q,Q,Q)
+\]
+という有限式で与えられる。
+写像と逆写像が有限rank、内部シフト、$t$の作用を保つことから結論を得る。
+\end{proof}
+
+\begin{corollary}[指定された中心元との照合]
+\label{cg:cor:matching}
+次数付き代数同型
+$\Phi:A_2\xrightarrow{\sim}(S\otimes R_2,*)$があり、
+中心三次元$\Omega_2$について
+\[
+ \Phi(\Omega_2)=C_h(F)+h^2D,\qquad D\in S_3
+\]
+を満たすとする。
+このとき、内部シフトと三次周期性を保つ同値
+\[
+ \MF^{\ZZ}(A_2,\Omega_2)
+ \simeq \MF^{\ZZ}(S\otimes R_2,F+h^2D)
+\]
+が存在する。
+\end{corollary}
+\begin{proof}
+$C_h(F+h^2D)=C_h(F)+h^2D$である。
+実際、$D$に対する一次HKR項以外にはさらに$h$が掛かるので、
+全て$h^3$以上となる。
+従って$\Phi$による厳密な同型と
+定理\ref{cg:thm:mf-comparison}を合成すればよい。
+\end{proof}
+
+\subsection{射影残余模型との比較を区別する}
+
+\begin{remark}[MF比較の適用範囲]
+\label{cg:rem:scope}
+上の定理は、指定された周囲の代数と中心元から作るMF pairについての主張である。
+既存の局所残余模型$\Gamma_R$へ適用するには、別途
+\begin{equation}\label{cg:eq:residual-bridge}
+ \operatorname{Perf}(\Gamma_R\otimes_R^{\mathbf L}R_2)
+ \simeq
+ \MF^{\ZZ}(A_R\otimes_R R_2,\Omega_R\bmod h^3)
+\end{equation}
+というenhancedな比較と、rotationの同定が必要となる。
+この比較は、相対windowとstabilizationを構成し、
+生成対象、Homの導来底変更、特殊ファイバーでの同定を確認して行う。
+通常の有界Orlov同値があるというだけでは、式\eqref{cg:eq:residual-bridge}の証明にならない。
+第\ref{lp:sec:main}節の元の底変更命題は正則なtarget baseを対象としているため、
+特異なArtin基底を扱う際には、その追加の比較を明示しなければならない。
+この比較は第\ref{am:sec:comparison}節で構成する。
+定理\ref{am:thm:comparison}が線束生成残余pairとの同定を与え、
+命題\ref{am:prop:Gamma-basechange}が既存$\Gamma_R$への適用を保証する。
+
+また有限Artin基底上の同値から、実在する代数的局所基底上の相対smoothness、
+非零の複素数$h$への特殊化、あるいは収束する族への代数化は直接には従わない。
+これらは別の主張として扱う。
+\end{remark}
+
+\begin{example}[Artin基底で絶対特異圏を使えない例]
+\label{cg:ex:artin-singularity}
+$R=\CC[\varepsilon]/(\varepsilon^2)$、$A=R[x]$、$W=x$とする。
+任意の有限自由$\ZZ/2$-graded MF行列$Q$について$Q^2=xI$を$x$で微分すると
+\[
+ Q(\partial_xQ)+(\partial_xQ)Q=I
+\]
+となる。従って$\partial_xQ$が恒等射のcontracting homotopyであり、
+有限自由MF圏は零である。
+
+一方、$A/(x)=R$の絶対特異圏$D_{\rm sg}(R)$は零ではない。
+剰余体$k=R/(\varepsilon)$は
+\[
+ \cdots\xrightarrow{\varepsilon}R
+ \xrightarrow{\varepsilon}R
+ \xrightarrow{\varepsilon}R\longrightarrow k\longrightarrow0
+\]
+という無限分解を持ち、
+$\operatorname{Tor}^R_i(k,k)\simeq k$は全ての$i\ge0$で非零である。
+従って$k$はperfectでなく、$D_{\rm sg}(R)$で非零である。
+これはcubicについての反例ではなく、周囲の環が正則でないときに
+有限自由MFと絶対特異圏を同一視できないことを示す例である。
+Artin基底では、周囲の$A$上perfectとなる対象を用いた相対特異圏が必要となる。
+\end{example}

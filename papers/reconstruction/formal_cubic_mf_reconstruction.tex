@@ -1,0 +1,474 @@
+% 2026-11-10 / v22
+\section{滑らかな中心三次対の全次数形式的MF復元}
+\label{fo:sec:formal-cubic}
+
+滑らかな三次式をCasimirとする二次Poisson tensorには、定数三重vectorによる
+Koszul原像が存在する。さらにJacobi恒等式と次数の制約により、
+この原像の二回目のSchouten作用は零となる。
+この二つの事実から、非可換中心三次対のgraded matrix factorizationを、
+全ての有限Artin次数で可換cubicへ復元できる。
+三つのactive変数や中心一次変数を選ぶ必要はない。
+本節の形式的存在定理と、第\ref{kj:sec:second-jet}節の混合族の二次明示計算は、
+独立に証明された結果である。
+
+formalityとその変形functorへの適用は
+\cite[Sections~4.3--4.6, 6]{PKontsevich}の既知の結果である。
+以下では、全Hochschild cochainの使用、内部次数、中心元の実際の逆像、
+および有限rank行列因子分解への適用を明示する。
+この形式的復元定理と同じ一般性を持つ結果の先行研究上の初出は未確認である。
+
+\subsection{入力と結論の範囲}
+
+$d\ge3$とし、全変数の内部次数を一として
+\[
+ S=\CC[z_1,\ldots,z_d],\qquad
+ R_N=\CC[h]/(h^{N+1})
+\]
+と置く。$h$の内部次数は零であり、$F\in S_3$は
+滑らかな射影cubic $V(F)\subset\PP^{d-1}$を定めるとする。
+
+入力は次の性質を持つ対$(A_h,\Omega_h)$である。
+\begin{enumerate}
+ \item $A_h$は$h$進完備な次数付きunital $\CC[[h]]$-代数であり、
+ 次数を保つ$h$進加群同定$A_h\simeq S[[h]]$を持つ。
+ $h=0$で積は$S$の通常の積になる。
+ \item $\Omega_h\in Z(A_h)$は内部次数三で、$\Omega_h\equiv F\pmod h$である。
+\end{enumerate}
+加群の同定は積の同定ではない。
+特に$A_h$の積の各係数がbidifferentialであることは仮定しない。
+この入力には、markedな次数付きflat formal変形を、その自由な各次数成分の
+基底を持ち上げて同定した場合が含まれる。
+以下、$A_N=A_h/(h^{N+1})$、$\Omega_N=\Omega_h\bmod h^{N+1}$と書く。
+行列因子分解の圏には第\ref{cg:sec:comparison}節の
+有限自由模型とそのpretriangulated・冪等完備化を用いる。
+
+\begin{theorem}[中心三次対の形式的MF復元]
+\label{fo:thm:formal-reconstruction}
+上の入力に対して、内部次数三の形式的多項式
+\[
+ W_h=F+\sum_{r\ge1}h^rW_r,\qquad W_r\in S_3
+\]
+が存在し、各$N\ge0$について内部シフト$(1)$と周期同型$(3)\simeq[2]$を保つ
+\begin{equation}\label{fo:eq:MF-equivalence}
+ \boxed{\quad
+ \MF^{\ZZ}(A_N,\Omega_N)
+ \simeq
+ \MF^{\ZZ}(S\otimes R_N,W_h\bmod h^{N+1})
+ \quad}
+\end{equation}
+を得る。同値は有限rank対象上の$A_\infty$同値から誘導されるdg Morita同値であり、
+$h=0$で恒等である。
+形式的データを一度選んでから切断することで、これらの同値は
+$R_N\to R_{N-1}$による基底変換と両立するように取れる。
+可換側の射影cubicは$R_N$上で相対的に滑らかである。
+
+この定理単独では非零の複素数$h$での同値や収束する族への代数化を結論しない。
+Artin底での線束生成残余pairと上のMF pairの同定は、
+定理\ref{am:thm:comparison}と命題\ref{am:prop:Gamma-basechange}で別途証明する。
+$W_h$の表示はformalityおよび同定の選択に依存し、標準的な方程式とは主張しない。
+\end{theorem}
+
+証明は、通常の結合代数の形式変形をPoisson変形へ移す段階と、
+その後に曲率を加えてPoisson項を消す段階に分ける。
+前段では周期変数$t$を導入しない。
+この順序により、中心元の逆像をcohomology classだけでなく実際の関数として求められる。
+
+\subsection{全Hochschild変形と三次Casimirの逆像}
+
+$V=\langle\partial_{z_1},\ldots,\partial_{z_d}\rangle_\CC$を
+定数係数の導分の空間とする。
+
+\begin{lemma}[一般の結合変形を扱うformality]
+\label{fo:lem:full-formality}
+$A_h$の積は、次数付き$\CC[[h]]$-代数同型
+\begin{equation}\label{fo:eq:Phi}
+ \Phi_h:A_h\xrightarrow{\sim}(S[[h]],*_{\pi_h}),\qquad
+ \Phi_h\equiv\Id\pmod h
+\end{equation}
+によって、formal Poisson tensor
+\begin{equation}\label{fo:eq:formal-pi}
+ \pi_h\in h\bigl(S_2\otimes_\CC\textstyle\bigwedge^2 V\bigr)[[h]]
+\end{equation}
+のKontsevich星積へ移せる。
+また$W_h\in S_3[[h]]$が一意に存在して
+\begin{equation}\label{fo:eq:central-inverse}
+ [\pi_h,W_h]=0,\qquad
+ \mathcal U^{\pi_h}(W_h)=\Phi_h(\Omega_h),\qquad
+ W_h\equiv F\pmod h
+\end{equation}
+となる。ここで一意性は$\pi_h$、$\Phi_h$とformality morphismを固定した上での一意性である。
+\end{lemma}
+\begin{proof}
+初めにmarkedな加群同定を単位$1$を保つように選ぶ。
+結合変形と一入力gaugeを扱う際には、単位を入力すると零になる
+normalized Hochschild complexを用いる。
+通常のHochschild complexから退化成分を除く標準の縮約は次数を保ち、
+Kontsevichの正のarity成分もnormalizedなので、この制限でquasi-isomorphismは保たれる。
+degree $-1$の関数成分は、そのまま残す。
+
+多重vector場、polydifferential cochain、全てのHochschild cochainをそれぞれ
+\[
+ T_{\mathrm{poly}}(S),\qquad
+ D_{\mathrm{poly}}(S),\qquad
+ C^{\bullet+1}(S,S)
+\]
+と書く。Kontsevichのaffine formalityと包含の合成
+\begin{equation}\label{fo:eq:all-cochain-formality}
+ T_{\mathrm{poly}}(S)
+ \xrightarrow{\ \mathcal U\ }
+ D_{\mathrm{poly}}(S)
+ \lhook\joinrel\longrightarrow
+ C^{\bullet+1}(S,S)
+\end{equation}
+は$L_\infty$ quasi-isomorphismである。
+最後の包含を省略してはならない。
+実際、$S\otimes_\CC S$上の対角のKoszul resolutionに$\Hom(-,S)$を適用すると、
+全Hochschild cohomologyは多重vector場となり、HKR反対称化がその同定を与える。
+polydifferential側のHKR quasi-isomorphismと比較して、包含もquasi-isomorphismとなる。
+これは既存の積が微分作用素で書けることを要求しない。
+
+全ての写像は内部次数を保つ。
+bar resolutionとKoszul resolutionの比較は斉次に選べるため、
+各内部weightに制限してもHKRはquasi-isomorphismである。
+特にweight零の変形をweight零のformal Poisson tensorで表せる。
+これは、全cochainを有限weightの直和に属すると仮定する操作ではなく、
+斉次入力と出力についてweightを指定した複体の比較である。
+
+$h$進filteredなMaurer--Cartan対応を
+\eqref{fo:eq:all-cochain-formality}へ適用する
+\cite[Section~4.4, Theorem]{PKontsevich}。
+両側の変形は$h$の倍数であり、各有限Artin切断では通常の冪零変形問題となる。
+二入力の結合積の変形は$\pi_h$の像とgauge同値になり、
+Hochschild degree零のgaugeは一入力の線形同型なので、
+これは\eqref{fo:eq:Phi}の厳密な代数同型を与える。
+bivectorの内部weightが零であることは、その係数が二次式であることを意味する。
+従って\eqref{fo:eq:formal-pi}を得る。
+
+この構成は、既に指定された有限jetの$\pi_h$と$\Phi_h$を保って逐次に行える。
+実際、一段持ち上げる際のPoisson側の障害は、その段の$h$係数を除けば
+$T_{\mathrm{poly}}^2(S)$の元である。
+実際の結合積は次の段へ持ち上がっているため、比較したそのHKR像は
+Hochschild coboundaryとなる。
+HKRのdegree二での単射性と多重vector場側の零微分から、障害自体が零となる。
+残る積の差はHochschild degree一のcocycleであり、
+HKRのこのdegreeでの全射性によって、新しいbivector係数と
+一入力gaugeのcoboundaryに分けられる。
+補正は新しい$h$次数だけに置けるので、既指定jetを変えずに帰納できる。
+normalized複体を使っているため、このgaugeは単位を保つ。
+
+次に$\pi_h$でtwistしたformality morphismを考える。
+$h$進filtrationの次数零部分は上記のHKR比較なので、
+twist後もquasi-isomorphismである。
+周期変数をまだ加えていないため、shifted degree $-1$のcohomologyは
+それぞれPoisson Casimirと星積の中心であり、degree $-2$以下の項は存在しない。
+従って、このdegreeでのcohomologyの同型は
+\[
+ \mathcal U^{\pi_h}:
+ \{f:[\pi_h,f]=0\}\xrightarrow{\sim} Z(S[[h]],*_{\pi_h})
+\]
+という実際の関数の同型である。
+中心元$\Phi_h(\Omega_h)$の逆像を$W_h$とする。
+$\pi_h$のweightが零なので、twisted differentialもtangent mapも各weightを保つ。
+ここでは変形のweight零部分とは別に、中心のweight三部分を使う。
+そのquasi-isomorphismから$W_h\in S_3[[h]]$を得る。
+一次成分のHKR写像は関数上では恒等なので$W_h\equiv F\pmod h$となる。
+ここでは、関数の同定を高次cochainを法とする同値類で置き換えていない。
+\end{proof}
+
+\subsection{三次式のKoszul原像と二回目の作用の消滅}
+
+多重vector場のSchouten次数を、rank $r$に対して$r-1$とする。
+以下の括弧は$[\partial_x\wedge\partial_y\wedge\partial_z,W]$
+が通常のJacobian bivectorになる規約である。
+
+\begin{lemma}[形式的勾配Koszul complexと係数次数]
+\label{fo:lem:regular-gradient}
+$F$が滑らかな射影cubicを定め、$W_h\equiv F\pmod h$なら、
+$g=(\partial_1W_h,\ldots,\partial_dW_h)$によるKoszul contraction
+\[
+ \delta_{W_h}=\iota_{dW_h}:
+ S[[h]]\otimes\textstyle\bigwedge^r V
+ \longrightarrow
+ S[[h]]\otimes\textstyle\bigwedge^{r-1}V
+\]
+は正のrankで完全である。
+係数が斉次次数$q$のcycleの原像は、係数次数$q-2$に取れる。
+特に負の係数次数しか許されない原像は零である。
+同じ完全性は各有限Artin切断でも成立する。
+\end{lemma}
+\begin{proof}
+全$d$個の偏微分$\partial_iF$の共通affine零点は原点だけなので、
+それらが生成するイデアルの高さは$d$である。
+多項式環はCohen--Macaulayであるから、全偏微分は正則列となる。
+従って$h=0$のKoszul complexは正のrankで完全である。
+
+各$R_N$上のKoszul complexを有限の$h$進filtrationで濾過する。
+各項は$R_N$上自由なので、associated graded complexは
+特殊fiberの勾配Koszul complexと$h^jR_N/h^{j+1}R_N$とのtensorの直和である。
+そのhomologyはrank零にしか存在しない。
+有限filtrationのspectral sequenceから、元のcomplexも正のrankで完全となる。
+形式的なcomplexについても、各内部次数では有限自由な$\CC[[h]]$-加群の有限complexであり、
+完備な$h$進filtrationまたは両立するcycleの逐次持上げにより同じ完全性を得る。
+各$g_i$は内部次数二なので、Koszul微分は係数次数を二つ増やしrankを一つ減らす。
+従ってKoszul complexは「係数次数$+2\,\mathrm{rank}$」でgradedであり、
+この斉次部分ごとに完全性を適用すれば、原像の係数次数は$q-2$となる。
+\end{proof}
+
+\begin{lemma}[定数三重vectorによる二次Poissonの消去]
+\label{fo:lem:constant-trivector}
+$W_h\in S_3[[h]]$が上の条件を満たし、
+$\pi_h\in h(S_2\otimes\bigwedge^2V)[[h]]$が
+$[\pi_h,W_h]=[\pi_h,\pi_h]=0$を満たすとする。
+このとき一意な定数係数三重vector
+\[
+ \Xi_h\in h\bigl(\textstyle\bigwedge^3V\bigr)[[h]]
+\]
+が存在し、
+\begin{equation}\label{fo:eq:constant-trivector}
+ \pi_h=[\Xi_h,W_h],\qquad [\Xi_h,\pi_h]=0
+\end{equation}
+となる。$\Xi_h$の分解可能性は仮定しない。
+\end{lemma}
+\begin{proof}
+Casimir条件は、rank二、係数次数二の$\pi_h$が勾配Koszul cycleであることを意味する。
+補題\ref{fo:lem:regular-gradient}により、rank三、係数次数零の原像$\Xi_h$が存在する。
+従ってその係数は変数に依存しない。
+二つの原像の差はrank三、係数次数零のcycleであり、
+そのKoszul原像はrank四、係数次数$-2$でなければならない。
+そのような多項式はないので$\Xi_h$は一意である。
+$\pi_h\bmod h=0$に同じ一意性を適用すると$\Xi_h\bmod h=0$を得る。
+
+$D_h=[\Xi_h,\pi_h]$と置く。
+$\Xi_h$は定数係数で$\pi_h$の係数は二次式だから、
+$D_h$はrank四、係数次数一である。
+Schouten次数は$|W_h|=-1$、$|\Xi_h|=2$、$|\pi_h|=1$なので、graded Jacobiにより
+\begin{align*}
+ [W_h,D_h]
+ &=[[W_h,\Xi_h],\pi_h]+[\Xi_h,[W_h,\pi_h]]\\
+ &=-[\pi_h,\pi_h]=0.
+\end{align*}
+従って$D_h$も勾配Koszul cycleである。
+その原像はrank五、係数次数$-1$でなければならず、再び零である。
+よって$D_h=0$を得る。
+rankが変数の数を超える場合も、その外積空間自体が零なので同じ結論となる。
+\end{proof}
+
+\begin{remark}[三次という次数を使う箇所]
+補題\ref{fo:lem:constant-trivector}の二つの次数計算が本節の要点である。
+最初のKoszul持上げでは「二次のbivectorから定数のtrivector」を得て、
+次の持上げでは「一次係数のrank四tensorには多項式の原像がない」と結論する。
+滑らかさは勾配Koszul complexの完全性に用いる。
+従って、中心元が別の次数であったり、古典cubicが特異であったりする場合に、
+同じ結論をそのまま適用してはいけない。
+\end{remark}
+
+\subsection{全ての有限Artin次数でのcurved比較}
+
+\begin{proof}[定理\ref{fo:thm:formal-reconstruction}の証明]
+補題\ref{fo:lem:full-formality}によって$\Phi_h,\pi_h,W_h$を形式的に選び、
+補題\ref{fo:lem:constant-trivector}の$\Xi_h$を取る。
+周期変数$t$に式\eqref{cg:eq:bidegree}の次数$(2,-3)$を与え、
+curved Maurer--Cartan元とgauge生成元を
+\[
+ \alpha_h=-tW_h+\pi_h,\qquad \eta_h=\Xi_h/t
+\]
+と置く。$\Xi_h$はSchouten次数二、内部次数$-3$なので、
+$\eta_h$はcohomological degree零、内部次数零である。
+また$\eta_h$は$h$の倍数であり、
+\[
+ [\eta_h,-tW_h]=-\pi_h,\qquad [\eta_h,\pi_h]=0
+\]
+となる。従って全ての次数で
+\begin{equation}\label{fo:eq:all-order-gauge}
+ \boxed{\quad
+ \exp(\operatorname{ad}\eta_h)(-tW_h+\pi_h)=-tW_h.
+ \quad}
+\end{equation}
+
+この等式を$R_N$へ切断する。
+補題\ref{cg:lem:arity}のarity計数は$N$にも変数の数にも依存しない。
+bivectorの各入力が$h$の倍数であり、関数としての曲率入力は高々一個なので、
+Kontsevich写像の必要なTaylor和は全て有限である。
+式\eqref{fo:eq:central-inverse}から、$\alpha_h$の像は
+\[
+ \bigl(*_{\pi_h},-t\Phi_h(\Omega_h)\bigr)
+\]
+というcurved associative構造であり、右辺$-tW_h$の像は
+通常の可換積と曲率$-tW_h$である。
+
+gauge経路を$\alpha_s=-tW_h+(1-s)\pi_h$と取る。
+そのKontsevich像のgauge生成元は
+$\mathcal U^{\alpha_s}(\eta_h)$であり、符号は
+$\partial_s\alpha_s=[\eta_h,\alpha_s]$に従って定める。
+一個のtrivectorを含むTaylor成分のarityは、関数入力が零個なら三、
+一個なら一である。
+従ってこの生成元はarity一と三に限られ、$h$の倍数であり、
+各$R_N$上で$s$の多項式となる。
+正のarityの成分はnormalizedである。
+補題\ref{cg:lem:artin-flow}から、対応するbar同型とその逆は
+\[
+ F_1=\Id+O(h),\qquad
+ F_{2r+1}=O(h^r),\qquad F_k=0\ (k>2N+1)
+\]
+を満たす有限式で与えられる。
+全成分は内部次数零であり、$t$について線形である。
+
+補題\ref{cg:lem:tw-extension}をこのbar同型へ適用する。
+有限rank行列因子分解のtwisting行列$Q$は$h$の倍数である必要はない。
+像$\sum_kF_k(Q,\ldots,Q)$と射の挿入和は上のarity上界によって有限だからである。
+得られる同値は有限rankを保ち、内部シフトと周期同型を保つ。
+これに厳密な次数付き代数同型$\Phi_h\bmod h^{N+1}$を合成すると
+式\eqref{fo:eq:MF-equivalence}を得る。
+
+最後に、$\pi_h,\Phi_h,W_h,\Xi_h$は初めに一つの形式的データとして選んでいる。
+gauge経路とその順序付き積分も同じ形式的式の切断であるから、
+構成した同値と逆同値は$R_N\to R_{N-1}$による基底変換と両立する。
+可換超曲面は滑らかな特殊fiberを持つflatな冪零変形なので、
+各$R_N$上で相対的に滑らかである。
+\end{proof}
+
+\begin{corollary}[次数別完備基底上の有限rank比較]
+\label{fo:cor:complete-graded}
+$\widehat R=\CC[[h]]$とし、$A_h$の各斉次成分を保った代数
+$A_h^{\mathrm{gr}}=\bigoplus_{j\ge0}(A_h)_j$を用いる。
+定理\ref{fo:thm:formal-reconstruction}の同値は、$\widehat R$上でも
+\[
+ \MF^{\ZZ}(A_h^{\mathrm{gr}},\Omega_h)
+ \simeq
+ \MF^{\ZZ}(S\otimes_\CC\widehat R,W_h)
+\]
+という有限rank graded MFの$A_\infty$同値、従ってその包絡・冪等完備化のdg Morita同値を与える。
+これは内部シフトと周期同型を保ち、各有限Artin同値へ還元される。
+ここで全代数の次数を忘れた完備化や、非零の複素数への$h$の特殊化は主張しない。
+\end{corollary}
+\begin{proof}
+固定した有限rank graded free moduleと固定したcohomological degreeについて、
+その行列の各成分は内部次数が固定された
+$(A_h)_j\simeq S_j\otimes_\CC\widehat R$に属する。
+周期変数$t$の冪もcohomological degreeから固定されるため、
+これらは有限個の有限自由$\widehat R$-加群の直和であり、$h$進完備かつ分離である。
+定理の構成によるbar写像とその逆は形式的に
+$F_{2r+1}=O(h^r)$、$F_{2r}=F_0=0$を満たす。
+従って$Q$が$h$の倍数でなくても
+$Q'=\sum_{r\ge0}F_{2r+1}(Q,\ldots,Q)$は上の固定された成分内で収束する。
+固定個数の射に$Q$を挿入するfunctorの式も、
+arityが増えると$h$進位数が増えるため同様に収束する。
+これは各行列成分の固定内部次数内での極限であり、
+変数の無制限な次数の級数を導入しない。
+得られた対象がMF方程式を満たすこと、$A_\infty$恒等式、
+および逆写像との合成が恒等であることは、
+各$h^{N+1}$を法として既に成立している。
+成分の分離性から、全ての恒等式が$\widehat R$上でも成立する。
+従って有限rank対象上の実際の互いに逆な$A_\infty$ functorを得る。
+内部次数、$t$の作用、単位も各切断で保存されるため極限で保存される。
+\end{proof}
+
+\begin{remark}[pure Poisson量子化のcanonicalな中心元]
+\label{fo:rem:canonical-center}
+$\pi$が二次Poisson tensorで$[\pi,F]=0$なら、
+星積$*_{h\pi}$とcanonicalな中心元$\mathcal U^{h\pi}(F)$の対は、
+全ての有限Artin次数で元の可換式$F$のMF pairと同値である。
+実際、補題\ref{fo:lem:constant-trivector}で
+$\pi=[\Xi,F]$、$[\Xi,\pi]=0$となる定数$\Xi$を取り、
+$\eta=h\Xi/t$による同じcurved gaugeを適用すればよい。
+
+一般に与えられた対$(A_h,\Omega_h)$では、formalityで対応する
+$\pi_h$にも中心元の逆像$W_h$にも高次補正があり得る。
+最初のPoisson tensorだけから$W_h$を決めることはできない。
+例えば混合試験族の対称二次関係とpure Kontsevich星積$*_{h\pi}$
+との生成元による同定は、第\ref{kj:sec:second-jet}節では$h^3$を法として証明したものであり、
+その同定を全次数で同じ形に保てるとは主張していない。
+\end{remark}
+
+\subsection{対称二次量子化の明示的二次復元公式}
+
+\begin{corollary}[一般の対称二次関係からの二次式]
+\label{fo:cor:universal-second-jet}
+$R_2=\CC[h]/(h^3)$とし、$F\in S_3$は滑らかな射影cubicを定めるとする。
+$\pi=\frac12\pi^{ij}\partial_i\wedge\partial_j$は係数が二次式のPoisson tensorで、
+$[\pi,F]=0$とする。
+次数付き$R_2$-代数$A_2$は
+\[
+ [z_i,z_j]=h\,\sym_{A_2}(\pi^{ij})
+\]
+という対称二次関係を持ち、$S\otimes R_2$と同じ次数別自由加群を持つPBW変形とする。
+中心三次元を
+\[
+ \Omega_2=\sym_{A_2}(F+h^2C),\qquad C\in S_3
+\]
+と仮定する。この表示には$h$の一次項を含めない。
+このとき、有限の偏微分と積だけで計算できる三次式
+\begin{equation}\label{fo:eq:universal-second-jet}
+ \boxed{\begin{aligned}
+ W_2&=F+h^2\left(C-\frac1{48}\sum_{i,k}Q_{ik}F_{ik}\right),\\
+ Q_{ik}&=\sum_{j,l}(\partial_l\pi^{ij})(\partial_j\pi^{kl}).
+ \end{aligned}}
+\end{equation}
+に対し、内部シフトを保つ同値
+\[
+ \MF^{\ZZ}(A_2,\Omega_2)\simeq
+ \MF^{\ZZ}(S\otimes R_2,W_2)
+\]
+が存在する。この系には、入力の二次jetが全次数へ延長できることを仮定しない。
+\end{corollary}
+\begin{proof}
+角度型Kontsevich星積の二次作用素は対称なので、
+一次生成元の交換子は$h\pi^{ij}$である。
+対称化された右辺の補正は$h^3$以上となり消えるため、
+生成元を同名の一次式へ送る写像は$A_2$から星積への代数準同型を定める。
+PBW性と$h=0$での恒等性によりこれは同型である。
+補題\ref{kj:lem:symmetrization}は変数の数によらないので、
+その同型は$\Omega_2$を式\eqref{fo:eq:universal-second-jet}の$W_2$へ送る。
+補題\ref{kj:lem:curvature-wheel}により
+$\mathcal U^{h\pi}(W_2)=W_2$でもある。
+
+$[h\pi,W_2]=0$は$h^3=0$の下で成り立つ。
+補題\ref{fo:lem:regular-gradient}と
+\ref{fo:lem:constant-trivector}の有限Artin版を用いると、
+$h\pi=[\Xi_2,W_2]$、$[\Xi_2,h\pi]=0$となる
+$\Xi_2\in h(\bigwedge^3 V)\otimes R_2$を得る。
+定理のcurved gaugeの証明をこの切断で直接行い、
+補題\ref{cg:lem:artin-flow}と\ref{cg:lem:tw-extension}を適用すればよい。
+\end{proof}
+
+この式は、入力の二次Poisson tensorとWeyl中心式が与えられている場合の、
+全変数に共通する明示的二次復元公式である。
+三変数Jacobian型では
+$\sum Q_{ik}F_{ik}=-6\det(\mathsf H)$となる。
+さらに$C=-\det(\mathsf H)/12$なら、括弧内は$\det(\mathsf H)/24$となり、
+第\ref{kj:sec:second-jet}節の混合族の式を再現する。
+
+\subsection{混合試験族の二次式と射影残余への適用}
+
+第\ref{mt:sec:family}節の混合試験族は定理の入力を満たす。
+全Artin切断のPBW基底は両立しているので、逆極限を取ると
+$A_h\simeq\CC[x,y,z,u,v][[h]]$という次数付き加群同定を得る。
+中心元の閉公式も同じ逆極限で定義され、
+$\lambda^3\ne-3$なら古典cubicは滑らかである。
+
+第\ref{kj:sec:second-jet}節は、この族について
+\[
+ \widehat F_\lambda
+ =F_\lambda+
+ h^2\left(\frac{xyz}{3}-\frac{\lambda^2u^2z}{12}\right)
+ \pmod{h^3}
+\]
+との実際のMF比較を与える。
+これは単なる中心元の可換化から得た式ではなく、
+Kontsevich星積とCasimirの規格化を指定した上での二次式である。
+本節の形式的MC持上げは、与えられた有限jetの同定に合わせて選ぶことができる。
+そのように選んだ$W_h$の二次Jacobian classは
+$\bigl(1/3+\lambda^3/36\bigr)[xyz]$である。
+高次の$W_r$は本節で計算していない。
+それらを求めるには、formal Poisson tensorと代数同型を各次数で求め、
+中心tangent map\eqref{fo:eq:central-inverse}を逆に解く必要がある。
+本節はその形式的可解性を示すが、全次数の閉公式や収束を与えない。
+
+定理\ref{am:thm:comparison}により、式\eqref{fo:eq:MF-equivalence}は
+各有限Artin切断で線束生成残余pairの同値へ移る。
+可換側は相対的に滑らかな$V(W_h)$のperfect Kuznetsov成分である。
+既存の正則局所模型$\Gamma_R$からの底変更は
+命題\ref{am:prop:Gamma-basechange}で確認する。
+この比較の合成を系\ref{am:cor:formal-residual}に記載する。
+非可換族の非零ファイバーのAS性、非零$h$での復元、および代数化は、
+この有限Artin同値の系には含めない。
