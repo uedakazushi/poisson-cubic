@@ -1,6 +1,6 @@
 # 研究方針：cubicのPoisson構造・量子化・可換復元
 
-**2026年11月10日・v22。再開時は最初に本ファイルを読む。**
+**2026年11月10日・v23。再開時は最初に本ファイルを読む。**
 
 ## 正本と現在の目標
 
@@ -88,6 +88,28 @@ G_2-\left(\frac13+\frac{\lambda^3}{36}\right)xyz
 \]
 係数1/36は重みからの予測ではなく計算結果である。u′=u−h²λ²z/36で \(F_\lambda(x,y,z,u',v)+h^2(1/3+\lambda^3/36)xyz\) に直せる。λ³=−12では二次類が零になるが、高次の消滅は結論しない。MF pairの低rotation積は本文の10×15行列で完全に指定した。
 
+### 混合族の全次数同変正規形
+
+新しく papers/reconstruction/mixed_equivariant_normal_form.tex に、
+混合族の有限対角群 H と指標 χ を使って、同変formalityの選択と
+全次数の形式的線形正規形を証明した。
+三次Jacobian商の三指標成分は
+\(J(F_\lambda)_3^H=\mathbb C[uxy]\)、
+\(J(F_\lambda)_3^\chi=\mathbb C[xyz]\)、
+\(J(F_\lambda)_3^{\chi^2}=0\)。
+H不変な可換模型は、H同変な形式GL_5座標変換により
+\[
+W_h\sim F_{\lambda_*(h^3)}+h^2c_*(h^3)xyz,\quad
+\lambda_*(q)=\lambda+O(q),\quad
+c_*(0)=\frac13+\frac{\lambda^3}{36}
+\]
+にできる。これは二つの形式級数への\textbf{全次数の還元}であり、
+その高次係数を計算したものでも、非零hでの代数化でもない。
+\(\lambda^3=-12\)では二次項が消えるが、h³のλ方向はなお許される。
+character商の有限行列は computations/verify_mixed_characters.py。
+Kontsevichの線形同変性は既知、中心元からの同変化と正規化は本文で証明する。
+この一般性での先行研究上の初出は未確認。
+
 ### Artin底の射影残余比較
 
 papers/reconstruction/artin_residual_mf_comparison.tex の am:thm:comparison と am:cor:formal-residual に証明があり、独立に点検した。d個の変数、a=d−3について、周囲でperfectな相対特異圏を介した
@@ -114,7 +136,7 @@ papers/reconstruction/artin_smoothness_obstruction.tex の四次元free dg模型
 ## 未解決の核心と次の着手
 
 1. **完備底・genericへの比較。** Artin残余比較は証明した。次は次数別完備MF同値が、既存Γの指定生成子を可換側の生成子へ送ることを、特殊fiberだけに頼らず示す。失敗例は artin_smoothness_obstruction.tex。実際の有限cone/retract表示、または指定生成子の像の明示的計算を優先する。Λの対象の添字・内部次数・積の向きから、対角の持上げが有限filtrationを保つかを調べる。有限rankのA∞双加群を作るだけでは有限cell性を結論しない。通常の有限自由代数へMorita帰着できる場合の十分条件と証明は研究ノートに置く。
-2. **高次の具体式。** 混合族のh³,h⁴係数について、結合積のPoisson逆像、中心tangent map、gaugeを順に計算する。二次Hessian公式の全次数への外挿はしない。λ³=−12を有用な判別点にする。
+2. **高次の具体式。** 同変正規形を用い、まずh³のλ方向係数a₁、次にh⁵のxyz方向係数b₁を計算する。h⁴のJacobian類は零だが、生のh⁴係数が零とは限らない。結合積のPoisson逆像、中心tangent map、gaugeを順に計算し、λ³=−12を判別点とする。
 3. **代数化とgeneric。** 完備底上の実際のgraded MF同値から、指定残余生成子・generic base change・有限型へのspreadを追う。Artinでのkのdescendabilityは \(\mathbb C[[h]]\) では使えない。可換smooth proper族でも生成子の性質は一般に開条件ではない。全有限jetの成功だけでSMを結論しない。
 4. **SM・ER経路。** 実際のproper残余dg代数Γの有限perfect対角と増大射、または有限bar-skeletonの右逆を構成する。ERには実在するsmooth proper pairを入力する。周囲の対角やSerre関手は代用にならない。
 5. **全Poisson成分。** スカラーchartと必要な有限分離・étale底変更を使い、係数方向を保つ相対量子化を確認する。rank層と既約成分を同一視しない。
@@ -123,9 +145,9 @@ papers/reconstruction/artin_smoothness_obstruction.tex の四次元free dg模型
 
 ## 検証と再開
 
-新しい数学的証明は本文に記載し、独立に点検した。外部査読・Lean形式証明・包括的な新規性確認は未実施。Kontsevich、Dito、Shoikhet、Căldăraru–Tu、Tu、Chen等の一次資料と適用箇所をbibliographyに記録する。
+新しい同変正規形の証明を本文に記載した。指標商の係数行列は別途記号計算で照合したが、formalityと圏論的部分の外部査読・形式証明は未実施。外部査読・Lean形式証明・包括的な新規性確認は未実施。Kontsevich、Dito、Shoikhet、Căldăraru–Tu、Tu、Chen等の一次資料と適用箇所をbibliographyに記録する。
 
-二次星積・tensor・積行列の厳密検算は公開コードでPASSした。論文Cは133頁・32 TeX inputsでLuaLaTeX組版し、参照・引用・glyph・overfullの検査と表示確認を行った。既存三つの具体計算証明書、arity証明書、独立SM/ERの三証明書も再生成して照合した。計算のJSONを手で復元したものは収録しない。各原稿の正確な状態はvalidation.jsonを読む。
+二次星積・tensor・積行列の厳密検算は公開コードでPASSした。論文Cの従前のソースは133頁・32 TeX inputsで組版・検査済み。今回追加した同変正規形の節を含む現行v23の全論文Cは未組版・未検証である。既存三つの具体計算証明書、arity証明書、独立SM/ERの三証明書も再生成して照合した。計算のJSONを手で復元したものは収録しない。各原稿の正確な状態はvalidation.jsonを読む。
 
 再開時はvalidation.jsonの各原稿の状態を確認する。計算と全inputの参照・引用検査は公開コードで再実行した。既存の計算資産と証明全文はmainに保持する。独立SM/ER節とA/Bの組版は別状態として記録する。
 
