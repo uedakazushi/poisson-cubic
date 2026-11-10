@@ -1,0 +1,155 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage{amsmath,amssymb,amsthm,mathtools,hyperref,luatexja-fontspec}
+\setmainjfont{HaranoAjiMincho-Regular}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{remark}[theorem]{注意}
+\renewcommand{\proofname}{証明}
+\newcommand{\qgr}{\operatorname{qgr}}
+\newcommand{\gldim}{\operatorname{gldim}}
+\newcommand{\thick}{\operatorname{thick}}
+\newcommand{\Perf}{\operatorname{Perf}}
+\newcommand{\Db}{D^{\mathrm b}}
+\title{中心三次商の一般中心値と二つの中心チャート}
+\author{非可換cubic threefold研究・ソース復元用ノート}
+\date{2026年11月10日・v1}
+\begin{document}
+\maketitle
+\begin{abstract}
+追跡中の\texttt{papers/pdf-only/ambient/central\_cubic\_technical.pdf}
+に対応する、2026年11月1日の比較原稿第28節（pp.~43--44）から、
+有限パラメータでの三次中心商の正則性を
+再利用できる独立TeXとして取り出す。
+使う外部のgeneric central value定理を明示し、任意の
+特殊パラメータでの正則性を主張しない。
+この二つの命題だけでは61ページの原PDFを置換できない。
+\end{abstract}
+
+\section{二つの中心チャートによるperfectnessの判定}
+\begin{proposition}[二つの中心チャート]\label{prop:patch}
+$B$をconnected graded noetherian AS-regular代数、
+$W\in Z(B)$を非零の正則斉次元、$A=B/(W)$とする。
+$u,v\in Z(B)_1$は$B$上正則であり、
+$A$上も中心的正則列をなすと仮定する。
+$A[u^{-1}]_0$と$A[v^{-1}]_0$の大域次元は有限であり、
+さらに境界について
+\[
+\Db(\qgr A/(u,v))
+=\thick\{\pi(A/(u,v))(n)\mid n\in\mathbb Z\}
+\]
+を仮定する。このとき
+\[
+\Db(\qgr A)=\thick\{\pi A(n)\mid n\in\mathbb Z\}.
+\]
+\end{proposition}
+\begin{proof}
+$A$のcoherent moduleの有限生成graded lift $N$をとり、
+そのmatrix factorizationの有限presentationを用いる。
+$u$と$v$を局所化した二つのaffine chartでは
+有限大域次元の仮定からfactorizationがcontractibleとなる。
+contractionは有限個の係数・分母から成るので分母を払え、
+ある$r,s\ge1$に対して
+$u^r$と$v^s$の作用がprojective singularity categoryでは零になる。
+
+二重Koszul cone $K(u^r,v^s;N)$のcohomologyは
+$(u^r,v^s)$に殺される。
+\[
+(u,v)^{r+s-1}\subset (u^r,v^s)
+\]
+なので有限filtrationを持ち、各商が$A/(u,v)$-加群となる。
+境界の生成性と中心正則列のKoszul分解より、
+このconeはline objectのshiftから生成されるperfect対象である。
+一方、projective singularity categoryでは$u^r,v^s$の作用は
+零であるため、coneは$N$の四つのshift・twistの直和に分裂する。
+従って$N$自身が直和因子としてperfectになる。
+各coherent $N$に適用して主張を得る。
+\end{proof}
+
+\section{固定した周囲の一般中心三次商}
+\begin{theorem}[十分一般の二元三次中心係数]\label{thm:generic}
+$B$をnoetherian connected graded AS-regular次元5の整域とする。
+二つの次数1中心元$u,v$、三次中心元$G$を持ち、$B$が
+$\mathbb C[u,v]$上自由であると仮定する。
+$x,y,z$方向のfiltrationについて
+\[
+\operatorname{gr}_{x,y,z}B
+\simeq S\otimes\mathbb C[u,v],
+\]
+$S$は整域、$G$の最高部分$\gamma\in S_3$は非零正則元とする。
+良い中心チャートで
+\[
+A_{a,b,c,d}
+=B/(G+au^3+bu^2v+cuv^2+dv^3)
+\]
+が$\mathbb C[u,v]$上自由とする。
+さらに
+$\qgr B/(u,v,G)$が滑らかな楕円曲線のcoherent圏と同値であるとする。
+有限表示の係数全体を含む可算な部分体$k_0\subset\mathbb C$をとり、
+$a,d$が$k_0(b,c)$上代数的独立であると仮定する。
+このとき
+\[
+\gldim(\qgr A_{a,b,c,d})=3.
+\]
+\end{theorem}
+\begin{proof}
+$D_u=B[u^{-1}]_0$, $D_v=B[v^{-1}]_0$と置く。
+$B$のAS-regular性と局所化から$D_u,D_v$は
+noetherianで有限大域次元を持つ。
+実際、$u$が中心次数1の単元で
+$B[u^{-1}]\cong D_u[u,u^{-1}]$となり、
+$D_u$-加群がLaurent拡大に誘導した後の
+直和因子として回収できるからである。
+
+$u$-chartに$t=v/u$を導入すると
+\[
+A_{a,b,c,d}[u^{-1}]_0
+=D_u/(G/u^3+bt+ct^2+dt^3+a).
+\]
+$a$は残りの係数に対して超越的であり、
+括弧内の$a$を除いた中心元は最高$x,y,z$部分が
+非零の三次元なのでその冪は線形独立である。
+この状況に適用されるgeneric central valueの
+非可換Bertini型補題
+（Rennemo--Segal--Van den Berghの中心局所化と
+有限行列因子化に基づく結果）により、
+このchartは有限大域次元を持つ。
+
+同様に$v$-chartで$r=u/v$とすると
+\[
+A_{a,b,c,d}[v^{-1}]_0
+=D_v/(G/v^3+ar^3+br^2+cr+d).
+\]
+$d$の超越性によってこちらも有限大域次元になる。
+境界$\qgr B/(u,v,G)$の生成性と
+命題\ref{prop:patch}を適用すれば
+$\Db(\qgr A)=\thick\{\pi A(n)\}$。
+最後に$B$のAS-regular性と中心三次正則商の
+AS-Gorenstein次元4、index 2のSerre双対を使うと
+大域次元は正確に3となる。
+\end{proof}
+
+\begin{remark}[適用限界と先行研究]
+この命題は固定した周囲$B$について、
+特定のZariski開集合全体での正則性ではなく
+代数的独立性を課したvery-generalな係数の
+十分条件である。各特殊係数での正則性は別問題であり、
+一般混合係数の全体に滑らかな量子的境界があることも
+自動的には従わない。
+
+中心局所化・非可換generic smoothnessの外部入力として
+J.~V.~Rennemo, E.~Segal, M.~Van den Bergh,
+\emph{A non-commutative Bertini theorem},
+\url{https://arxiv.org/abs/1705.01366}
+のLemmas 3.2--3.3と関連部分を用いる。
+本稿は既存研究原稿の証明をTeXで回復したものであり、
+外部定理を今回改めて完全監査したものではない。
+\end{remark}
+
+\section{復元した部分と原本の関係}
+原本の第28節の二つの主要命題と証明の論理をTeX化した。
+原本にはその他の有限中心性、点加群、判別式、中心三次公式、
+17次元モジュライと復元の議論がある。
+未収録の部分を照合するまで
+\texttt{central\_cubic\_technical.pdf}のGit追跡は解除しない。
+\end{document}

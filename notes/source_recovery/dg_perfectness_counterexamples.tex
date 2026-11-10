@@ -1,0 +1,244 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage{amsmath,amssymb,amsthm,mathtools,hyperref}
+\usepackage{luatexja-fontspec}
+\setmainjfont{HaranoAjiMincho-Regular}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{remark}[theorem]{注意}
+\renewcommand{\proofname}{証明}
+\newcommand{\Perf}{\operatorname{Perf}}
+\newcommand{\RHom}{\operatorname{RHom}}
+\newcommand{\thick}{\operatorname{thick}}
+\newcommand{\otL}{\mathbin{\otimes^{\mathbf L}}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\title{非連結dg代数上のperfectnessの反例と完備基底での限界}
+\author{非可換cubic threefold研究・ソース復元用ノート}
+\date{2026年11月10日・v1}
+\begin{document}
+\maketitle
+\begin{abstract}
+\texttt{notes/pdf-only/finite\_smoothness\_notes.pdf}（2026年11月1日版）
+第23節（pp.~26--31）の数学的内容をTeXで独立に再構成する。
+特殊ファイバーとすべてのArtin切断がperfectであっても、
+完備基底上の相対dg加群がperfectとは限らないことを証明する。
+この反例の特殊ファイバーの代数自体はsmoothではなく、相対対角の
+smoothness持ち上げに対する反例ではない。
+本稿は元の34ページのPDF全体を再生成するソースではない。
+\end{abstract}
+
+\section{規約と問題}
+すべてcohomological gradingとし、微分の次数を$+1$とする。
+$\Perf(\Lambda)$はunbounded derived category $D(\Lambda)$のcompact objects、
+同値に有限coneとretractで$\Lambda$から生成される対象を表す。
+基底環上のperfectnessとdg加群としてのperfectnessを混同しない。
+次の含意は一般に偽である：
+\[
+\Lambda,M\in\Perf(R),\qquad
+M\otL_Rk\in\Perf(\Lambda\otL_Rk)
+\quad\Longrightarrow\quad M\in\Perf(\Lambda).
+\tag{DG4.1}
+\]
+
+\section{特殊ファイバーだけperfectな二生成子の例}
+\begin{theorem}[特殊ファイバーとすべてのArtin切断でperfect]\label{thm:two}
+$R=k[[h]]$, $K=k((h))$とし
+\[
+\Lambda=R\oplus R\varepsilon\oplus R\eta,\qquad
+|\varepsilon|=|\eta|=1,\qquad
+(\varepsilon,\eta)^2=0,\quad d_\Lambda=0.
+\]
+右dg加群$M=e\Lambda$は$|e|=0$, $d_M(e)=he\varepsilon$とする。
+このとき
+\begin{enumerate}
+\item $\Lambda,M$は$R$上の有界有限自由複体である。
+\item $M_k=M\otL_Rk\simeq\Lambda_k$は$\Lambda_k$-perfectである。
+\item $M_K=M\otL_RK$は$\Lambda_K$-perfectでない。
+\item すべての$n\ge1$で$M_n=M\otL_RR/(h^n)$は$\Lambda_n$-perfectである。
+\item $M$は$\Lambda$-perfectでない。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+$(\varepsilon,\eta)^2=0$からLeibniz則で$d_M^2=0$となる。
+基礎の$R$複体は
+\[
+0\longrightarrow R\xrightarrow{(h,0)}
+R\varepsilon\oplus R\eta\longrightarrow0
+\]
+であるから1が従い、$h=0$で微分が零となるので2が従う。
+$h$を可逆にすると$H^0(M_K)=0$, $H^1(M_K)=Ke\eta$である。
+augmentation $\Lambda_K\to K$を通して$K$を加群とみれば
+\[
+K[-1]\xrightarrow{\simeq}M_K,\qquad1\longmapsto e\eta
+\]
+は$\Lambda_K$-linear quasi-isomorphismである。
+
+$K$が$\Lambda_K$-perfectでないことを示す。
+$\varepsilon,\eta$のすべての有限語$w$（空語を含む）に
+次数0の自由生成子$e_w$を対応させる左semifree加群$Q$をとり、
+\[
+d(e_\varnothing)=0,\qquad d(e_{aw})=ae_w
+\quad (a\in\{\varepsilon,\eta\})
+\]
+とする。radical square zeroゆえ$d^2=0$。
+語長filtrationはsemifree filtrationであり、
+非空語とradicalの元が対応して消えるので$Q\to K$は
+quasi-isomorphismである。augmentationの右$K$とtensorすると
+全微分が零になるから
+\[
+K\otL_{\Lambda_K}K\simeq
+\bigoplus_{w\in\{\varepsilon,\eta\}^{*}}Ke_w
+\]
+は無限次元のcohomologyを持つ。
+もし$K\in\Perf(\Lambda_K)$なら
+$-\otL_{\Lambda_K}K$はこれを$K$-perfectに送るため矛盾する。
+従って3。5はperfectnessが導来基底変更で保存されることから従う。
+4は系\ref{cor:artin}から従う。
+\end{proof}
+
+\begin{corollary}[fiberwise perfect locusの非開性]
+$R=k[h]$上で同じ式を定義すると
+\[
+\{p\in\Spec R\mid M\otL_R\kappa(p)\in
+\Perf(\Lambda\otL_R\kappa(p))\}=V(h).
+\]
+\end{corollary}
+\begin{proof}
+$h=0$では自由加群であり、$h\ne0$の剰余体では
+定理\ref{thm:two}のaugmentationを用いた議論が成立する。
+\end{proof}
+\begin{remark}
+本例は$H^{>0}(\Lambda_k)\ne0$であり、
+$H^{>0}=0$というconnectivity仮定を伴う定理への反例ではない。
+さらに$\Lambda_k$自体はsmoothではない。
+従って$E_k$ smoothを仮定する相対対角$E$の
+perfectnessの反例を構成したものではない。
+\end{remark}
+
+\section{Artin切断とthick detection}
+\begin{lemma}[thick detection]\label{lem:thick}
+$R$を可換環、$S$を可換$R$代数とし
+$R\in\thick_{D(R)}(S)$と仮定する。
+$R$-dg代数$\Gamma$と$P\in D(\Gamma)$について
+\[
+P\otL_RS\in\Perf(\Gamma\otL_RS)
+\quad\Longrightarrow\quad P\in\Perf(\Gamma)
+\]
+が成り立つ。connectivityは不要である。
+\end{lemma}
+\begin{proof}
+$X\in D(R)$に対し函手
+$N\mapsto\RHom_\Gamma(P,N\otL_RX)$が
+任意の直和を保つという条件を考える。
+この条件を満たす$X$はthick部分圏をなす。
+$X=S$ではextension--restriction adjunctionによって
+\[
+\RHom_\Gamma(P,N\otL_RS)
+\simeq \RHom_{\Gamma\otL_RS}
+(P\otL_RS,N\otL_RS)
+\]
+となり、仮定されたcompactnessと基底変更の
+直和保存性から右辺は直和を保つ。
+よって$S$はこのthick部分圏に入り、仮定から$R$も入る。
+従って$P$はcompactである。
+\end{proof}
+\begin{corollary}\label{cor:artin}
+$R_n=k[h]/(h^n)$上のdg moduleのperfectnessは
+$k$への導来基底変更で検出される。特に定理\ref{thm:two}の
+すべての$M_n$は$\Lambda_n$-perfectである。
+\end{corollary}
+\begin{proof}
+$R_n$は$k$を組成因子に持つ有限filtrationを持ち、
+$R_n\in\thick_{D(R_n)}(k)$である。
+補題\ref{lem:thick}を適用する。
+\end{proof}
+したがって$M\simeq\mathbf R\varprojlim M_n$かつ各$M_n$が
+perfectでも$M$自身の$\Lambda$-perfectnessは従わない。
+
+\section{全ファイバーがperfectでも相対perfectでない一生成子の例}
+\begin{proposition}
+$R=k[[h]]$または$k[h]_{(h)}$とし
+\[
+\Gamma=R\oplus R\varepsilon,\quad
+|\varepsilon|=1,\quad\varepsilon^2=0,\quad d_\Gamma=0,
+\qquad P=e\Gamma,\quad d_P(e)=he\varepsilon.
+\]
+$P$は$R$-perfectで、$P_k\simeq\Gamma_k$および
+$P_K\simeq0$はいずれもperfectだが
+$P\notin\Perf(\Gamma)$である。
+\end{proposition}
+\begin{proof}
+基礎の$R$複体は$R\xrightarrow{h}R$。
+仮に$P$が$\Gamma$-perfectならaugmentation
+$\Gamma\to R$により$N=P\otL_\Gamma R\in\Perf(R)$。
+導来基底変更では$N\otL_Rk\simeq k$だが
+$N\otL_RK\simeq0$である。
+局所環上のperfect complexは有界有限自由複体で表されるため
+Euler characteristicは各項のrankの交代和であり、
+special/genericで一致すべきところ$1\ne0$となる。矛盾。
+\end{proof}
+
+\section{完備基底でなお成立するHom有限性}
+\begin{proposition}\label{prop:hom}
+$R=k[[h]]$, $\Gamma$を$R$-dg代数、
+$P,N\in D(\Gamma)$とする。
+\[
+P\otL_Rk\in\Perf(\Gamma\otL_Rk),\qquad
+N\in\Perf(R)
+\]
+ならば$\RHom_\Gamma(P,N)\in\Perf(R)$である。
+\end{proposition}
+\begin{proof}
+$C=\RHom_\Gamma(P,N)$とする。
+$k$は$R$-perfectで$-\otL_Rk$は$h$倍写像のconeだから、
+$P$のcompactnessを仮定せず
+\[
+C\otL_Rk\simeq
+\RHom_{\Gamma\otL_Rk}(P\otL_Rk,N\otL_Rk)
+\]
+であり、右辺は$k$-perfect。
+$N$は$R$-perfectゆえderived $h$-completeで、
+$\RHom_R(R[1/h],N)=0$。
+tensor--Hom adjunctionから
+\[
+\RHom_R(R[1/h],C)
+\simeq\RHom_\Gamma(P,\RHom_R(R[1/h],N))=0.
+\]
+従って$C$はderived $h$-completeであり
+$C\simeq\mathbf R\varprojlim_n(C\otL_RR/(h^n))$。
+可換完備環上のperfect complexのeffectivity
+（Stacks Project, \href{https://stacks.math.columbia.edu/tag/09AW}{Tag 09AW}）
+から$C\in\Perf(R)$を得る。
+\end{proof}
+\begin{remark}
+上の結論は$P$の$\Gamma$-compactnessを意味しない。
+$R[1/h]$への一般の$\RHom$基底変更は、
+$k$への有限coneでの基底変更とは異なる。
+\end{remark}
+\begin{corollary}
+$E$が$R$-perfectな相対dg代数として構成済みで
+$E_k$がsmoothなら、
+\[
+\RHom_{E^{\mathrm{op}}\otL_RE}(E,E)\in\Perf(R).
+\]
+これはHochschild cochainの有限性であり
+$E$の相対smoothnessを意味しない。
+\end{corollary}
+
+\section{非可換cubicの正則性研究への適用限界}
+Artin切断で対角がperfectであることから
+完備基底上の対角の一様な有限cell/retract模型を
+無条件に得ることはできない。
+上の反例は一般の加群補題の使用を否定するが、
+特定の非可換cubicのtailsがsmoothでないという
+結論は与えない。中心局所化と有限行列因子化など、
+対角の追加構造を利用した証明と区別する。
+
+\paragraph{対応原本と未照合の範囲}
+原本は\texttt{notes/pdf-only/finite\_smoothness\_notes.pdf}
+の第23節（pp.~26--31）であり、
+上の命題・証明について今回TeX化した。
+原本34ページのうち他の部分はまだ対応確認できていないため、
+このファイルだけを根拠に原本PDFをGit追跡解除してはならない。
+\end{document}
