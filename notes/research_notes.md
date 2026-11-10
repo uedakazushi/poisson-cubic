@@ -1,12 +1,42 @@
 # 研究ノート：可換復元の現在有効な知識と障害
 
-**2026年11月10日・v22。GitHub mainだけを正本とする。** 最初に00_research_plan.mdを読む。証明全文は論文Cの現行input、局所rotation・SM・ERの詳細はnotes/reconstruction.mdと対応原稿に置く。
+**2026年11月10日・v23。GitHub mainだけを正本とする。** 最初に00_research_plan.mdを読む。証明全文は論文Cの現行input、局所rotation・SM・ERの詳細はnotes/reconstruction.mdと対応原稿に置く。
 
 ## 目標と到達範囲
 
 Poisson構造定理 thm:pg-normal と個々のPoisson構造の代数的量子化 thm:pg-quantization は論文Aに証明がある。各固定構造の量子化と、全Poisson係数方向を保つ一様相対量子化を区別する。一般の代数的generic可換復元は未完成。新規性の網羅的確認と全既存証明の独立再監査は完了していない。
 
 現在は、一般の斉次中心三次形式変形について可換MF模型を構成し、全有限Artin切断で線束生成残余pairに移すところまで証明した。非零パラメータへの代数化、完備底からgenericへの生成性、実際の残余対角perfect性は別に残る。任意のAS-regular中心三次商の全点復元にはrotation付き反例がある。
+
+## 全次数の混合同変正規形（現行の新しい補題）
+
+証明全文：papers/reconstruction/mixed_equivariant_normal_form.tex。
+非可換混合族の有限群H（αβγ=1、χ=αβδ、h↦χh）に対し、
+sorted PBW標識をH同変に選べる。Kontsevich affine formalityはGL同変であり、
+全normalized Hochschild complexへの包含も同変。
+有限群不変部分の完全性を用いてformalityのMaurer--Cartan比較と
+一入力gaugeをH同変に選べる。中心のCasimir逆像W_hもH不変になる。
+この比較は既存の二次jetを保持して行える。
+
+三次単項式の指標空間は
+- 1：x³,y³,z³,u³,v³,uxy（6次元）、Jacobian部分空間は5次元。
+- χ：xyz,u²z（2次元）、関係はzF_u=λxyz+3u²z。
+- χ²：uz²（1次元）、関係はuF_z=uz²。
+
+よってJacobian商の各成分はC[uxy]、C[xyz]、0。
+h^r係数は指標χ^(-r)に属する。
+各次数のJacobian理想成分をH同変な一次線形vector fieldで除く
+h進帰納法により、形式正規形
+\[
+W_h\sim F_{\lambda_*(h^3)}+h^2c_*(h^3)xyz,\quad
+\lambda_*(0)=\lambda,\quad c_*(0)=1/3+\lambda^3/36
+\]
+が得られる。これは具体的な高次級数の決定、収束、SM、generic圏同値ではない。
+最初の未計算係数はh³uxy方向a₁とh⁵xyz方向b₁。
+h⁴係数は古典Jacobian商で零だが、生の係数の零を意味しない。
+λ³=−12ではc₀=0でもa₁が残り得る。
+厳密指標計算コード：computations/verify_mixed_characters.py。
+同じ一般性での先行研究上の初出は未確認。
 
 ## 一般形式復元の機構
 
@@ -141,7 +171,7 @@ Cの一楕円ブロックの良い複素ファイバーでの比較、有限位�
 
 ## 8. 再現と次の着手
 
-`reconstruction/README.md` の計算、build、verifyを実行する。参照とハッシュは全TeX inputを含む。計算的確認と圏論的証明は別である。最優先の次作業は、完備MF同値による指定残余生成子の像とgenericでの生成性を、有限cone/retract表示によって確認すること。混合族のh³,h⁴とλ³=−12も計算対象にする。公開コードの厳密検算はPASSし、論文Cの組版・表示を確認した。各原稿の詳細な検証状態はvalidation.jsonを確認する。
+`reconstruction/README.md` の計算、build、verifyを実行する。参照とハッシュは全TeX inputを含む。計算的確認と圏論的証明は別である。最優先の次作業は、完備MF同値による指定残余生成子の像とgenericでの生成性を、有限cone/retract表示によって確認すること。混合族の同変正規形でまずh³のa₁とh⁵のb₁を計算し、λ³=−12も判別点として調べる。公開コードの厳密検算はPASSし、論文Cの組版・表示を確認した。各原稿の詳細な検証状態はvalidation.jsonを確認する。
 
 GitHubへ全文と再現資産を保存し遠隔確認する。Libraryはpushが実際に失敗した場合だけの緊急退避とする。
 
