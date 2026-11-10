@@ -60,3 +60,12 @@ Harris--Roth--Starr (\S3.2, 2005) の一次研究に依存させた。
 - `computations/source_recovery/verify_reye_fold_conormal.py` によりconormal cubic `w1(-z1^2+2z2z3)+w2(-z3^2+2z1z2)`の孤立特異点4点と横断性、非共線性を厳密検算。
 - TeXをLuaLaTeXで二回組版し、7ページのPDFをローカル生成。PDFはGit追跡しない。
 - **原論文IV第3節のfold例、一般275点の横断性、第10節の550曲線網羅性・法束は前提のまま**。第5・8–12節その他の全証明・文献まで照合していないため、77ページの原PDFは保持する。
+
+## 2026-11-10：Reye 第5・9・10・12節の追加TeX復元
+
+- `papers/source_recovery/reye_deformations_degree_one.tex`：原論文IV第5節の法束の完全列・退化写像のcohomology・曲線の全局所Artin変形、第9節のHessian定階数4直線と全Artin変形関手の同型・法束、第10節の平方判別式判定・全550曲線の網羅・次数1の種数0安定写像の仮想計数550の主要証明を独立TeXに整理。
+- `papers/source_recovery/reye_length_three_cusp_jet.tex`：原論文IV第12.1・12.4節の横断五変数消去、四次係数 `κΔ/12`（`Δ=4+21AB+27C²`）、長さ3の停留点、二変数versal cusp `T³+uT+v=0` と Jacobian `-18/Δ²` を整理。原論文第12.9–12.10節の普遍ordered模型全体の滑らかさは今回の独立再監査対象外であり、その仮定を外して射影的な主張へ進めない。
+- `computations/source_recovery/verify_reye_cusp_jet.py`：Q行列、κ、Δ、cusp Jacobianと具体的F0の射影滑らかさを有理数で確認。
+- `computations/source_recovery/verify_reye_pencil_cases.py`：kernel次数 `e=0,1,2` の平方判別式を持つ対称pencilの標準的な例を有限計算で確認。一般定理の形式的証明書ではない。
+- ローカルの詳細稿 `reye_deformations_degree_one.tex`（9ページ）と `reye_length_three_cusp_jet.tex`（4ページ）をLuaLaTeXで組版、ページレンダリングを点検。GitHub掲載版は同じ結果を記述する簡潔な校訂稿であり、登録版そのもののLuaLaTeX再組版は未実施。原PDF全体の完全置換とは扱わない。
+- 残る重要な範囲：第11節の全細目、第12.2–12.3節の射影普遍ordered模型の全階数層と局所PT障害理論、長さ2/3の法束Atiyah `F_2` とPT仮想寄与の詳細、原論文の全定理・証明との逐語的な照合。追跡中の `reye_stationary.pdf` は保持。

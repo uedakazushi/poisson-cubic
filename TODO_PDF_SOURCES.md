@@ -79,3 +79,14 @@
 - [x] LuaLaTeXによる独立組版（7ページ）・引用参照解決を確認。生成PDFは追跡しない。
 - [ ] 原論文第10節の550曲線網羅性・法束、第5・9節の全Artin変形と法束、第11–12節の長さ2・3の射影実現をそれぞれ詳細にTeX化し、対応する原PDFの定理と照合する。
 - [ ] 全77ページの独立数学的内容を確実にTeXへ保持した後でのみ`papers/pdf-only/boundary/reye_stationary.pdf`の追跡解除を行う。
+
+## 2026-11-10：Reye 第5・9・10・12節の追加復元
+
+- [x] Reye曲線の法束の完全列、退化写像の一次比較と全局所Artin基底上の埋込み変形を `papers/source_recovery/reye_deformations_degree_one.tex` に整理。
+- [x] 定階数4 Hessian直線のkernel二次曲線・全Artin変形対応・法束 `O(-1)^2` を同TeXに整理。
+- [x] 正則偶数次対称pencilの平方判別式判定、五次rank4 pencilの `e=0,1,2`、全rank3以下の補題、550本の全網羅と次数1 GW仮想数550を同TeXに整理。
+- [x] 長さ3特殊化の横断五変数消去、四次係数 `κΔ/12`、`Δ=4+21AB+27C²`、二変数 `T³+uT+v` のversal cuspを `papers/source_recovery/reye_length_three_cusp_jet.tex` にTeX化。
+- [x] 上の有限係数恒等式と具体的F0の滑らかさ、およびrank `e=0,1,2` の例をPython/SymPyで独立検算。コードは `computations/source_recovery/`。
+- [ ] GitHub収録版の二つのTeXを `latexmk` で再組版し、参考文献・行列・引用等を確認する（ローカル詳細稿２本の組版とは区別）。
+- [ ] 原論文IV第11節の長さ2の全Artin比較・Atiyah F2・PT局所寄与、12.2–12.3節の普遍ordered模型のJacobian階数層・射影regular開性・同じ法束とPT寄与の詳細証明を移植。
+- [ ] 原PDF第5・9・10・12節の全命題、補題、注意、証明、数式番号を、現行ソースと節単位で厳密照合する。以上は原本77ページの完全代替ではないためPDFの追跡は維持。
