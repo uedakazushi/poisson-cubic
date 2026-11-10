@@ -1,4 +1,4 @@
-% 2026-11-11 / v29
+% 2026-11-11 / v31
 \section{Artin基底上のJacobian sectorと導来自然変換の底変更}
 \label{ras:sec:artin-sector}
 
@@ -102,36 +102,34 @@ matrix factorizationとその冪等完備化から作った$R_m$-線形dg圏と�
 \]
 とする。
 
-\begin{lemma}[特殊生成子のnilpotent持上げ]\label{ras:lem:generator}
-$\mathcal C_m$を$R_m$-線形dg圏とし、対象間のHom複体が
-すべて項別$R_m$-平坦とする。
-$G_m\in\mathcal C_m$の特殊化$G_0$が特殊ファイバーの
-Morita生成元であれば、$G_m$は$\mathcal C_m$のMorita生成元である。
-ここで特殊ファイバーは、対象の剰余により得るdg圏の
-Morita包絡として解釈する。
+\begin{lemma}[導来bar評価の条件付き持上げ]\label{ras:lem:generator}
+$\mathcal C_m$を項別$R_m$-平坦なHomを持つdg圏、
+$G_m\in\mathcal C_m$とする。各対象$X,Y$について、
+$G_m$を介した\emph{導来二側bar評価}の鎖模型があり、
+その始域と終域が項別$R_m$-平坦で、$h=0$への剰余が
+体上のMorita評価と厳密に一致すると仮定する。
+体上で$G_0$がMorita生成元なら、この評価は擬同型である。
+従って$G_m$は、この導来bar模型でのMorita生成元となる。
 \end{lemma}
 \begin{proof}
-$E_m=\operatorname{End}_{\mathcal C_m}(G_m)$と置く。
-任意の対象$X,Y$に対し、$G_m$を介した標準の二側bar評価
-\[
- \bigoplus_{q\ge0}
- \Hom(X,G_m)\otimes_{R_m}E_m^{\otimes q}
- \otimes_{R_m}\Hom(G_m,Y)
- \longrightarrow\Hom(X,Y)
- \tag{RAS4}\label{ras:eq:bar-evaluation}
-\]
-を、bar微分を備えたtotal複体として考える。
-両辺は項別平坦で、その$k$への剰余は同じ評価の特殊ファイバーである。
-特殊ファイバーでは$G_0$のMorita生成性によって擬同型である。
-補題\ref{ras:lem:nilpotent}を適用すれば、元の評価も擬同型であり、
-全表現可能加群が$G_m$の誘導によって得られる。
+特殊ファイバーの評価はMorita生成性から擬同型である。
+与えられた導来bar評価のconeは項別平坦で、
+その剰余は特殊ファイバーで非輪状だから
+補題\ref{ras:lem:nilpotent}によりcone自身も非輪状である。
 \end{proof}
+\begin{remark}[一般の特殊生成子持上げは偽]
+指定した導来bar評価の存在・導来性・特殊化整合性は
+単なるHom複体の項別平坦性からは従わない。
+具体的な反例と隣接sectorの障害は
+第\ref{aro:sec:obstructions}節に記した。
+\end{remark}
 
 五変数の場合、$W_m=\sum_i x_i(\partial_iW_m/3)$から
 残余点のstabilization $K_m$をKoszul型の有限rank因子分解として
 作れる。$K_m,(1)K_m,(2)K_m$の直和を$G_m$とする。
-体上ではこれがgraded MFのMorita生成元となる
-\cite{RASDyck,RASBFK}。従って補題\ref{ras:lem:generator}を適用できる。
+体上ではこれがgraded MFのMorita生成元となる\cite{RASDyck,RASBFK}。
+しかしこのことだけからArtin底の生成性は従わない。
+補題\ref{ras:lem:generator}の導来bar評価・剰余整合性を別途確認する。
 上のbarの各項は同次多項式の有限自由$R_m$-加群の直和である。
 自然変換を計算するbar \emph{cochain}では直積が現れるが、
 $R_m$はNoetherian（従ってcoherent）であり、自由加群の直積は平坦である。
@@ -213,9 +211,10 @@ $1-\zeta$の可逆性以外に体の性質を使わない。
 \end{proof}
 
 \begin{theorem}[相対kernel比較の下での(BC)]\label{ras:thm:bc}
-各$R_m$について、\emph{相対kernel作用の射\eqref{ras:eq:kappa}が
-体上のBFK kernel比較と同じenhancementにおいて定義され、
-その$h=0$剰余が擬同型である}とする。
+各$R_m$について、\emph{指定生成子の導来二側bar評価が
+補題\ref{ras:lem:generator}の条件を満たし、かつ相対kernel作用の射
+\eqref{ras:eq:kappa}が体上のBFK kernel比較と同じenhancementにおいて
+定義され、その$h=0$剰余が擬同型である}とする。
 このとき、論文Cの条件(BC)がすべての$m$について成り立つ。
 特に
 \[
@@ -225,7 +224,7 @@ $1-\zeta$の可逆性以外に体の性質を使わない。
 であり、低次数の積は形式可換模型$W_m$のJacobian積である。
 \end{theorem}
 \begin{proof}
-補題\ref{ras:lem:generator}により、特殊生成子のbar模型で
+補題\ref{ras:lem:generator}の追加仮定により、導来bar模型で
 実際の導来自然変換を計算できる。
 命題\ref{ras:prop:kernel-action}のnilpotent持上げと
 命題\ref{ras:prop:sectors}を合成すれば、標的の同定と底変更を得る。

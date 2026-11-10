@@ -1,6 +1,16 @@
 # 研究方針：cubicのPoisson構造・量子化・可換復元
 
-**2026年11月11日・v30。再開時は最初に本ファイルを読む。**
+**2026年11月11日・v31。再開時は最初に本ファイルを読む。**
+
+## v31：隣接sectorによる障害の分離と誤った生成子補題の訂正
+
+**体上で証明済み（BFK公式からの計算）。** 滑らかな五変数三次のgraded MFで内部shift r=1のNat^(−1),Nat^0,Nat^1は (0,5,2)、r=2では (0,10,0)。r=1のH^1=k^2は二つの非恒等mu3-sector。これは非可換Artin標的のNatそのものを計算した結果ではない。
+
+**条件付き底変更。** 正しい標的導来Natのcochain C_mが項別R_m平坦で剰余C_m/h=C_0と厳密に両立すれば、r=2ではH±1の消滅からH^0(C_m)は自由rank10で全Artin底変更。r=1では初期障害ob_1:k^5→k^2（最大2×5行列）が残り、高次障害も独立に検査する。
+
+**依存主張の訂正。** 特殊ファイバーのMorita生成性とHomの項別平坦性だけでArtin全体のMorita生成性が持ち上がるというv29の一般補題は偽。k[epsilon]/epsilon^2上の非輪状・非可縮な二周期自由複体が反例（本研究の正の内部次数付きcubic MFに対する反例ではない）。論文Cの相対Artin節の当該補題を、導来二側bar評価の存在・導来性・特殊化整合性を仮定する条件付き補題に修正。(KF)から(BC)への経路では、kernelの全忠実性に加えて導来Morita生成性を別個に確認する必要がある。
+
+最優先の着手はr=2のArtin互換の導来bar/Nat模型を構成して厳密剰余写像を証明すること。次にr=1の2×5障害の一次・高次成分を求める。証明全文：papers/reconstruction/artin_rotation_obstructions.tex、研究ノート：notes/artin_rotation_obstructions.md、計算：computations/verify_artin_rotation_obstructions.py。既存の有限対角・形式MF成果を保持し、(KF)/(BC)およびgeneric圏同値の未解決状態を変更しない。
 
 ## 正本・目標・達成基準
 
@@ -36,7 +46,7 @@ GitHub `uedakazushi/nc-cubic` の `main` を唯一の正本とする。次に `n
 
 ## 新たな現行結果
 
-**相対対角のunit（v30、証明あり）。** 任意の可換基底環の斉次三次式に対する差分商stabilized diagonalの畳込みは、有限自由graded MFへ自然な強ホモトピー同値を与える。Koszul収縮h0と摂動pについて(h0p)^(n+1)=0なので、逆とホモトピーは有限和であり、全Artin底変更・内部shift・mu3スカラー作用と両立する。原稿：`papers/reconstruction/diagonal_kernel_identity.tex`、計算：`computations/verify_diagonal_identity.py`（厳密恒等式606件）。**(KF)の全忠実性は未完成。** k[epsilon]/epsilon²上の両側無限自由周期複体は非輪状でもK-flatでない。相対cofibrant/h-projectiveな二側bar模型とBFK体上比較への同一enhancementでの特殊化を次に検証する。
+**相対対角のunit（v31、証明あり）。** 任意の可換基底環の斉次三次式に対する差分商stabilized diagonalの畳込みは、有限自由graded MFへ自然な強ホモトピー同値を与える。Koszul収縮h0と摂動pについて(h0p)^(n+1)=0なので、逆とホモトピーは有限和であり、全Artin底変更・内部shift・mu3スカラー作用と両立する。原稿：`papers/reconstruction/diagonal_kernel_identity.tex`、計算：`computations/verify_diagonal_identity.py`（厳密恒等式606件）。**(KF)の全忠実性は未完成。** k[epsilon]/epsilon²上の両側無限自由周期複体は非輪状でもK-flatでない。相対cofibrant/h-projectiveな二側bar模型とBFK体上比較への同一enhancementでの特殊化を次に検証する。
 
 ## 未解決の核心と次の具体的着手
 

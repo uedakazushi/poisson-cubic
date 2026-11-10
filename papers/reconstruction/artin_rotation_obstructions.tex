@@ -1,0 +1,128 @@
+% 2026-11-11 / v31
+\section{低rotation次数のArtin障害と特殊生成子の持上げ}\label{aro:sec:obstructions}
+
+五変数三次の体上の高次導来自然変換を計算し、
+Artin底変更条件(BC)を次数一と二に分離する。
+特殊生成子のMorita生成性を任意のArtin底へ持ち上げる旧補題は
+以下の反例のため一般には成立しない。
+既存の有限対角・形式MF復元結果は維持する。
+
+\subsection{次数零に隣接するsector群}
+\begin{proposition}[五変数三次の隣接群]\label{aro:prop:sector-neighbors}
+$k$を標数零の代数閉体、$F\in k[x_1,\ldots,x_5]_3$を
+滑らかな射影cubicを定める三次式、$\mathcal T_0$を
+そのgraded MF dg圏、$\rho=(1)$とする。
+\[
+\begin{array}{c|ccc}
+r&H^{-1}\RHom(\Delta,\Delta(r))&
+H^0\RHom(\Delta,\Delta(r))&H^1\RHom(\Delta,\Delta(r))\\\hline
+1&0&k^5&k^2\\2&0&k^{10}&0
+\end{array}\tag{ARO1}\label{aro:eq:neighbors}
+\]
+$r=1$の$H^1$の二次元は二つの非恒等$\mu_3$-sectorである。
+これは既知公式の特殊化であり、新しいHochschild分類とは主張しない。
+\end{proposition}
+\begin{proof}
+Ballard--Favero--KatzarkovのTheorem~5.39
+\cite{AROBFK}またはLin--Zhang\cite{AROLZ}を使う。
+恒等sectorは偶数cohomological次数$m=2j$に
+$\operatorname{Jac}(F)_{r+3j}$を与える。
+勾配が五つの二次正則列なのでHilbert級数は$(1+t)^5$。
+$m=0$では次元$5,10$、$m=\pm1$では寄与しない。
+非恒等$g\in\mu_3$は原点のみを固定し、normal rankは五、
+行列式重みは$-5$である。そのsectorは$m$が奇数で
+\[
+r+5+\frac{3(m-5)}2=0
+\quad\Longleftrightarrow\quad2r+3m-5=0
+\tag{ARO2}\label{aro:eq:weight}
+\]
+の場合に寄与する。$r=1,m=1$には二つの非恒等元が各一次元、
+$r=2,m=-1,1$には寄与しない。
+\end{proof}
+
+\subsection{nilpotent底の正確な判定}
+\begin{lemma}[隣接群消滅による自由な持上げ]\label{aro:lem:neighbor-vanishing}
+$R_m=k[h]/(h^{m+1})$、$C_m$を項別$R_m$-平坦な
+$\mathbb Z$-次数付き複体で、
+$C_m\otimes_{R_m}R_a=C_a$が全ての$a\le m$で
+鎖レベルで成立するとする。
+$H^{-1}(C_0)=H^1(C_0)=0$、
+$H^0(C_0)=k^d$なら
+\[
+H^{-1}(C_m)=H^1(C_m)=0,\quad
+H^0(C_m)\simeq R_m^d,\quad
+H^0(C_m)\otimes_{R_m}R_a\simeq H^0(C_a).
+\tag{ARO3}\label{aro:eq:flat}
+\]
+有界性は不要である。
+\end{lemma}
+\begin{proof}
+各項の平坦性から
+$0\to C_0\xrightarrow{h^m}C_m\to C_{m-1}\to0$
+は短完全列。長完全列で帰納すると両隣群が消え
+$0\to H^0(C_0)\to H^0(C_m)\to H^0(C_{m-1})\to0$。
+$H^0(C_m)$の$k$-長さは$(m+1)d$。
+剰余基底の持上げからNakayamaで
+$R_m^d\twoheadrightarrow H^0(C_m)$、長さ一致で同型。
+\end{proof}
+
+\begin{proposition}[次数一の最初の障害行列]\label{aro:prop:first-obstruction}
+$C_1$を項別$R_1$-自由で$C_0=C_1/hC_1$とする。
+$[x]\in H^0(C_0)$の閉代表を$\widetilde x$へ持ち上げ
+$d\widetilde x=h\widetilde y$とすると
+\[
+\operatorname{ob}_1([x])
+=[\widetilde y\bmod h]\in H^1(C_0)
+\tag{ARO4}\label{aro:eq:obstruction}
+\]
+はよく定義され、
+$\operatorname{im}(H^0(C_1)\to H^0(C_0))
+=\ker\operatorname{ob}_1$。
+従って表\eqref{aro:eq:neighbors}と両立する相対Nat模型を
+構成できれば、$r=1$の一次障害は最大$2\times5$行列である。
+$r=2$は補題\ref{aro:lem:neighbor-vanishing}の範囲になるが、
+正しい標的複体の構成は未完成である。
+\end{proposition}
+\begin{proof}
+$d^2\widetilde x=h\,d\widetilde y=0$から
+項別自由性で$d\widetilde y\bmod h=0$。
+持上げを$hz$変えると$\widetilde y\bmod h$は境界だけ変わる。
+障害が零なら持上げを境界の原像で補正して閉じた元を得る。
+\end{proof}
+\begin{example}[非零障害]\label{aro:ex:obstruction}
+$R_1=k[h]/h^2$上で$C^0=R_1^5,C^1=R_1^2$、
+$d=h\begin{psmallmatrix}1&0&0&0&0\\0&1&0&0&0\end{psmallmatrix}$
+とする。特殊ファイバーの$H^0,H^1$は$k^5,k^2$だが、
+$H^0(C)=R_1^3\oplus k^2$、剰余写像の像は三次元。
+体上のrankだけで(BC)は従わない。
+\end{example}
+
+\subsection{特殊生成子の持上げに関する訂正}
+\begin{proposition}[項別平坦性だけでは生成性は持ち上がらない]
+\label{aro:prop:generator-counterexample}
+$R=k[\epsilon]/(\epsilon^2)$上の有限自由二周期複体のdg圏
+$\mathcal C$を考える。
+$G=R$を偶次数・零微分に置く。
+$G_0=k$は体上のMorita生成元で、
+全Hom複体は項別自由であるが、
+$G$は$\mathcal C$のMorita生成元でない。
+\end{proposition}
+\begin{proof}
+$T$を偶・奇各次数に$R$、両方向の微分を$\epsilon$倍とする。
+$\ker\epsilon=\epsilon R=\operatorname{im}\epsilon$ゆえ
+$H^*(T)=H^*\Hom(G,T)=0$。
+一方$T$が可縮なら$1=\epsilon(a+b)$となり、
+$\bmod\epsilon$で矛盾。従って$T$は非零対象で$G$は生成しない。
+体上の有限自由二周期複体はそのコホモロジーと可縮部分に分解し、
+$k$と$k[1]$が生成するため$G_0$はMorita生成元。
+有限自由複体間のHomも項別$R$自由。
+\end{proof}
+\begin{remark}[条件付き(KF)から(BC)への追加仮定]
+これは一般の二周期dg圏の反例であり、正の内部次数の
+graded cubic MFの生成性が偽とは示していない。
+しかし相対Artin節の「項別平坦Homと特殊生成子だけで
+Morita生成性が持ち上がる」という旧補題は誤り。
+正しい導来二側bar評価とその剰余・導来tensorとの両立を
+(KF)とは別に検証する必要がある。実際のrotation積、
+一般混合族のgeneric同値は未解決である。
+\end{remark}

@@ -1,10 +1,14 @@
 # nc-cubic：Poisson構造・量子化・可換復元
 
-**2026-11-11 / v30。正本はGitHub main。** 最初に [研究方針](00_research_plan.md)、次に [乗法比較ノート](notes/bar_comparison.md) と [有限対角ノート](notes/curved_diagonal.md) を読む。
+**2026-11-11 / v31。正本はGitHub main。** 最初に [研究方針](00_research_plan.md)、次に [乗法比較ノート](notes/bar_comparison.md) と [有限対角ノート](notes/curved_diagonal.md) を読む。
 
 ## 現行：対角kernelの恒等作用
 
-**相対対角のunit（v30、証明あり）。** 任意の可換基底環の斉次三次式に対する差分商stabilized diagonalの畳込みは、有限自由graded MFへ自然な強ホモトピー同値を与える。Koszul収縮h0と摂動pについて(h0p)^(n+1)=0なので、逆とホモトピーは有限和であり、全Artin底変更・内部shift・mu3スカラー作用と両立する。原稿：`papers/reconstruction/diagonal_kernel_identity.tex`、計算：`computations/verify_diagonal_identity.py`（厳密恒等式606件）。**(KF)の全忠実性は未完成。** k[epsilon]/epsilon²上の両側無限自由周期複体は非輪状でもK-flatでない。相対cofibrant/h-projectiveな二側bar模型とBFK体上比較への同一enhancementでの特殊化を次に検証する。
+**相対対角のunit（v31、証明あり）。** 任意の可換基底環の斉次三次式に対する差分商stabilized diagonalの畳込みは、有限自由graded MFへ自然な強ホモトピー同値を与える。Koszul収縮h0と摂動pについて(h0p)^(n+1)=0なので、逆とホモトピーは有限和であり、全Artin底変更・内部shift・mu3スカラー作用と両立する。原稿：`papers/reconstruction/diagonal_kernel_identity.tex`、計算：`computations/verify_diagonal_identity.py`（厳密恒等式606件）。**(KF)の全忠実性は未完成。** k[epsilon]/epsilon²上の両側無限自由周期複体は非輪状でもK-flatでない。相対cofibrant/h-projectiveな二側bar模型とBFK体上比較への同一enhancementでの特殊化を次に検証する。
+
+## v31：Artin底変更の次数別障害
+
+体上で内部rotation shift r=1,2の隣接群(H^-1,H^0,H^1)はそれぞれ(0,5,2),(0,10,0)。実際の導来Natの厳密Artin互換模型を得られればr=2は底変更可能で、r=1には一次障害2×5行列が残る。**特殊ファイバーの生成子はHom項別平坦性だけでは一般にArtinへ持ち上がらない**反例を構成し、論文Cの旧補題を訂正した。証明はpapers/reconstruction/artin_rotation_obstructions.tex、詳細はnotes/artin_rotation_obstructions.md。KF/BCとgeneric圏同値は未証明。
 
 ## 現在の到達点
 

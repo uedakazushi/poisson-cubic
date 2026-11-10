@@ -1,9 +1,9 @@
 {
-  "version": "nc-cubic-v30",
+  "version": "nc-cubic-v31",
   "date": "2026-11-11",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only after actual GitHub publication failure.",
   "current_entry": "00_research_plan.md",
-  "scope": "Commutative stabilized diagonal unit over arbitrary commutative rings via finite exterior HPL; KF derived full faithfulness still open.",
+  "scope": "BFK field adjacent rotation sectors, conditional Artin base change, first-order obstruction and correction of false generic Morita generator lifting; KF/BC still open.",
   "proofs_written_and_checked": [
     {
       "source": "papers/reconstruction/multiplicative_bar_comparison.tex",
@@ -53,6 +53,24 @@
         "dki:ex:kflat"
       ],
       "status": "Explicit divided-difference strong deformation retract/curved HPL, objectwise unit only. Kernel-functor full faithfulness NOT established."
+    },
+    {
+      "source": "papers/reconstruction/artin_rotation_obstructions.tex",
+      "labels": [
+        "aro:prop:sector-neighbors",
+        "aro:lem:neighbor-vanishing",
+        "aro:prop:first-obstruction",
+        "aro:prop:generator-counterexample"
+      ],
+      "status": "Field sector formula specialized from BFK Thm5.39; nilpotent cochain lifting, first obstruction and two-periodic counterexample written; does NOT compute nc Nat."
+    },
+    {
+      "source": "papers/reconstruction/relative_artin_sector.tex",
+      "labels": [
+        "ras:lem:generator",
+        "ras:thm:bc"
+      ],
+      "status": "CORRECTED false unqualified Artin Morita generator-lifting lemma. Valid conditional statement requires a genuine derived two-sided bar evaluation, flatness and compatible reduction. KF and derived Morita input not verified."
     }
   ],
   "executed_exact_checks": {
@@ -62,7 +80,8 @@
     "source_audit": "Standalone input closure, internal labels/citations, parent C input and shared bibliography inclusion checked. Complete A/B/C source closure not reaudited.",
     "artin_sectors": "Executed exact SymPy Groebner for lambda=1 special cubic and computed candidate at h=1/2: both Hilbert [1,5,10,10,5,1], length32; checked base-change counterexample. Does not verify categorical Nat.",
     "relative_source_audit": "Standalone v29 references, labels and exact certificate audited locally; parent C source input and shared bibliography updated in this commit.",
-    "diagonal_identity": "606 exact symbolic polynomial identities: rank2 unary cubic (122) and rank4 mixed binary cubic (484); plus dual number non-K-flat example."
+    "diagonal_identity": "606 exact symbolic polynomial identities: rank2 unary cubic (122) and rank4 mixed binary cubic (484); plus dual number non-K-flat example.",
+    "artin_rotation_obstructions": "Local original research source exact finite check PASS (BFK weight arithmetic assumed, dual-number counterexample and toy 2x5 obstruction); new repository script matches this logic but not independently run after upload."
   },
   "retained_verification": {
     "regular_diagonal": "Unmodified v27 Q(h) witness, regularity at h=0, all 16 products, ranks, unit minor -3 and kernel retained; full matrix construction NOT rerun this turn.",
@@ -82,7 +101,9 @@
     "Generic rotation-preserving equivalence, generation or relative diagonal perfectness.",
     "General-lambda absolute polynomial; high-order coefficients at lambda^3=-12.",
     "External referee verification, formal proof, comprehensive novelty determination.",
-    "(KF): full derived kernel-to-bimodule Hom comparison, relative cofibrant bar construction and field BFK specialization; unit alone is not sufficient, termwise flatness is not K-flatness."
+    "(KF): full derived kernel-to-bimodule Hom comparison, relative cofibrant bar construction and field BFK specialization; unit alone is not sufficient, termwise flatness is not K-flatness.",
+    "Correct Artin-compatible derived Nat cochain model and full (KF), (BC), actual nc rotation and generic equivalence.",
+    "Artin Morita generation for positively graded cubic MF and vanishing of the actual 2x5 first-order obstruction."
   ],
   "primary_sources_checked": [
     "Negron arXiv:1304.0527v4, Theorem5.3; target there is dg, not curved.",
@@ -150,11 +171,18 @@
       "build_completed": true,
       "visual_review": "All 4 pages inspected; no clipping.",
       "pdf_git_tracked": false
+    },
+    "standalone_artin_rotation_obstructions": {
+      "source": "papers/artin_rotation_obstructions.tex",
+      "local_draft_pages": 3,
+      "local_draft_compiled": true,
+      "remote_exact_sources_recompiled": false,
+      "note": "A fuller local draft was typeset and visually reviewed; exact remotely authored source tree not retypeset."
     }
   },
   "environment": {
     "python": "3.13.5",
     "sympy": "1.14.0"
   },
-  "persistence": "GitHub main canonical; local calculation and standalone typesetting distinguished from post-push remote verification."
+  "persistence": "GitHub main remains canonical; remote commit and blob verification separate from local calculation and draft PDF checks."
 }

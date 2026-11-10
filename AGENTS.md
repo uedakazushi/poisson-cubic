@@ -1,6 +1,10 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-11 / v30。GitHub mainを唯一の正本とする。** 00_research_plan.md、notes/bar_comparison.md、notes/curved_diagonal.md、notes/finite_algebraic_recovery.mdの順に読む。一般背景はnotes/research_notes.md、reconstruction/README.md、証明は現行論文A/B/C。旧ZIPや会話を再開条件にしない。
+**2026-11-11 / v31。GitHub mainを唯一の正本とする。** 00_research_plan.md、notes/bar_comparison.md、notes/curved_diagonal.md、notes/finite_algebraic_recovery.mdの順に読む。一般背景はnotes/research_notes.md、reconstruction/README.md、証明は現行論文A/B/C。旧ZIPや会話を再開条件にしない。
+
+## v31：導来Natの隣接障害と生成性の訂正
+
+体上の五変数三次のNat（cohomological次数−1,0,1）の階数は内部shift r=1で(0,5,2)、r=2で(0,10,0)。真の標的導来bar cochainが項別flatかつ剰余に厳密整合すれば、r=2はH0が全Artin自由rank10。r=1の一次障害はk^5→k^2の2×5行列であり高次も別検証。非可換Nat計算は未実施。**重要な訂正：** 特殊Morita生成子とHom項別自由性だけでArtin生成性を推論するv29の補題は偽。二周期複体による反例をartin_rotation_obstructions.texに記載。導来二側bar評価の正しいcofibrant模型・特殊化を独立の入力とする。KF/BCとgeneric同値は未証明。
 
 ## 最優先
 
@@ -22,7 +26,7 @@
 
 ## 相対対角のunitと残るderived bar
 
-**相対対角のunit（v30、証明あり）。** 任意の可換基底環の斉次三次式に対する差分商stabilized diagonalの畳込みは、有限自由graded MFへ自然な強ホモトピー同値を与える。Koszul収縮h0と摂動pについて(h0p)^(n+1)=0なので、逆とホモトピーは有限和であり、全Artin底変更・内部shift・mu3スカラー作用と両立する。原稿：`papers/reconstruction/diagonal_kernel_identity.tex`、計算：`computations/verify_diagonal_identity.py`（厳密恒等式606件）。**(KF)の全忠実性は未完成。** k[epsilon]/epsilon²上の両側無限自由周期複体は非輪状でもK-flatでない。相対cofibrant/h-projectiveな二側bar模型とBFK体上比較への同一enhancementでの特殊化を次に検証する。
+**相対対角のunit（v31、証明あり）。** 任意の可換基底環の斉次三次式に対する差分商stabilized diagonalの畳込みは、有限自由graded MFへ自然な強ホモトピー同値を与える。Koszul収縮h0と摂動pについて(h0p)^(n+1)=0なので、逆とホモトピーは有限和であり、全Artin底変更・内部shift・mu3スカラー作用と両立する。原稿：`papers/reconstruction/diagonal_kernel_identity.tex`、計算：`computations/verify_diagonal_identity.py`（厳密恒等式606件）。**(KF)の全忠実性は未完成。** k[epsilon]/epsilon²上の両側無限自由周期複体は非輪状でもK-flatでない。相対cofibrant/h-projectiveな二側bar模型とBFK体上比較への同一enhancementでの特殊化を次に検証する。
 
 ## 次の着手と禁止する飛躍
 

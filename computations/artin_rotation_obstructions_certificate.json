@@ -1,0 +1,128 @@
+{
+  "version": "nc-cubic-v31",
+  "date": "2026-11-11",
+  "source_theorem": "BFK Theorem 5.39; weight formula 2*r+3*m-5=0 for nonidentity mu3 sectors",
+  "field_sectors": {
+    "1": {
+      "0": {
+        "identity": 5,
+        "nonidentity": 0,
+        "total": 5
+      },
+      "1": {
+        "identity": 0,
+        "nonidentity": 2,
+        "total": 2
+      },
+      "2": {
+        "identity": 5,
+        "nonidentity": 0,
+        "total": 5
+      },
+      "3": {
+        "identity": 0,
+        "nonidentity": 0,
+        "total": 0
+      },
+      "-3": {
+        "identity": 0,
+        "nonidentity": 0,
+        "total": 0
+      },
+      "-1": {
+        "identity": 0,
+        "nonidentity": 0,
+        "total": 0
+      }
+    },
+    "2": {
+      "0": {
+        "identity": 10,
+        "nonidentity": 0,
+        "total": 10
+      },
+      "1": {
+        "identity": 0,
+        "nonidentity": 0,
+        "total": 0
+      },
+      "2": {
+        "identity": 1,
+        "nonidentity": 0,
+        "total": 1
+      },
+      "3": {
+        "identity": 0,
+        "nonidentity": 0,
+        "total": 0
+      },
+      "-3": {
+        "identity": 0,
+        "nonidentity": 0,
+        "total": 0
+      },
+      "-1": {
+        "identity": 0,
+        "nonidentity": 0,
+        "total": 0
+      }
+    }
+  },
+  "generator_counterexample": {
+    "base": "Q[epsilon]/epsilon^2",
+    "epsilon_multiplication_matrix": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "d_squared_zero": true,
+    "rank_each_differential": 1,
+    "ker_equals_image_dimensions": [
+      1,
+      1
+    ],
+    "hom_G_T_acyclic": true,
+    "T_not_contractible_reason": "identity cannot lie in epsilon*R",
+    "G0_generates_field_2periodic_category": true,
+    "G_morita_generator": false
+  },
+  "first_order_obstruction_toy_model": {
+    "shape": [
+      2,
+      5
+    ],
+    "first_obstruction_matrix": [
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    ],
+    "rank": 2,
+    "H0_special_dimension": 5,
+    "H1_special_dimension": 2,
+    "image_dimension_of_reduction_on_H0": 3,
+    "H0_over_R1": "R1^3 direct_sum (R1/epsilon)^2",
+    "free_of_rank5": false
+  },
+  "limitations": [
+    "BFK sector dimensions are theoretical inputs, not derived by the script",
+    "2-periodic counterexample does not refute graded-cubic generation",
+    "no actual noncommutative rotation Nat or KF is calculated",
+    "higher Artin obstruction matrices are not computed"
+  ]
+}

@@ -14,7 +14,9 @@
 
 項別R_m平坦な複体の射が特殊化後擬同型なら、元も擬同型である（coneの有限hフィルトレーション）。体上でMorita生成元となる特殊生成子をR_mに持ち上げる議論にも、両側bar評価が項別平坦で特殊化に可換という入力を使う。
 
-**未解決(KF)：** 相対stabilized diagonalのkernel作用を、指定された有限rank graded MFと同じenhancementの二側bar複体上で構成し、その特殊化が体上Ballard–Favero–Katzarkovのkernel比較の擬同型に一致すること。符号・内部shift・µ3-equivariance・convolutionとの両立を検証する。これが確認できればnilpotent比較から(BC)を導けるが、現時点で実際のcategorical Nat/rotation積を無条件に同定したわけではない。
+**訂正：** 特殊ファイバーのMorita生成性とHomの項別平坦性だけでArtinのMorita生成性は一般に持ち上がらない。二周期自由複体に反例がある（notes/artin_rotation_obstructions.md）。導来二側bar評価の正しい模型、剰余整合性、導来tensorを別に確認する必要がある。
+
+**未解決(KF)：** 相対stabilized diagonalのkernel作用を、指定された有限rank graded MFと同じenhancementの二側bar複体上で構成し、その特殊化が体上Ballard–Favero–Katzarkovのkernel比較の擬同型に一致すること。符号・内部shift・µ3-equivariance・convolutionとの両立を検証する。これに加えて導来Morita生成性の正しいbar模型を確認できればnilpotent比較から(BC)を導けるが、現時点で実際のcategorical Nat/rotation積を無条件に同定したわけではない。
 
 ## 反例・検算・次の課題
 
