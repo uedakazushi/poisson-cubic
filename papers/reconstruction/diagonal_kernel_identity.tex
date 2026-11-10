@@ -1,0 +1,218 @@
+% 2026-11-11 / v30
+\section{可換曲率付き対角の有限ホモトピーとkernel作用}\label{dki:sec:identity}
+
+本節は、論文Cの相対Artin節における条件(KF)のうち、
+\emph{stabilized diagonalが有限rank graded matrix factorization上で恒等関手として作用すること}を、
+任意の可換基底環上で有限のホモトピーにより証明する。
+この結果は、kernel間のHom複体とdg双加群の導来自然変換複体が
+擬同型であるという\emph{全忠実性}とは別である。
+後者が必要な(BC)および非可換残余圏のrotation積は未完成として区別する。
+
+以下の曲率付き摂動の原理はTu\cite[Appendix~A, Lemma~A.1]{DKITu}、
+体上の積分変換・kernel比較はBallard--Favero--Katzarkov
+\cite[Theorem~5.22]{DKIBFK}とDyckerhoff\cite[Section~5]{DKIDyckerhoff}
+を参照する。特にBFKの定理は体上のdg圏の内部Homについての結果であり、
+非正則Artin環へ仮定なしで移すものではない。
+ここで直接示すのは\emph{objectwiseな恒等作用}とその底変更である。
+
+\subsection{差分商による有限対角}
+
+$R$を任意の可換環、$S_x=R[x_1,\ldots,x_n]$、
+$S_y=R[y_1,\ldots,y_n]$、$S_e=R[x,y]$、
+$W\in R[z_1,\ldots,z_n]$を斉次三次式とする。
+$s_i=y_i-x_i$と置く。
+$W_i=W(x_1,\ldots,x_i,y_{i+1},\ldots,y_n)$、$W_0=W(y)$、
+$W_n=W(x)$と定め、
+\begin{equation}
+ a_i=\frac{W_i-W_{i-1}}{y_i-x_i}\in S_e
+ \quad\Longrightarrow\quad
+ \sum_{i=1}^n s_i a_i=W(x)-W(y).
+ \tag{DKI1}\label{dki:eq:diff}
+\end{equation}
+右辺の割算は多項式の差分商であり、$s_i$を局所化しない。
+$E=\bigoplus_iRe_i$、$K=S_e\otimes_R\bigwedge E$とし、
+$\deg_{\rm coh}(e_i)=-1$、$\deg_{\rm int}(e_i)=1$、
+$\deg t=(2,-3)$とする。
+\begin{equation}
+ d_0=\sum_i s_i\iota_{e_i^*},\qquad
+ \delta=t\sum_i a_i(e_i\wedge-),\qquad
+ d_K=d_0+\delta.
+ \tag{DKI2}\label{dki:eq:koszul}
+\end{equation}
+すると$d_K^2=t(W(x)-W(y))$であり、$d_K$はcohomological degree一・
+内部次数零を持つ。$K$をstabilized diagonalの明示的有限模型とする。
+
+$M$を$S_y[t,t^{-1}]$上の有限自由graded MF、$d_M^2=tW(y)$とする。
+$S_x$への射影に沿った、核の外積との畳込みの\emph{大きな}模型は
+\begin{equation}
+ \mathscr C(M)=K\otimes_{S_y}M,
+ \qquad D_M=d_K\otimes1+(-1)^{|e|}\otimes d_M,
+ \qquad D_M^2=tW(x).
+ \tag{DKI3}\label{dki:eq:convolution}
+\end{equation}
+ここで$(-1)^{|e|}$は外積次数のparityであり、$S_x$-加群としては
+$y$の多項式変数を残している。したがってこれを有限rankの
+$S_x$-MFと\emph{そのまま}同一視しない。
+
+\subsection{対角評価の明示的な強ホモトピー同値}
+
+$M(x)$を係数置換$y_i\mapsto x_i$で得たMFとする。
+$\pi_M:\mathscr C(M)\to M(x)$を、外積次数零への射影と
+$y=x$での評価を合成して定める。
+
+\begin{theorem}[有限対角のobjectwise恒等作用]\label{dki:thm:identity}
+任意の可換基底環$R$、斉次三次式$W$、有限自由MF $M$に対し、
+$\pi_M$はgraded MFの閉じた射であり、
+\emph{明示的な有限和}で与えられる逆とホモトピーを持つ。
+具体的に、多項式Koszul分解$(K,d_0)$の標準的な強変形収縮
+\[
+ (S_x\otimes_{S_y}M,0)\;
+ \xleftarrow[\pi_0]{\ \ }(K\otimes M,d_0)
+ \xrightarrow[\ ]{i_0}\;(S_x\otimes_{S_y}M,0)
+\]
+を$h_0$で表し、
+\[
+ p_M=\delta\otimes1+(-1)^{|e|}\otimes d_M(y),\qquad D_M=d_0+p_M
+\]
+とする（左端は$M$の自由基底を用いる同次加群としての表示）。
+このとき
+\begin{equation}\label{dki:eq:finite-hpl}
+ \begin{split}
+ i_M&=\sum_{j=0}^{n}(-h_0p_M)^j i_0,\\
+ H_M&=\sum_{j=0}^{n}(-h_0p_M)^j h_0
+ \end{split}
+ \qquad\text{および}\qquad \pi_M=\pi_0
+ \tag{DKI4}
+\end{equation}
+が定義され、次の恒等式を満たす：
+\begin{equation}\label{dki:eq:identities}
+ \begin{gathered}
+ D_Mi_M=i_Md_M(x),\qquad
+ \pi_MD_M=d_M(x)\pi_M,\qquad \pi_Mi_M=1,\\
+ D_MH_M+H_MD_M=1-i_M\pi_M.
+ \end{gathered}
+ \tag{DKI5}
+\end{equation}
+以上の構成は任意の$R\to R'$への底変更と両立する。
+$\mathbb G_m$の斉次次数と内部shiftを保ち、
+三次斉次模型の$\mu_3$スカラー作用とも両立する。
+\end{theorem}
+\begin{proof}
+一変数のKoszul分解$R[x,y]e_i\xrightarrow{s_i}R[x,y]$には
+\[
+ h_i(f)=e_i\frac{f(y_i)-f(x_i)}{y_i-x_i},\qquad
+ h_i(e_if)=0
+\]
+という$R[x_i]$-線形な収縮がある。
+その射影は$y_i=x_i$での評価、包含は$x_i$の多項式を
+$y_i$に依らない式と見る写像である。
+この収縮のtensor trickにより、$n$変数の$(K,d_0)$について
+\[
+ d_0h_0+h_0d_0=1-i_0\pi_0,\quad
+ h_0^2=\pi_0h_0=h_0i_0=0
+\]
+を満たす収縮が得られる。例えば$n=2$では、外積次数零の
+$f(y_1,y_2)$を
+\[
+ h_0(f)=
+ e_1\frac{f(y_1,y_2)-f(x_1,y_2)}{y_1-x_1}
+ +e_2\frac{f(x_1,y_2)-f(x_1,x_2)}{y_2-x_2}
+\]
+へ送り、$e_2f$を
+$e_1\wedge e_2(f(y_1,y_2)-f(x_1,y_2))/(y_1-x_1)$へ送る。
+この表示には$h$-進分母も基底環の非単元の反転もない。
+
+$p_M$は外積次数を減少させない（$d_M$項は次数を保持し、
+$\delta$項は一つ上げる）。$h_0$は外積次数を必ず一つ上げるので
+\[
+ (h_0p_M)^{n+1}=(p_Mh_0)^{n+1}=0.
+\]
+曲率は$D_M^2=tW(x)$であり、これはすべての演算子と可換する。
+共通の中心曲率を持つ形式への有限homological perturbation
+\cite[Appendix~A, Lemma~A.1]{DKITu}を適用すると、
+式\eqref{dki:eq:finite-hpl}と\eqref{dki:eq:identities}が従う。
+移送した微分は
+\[
+ \pi_0p_M(1+h_0p_M)^{-1}i_0=d_M(x)
+\]
+である。実際、増大射$\pi_0$は正の外積次数を消し、
+$\delta$は外積次数を上げるため、唯一残るのは
+$d_M(y)$を外積次数零に作用させ、$y=x$に評価した項である。
+$\pi_0p_Mh_0=0$なので摂動後の射影は$\pi_0$に一致する。
+
+すべての式は多項式の差分商と長さ高々$n+1$の有限和で書かれ、
+$R\to R'$への底変更と可換する。内部次数は上の$e_i,t$の規約で
+保存される。$\mu_3$のスカラー作用では、差分商、評価、外積シフトは
+いずれも同次である。
+\end{proof}
+
+\begin{corollary}[自然な対角評価と有限Artinでの恒等性]
+\label{dki:cor:unit}
+$R_m=k[h]/(h^{m+1})$とすると、対角kernelの畳込みは
+有限自由graded MFの各対象に、内部shiftと両立して
+\emph{自然なホモトピー同値}を与える。
+その特殊化は$R_0=k$上の同じ差分商対角評価である。
+特に、(KF)に必要な\emph{対角の恒等作用とその底変更}は成立する。
+\end{corollary}
+\begin{proof}
+次数零のMF射$f:M\to N$に対し、$1\otimes f(y)$は
+畳込み側の閉射で、評価射について
+\[
+ \pi_N\circ(1\otimes f(y))=f(x)\circ\pi_M
+\]
+が厳密に成り立つ。高次のdg自然性は同じ式にKoszul符号を付けて得る。
+各$\pi_M$は定理\ref{dki:thm:identity}により明示的ホモトピー逆を持つ。
+特殊化は定理の底変更性による。
+\end{proof}
+
+\subsection{(KF)の残り：核作用の全忠実性}
+
+\begin{remark}[恒等作用とkernel全忠実性の相違]\label{dki:rem:kf}
+上の系は、相対stabilized diagonalが有限rank MF上で
+\emph{恒等関手として作用すること}を示す。
+これは\emph{相対kernel Homと導来自然変換Homの全忠実性}、すなわち
+論文Cの相対Artin節で考えた写像
+\[
+ \operatorname{Hom}(\mathscr D_m,\mathscr D_m(r))
+ \longrightarrow
+ \RHom_{\mathcal T_m^e}(\Delta,\Delta(r))
+ \tag{DKI6}\label{dki:eq:kf-map}
+\]
+が擬同型であることとは異なる。体上ではBFKのkernel定理が
+対応する全忠実性を与えるが、Artin底では、同一enhancement上に
+式\eqref{dki:eq:kf-map}の\emph{導来}模型を作り、二側barの値が
+その模型に一致することを確認する必要がある。
+定理\ref{dki:thm:identity}はそのためのunitの明示的な比較を提供するが、
+(BC)や非可換rotation積の全同定は結論しない。
+\end{remark}
+
+\begin{example}[項別平坦性はK-flat性を意味しない]
+\label{dki:ex:kflat}
+$R=k[\varepsilon]/(\varepsilon^2)$とし、両方向に無限な複体
+\[
+ P:\quad\cdots\xrightarrow{\varepsilon}R
+ \xrightarrow{\varepsilon}R\xrightarrow{\varepsilon}R\xrightarrow{\varepsilon}\cdots
+\]
+を考える。各項は自由で、$\ker(\varepsilon)=\varepsilon R$より
+$P$は非輪状である。しかし$P\otimes_Rk$は零微分で
+各次数のコホモロジーが$k$である。従って$P$はK-flatでない。
+特に、(KF)の二側barの\emph{各項が平坦}であるという情報だけでは、
+それが必要な導来tensorや導来双加群Homを計算することは保証されない。
+一方、定理\ref{dki:thm:identity}は\emph{強ホモトピー同値}なので
+この障害を回避し、任意の底変更で保存される。
+\end{example}
+
+\paragraph{再開すべき核心.}
+指定生成子$K_m\oplus K_m(1)\oplus K_m(2)$の
+適切な相対cofibrant双加群模型を作り、kernel作用の写像
+\eqref{dki:eq:kf-map}を、体上BFKの全忠実性写像へ\emph{同じ鎖レベル}で
+特殊化できることを確認する。単にgeneratorの特殊ファイバーでの
+生成性や、対象毎の対角恒等作用だけから(BC)を導かない。
+
+\paragraph{有限計算の範囲.}
+\texttt{computations/verify\_diagonal\_identity.py}は、
+一変数三次式と、混合二変数三次式
+$W=y_1^3+y_2^3+2y_1^2y_2$を持つそれぞれrank2、rank4の
+明示的MFについて、$t=1$で式\eqref{dki:eq:identities}、
+$D_M^2=W(x)$、元のKoszul収縮を有理係数の多項式恒等式として検査する。
+これは一般の$n$についての証明でも、(KF)の全忠実性の計算でもない。

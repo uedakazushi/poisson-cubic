@@ -1,6 +1,6 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-11 / v29。GitHub mainを唯一の正本とする。** 00_research_plan.md、notes/bar_comparison.md、notes/curved_diagonal.md、notes/finite_algebraic_recovery.mdの順に読む。一般背景はnotes/research_notes.md、reconstruction/README.md、証明は現行論文A/B/C。旧ZIPや会話を再開条件にしない。
+**2026-11-11 / v30。GitHub mainを唯一の正本とする。** 00_research_plan.md、notes/bar_comparison.md、notes/curved_diagonal.md、notes/finite_algebraic_recovery.mdの順に読む。一般背景はnotes/research_notes.md、reconstruction/README.md、証明は現行論文A/B/C。旧ZIPや会話を再開条件にしない。
 
 ## 最優先
 
@@ -19,6 +19,10 @@
 可換形式五変数cubicの勾配Koszulは任意のArtin切断で正のホモロジー零、Jac(W_m)は次数別自由で一次・二次rank5,10。μ3非恒等sectorは奇数parity。項別平坦な複体の擬同型は特殊化で検出できる。以上の証明は`papers/reconstruction/relative_artin_sector.tex`に保持する。
 
 **(KF)を未確認の核心条件として維持する。** 相対stabilized diagonalのkernel畳込みを指定graded MFの同一enhancementで構成し、特殊化が体上BFK kernel比較と一致することを符号・内部shift込みで示す。これは実際のNatとrotation積の無条件同定ではない。検算は`computations/verify_artin_sectors.py`と証明書（Jacobianの有限計算のみ）。研究ノートは`notes/relative_artin_sector.md`。
+
+## 相対対角のunitと残るderived bar
+
+**相対対角のunit（v30、証明あり）。** 任意の可換基底環の斉次三次式に対する差分商stabilized diagonalの畳込みは、有限自由graded MFへ自然な強ホモトピー同値を与える。Koszul収縮h0と摂動pについて(h0p)^(n+1)=0なので、逆とホモトピーは有限和であり、全Artin底変更・内部shift・mu3スカラー作用と両立する。原稿：`papers/reconstruction/diagonal_kernel_identity.tex`、計算：`computations/verify_diagonal_identity.py`（厳密恒等式606件）。**(KF)の全忠実性は未完成。** k[epsilon]/epsilon²上の両側無限自由周期複体は非輪状でもK-flatでない。相対cofibrant/h-projectiveな二側bar模型とBFK体上比較への同一enhancementでの特殊化を次に検証する。
 
 ## 次の着手と禁止する飛躍
 

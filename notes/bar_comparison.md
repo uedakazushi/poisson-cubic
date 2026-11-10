@@ -1,6 +1,6 @@
 # 乗法的bar比較と実際のrotation積への残る条件
 
-**2026-11-11 / v29。最初に00_research_plan.mdを読む。GitHub mainが正本。**
+**2026-11-11 / v30。最初に00_research_plan.mdを読む。GitHub mainが正本。**
 
 ## 証明本文と状態
 
@@ -17,6 +17,10 @@
 ## 相対Artinの得られた結果と未解決条件
 
 可換形式三次式W_mの勾配Koszulは正のホモロジーが全Artinで零、Jacobian環は次数別R_m自由、次数1,2はrank5,10。五変数のμ3非恒等sectorは奇数parityのためH⁰へ寄与しない。項別平坦な複体は特殊化で擬同型を検出する。**相対kernel作用の同一enhancement上の構成・特殊化一致(KF)は未解決**であり、(BC)を証明したとはしない。詳細は`papers/reconstruction/relative_artin_sector.tex`と`notes/relative_artin_sector.md`。
+
+## v30：対角のunitとbar全忠実性の区別
+
+差分商による可換相対stabilized diagonalの恒等作用は、任意の可換環上の有限外積ホモトピーで証明した（`notes/diagonal_kernel_identity.md`）。これはkernel Homと導来自然変換Homの全忠実性を含意しない。Artin上で項別自由な無限周期複体はK-flatとは限らず、相対cofibrant双加群/bar置換の導来性の確認が必要。
 
 ## 実際の圏との比較に必要な(BC)
 

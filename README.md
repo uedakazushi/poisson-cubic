@@ -1,6 +1,10 @@
 # nc-cubic：Poisson構造・量子化・可換復元
 
-**2026-11-11 / v29。正本はGitHub main。** 最初に [研究方針](00_research_plan.md)、次に [乗法比較ノート](notes/bar_comparison.md) と [有限対角ノート](notes/curved_diagonal.md) を読む。
+**2026-11-11 / v30。正本はGitHub main。** 最初に [研究方針](00_research_plan.md)、次に [乗法比較ノート](notes/bar_comparison.md) と [有限対角ノート](notes/curved_diagonal.md) を読む。
+
+## 現行：対角kernelの恒等作用
+
+**相対対角のunit（v30、証明あり）。** 任意の可換基底環の斉次三次式に対する差分商stabilized diagonalの畳込みは、有限自由graded MFへ自然な強ホモトピー同値を与える。Koszul収縮h0と摂動pについて(h0p)^(n+1)=0なので、逆とホモトピーは有限和であり、全Artin底変更・内部shift・mu3スカラー作用と両立する。原稿：`papers/reconstruction/diagonal_kernel_identity.tex`、計算：`computations/verify_diagonal_identity.py`（厳密恒等式606件）。**(KF)の全忠実性は未完成。** k[epsilon]/epsilon²上の両側無限自由周期複体は非輪状でもK-flatでない。相対cofibrant/h-projectiveな二側bar模型とBFK体上比較への同一enhancementでの特殊化を次に検証する。
 
 ## 現在の到達点
 
@@ -44,12 +48,15 @@ G_h+v^3={}&(x^3+y^3+z^3)/3+v^3+h^2xyz/3+(1+h^6/54)uxy\\
 | A：Poisson・量子化 | `papers/poisson_cubic_quantization.tex` |
 | B：17次元族・ambient復元 | `papers/generic17_ambient_recovery.tex` |
 | C：rotation付き可換復元 | `papers/rotation_cubic_reconstruction.tex` |
+| 相対対角の恒等作用と底変更 | `papers/diagonal_kernel_identity.tex` |
 | 曲率付き対角・局所正則化 | `papers/curved_diagonal_recovery.tex` |
 | 乗法的bar比較・候補の代数的正規形 | `papers/multiplicative_bar_comparison.tex` |
 
 新しい本文は `papers/reconstruction/multiplicative_bar_comparison.tex`。証明はCと単独稿で同じソースをinputする。Python 3、SymPy、LuaLaTeX、LuaTeX-ja、latexmkを使用する。
 
 ```sh
+python3 computations/verify_diagonal_identity.py --output build/diagonal_identity_certificate.json
+python3 scripts/verify_diagonal_identity_assets.py
 python3 computations/verify_bar_comparison.py --output build/bar_comparison_certificate.json
 python3 scripts/verify_bar_assets.py
 latexmk papers/multiplicative_bar_comparison.tex

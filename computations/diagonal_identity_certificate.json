@@ -1,0 +1,59 @@
+{
+  "cases": [
+    {
+      "checked_identities": 122,
+      "diagonal_rank": 2,
+      "mf_rank": 2,
+      "not_tested": [
+        "general n proof",
+        "all objects of MF",
+        "kernel full faithfulness",
+        "the KF condition",
+        "noncommutative rotation algebra"
+      ],
+      "potential": "y0**3",
+      "test_vectors": 20,
+      "tests": [
+        "Koszul contraction",
+        "curved HPL contraction",
+        "strict projection naturality",
+        "projection-inclusion",
+        "curvature square",
+        "curved inclusion on generators"
+      ],
+      "variables": 1
+    },
+    {
+      "checked_identities": 484,
+      "diagonal_rank": 4,
+      "mf_rank": 4,
+      "not_tested": [
+        "general n proof",
+        "all objects of MF",
+        "kernel full faithfulness",
+        "the KF condition",
+        "noncommutative rotation algebra"
+      ],
+      "potential": "y0**3 + 2*y0**2*y1 + y1**3",
+      "test_vectors": 80,
+      "tests": [
+        "Koszul contraction",
+        "curved HPL contraction",
+        "strict projection naturality",
+        "projection-inclusion",
+        "curvature square",
+        "curved inclusion on generators"
+      ],
+      "variables": 2
+    }
+  ],
+  "kf_proved": false,
+  "kflat_warning": {
+    "bi_infinite_free_complex_acyclic": true,
+    "implication": "termwise free does not imply K-flat",
+    "reduction_has_nonzero_cohomology": true,
+    "ring": "Q[epsilon]/(epsilon^2)"
+  },
+  "scope": "Examples only; exact polynomial identities at t=1.",
+  "theorem_dependence": "General finite exterior filtration argument in diagonal_kernel_identity.tex"
+}

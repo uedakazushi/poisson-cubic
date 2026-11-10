@@ -1,9 +1,9 @@
 {
-  "version": "nc-cubic-v29",
+  "version": "nc-cubic-v30",
   "date": "2026-11-11",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only after actual GitHub publication failure.",
   "current_entry": "00_research_plan.md",
-  "scope": "Relative Artin Jacobian Koszul and five-variable sector flatness, nilpotent comparison and lifted generator; conditional kernel-action KF for categorical BC, retaining v28 multiplicative bar results.",
+  "scope": "Commutative stabilized diagonal unit over arbitrary commutative rings via finite exterior HPL; KF derived full faithfulness still open.",
   "proofs_written_and_checked": [
     {
       "source": "papers/reconstruction/multiplicative_bar_comparison.tex",
@@ -43,6 +43,16 @@
         "ras:cor:formal-G"
       ],
       "status": "Relative graded Jacobian Koszul exactness and Artin-flatness, nilpotent comparison and sector parity demonstrated. Target categorical BC conditional on chain-level kernel comparison and reduction (KF), NOT established."
+    },
+    {
+      "source": "papers/reconstruction/diagonal_kernel_identity.tex",
+      "labels": [
+        "dki:thm:identity",
+        "dki:cor:unit",
+        "dki:rem:kf",
+        "dki:ex:kflat"
+      ],
+      "status": "Explicit divided-difference strong deformation retract/curved HPL, objectwise unit only. Kernel-functor full faithfulness NOT established."
     }
   ],
   "executed_exact_checks": {
@@ -51,7 +61,8 @@
     "finite_recovery": "verify_finite_recovery.py reexecuted and matched tracked certificate as JSON.",
     "source_audit": "Standalone input closure, internal labels/citations, parent C input and shared bibliography inclusion checked. Complete A/B/C source closure not reaudited.",
     "artin_sectors": "Executed exact SymPy Groebner for lambda=1 special cubic and computed candidate at h=1/2: both Hilbert [1,5,10,10,5,1], length32; checked base-change counterexample. Does not verify categorical Nat.",
-    "relative_source_audit": "Standalone v29 references, labels and exact certificate audited locally; parent C source input and shared bibliography updated in this commit."
+    "relative_source_audit": "Standalone v29 references, labels and exact certificate audited locally; parent C source input and shared bibliography updated in this commit.",
+    "diagonal_identity": "606 exact symbolic polynomial identities: rank2 unary cubic (122) and rank4 mixed binary cubic (484); plus dual number non-K-flat example."
   },
   "retained_verification": {
     "regular_diagonal": "Unmodified v27 Q(h) witness, regularity at h=0, all 16 products, ranks, unit minor -3 and kernel retained; full matrix construction NOT rerun this turn.",
@@ -70,7 +81,8 @@
     "All-order comparison of the candidate with the selected formal categorical W_h.",
     "Generic rotation-preserving equivalence, generation or relative diagonal perfectness.",
     "General-lambda absolute polynomial; high-order coefficients at lambda^3=-12.",
-    "External referee verification, formal proof, comprehensive novelty determination."
+    "External referee verification, formal proof, comprehensive novelty determination.",
+    "(KF): full derived kernel-to-bimodule Hom comparison, relative cofibrant bar construction and field BFK specialization; unit alone is not sufficient, termwise flatness is not K-flatness."
   ],
   "primary_sources_checked": [
     "Negron arXiv:1304.0527v4, Theorem5.3; target there is dg, not curved.",
@@ -78,7 +90,8 @@
     "Lowen arXiv:0707.2602, Propositions3.11,3.13.",
     "GHLR arXiv:2312.16645v5, Theorems4.7,6.14, Remark6.16.",
     "Lin-Zhang arXiv:2310.09927v2, Theorem3.5, Remark3.6; field statement only.",
-    "Stacks Project Tag00T7, relative Jacobian criterion."
+    "Stacks Project Tag00T7, relative Jacobian criterion.",
+    "BFK 2014 Theorem 5.22 and Remark 5.21 (published PDF pp.71-73 inspected); Tu 2014 curved HPL Appendix A and Dyckerhoff 2011 Section 5 cited."
   ],
   "typesetting": {
     "standalone_bar": {
@@ -114,7 +127,7 @@
     "C": {
       "build_completed": false,
       "source_pdf_receipt_verified": false,
-      "reason": "New relative Artin sector integrated; full A/B/C source not recompiled."
+      "reason": "New diagonal identity section input; complete current C not rebuilt."
     },
     "standalone_relative_artin": {
       "source": "papers/relative_artin_sector.tex",
@@ -130,6 +143,13 @@
         "missing_glyphs": false,
         "overfull_boxes": false
       }
+    },
+    "standalone_diagonal_identity": {
+      "source": "papers/diagonal_kernel_identity.tex",
+      "pages": 4,
+      "build_completed": true,
+      "visual_review": "All 4 pages inspected; no clipping.",
+      "pdf_git_tracked": false
     }
   },
   "environment": {
