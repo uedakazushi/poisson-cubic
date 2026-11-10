@@ -1,9 +1,10 @@
 \input{papers/common}
 \hypersetup{pdftitle={非可換三次超曲面のrotation付き可換復元}}
 \title{非可換三次超曲面のrotation付き可換復元\\
-\large 形式復元・楕円ブロック・障害・相対saturation}
+\large 具体的方程式・一次変形・存在の障害}
 \author{}
-\date{2026年11月10日・論文C（研究草稿 v20）}
+\date{2026年11月10日・論文C（研究草稿 v21）}
+\fancyhead[R]{\small 2026-11-10 / v21}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -19,7 +20,12 @@ rotation付き可換復元が偽であることを示す。
 本研究の究極の目標は、一般次元でPoissonスキームの任意の既約成分の一般点を扱うことである。
 各成分が零Poisson構造を含むことと、次元合同類によるrotationの復元可能性を整理する。
 étale局所実現には、同値双加群の障害をrotation不変部分で消去する独立の証明を与える。
-所定の量子化のgeneric可換復元に残る核心は残余対角のperfect性である。
+一般混合型では可換模型の存在は未解決である。
+その方程式をrotationの低次数積から抽出する有限手順と、
+cubic threefoldの純Poisson方向の一次消滅を示す。
+分離型の既知のHessian公式を圏比較に結び付け、
+最小混合試験族の三次中心元を全パラメータの閉公式で構成する。
+候補の具体化と、残余対角のperfect性を用いる存在証明を並行して進める。
 \end{abstract}
 \tableofcontents
 \section{序論と対象の区別}\label{sec:paperC-introduction}
@@ -49,10 +55,27 @@ Torelli型定理が示す可換模型の一意性と、
 固定した素朴なPicardパラメータ化ではなく、可換cubicまたはmarkingの
 非自明な変化を含む必要があり得る（論文Bの対応する命題を参照）。
 これは形式復元・多価対応・実際の相対復元の不存在を意味しない。
+\subsection{方程式の抽出と同値の存在}
+可換模型の具体式を作ることを、本稿の存在問題と並行して扱う。
+第\ref{sec:explicit-jacobian-recovery}節では、rotationの次数一・二の
+導来自然変換の積から二次関係を取り出し、可積分性の線形方程式を解いて
+射影同型を除いて唯一の可換候補を求める。低次数データの一致だけでは圏同値は従わない。
+第\ref{pf:sec:first-order}節では、cubic threefoldの純Poisson方向が
+Kuznetsov成分の一次変形として消えることを、Todd補正を含めて示す。
+第\ref{em:sec:comparison}節では、Mori--SmithのHessian公式を
+分離型の可換模型へ適用し、中心元の単純な可換化が二次で異なることを示す。
+第\ref{mt:sec:family}節では、最小混合試験族の三次中心元と
+全Artin切断でのPBW性を証明し、復元先の二次項を求める入力を固定する。
+いずれも一般混合型の存在や相対smoothnessを無条件に結論するものではない。
+
+\input{papers/reconstruction/explicit_jacobian_recovery}
+\input{papers/reconstruction/poisson_first_order}
 \input{papers/sections/rotation_models}
 \input{papers/sections/rotation_obstruction}
 \input{papers/sections/relative_saturation}
 \input{papers/sections/elliptic_reconstruction}
+\input{papers/reconstruction/explicit_model_comparison}
+\input{papers/reconstruction/mixed_test_family}
 \input{papers/reconstruction/etale_realization}
 \input{papers/reconstruction/hochschild_obstructions}
 \input{papers/sections/all_poisson_components}

@@ -1,109 +1,87 @@
 {
-  "version": "nc-cubic-v20",
-  "date_jst": "2026-11-10",
-  "research_scope": "For every n>=3 and each reduced cubic Poisson component, seek generic rotation-compatible commutative realization.",
-  "authoritative": "GitHub uedakazushi/nc-cubic main; Library is emergency-only after an actual failed push.",
-  "current_validation": "reconstruction/validation.json",
-  "current_proof_section": "papers/sections/minimal_ainfty_arity.tex",
-  "papers": {
-    "A": {
-      "source": "papers/poisson_cubic_quantization.tex",
-      "status": "All existing proofs retained; whole manuscript not rebuilt or fully re-audited in this session."
+  "version": "nc-cubic-v21",
+  "date": "2026-11-10",
+  "authoritative": "GitHub uedakazushi/nc-cubic main; Library only after an actual GitHub publication failure.",
+  "scope": "Explicit equations and equivalence existence for the constructed Poisson quantizations, n>=3; general mixed reconstruction remains open.",
+  "current_entry": "00_research_plan.md",
+  "proofs_written_and_reviewed": [
+    {
+      "source": "papers/reconstruction/explicit_jacobian_recovery.tex",
+      "content": "Low rotation-degree Jacobian recovery using known sector results; linear integrability criterion; projective uniqueness; nonintegrable quadratic complete-intersection example."
     },
-    "B": {
-      "source": "papers/generic17_ambient_recovery.tex",
-      "status": "Existing proofs and exact computations retained; existing PDF not asserted current; no full re-audit in this session."
+    {
+      "source": "papers/reconstruction/poisson_first_order.tex",
+      "content": "For cubic threefolds, pure ordinary-HKR bivectors restrict to zero in HH2(Ku); Todd correction treated explicitly. Consequence for a reconstructed family requires the stated KS and restriction compatibility."
     },
+    {
+      "source": "papers/reconstruction/explicit_model_comparison.tex",
+      "content": "Known Mori-Smith Hessian identity in the present conventions; split-block candidate using the existing elliptic comparison; nonzero second-order discrepancy with commuting the central expression."
+    },
+    {
+      "source": "papers/reconstruction/mixed_test_family.tex",
+      "content": "Universal polynomial central cubic; smooth classical fiber iff lambda^3 != -3; PBW and central-quotient flatness at every Artin truncation; character eigenspaces. Restriction G2=c(lambda)[xyz] assumes marked equivariant reconstruction."
+    }
+  ],
+  "retained_without_full_reaudit": [
+    "Full proofs of papers A and B.",
+    "Existing elliptic block equivalence, suspension/generation comparison, and earlier formal reconstruction.",
+    "Existing relative SM/ER and minimal A-infinity arguments; shared input compiled and exact ancillary certificates rerun."
+  ],
+  "primary_references_checked": [
+    "Mori-Smith, arXiv:1502.07403v2, Lemma 7.1 and Theorem 7.2, pp.23-25.",
+    "Lin-Zhang, arXiv:2310.09927v2, Theorem 3.5, Remark 3.6 and Section 5; distinguish Proposition 3.7 coprimality restriction.",
+    "Jacovskis-Lin-Liu-Zhang, arXiv:2203.08187v3, Theorems 3.11 and 4.4(2).",
+    "Calaque-Rossi-Van den Bergh, Annals 176 (2012), Theorem 1.4.",
+    "Ueda-Yoshinaga, Hokkaido Math. J. 38 (2009), Lemma 3; Hwang, JMSJ 78 (2026), Theorems 1.5-1.6."
+  ],
+  "not_established": [
+    "Actual derived V,W and multiplication for the mixed or nonelliptic nc residual category.",
+    "The mixed reconstruction coefficient c(lambda). The Hessian value (12+lambda^3)/36 is an unverified working hypothesis in notes only.",
+    "Existence or equivariance of the mixed reconstruction.",
+    "Relative residual diagonal perfectness (SM), actual general mixed equivalence, or all-component uniform quantum input.",
+    "All nonzero-h AS-regularity or global algebraic flatness of the new mixed input solely from its Artin PBW argument.",
+    "External referee approval, Lean verification, or comprehensive novelty determination."
+  ],
+  "executed_exact_checks": [
+    "computations/verify_explicit_jacobian_recovery.py: rational linear algebra, exact gradients and common-zero tests; nonintegrable example rank25 with minor15872.",
+    "computations/verify_explicit_model_comparison.py: general ten-coefficient Hessian determinant, Hesse specialization and second-order Jacobian discrepancy.",
+    "computations/verify_mixed_test_family.py: three polynomial free-algebra identities over QQ[h,a], overlap, finite jets and negative control; independently rerun.",
+    "computations/verify_minimal_ainfty_arity.py: combinatorial arity and index-pattern certificate only.",
+    "reconstruction/scripts/verify.py: existing nonelliptic quantum-input, tangent-slice and Hochschild-sector certificates."
+  ],
+  "typesetting": {
     "C": {
       "source": "papers/rotation_cubic_reconstruction.tex",
-      "status": "Paper-C existing proofs retained, new relative SOD smoothness equivalence, 2-degree minimal A-infinity structure and m7/m12 Hochschild constraints integrated; current full Paper C not rebuilt this session."
-    }
-  },
-  "current_results": [
-    "Local rotation inverse without residual smoothness",
-    "Residual smoothness implies full coherent comparison and finite-type spread",
-    "Etale realization for actual smooth proper dg pairs, by equivariant bimodule obstruction cancellation",
-    "For the stated local quantum input, generic commutative reconstruction conditional only on residual diagonal perfectness",
-    "Explicit exact 35-parameter geometric deformation slices for nodal and cuspidal fivefold examples",
-    "Cubic HH3 parity: rotation-invariant part vanishes in every dimension n>=3; ordinary HH3=2 only for cubic sevenfold (n=7), and is zero for the two cubic fivefold test components",
-    "Relative SM equivalence: for the finite admissible exceptional sequence, residual Gamma smooth iff line-bundle generator Lambda smooth (application of Perry Lemma 4.15(3)).",
-    "Line-bundle generator cohomology H=H^0 direct sum H^n with square-zero H^n; strictly unital minimal A-infinity arities k=2 mod n, so fivefold first m7, next m12.",
-    "First operation m7 defines HH^7(H,H)_{-5}; m12 constrained by delta(m12)=-[m7,m7]/2; numerical object-index candidates for n=5: 2478+303, scalar diagonal 7."
-  ],
-  "unresolved": [
-    "Residual diagonal perfectness (SM)",
-    "All-component uniform quantum input",
-    "Explicit reconstructed coefficients",
-    "Coherence with a chosen rho^3=[2] isomorphism",
-    "All-points realization and unique global descent",
-    "An actual relative diagonal lift; the Hochschild cubic-root parity does not imply smoothness",
-    "Actual m7 coefficients, a chosen relative dg contraction, the m12 obstruction cochain, finite bar diagonal retract; no calculation of these yet."
-  ],
-  "retained_inputs": {
-    "componentwise_reduction": {
-      "source": "papers/sections/all_poisson_components.tex",
-      "validation": "validation_components.json",
-      "scope": "Scalar charts and finite-jet center algebraization; its earlier conditional ER input now has the separate current proof."
+      "pages": 104,
+      "tex_inputs": 24,
+      "source_pdf_receipt_verified": true,
+      "failures": {
+        "undefined_references": false,
+        "undefined_citations": false,
+        "missing_glyphs": false,
+        "overfull_boxes": false
+      }
     },
-    "nonelliptic_components": {
-      "source": "papers/sections/nonelliptic_poisson_components.tex",
-      "script": "computations/verify_nonelliptic_components.py",
-      "certificate": "computations/nonelliptic_components_certificate.json",
-      "ranks": [
-        33,
-        33
-      ],
-      "determinants": [
-        "2^24*3^12",
-        "-2^33*3^12"
-      ],
-      "this_session": "Prior exact certificate retained; full 35-column Jacobi calculation not rerun."
+    "standalone_SM_ER": {
+      "source": "papers/reconstruction/rotation_saturation_reduction.tex",
+      "pages": 15,
+      "tex_inputs": 4,
+      "source_pdf_receipt_verified": true,
+      "failures": {
+        "undefined_references": false,
+        "undefined_citations": false,
+        "missing_glyphs": false,
+        "overfull_boxes": false
+      }
     },
-    "nonelliptic_quantization": {
-      "source": "papers/sections/nonelliptic_quantization.tex",
-      "script": "computations/verify_nonelliptic_quantization.py",
-      "certificate": "computations/nonelliptic_quantization_certificate.json",
-      "this_session": "Current first-block overlap/centrality checks rerun by reconstruction/computations/verify_nonelliptic_inputs.py; whole ambient theorem not machine-formalized."
-    },
-    "local_projective_model": {
-      "source": "papers/sections/local_projective_model.tex",
-      "script": "computations/verify_local_projective_model.py",
-      "certificate": "computations/local_projective_certificate.json",
-      "scope": "Regular local degreewise-free input, proper model, bounded Orlov decomposition. Current rotation and conditional fullness results are in reconstruction/."
-    }
+    "A_B": "Source closures and references checked; PDFs not rebuilt in this session.",
+    "visual_review": "All pages rendered to contact sheets; new proof pages and selected standalone pages inspected at reading size. No clipping, overlaps or blank-page defects found.",
+    "reproduction": "README.md and reconstruction/README.md; generated PDFs, receipts, caches and logs are ignored by Git.",
+    "engine": "This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)"
   },
-  "boundary": "Large independent Pfaffian/Brill--Noether technical TeX and central-fiber discriminant TeX + verifier transferred with identical Git blob SHAs to uedakazushi/nc-cubic2/main. Eight PDF-only originals remain tracked here pending binary transfer and full proof audit; not claimed migrated.",
-  "reproduction": {
-    "build": "python3 reconstruction/scripts/build.py",
-    "verify": "python3 reconstruction/scripts/verify.py",
-    "parent_build": "python3 scripts/build.py"
+  "environment": {
+    "python": "3.12.14",
+    "sympy": "1.14.0"
   },
-  "limits": "Proofs written and reviewed, exact algebraic computation, typesetting, remote persistence, external review, novelty, and formal verification are separate statuses. Parent PDFs are not claimed current.",
-  "organization": {
-    "current": "2026-11-10",
-    "papers": "papers/",
-    "notes": "notes/",
-    "latexmk": ".latexmkrc",
-    "generated_pdf": "build/ (Git ignored)",
-    "pdf_only_sources": "papers/pdf-only/ (6) and notes/pdf-only/ (2)"
-  },
-  "research_focus": "SM: actual finite perfect Gamma_R^e-diagonal certificate for nonelliptic nodal/cuspidal two-parameter quantum cubic fivefolds, then generic rotation-compatible commutative reconstruction.",
-  "sm_finite_bar_source": {
-    "source": "notes/sm_bar_and_spreading.tex",
-    "git_blob": "2eea7dcfc3df29fece082649102163f9c661c5ac",
-    "pdf_source": "notes/pdf-only/finite_smoothness_notes.pdf (sections 18-21, pp 23-25)",
-    "local_typesetting": "LuaLaTeX via latexmk, 4 pages, no log warnings",
-    "proof_scope": "Finite bar retract criterion; generic spreading; Artin detection; no unconditional smoothness claim",
-    "remaining": "Construct actual finite diagonal retract for nonelliptic relative Gamma_R"
-  },
-  "sm_ainfty": {
-    "source": "papers/sections/minimal_ainfty_arity.tex",
-    "computation": "computations/verify_minimal_ainfty_arity.py",
-    "certificate": "computations/minimal_ainfty_arity_certificate.json",
-    "exact_arithmetic": "independently checked integer object-index pattern counts for n=3..8; remote certificate matches",
-    "typesetting": "A local standalone prototype containing the same mathematical lemmas was compiled with LuaLaTeX (4 pages). Exact new integrated parent Paper C build not run in this turn.",
-    "proof_scope": "Known relative semiorthogonal smoothness criterion (Perry Lemma 4.15(3)) applied to the line-bundle generator; degree, cohomology, and index arguments written out.",
-    "not_proved": "nonelliptic residual smoothness, actual A-infinity higher multiplication coefficients, finite bar right inverse",
-    "novel_math": "Application and bookkeeping; comprehensive novelty check not completed."
-  }
+  "persistence": "This file records local source, computation and typesetting validation. Remote ref and blobs are verified separately after publication."
 }

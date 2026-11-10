@@ -1,8 +1,7 @@
 {
-  "version": "v17",
+  "version": "v21",
   "date_jst": "2026-11-10",
-  "parent_commit_read": "38fe4d4905e5c2d7214b2991bb37f923fe0e1ceb",
-  "scope": "Current full paper-C export plus a shared section input by the parent paper; not a replacement for papers A/B/C or boundary results.",
+  "scope": "Standalone SM/ER input of current parent paper C; current research direction and explicit-reconstruction validation are in ../validation.json.",
   "mathematics": {
     "proofs_written_and_argument_reviewed": [
       "Local rotation inverse without residual smoothness (retained)",
@@ -16,7 +15,7 @@
     "not_proved": [
       "Residual diagonal perfectness (SM)",
       "All-component quantum inputs",
-      "Explicit coefficients of the reconstructed cubic",
+      "Reconstructed coefficients for the general mixed and nonelliptic inputs; the parent split-block formula is known",
       "A chosen coherent relative rho^3=[2] identification",
       "All-points realization or unique global descent",
       "Any categorical or equivariant obstruction theory automatically yielding relative residual diagonal smoothness from the Hochschild parity calculation"
@@ -37,15 +36,14 @@
   },
   "artifact_validation": {
     "manuscript_pages": 15,
-    "lualatex_passes": 3,
     "tex_inputs": 4,
     "undefined_references": 0,
     "undefined_citations": 0,
     "missing_glyphs": 0,
     "overfull_boxes": 0,
-    "source_pdf_parity": "SHA256 for all three TeX inputs and PDF in generated build_receipt.json",
-    "visual_review": "Fifteen pages rendered as contact sheet; new Hochschild sector proof inspected at reading size",
-    "parent_full_papers_build": "Not executed in this work session; existing sources preserved and shared section/reference inputs updated"
+    "source_pdf_parity": "All four current TeX input hashes and PDF hash checked against the generated build_receipt.json.",
+    "visual_review": "All fifteen pages rendered; contact sheets and pages 1,8,9,10,11 visually checked.",
+    "parent_full_papers_build": "Current paper C compiled and reviewed; papers A/B not rebuilt. See ../validation.json."
   },
   "persistence_policy": {
     "authoritative": "GitHub main",
@@ -53,7 +51,7 @@
     "remote_verification": "Report actual commit/ref and blob checks separately after the write; local validation alone does not assert remote persistence"
   },
   "environment": {
-    "python": "3.13.5",
+    "python": "3.12.14",
     "sympy": "1.14.0"
   },
   "layout": {

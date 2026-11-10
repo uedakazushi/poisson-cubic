@@ -1,0 +1,341 @@
+\section{rotationの低次数積からの可換方程式の有限復元}
+\label{sec:explicit-jacobian-recovery}
+
+本節では、可換模型の\emph{方程式の抽出}を、その模型との
+\emph{dg圏同値の存在}から分離する。
+前者には有限次元線形代数による必要十分な判定がある。
+これを非可換cubicの残余圏に適用するには、まずその圏について
+以下の低次数積を実際に計算しなければならない。
+本節は一般の非可換cubicの可換模型の存在を証明するものではない。
+
+先行研究との関係を明確にしておく。
+Huybrechts--Rennemoはrotationから得られるHochschild環と
+Jacobian環を比較し\cite{HR}、Lin--Zhangはgraded matrix factorizationを用いて
+一般のFano超曲面に対するrotation付きTorelliを証明している
+\cite[Theorem~3.5, Remark~3.6, Section~5]{LZ}。
+勾配空間から多項式を復元する問題はUeda--Yoshinagaの研究
+\cite[Lemma~3]{ExplicitUedaYoshinaga}に現れ、
+積分の非一意性はHwangのsymmetrizer群
+\cite[Theorems~1.5--1.6]{ExplicitHwang}によって説明される。
+以下の有限検査器はこれらの既知の構造を本研究に適用するための整理であり、
+復元原理そのものの新規性を主張しない。
+具体的な検査器および反例の初出は未確認である。
+
+\subsection{計算すべき量は次数一と二の積である}
+
+$\cC$を小さな$\CC$-線形dg圏、$\rho$をdg自己同値とする。
+通常の三角圏上の自然変換ではなく、dg双加群による\emph{導来自然変換}を用いる。
+対角双加群を$\Delta$、$\rho$の双加群を$P$と書き、
+\[
+ V:=H^0\RHom_{\cC^e}(\Delta,P),\qquad
+ W:=H^0\RHom_{\cC^e}(\Delta,P\otimes^{\mathbf L}_{\cC}P)
+ \tag{EJ1}\label{eq:ej-low-degree}
+\]
+とおく。$\alpha,\beta:\Id\to\rho$の積を
+$\rho(\beta)\circ\alpha:\Id\to\rho^2$で定める。
+これにより$\mu:V\otimes V\to W$を得る。
+一般のpairではこの積の対称性は自動ではない。
+従って最初に
+\[
+ \mu(v,w)-\mu(w,v)=0\quad(v,w\in V)
+ \tag{EJ2}\label{eq:ej-commutativity}
+\]
+を確認し、その後でのみ
+$\bar\mu:\operatorname{Sym}^2V\to W$および
+$K:=\ker\bar\mu$を定義する。
+以下、これらのベクトル空間は有限次元であるとする。
+
+\begin{proposition}[可換cubicにおける低次数の同定]
+\label{prop:ej-geometric-low-degree}
+$F\in\CC[x_0,\ldots,x_{N-1}]_3$が
+滑らかなcubic $X\subset\PP^{N-1}$を定め、$N=n+2\ge5$とする。
+$(\cC,\rho)=(\Ku(X),\rho_X)$に対して
+\[
+ V\simeq\operatorname{Jac}(F)_1=\CC\langle x_0,\ldots,x_{N-1}\rangle,
+ \qquad W\simeq\operatorname{Jac}(F)_2
+\]
+であり、$\mu$はJacobian環の積である。特に積は対称で、
+\[
+ \dim V=N,\quad \dim W=\binom N2,\quad
+ \bar\mu\text{ は全射},\quad
+ K=\langle\partial_0F,\ldots,\partial_{N-1}F\rangle
+ \subset\operatorname{Sym}^2V.
+ \tag{EJ3}\label{eq:ej-jacobian-kernel}
+\]
+\end{proposition}
+\begin{proof}
+Orlovのdg比較をrotationも含めて用いると、$\rho_X$はgraded matrix
+factorizationの内部次数シフトとなる。
+Lin--Zhangの\cite[Theorem~2.2, Theorem~3.5, Remark~3.6, Section~5]{LZ}
+にある対角kernelの計算を適用する。
+恒等sectorは$\operatorname{Jac}(F)_t$を与える。
+三次式の非恒等sectorは全$N$変数を動かすので、
+cohomological degree零の$\Hom(\Id,\rho^t)$に寄与できるのは
+$N$が偶数で$t=N/2$の場合に限る。
+$N$が奇数なら寄与はなく、$N$が偶数でも$N\ge6$なので$t=1,2$では寄与しない。
+従って表示した二つの同定を得る。
+このsector計算には$\gcd(N,3)=1$を必要としない。
+同論文Proposition~3.7の互いに素という条件は、内部シフトを
+Serre関手とcohomological shiftで表示してSerre代数へ埋め込むための条件であり、
+ここでは$\rho$自体を入力している。
+
+恒等sector上の合成は多項式の積である
+\cite[Remark~3.6]{LZ}。
+Jacobianイデアルは二次式$\partial_iF$で生成され、次数一部分は零である。
+滑らかさにより$\partial_iF$は一次独立である。
+実際、定数係数の関係があれば線形座標変換後に$F$は一つの変数に依らず、
+その変数軸上の射影点が特異点になる。
+従って次数二の核と全射性、および次元公式が従う。
+\end{proof}
+
+\begin{remark}[低次数だけを使う理由]
+全ての$\Hom(\Id,\rho^t)$をそのままJacobian環と同一視してはならない。
+例えばcubic fourfoldでは$t=3$に非恒等sectorが現れる。
+命題\ref{prop:ej-geometric-low-degree}は、$n\ge3$に共通する
+$t=1,2$だけを取り出すことでこの問題を避けている。
+\end{remark}
+
+\subsection{二次関係の積分は有限線形方程式である}
+
+$V$の基底を$x_0,\ldots,x_{N-1}$とし、
+$S=\operatorname{Sym}V=\CC[x_0,\ldots,x_{N-1}]$とする。
+$N$次元部分空間$K\subset S_2$の基底を$q_0,\ldots,q_{N-1}$と書く。
+次の線形部分空間を定義する：
+\[
+ \mathcal L_K:=\left\{A=(A_{ia})\in\operatorname{Mat}_N(\CC):
+ \sum_a A_{ia}\partial_jq_a=\sum_a A_{ja}\partial_iq_a
+ \text{ for all }i,j\right\}.
+ \tag{EJ4}\label{eq:ej-integrability}
+\]
+各等式の両辺は一次式なので、係数比較により
+高々$N\binom N2$本の斉次線形方程式を$N^2$個の未知数について解くだけでよい。
+
+\begin{theorem}[方程式抽出の必要十分条件]
+\label{thm:ej-effective-recovery}
+$K\subset S_2$を$N$次元部分空間とする。
+次の二条件は同値である。
+\begin{enumerate}
+ \item 滑らかなcubic $F\in S_3$が存在し、
+ $K=\langle\partial_0F,\ldots,\partial_{N-1}F\rangle$である。
+ \item $K$の共通零点は$\mathbb A^N$で原点だけであり、
+ $\mathcal L_K$は可逆行列$A$を含む。
+\end{enumerate}
+第二条件が成り立つとき、任意の可逆$A\in\mathcal L_K$について
+\[
+ \boxed{\quad
+ F_A=\frac13\sum_{i,a}x_i A_{ia}q_a,
+ \qquad \partial_iF_A=\sum_aA_{ia}q_a
+ \quad}
+ \tag{EJ5}\label{eq:ej-euler-recovery}
+\]
+が求める滑らかなcubicを与える。
+\end{theorem}
+\begin{proof}
+第一条件が成り立つなら、$\partial_iF$は$K$の別の基底なので
+$\partial_iF=\sum_a A_{ia}q_a$となる可逆行列$A$がある。
+混合偏微分の交換性が$A\in\mathcal L_K$を与える。
+三次のEuler等式により、偏微分の共通射影零点は
+$V(F)$の特異点に一致するから、$K$には射影共通零点がない。
+
+逆に$g_i=\sum_aA_{ia}q_a$と置く。
+式\eqref{eq:ej-integrability}と二次のEuler等式から
+\[
+ \partial_jF_A
+ =\frac13\left(g_j+\sum_i x_i\partial_jg_i\right)
+ =\frac13\left(g_j+\sum_i x_i\partial_i g_j\right)=g_j.
+\]
+$A$が可逆なので、勾配は$K$を張る。
+その共通射影零点がないことから$V(F_A)$は滑らかである。
+\end{proof}
+
+\begin{corollary}[有限の判定手順]
+\label{cor:ej-finite-algorithm}
+$K$の係数が計算可能な標数零の体にあれば、
+代数閉包上で定理\ref{thm:ej-effective-recovery}の条件を有限計算で判定できる。
+\end{corollary}
+\begin{proof}
+まず線形方程式\eqref{eq:ej-integrability}の核の基底
+$A_1,\ldots,A_r$を求める。
+$\mathcal L_K$に可逆行列がある条件は
+\[
+ D_K(z_1,\ldots,z_r)=\det\left(\sum_{\nu=1}^r z_\nu A_\nu\right)
+ \not\equiv0
+ \tag{EJ6}\label{eq:ej-determinant-test}
+\]
+であり、有限の多項式恒等判定である。
+非零なら、例えば$\{0,1,\ldots,N\}^r$の有限格子のいずれかで非零になる。
+これは$D_K$の各変数の次数が高々$N$であることと一変数の零点数から帰納的に従う。
+その値を使って式\eqref{eq:ej-euler-recovery}を適用すればよい。
+共通零点条件は、斉次イデアル$(K)$の商が零次元であることと同値であり、
+Gr\"obner基底で判定できる。
+この方法は実行可能性を保証する有限手順であって、最適な計算量の主張ではない。
+\end{proof}
+
+\subsection{候補は射影同型を除いて一意だが、式は一意とは限らない}
+
+\begin{proposition}[滑らかな候補の射影的一意性]
+\label{prop:ej-projective-uniqueness}
+同じ$K\subset S_2$を勾配空間に持つ二つの滑らかなcubicは射影同型である。
+ただし固定座標での方程式がscalar倍に限られるとは限らない。
+\end{proposition}
+\begin{proof}
+$F,G$をその二つのcubicとする。
+それぞれの勾配は$K$の基底なので$\nabla G=A\nabla F$を満たす可逆行列$A$がある。
+$F$を、$F(x)=T(x,x,x)$を満たす対称三重線形形式$T$で表す。
+$a=A^{\mathsf t}$とすれば、$G$の対称性は
+\[
+ T(au,v,w)=T(u,av,w)=T(u,v,aw)
+ \tag{EJ7}\label{eq:ej-symmetrizer}
+\]
+を意味する。一般にこの式を満たす線形写像全体を$\mathfrak s_T$とする。
+
+$a,b\in\mathfrak s_T$について、三つの引数の間で写像を移すと
+\[
+ \begin{aligned}
+ T(abu,v,w)&=T(bu,av,w)=T(u,av,bw)\\
+ &=T(au,v,bw)=T(au,bv,w)=T(bau,v,w).
+ \end{aligned}
+\]
+$F$が滑らかなので$u\mapsto T(u,-,-)$は単射であり、$ab=ba$が従う。
+さらに式\eqref{eq:ej-symmetrizer}から$ab$もsymmetrizerである。
+従って$\mathfrak s_T$は単位を持つ可換部分代数である。
+
+この代数に非零nilpotentがあれば、その適当な冪を取って
+$0\ne b\in\mathfrak s_T$かつ$b^2=0$とできる。
+$u=bv\ne0$を選ぶと
+\[
+ T(u,u,w)=T(bv,bv,w)=T(v,b^2v,w)=0
+ \quad\text{for every }w.
+\]
+これは$[u]$が$V(F)$の特異点であることを意味し、矛盾する。
+Jordan分解のnilpotent部分は元の写像の多項式であるから、
+従って$\mathfrak s_T$の全ての元は半単純で、特に$a$は対角化できる。
+固有空間分解を$\CC^N=\bigoplus_\lambda U_\lambda$とすると、
+式\eqref{eq:ej-symmetrizer}により異なる固有空間を含む混合項は零になる。
+よって
+\[
+ F=\sum_\lambda F_\lambda,
+ \qquad G=\sum_\lambda\lambda F_\lambda,
+ \qquad F_\lambda\in\operatorname{Sym}^3 U_\lambda^*.
+\]
+$a$が可逆なので各$\lambda\ne0$である。
+各$U_\lambda$の座標を$\lambda^{1/3}$倍すれば$F$を$G$へ移せる。
+この線形変換が射影同型を与える。
+\end{proof}
+
+\begin{example}[Fermatの場合の積分解]
+\label{ex:ej-fermat}
+$K=\langle x_0^2,\ldots,x_{N-1}^2\rangle$では
+式\eqref{eq:ej-integrability}は$A$が対角行列であることと同値である。
+従って$\dim\mathcal L_K=N$であり、
+\[
+ F_A=\frac13\sum_i a_i x_i^3\qquad(a_i\ne0)
+\]
+は全て解である。これらは射影同型であるが、scalar倍だけの一意性はない。
+特にFermat cubic threefoldでは積分解空間の次元は$5$であり、$1$ではない。
+\end{example}
+
+\subsection{正しいHilbert級数を持っても積分できない二次関係}
+
+次の反例は、次数一・二の次元や完全交差性だけでは
+可換cubicの候補すら作れないことを示す。
+非可換cubicの残余圏からこの例が生じるとは主張しない。
+
+\begin{proposition}[五変数の積分不可能な完全交差]
+\label{prop:ej-nonintegrable-ci}
+添字を$\ZZ/5\ZZ$で読み、
+\[
+ q_i=x_i^2+x_{i+1}x_{i+2},\qquad
+ K=\langle q_0,\ldots,q_4\rangle
+ \subset\CC[x_0,\ldots,x_4]_2
+ \tag{EJ8}\label{eq:ej-cycle-example}
+\]
+とする。このとき以下が成り立つ。
+\begin{enumerate}
+ \item $K$には共通射影零点がなく、$S/(K)$はArtin完全交差で
+ Hilbert級数$(1+t)^5$を持つ。
+ \item $\mathcal L_K=0$である。
+ 特に$S/(K)$はどの滑らかなcubic threefoldのgraded Jacobian環とも同型でない。
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+$q_i(x)=0$とする。ある$x_i=0$なら
+$q_{i-2}=x_{i-2}^2+x_{i-1}x_i=0$から$x_{i-2}=0$である。
+$2$と$5$は互いに素なので全ての座標が零になる。
+全ての$x_i$が非零なら五つの式$x_i^2=-x_{i+1}x_{i+2}$の積から
+$\prod_i x_i^2=-\prod_i x_i^2$となり矛盾する。
+従って共通零点は原点だけである。
+五つの$q_i$は各々固有の平方項を持つため一次独立であり、
+多項式環のsystem of parametersなので正則列である。
+よってHilbert級数は$(1-t^2)^5/(1-t)^5=(1+t)^5$である。
+
+次に$A\in\mathcal L_K$とし、$g_i=\sum_aA_{ia}q_a$とおく。
+直接微分すると
+\[
+ \partial_jg_i=2A_{ij}x_j+A_{i,j-1}x_{j+1}+A_{i,j-2}x_{j-1}.
+ \tag{EJ9}\label{eq:ej-cycle-derivative}
+\]
+$j=i+1$の可積分性で$x_{i+2}$と$x_{i-1}$の係数を比較すると
+$A_{ii}=0$および$A_{i+1,i-2}=0$である。
+添字を動かせば$A_{i,i+2}=0$も得る。
+$j=i+2$で$x_{i+3}$と$x_i$の係数を比較すると
+$A_{i,i+1}=0$および$A_{i+2,i}=0$、従って$A_{i,i+3}=0$を得る。
+残り得る成分を$a_i=A_{i,i-1}$とすると、
+$j=i+1$で$x_i$の係数を比較して$a_i=2a_{i+1}$となる。
+五回繰り返すと$a_i=32a_i$なので$a_i=0$である。従って$A=0$。
+
+もしgraded Jacobian環と同型なら、その次数一部分の同型は
+多項式環の線形座標変換に持ち上がる。
+次数二の核から、この座標変換後の$K$は滑らかな三次式の勾配空間になるはずである。
+しかし可積分性は座標変換に不変であり、$\mathcal L_K=0$と矛盾する。
+\end{proof}
+
+\subsection{非可換cubicに適用するときの結論と残る課題}
+
+\begin{corollary}[唯一の可換候補を抽出する検査器]
+\label{cor:ej-candidate}
+非可換cubicのenhanced残余pair $(\cC,\rho)$に対して、
+式\eqref{eq:ej-low-degree}の$V,W$および積$\mu$が計算されたとする。
+このpairが滑らかな可換cubic $n$-foldと同値なら、$N=n+2$として
+次の全てを満たす：
+\begin{enumerate}
+ \item $\dim V=N$、$\dim W=\binom N2$、積の対称性と全射性。
+ \item $K=\ker\bar\mu$は$N$次元で、共通射影零点を持たない。
+ \item $\mathcal L_K$には可逆行列が存在する。
+\end{enumerate}
+いずれかが失敗すれば、このpairの可換cubic模型は存在しない。
+全て成功すれば、式\eqref{eq:ej-euler-recovery}は
+\emph{そのような模型が存在するときの唯一の候補}を射影同型を除いて与える。
+この成功だけから$(\cC,\rho)\simeq(\Ku(V(F_A)),\rho_{F_A})$を結論してはならない。
+\end{corollary}
+\begin{proof}
+必要性は命題\ref{prop:ej-geometric-low-degree}と
+定理\ref{thm:ej-effective-recovery}による。
+候補の射影的一意性は命題\ref{prop:ej-projective-uniqueness}による。
+これらの証明は低次数の導来自然変換の積しか使わず、
+pair間の同値双加群やその逆を構成していない。
+従って圏同値の存在は独立に証明すべき事項として残る。
+\end{proof}
+
+この検査器により、今後の具体的作業は明確になる。
+まず第\ref{mt:sec:family}節の最小混合試験族について、
+続いて非楕円二成分について残余dg代数とrotation双加群を明示し、
+$\RHom_{\Gamma^e}(\Gamma,P)$と
+$\RHom_{\Gamma^e}(\Gamma,P\otimes_\Gamma^{\mathbf L}P)$の
+次数零コホモロジーおよび合成を求める。
+これは線束Homの階数表、Poissonの一次項、ambientの二次関係を
+そのまま代入する操作ではない。
+得られた$K$を積分して候補方程式を抽出した後、
+実際の同値双加群の構成、または必要なsmoothnessを確認した上での
+\'etale実現定理との比較を行う。
+相対対角perfect性(SM)も、この低次数検査だけでは証明されない。
+
+\paragraph{計算の再現範囲.}
+\texttt{computations/verify\_explicit\_jacobian\_recovery.py}は有理数上で、
+Fermat三次式、混合項を持つ滑らかな五変数三次式、
+および命題\ref{prop:ej-nonintegrable-ci}の完全交差を検査する。
+Jacobianの次数二商の積から核を取り直して積分し、
+勾配との一致、線形系の階数、共通零点、Hilbert関数を確認する。
+反例では非零の最大小行列式も証明書に記録する。
+入力は既知の可換多項式または明示的な二次関係であり、
+非楕円量子化の残余圏の導来自然変換を計算したものではない。

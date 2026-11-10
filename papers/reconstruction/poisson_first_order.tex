@@ -1,0 +1,196 @@
+% Current mathematical statement; 2026-11-10.
+\section{cubic threefoldにおけるPoisson方向の一次消滅}
+\label{pf:sec:first-order}
+本節では、可換復元先の方程式を求める際に必要な最初の制約を示す。
+対象は滑らかな\emph{cubic threefold}に限定する。
+純粋なPoisson方向はKuznetsov成分の一次変形では消えるため、
+可換模型が存在するなら、その方程式の本質的な変化は二次以降に現れる。
+ここで証明するのは一次接写像の消滅であって、可換模型の存在、
+残余smoothness (SM)、全次数での局所自明性ではない。
+
+用いる外部結果は、Calaque--Rossi--Van den BerghのTodd補正付きHKRと
+加群構造の両立性\cite[Theorem 1.4]{PFCRVdB}、および
+Jacovskis--Lin--Liu--ZhangのHochschild作用の可換図式と
+cubic threefoldに対する単射性\cite[Theorems 3.11 and 4.4(2)]{JLLZER}である。
+以下の消滅命題はこれらの既知結果の適用であり、その帰結としての新規性は未確認である。
+
+\subsection{通常のHKRとTodd補正の比較}
+$X\subset\PP^4_{\CC}$を滑らかな三次超曲面とし、
+\[
+ \operatorname{HT}^2(X)
+ =H^0(X,\wedge^2T_X)\oplus H^1(X,T_X)\oplus H^2(X,\OO_X)
+\]
+と書く。通常のHKR同型を
+$I_{\mathrm{HKR}}:\operatorname{HT}^2(X)\xrightarrow{\sim}\HH^2(X)$、
+加群構造と両立するTodd補正付き同型を$I^K$とする。
+純粋なPoisson方向とは、一次変形類が
+$I_{\mathrm{HKR}}(\pi)$、$\pi\in H^0(X,\wedge^2T_X)$、
+$[\pi,\pi]=0$であることをいう。
+同時に動かす可換複素構造の成分をこの条件に含めない。
+
+\begin{lemma}[bivectorによる第一Chern類の縮約]
+\label{pf:lem:chern}
+滑らかな複素代数多様体$Z$と
+$\pi\in H^0(Z,\wedge^2T_Z)$に対し、
+\[
+ \pi^\sharp c_1(K_Z)=0\quad\text{in }H^1(Z,T_Z).
+\]
+この主張にPoisson条件$[\pi,\pi]=0$は不要である。
+\end{lemma}
+\begin{proof}
+$K_Z$を自明化するアフィン開被覆$\{U_i\}$と、
+各$U_i$で消えない最高次微分形式$\mu_i$を取る。
+重なりで$\mu_j=g_{ij}\mu_i$、$g_{ij}\in\OO^\times(U_i\cap U_j)$と書く。
+$c_1(K_Z)$は、定数倍と符号の規約を除き、
+$\{d\log g_{ij}\}$で表される$H^1(\Omega_Z^1)$の類である。
+
+局所ベクトル場$D_i$を
+\[
+ \iota_{D_i}\mu_i=d(\iota_\pi\mu_i)
+\]
+で定める。最高次微分形式との縮約は
+$T_{U_i}\simeq\Omega^{\dim Z-1}_{U_i}$という同型なので、$D_i$は正則である。
+積の微分により
+\begin{align*}
+ \iota_{D_j-D_i}\mu_i
+ &=g_{ij}^{-1}d\bigl(g_{ij}\iota_\pi\mu_i\bigr)
+       -d(\iota_\pi\mu_i)\\
+ &=d\log g_{ij}\wedge\iota_\pi\mu_i.
+\end{align*}
+右辺は、縮約と$\pi^\sharp$の符号を固定すれば
+$\pm\iota_{\pi^\sharp(d\log g_{ij})}\mu_i$である。
+従って$\{\pi^\sharp(d\log g_{ij})\}$は
+$\{\pm D_i\}$の\v{C}ech coboundaryであり、そのコホモロジー類は零となる。
+符号の選択は消滅の結論に影響しない。
+\end{proof}
+
+\begin{lemma}[cubic threefoldの純bivector上ではTodd補正が消える]
+\label{pf:lem:todd}
+任意の$\pi\in H^0(X,\wedge^2T_X)$について
+\[
+ I^K(\pi)=I_{\mathrm{HKR}}(\pi).
+\]
+\end{lemma}
+\begin{proof}
+\cite[Theorem 1.4]{PFCRVdB}の規約では
+$I^K=I_{\mathrm{HKR}}\circ\iota_{\sqrt{\operatorname{td}(X)}}$である。
+\[
+ \sqrt{\operatorname{td}(X)}
+ =1+\tfrac14c_1(T_X)+\theta_2+\cdots,
+ \qquad\theta_2\in H^2(X,\Omega_X^2)
+\]
+を$\pi$に縮約すると、第一補正は
+$\tfrac14\pi^\sharp c_1(T_X)\in H^1(T_X)$であり、
+$c_1(T_X)=-c_1(K_X)$と補題\ref{pf:lem:chern}から零である。
+第二補正は$H^2(X,\OO_X)=0$に値を取る。
+三次以上の形式はbivectorには縮約できない。
+よって補正は全て消える。逆Todd類を用いる規約でも同じ理由で結論は変わらない。
+\end{proof}
+
+\subsection{残余圏への制限写像の核}
+$\mathcal K=\Ku(X)$とし、enhancementの完全忠実な包含から誘導される写像を
+\[
+ \operatorname{res}_X:\HH^2(X)\longrightarrow\HH^2(\mathcal K)
+\]
+と書く。
+
+\begin{proposition}[Poisson方向の一次消滅]
+\label{pf:prop:vanishing}
+滑らかなcubic threefold $X$に対し、
+\[
+ \operatorname{res}_X\circ I_{\mathrm{HKR}}
+ \big|_{H^0(X,\wedge^2T_X)}=0.
+ \tag{PV}\label{pf:eq:vanishing}
+\]
+従って、実在する純Poisson一次変形からenhanced残余変形が誘導され、
+そのKodaira--Spencer類が上の制限写像で与えられるなら、
+残余変形の$\HH^2(\mathcal K)$における一次類は零である。
+\end{proposition}
+\begin{proof}
+\cite[Theorem 3.11]{JLLZER}によれば、
+$\alpha'=\operatorname{res}_X\circ I^K$と
+\[
+ \gamma:\HH^2(\mathcal K)\longrightarrow
+ \operatorname{Hom}_{\CC}
+ \bigl(H^1(X,\Omega_X^2),H^2(X,\Omega_X^1)\bigr)
+\]
+の合成はpolyvectorの縮約作用である。
+ここで同論文のHochschild homologyの符号では、
+$H\Omega_{-1}(X)=H^1(X,\Omega_X^2)$、
+$H\Omega_1(X)=H^2(X,\Omega_X^1)$となる。
+これら以外の該当するHodge成分は、cubic threefoldのLefschetz定理と
+$H^i(X,\OO_X)=0$（$i>0$）により零である。
+
+$\pi\in H^0(X,\wedge^2T_X)$の縮約は
+\[
+ H^1(X,\Omega_X^2)\xrightarrow{\ \iota_\pi\ }
+ H^1(X,\OO_X)=0
+\]
+なので$\gamma\alpha'(\pi)=0$である。
+cubic threefoldについて$\gamma$は単射である
+\cite[Theorem 4.4(2)]{JLLZER}。従って$\alpha'(\pi)=0$を得る。
+補題\ref{pf:lem:todd}で$I^K$を通常のHKRに戻せば
+\eqref{pf:eq:vanishing}となる。
+最後の主張は、仮定されたKodaira--Spencer類の制限との両立性による。
+\end{proof}
+
+\subsection{明示的復元式に対する制約}
+\begin{corollary}[可換復元先の方程式は一次で動かない]
+\label{pf:cor:second-order}
+$X=V(F)\subset\PP^4$、$R=\CC[[h]]$とし、
+特殊ファイバーが$\Ku(X)$であるenhanced残余族$\mathcal K_R$を考える。
+その$R/(h^2)$への還元が、命題\ref{pf:prop:vanishing}の意味で
+純Poisson一次変形から誘導されていると仮定する。
+さらに滑らかな可換cubic族$Y_R=V(F_h)$とenhanced同値
+\[
+ \mathcal K_R\simeq\Ku(Y_R/R),\qquad Y_0=X
+\]
+が\emph{既に存在する}と仮定する。
+$F_h=F+hG+O(h^2)$と書けば
+\[
+ [G]=0\quad\text{in }
+ J(F)_3,
+ \qquad J(F)=\CC[z_0,\ldots,z_4]/(\partial_0F,\ldots,\partial_4F).
+ \tag{T0}\label{pf:eq:tangent-zero}
+\]
+従って$h=0$で恒等となる線形座標変換と方程式の単元倍により
+$F_h=F+O(h^2)$とできる。
+同じ結論は一次底$\CC[h]/(h^2)$上だけでも成立する。
+\end{corollary}
+\begin{proof}
+命題\ref{pf:prop:vanishing}より、$\mathcal K_R$の一次類は零である。
+enhanced同値はこの類を$\Ku(Y_R/R)$の一次類に送るので、
+幾何的Kodaira--Spencer類$\kappa_Y\in H^1(X,T_X)$について
+\[
+ \eta(\kappa_Y)=0,\qquad
+ \eta:H^1(X,T_X)\longrightarrow\HH^2(\Ku(X))
+\]
+となる。$H^1(T_X)$上のTodd補正も$H^2(\OO_X)=0$で消えるので、
+ここでも通常のHKRと補正付きHKRは一致する。$\eta$は同型\cite[Theorem 4.4(2)]{JLLZER}であるから
+$\kappa_Y=0$である。ここでは特殊ファイバーの同値が恒等である必要はなく、
+Hochschild類の零は任意のenhanced同値で零に移る。
+
+超曲面の法束完全列と射影空間のEuler列により、
+$H^1(X,T_X)=J(F)_3$で、$\kappa_Y$は$[G]$に対応する。
+従って一次形式$\ell_i$を用いて
+$G=\sum_{i=0}^4\ell_i\partial_iF$と書ける。
+座標変換$z_i\mapsto z_i-h\ell_i(z)$を代入すると一次項が消える。
+方程式のスカラー変化もEuler恒等式
+$\sum_i z_i\partial_iF=3F$によって同じJacobian部分に含まれる。
+\end{proof}
+
+\begin{remark}[仮定と計算方針]
+\label{pf:rem:scope}
+量子代数の交換子の半古典極限が$\pi$であることだけでは、
+射影化した圏の一次変形が純粋に$I_{\mathrm{HKR}}(\pi)$であるとは断定できない。
+可換方程式やgluingを一次で同時に動かすと、$H^1(T_X)$成分が加わり得る。
+具体的な量子化族に系\ref{pf:cor:second-order}を適用する際は、
+この純粋性とenhanced残余変形への制限との両立性を確認する。
+
+確認後は、可換模型の最初の本質的な係数を
+$F_h=F+h^2G_2+h^3G_3+\cdots$の$[G_2]\in J(F)_3$から探せばよい。
+本節は$G_2$を計算しておらず、その非零性も、全ての奇数次項の消滅も主張しない。
+また$\HH^2$での消滅はunderlying残余圏の一次類についての主張であり、
+指定rotationを含む全coherentデータの自明化を結論しない。
+存在・SM・高次同値の証明は、それぞれ独立に残る。
+\end{remark}

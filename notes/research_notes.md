@@ -1,6 +1,6 @@
 # 研究ノート：可換復元の現在有効な知識と障害
 
-**2026年11月10日・v19。GitHub mainだけを正本とする。** 詳細な局所模型・具体式は `notes/reconstruction.md`、証明全文は `papers/reconstruction/rotation_saturation_reduction.tex` とそのinputに置く。
+**2026年11月10日・v21。GitHub mainだけを正本とする。** 具体的復元・一次消滅の証明は論文Cの現行inputに、局所rotation・SM・ERの詳細は `notes/reconstruction.md` と対応原稿に置く。
 
 ## 三目標の区別と現状
 
@@ -8,11 +8,40 @@
 
 三番目の目標は、こうして構成した非可換cubicのgenericファイバーをrotation付きの可換cubic Kuznetsov成分として実現すること。任意のAS-regular中心三次商全体の全点についての復元は要求しない。各成分のgeneric点への一様相対化は強化課題であり、個別量子化定理の欠落と混同しない。
 
-## 1. 復元の論理と現在の核心
+## 具体的な方程式を得るための現在の知識
+
+方程式抽出と圏同値存在を並行して進める。分離型に既に閉公式があるため、一般のSMを先に完成する経路だけに研究を限定しない。次の入力は三次元の本質的混合項lambda*u*x*yであり、分離点との二次比較を基準とする。
+
+- **分離型の閉式。** 対称Jacobian量子化の多重線形化はM(v)=K(v)−h HessMatrix(f)/2。Mori–Smithの既知恒等式 det M=−3h(f+h² det HessMatrix(f)/24) を、本稿の量子化規約で初等的に証明した。滑らかな楕円中心商と独立な中心変数Pの仮定で、既存ブロック比較が可換模型 f+h²Hess(f)/24+P を与える。証明は papers/reconstruction/explicit_model_comparison.tex。
+- **単純可換化の失敗。** Hesse型では復元先の二次類は +(1+t³)[xyz]/3、中心元の可換表示は −2(1+t³)[xyz]/3。差は非零。literal abelianizationはさらにactive三変数を冪零にし、Proj次元を3落とす。元のcubicへの全次数の同値を期待する根拠にはならない。
+- **有限抽出。** V=Hom_dg(Id,rho)、W=Hom_dg(Id,rho²) の積が対称・全射で正しい次元を持つとき、K=ker(Sym²V→W)を求める。Kの基底qに対する可積分行列Aの線形系、det A≠0、共通射影零点なしを検査し、F=Σx_i(Aq)_i/3で積分する。滑らかな解は射影同型を除いて一意。Fermatでは積分解空間がN次元なのでscalar倍までの一意性は偽。証明は papers/reconstruction/explicit_jacobian_recovery.tex。
+- **数値条件では不足。** mod5でq_i=x_i²+x_(i+1)x_(i+2)とすると共通零点は原点だけ、Hilbert級数は(1+t)^5だが、可積分線形系はrank25で核零。25次小行列式15872が証明書にある。この例がnc cubicから生じるとは主張しない。
+- **三次元の一次消滅。** 純bivectorの通常HKR類はHH²(Ku)への制限で零。局所divergenceによりpi♯c1(K)=0を示してTodd補正を消し、JLLZのHochschild作用の単射性を適用する。pure Poisson KSと残余への制限の両立を確認し、可換族の存在を仮定すればF_h=F+O(h²)。証明は papers/reconstruction/poisson_first_order.tex。高次定数性・一般次元・SMは結論しない。
+- **最小混合族の入力。** F_lambda=(x³+y³+z³)/3+u³+v³+lambda*u*x*yはlambda³≠−3で滑らか。papers/reconstruction/mixed_test_family.tex に三次中心元の閉式と、全パラメータ中心性を与える自由代数の3恒等式を全文記載した。全Artin切断でのmonic PBWと中心商の次数別flatnessも証明した。h²(lambda*u)²z/6を落とすと中心性が壊れる負例、sorted表示に現れる一次項と復元先の一次類を区別する注意も同節にある。非零hの全AS性、残余SM、rotation積、復元G₂はこの計算では得られていない。
+
+これらの復元原理は既知のJacobian・symmetrizer理論を利用し、Hessian公式も既知である。具体的比較・検査器・一次消滅の帰結としての初出は未確認。計算コードは既知の可換多項式と二次関係を入力し、まだ一般nc残余圏のV,W,積を算出していない。二次の復元係数は、半古典Poisson括弧だけでなく選択した量子化の高次データに依存し得る。
+
+### 混合族の二次係数：確定した方向と未検証の値
+
+三乗根の対角作用 `(x,y,u,z,v) -> (alpha*x,beta*y,gamma*u,delta*z,epsilon*v)`、alpha*beta*gamma=1、chi=alpha*beta*delta、h->chi*hは量子族を保つ。三次Jacobian環のchi固有空間はC[xyz]、chi²固有空間は零。証明は papers/reconstruction/mixed_test_family.tex。従ってmarked同変復元の存在を仮定すれば、二次類は[G₂]=c(lambda)[xyz]である。これはc(lambda)の値や同変復元の存在を決定していない。
+
+lambdaも動かす場合、全mu₃⁵についてkappa=alpha*beta*gamma、lambda->kappa⁻¹lambdaとすれば量子族全体が同変になる。この作用まで復元が両立する場合にはc(zeta*lambda)=c(lambda)であり、lambda=0の周りの形式的係数はC[[lambda³]]に入る。既知のc(0)=1/3を合わせると、最初の未知混合補正はlambda³h²の係数に現れる。これは同変性を仮定した重みの帰結であり、係数の計算ではない。
+
+**未検証の作業仮説。** active三変数のHessian行列式は
+\[
+H_{\rm act}=8xyz-2\lambda^2u^2z.
+\]
+構成した中心元の対称表示を可換にしたとき、h²係数は正確に−H_act/12となる。分離型との類推から、可換復元先に対してH_act/24という候補が自然に浮かぶ。Jacobian関係3u²+lambda*xy=0を用いると、候補類は
+\[
+[G_2^{\rm Hess}]=\frac{12+\lambda^3}{36}[xyz].
+\]
+これはlambda=0の既知値1/3と一致するが、一般lambdaでは圏データからの検証を一切行っていない。中心元の係数から復元係数を推定する推論を証明として使わない。次の計算ではこの式を結論として組み込まず、rotation積から独立にc(lambda)を求めて比較する。特にlambda³=−12でも古典cubicは滑らかであり、この候補が二次で零になる点は有用な判別試験になる。
+
+## 1. SM・ERによる存在証明の経路
 
 所定の正則局所底上の次数別自由な中心三次量子化から、properな線束生成残余dg代数Γ_Rと、逆 `(-1)R_O` を持つ標準rotationが得られる。残余対角条件(SM)があれば全coherent残余圏との一致と有限型smooth proper pairへのspreadが従う。
 
-étale局所実現(ER)は、実在するsmooth proper pairを入力とする定理として独立の証明を得た。従って量子化入力がある成分では、generic可換復元の未解決条件はSMである。非楕円二成分の量子化は既存の具体的構成を使えるが、Poisson係数方向を保持した一様相対量子化は全成分で完成していない（各固定構造の代数的量子化の存在とは別）。
+étale局所実現(ER)は、実在するsmooth proper pairを入力とする定理として独立の証明を得た。従ってこの存在証明の経路では、量子化入力がある成分のgeneric可換復元の未解決条件はSMである。非楕円二成分の量子化は既存の具体的構成を使えるが、Poisson係数方向を保持した一様相対量子化は全成分で完成していない（各固定構造の代数的量子化の存在とは別）。
 
 ## 2. ERの実際の証明に必要な点
 
@@ -68,7 +97,7 @@ Cの一楕円ブロックの良い複素ファイバーでの比較、有限位�
 
 ## 8. 再現と次の着手
 
-`reconstruction/README.md` の二つの計算、build、verifyを実行する。参照とハッシュは全TeX inputを含む。計算的確認と圏論的証明は別である。最優先の次作業は非楕円二成分の有限残余対角証明書の構成。研究の量化は一般次元・各成分を保ちつつ、具体的量子化のある成分から実証する。
+`reconstruction/README.md` の計算、build、verifyを実行する。参照とハッシュは全TeX inputを含む。計算的確認と圏論的証明は別である。最優先の次作業は、構成した三次元混合試験族について、純Poisson KSと残余制限の両立を確認し、rotationの低次数積と復元先の二次類を計算すること。有限残余対角証明書による存在経路と、非楕円fivefoldでの一般次元への検証を並行する。
 
 GitHubへ全文と再現資産を保存し遠隔確認する。Libraryはpushが実際に失敗した場合だけの緊急退避とする。
 
@@ -86,4 +115,4 @@ GitHubへ全文と再現資産を保存し遠隔確認する。Libraryはpushが
 
 回復原稿 `notes/sm_bar_and_spreading.tex` は、`Gamma_R ∈ Perf(R)` なら相対二側bar解消の有限skeleton `P_d` は `Gamma_R^e`-perfectで、`hocolim_d P_d ≃ Gamma_R` となり、**SMと「あるdで `P_d → Gamma_R` が導来右逆を持つ」は同値**であることを証明する。特殊ファイバーの右逆だけで底上の右逆を得ることはできない。
 
-また `R` noetherian整域でproperなdg模型のgeneric fiberがsmoothなら、perfect dg加群のfiltered-colimit descentとconeのgeneric消滅から、ある非空局所化で相対smoothになる。ただしspecial smoothnessだけではgeneric smoothnessはまだ得られない。以上は [nc-cubic2のfinite_smoothness_notes.pdf](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/pdf-only/finite_smoothness_notes.pdf) の第18--21節（pp.23--25）の有効な補題・証明を整理したもので、元の34ページ全体のTeX化ではない。可換復元の核心は実際の有限bar右逆（または同等の有限対角証明書）を非楕円二成分で構成することである。
+また `R` noetherian整域でproperなdg模型のgeneric fiberがsmoothなら、perfect dg加群のfiltered-colimit descentとconeのgeneric消滅から、ある非空局所化で相対smoothになる。ただしspecial smoothnessだけではgeneric smoothnessはまだ得られない。以上は [nc-cubic2のfinite_smoothness_notes.pdf](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/pdf-only/finite_smoothness_notes.pdf) の第18--21節（pp.23--25）の有効な補題・証明を整理したもので、元の34ページ全体のTeX化ではない。この存在証明経路の核心は、実際の有限bar右逆（または同等の有限対角証明書）を非楕円二成分で構成することである。現在の全体方針では、三次元混合族からの方程式抽出も同時に進める。

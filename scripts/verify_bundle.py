@@ -6,6 +6,9 @@ This is not a mathematical proof checker and never claims to have executed one.
 """
 from pathlib import Path
 import argparse
+import hashlib
+import json
+import tempfile
 import re
 import subprocess
 import sys
@@ -32,7 +35,8 @@ def source_closure(path,seen=None):
     return s
 
 for name in PAPERS:
-    body=source_closure(ROOT/"papers"/f"{name}.tex")
+    seen=set()
+    body=source_closure(ROOT/"papers"/f"{name}.tex", seen)
     labels=re.findall(r"\\label\{([^}]+)\}",body)
     refs=re.findall(r"\\(?:eqref|ref|pageref)\{([^}]+)\}",body)
     bibkeys=re.findall(r"\\bibitem(?:\[[^]]*\])?\{([^}]+)\}",body)
@@ -49,6 +53,17 @@ for name in PAPERS:
         if args.require_pdfs: raise AssertionError(f"Missing current PDF: {name}")
     else:
         print(f"PDF EXISTS (source parity not established by this test): {pdf.relative_to(ROOT)}")
+    receipt_path=ROOT/"build"/f"{name}.receipt.json"
+    if receipt_path.exists():
+        receipt=json.loads(receipt_path.read_text())
+        expected_paths={p.relative_to(ROOT).as_posix() for p in seen}
+        assert set(receipt["tex_inputs"])==expected_paths, "Receipt misses TeX inputs"
+        for rel, expected in receipt["tex_inputs"].items():
+            assert hashlib.sha256((ROOT/rel).read_bytes()).hexdigest()==expected, f"Changed input: {rel}"
+        assert hashlib.sha256(pdf.read_bytes()).hexdigest()==receipt["pdf_sha256"], "PDF receipt mismatch"
+        assert hashlib.sha256((ROOT/".latexmkrc").read_bytes()).hexdigest()==receipt["build_config_sha256"], "Build config changed"
+        assert not any(receipt["typesetting_failures"].values()), "Receipt records typesetting failures"
+        print(f"PASS current source/PDF receipt: {name}")
     print(f"PASS source closure: {name}; labels={len(labels)}, citations={len(citeitems)}")
 
 for needed in ("00_research_plan.md","notes/research_notes.md","README.md","validation.json"):
@@ -83,4 +98,18 @@ with __import__("tempfile").TemporaryDirectory(prefix="nc-cubic-ainfty-") as d:
     assert actual == expected, "A-infinity arity certificate mismatch"
     print("PASS exact A-infinity arity and index-pattern audit (not higher products)")
 
-print("Static audit complete. Mathematical categorical proofs are not formalized.")
+# These examples test the new mathematical finite algorithms; no nc category is computed.
+with tempfile.TemporaryDirectory(prefix="nc-cubic-explicit-") as td:
+    for script, certificate in (
+        ("verify_explicit_jacobian_recovery.py", "explicit_jacobian_certificate.json"),
+        ("verify_explicit_model_comparison.py", "explicit_model_comparison_certificate.json"),
+        ("verify_mixed_test_family.py", "mixed_test_family_certificate.json"),
+    ):
+        dest=Path(td)/certificate
+        run=subprocess.run([sys.executable, str(ROOT/"computations"/script), "--output", str(dest)],
+                           cwd=ROOT, capture_output=True, text=True, timeout=120)
+        assert run.returncode==0, run.stdout+run.stderr
+        assert json.loads(dest.read_text())==json.loads((ROOT/"computations"/certificate).read_text()), certificate
+        print(f"PASS exact certificate: {certificate}")
+
+print("Source/receipt and exact algebra audit complete. Categorical proofs are not formalized.")

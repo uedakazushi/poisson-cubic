@@ -39,7 +39,7 @@ def main():
     if any(checks.values()):
         raise SystemExit("Typesetting warning: "+str(checks))
     receipt = {
-        "version": "v17-layout-20261110",
+        "version": "v21",
         "source": SOURCE.relative_to(REPO).as_posix(),
         "source_sha256": sha(SOURCE),
         "tex_inputs": {p.relative_to(REPO).as_posix(): sha(p) for p in INPUTS},

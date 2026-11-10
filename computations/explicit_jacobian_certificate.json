@@ -1,0 +1,131 @@
+{
+  "date": "2026-11-10",
+  "version": "v21",
+  "arithmetic": "exact rational arithmetic with SymPy",
+  "scope": "finite polynomial/linear-algebra recovery; no nc dg Hom computation or categorical equivalence",
+  "examples": [
+    {
+      "example": "fermat_cubic_threefold",
+      "variables": 5,
+      "input_polynomial": "x0**3/3 + x1**3/3 + x2**3/3 + x3**3/3 + x4**3/3",
+      "low_degree_dimensions": {
+        "V": 5,
+        "W": 10,
+        "K": 5
+      },
+      "commutative_tensor_product_checked": true,
+      "quotient_multiplication_rank": 10,
+      "integrability_matrix_shape": [
+        50,
+        25
+      ],
+      "integrability_matrix_rank": 20,
+      "integrability_kernel_dimension": 5,
+      "chosen_integrating_determinant": "1",
+      "recovered_polynomial": "x0**3/3 + x1**3/3 + x2**3/3 + x3**3/3 + x4**3/3",
+      "recovered_to_input_scalar": "1",
+      "gradient_identity_checked": true,
+      "homogeneous_common_zero_only_origin": true,
+      "hilbert_function": [
+        1,
+        5,
+        10,
+        10,
+        5,
+        1,
+        0
+      ]
+    },
+    {
+      "example": "mixed_smooth_cubic_threefold",
+      "variables": 5,
+      "input_polynomial": "x0**3/3 + x0*x1*x2/2 + x1**3/3 + x2**3/3 + x2*x3*x4/3 + x3**3/3 + x4**3/3",
+      "low_degree_dimensions": {
+        "V": 5,
+        "W": 10,
+        "K": 5
+      },
+      "commutative_tensor_product_checked": true,
+      "quotient_multiplication_rank": 10,
+      "integrability_matrix_shape": [
+        50,
+        25
+      ],
+      "integrability_matrix_rank": 24,
+      "integrability_kernel_dimension": 1,
+      "chosen_integrating_determinant": "1/6",
+      "recovered_polynomial": "x0**3/3 + x0*x1*x2/2 + x1**3/3 + x2**3/3 + x2*x3*x4/3 + x3**3/3 + x4**3/3",
+      "recovered_to_input_scalar": "1",
+      "gradient_identity_checked": true,
+      "homogeneous_common_zero_only_origin": true,
+      "hilbert_function": [
+        1,
+        5,
+        10,
+        10,
+        5,
+        1,
+        0
+      ]
+    },
+    {
+      "example": "nonintegrable_cyclic_complete_intersection",
+      "quadrics": [
+        "x0**2 + x1*x2",
+        "x1**2 + x2*x3",
+        "x2**2 + x3*x4",
+        "x0*x4 + x3**2",
+        "x0*x1 + x4**2"
+      ],
+      "homogeneous_common_zero_only_origin": true,
+      "hilbert_function": [
+        1,
+        5,
+        10,
+        10,
+        5,
+        1,
+        0
+      ],
+      "integrability_matrix_shape": [
+        50,
+        25
+      ],
+      "integrability_matrix_rank": 25,
+      "integrability_kernel_dimension": 0,
+      "full_rank_minor_rows_zero_based": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        19,
+        21,
+        22,
+        23,
+        26,
+        31,
+        37,
+        39,
+        42,
+        48
+      ],
+      "full_rank_minor_determinant": "15872",
+      "is_cubic_jacobian": false,
+      "elementary_proof": "papers/reconstruction/explicit_jacobian_recovery.tex, proposition prop:ej-nonintegrable-ci"
+    }
+  ],
+  "nonsymmetric_product_rejected_before_Sym2": true,
+  "all_assertions_passed": true,
+  "source_sha256": "8977a19cf0e9a071f3832a0087d651303ef437fdc9edde2b352cb5af10a812d2"
+}
