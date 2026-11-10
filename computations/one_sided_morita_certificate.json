@@ -1,0 +1,63 @@
+{
+  "version": "nc-cubic-v34",
+  "date": "2026-11-11",
+  "scope": "Ordinary Morita matrix identities, scalar period correction, compactness warning only.",
+  "twisted_matrix_model": {
+    "base": "Q[h]",
+    "T": [
+      [
+        "1",
+        "h"
+      ],
+      [
+        "h",
+        "h**2 + 1"
+      ]
+    ],
+    "determinant": "1",
+    "A_product": "X*Y=X T Y",
+    "A_unit": "T^(-1)",
+    "P": "row module p.X=p T X",
+    "Q": "column module X.q=X T q",
+    "pairing": "p T q",
+    "evaluation": "q tensor p -> q p",
+    "evaluation_determinant": "1",
+    "balanced_relation_rank_generic": 3,
+    "balanced_relation_rank_at_zero": 3
+  },
+  "identity_counts": {
+    "invertible_twist": 2,
+    "associativity": 64,
+    "algebra_unit": 8,
+    "right_module": 32,
+    "left_module": 32,
+    "balanced_pairing": 16,
+    "evaluation_linearity": 32,
+    "evaluation_isomorphism": 1,
+    "triangle_rows": 8,
+    "triangle_columns": 8,
+    "unit_lift": 1,
+    "pairing_kills_relations": 1,
+    "dual_number_resolution": 1
+  },
+  "total_identities": 206,
+  "period_correction": {
+    "equation": "c^3(1+h)=1",
+    "initial_c": "1",
+    "initial_derivative": "3",
+    "verified_mod_h_power": 8,
+    "root_truncation": "-1976*h**7/19683 + 728*h**6/6561 - 91*h**5/729 + 35*h**4/243 - 14*h**3/81 + 2*h**2/9 - h/3 + 1"
+  },
+  "compactness_warning": {
+    "algebra": "k[e]/e^2",
+    "module": "k",
+    "base_perfect": true,
+    "algebra_perfect": false,
+    "reason": "The exact positive-degree periodic resolution by multiplication by e becomes zero-differential after tensoring with k, so Tor_i=k for every i>=0."
+  },
+  "not_verified": [
+    "The actual cubic formal inverse kernel and its compactness.",
+    "The abstract dg Morita and Popescu descent proofs.",
+    "Existing nc diagonal matrices or generic cubic equivalence."
+  ]
+}

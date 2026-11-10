@@ -1,0 +1,251 @@
+% 2026-11-11 / v34
+\section{片側compact核からのMorita同値と代数化}
+\label{os:sec:algebraization}
+
+本節では、一般ファイバーへの移行のために必要な有限データを減らす。
+非可換側のproper dg代数を$\Gamma$、既に構成した可換cubicの
+perfect Kuznetsov成分のsmooth proper生成代数を$\mathsf C$と書く。
+前節までの周囲の次数付き代数$A$、中心商$B$とは異なる記号である。
+関手の向きを\emph{可換側から非可換側へ}取ることが重要である。
+
+主張は二段階からなる。第一に、右$\Gamma$-perfectな一つの
+$(\mathsf C,\Gamma)$-双加群が特殊点で同値を与えれば、底上でも同値になる。
+逆核と二つの逆性を独立の未知量にする必要はない。
+第二に、そのような\emph{ordinaryな導来圏のcompact核}が完備底上に存在すれば、
+perfect加群の有限表示性とPopescuの定理により、指定有限jetを保って
+\'etale近傍に代数化できる。
+これはArtin切断ごとのperfect性からcompact核の存在を結論する定理ではない。
+
+使用する既知入力はTo\"en--Vaqui\'eの相対pseudo-perfect性とperfect性の比較、
+およびperfect加群のfiltered-colimit降下である
+\cite[Lemma~2.8, Lemma~2.10]{OSTV}。
+後者とPopescuの定理を使うため、非可換側のsmoothnessを先に仮定したり、
+未検証の有限$A_n$決定性を使ったりしない。
+
+\subsection{smoothなのは片側だけでよい}
+
+全てのテンソル積・Hom・包絡代数は導来のものとする。
+通常のdg模型を使う場合は、基底環上K-flatな置換を固定する。
+右加群の規約を用い、$P$が$(\mathsf C,\Gamma)$-双加群なら
+$F_P(M)=M\otimes_{\mathsf C}^{\mathbf L}P$とする。
+properとは基底環上perfectであること、smoothとは対角が導来包絡代数上perfectであることをいう。
+
+\begin{lemma}[片側perfectから双加群perfectへ]\label{os:lem:compact}
+$R$を可換環、$\mathsf C$を$R$上smoothなdg代数、$\Gamma$を任意の$R$-dg代数とする。
+$(\mathsf C,\Gamma)$-双加群$P$が右$\Gamma$-加群としてperfectなら、
+\[
+ P\in\operatorname{Perf}(\mathsf C^{\mathrm{op}}\otimes_R^{\mathbf L}\Gamma).
+ \tag{OS1}\label{os:eq:compact}
+\]
+また$R$上perfectな右$\mathsf C$-加群は$\mathsf C$上perfectである。
+\end{lemma}
+\begin{proof}
+$\mathsf C$の対角を、$\mathsf C\otimes_R\mathsf C$から有限coneと直和因子で作る。
+右側に$P$をテンソルすると、$P$は$\mathsf C\otimes_R P$から同じ有限操作で得られる。
+$P$の右$\Gamma$-perfect性により、$\mathsf C\otimes_R P$は双加群としてperfectである。
+後半も、対角の有限表示に$R$-perfectな加群をテンソルすれば従う。
+これは\cite[Lemma~2.8(2)]{OSTV}の一対象版である。
+\end{proof}
+
+\begin{theorem}[片側核の特殊ファイバー判定]\label{os:thm:local}
+$(R,\mathfrak m,k)$をNoether局所環、$\Gamma,\mathsf C$を$R$上properなdg代数とし、
+$\mathsf C$は$R$上smoothとする。
+$(\mathsf C,\Gamma)$-双加群$P$が右$\Gamma$-perfectであり、
+\[
+ F_{P_k}:\operatorname{Perf}(\mathsf C_k)
+       \xrightarrow{\sim}\operatorname{Perf}(\Gamma_k)
+ \tag{OS2}\label{os:eq:special-equivalence}
+\]
+が同値であると仮定する。添字$k$は導来特殊化を表す。
+このとき$F_P$は$R$上のdg Morita同値である。
+特に$\Gamma$のsmoothnessは仮定ではなく結論となる。
+逆核は
+\[
+ Q=\operatorname{RHom}_{\Gamma}(P,\Gamma)
+ \tag{OS3}\label{os:eq:inverse}
+\]
+で与えられ、自然な射
+\[
+ \mathsf C\longrightarrow P\otimes_\Gamma^{\mathbf L}Q,
+ \qquad Q\otimes_{\mathsf C}^{\mathbf L}P\longrightarrow\Gamma
+ \tag{OS4}\label{os:eq:unit-counit}
+\]
+はともに擬同型である。
+\end{theorem}
+\begin{proof}
+$P$は右$\Gamma$-perfectで、$\Gamma$は$R$-perfectだから、$P$も$R$-perfectである。
+有限cellと直和因子による帰納法により、任意の$N\in\operatorname{Perf}(\Gamma)$について
+$\operatorname{RHom}_{\Gamma}(P,N)$は$R$-perfectで、任意の導来底変更と両立する。
+$\mathsf C$のsmoothnessと補題\ref{os:lem:compact}から、これは右$\mathsf C$-perfectでもある。
+従って
+\[
+ F_P:\operatorname{Perf}(\mathsf C)\rightleftarrows
+ \operatorname{Perf}(\Gamma):G_P,
+ \qquad G_P(N)=\operatorname{RHom}_{\Gamma}(P,N)
+\]
+は両側のperfect部分に制限できる随伴である。
+$P$の双対可能性から$G_P(N)=N\otimes_\Gamma^{\mathbf L}Q$となる。
+
+単位の$\mathsf C$における値は
+$\mathsf C\to\operatorname{RHom}_\Gamma(P,P)$であり、両項は$R$-perfectである。
+その底変更は\eqref{os:eq:special-equivalence}の単位なので同型である。
+よってconeは特殊化で零となる$R$-perfect複体であり、導来Nakayamaにより零である。
+ここで必要なNakayamaは有界有限自由複体に対するもので、
+単元を持つ微分成分を順に消去しても証明できる\cite[Tag~068U]{OSStacksSplit}。
+単位は全$\operatorname{Perf}(\mathsf C)$上で同型となり、$F_P$は完全忠実である。
+
+$Q=G_P(\Gamma)$は$\mathsf C$-perfectなので、$F_P(Q)$は$\Gamma$-perfect、従って$R$-perfectである。
+余単位$F_P(Q)\to\Gamma$も底変更と両立し、その特殊化は同値の余単位である。
+同じNakayamaによりこの余単位は同型となる。
+像は$\Gamma$を含み、有限coneと直和因子に閉じているので本質的全射である。
+随伴から単位・余単位の三角恒等式も自動的に成立する。
+最後にsmoothnessのMorita不変性により$\Gamma$はsmoothとなる。
+\end{proof}
+
+\begin{corollary}[開近傍と有限な二つのcone]\label{os:cor:open}
+上のデータがNoether基底$S$上で定義され、点$s$で\eqref{os:eq:special-equivalence}が成立するとする。
+$\mathsf C/S$のsmooth proper性、$\Gamma/S$のproper性、$P$の右perfect性を仮定すれば、
+$s$の開近傍で$F_P$は同値である。
+\end{corollary}
+\begin{proof}
+\eqref{os:eq:unit-counit}の二つのconeは$S$-perfectである。
+特殊ファイバーで零のperfect複体はその点のある開近傍で零である。
+有限個の単元小行列による消去、あるいはcohomologyの閉supportから従う。
+二つの開近傍の共通部分に前定理の議論を適用する。
+\end{proof}
+
+\subsection{rotationと三次周期性も片側で処理する}
+
+$L_{\mathsf C},L_\Gamma$を、それぞれperfect部分上の自己同値を表す可逆双加群とする。
+$\mathsf C$がsmoothなので、右$\Gamma$-perfectな双加群の間の比較
+\[
+ \theta:L_{\mathsf C}\otimes_{\mathsf C}^{\mathbf L}P
+       \longrightarrow P\otimes_\Gamma^{\mathbf L}L_\Gamma
+ \tag{OS5}\label{os:eq:rotation}
+\]
+は、\eqref{os:eq:compact}のperfect双加群の間の射である。
+$\theta_k$が同型なら、そのconeの$R$-perfect性から$\theta$も同型となる。
+従ってrotation比較の\emph{逆射}を別に未知量として用意する必要はない。
+
+\begin{proposition}[周期比較のscalar補正]\label{os:prop:period}
+定理\ref{os:thm:local}の状況で$R$は$\mathbb Q$-代数とし、
+\[
+ HH^0(\mathsf C/R)=R,
+ \quad L_{\mathsf C}^{\otimes3}\simeq\mathsf C[2],
+ \quad L_\Gamma^{\otimes3}\simeq\Gamma[2]
+\]
+を指定する。\eqref{os:eq:rotation}が同型で、その特殊化が指定周期性と両立するとする。
+このとき、剰余体を変えない\'etale近傍で$\theta$をscalar倍することにより、
+三次周期性とも両立させられる。
+\end{proposition}
+\begin{proof}
+$\theta$を三回合成して二つの周期同型と比較すると$P[2]$の双加群自己同型を得る。
+$F_P$は同値だから、その次数零自己準同型環は$HH^0(\mathsf C/R)=R$である。
+従って差はある$u\in R^\times$の乗法であり、$u\bmod\mathfrak m=1$。
+$\theta$を$c\theta$へ置換すると差は$c^3u$となる。
+$c^3u=1$、$c\equiv1$を満たす分枝は、初期点で微分$3$が可逆なので\'etale局所に存在する。
+補正後は指定された三次周期同型の図式が可換となる。
+これはこの周期図式の可換性の主張であり、別途指定した任意の高次群作用の
+全coherenceを自動的に構成するという主張ではない。
+\end{proof}
+
+\subsection{完備底のcompact核から\'etale代数化へ}
+
+\begin{theorem}[片側compactな形式核の代数化]\label{os:thm:algebraization}
+$R$をNoether局所G-ring、$\widehat R$をその完備化とする。
+$\Gamma,\mathsf C$は$R$上proper、$\mathsf C$はsmoothとし、必要ならrotation双加群を指定する。
+\emph{通常の導来圏}に双加群
+\[
+ \widehat P\in D(\mathsf C_{\widehat R}^{\mathrm{op}}
+                    \otimes_{\widehat R}^{\mathbf L}\Gamma_{\widehat R})
+ \tag{OS6}\label{os:eq:formal-datum}
+\]
+があり、右$\Gamma_{\widehat R}$-加群としてperfectで、剰余で同値を与えると仮定する。
+rotationを扱う場合は\eqref{os:eq:rotation}の形式版の射$\widehat\theta$を与え、
+その剰余が同型であると仮定する。
+
+このとき任意の整数$\ell\ge1$について、剰余体を変えない\'etale近傍$R\to R'$上に
+$P',\theta'$を構成できる。指定した点の近傍で$P'$はMorita同値を与え、
+$\theta'$はrotationを保つ同型である。
+$R'/\mathfrak m^\ell R'\simeq R/\mathfrak m^\ell$の下で、これらのデータは
+$\widehat P,\widehat\theta$の$\mathfrak m^\ell$剰余と同型である。
+一般に完備化全体で\emph{同じ形式分枝}を再現するとは主張しない。
+\end{theorem}
+\begin{proof}
+$R\to\widehat R$はregularなので、Popescuの定理により
+\[
+ \widehat R=\mathop{\mathrm{colim}}_i R_i
+ \tag{OS7}\label{os:eq:popescu}
+\]
+と書ける。ここで$R_i$はsmoothな有限表示$R$-代数である\cite[Tag~07GC]{OSPopescu}。
+補題\ref{os:lem:compact}により$\widehat P$は\eqref{os:eq:formal-datum}の包絡代数上perfectである。
+K-flatなdg模型を用いると、包絡代数の$R_i$への底変更のfiltered colimitは完備底の包絡代数となる。
+perfect dg加群とその間の射はfiltered colimitに降下する
+\cite[Lemma~2.10]{OSTV}ので、ある$i$に$P_i$が存在する。
+これは有限cell表示とhomotopy idempotentを有限段階に降ろすことに相当し、
+無限個の$A_\infty$係数を有限個だと見なす操作ではない。
+
+$\mathsf C_{R_i}$は$R_i$-properだから、包絡代数上perfectな$P_i$を
+右$\Gamma_{R_i}$へ制限してもperfectである。
+rotationを施した二つの核も右perfectであり、$\mathsf C_{R_i}$のsmoothnessから双加群perfectである。
+従って$i$を大きくすれば$\widehat\theta$も射$\theta_i$として降下する。
+
+$R_i\to\widehat R\to R/\mathfrak m^\ell$を取る。
+smooth代数の剰余切断の\'etale持上げ\cite[Tag~07M7]{OSEtale}により、
+$R'/\mathfrak m^\ell R'\simeq R/\mathfrak m^\ell$と
+$R_i\to R'$を得る。この写像で$P_i,\theta_i$を底変更する。
+指定剰余点で$P'$は元と同じ同値を与え、右$\Gamma_{R'}$-perfectである。
+定理\ref{os:thm:local}と系\ref{os:cor:open}により、その点の開近傍では同値となる。
+$\theta'$の可逆性も、そのperfectなconeと剰余での可逆性から従う。
+必要なら命題\ref{os:prop:period}のscalar補正を行う。
+形式周期性が初めから整合し、$\ell$次まで保存した場合は、
+同じ\'etale根を$1$ modulo $\mathfrak m^\ell$に選ぶことでそのjetも保持できる。
+\end{proof}
+
+\begin{corollary}[一般点への適用]\label{os:cor:generic}
+$R$が既約な有限型$\mathbb C$-基底の一点の局所環で、前定理の入力が与えられれば、
+その基底の幾何学的一般点でrotation付き同値を得る。
+\end{corollary}
+\begin{proof}
+得られた\'etale近傍の指定点を含む成分は、基底の非空開へ支配的である。
+その一般点の体は基底の関数体の有限分離拡大であり、同値をそこで底変更できる。
+両側の随伴逆性は核の擬同型であるため、さらに代数閉包へ移しても保たれる。
+\end{proof}
+
+\subsection{本研究への適用範囲と残る一つの構成}
+
+$\mathsf C_R$は明示した滑らかな可換候補$Y_G/R$のperfect Kuznetsov成分の生成代数、
+$\Gamma_R$は非可換の指定残余生成代数とする。
+既存の全Artin同値を逆向きに取り、可換側生成子$H$の像を$P_m$とする。
+次に確認すべきことは、これらが\emph{同じ完備底上の核}
+$\widehat P$とrotation射として実現され、
+\[
+ \boxed{\quad\widehat P\in\operatorname{Perf}(\Gamma_{\widehat R})\quad}
+ \tag{OS8}\label{os:eq:remaining}
+\]
+となることである。左$\mathsf C_{\widehat R}$作用とrotation射の導来的coherenceも入力に含める。
+この条件を確認すれば、逆双加群・両合成の逆性・代数化・一般点での生成性は
+上の定理から従い、それらを独立した未知問題にする必要はない。
+
+\eqref{os:eq:remaining}は\emph{本混合族についてまだ証明していない}。
+固定rankの自由MFとして表示できること、$R$上perfectなHomを持つこと、
+各$P_m$がそれぞれperfectであることは、この条件とは異なる。
+たとえば体上で$\Gamma=k[e]/(e^2)$、$P=k$なら、$P$は$k$-perfectだが
+$\Gamma$-perfectではない。$e$による無限自由分解を$k$へtensorすると
+全次数のTorが$k$となるからである。
+本研究の一般的生成子持上げの反例や全Artinでsmoothな反例とも矛盾しない。
+
+具体的な次の着手は、可換側の\emph{一つの}生成子の形式逆像を追跡し、
+$\widehat\Gamma$の有限個のshiftのconeの直和因子として書くことである。
+各Artin段階ごとの表示ではなく、同じ有限filtrationを持つ表示が必要である。
+その表示がないままPopescuやArtin近似を適用しない。
+同値の順方向の像だけでは、上の非対称な判定の仮定を満たしたことにならない。
+
+\subsection{検証と新規性の境界}
+
+本節はsmooth対角、随伴、perfect Nakayama、perfect加群の有限表示性、
+Popescuの定理を組み合わせた研究用の判定である。
+これらの一般原理自体の新規性は主張しない。
+独立に検算するコードは、ねじった行列積による通常のMorita模型で
+随伴評価と双加群恒等式を確認し、scalar周期補正とcompact性の注意例を扱う。
+非可換cubicの$\widehat P$を構成・検証したコードではない。

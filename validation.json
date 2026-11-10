@@ -1,100 +1,90 @@
 {
-  "version": "nc-cubic-v33",
+  "version": "nc-cubic-v34",
   "date": "2026-11-11",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only after actual publication failure.",
   "current_entry": "00_research_plan.md",
-  "scope": "Geometric projected kernels bypass general MF kernel comparison: actual low rotation Nat is perfect and satisfies all Artin H0 base changes for smooth cubics in N>=5 variables. Noncommutative application explicitly depends on existing F and D. Generic equivalence remains open.",
+  "scope": "One-sided perfect inverse kernel: local Morita criterion, rotation, and etale algebraization from an actual ordinary compact completed bimodule. The concrete nc cubic compact kernel remains unconstructed.",
   "proofs_written_and_checked": [
     {
-      "source": "papers/reconstruction/geometric_rotation_basechange.tex",
+      "source": "papers/reconstruction/one_sided_morita_algebraization.tex",
       "labels": [
-        "gr:lem:lifts"
+        "os:lem:compact",
+        "os:thm:local",
+        "os:cor:open"
       ],
-      "status": "Proved by the finite maximal-ideal filtration of the cone of closed basis lifts; H1 vanishing is not assumed."
+      "status": "Full proof by one-sided smoothness, adjunction and perfect Nakayama. NC target is proper; smoothness is a conclusion, not an input."
     },
     {
-      "source": "papers/reconstruction/geometric_rotation_basechange.tex",
+      "source": "papers/reconstruction/one_sided_morita_algebraization.tex",
       "labels": [
-        "gr:thm:perfect-target",
-        "gr:lem:field",
-        "gr:thm:bc"
+        "os:prop:period"
       ],
-      "status": "Proof reviewed using Toen relative derived Morita, perfect geometric kernels and proper perfect base change. Commutative theorem has no KF or finite-group-symmetry hypothesis."
+      "status": "Rotation isomorphism detected by a perfect cone; cubic periodicity scalar correction additionally assumes HH0(C/R)=R. Arbitrary higher action coherence not asserted."
     },
     {
-      "source": "papers/reconstruction/geometric_rotation_basechange.tex",
+      "source": "papers/reconstruction/one_sided_morita_algebraization.tex",
       "labels": [
-        "gr:lem:derived-generation"
+        "os:thm:algebraization",
+        "os:cor:generic"
       ],
-      "status": "Derived generator lifting requires K-flat Hom and the correct derived fiber, unlike the false termwise-free version. The existing positive-graded MF Hom HPL argument was inspected."
-    },
-    {
-      "source": "papers/reconstruction/geometric_rotation_basechange.tex",
-      "labels": [
-        "gr:cor:nc",
-        "gr:cor:formal-polynomial"
-      ],
-      "status": "BC and the lambda=1 polynomial/formal-model comparison follow under the explicitly retained existing formal residual equivalence F and multiplicative characteristic input D. These inputs were not all independently reaudited."
+      "status": "Compact bimodule/morphism filtered-colimit descent plus Popescu and smooth section lifting. Requires a single ordinary completed bimodule, not merely separate Artin equivalences; preserves finite jets, not necessarily the entire formal branch."
     }
   ],
   "executed_exact_checks": {
-    "geometric_rotation": "56 field-sector arithmetic cases; 15 Artin truncations of three bounded-free toy complexes with actual closed basis lifts, including nonzero H1; missing-closed-lift counterexample.",
-    "certificate": "verify_geometric_rotation_assets.py regenerated the certificate and matched tracked JSON.",
-    "source_audit": "New standalone complete input closure, labels, citations and parent C/shared bibliography integration passed. Existing parent input list retained; full A/B/C closure not executed."
+    "one_sided_morita": "Regenerated exact certificate: 206 polynomial identities in the twisted 2x2 ordinary matrix model; balanced relation rank3 generic/special; scalar period correction mod h^8; dual-number noncompactness example.",
+    "certificate": "scripts/verify_one_sided_morita_assets.py executed and regenerated JSON matched the tracked certificate.",
+    "source_audit": "New standalone input closure, labels/citations, parent C input and shared bibliography inclusion checked. Whole A/B/C closure not executed."
   },
-  "retained_results_and_checks": [
-    "Existing A/B proofs, formal MF and Artin residual comparisons, finite algebraic recovery, finite-diagonal matrices and cup/characteristic comparison remain unchanged.",
-    "v27 full-witness SHA256 88d62952bfa999f57e454d68ec341b3fe8bea8df69a649710280d5b119404b78 retained; full matrix computation not rerun.",
-    "Existing nilpotent-sector, diagonal-unit, obstruction and central-symmetry results retained with their own hypotheses; general KF is no longer required for the selected path.",
-    "False unqualified Artin generator lifting remains corrected; termwise flatness is not K-flatness."
+  "retained_without_reaudit": [
+    "All valid prior A/B/C proof sections and existing computation assets retained.",
+    "v33 geometric low Nat base change and its NC application dependent on prior F/D retained; not independently fully reaudited.",
+    "v27 full diagonal witness and certificate retained; full matrix construction and old verification suite not rerun."
   ],
   "not_established": [
-    "Uniform finite Morita inverse bimodules and rotation intertwiner on the algebraic noncommutative generic fiber.",
-    "Generic rotation-preserving categorical equivalence, general residual relative diagonal perfectness and generic generation.",
-    "General-lambda explicit absolute polynomial and all-coefficient/all-component noncommutative finite products.",
-    "General relative MF kernel-functor full faithfulness KF (bypassed, not proved).",
-    "Independent reaudit of every prior F/D proof, formal verification, external refereeing and comprehensive novelty determination."
+    "Effectivity in the ordinary derived bimodule category of the concrete formal inverse kernel with coherent left action and rotation.",
+    "Right Gamma_hat-perfectness (a uniform finite cell/retract description) of that concrete kernel.",
+    "Generic rotation-preserving equivalence for the mixed nc cubic; target relative smoothness in that family.",
+    "General-lambda/all-component explicit inverse kernels and products.",
+    "Independent full reaudit of prior F/D, external refereeing, formal proof, comprehensive novelty determination."
   ],
   "primary_sources_checked": [
-    "Toen, The homotopy theory of dg-categories and derived Morita theory, Section2 arbitrary commutative base; Theorems8.9,8.15. PDF pages inspected.",
-    "Stacks Project Tag0B91, Lemma36.30.4, proper flat perfect pushforward and arbitrary base change.",
-    "BFK Theorem5.39; arXiv1105.3177 PDF p65 inspected. Lin-Zhang arXiv2310.09927v2 Theorem3.5/Remark3.6/Section5.",
-    "Kuznetsov arXiv0904.4330 projected-kernel interpretation; Lin-Zhang arXiv2611.05915v1 Section2.1 relative background.",
-    "Toen DOI10.1112/plms/pdn027 finite A_n result assumes smooth properness and was not applied to the nc generic fiber."
+    "Toen--Vaquie, Moduli of objects in dg-categories, published pp404--407, Lemmas2.8 and2.10; PDF pages inspected.",
+    "Stacks 07GC Popescu; 07M7 smooth sections lifted to an etale neighborhood preserving the quotient; 068U perfect local splitting; 07QZ etale approximation background."
   ],
   "typesetting": {
-    "standalone_geometric_rotation": {
-      "source": "papers/geometric_rotation_basechange.tex",
-      "pages": 6,
+    "standalone_one_sided": {
+      "source": "papers/one_sided_morita_algebraization.tex",
+      "pages": 5,
       "build_completed": true,
-      "visual_review": "All six pages inspected in a contact sheet; no clipping or unintended blank pages.",
+      "visual_review": "All five pages inspected; no clipping, overlap or unintended blank pages.",
       "tex_inputs": {
-        "papers/geometric_rotation_basechange.tex": "0e17d2e6459a85c576ffe85d09ab9d661142b7ef1681c45b8355acffe99af2ff",
-        "papers/reconstruction/geometric_rotation_basechange.tex": "c8432a70f7b85063ae1b40ca010a5ec98a0ca8146af9587c66b04266dac2bbab",
-        "papers/reconstruction/geometric_rotation_references.tex": "83b21d6a31c32f7021e55ab8113d1b735a73c099c61aaabcfda1ecd2e884ace9"
+        "papers/one_sided_morita_algebraization.tex": "eb58c733819b28776f8b6404000bf767792c51fcc620188e81dc17351cc2628b",
+        "papers/reconstruction/one_sided_morita_algebraization.tex": "38b5ec8909f70a62977c900e317b31ef0e353bfe9569ccc8be030b8887c46947",
+        "papers/reconstruction/one_sided_morita_references.tex": "44663abc1d62248788aa32411421300f0e2696b50228e03678998e5dfd546bc9"
       },
-      "pdf_sha256": "2a0c8a16ec73810e8168f1d0f3b92b7fa1b5d6b533fdb4537a9806939d06006c",
+      "pdf_sha256": "005ff552aab7ef4ab4f077f2e2156039e7d463ef703e8b0b0b09e04370ca7850",
       "undefined_references": false,
       "undefined_citations": false,
       "missing_glyphs": false,
-      "overfull_boxes": false
+      "overfull_boxes": false,
+      "pdf_git_tracked": false
     },
     "A": {
       "build_completed": false,
-      "reason": "Full current manuscript not recompiled; shared bibliography changed."
+      "reason": "Complete current manuscript not rebuilt; C and shared bibliography changed."
     },
     "B": {
       "build_completed": false,
-      "reason": "Full current manuscript not recompiled; shared bibliography changed."
+      "reason": "Complete current manuscript not rebuilt; C and shared bibliography changed."
     },
     "C": {
       "build_completed": false,
-      "reason": "All previous inputs retained and geometric theorem integrated; full C not recompiled."
+      "reason": "Complete current manuscript not rebuilt; C and shared bibliography changed."
     }
   },
   "environment": {
     "python": "3.13.5",
     "sympy": "1.14.0"
   },
-  "persistence": "Local verification and remote publication are separate. GitHub branch ref and changed blob hashes must be verified after publication."
+  "persistence": "Local verification is separate from remote publication; branch ref and changed blob hashes are checked after the write."
 }

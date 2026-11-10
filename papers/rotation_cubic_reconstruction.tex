@@ -3,8 +3,8 @@
 \title{非可換三次超曲面のrotation付き可換復元\\
 \large 有限代数的抽出・射影核による底変更・形式的比較}
 \author{}
-\date{2026年11月11日・論文C（研究草稿 v33）}
-\fancyhead[R]{\small 2026-11-11 / v33}
+\date{2026年11月11日・論文C（研究草稿 v34）}
+\fancyhead[R]{\small 2026-11-11 / v34}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -19,8 +19,11 @@
 既存入力への依存と、この節で直接証明する幾何学的定理を区別する。
 二次星積、同変正規形、四代数方程式による候補の正規化、
 相対対角の有限ホモトピー、障害論および一般的生成子持上げの反例も保持する。
-非零の一般パラメータへのrotation付き圏同値には、
-指定生成子間の有限Moritaデータとその代数化がなお必要である。
+一般点への移行については、smooth properな可換側からproperな非可換側への
+片側perfect核が特殊点で同値なら、底上の同値と逆核が従う判定を示す。
+そのような核が通常の導来圏で完備底上にcompactとして実現すれば、
+Popescu降下により指定有限jetを保つ\'etale代数化が得られる。
+本混合族でこのcompactな形式逆核を構成することはなお未完成であり、
 一般混合型のgeneric復元を完成したとは主張しない。
 \end{abstract}
 \tableofcontents
@@ -94,9 +97,13 @@ $F_{\lambda_*(h^6)}+h^2c_*(h^6)xyz$へ整理する。
 項別自由性だけによる一般的な生成子持上げの反例も保持する。
 
 最終的なgeneric同値には、形式的写像や全Artin同値だけでは足りない。
-指定された代数的生成子間の双加群と逆、単位・余単位、rotation intertwinerを、
-Artin次数に依存しない有限cell/retractデータで構成することが残る。
-SM・ERはこのための別経路であり、非可換側のsmoothnessを先取りしない。
+第\ref{os:sec:algebraization}節では必要なデータを片側核へ減らす。
+可換側のsmooth proper代数$\mathsf C$からncのproper代数$\Gamma$への核$P$が
+右$\Gamma$-perfectで特殊点同値を与えれば、逆核は$\operatorname{RHom}_\Gamma(P,\Gamma)$、
+逆性はperfect Nakayamaから従う。完備底上のそのような通常の導来compact核と
+rotation射が得られれば、Popescuとperfect加群の有限表示性により\'etale代数化できる。
+本混合族で残るのは、この形式逆核の実現と右$\widehat\Gamma$-perfect性である。
+SM・ERは別経路として保持し、nc側のsmoothnessや完備核の存在を先取りしない。
 
 \subsection{先行研究と本稿で直接証明する比較}
 Kontsevichのformalityと中心へのtangent mapは既知である\cite{PKontsevich}。
@@ -109,6 +116,8 @@ Lowenのbrace挿入\cite{MBLowen}を使い、異なる第二種Hochschild理論\
 幾何学的標的にはTo\"enの相対Morita定理\cite{GRToen}、
 Kuznetsovの射影核\cite{GRKuznetsov}とperfect直接像の底変更\cite{GRStacks}を使う。
 体上の低次数はBFK\cite{GRBFK}とLin--Zhang\cite{GRLZ}による。
+片側核の有限性と降下はTo\"en--Vaqui\'e\cite[Lemmas~2.8, 2.10]{OSTV}、
+Popescu\cite{OSPopescu}とsmooth切断の\'etale持上げ\cite{OSEtale}を用いる。
 既知原理そのものを本研究の成果とせず、この組合せの包括的新規性確認・外部査読は未完了である。
 
 \input{papers/reconstruction/explicit_jacobian_recovery}
@@ -133,6 +142,7 @@ Kuznetsovの射影核\cite{GRKuznetsov}とperfect直接像の底変更\cite{GRSt
 \input{papers/reconstruction/mixed_equivariant_normal_form}
 \input{papers/reconstruction/artin_residual_mf_comparison}
 \input{papers/reconstruction/geometric_rotation_basechange}
+\input{papers/reconstruction/one_sided_morita_algebraization}
 \input{papers/reconstruction/artin_smoothness_obstruction}
 \input{papers/reconstruction/etale_realization}
 \input{papers/reconstruction/hochschild_obstructions}
