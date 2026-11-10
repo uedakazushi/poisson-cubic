@@ -3,18 +3,21 @@
   "latex-workshop.latex.recipes": [
     {
       "name": "latexmk (repository root)",
-      "tools": ["latexmk-root"]
+      "tools": [
+        "latexmk-root"
+      ]
     }
   ],
   "latex-workshop.latex.tools": [
     {
       "name": "latexmk-root",
-      "command": "latexmk",
+      "command": "bash",
       "args": [
-        "-r",
-        "%WORKSPACE_FOLDER%/.latexmkrc",
-        "-cd-",
-        "%DOC_EXT%"
+        "-c",
+        "cd \"$1\" && shift && exec latexmk -r .latexmkrc \"$@\"",
+        "latexmk-root",
+        "%WORKSPACE_FOLDER%",
+        "%DOC%"
       ]
     }
   ],
