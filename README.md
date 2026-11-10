@@ -1,6 +1,6 @@
 # nc-cubic：Poisson構造・代数的量子化・可換復元
 
-**2026-11-10・v22。正本はGitHub main。** 最初に [研究方針](00_research_plan.md)、次に [研究ノート](notes/research_notes.md) を読む。
+**2026-11-10・v23。正本はGitHub main。** 最初に [研究方針](00_research_plan.md)、次に [研究ノート](notes/research_notes.md) を読む。
 
 ## 三つの目標
 
@@ -58,6 +58,20 @@ F_\lambda=(x^3+y^3+z^3)/3+u^3+v^3+\lambda uxy,\qquad\lambda^3\ne-3.
 
 Kontsevich、Dito、Shoikhet、Căldăraru–Tu、Tu、Chen等の既知結果と、本文で直接証明する比較を区別する。この一般性での新規性の包括的確認は未実施。
 
+### 全次数の同変正規形（混合族）
+
+有限対角群Hの線形同変性と古典Jacobian商の指標分解から、
+同変形式模型を形式的な線形座標変換で
+\[
+W_h\sim F_{\lambda_*(h^3)}+h^2c_*(h^3)xyz,\qquad
+\lambda_*(q)=\lambda+O(q),\quad c_*(0)=\frac13+\frac{\lambda^3}{36}
+\]
+に整理できる。**全次数で未知となる形式級数は二つ**に限るが、
+h³以降の係数の値、代数性、generic可換復元は未解決。
+詳細証明は [mixed_equivariant_normal_form.tex](papers/reconstruction/mixed_equivariant_normal_form.tex)。
+指標ごとの三次単項式とJacobian行列は
+`python3 computations/verify_mixed_characters.py` で再現できる。
+
 ## generic復元に残る問題
 
 全Artin切断での成功から、相対残余対角のperfect性(SM)は自動的には従わない。P¹上の既知の生成子退化例から、特殊fiberと全Artin切断がsmoothなのにgenericが非smoothなrank4のproper dg模型を明示した。これは本研究のnc cubicに指定されたΓの反例ではない。またその反例のcohomologyは底上flatではなく、現行線束模型の追加構造を否定しない。
@@ -83,7 +97,7 @@ Python 3.10以上、SymPy、LuaLaTeX、LuaTeX-ja/ltjsarticleと標準数学パ�
 詳細は [reconstruction/README.md](reconstruction/README.md) と [validation.json](validation.json)。
 PDFとbuild receiptはGit対象外のbuild/へ生成する。主論文receiptは全TeX inputを含む。
 
-**v22の検証状態：** 公開コードの二次星積・tensor・積行列の厳密検算はPASS。論文Cは133頁・32 TeX inputsで組版し、参照・引用・glyph・overfullおよび表示を確認した。既存の具体計算証明書と独立SM/ERの検算も再実行した。A/Bを含めた詳細はvalidation.jsonを参照。これらは圏論的証明の形式検証や外部査読ではない。
+**v23の検証状態：** 既存の二次星積・tensor・積行列の厳密検算はv22ソースでPASS。新しい指標商も別途記号計算で検算した。現行v23の論文Cは新節追加後にまだ全体組版・receipt検査していない（従前は133頁・32 inputsを組版済み）。既存の具体計算証明書と独立SM/ERの検算も再実行した。A/Bを含めた詳細はvalidation.jsonを参照。これらは圏論的証明の形式検証や外部査読ではない。
 
 ## 資料の配置と保存
 
