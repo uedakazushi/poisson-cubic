@@ -3,8 +3,8 @@
 \title{非可換三次超曲面のrotation付き可換復元\\
 \large 明示的な二次模型・形式的復元・代数化の障害}
 \author{}
-\date{2026年11月10日・論文C（研究草稿 v26）}
-\fancyhead[R]{\small 2026-11-10 / v26}
+\date{2026年11月11日・論文C（研究草稿 v27）}
+\fancyhead[R]{\small 2026-11-11 / v27}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -22,6 +22,9 @@ $xyz/3-\lambda^2u^2z/12$と、低次数rotation積の全行列を求める。
 中心元の単純な可換化と、この復元式は異なる。
 低rotation次数の積からの有限積分法と代数化、混合可換候補の積と判別式、cubic threefoldの純Poisson方向の一次消滅、
 既存の楕円ブロック比較、局所smoothness判定とétale実現も保持する。
+また実際の混合非可換入力の有限曲率付き対角を$h=0$で正則化し、
+その低次数自己準同型積の全Artin底変更と同じ代数的三次式への積分を示す。
+この有限対角積と残余圏の導来自然変換の積との比較は未完成である。
 形式的復元の存在と、非零の複素パラメータへの代数化は区別する。
 一般混合型のgeneric復元はなお未完成であり、全AS-regular中心三次商の全点へ
 rotation付き復元を拡張することにはZhang twistによる反例がある。
@@ -58,7 +61,9 @@ Torelli型定理が示す可換模型の一意性と、
 非自明な変化を含む必要があり得る（論文Bの対応する命題を参照）。
 これは形式復元・多価対応・実際の相対復元の不存在を意味しない。
 \subsection{方程式の抽出と同値の存在}
-第\ref{cd:sec:finite-diagonal}節では、実際の混合非可換入力から曲率付き絶対対角の低次数積を有理関数体上で計算し、可換三次式の候補を得る。この積と射影残余圏のrotation積との比較およびgeneric同値は未証明である。
+第\ref{cd:sec:finite-diagonal}節では、実際の混合非可換入力から曲率付き絶対対角の低次数積を有理関数体上で計算し、可換三次式の候補を得る。
+第\ref{rd:sec:regular}節では単元小行列を用いて全中間行列を局所正則化し、有限対角積の全Artin底変更を証明する。
+この積と射影残余圏のrotation積との比較およびgeneric同値は未証明である。
 可換模型の具体式は、実際の非可換低rotation積から有限代数的に直接抽出することを優先する。第\ref{far:sec:recovery}節では勾配空間の局所代数化、DVR上の核の飽和、混合可換候補の積表と判別式を証明する。これは実際の非可換積やgeneric圏同値を計算したことを意味しない。
 第\ref{sec:explicit-jacobian-recovery}節では、rotationの次数一・二の
 導来自然変換の積から二次関係を取り出し、可積分性の線形方程式を解いて
@@ -82,12 +87,14 @@ Kuznetsov成分の一次変形として消えることを、Todd補正を含め�
 Kontsevichのformalityと中心へのtangent mapは既知である\cite{PKontsevich}。
 C\u{a}ld\u{a}raru--Tuのgraded twisted complexとMFの比較\cite[Theorem~2.12]{CT}、
 およびTuのKoszul dualityの枠組み\cite{CGTu}を参照するが、
-本稿が必要とする非可換Artin底上の有限rank比較は、有限arityのbar同型から直接構成する。
+本稿が必要とする非可換Artin基底上の有限rank比較は、有限arityのbar同型から直接構成する。
 二次星積の係数はDito\cite{KJDito}、曲率の二輪の消滅はShoikhet\cite{KJShoikhet}に依存する。
 この二種類のgraphを区別した上で、指定された量子中心対の可換三次式を計算する。
 Artin底でのstabilizationには、Chenの有限ambient projective dimensionを持つ
 Gorenstein-projective加群に関する結果\cite{AMChen}を用い、
 exact圏とdg商からenhanced比較を構成する。
+曲率付き対角とHochschild理論の比較では\cite{CDGHLR,RDPP}の異なる導来圏・totalizationを区別する。
+有界arityの共役による有限支持dg Lie比較は直接示すが、その補題だけでcup積保存を結論しない。
 これらの既知結果そのものを本研究の成果とは扱わない。
 一般形式三次対の復元、混合族の積表、相対windowとの組合せと同じ一般性の
 先行結果が存在しないことまでを確認したわけではない。
@@ -95,6 +102,7 @@ exact圏とdg商からenhanced比較を構成する。
 \input{papers/reconstruction/explicit_jacobian_recovery}
 \input{papers/reconstruction/finite_algebraic_recovery}
 \input{papers/reconstruction/curved_diagonal_recovery}
+\input{papers/reconstruction/regular_diagonal_recovery}
 \input{papers/reconstruction/poisson_first_order}
 \input{papers/sections/rotation_models}
 \input{papers/sections/rotation_obstruction}

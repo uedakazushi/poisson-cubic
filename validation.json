@@ -1,180 +1,95 @@
 {
-  "version": "nc-cubic-v26",
+  "version": "nc-cubic-v27",
   "date": "2026-11-11",
-  "authoritative": "GitHub uedakazushi/nc-cubic main; Library only after an actual GitHub publication failure.",
-  "scope": "Complete finite algebraic recovery proof and algorithms integrated; actual nc low rotation product, its completed-base comparison and generic equivalence remain open.",
+  "authoritative": "GitHub uedakazushi/nc-cubic main; Library only for an actual failed publication.",
+  "scope": "Local regular finite curved-diagonal multiplication and all Artin base changes. Categorical Nat and generic equivalence remain open.",
   "current_entry": "00_research_plan.md",
-  "proofs_written_and_reviewed": [
+  "proofs_written_and_checked": [
     {
-      "source": "papers/reconstruction/explicit_jacobian_recovery.tex",
-      "content": "Low rotation-degree Jacobian recovery using known sector results; linear integrability criterion; projective uniqueness; nonintegrable quadratic complete-intersection example."
+      "source": "papers/reconstruction/regular_diagonal_recovery.tex",
+      "labels": [
+        "rd:lem:unit-solve",
+        "rd:prop:regular-existence"
+      ],
+      "status": "Local linear algebra proof checked; the resolution proposition assumes the stated split exactness."
     },
     {
-      "source": "papers/reconstruction/poisson_first_order.tex",
-      "content": "For cubic threefolds, pure ordinary-HKR bivectors restrict to zero in HH2(Ku); Todd correction treated explicitly. Consequence for a reconstructed family requires the stated KS and restriction compatibility."
+      "source": "papers/reconstruction/regular_diagonal_recovery.tex",
+      "labels": [
+        "rd:thm:local-product",
+        "rd:cor:basechange"
+      ],
+      "status": "Finite matrices regenerated exactly over Q(h), every coefficient checked regular at h=0; unit-minor splitting proves all Artin base change for the finite diagonal model."
     },
     {
-      "source": "papers/reconstruction/explicit_model_comparison.tex",
-      "content": "Known Mori-Smith Hessian identity in the present conventions; split-block candidate using the existing elliptic comparison; nonzero second-order discrepancy with commuting the central expression."
-    },
-    {
-      "source": "papers/reconstruction/mixed_test_family.tex",
-      "content": "Universal central cubic and all Artin PBW; smooth iff lambda^3 != -3; character calculations. The second coefficient and residual comparison are now determined in the separate new sections."
-    },
-    {
-      "source": "papers/reconstruction/curved_gauge_comparison.tex",
-      "content": "Finite bounded-arity curved bar isomorphisms and inverses extend to arbitrary finite-rank twisted matrices; strict units, internal shift, periodicity and all Artin flow bounds are checked."
-    },
-    {
-      "source": "papers/reconstruction/kontsevich_second_jet.tex",
-      "content": "Dito second-order star product, Weyl symmetrization, distinct Shoikhet tangent-wheel vanishing, specified center image F+h^2 H_active/24, MF equivalence and low rotation multiplication. c(lambda)=1/3+lambda^3/36."
-    },
-    {
-      "source": "papers/reconstruction/formal_cubic_mf_reconstruction.tex",
-      "content": "Full Hochschild formality including normalized units and weight components, actual inverse center map, constant trivector from the regular gradient Koszul complex, all Artin and degreewise-complete finite-rank MF pair equivalence. No single-block assumption."
-    },
-    {
-      "source": "papers/reconstruction/artin_residual_mf_comparison.tex",
-      "content": "Ambient-perfect relative singularity quotient; enhanced stabilization via exact dg quotients and finite totalization; Artin line-bundle and MF Hom base change; Ind-category generator lifting; finite window and rotation; Gamma_R Artin comparison; perfect commutative residual pair reconstruction."
-    },
-    {
-      "source": "papers/reconstruction/artin_smoothness_obstruction.tex",
-      "content": "Known P1 degeneration of a generator, explicit rank-four proper dg family, smooth special fiber and all Artin cuts but nonsmooth generic fiber; infinite derived-tensor proof. This does not disprove the specified cubic Gamma or a cohomology-flat variant."
-    },
-    {
-      "source": "notes/research_notes.md",
-      "content": "Elementary sufficient condition: a finite free ordinary algebra over C[[h]] with smooth special fiber is relatively smooth, by idempotent lifting and R-split kernels. This does not establish smoothness for the current positive-cohomology A-infinity model."
-    },
-    {
-      "source": "papers/reconstruction/mixed_equivariant_normal_form.tex",
-      "content": "Argument for G-equivariant formality including averaging semilinear PBW markings, swap involution tau:(x,y,h)->(y,x,-h), and all-order formal GL5 normal form F_{lambda_*(h^6)}+h^2 c_*(h^6) xyz. Finite character/Jacobian and free-algebra identities checked with exact SymPy; the formality argument itself has not been independently formally verified or externally refereed."
-    },
-    {
-      "source": "papers/reconstruction/finite_algebraic_recovery.tex",
-      "content": "Conditional local algebraization preserving finite jets and formal linear equivalence; DVR saturation algorithm; commutative mixed-template products, integrability rank minor and smoothness polynomial. Full mathematical proof written; not independently externally refereed."
+      "source": "papers/reconstruction/regular_diagonal_recovery.tex",
+      "labels": [
+        "rd:lem:bounded-conjugation"
+      ],
+      "status": "Finite-arity dg Lie conjugation proof checked; cup-product comparison NOT proved."
     }
   ],
+  "executed_exact_checks": {
+    "regular_diagonal": "Full regular homotopy construction, four closed lifts, all sixteen ordered products, generic/special ranks, unit minor -3, kernel and gradient, canonical full-witness hash passed.",
+    "denominator_audit": "455 distinct coefficients audited from the generated full witness; monic denominator lcm (h^3-1)(h^6+162).",
+    "finite_recovery": "Reexecuted verify_finite_recovery.py and matched the tracked certificate as JSON.",
+    "asset_audit": "scripts/verify_regular_assets.py --witness build/regular_diagonal_full.json passed; default asset audit is not a rerun of the nc matrix construction."
+  },
+  "full_witness_sha256": "88d62952bfa999f57e454d68ec341b3fe8bea8df69a649710280d5b119404b78",
   "retained_without_full_reaudit": [
-    "Full mathematical proofs of papers A and B; shared bibliography and build checks updated. Paper B also receives a missing CC macro alias, corrected external source link, two layout fixes, current date, and a scope sentence distinguishing Artin comparison from generic reconstruction.",
-    "Existing elliptic block, suspension, generation and earlier formal arguments; no claim to a full independent reaudit of all retained sections.",
-    "Existing SM/ER and minimal A-infinity proofs retained; specified exact certificates rerun."
-  ],
-  "primary_references_checked": [
-    "Mori-Smith, arXiv:1502.07403v2, Lemma 7.1 and Theorem 7.2, pp.23-25.",
-    "Lin-Zhang, arXiv:2310.09927v2, Theorem 3.5, Remark 3.6 and Section 5; distinguish Proposition 3.7 coprimality restriction.",
-    "Jacovskis-Lin-Liu-Zhang, arXiv:2203.08187v3, Theorems 3.11 and 4.4(2).",
-    "Calaque-Rossi-Van den Bergh, Annals 176 (2012), Theorem 1.4.",
-    "Ueda-Yoshinaga, Hokkaido Math. J. 38 (2009), Lemma 3; Hwang, JMSJ 78 (2026), Theorems 1.5-1.6.",
-    "Kontsevich, q-alg/9709040, Sections 4.4-4.6, 6.4, 8.2 and 8.3.3.1; LMP66 (2003),157-216.",
-    "Dito, math/9905080, Eq.(3), printed p.5; bivector rescaled by 1/2.",
-    "Shoikhet, math/0007080, Section1.3, zero inward tangent-wheel weight W2; distinct from the star-product eye.",
-    "Caldararu-Tu, NYJM19 (2013),305-342, Theorem2.12; Tu, Compositio150 (2014),1549-1578, arXiv1009.4151 Sections2.2,6.1.",
-    "Chen, arXiv2402.11613v3, Theorems2.10,7.2 and Corollary2.11; dg enhancement is constructed in this manuscript.",
-    "Sasha, MathOverflow question256391, answer of2016-12-05; Stacks Project Tags0BQT,09M1.",
-    "Arinkin-Caldararu, arXiv1007.1671v2, coefficient self-intersection obstruction; retained as a research-note warning.",
-    "Kontsevich q-alg/9709040, Section 6, GL-equivariant affine formality; Dolgushev math/0307212, equivariant formality under invariant connections (Adv. Math. 191 (2005), 147-177)."
+    "All mathematical proofs of papers A and B.",
+    "Existing formal MF, Artin residual, SM/ER, Poisson, elliptic and nonelliptic comparisons in paper C.",
+    "The generic rational diagonal implementation and its certificate, retained as the base implementation and relative computation."
   ],
   "not_established": [
-    "Generic algebraic reconstruction for general mixed quantizations, convergence or algebraization of W_h and of the equivalence.",
-    "Generation by the specified residual object after complete-base comparison or generic localization.",
-    "Residual relative diagonal perfectness SM for the specified general mixed/nonelliptic cubic model.",
-    "A general special-to-generic smoothness theorem under the additional cohomology-flat minimal A-infinity hypotheses.",
-    "Values of the first permitted all-order normal-form coefficients a1 at h^6 uxy and b1 at h^8 xyz; no all-order constancy at lambda^3=-12; no generic algebraization.",
-    "Uniform relative quantization retaining all Poisson coefficient directions, all-point reconstruction, or unique global descent.",
-    "All nonzero-h AS-regularity and global algebraic flatness of the mixed presentation solely from its Artin PBW proof.",
-    "External referee approval, Lean verification, or comprehensive novelty determination.",
-    "Actual nc-derived low-rotation product matrix and finite model, its completed-base Jacobian comparison, and generic nc/commutative category equivalence."
-  ],
-  "executed_exact_checks": [
-    "Published reconstructed computations/verify_kontsevich_second_jet.py independently executed: universal Q=-2adj(H), contraction=-6det(H), mixed Poisson/Casimir, 3 commutators, 35 cubic symmetrizations, 125 generator associators, specified center image, 5x15 gradient and 10x15 product, minor9, Euler and c(lambda) identity.",
-    "reconstruction/scripts/verify.py: independent SM/ER source closure, source/PDF receipt and three exact nonelliptic/tangent/sector certificates passed.",
-    "New exact check computations/verify_mixed_characters.py reproduced and executed using SymPy: H character monomial dimensions (6,2,1), Jacobian ranks (5,1,1), c0 polynomial identity, tau(r1)=-r1, tau(r2)=r3, tau(r3)=r2, tau(Omega)=Omega in the free algebra, and x Fx-y Fy=x^3-y^3 all PASS. The finite script does not verify equivariant formality, the h^6 formal coordinate induction or generic MF equivalence.",
-    "Previous bundle source/PDF receipts for papers A, B, C were not regenerated following this source and shared-bibliography change.",
-    "2026-11-10: computations/verify_finite_recovery.py executed; regenerated output exactly matched tracked computations/finite_recovery_certificate.json. Synthetic commutative input, not actual nc natural-transformation product."
+    "Identification of the finite diagonal composition with compactly supported Hochschild cup products.",
+    "Identification with categorical rotation products, including internal-shift and sector comparisons.",
+    "All-order comparison with the selected formal commutative W_h.",
+    "Generic rotation-preserving equivalence, generation or relative diagonal perfectness.",
+    "General-lambda absolute polynomial formula.",
+    "External referee verification, formal proof or comprehensive novelty determination."
   ],
   "typesetting": {
-    "C": {
-      "source": "papers/rotation_cubic_reconstruction.tex",
-      "build_completed": false,
-      "source_pdf_receipt_verified": false,
-      "current_source": "v26",
-      "reason": "Current v26 shared sources have not been rebuilt or receipt verified."
-    },
-    "A": {
-      "source": "papers/poisson_cubic_quantization.tex",
-      "build_completed": false,
-      "source_pdf_receipt_verified": false,
-      "current_source": "v26",
-      "reason": "Current v26 shared sources have not been rebuilt or receipt verified."
-    },
-    "B": {
-      "source": "papers/generic17_ambient_recovery.tex",
-      "build_completed": false,
-      "source_pdf_receipt_verified": false,
-      "current_source": "v26",
-      "reason": "Current v26 shared sources have not been rebuilt or receipt verified."
-    },
-    "standalone_SM_ER": {
-      "source": "papers/reconstruction/rotation_saturation_reduction.tex",
-      "pages": 15,
-      "tex_inputs": 4,
-      "source_pdf_receipt_verified": true,
+    "standalone_curved_diagonal": {
+      "source": "papers/curved_diagonal_recovery.tex",
+      "pages": 10,
       "build_completed": true,
+      "visual_review": "All 10 pages inspected; no clipping, overlaps or unintended blank pages.",
+      "tex_inputs": {
+        "papers/curved_diagonal_recovery.tex": "331adb1939303f0cce522b46e7eafefbcbf6c54cf5fb3a2c57089e9de597afed",
+        "papers/reconstruction/curved_diagonal_recovery.tex": "a3c677241ca67ccf0daae1b884eeb4106497848c266f2d9b26eb459a30ea43f3",
+        "papers/reconstruction/curved_diagonal_references.tex": "76a2e9fd5a8745d5aa0241d81ca5552f7331ede5e418a9c7a8beb29b700b5a36",
+        "papers/reconstruction/regular_diagonal_recovery.tex": "67a1ba81cc6c34f0862eb9a0f30829d27691b17ec059afc113deb2ae6a34bca9",
+        "papers/reconstruction/regular_diagonal_references.tex": "78078e8dc1fd9c26d2fd57490a2cd99820213c0a325e9c04e245734c3742b9e4"
+      },
+      "pdf_sha256": "77d3d7b7f60fec8bc5e9ed7240d9dc54896e4c3cdd13a3622b0a8bc82f960b2e",
       "failures": {
         "undefined_references": false,
         "undefined_citations": false,
         "missing_glyphs": false,
         "overfull_boxes": false
       },
-      "pdf_sha256": "e0e482cde806ea74fe2f2b672d997aee7691c44910eed4e7b24c00636dd16eb6"
+      "warnings": "Small math-font size substitutions; no missing glyphs."
     },
-    "visual_review": {
-      "standalone_SM_ER": "All 15 pages inspected in a contact sheet; no clipping, overlaps or unintended blank pages observed.",
-      "note": "Current manuscript A/B/C not visually reviewed after v23 changes; independent SM/ER section unaffected."
-    },
-    "reproduction": "Run python3 computations/verify_mixed_characters.py; then scripts/build.py and scripts/verify_bundle.py locally. Full re-typesetting and current receipt checks not yet performed.",
-    "engine": "LuaHBTeX1.18.0 (TeX Live2025/dev/Debian), LuaTeX-ja and standard math packages.",
-    "standalone_finite_recovery": {
-      "source": "papers/finite_algebraic_recovery.tex",
-      "pages": 7,
-      "build_completed": true,
+    "A": {
+      "build_completed": false,
       "source_pdf_receipt_verified": false,
-      "note": "LuaLaTeX standalone build performed in local verification; PDF deliberately untracked. No parent A/B/C build performed."
+      "reason": "Current complete paper not rebuilt in this work."
+    },
+    "B": {
+      "build_completed": false,
+      "source_pdf_receipt_verified": false,
+      "reason": "Current complete paper not rebuilt in this work."
+    },
+    "C": {
+      "build_completed": false,
+      "source_pdf_receipt_verified": false,
+      "reason": "New regular-diagonal section integrated; complete paper not rebuilt."
     }
   },
   "environment": {
-    "python": "3.12.14",
-    "sympy": "1.14.0",
-    "note": "Finite exact SymPy checks executed and certificate regenerated on 2026-11-10; parent A/B/C not built for v25."
+    "python": "3.13.5",
+    "sympy": "1.14.0"
   },
-  "persistence": "v26 sources and certificate committed to GitHub main; verify remote commit and blobs separately.",
-  "finite_algebraic_recovery": {
-    "proof": "papers/reconstruction/finite_algebraic_recovery.tex",
-    "standalone": "papers/finite_algebraic_recovery.tex",
-    "notes": "notes/finite_algebraic_recovery.md",
-    "code": "computations/finite_recovery.py",
-    "test": "computations/verify_finite_recovery.py",
-    "certificate": "computations/finite_recovery_certificate.json",
-    "exact_checks_passed": true,
-    "synthetic_input_not_nc": true,
-    "actual_nc_product_constructed": false,
-    "generic_equivalence_proved": false
-  },
-  "curved_diagonal_recovery": {
-    "proof": "papers/reconstruction/curved_diagonal_recovery.tex",
-    "standalone": "papers/curved_diagonal_recovery.tex",
-    "notes": "notes/curved_diagonal.md",
-    "code": [
-      "computations/curved_diagonal.py",
-      "computations/absolute_diagonal.py",
-      "computations/verify_curved_diagonal.py"
-    ],
-    "certificate": "computations/curved_diagonal_certificate.json",
-    "scope": "Actual mixed nc input at lambda=1; absolute curved diagonal products over Q(h)",
-    "actual_residual_rotation_product_comparison_proved": false,
-    "intermediate_regular_at_h_zero": false,
-    "generic_equivalence_proved": false,
-    "certificate_in_repository": true,
-    "full_recomputation_in_this_integration": false
-  }
+  "persistence": "Canonical sources are maintained on GitHub main. Remote publication is confirmed separately by the branch ref and blob hashes; calculation and typesetting statuses above are independent."
 }

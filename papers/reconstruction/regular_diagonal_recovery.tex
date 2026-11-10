@@ -1,0 +1,215 @@
+% 2026-11-11 / v27
+\section{混合対角の局所正則化と全Artin底変更}
+\label{rd:sec:regular}
+
+第\ref{cd:sec:finite-diagonal}節の有理関数体上の計算を、
+$R=\mathbb Q[h]_{(h)}$上の行列へ置き換える。
+本節では高次ホモトピー、閉自己準同型、コホモロジーの基底および積を
+すべて$h=0$で正則に選ぶ。最終的な三次式は
+式\eqref{cd:eq:absolute-polynomial}と同じである。
+これによって有限対角の低次数積を全Artin切断へ移せるが、
+射影残余圏の導来自然変換との比較を証明したことにはならない。
+
+\subsection{単元小行列を用いる局所線形方程式}
+\begin{lemma}[一定階数の単元小行列解法]\label{rd:lem:unit-solve}
+$R=k[h]_{(h)}$、$K=k(h)$とし、$M\in\operatorname{Mat}_{a\times b}(R)$の
+$K$上の階数と$M(0)$の階数がともに$r$であるとする。
+$M(0)$の独立な$r$列$J$を選び、その$r$列の独立な$r$行$I$を選ぶ。
+$B\in\operatorname{Mat}_{a\times s}(R)$について$MX=B$が$K$上可解なら、
+\[
+ X_J=M_{I,J}^{-1}B_I,\qquad X_{J^c}=0
+ \tag{RD1}\label{rd:eq:unit-solve}
+\]
+は$R$上の解である。この構成は$R$の任意の商への底変更と両立する。
+\end{lemma}
+\begin{proof}
+$\det M_{I,J}$は$R$の単元であるから表示した$X$の係数は$R$に属する。
+$K$上で$M_J$は$\operatorname{im}M$の基底であり、行$I$への射影は
+この像上で単射である。$MX-B$はこの像に属し、行$I$で零なので零である。
+分母は単元のみであり、逆行列と等式を商環へ移せる。
+\end{proof}
+
+一定階数を仮定しない任意の系では、この小行列だけでは全方程式を解けない。
+実装は常に$MX=B$を全行について再検査し、不整合なら停止する。
+一般の核の飽和とは用途が異なり、既知の完全な分解の像へ持ち上げる系では
+この単元小行列法を優先できる。
+
+\begin{proposition}[有界分解の正則な曲率化]\label{rd:prop:regular-existence}
+第\ref{cd:thm:finite-curvature}の入力を$R$上に持ち、各内部次数において
+増大射を含む分解が有限自由$R$-加群の分裂完全列であると仮定する。
+このとき高次ホモトピー$s_j$を$R$上で選べる。
+構成に現れる$d$による持上げを式\eqref{rd:eq:unit-solve}で実行できる。
+小複体の正則な閉元から閉自己準同型への持上げについても、
+増大射を固定した逐次比較の各段階に同じ解法を使える。
+\end{proposition}
+\begin{proof}
+分裂完全性により、各次数の$d$の像と核は有限自由な直和因子であり、
+$d$の階数は特殊点と一般点で等しい。
+$f=\Omega_L-\Omega_R$の対角上の作用は零なので、初段の持上げが存在する。
+以後の障害が閉じていること、負のExtの消滅、有限長による停止は
+定理\ref{cd:thm:finite-curvature}の証明と同じである。
+各段階の右辺は既に$R$上にあり、所要の像に入るので
+補題\ref{rd:lem:unit-solve}を使える。
+閉元の比較では$t$の指数と入力鎖次数の順に解く。
+増大射により固定される最下段を除き、右辺は比較写像の恒等式から$d$の閉元となる。
+同じ持上げを行い、最後の鎖次数で残る式も全行検査する。
+\end{proof}
+
+本研究の混合入力では、次数別自由性と分解の完全性に既存の全Artin PBW結果を用いる。
+その仮定を有限個のHilbert関数の計算だけで置き換えない。
+$R$はDVRなので、増大射の値域を含めて各次数が自由なら、
+完全列を右端から順に分裂させて上の分裂完全性を得る。
+
+\subsection{正則な四変数模型の実計算}
+関係式と中心元は第\ref{cd:prop:absolute-formula}と同じ$\lambda=1$の入力とする。
+$P$の階数は$(1,4,6,4,1)$、$\deg(t)=(2,-3)$である。
+\begin{theorem}[局所正則な低次数積]\label{rd:thm:local-product}
+この入力について、曲率付き対角$D$と四つの次数一閉自己準同型を
+$R$上で構成できる。次数一の元の増大射の$P_0$成分を$u,x,y,z$に規格化すると、
+\[
+ H^0(C_1)\simeq R^4,\qquad H^0(C_2)\simeq R^6
+\]
+であり、後者には
+\[
+ ux,\ uy,\ uz,\ xy,\ xz,\ yz
+ \tag{RD2}\label{rd:eq:class-basis}
+\]
+という実際の合成の類を基底に取れる。対称積は全射で、$D_h=h^6+162$、
+$L_h=1+h^6/54$と置くと、四つの平方の積は
+\begin{align}
+ u^2&=\frac{9h^2}{D_h}\,uz-\frac{54}{D_h}\,xy,\notag\\
+ x^2&=-L_huy-\frac{h^2}{3}yz,\qquad
+ y^2=-L_hux-\frac{h^2}{3}xz,\label{rd:eq:product}\\
+ z^2&=\frac{4h^{10}+675h^4}{36D_h}\,uz
+       -\frac{2h^8+351h^2}{6D_h}\,xy.\notag
+\end{align}
+すべての係数は$R$に属する。
+この対称積の核は第\ref{cd:prop:absolute-formula}の$q_u,q_x,q_y,q_z$であり、
+$G_h$の勾配空間に等しい。
+\end{theorem}
+\begin{proof}[有限計算と局所自由性の証明]
+\texttt{regular\_diagonal.py}は二次非可換関係から作った絶対Koszul分解に
+単元小行列解法を適用する。
+$d s_1+s_1d=f$と$d s_2+s_2d=-s_1^2$、およびすべての高次の残余式を
+$\mathbb Q(h)$上の恒等式として検査する。
+各解の分母は$h=0$で非零であることも検査する。
+次数一の閉元を閉行列に持ち上げた後、全16個の順序付き合成を計算する。
+これは係数の積でなく行列の合成である。
+
+小複体の隣接項の次元と微分の階数は次のとおりである。
+\[
+\begin{array}{c|ccc|cc}
+ r&\dim C_r^{-1}&\dim C_r^0&\dim C_r^1&
+ \operatorname{rank}d^{-1}&\operatorname{rank}d^0\\\hline
+ 1&0&10&56&0&6\\
+ 2&4&35&120&4&25
+\end{array}
+\]
+後二列は$\mathbb Q(h)$上でも$h=0$でも同じである。
+特殊点での独立な小行列は$R$上の単元小行列となり、
+一般点でより大きな階数を持たないので、各微分の像と核は直和因子となる。
+従ってコホモロジーは自由で、その階数は四と六である。
+
+$B=d^{-1}:C_2^{-1}\to C_2^0$の四列と、式\eqref{rd:eq:class-basis}の
+六つの合成を$C_2^0$へ送った列を並べて、$35\times10$行列$T$を作る。
+所定の基底順序における最初の10行の小行列の行列式は、$h=0$で$-3$である。
+$\ker d^0$の階数は10なので、$T$はその$R$上の基底となる。
+全16個の合成をこの基底に展開し、最初の四つの境界方向を除く。
+反対称積が零となり、対称積の結果は式\eqref{rd:eq:product}である。
+
+その核を求めると表示した四つの$q$を得る。
+これらの平方単項式に関する小行列式は$3+h^6/54$で、$R$の単元である。
+さらに$\nabla G_h=A(q_u,q_x,q_y,q_z)^{\mathsf t}$における
+\[
+ A=\begin{pmatrix}
+ L_h&0&0&-h^4/18\\
+ 0&1&0&0\\0&0&1&0\\h^2/3&0&0&1
+ \end{pmatrix},\qquad \det A=1+h^6/27
+\]
+も$R$上可逆である。最後の積分検査にのみ$G_h$を用い、
+非可換行列の構成や積の計算には用いない。
+\end{proof}
+
+\begin{corollary}[全Artin切断と完備化]\label{rd:cor:basechange}
+$r=1,2$と任意の$m\ge0$について、自然な写像
+\[
+ H^0(C_r)\otimes_R R/(h^{m+1})
+ \longrightarrow H^0(C_r\otimes_R R/(h^{m+1}))
+\]
+は同型であり、合成と両立する。同じことが$\mathbb Q[[h]]$への底変更についても成り立つ。
+特殊ファイバーの積は$G_0$のJacobian環の次数一・二の積である。
+\end{corollary}
+\begin{proof}
+証明中の単元小行列による分解は、任意の$R$-代数への底変更後も分裂する。
+隣接する微分の像・核とそれらの商の分解から、主張するコホモロジーの底変更を得る。
+積の代表を与える閉行列はすべて$R$上で定義されているので、
+合成も底変更と可換する。$h=0$では
+$u^2=-xy/3$、$x^2=-uy$、$y^2=-ux$、$z^2=0$となる。
+\end{proof}
+
+この系の対象は\emph{有限曲率付き対角の自己準同型代数}である。
+全Artin切断でこの代数が定義できることと、残余圏のrotation積との比較は別である。
+独立な$v^3$の因子は第\ref{cd:sec:finite-diagonal}節の一変数計算により加えられる。
+
+保存した分解、高次ホモトピー、閉行列および積表の全455種類の有理係数を調べると、
+その分母の最小公倍数（非零有理数倍を除く）は
+\[
+ (h^3-1)(h^6+162)
+\]
+である。この事実も証明書の有限係数から厳密に再計算する。
+これは選んだ行列表示の分母の記述であって、非可換射影圏のsmoothnessの判別式ではない。
+
+
+\subsection{有限arity比較で実際に使えること}
+普通のHochschildコチェインの積全体を用いる議論と、arityについて直和を取る議論を区別する。
+後者と曲率付き双加群の導来圏の比較には条件が必要である
+\cite[\S3.3, \S3.5]{RDPP}\cite[Theorem~6.14, Remark~6.16]{CDGHLR}。
+一方、次の有限性は直接証明できる。
+
+\begin{lemma}[有界arity同型による共役]\label{rd:lem:bounded-conjugation}
+$c,c'$を有界arityの曲率付きbar coderivationとし、$c^2=(c')^2=0$とする。
+$F$を$F_0=0$、$Fc=c'F$を満たすbar coalgebra同型とし、
+$F$と$G=F^{-1}$のTaylor成分のarity上界をそれぞれ$L_F,L_G$とする。
+arity上界$M$のcoderivation$X$に対し、$FXG$はarity上界
+\[
+ L_G(L_F+M-1)
+ \tag{RD3}\label{rd:eq:arity-bound}
+\]
+を持つ。従って共役は、arityについて有限支持なHochschildコチェインの
+微分付きLie代数の同型を与える。内部次数と周期変数を保つ場合は、この同型もそれらを保つ。
+\end{lemma}
+\begin{proof}
+入力長$n$の語に$G$を作用させて長さ$k$の語が現れるためには、
+各ブロックの長さが高々$L_G$なので$n\le L_Gk$である。
+$X$のarity $m\le M$の成分は長さを$k-m+1$に変える。
+その後$F$を作用させて出力長一へ射影した成分が非零なら
+$k-m+1\le L_F$、従って$k\le L_F+M-1$である。
+これが式\eqref{rd:eq:arity-bound}を与える。$m=0$の場合も同じ数え方が成り立つ。
+共役はcoderivationと交換子を保ち、
+$[c',FXG]=F[c,X]G$である。逆方向にも同じ議論を適用する。
+\end{proof}
+
+\begin{remark}[Lie比較から積比較を飛躍させない]
+補題\ref{rd:lem:bounded-conjugation}だけではcup積の保存を証明していない。
+cup積は単なるcoderivationの交換子とは異なる。
+次に必要なのは、一つの入力を標識したbar双加群の比較を構成し、
+有限対角のYoneda積とcompactly supported Hochschildのcup積との一致を示すことである。
+さらに、それを残余圏の導来自然変換へ移す際には内部shiftと非恒等sectorを扱う必要がある。
+この二つの比較は本節では未完成とする。
+\end{remark}
+
+\subsection{検算の範囲と再現}
+新しい厳密計算は
+\begin{verbatim}
+python3 computations/verify_regular_diagonal.py \
+  --output build/regular_diagonal_certificate.json \
+  --full-output build/regular_diagonal_full.json
+\end{verbatim}
+で再現する。通常の証明書は積表、階数、単元小行列、検査範囲と
+全行列データのSHA256を持つ。全行列も上の指定によって再生成できる。
+容易に再生成できる大きな出力はGitで二重保守しない。
+
+本節で実行した有限恒等式の検算、先行する全Artin PBW証明への依存、
+本文の局所線形代数の証明、未完成の圏論的比較を区別する。
+一般$\lambda$の絶対公式、指定形式模型との全次数同値、
+genericなrotation付き圏同値および相対smoothnessは本節の結論ではない。

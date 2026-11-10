@@ -13,12 +13,12 @@
 \newtheorem{remark}[theorem]{注意}
 \newtheorem{example}[theorem]{例}
 \pagestyle{fancy}\fancyhf{}
-\fancyhead[L]{\small 曲率付き対角}\fancyhead[R]{\small 2026-11-10 / v26}
+\fancyhead[L]{\small 曲率付き対角}\fancyhead[R]{\small 2026-11-11 / v27}
 \fancyfoot[C]{\thepage}\setlength{\headheight}{16pt}
 \title{曲率付き対角からの可換三次式抽出\\
 \large 有界Koszul分解・非可換混合族・低次数積}
 \author{}
-\date{2026年11月10日・研究草稿 v26}
+\date{2026年11月11日・研究草稿 v27}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -26,11 +26,14 @@
 低内部次数のコチェインと積を有限の代数的行列で扱う。
 混合型の実際の非可換関係式から、相対対角の次数一・二の積を有理関数体上で計算し、
 その核を与える三次式を明示する。さらに$\lambda=1$で絶対対角の積を全$h$について計算し、$h^{12}$までの多項式で書ける三次式を得る。
+さらに単元小行列を用いて全中間行列を$h=0$で正則化し、低次数のコホモロジーと積の全Artin底変更を証明する。
 この有限模型と射影残余圏の導来自然変換との比較は未完成であり、両者を区別する。
 \end{abstract}
 \tableofcontents
 \input{papers/reconstruction/curved_diagonal_recovery}
+\input{papers/reconstruction/regular_diagonal_recovery}
 \begin{thebibliography}{9}
 \input{papers/reconstruction/curved_diagonal_references}
+\input{papers/reconstruction/regular_diagonal_references}
 \end{thebibliography}
 \end{document}
