@@ -60,14 +60,14 @@ Kontsevich、Dito、Shoikhet、Căldăraru–Tu、Tu、Chen等の既知結果と
 
 ### 全次数の同変正規形（混合族）
 
-有限対角群Hの線形同変性と古典Jacobian商の指標分解から、
-同変形式模型を形式的な線形座標変換で
+有限対角群Hと交換対合τ:(x,y,h)↦(y,x,−h)、および古典Jacobian商の指標分解から、
+G=H⋊⟨τ⟩同変な形式模型を形式的な線形座標変換で
 \[
-W_h\sim F_{\lambda_*(h^3)}+h^2c_*(h^3)xyz,\qquad
+W_h\sim F_{\lambda_*(h^6)}+h^2c_*(h^6)xyz,\qquad
 \lambda_*(q)=\lambda+O(q),\quad c_*(0)=\frac13+\frac{\lambda^3}{36}
 \]
 に整理できる。**全次数で未知となる形式級数は二つ**に限るが、
-h³以降の係数の値、代数性、generic可換復元は未解決。
+正規形の最初の未知係数はh⁶のλ方向とh⁸のxyz方向。その値、代数性、generic可換復元は未解決。
 詳細証明は [mixed_equivariant_normal_form.tex](papers/reconstruction/mixed_equivariant_normal_form.tex)。
 指標ごとの三次単項式とJacobian行列は
 `python3 computations/verify_mixed_characters.py` で再現できる。
@@ -97,7 +97,7 @@ Python 3.10以上、SymPy、LuaLaTeX、LuaTeX-ja/ltjsarticleと標準数学パ�
 詳細は [reconstruction/README.md](reconstruction/README.md) と [validation.json](validation.json)。
 PDFとbuild receiptはGit対象外のbuild/へ生成する。主論文receiptは全TeX inputを含む。
 
-**v23の検証状態：** 既存の二次星積・tensor・積行列の厳密検算はv22ソースでPASS。新しい指標商も別途記号計算で検算した。現行v23の論文Cは新節追加後にまだ全体組版・receipt検査していない（従前は133頁・32 inputsを組版済み）。既存の具体計算証明書と独立SM/ERの検算も再実行した。A/Bを含めた詳細はvalidation.jsonを参照。これらは圏論的証明の形式検証や外部査読ではない。
+**v23の検証状態：** 既存の二次星積・tensor・積行列の厳密検算はv22ソースでPASS。新しい指標商と交換対合の自由代数恒等式も別途SymPyで厳密検算した。現行v23の論文Cは新節追加後にまだ全体組版・receipt検査していない（従前は133頁・32 inputsを組版済み）。既存の具体計算証明書と独立SM/ERの検算も再実行した。A/Bを含めた詳細はvalidation.jsonを参照。これらは圏論的証明の形式検証や外部査読ではない。
 
 ## 資料の配置と保存
 
