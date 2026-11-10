@@ -1,10 +1,12 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-11 / v31。GitHub mainを唯一の正本とする。** 00_research_plan.md、notes/bar_comparison.md、notes/curved_diagonal.md、notes/finite_algebraic_recovery.mdの順に読む。一般背景はnotes/research_notes.md、reconstruction/README.md、証明は現行論文A/B/C。旧ZIPや会話を再開条件にしない。
+**2026-11-11 / v32。GitHub mainを唯一の正本とする。** 00_research_plan.md、notes/bar_comparison.md、notes/curved_diagonal.md、notes/finite_algebraic_recovery.mdの順に読む。一般背景はnotes/research_notes.md、reconstruction/README.md、証明は現行論文A/B/C。旧ZIPや会話を再開条件にしない。
 
-## v31：導来Natの隣接障害と生成性の訂正
+## 中心対称性による全Artin障害消滅：条件付き定理
 
-体上の五変数三次のNat（cohomological次数−1,0,1）の階数は内部shift r=1で(0,5,2)、r=2で(0,10,0)。真の標的導来bar cochainが項別flatかつ剰余に厳密整合すれば、r=2はH0が全Artin自由rank10。r=1の一次障害はk^5→k^2の2×5行列であり高次も別検証。非可換Nat計算は未実施。**重要な訂正：** 特殊Morita生成子とHom項別自由性だけでArtin生成性を推論するv29の補題は偽。二周期複体による反例をartin_rotation_obstructions.texに記載。導来二側bar評価の正しいcofibrant模型・特殊化を独立の入力とする。KF/BCとgeneric同値は未証明。
+混合族の独立中心変数vによるΓ=μ3^(v)はhを固定。BFK sector公式において、r=1のH^0=k〈x,y,z,u〉⊕k〈v〉の四次元不変部分と、H^1=k²のΓ不変部分ゼロを得る。正しい実際の導来Nat複体C_(r,R)が項別平坦、全Artin商と厳密に互換、Γ同変で、中心vの乗法が互換な閉元なら、r=1,2のH^0はそれぞれR自由rank5,10。全Artin底変更も成立。証明はpapers/reconstruction/central_symmetry_lifting.tex、ノートはnotes/central_symmetry_lifting.md。符号とcharacterのtoy計算はcomputations/verify_central_symmetry.py。**categorical Natモデルそのものの構成、(KF)/(BC)、generic圏同値は未証明。**
+
+旧生成子持上げ補題の一般反例と依存訂正を保持。Γ破壊方向へ障害消滅を拡張しない。第一優先は正しいR-cofibrantな二側bar・同一enhancementのkernel–functor対応とArtin特殊化、次にgeneric同値。特定の2×5障害を逐次計算する優先度は今回のΓ保存部分族では低い。
 
 ## 最優先
 

@@ -1,9 +1,9 @@
 {
-  "version": "nc-cubic-v31",
+  "version": "nc-cubic-v32",
   "date": "2026-11-11",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only after actual GitHub publication failure.",
   "current_entry": "00_research_plan.md",
-  "scope": "BFK field adjacent rotation sectors, conditional Artin base change, first-order obstruction and correction of false generic Morita generator lifting; KF/BC still open.",
+  "scope": "For mixed quantum cubic with independent central v^3, mu3(v) symmetry kills all first and higher Artin obstruction classes in rotation degree one conditional on actual equivariant, flat, strictly Artin-compatible derived Nat complexes.",
   "proofs_written_and_checked": [
     {
       "source": "papers/reconstruction/multiplicative_bar_comparison.tex",
@@ -71,6 +71,15 @@
         "ras:thm:bc"
       ],
       "status": "CORRECTED false unqualified Artin Morita generator-lifting lemma. Valid conditional statement requires a genuine derived two-sided bar evaluation, flatness and compatible reduction. KF and derived Morita input not verified."
+    },
+    {
+      "source": "papers/reconstruction/central_symmetry_lifting.tex",
+      "labels": [
+        "csl:prop:characters",
+        "csl:lem:equivariant-lift",
+        "csl:thm:conditional-bc"
+      ],
+      "status": "BFK normal-determinant character and Artin small-extension lifting proof written and checked. Actual equivariant, Artin-compatible, flat derived Nat complexes not constructed; KF/BC remain conditional."
     }
   ],
   "executed_exact_checks": {
@@ -81,7 +90,8 @@
     "artin_sectors": "Executed exact SymPy Groebner for lambda=1 special cubic and computed candidate at h=1/2: both Hilbert [1,5,10,10,5,1], length32; checked base-change counterexample. Does not verify categorical Nat.",
     "relative_source_audit": "Standalone v29 references, labels and exact certificate audited locally; parent C source input and shared bibliography updated in this commit.",
     "diagonal_identity": "606 exact symbolic polynomial identities: rank2 unary cubic (122) and rank4 mixed binary cubic (484); plus dual number non-K-flat example.",
-    "artin_rotation_obstructions": "Local original research source exact finite check PASS (BFK weight arithmetic assumed, dual-number counterexample and toy 2x5 obstruction); new repository script matches this logic but not independently run after upload."
+    "artin_rotation_obstructions": "Local original research source exact finite check PASS (BFK weight arithmetic assumed, dual-number counterexample and toy 2x5 obstruction); new repository script matches this logic but not independently run after upload.",
+    "central_symmetry": "Exact finite character calculation with both determinant-duality conventions and artificial 2x5 obstruction matrix; certificate regenerates and matches. This is NOT a computation of derived Nat."
   },
   "retained_verification": {
     "regular_diagonal": "Unmodified v27 Q(h) witness, regularity at h=0, all 16 products, ranks, unit minor -3 and kernel retained; full matrix construction NOT rerun this turn.",
@@ -103,7 +113,8 @@
     "External referee verification, formal proof, comprehensive novelty determination.",
     "(KF): full derived kernel-to-bimodule Hom comparison, relative cofibrant bar construction and field BFK specialization; unit alone is not sufficient, termwise flatness is not K-flatness.",
     "Correct Artin-compatible derived Nat cochain model and full (KF), (BC), actual nc rotation and generic equivalence.",
-    "Artin Morita generation for positively graded cubic MF and vanishing of the actual 2x5 first-order obstruction."
+    "Artin Morita generation for positively graded cubic MF and vanishing of the actual 2x5 first-order obstruction.",
+    "A correct, equivariant, strictly Artin-compatible, termwise flat derived Nat complex over the mixed quantum family (and the same-enhancement KF identification). The symmetry theorem is conditional on this input."
   ],
   "primary_sources_checked": [
     "Negron arXiv:1304.0527v4, Theorem5.3; target there is dg, not curved.",
@@ -148,7 +159,7 @@
     "C": {
       "build_completed": false,
       "source_pdf_receipt_verified": false,
-      "reason": "New diagonal identity section input; complete current C not rebuilt."
+      "reason": "New v32 independent-center symmetry lemma integrated; complete C not rebuilt."
     },
     "standalone_relative_artin": {
       "source": "papers/relative_artin_sector.tex",
@@ -178,6 +189,14 @@
       "local_draft_compiled": true,
       "remote_exact_sources_recompiled": false,
       "note": "A fuller local draft was typeset and visually reviewed; exact remotely authored source tree not retypeset."
+    },
+    "standalone_central_symmetry": {
+      "source": "papers/central_symmetry_lifting.tex",
+      "pages": 5,
+      "build_completed": true,
+      "visual_review": "Five-page contact sheet inspected; no visible clipping or unintended blank pages.",
+      "pdf_sha256": "16e1c0165373f588ae9e538b37561d0a1db9fcf9c1e276417c271231b8cb2c19",
+      "git_tracks_pdf": false
     }
   },
   "environment": {

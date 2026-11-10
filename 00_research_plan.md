@@ -1,16 +1,16 @@
 # 研究方針：cubicのPoisson構造・量子化・可換復元
 
-**2026年11月11日・v31。再開時は最初に本ファイルを読む。**
+**2026年11月11日・v32。再開時は最初に本ファイルを読む。**
 
-## v31：隣接sectorによる障害の分離と誤った生成子補題の訂正
+## 現行の核心：中心対称性でArtin障害を消し、導来模型を構成する
 
-**体上で証明済み（BFK公式からの計算）。** 滑らかな五変数三次のgraded MFで内部shift r=1のNat^(−1),Nat^0,Nat^1は (0,5,2)、r=2では (0,10,0)。r=1のH^1=k^2は二つの非恒等mu3-sector。これは非可換Artin標的のNatそのものを計算した結果ではない。
+**体上で証明済み（既知BFK sector公式からの具体計算）。** 混合族の独立中心変数 `v` による `Γ=μ3^(v)` は `v→ζv` と作用し `h,x,y,z,u` を固定する。特殊ファイバーの `Nat^0(Id,(1))` はΓ不変な四次元 `〈x,y,z,u〉` と `〈v〉` の和。一方 `Nat^1(Id,(1))=k²` の二つの非恒等sectorはnormal determinantの非自明Γ-characterを持ち、不変部分は零。
 
-**条件付き底変更。** 正しい標的導来Natのcochain C_mが項別R_m平坦で剰余C_m/h=C_0と厳密に両立すれば、r=2ではH±1の消滅からH^0(C_m)は自由rank10で全Artin底変更。r=1では初期障害ob_1:k^5→k^2（最大2×5行列）が残り、高次障害も独立に検査する。
+**条件付き全Artin障害消滅定理（論文Cの新節）。** 実際のNatを計算する `C_{r,R}`（r=1,2）が項別R平坦、任意のArtin商と鎖レベルで整合し、Γ同変で体上sector作用へ特殊化し、中心vの積が互換な閉じたNatを与えるとする。このとき `H^0(C_{1,R})=R^5`、`H^0(C_{2,R})=R^{10}` で全Artin底変更に両立する。四つのΓ不変基底の障害は `H^1(C_{1,k})^Γ=0` に入り、vは中心元として直接持ち上がる。hはΓ固定なのでこの議論は全次数で有効。証明：`papers/reconstruction/central_symmetry_lifting.tex`、計算：`computations/verify_central_symmetry.py`（character/tiny toyのみ）。既知BFK公式は一次資料で確認。**実際の導来Nat cochainの存在・鎖レベルArtin互換性、(KF)/(BC)、generic圏同値は未証明。**
 
-**依存主張の訂正。** 特殊ファイバーのMorita生成性とHomの項別平坦性だけでArtin全体のMorita生成性が持ち上がるというv29の一般補題は偽。k[epsilon]/epsilon^2上の非輪状・非可縮な二周期自由複体が反例（本研究の正の内部次数付きcubic MFに対する反例ではない）。論文Cの相対Artin節の当該補題を、導来二側bar評価の存在・導来性・特殊化整合性を仮定する条件付き補題に修正。(KF)から(BC)への経路では、kernelの全忠実性に加えて導来Morita生成性を別個に確認する必要がある。
+**既存の重要な訂正も維持。** 特殊Morita生成性とHomの項別自由性だけではArtinでの生成性は持ち上がらない。二周期自由複体の反例と、導来二側bar評価を追加仮定とする訂正は`artin_rotation_obstructions.tex`と`relative_artin_sector.tex`にある。体上のH^(-1),H^0,H^1の階数はr=1で(0,5,2)、r=2で(0,10,0)。
 
-最優先の着手はr=2のArtin互換の導来bar/Nat模型を構成して厳密剰余写像を証明すること。次にr=1の2×5障害の一次・高次成分を求める。証明全文：papers/reconstruction/artin_rotation_obstructions.tex、研究ノート：notes/artin_rotation_obstructions.md、計算：computations/verify_artin_rotation_obstructions.py。既存の有限対角・形式MF成果を保持し、(KF)/(BC)およびgeneric圏同値の未解決状態を変更しない。
+**最優先は、正しい導来Nat複体の構成・barの導来性と特殊化。** Γを保つ混合部分族に関して、以前の2×5障害を項ごとに計算する課題は対称性で解消される。一方、Γを破る全係数方向や独立中心vのない族には適用しない。
 
 ## 正本・目標・達成基準
 

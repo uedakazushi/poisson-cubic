@@ -1,6 +1,6 @@
 # 低rotation次数のArtin障害と生成性の訂正
 
-**2026-11-11 / v31。再開時は00_research_plan.mdを最初に読む。**
+**2026-11-11 / v32。再開時は00_research_plan.mdを最初に読む。**
 論文Cに統合する全文はpapers/reconstruction/artin_rotation_obstructions.tex。
 
 体上の五変数三次のgraded MFの導来自然変換
@@ -19,5 +19,4 @@ G0=kは体上で生成するがGは生成しない。
 これは本研究の正の内部次数graded cubic MFへの反例ではない。
 相対Artin節の依存主張を訂正し、正しい導来二側bar評価の構成・特殊化を独立の入力とした。
 
-次：r=2の厳密Artin互換導来bar模型とkernel全忠実性(KF)をまず構成し、
-r=1の2×5障害計算へ進む。generatorの持上げとKFを混同しない。
+Γ=μ3^(v)を保つ混合族では、H^1のΓ不変部分が零なので、四つの不変な低次数classは全Artinで持ち上がる。第五のvは中心元の閉じた自然変換として持ち上がる。正しいArtin互換導来Nat模型が存在する場合はr=1も自由rank5となる。新定理全文はpapers/reconstruction/central_symmetry_lifting.tex。よって2×5障害の項別計算より、正しい導来bar模型とkernel全忠実性(KF)の確立を優先する。generatorの持上げとKFを混同しない。

@@ -154,4 +154,10 @@ curved = json.loads((ROOT / "computations/curved_diagonal_certificate.json").rea
 assert all(k in curved for k in ("relative", "absolute", "five_variable_extension", "not_proved"))
 print("PASS curved diagonal tracked certificate structure (full symbolic recomputation separate)")
 
+# The central mu3(v)-symmetry certificate is a finite character check, not categorical KF.
+r=subprocess.run([sys.executable,str(ROOT/"scripts/verify_central_symmetry_assets.py")],
+                 cwd=ROOT,capture_output=True,text=True,timeout=60)
+assert r.returncode==0,r.stdout+r.stderr
+print(r.stdout.strip())
+
 print("Source/receipt and exact algebra audit complete. Categorical proofs are not formalized.")

@@ -1,6 +1,6 @@
 # nc-cubic：Poisson構造・量子化・可換復元
 
-**2026-11-11 / v31。正本はGitHub main。** 最初に [研究方針](00_research_plan.md)、次に [乗法比較ノート](notes/bar_comparison.md) と [有限対角ノート](notes/curved_diagonal.md) を読む。
+**2026-11-11 / v32。正本はGitHub main。** 最初に [研究方針](00_research_plan.md)、次に [乗法比較ノート](notes/bar_comparison.md) と [有限対角ノート](notes/curved_diagonal.md) を読む。
 
 ## 現行：対角kernelの恒等作用
 
@@ -9,6 +9,12 @@
 ## v31：Artin底変更の次数別障害
 
 体上で内部rotation shift r=1,2の隣接群(H^-1,H^0,H^1)はそれぞれ(0,5,2),(0,10,0)。実際の導来Natの厳密Artin互換模型を得られればr=2は底変更可能で、r=1には一次障害2×5行列が残る。**特殊ファイバーの生成子はHom項別平坦性だけでは一般にArtinへ持ち上がらない**反例を構成し、論文Cの旧補題を訂正した。証明はpapers/reconstruction/artin_rotation_obstructions.tex、詳細はnotes/artin_rotation_obstructions.md。KF/BCとgeneric圏同値は未証明。
+
+## 最新の重要な条件付き結果：中心対称性
+
+独立中心変数vを持つ混合族ではΓ=μ3^(v)がvだけを三乗根倍し、量子パラメータhを固定する。体上のr=1の障害群H^1=k²はnormal determinantによってΓ不変部分を持たない。次数一の四つの不変基底の全Artin持上げ障害は消え、vは中心元として閉じた自然変換を持つ。このため、**実際の導来Nat cochainの項別平坦性・鎖レベルArtin底変更・Γ同変性を仮定すれば**、r=1,2のH^0は自由rank5,10となる。(KF)、正しいbar模型、generic圏同値は未完成。
+
+本文：`papers/reconstruction/central_symmetry_lifting.tex`。単独稿：`papers/central_symmetry_lifting.tex`。検算：`python3 computations/verify_central_symmetry.py --output build/central_symmetry_certificate.json` と `python3 scripts/verify_central_symmetry_assets.py`。これは実際のNat計算ではない。
 
 ## 現在の到達点
 

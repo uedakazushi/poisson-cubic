@@ -1,0 +1,146 @@
+% 2026-11-11 / v32
+\section{独立中心三次変数の対称性によるArtin障害の消滅}
+\label{csl:sec:symmetry}
+
+ここでは論文Cの混合中心対において、$v$が独立中心変数であることを使う。
+前節の五変数三次の体上の隣接sector計算を、\emph{正しい導来自然変換複体が構成された場合}の全Artin持上げ定理へ強化する。
+これにより次数一の$2\times5$障害行列を逐次計算する必要がなくなるが、
+導来bar複体の正当性やkernel--functor比較(KF)そのものは証明しない。
+
+\subsection{体上の障害sectorへの補助対称性}
+$k$を三乗根$\zeta$を含む標数零の体とし、
+\[
+ F_\lambda=(x^3+y^3+z^3)/3+u^3+v^3+\lambda uxy,
+ \qquad \lambda^3\ne-3
+\]
+とする。$\Gamma=\mu_3^{(v)}$を$v\mapsto\zeta v$、
+$x,y,z,u\mapsto x,y,z,u$で作用させる。
+混合量子化の二次関係は$v$を含まず、指定中心元の$v$への依存は$v^3$のみである。
+従って$\Gamma$は量子パラメータ$h$を固定し、非可換中心対へ作用する。
+
+\begin{proposition}[障害sectorの非自明な$\Gamma$-指標]
+\label{csl:prop:characters}
+$\mathcal T_0$を$F_\lambda$のgraded MF圏とする。
+$\Gamma$の作用について
+\[
+ H^0\RHom(\Delta,\Delta(1))
+ =\langle x,y,z,u\rangle\oplus\langle v\rangle,
+ \qquad
+ \left(H^1\RHom(\Delta,\Delta(1))\right)^\Gamma=0.
+ \tag{CSL1}\label{csl:eq:characters}
+\]
+最初の直和の左項は自明表現で、右項は非自明な一次元表現である。
+後者の$H^1$は二つの非恒等scalar-$\mu_3$ sectorの和であり、
+各sectorは$\Gamma$の非自明な一次元表現となる。
+\end{proposition}
+\begin{proof}
+前節の命題\ref{aro:prop:sector-neighbors}から
+$H^0\simeq\operatorname{Jac}(F_\lambda)_1$、
+$H^1\simeq k^2$である。$H^0$の表現は変数の作用から従う。
+後者の各非恒等sectorは原点のみを固定し、
+normal空間は五つの座標方向全部である。
+Ballard--Favero--Katzarkovのsector formula
+\cite[Theorem~5.39, proof]{AROBFK}では、
+normal方向のtop exterior power（双対規約ではその双対）の
+行列式characterが現れる。$\Gamma$はnormalの$v$方向だけを
+$\zeta$倍するので、その行列式characterは$\zeta^{\pm1}$であり
+自明でない。$\Gamma$はscalar-$\mu_3$と可換で各sectorを保つから、
+二つのsectorの和にも不変元はない。
+この判定にはcharacterの双対規約を選ぶ必要はない。
+\end{proof}
+
+\subsection{有限Artin環上の一般持上げ補題}
+$R$を剰余体$k$を持つ局所Artin $k$-代数とし、$\Gamma$は$R$を固定する。
+以下の$R$-線形cochain複体$C_R$は各項が$R$-平坦で、
+すべてのArtin商への縮小と\emph{鎖レベルで}両立すると仮定する。
+実際のdg圏の導来自然変換を正しく表すという仮定は、この条件と別に必要である。
+
+\begin{lemma}[対称性と一つの恒等的閉元による全Artin自由性]
+\label{csl:lem:equivariant-lift}
+$C_R$を上記の$\Gamma$-同変な複体の族とし、特殊ファイバー$C_k$について
+\[
+ H^{-1}(C_k)=0,\quad H^0(C_k)=V_0\oplus kv,
+ \quad V_0=H^0(C_k)^\Gamma\simeq k^4,
+ \quad H^1(C_k)^\Gamma=0
+\]
+を仮定する。$v$の類はすべての$R$で互換な閉元$v_R\in Z^0(C_R)$へ
+持ち上がるとする。このとき、
+\[
+ H^{-1}(C_R)=0,\qquad H^0(C_R)\simeq R^5,
+ \qquad H^0(C_R)\otimes_R R/I\simeq H^0(C_{R/I})
+ \tag{CSL2}\label{csl:eq:artin-free}
+\]
+が任意のArtin商$R/I$に対して成り立つ。
+\end{lemma}
+\begin{proof}
+$R$の長さについて帰納し、長さ一の小拡大
+$0\to I\to R'\to R\to0$を取る。ただし$\mathfrak m_{R'}I=0$。
+項別平坦性から
+\[
+ 0\to I\otimes_k C_k\to C_{R'}\to C_R\to0
+\]
+は複体の短完全列となる。$H^{-1}(C_k)=0$より、
+帰納法で$H^{-1}(C_{R'})=0$を得る。
+
+$V_0$の基底の不変閉代表を$C_R$に持ち上げてあるとする。
+$\Gamma$は有限群で$\operatorname{char}k=0$だから、
+不変部分を取る操作は完全であり、$C_{R'}^0$に不変な持上げを選べる。
+その微分は$I\otimes C_k^1$に属する不変なcocycleである。
+仮定$H^1(C_k)^\Gamma=0$より、
+$I\otimes C_k^0$の不変な元の微分として消せる。
+従って四基底は閉元のまま持ち上がる。
+$v_R$には初めから互換な閉元がある。
+よって$H^0(C_{R'})\to H^0(C_R)$は全射。
+長完全列と$H^{-1}(C_R)=0$により
+\[
+ 0\to I\otimes_k H^0(C_k)\to H^0(C_{R'})
+ \to H^0(C_R)\to0
+\]
+が成り立つ。従って$H^0(C_{R'})$の$k$-長さは
+$5\operatorname{length}(R')$であり、剰余体の五基底の持上げから
+$R'^5\twoheadrightarrow H^0(C_{R'})$が得られる。
+Nakayamaと長さの一致により同型である。
+小拡大について繰り返せば任意の$R$とすべての商で結論する。
+\end{proof}
+
+\begin{theorem}[混合族の低rotation底変更に関する条件付き対称性定理]
+\label{csl:thm:conditional-bc}
+$F_\lambda$を特殊ファイバーとする$\Gamma$-同変な
+Artin変形のgraded MFあるいは非可換MFについて、
+$r=1,2$の\emph{実際の導来自然変換}を計算する$R$-線形cochain複体$C_{r,R}$が
+次の条件を満たすとする：
+(i) 項別$R$-平坦、任意の商への剰余が鎖レベルで一致する；
+(ii) $\Gamma$同変で、特殊ファイバーでは既知のsector同定と作用に一致する；
+(iii) 中心変数$v$による積が$C_{1,R}$の互換な閉元を与える。
+このとき、任意の$R$に対し
+\[
+ H^0(C_{1,R})\simeq R^5,\qquad
+ H^0(C_{2,R})\simeq R^{10},
+ \tag{CSL3}\label{csl:eq:bc}
+\]
+かつ両者のすべてのArtin底変更が同型である。
+特に論文Cの乗法的characteristic写像$\Theta_r$の
+自然な特殊化が既知の多項式倍との同定であるなら、
+$\Theta_1,\Theta_2$は局所環上の単元行列式判定によって同型となり、
+条件(BC)が満たされる。
+\end{theorem}
+\begin{proof}
+$r=1$には命題\ref{csl:prop:characters}と
+補題\ref{csl:lem:equivariant-lift}を使う。
+$r=2$では前節の\ref{aro:prop:sector-neighbors}から
+$H^{-1}(C_{2,k})=H^1(C_{2,k})=0$、
+$H^0(C_{2,k})\simeq k^{10}$であり、
+補題\ref{aro:lem:neighbor-vanishing}の小拡大版を適用する。
+積と$\Theta$の条件付き同定は、標的とsourceの自由性および特殊ファイバーでの同型から、$\det(\Theta_r)$が単元となることによる。
+\end{proof}
+
+\begin{remark}[解決したこと・残ること]\label{csl:rem:scope}
+この定理は\emph{仮定した正しい複体の内部での}全次数の障害消滅であり、
+任意の量子化や一般混合パラメータで条件(i)--(iii)が成立するとは主張しない。
+特に非正則Artin上の導来二側bar、相対cofibrant模型、
+$\Theta$の実際の導来自然変換への写像、kernel全忠実性(KF)の検証は
+別に残る。これらを体上の次元公式や項別平坦性から推論しない。
+一方、$\Gamma$が保存される部分族については、
+以前の$2\times5$障害行列の高次係数を個別に計算する優先度は下がり、
+正しいArtin互換のenhancementの構成が最優先となる。
+\end{remark}

@@ -1,0 +1,67 @@
+{
+  "version": "nc-cubic-v32",
+  "date": "2026-11-11",
+  "scope": "Character bookkeeping for conditional Artin cochain lifting, not a categorical comparison",
+  "source_H0_characters_mod3": [
+    0,
+    0,
+    0,
+    0,
+    1
+  ],
+  "nonidentity_sectors_H1_dimension": 2,
+  "normal_determinant_nontrivial_characters_both_conventions": [
+    {
+      "target_weights": [
+        1,
+        1
+      ],
+      "possible_nonzero_entries": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "after_central_v_closed_lift": [],
+      "forced_first_obstruction_rank": 0
+    },
+    {
+      "target_weights": [
+        2,
+        2
+      ],
+      "possible_nonzero_entries": [],
+      "after_central_v_closed_lift": [],
+      "forced_first_obstruction_rank": 0
+    }
+  ],
+  "parameter_h_character": 0,
+  "four_Gamma_invariant_classes": 4,
+  "fifth_class": "v; has closed lift by multiplication with the independent central generator",
+  "mod3_v_exponents_in_F": [
+    0
+  ],
+  "non_equivariant_example_first_obstruction_rank": 2,
+  "tested_artin_extension_orders": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "expected_if_correct_equivariant_flat_derived_complex": {
+    "r1_H0_rank": 5,
+    "r2_H0_rank": 10
+  },
+  "not_verified": [
+    "BFK sector theorem itself",
+    "correct derived Nat cochain compatibility",
+    "cofibrant bar and kernel fully faithfulness",
+    "generic noncommutative cubic reconstruction"
+  ]
+}
