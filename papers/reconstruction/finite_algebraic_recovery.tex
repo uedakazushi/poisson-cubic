@@ -1,0 +1,64 @@
+% 2026-11-10 / v24. Finite algebraic recovery (compact integrated theorem).
+\section{有限勾配データからの代数的三次式の復元}\label{far:sec:recovery}
+本節は、非可換入力から実際の低rotation積を計算したという主張ではない。
+形式的可換三次式の係数の代数性ではなく、その勾配空間の代数的な実現を用いる。
+
+\begin{theorem}[局所代数化と任意の有限jet]\label{far:thm:algebraization}
+$(R,\mathfrak m)$をNoether局所$\mathbb Q$-代数、
+$\widehat R$をその完備化とする。
+$K\subset R[x_1,\ldots,x_N]_2$を階数$N$の自由直和因子とし、
+基底を$q_1,\ldots,q_N$とする。
+$\widehat W\in\widehat R[x]_3$が滑らかな特殊ファイバーを持ち、
+$K\otimes_R\widehat R=\langle\partial_i\widehat W\rangle$
+を満たすと仮定する。
+このとき任意の$\ell\ge1$に対し、
+$G\in R[x]_3$が存在し、
+$\langle\partial_iG\rangle=K$、
+$G\equiv\widehat W\pmod{\mathfrak m^\ell\widehat R}$を満たす。
+$V(G)\to\operatorname{Spec}R$は滑らかである。
+さらに$\widehat W$と$G$は$\mathfrak m^\ell$を法として恒等な
+形式的線形座標変換で同型である。
+\end{theorem}
+\begin{proof}
+滑らかさにより$\partial_i\widehat W$は$\widehat R$上一次独立で、
+$\nabla\widehat W=\widehat A q$となる可逆行列$\widehat A$がある。
+可積分性の有限線形系
+\[
+\mathcal L_K=\{A\in\operatorname{Mat}_N(R):
+\sum_a A_{ia}\partial_jq_a=\sum_a A_{ja}\partial_iq_a\}
+\]
+を考える。$R\to\widehat R$は平坦であり、
+$\mathcal L_K\otimes_R\widehat R=\mathcal L_{K\otimes\widehat R}$。
+$\mathcal L_K$は有限生成なので、生成元の係数を
+$R/\mathfrak m^\ell\simeq\widehat R/\mathfrak m^\ell\widehat R$
+によって近似し、$A\equiv\widehat A\bmod\mathfrak m^\ell$を
+満たす$A\in\mathcal L_K$を得る。
+$\det A$は単元だから$A$は可逆である。
+\[
+G=\frac13\sum_i x_i(Aq)_i
+\]
+とすれば、二次のEuler等式と混合偏微分の可換性から
+$\nabla G=Aq$。三次のEuler等式から有限jetの一致が従う。
+特殊ファイバーは滑らかであり、相対Jacobian判定から
+$V(G)\to\operatorname{Spec}R$は滑らかである。
+
+最後に$\nabla\widehat W=B\nabla G$と書くと、
+$B\equiv I\bmod\mathfrak m^\ell$。
+三次の対称三重形式$T$について
+$T(B^{\mathsf t}u,v,w)=T(u,B^{\mathsf t}v,w)$が成立する。
+この対称化条件を満たす行列は積と冪級数で閉じるため、
+$C=(B^{\mathsf t})^{1/3}$も同じ条件を満たす。
+したがって$G(Cx)=\widehat W(x)$であり、
+$C\equiv I\bmod\mathfrak m^\ell$である。
+\end{proof}
+
+\begin{remark}[適用上の核心]
+非可換残余pair $(\mathcal C,\rho)$について、
+$V=H^0\RHom_{\mathcal C^e}(\Delta,P)$、
+$W=H^0\RHom_{\mathcal C^e}(\Delta,P\otL P)$
+とその積を代数的に計算し、積の対称性と完成底でのJacobian比較を
+証明することが未解決の入力である。
+これが得られれば、上の定理と
+第\ref{sec:explicit-jacobian-recovery}節の有限積分を適用できる。
+候補方程式の存在からgenericでのrotation付き圏同値は従わない。
+\end{remark}

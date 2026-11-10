@@ -1,6 +1,6 @@
 # AGENTS.md — nc-cubicの研究継続指示
 
-**2026-11-10・v23。GitHub uedakazushi/nc-cubic の main が唯一の正本。** 最初に00_research_plan.md、次にnotes/research_notes.mdとreconstruction/README.mdを読む。旧ZIP・会話・Libraryを再開の前提にしない。
+**2026-11-10・v24。GitHub uedakazushi/nc-cubic の main が唯一の正本。** 最初に00_research_plan.md、次にnotes/research_notes.mdとreconstruction/README.mdを読む。旧ZIP・会話・Libraryを再開の前提にしない。
 
 ## 目標と優先順位
 
@@ -9,6 +9,13 @@
 3. 構成した量子化のgenericファイバーについて、同じKuznetsov成分とrotationを持つ滑らかな可換cubicを構成する。**最優先・一般混合型は未完成。** 任意のAS-regular中心三次商の全点には広げない。Zhang twistによるrotation付き反例がある。
 
 証明の記載、独立監査、計算実行、形式証明を区別する。cubic n-foldの周囲はnc P^(n+1)。価値ある既存成果・証明を軽量化のため削らない。
+
+## 有限代数的復元を優先する研究方針（2026-11-10）
+最優先の経路は、代数的中心三次対 (A_h,Ω_h) から残余dg圏の実際の低rotation次数積 μ_h:Sym² V_h→W_h を有限の代数的複体で構成し、その核 K_h を局所環上の線形可積分性によって積分して可換三次式 G_h を直接得ることである。選択したformalityの形式級数そのものの代数性・収束を先に証明する必要はない。形式MF復元と全Artin残余比較は完成底上での低次数積の一致を保証するために使う。方程式抽出のためにSMの全面解決を先行条件としない。ただし実際の非可換低次数積の構成、genericでの圏同値、指定生成子の生成性は未証明であり、別々に扱う。
+
+**条件付き代数化命題。** RをNoether局所Q代数、R^をその完備化、K⊂R[x]_2を階数Nの自由直和因子とする。完成底でKが滑らかな特殊ファイバーを持つ形式三次式W^の勾配空間であれば、任意の有限jetに一致し同じ勾配空間を持つG∈R[x]_3を線形方程式から構成できる。証明は論文Cの finite_algebraic_recovery.tex。これは非可換由来のKが既に計算されたことを意味しない。
+
+**着手順。** (1) 混合族の残余rotation双加群の有限模型と合成を構成する。(2) 代数的な積の対称性、基底変更、形式比較を証明する。(3) 核の局所飽和・可積分行列の抽出・勾配と滑らかさを検算する。(4) その後、generic圏同値のためにSM/ER・有限cone/retractを扱う。既存のA/B/Cの証明と未解決事項を保持する。
 
 ## 現行の証明方針
 
