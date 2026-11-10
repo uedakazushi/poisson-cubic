@@ -12,6 +12,6 @@
 
 TeXノートもルートから `latexmk notes/research_notes.tex` と `latexmk notes/reconstruction_notes.tex` で組版する。生成PDFは `build/` に置き、Git追跡しない。
 
-ソース未確認のノート原本PDFは `notes/pdf-only/` に二本保存する。これらのみ例外的なGit追跡対象である。
+原ノートPDF2件は [nc-cubic2](https://github.com/uedakazushi/nc-cubic2/tree/main/notes/pdf-only) に保全済み。本リポジトリはPDFを追跡しない。
 
 `latexmk notes/sm_bar_and_spreading.tex` で現行SMの有限判定ノートを再生成する。

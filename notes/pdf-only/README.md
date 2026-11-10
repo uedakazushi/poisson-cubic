@@ -1,8 +1,8 @@
-# TeXソース未確認の研究ノートPDF原本
+# 研究ノート原PDFの移転先（TeX照合未了）
 
-研究成果を失わないために例外的にGitへ保持する。これらの数学的内容と証明を完全なTeXへ復元・照合できた時点でのみ、追跡解除する。
+原PDF2件はnc-cubic2へGit blob一致で移転済み。本リポジトリはPDFを追跡しない。
 
-- `notes/pdf-only/finite_smoothness_notes.pdf`
-- `notes/pdf-only/categorical_boundary_notes.pdf`
+- [`notes/pdf-only/categorical_boundary_notes.pdf`](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/pdf-only/categorical_boundary_notes.pdf)
+- [`notes/pdf-only/finite_smoothness_notes.pdf`](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/pdf-only/finite_smoothness_notes.pdf)
 
-個別PDFと対応TeX候補、追跡解除までのチェック項目は [`TODO_PDF_SOURCES.md`](../../TODO_PDF_SOURCES.md) に記載する。
+TeXとの完全照合は未了。原本を移転先から削除しない。
