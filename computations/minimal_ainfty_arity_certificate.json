@@ -1,0 +1,107 @@
+{
+  "scope": "degree and object-index compatibility only; NOT coefficients or smoothness",
+  "n5": {
+    "n": 5,
+    "N": 7,
+    "arity": 7,
+    "output_0": 2478,
+    "output_n": 303,
+    "diagonal_index_paths": 7,
+    "planar_binary_trees": 132
+  },
+  "n5_double_m7_support": {
+    "full": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      0,
+      1,
+      2,
+      3,
+      4,
+      0,
+      1,
+      2,
+      3
+    ],
+    "inner": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      0,
+      1,
+      2
+    ],
+    "outer": [
+      0,
+      2,
+      3,
+      4,
+      0,
+      1,
+      2,
+      3
+    ],
+    "bracket_coefficient": "not computed"
+  },
+  "by_dimension": [
+    {
+      "n": 3,
+      "N": 5,
+      "arity": 5,
+      "output_0": 185,
+      "output_n": 128,
+      "diagonal_index_paths": 5,
+      "planar_binary_trees": 14
+    },
+    {
+      "n": 4,
+      "N": 6,
+      "arity": 6,
+      "output_0": 672,
+      "output_n": 204,
+      "diagonal_index_paths": 6,
+      "planar_binary_trees": 42
+    },
+    {
+      "n": 5,
+      "N": 7,
+      "arity": 7,
+      "output_0": 2478,
+      "output_n": 303,
+      "diagonal_index_paths": 7,
+      "planar_binary_trees": 132
+    },
+    {
+      "n": 6,
+      "N": 8,
+      "arity": 8,
+      "output_0": 9240,
+      "output_n": 428,
+      "diagonal_index_paths": 8,
+      "planar_binary_trees": 429
+    },
+    {
+      "n": 7,
+      "N": 9,
+      "arity": 9,
+      "output_0": 34749,
+      "output_n": 582,
+      "diagonal_index_paths": 9,
+      "planar_binary_trees": 1430
+    },
+    {
+      "n": 8,
+      "N": 10,
+      "arity": 10,
+      "output_0": 131560,
+      "output_n": 768,
+      "diagonal_index_paths": 10,
+      "planar_binary_trees": 4862
+    }
+  ]
+}

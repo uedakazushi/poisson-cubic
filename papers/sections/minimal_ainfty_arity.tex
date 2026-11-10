@@ -1,0 +1,190 @@
+\section{線束生成子の相対最小$A_\infty$模型と対角smoothness}
+\label{sec:minimal-ainfty}
+本節は、残余圏の対角perfect性(SM)を実際に検証するため、
+線束生成子のdg代数へ問題を移し、その相対最小模型の高次演算を制限する。
+相対半直交分解の一般定理は既知であり
+\cite[Lemma~4.15(3)]{AinftyPerry2019}を参照する。
+最小模型の存在には\cite{PetersenTransfer,BurkeTransfer}を用いる。
+以下はその適用と整数的な配置の絞り込みであり、SM自体の証明ではない。
+
+\begin{theorem}[残余対角と線束生成子の対角]
+\label{thm:ainfty-smooth-equiv}
+定義\ref{lp:def:input}の正則局所底$R$上で、
+既存の局所proper模型
+$\mathcal C_B=\thick_R(E)\simeq\Perf(\Lambda_R)$、
+$\mathcal K_B^{\mathrm{lin}}\simeq\Perf(\Gamma_R)$
+を考える。ただし
+\[
+ E=\bigoplus_{i=0}^{N-1}\mathcal O(i),\quad
+ \Lambda_R=\REnd(E),\quad N=n+2,\quad n\ge3.
+\]
+このとき、相対smoothnessについて
+\[
+ \boxed{\ \Gamma_R\in\Perf(\Gamma_R^e)
+ \quad\Longleftrightarrow\quad
+ \Lambda_R\in\Perf(\Lambda_R^e)\ },\qquad
+ A^e:=A^{\mathrm{op}}\otimes_R^{\mathbf L}A.
+ \tag{SM$'$}\label{eq:ainfty-sm-prime}
+\]
+従ってSMの有限対角証明書を$\Lambda_R$について求めてもよい。
+\end{theorem}
+\begin{proof}
+既存の有限$R$-例外列により
+\[
+ \mathcal C_B=
+ \langle\mathcal K_B^{\mathrm{lin}},
+ \mathcal O,\mathcal O(1),\ldots,\mathcal O(n-2)\rangle
+\]
+は$R$-線形半直交分解である。各相互Homは$R$-perfectであり、
+評価・余評価から定める左右mutationが実在するため、各成分はadmissibleである。
+$\mathcal O(i)$の生成する成分は$\Perf(R)$と同値であり、$R$上smoothである。
+
+相対半直交分解に関するPerryの補題
+\cite[Lemma~4.15(3)]{AinftyPerry2019}により、
+admissibleな各成分がsmoothであることと全体がsmoothであることは同値である。
+この場合の具体的な理由も記しておく。
+全体の対角を残余成分の左右両変数へ制限すると残余対角となり、
+包含の両随伴によりrepresentable双加群はrepresentableへ送られるので、
+全体の対角perfect性は残余対角perfect性を含意する。
+逆に、残余成分と各例外成分がsmoothなら、各貼合せ双加群は
+$R$上perfect（全体がproper）であり、
+smoothな両成分の包絡dg圏上でもperfectである。
+三角dg代数の対角を与える有限三角を使って帰納的に貼り合わせれば
+全体の対角がperfectになる。Morita不変性から式\eqref{eq:ainfty-sm-prime}を得る。
+\end{proof}
+
+\begin{proposition}[二段階のsquare-zeroコホモロジー環]
+\label{prop:ainfty-squarezero}
+$H=H^*(\Lambda_R)$、$U=H^0$、$M=H^n$とおく。
+通常の積について$H=U\ltimes M[-n]$かつ$M^2=0$である。
+各対象指数において
+\[
+ U(i,j)=
+ \begin{cases}B_{j-i}&j\ge i,\\0&j<i,\end{cases}\qquad
+ M(i,j)=
+ \begin{cases}B_{i-j-(n-1)}^\vee&i-j\ge n-1,\\
+ 0&\text{otherwise},\end{cases}
+ \tag{SQ}\label{eq:ainfty-sq}
+\]
+である。$U$の積は$B$の積、$M$への作用は線束の合成と
+Serre双対表示から定まる。
+\end{proposition}
+\begin{proof}
+既存の線束Hom公式\eqref{lp:eq:H}により$H$は次数$0,n$だけにある。
+$m_2$は次数零なので$H^nH^n\subset H^{2n}=0$。
+残る成分の式は\eqref{lp:eq:H}そのものである。
+\end{proof}
+
+\begin{proposition}[相対最小模型の高次演算の間隙]
+\label{prop:ainfty-arity}
+$R$-線形でstrictly unitalな最小$A_\infty$模型を$H$上に取れる。
+その積$m_k$と、$f_1=\mathrm{id}_H$である最小模型の比較同型の成分$f_k$は
+\[
+ m_k=0\quad(k\not\equiv2\!\!\!\pmod n),\qquad
+ f_k=0\quad(k\not\equiv1\!\!\!\pmod n).
+ \tag{AR}\label{eq:ainfty-arity}
+\]
+特に$m_3,\ldots,m_{n+1}$は零であり、
+最初の可能な高次積は$m_{n+2}$、最初の可能な非線形な
+比較同型は$f_{n+1}$である。
+\end{proposition}
+\begin{proof}
+Homの各コホモロジーは有限自由$R$-加群で、
+Hom複体は$R$-perfectである。従って射影複体模型を選べば
+cycle、boundaryの列を分裂でき、単位を保存する
+homotopy transferによって相対最小模型を得る。
+$m_k$のcohomological degreeは$2-k$である。
+次数$n$の入力を$p$個、出力次数を$q\in\{0,n\}$とすれば
+$np+2-k=q$、従って$k\equiv2\pmod n$。
+比較同型$f_k$の次数は$1-k$であり、同じ議論から
+$k\equiv1\pmod n$。strict unital性によって
+単位を含む$k\ge3$の入力では$m_k$が消える。
+\end{proof}
+
+\begin{proposition}[最初のHochschild類と次の二次障害]
+\label{prop:ainfty-hoch}
+$H$を$m_2$による次数付き代数とすると、
+$m_{n+2}$は内部次数$-n$のHochschild cocycleを定め、
+\[
+ [m_{n+2}]\in\HH^{n+2}(H,H)_{-n}
+ \tag{HC}\label{eq:ainfty-hh}
+\]
+は$f_1=\mathrm{id}$のstrictly unitalな最小模型同型に依らない。
+次に現れ得る積は$m_{2n+2}$で、suspended cochainの規約では
+\[
+ \delta m_{2n+2}
+   =-\frac12[m_{n+2},m_{n+2}].
+ \tag{OB}\label{eq:ainfty-ob}
+\]
+従って任意の候補$m_{n+2}$について
+$\frac12[m_{n+2},m_{n+2}]$の
+$\HH^{2n+3}(H,H)_{-2n}$での類の消滅は延長可能性の必要条件である。
+実在する$\Lambda_R$の模型ではこの類は消えるが、
+$m_{2n+2}=0$とは結論しない。
+\end{proposition}
+\begin{proof}
+$m_3,\ldots,m_{n+1}$が零なので、
+長さ$n+3$のStasheff恒等式は$\delta m_{n+2}=0$である。
+同型条件の最初の非自明な式では、$m_{n+2}$の差が
+$\delta f_{n+1}$となるので類は不変である。
+長さ$2n+3$の式は$m_2,m_{2n+2}$の合成と
+$m_{n+2}$同士の挿入からなり、表示したGerstenhaber関係を得る。
+後者の内部次数は$-2n$である。
+\end{proof}
+
+\begin{proposition}[最初の高次積の対象指数制限]
+\label{prop:ainfty-indices}
+$m_{n+2}$の非零候補は、次数$n$の入力を一個持ち
+次数零を出力するもの、または次数$n$の入力を二個持ち
+次数$n$を出力するものだけである。
+前者が$\operatorname{End}^0(\mathcal O(i))=R$を出力するなら、
+指数列は
+\[
+0\to1\to\cdots\to N-1\to0
+\tag{CY}\label{eq:ainfty-cyclic}
+\]
+の$N$個の巡回移動に限る。
+後者では$n$個の正の指数上昇の合計は
+$n,n+1,n+2,n+3$のいずれかであり、
+各上昇幅は高々$4$である。
+\end{proposition}
+\begin{proof}
+式\eqref{eq:ainfty-sq}より、非単位な次数零の射は指数が
+少なくとも一つ上昇し、次数$n$の射は指数が
+$n-1,n,n+1$だけ下降する。
+$m_{n+2}$の次数条件から高次入力数は一個または二個となる。
+出力が同じ指数の場合、$n+1$個の上昇幅の和は
+一個の下降幅に等しい。各上昇幅が$\ge1$、
+下降幅が$\le n+1$なので全ての上昇幅は一、
+下降は$N-1$から$0$に限られる。
+二個の下降幅を$d_1,d_2$、出力の下降幅を$d_0$とすると
+$n$個の上昇幅の和は$d_1+d_2-d_0$で、
+各$d_i\in\{n-1,n,n+1\}$より$n\le u\le n+3$。
+一つでも上昇幅が$5$以上なら$u\ge n+4$となり矛盾する。
+\end{proof}
+
+\begin{remark}[cubic fivefoldの有限計算の範囲]
+$n=5,N=7$なら高次積候補は$m_7,m_{12},m_{17},\ldots$。
+$H^0$と$H^5$の全$R$-階数は既存の命題\ref{lp:prop:ranks}で
+それぞれ$2838,45$である。
+strictly unitalな指数列に限ると、
+$m_7$の対象指数配置は出力$H^0$側$2478$通り、
+出力$H^5$側$303$通りで、前者の対角指数への出力は$7$通り。
+これはHomのベクトル空間基底を数えた値ではない。
+計算は\texttt{computations/verify\_minimal\_ainfty\_arity.py}で再現できる。
+縮約$(i,p,h)$を実際に選べば、$m_7$は七葉の平面二分木
+$C_6=132$個による有限和として計算できる。
+しかし高次積の係数・相対bar右逆をまだ得ていない。
+
+$m_7$を二度挿入する許容指数列として
+\[
+ 0\to1\to2\to3\to4\to0\to1\to2\to3
+ \to4\to0\to1\to2\to3
+\]
+がある。二つの$4\to0$が次数$5$で、それ以外は次数零。
+最初の七射の$m_7$出力は$0\to2$の次数零に、
+その出力を含む外側の$m_7$は$0\to3$の次数零に
+入り得る。従って$[m_7,m_7]$は指数条件だけでは消えない。
+非零の値やHochschild障害類を計算した主張ではない。
+特に、ここから$\Gamma_R\in\Perf(\Gamma_R^e)$を結論してはならない。
+\end{remark}

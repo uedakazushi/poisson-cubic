@@ -58,3 +58,10 @@ SMなしにERを適用しない。perfect対象moduliの代数性だけで可換
 - `notes/sm_bar_and_spreading.tex` に有限bar段階のretract判定・generic spreadingの完全な証明を記載した。**generic smoothness が既に判明すれば**局所化上の相対smoothnessが得られるが、特殊ファイバーのsmoothnessだけからgenericを結論しない。有限barの右逆を実際に持ち上げることを優先する。
 - `notes/source_recovery/dg_perfectness_counterexamples.tex` にArtin切断や特殊ファイバーのperfect性だけから相対perfectnessが従わない反例を保持する。ただし特殊ファイバーdg代数自体がsmoothでないため、これをSM失敗の反例とは扱わない。
 - 例外的に追跡中のPDF原本は転送・全定理照合を確認するまで保持する。GitHubに反映したと報告するのは遠隔コミットとblobを再取得できた場合だけ。
+
+## A∞経路の現行研究指示（2026-11-10）
+
+- 可換復元のSMは線束生成子 `Lambda_R` の相対smoothnessと同値。既知の半直交分解smoothness定理を適用して証明した `papers/sections/minimal_ainfty_arity.tex` を最初に参照する。残余Gammaの非明示的な対角の代わりにLambdaの有限bar対角を計算する。
+- `H=H^0⊕H^n`、strictly unital minimal A∞の演算arityは `k=2 (mod n)`。fivefoldで最初が$m_7$、次は$m_{12}$。$m_7$のHochschild類、二次障害$[m_7,m_7]$を分けて計算する。
+- `computations/verify_minimal_ainfty_arity.py` と証明書は対象指数の必要条件のみを検算する。実際の$m_7$係数やSM成立を計算済みと主張しない。
+- 係数を求めるには、`papers/sections/nonelliptic_quantization.tex` の具体的二パラメータ代数と、`papers/sections/local_projective_model.tex` のHom/底変更を使って相対dg縮約$(i,p,h)$を選ぶことが最初の課題。高次積すべてを$m_7$だけで代替してはならない。

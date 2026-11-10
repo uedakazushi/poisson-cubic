@@ -1,6 +1,6 @@
 # 研究方針：cubicのPoisson構造・量子化・可換復元
 
-**2026年11月10日・v19。再開時は最初に本ファイルを読む。**
+**2026年11月10日・v20。再開時は最初に本ファイルを読む。**
 
 ## 正本と最優先事項
 
@@ -97,3 +97,11 @@ Brill–Noether・Pfaffian接触の独立技術原稿、中心曲面判別式の
 ### 有限bar模型の明確な目標
 
 `notes/sm_bar_and_spreading.tex` に、proper dg代数の相対対角がsmoothである必要十分条件として、ある有限bar-skeleton `P_d → Gamma_R` の右逆の存在を証明した。またgeneric fiberでのsmoothnessから非空局所化上の相対smoothnessが従うが、**special smoothnessからgeneric smoothnessは未証明**である。次に必要なものは節点・尖点二成分の実際の相対bar右逆、または同等の有限perfect対角証明書である。元の34ページPDFの第18--21節からTeXを回復したが全PDF復元ではない。
+
+## 相対対角の計算対象を縮小した現行方針
+
+局所proper模型の有限$R$-例外列による半直交分解で、相対smoothness (SM) は残余dg代数 `Gamma_R=REnd(G)` と線束生成子のdg代数 `Lambda_R=REnd(⊕_{i=0}^{n+1}O(i))` について同値である（証明：`papers/sections/minimal_ainfty_arity.tex`、既知の相対半直交分解定理Perry Lemma 4.15(3)の適用）。以後は**Homを明示できるLambda側の対角を先に試す**。この同値はSMそのものの証明ではない。
+
+`H^*(Lambda_R)=H^0⊕H^n` なのでstrictly unitalな最小相対A∞模型で `m_k=0`（`k≠2 mod n`）。fivefoldでは最初が `m_7`、次に `m_12`。最初の `[m_7]∈HH^7(H,H)_{-5}` はHochschild類、次に `δm_12=−[m_7,m_7]/2` が必要となる。純粋な次数・指数配置だけで$m_{12}$を消してはならない。計算証明書は `computations/verify_minimal_ainfty_arity.py` と `computations/minimal_ainfty_arity_certificate.json`。
+
+**次の実作業：** 有限コホモロジー模型 `Lambda_R` の相対縮約 `(i,p,h)` を構成し、$m_7$を132本の平面二分木式で求め、Stasheff恒等式および$m_{12}$への障害を確かめる。続いて有限bar-skeletonの増大写像の**実際の右逆**を探す。係数や有限対角証明書はまだ存在を示していない。旧PDFのTeX化や境界研究よりこの計算を優先する。

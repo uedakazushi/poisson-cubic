@@ -69,4 +69,18 @@ if args.run_computations:
                          cwd=ROOT,capture_output=True,text=True)
         if r.returncode: raise AssertionError(f"{name}: {r.stdout}\n{r.stderr}")
         print(f"PASS exact computation {name}")
+
+# Combinatorial prerequisite for a finite A-infinity diagonal search
+import json
+with __import__("tempfile").TemporaryDirectory(prefix="nc-cubic-ainfty-") as d:
+    dest = __import__("pathlib").Path(d)/"arity.json"
+    r = subprocess.run([sys.executable, str(ROOT/"computations/verify_minimal_ainfty_arity.py"),
+                        "--output", str(dest)], cwd=ROOT, capture_output=True, text=True)
+    if r.returncode:
+        raise AssertionError(f"A-infinity arity computation failed: {r.stdout}\n{r.stderr}")
+    expected = json.loads((ROOT/"computations/minimal_ainfty_arity_certificate.json").read_text())
+    actual = json.loads(dest.read_text())
+    assert actual == expected, "A-infinity arity certificate mismatch"
+    print("PASS exact A-infinity arity and index-pattern audit (not higher products)")
+
 print("Static audit complete. Mathematical categorical proofs are not formalized.")

@@ -118,3 +118,13 @@ GitHub mainだけを正本とし、研究の区切りに全文と再現資産を
 ## Hochschildの奇数次sectorと形式的障害
 
 BFK Theorem 5.39に従えば、非自明μ₃-sectorは3|Nの場合にq=N/3に限り二次元で、そのrotation固有値はζ,ζ²。恒等sectorは偶数次のみ。従って`HH³(Ku(X))^rho=0`は全cubic n≥3で成立し、n=5では`(dim HH⁰,...,dim HH⁴)=(1,0,35,0,7)`。n=7の場合のみHH³自体は二次元。通常の第一Morita変形障害が消えることは、残余対角SMの実在的な証明書を与えることではない。本文`papers/reconstruction/hochschild_obstructions.tex`と検算`computations/verify_hochschild_sectors.py`を参照する。
+
+## 線束生成子を使う新しいSM実装経路
+
+有限例外列の左右admissibilityから、`Gamma_R` のsmoothnessと `Lambda_R=REnd(⊕O(i))` のsmoothnessが同値になる。Perryの相対半直交分解定理(Lemma 4.15(3))を現在のproper局所模型に適用する。残余mutation対象のEndの具体係数を先に求めなくてもよい。
+
+`H^0(Lambda)` は順序つき線束間の `B_{j-i}` を成分とする有向代数、`H^n(Lambda)` は `B_{i-j-(n-1)}^∨` を成分とするsquare-zero双加群。最小模型では$m_k$が `k=2 mod n` に限られる。fivefoldの$m_7$の対象指数列は出力H0側2478、H5側303通り、うちRスカラー出力は7巡回配置。これは各Hom空間内の基底数でなく、許容対象の並びの整数計算である。
+
+$m_7$は初期Hochschild cocycleを定めるが、次の$m_{12}$に$[m_7,m_7]$が現れる。指数列だけでは二次障害は消えない。実際の非可換量子化に対する$m_7$の係数計算と有限bar右逆は**未実行・未完成**。
+
+証明は `papers/sections/minimal_ainfty_arity.tex`、再現は `python3 computations/verify_minimal_ainfty_arity.py --output /tmp/nc-cubic-arity.json`。Perry (2019) の既知の半直交smoothness判定、Petersen (2020)・Burke (2018) のhomotopy transferと、本研究の対象への具体的指数制約を区別する。

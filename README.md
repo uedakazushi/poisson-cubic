@@ -84,3 +84,7 @@ Reye 曲線・停留平面に関する原論文PDF（77頁）、部分復元TeX�
 ## 三目標への集中と独立研究の移管
 
 独立したPfaffian・Brill–Noether境界研究の**証明全文**（大部の独立TeX）と中心曲面の判別式・検算コードは [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) の `main` へGit blob一致で移管した。主研究のPoisson構造・量子化・可換復元に必要な原稿とSMの反例・正則性補題は本リポジトリに保持する。境界PDFの一部はGitHub APIのバイナリ制約により**まだ本リポジトリに保全**しており、転送したとは扱わない。可換復元のSMを進めるため、境界原稿の全面再構築を当面の優先課題にしない。
+
+## 相対smoothnessの線束生成子による判定
+
+論文Cの `papers/sections/minimal_ainfty_arity.tex` に、残余dg代数と線束生成子dg代数の相対smoothnessが同値であること、および相対最小A∞模型の高次積の制約を証明した。fivefoldの$m_7$の対象指数配置は2478+303通り、最初のHochschild類と$m_{12}$の二次障害を区別する。検算：`python3 computations/verify_minimal_ainfty_arity.py`。**実際の$m_7$係数や残余smoothnessは未証明**。
