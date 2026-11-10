@@ -6,3 +6,5 @@
 - `papers/source_recovery/central_cubic_generic_smoothness.tex`：`papers/pdf-only/ambient/central_cubic_technical.pdf` に相当する比較稿第28節 pp.43–44 の中心二チャートによる判定とvery-general正則性。
 
 他の数学的成果も失われないよう、各原PDFは全章・全証明との照合が済むまではGitで保持する。全体の進捗と残作業は `TODO_PDF_SOURCES.md` に記す。
+
+- `papers/source_recovery/central_fiber_discriminant.tex`：原論文VI（`central_quotient_singularities.pdf`）第15節 pp.25–27 の中心曲面の判別式と特異点の分類。検証コードは `computations/source_recovery/verify_central_fiber_discriminant.py`。Azumaya・Brauer・非可換tailsの残りはPDFに保持。

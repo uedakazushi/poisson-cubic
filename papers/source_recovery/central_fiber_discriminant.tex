@@ -1,0 +1,148 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage{amsmath,amssymb,amsthm,mathtools,hyperref,luatexja-fontspec}
+\setmainjfont{HaranoAjiMincho-Regular}
+\newtheorem{proposition}{命題}[section]
+\newtheorem{remark}[proposition]{注意}
+\renewcommand{\proofname}{証明}
+\title{中心三次曲面の正確な判別式と特異点}
+\author{非可換cubic threefold研究・TeX復元資料}
+\date{2026年11月10日・v1}
+\begin{document}
+\maketitle
+\begin{abstract}
+追跡中の\texttt{papers/pdf-only/boundary/central\_quotient\_singularities.pdf}
+（論文VI、2026年11月1日版）の第15節（pp.~25--27）から、
+中心三次曲面の必要十分判別条件を証明付きでTeX化する。
+可換中心の滑らかさを判定する命題であり、これ単独では
+非可換代数のAzumaya性やtailsの有限大域次元は従わない。
+\end{abstract}
+\section{中心ファイバー}
+標数零の代数閉体$k$上、$H$をパラメータとして
+\[
+P_H(U)=49U^3-(13H+14)U^2+(H+1)^2U,\qquad
+m_H(U)=11U-H-1
+\]
+および
+\[
+F_H(U,V,W)=P_H(U)+m_H(U)VW+V^3-W^3
+\]
+と置く。$Z_H=V(F_H)\subset\mathbb A^3_k$とする。
+
+\begin{proposition}[中心曲面の必要十分判別式]\label{prop:disc}
+$Z_H$が滑らかであるための必要十分条件は
+\[
+\boxed{H(H+1)(27H+28)\ne0}
+\]
+である。特異ファイバーの特異点は$\zeta^3=1$として
+\[
+\begin{array}{c|l|c}
+H &(U,V,W)&\text{点数}\\ \hline
+0 & (1/7,0,0),\quad(-1,-4\zeta,4\zeta^2)&4\\
+-1 &(0,0,0)&1\\
+-28/27 &(1/189,0,0)&1
+\end{array}
+\]
+で尽くされる。$H=-28/27$の唯一の点$p$において
+\[
+\frac{\partial F_H}{\partial H}(p)=-\frac1{1323},\qquad
+\det\operatorname{Hess}_{U,V,W}(F_H)(p)=-\frac8{1701}.
+\]
+したがってこの中心曲面の特異点は通常二重点であるが、
+$H=g^2$と置いて得られる全中心はその点で滑らかである。
+\end{proposition}
+\begin{proof}
+$m=m_H(U)$と略記すると
+\[
+(F_H)_V=mW+3V^2,\quad
+(F_H)_W=mV-3W^2,\quad
+(F_H)_U=P'_H(U)+11VW.
+\]
+最初の二式から$V=0\Longleftrightarrow W=0$である。
+
+まず$V=W=0$では$P_H=P'_H=0$が特異点条件になる。
+\[
+P_H(U)=UQ_H(U),\qquad
+Q_H(U)=49U^2-(13H+14)U+(H+1)^2
+\]
+であり、$Q_H$の判別式は
+\[
+(13H+14)^2-196(H+1)^2=-H(27H+28).
+\]
+さらに
+\[
+\operatorname{Disc}_U(P_H)
+=-H(H+1)^4(27H+28).
+\]
+該当する三値では
+\[
+P_0=U(7U-1)^2,\quad
+P_{-1}=U^2(49U-1),\quad
+P_{-28/27}=49U(U-1/189)^2.
+\]
+よって表の軸上の各一点を得る。
+
+次に$VW\ne0$なら$m\ne0$であり、二つの偏微分式から
+\[
+V=\frac m3\zeta,\qquad W=-\frac m3\zeta^2,\qquad
+\zeta^3=1,\qquad VW=-\frac{m^2}{9}.
+\]
+残る特異点条件は
+\[
+D_H(U)=D'_H(U)=0,\qquad
+D_H(U):=27P_H(U)-m_H(U)^3
+\]
+と同値である。展開すると
+\[
+D_H(U)=-8U^3+(12H-15)U^2-6(H+1)^2U+(H+1)^3
+\]
+で、その判別式は
+\[
+\operatorname{Disc}_U(D_H)
+=-78732H(H+1)^3.
+\]
+したがって新たな特異パラメータは生じない。
+$H=0$では$D_0=-(U+1)^2(8U-1)$なので、
+$U=-1,m=-12$から表の三点を得る。
+$H=-1$では$D_{-1}=-U^2(8U+27)$であり、
+重根$U=0$は$m=0$となり軸外にはない。
+
+最後に
+\[
+\frac{\partial F_H}{\partial H}
+=-13U^2+2(H+1)U-VW.
+\]
+$H=-28/27$, $U=1/189$, $V=W=0$に代入すれば
+$-1/1323$となる。またHessianは
+\[
+\begin{pmatrix}14/27&0&0\\0&0&2/21\\0&2/21&0\end{pmatrix},
+\]
+その行列式は$-8/1701$である。$H=g^2\ne0$なので
+$\partial_gF=2g\,\partial_HF\ne0$となり、
+$g$を含む全中心は滑らかである。
+\end{proof}
+\section{混合パラメータへの変換}
+\begin{proposition}
+混合族の正規化において$H=9/\alpha^3$（$\alpha\ne0$）なら
+\[
+Z_H\text{が滑らか}
+\quad\Longleftrightarrow\quad
+(\alpha^3+9)(28\alpha^3+243)\ne0.
+\]
+\end{proposition}
+\begin{proof}
+$H=0$は有限非零$\alpha$では起こらない。
+$H=-1$は$\alpha^3=-9$と、
+$H=-28/27$は$\alpha^3=-243/28$と同値なので
+命題\ref{prop:disc}から従う。
+\end{proof}
+\begin{remark}[復元の範囲]
+非可換tailsの必要十分判別式そのものには
+有限中心上のAzumaya性、局所global dimension、
+graded matrix factorizationの議論が別途必要である。
+元の論文VIではそれらを用いて同じ因子がtailsの
+正確な判別式にもなることを証明している。
+本稿はその証明のうち中心曲面部分だけを復元したものであり、
+原PDF全体の追跡解除を正当化しない。
+この判別式の初出・新規性の確認も別課題とする。
+\end{remark}
+\end{document}

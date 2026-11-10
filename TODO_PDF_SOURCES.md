@@ -16,7 +16,7 @@
 - [ ] `papers/pdf-only/ambient/central_cubic_technical.pdf`：中心三次量子化の詳細。関連候補 `papers/sections/poisson_geometry.tex`、`papers/generic17_ambient_recovery.tex`、`sources/candidates/poisson_ambient_bridge_v6.tex`。**第28節の中心チャート貼合せとvery-general正則性の命題・証明は `papers/source_recovery/central_cubic_generic_smoothness.tex` に部分的にTeX化済み（未完全照合）。**中心元の有限公式、AS正則性、一般軌道、正則 locus 等についてPDFの命題・証明と照合する。
 - [ ] `papers/pdf-only/ambient/central_pair_formal_moduli.pdf`：中心三次対、全Artin比較、偏極付き復元。関連候補 `papers/generic17_ambient_recovery.tex`、`papers/boundary/pfaffian_brill_noether_technical.tex`、`papers/sections/poisson_geometry.tex`。全Artin次数での同型と局所化、低次数中心の証明を点検する。
 - [ ] `papers/pdf-only/boundary/brill_noether.pdf`：Brill–Noether境界。関連候補 `papers/boundary/pfaffian_brill_noether_technical.tex`、`papers/sections/mixed_center_picard.tex`。相対Picard、接錐、6次境界Torelliの定理・証明・仮定を逐一比較する。
-- [ ] `papers/pdf-only/boundary/central_quotient_singularities.pdf`：中心商と特異圏。関連候補 `papers/sections/rotation_models.tex`、`notes/research_notes.tex`、`papers/boundary/pfaffian_brill_noether_technical.tex`。有限正則性判別、Brauer・行列因子化・特異圏について未収録の補題を探索する。
+- [ ] `papers/pdf-only/boundary/central_quotient_singularities.pdf`：中心商と特異圏。関連候補 `papers/sections/rotation_models.tex`、`notes/research_notes.tex`、`papers/boundary/pfaffian_brill_noether_technical.tex`。**中心曲面の完全判別式・特異点・混合パラメータへの変換は `papers/source_recovery/central_fiber_discriminant.tex` に証明付きで移植済み。Azumaya locus、Brauer指数6、非可換tails判別の完全証明は未収録。**有限正則性判別、Brauer・行列因子化・特異圏について未収録の補題を探索する。
 - [ ] `papers/pdf-only/boundary/pfaffian_contact.pdf`：Pfaffian/contact型境界。関連候補 `papers/boundary/pfaffian_brill_noether_technical.tex`、`papers/sections/all_poisson_components.tex`。接触同値・高次正規形・計算証明書を対応させる。
 - [ ] `papers/pdf-only/boundary/reye_stationary.pdf`：停留平面／Reye曲線。**独立した対応TeXの確証なし・優先度高**。既存の包括TeXでは「Reye」「停留平面」の明示節が未発見。元の論文IVソースを旧bundle等から回収するか、PDFとの厳密照合の上で現行TeXへ復元する。
 - [ ] `papers/pdf-only/quantization/sklyanin_mixed_quantization.pdf`：Sklyanin型の混合量子化・点加群・可換対応。関連候補 `papers/sections/explicit_hesse_center.tex`、`papers/sections/elliptic_reconstruction.tex`、`papers/boundary/pfaffian_brill_noether_technical.tex`、`sources/candidates/elliptic_v5/`。**大部な原PDF全体のTeXは未確認**。全混合項、例外値、点スキーム、同型判定を比較する。
@@ -38,6 +38,15 @@
 - [x] `papers/pdf-only/ambient/central_cubic_technical.pdf` に対応する比較原稿第28節（pp.43–44）の二つの中心チャートと一般中心値による正則性を `papers/source_recovery/central_cubic_generic_smoothness.tex` に復元。**外部の非可換Bertini型補題の独立再監査はしていない。**
 - [ ] 上の二つのソースを既存原稿へ統合する。TeX化した節以外をPDFから再現できるようにするまでは**両方のPDFを保持**する。
 - [ ] TeX化した本文の原PDFとの対応（仮定・式・証明・参照）を最終校訂する。手元のLuaLaTeX試験はdg反例の対応草稿のみで、GitHub収録版と中央チャート版の完全な組版を保証しない。
+
+## 2026-11-10：９本の原本を確定・照合した追加進捗
+
+- [x] GitHubで追跡中のPDF９本に対応する原本（同一バイトサイズのLibrary PDF）をすべて特定し、９本の目次・総ページ数を点検。合計651ページ。照合表は `SOURCE_RECOVERY_AUDIT_20261110.md`。
+- [x] 論文VIの中心三次曲面の必要十分判別式 `H(H+1)(27H+28)` と特異点の分類を証明付きで `papers/source_recovery/central_fiber_discriminant.tex` に移植。混合パラメータの因子 `(α³+9)(28α³+243)` への変換も移植。
+- [x] 判別式２本、特殊点のHessian、`H=9` のGroebner基底を有理数演算で確認。再現用 `computations/source_recovery/verify_central_fiber_discriminant.py` を追加。
+- [ ] 論文VIの非可換tailsへの判別式昇格を証明するAzumaya性・local order・Brauer指数6・特異圏の資料をTeX化する。中心曲面の判別式だけで済ませない。
+- [ ] 論文IV（Reye）を優先的に復元する。現状、主要結果（275/550、monodromy、長さ2/3の変形）の独立した対応TeXが不明。
+- [ ] 総651ページを一つの現行原稿に機械的に結合するのではなく、原PDFごとの章・定理・証明・依存計算の完全照合後にPDFを追跡解除する。
 
 ## PDFを一つ外すためのチェック項目
 

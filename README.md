@@ -60,3 +60,5 @@ python3 reconstruction/scripts/verify.py
 ## 未照合PDFと関連TeXの整理TODO
 
 追跡中PDF9本と関連TeXの対応候補、全証明の照合・組版・追跡解除の条件は [`TODO_PDF_SOURCES.md`](TODO_PDF_SOURCES.md) に管理する。取り込み済みの別原稿は `sources/candidates/` に暫定配置し、現行の主論文は上書きしない。
+
+原PDF全９本のページ数・対応ソース監査は [`SOURCE_RECOVERY_AUDIT_20261110.md`](SOURCE_RECOVERY_AUDIT_20261110.md)、部分証明の移植は `papers/source_recovery/` と `notes/source_recovery/` を参照する。
