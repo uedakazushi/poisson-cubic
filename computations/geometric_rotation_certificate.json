@@ -1,0 +1,209 @@
+{
+  "version": "nc-cubic-v33",
+  "date": "2026-11-11",
+  "scope": "Finite arithmetic and bounded-free-complex checks only.",
+  "sector_formula_input": "identity: even j, Jac degree r+3j/2; nonidentity: j=N mod2 and 2r+3j-N=0",
+  "sector_cases_checked": 56,
+  "sector_samples": [
+    {
+      "N": 5,
+      "r": 1,
+      "neighbor_dimensions": [
+        0,
+        5,
+        2
+      ]
+    },
+    {
+      "N": 5,
+      "r": 2,
+      "neighbor_dimensions": [
+        0,
+        10,
+        0
+      ]
+    },
+    {
+      "N": 6,
+      "r": 1,
+      "neighbor_dimensions": [
+        0,
+        6,
+        0
+      ]
+    },
+    {
+      "N": 6,
+      "r": 2,
+      "neighbor_dimensions": [
+        0,
+        15,
+        0
+      ]
+    },
+    {
+      "N": 7,
+      "r": 1,
+      "neighbor_dimensions": [
+        0,
+        7,
+        0
+      ]
+    },
+    {
+      "N": 7,
+      "r": 2,
+      "neighbor_dimensions": [
+        0,
+        21,
+        2
+      ]
+    },
+    {
+      "N": 8,
+      "r": 1,
+      "neighbor_dimensions": [
+        0,
+        8,
+        0
+      ]
+    },
+    {
+      "N": 8,
+      "r": 2,
+      "neighbor_dimensions": [
+        0,
+        28,
+        0
+      ]
+    }
+  ],
+  "nonzero_H1_lifting_examples": [
+    {
+      "H0_rank": 5,
+      "H1_rank": 2,
+      "polynomial_chain_conjugacy": true,
+      "coordinate_lifts_are_cycles": true,
+      "artin_checks": [
+        {
+          "m": 0,
+          "H0_Q_dimension": 5,
+          "H1_Q_dimension": 2,
+          "closed_basis_mod_boundaries": true
+        },
+        {
+          "m": 1,
+          "H0_Q_dimension": 10,
+          "H1_Q_dimension": 4,
+          "closed_basis_mod_boundaries": true
+        },
+        {
+          "m": 2,
+          "H0_Q_dimension": 15,
+          "H1_Q_dimension": 6,
+          "closed_basis_mod_boundaries": true
+        },
+        {
+          "m": 3,
+          "H0_Q_dimension": 20,
+          "H1_Q_dimension": 8,
+          "closed_basis_mod_boundaries": true
+        },
+        {
+          "m": 4,
+          "H0_Q_dimension": 25,
+          "H1_Q_dimension": 10,
+          "closed_basis_mod_boundaries": true
+        }
+      ]
+    },
+    {
+      "H0_rank": 21,
+      "H1_rank": 2,
+      "polynomial_chain_conjugacy": true,
+      "coordinate_lifts_are_cycles": true,
+      "artin_checks": [
+        {
+          "m": 0,
+          "H0_Q_dimension": 21,
+          "H1_Q_dimension": 2,
+          "closed_basis_mod_boundaries": true
+        },
+        {
+          "m": 1,
+          "H0_Q_dimension": 42,
+          "H1_Q_dimension": 4,
+          "closed_basis_mod_boundaries": true
+        },
+        {
+          "m": 2,
+          "H0_Q_dimension": 63,
+          "H1_Q_dimension": 6,
+          "closed_basis_mod_boundaries": true
+        },
+        {
+          "m": 3,
+          "H0_Q_dimension": 84,
+          "H1_Q_dimension": 8,
+          "closed_basis_mod_boundaries": true
+        },
+        {
+          "m": 4,
+          "H0_Q_dimension": 105,
+          "H1_Q_dimension": 10,
+          "closed_basis_mod_boundaries": true
+        }
+      ]
+    }
+  ],
+  "zero_H1_lifting_example": {
+    "H0_rank": 10,
+    "H1_rank": 0,
+    "polynomial_chain_conjugacy": true,
+    "coordinate_lifts_are_cycles": true,
+    "artin_checks": [
+      {
+        "m": 0,
+        "H0_Q_dimension": 10,
+        "H1_Q_dimension": 0,
+        "closed_basis_mod_boundaries": true
+      },
+      {
+        "m": 1,
+        "H0_Q_dimension": 20,
+        "H1_Q_dimension": 0,
+        "closed_basis_mod_boundaries": true
+      },
+      {
+        "m": 2,
+        "H0_Q_dimension": 30,
+        "H1_Q_dimension": 0,
+        "closed_basis_mod_boundaries": true
+      },
+      {
+        "m": 3,
+        "H0_Q_dimension": 40,
+        "H1_Q_dimension": 0,
+        "closed_basis_mod_boundaries": true
+      },
+      {
+        "m": 4,
+        "H0_Q_dimension": 50,
+        "H1_Q_dimension": 0,
+        "closed_basis_mod_boundaries": true
+      }
+    ]
+  },
+  "missing_lift_counterexample": {
+    "ring": "Q[h]/h^2",
+    "complex": "[R --h--> R] in degrees0,1",
+    "special_H0_dimension": 1,
+    "image_of_cycles_under_reduction": 0
+  },
+  "not_verified": [
+    "Geometric derived Morita theorem or relative kernel construction.",
+    "Existing formal MF/Artin residual equivalences and characteristic map.",
+    "The noncommutative finite-diagonal matrix computation.",
+    "Generic algebraic categorical equivalence."
+  ]
+}

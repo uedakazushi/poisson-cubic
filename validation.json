@@ -1,207 +1,100 @@
 {
-  "version": "nc-cubic-v32",
+  "version": "nc-cubic-v33",
   "date": "2026-11-11",
-  "authoritative": "GitHub uedakazushi/nc-cubic main; Library only after actual GitHub publication failure.",
+  "authoritative": "GitHub uedakazushi/nc-cubic main; Library only after actual publication failure.",
   "current_entry": "00_research_plan.md",
-  "scope": "For mixed quantum cubic with independent central v^3, mu3(v) symmetry kills all first and higher Artin obstruction classes in rotation degree one conditional on actual equivariant, flat, strictly Artin-compatible derived Nat complexes.",
+  "scope": "Geometric projected kernels bypass general MF kernel comparison: actual low rotation Nat is perfect and satisfies all Artin H0 base changes for smooth cubics in N>=5 variables. Noncommutative application explicitly depends on existing F and D. Generic equivalence remains open.",
   "proofs_written_and_checked": [
     {
-      "source": "papers/reconstruction/multiplicative_bar_comparison.tex",
+      "source": "papers/reconstruction/geometric_rotation_basechange.tex",
       "labels": [
-        "mb:lem:perturbation",
-        "mb:lem:uniqueness",
-        "mb:lem:cap",
-        "mb:thm:yoneda-cup"
+        "gr:lem:lifts"
       ],
-      "status": "Proof and signs reviewed; requires the stated bounded projective resolution and homogeneous special bar retract. Existing all-order Koszul/PBW input not fully reaudited."
+      "status": "Proved by the finite maximal-ideal filtration of the cone of closed basis lifts; H1 vanishing is not assumed."
     },
     {
-      "source": "papers/reconstruction/multiplicative_bar_comparison.tex",
+      "source": "papers/reconstruction/geometric_rotation_basechange.tex",
       "labels": [
-        "mb:prop:characteristic",
-        "mb:cor:arity",
-        "mb:thm:artin-criterion"
+        "gr:thm:perfect-target",
+        "gr:lem:field",
+        "gr:thm:bc"
       ],
-      "status": "Multiplicative characteristic map and arity bounds proved; actual all-Artin isomorphism conditional on target BC, which is NOT established here."
+      "status": "Proof reviewed using Toen relative derived Morita, perfect geometric kernels and proper perfect base change. Commutative theorem has no KF or finite-group-symmetry hypothesis."
     },
     {
-      "source": "papers/reconstruction/multiplicative_bar_comparison.tex",
+      "source": "papers/reconstruction/geometric_rotation_basechange.tex",
       "labels": [
-        "mb:prop:algebraic-normal-form"
+        "gr:lem:derived-generation"
       ],
-      "status": "Four algebraic equations, invertible Jacobian, and first coefficients proved for the computed lambda=1 candidate, NOT unconditionally for the selected categorical W."
+      "status": "Derived generator lifting requires K-flat Hom and the correct derived fiber, unlike the false termwise-free version. The existing positive-graded MF Hom HPL argument was inspected."
     },
     {
-      "source": "papers/reconstruction/relative_artin_sector.tex",
+      "source": "papers/reconstruction/geometric_rotation_basechange.tex",
       "labels": [
-        "ras:lem:gradient",
-        "ras:lem:nilpotent",
-        "ras:lem:generator",
-        "ras:prop:kernel-action",
-        "ras:prop:sectors",
-        "ras:thm:bc",
-        "ras:cor:formal-G"
+        "gr:cor:nc",
+        "gr:cor:formal-polynomial"
       ],
-      "status": "Relative graded Jacobian Koszul exactness and Artin-flatness, nilpotent comparison and sector parity demonstrated. Target categorical BC conditional on chain-level kernel comparison and reduction (KF), NOT established."
-    },
-    {
-      "source": "papers/reconstruction/diagonal_kernel_identity.tex",
-      "labels": [
-        "dki:thm:identity",
-        "dki:cor:unit",
-        "dki:rem:kf",
-        "dki:ex:kflat"
-      ],
-      "status": "Explicit divided-difference strong deformation retract/curved HPL, objectwise unit only. Kernel-functor full faithfulness NOT established."
-    },
-    {
-      "source": "papers/reconstruction/artin_rotation_obstructions.tex",
-      "labels": [
-        "aro:prop:sector-neighbors",
-        "aro:lem:neighbor-vanishing",
-        "aro:prop:first-obstruction",
-        "aro:prop:generator-counterexample"
-      ],
-      "status": "Field sector formula specialized from BFK Thm5.39; nilpotent cochain lifting, first obstruction and two-periodic counterexample written; does NOT compute nc Nat."
-    },
-    {
-      "source": "papers/reconstruction/relative_artin_sector.tex",
-      "labels": [
-        "ras:lem:generator",
-        "ras:thm:bc"
-      ],
-      "status": "CORRECTED false unqualified Artin Morita generator-lifting lemma. Valid conditional statement requires a genuine derived two-sided bar evaluation, flatness and compatible reduction. KF and derived Morita input not verified."
-    },
-    {
-      "source": "papers/reconstruction/central_symmetry_lifting.tex",
-      "labels": [
-        "csl:prop:characters",
-        "csl:lem:equivariant-lift",
-        "csl:thm:conditional-bc"
-      ],
-      "status": "BFK normal-determinant character and Artin small-extension lifting proof written and checked. Actual equivariant, Artin-compatible, flat derived Nat complexes not constructed; KF/BC remain conditional."
+      "status": "BC and the lambda=1 polynomial/formal-model comparison follow under the explicitly retained existing formal residual equivalence F and multiplicative characteristic input D. These inputs were not all independently reaudited."
     }
   ],
   "executed_exact_checks": {
-    "bar_comparison": "M_2(Q)[z]/z^2: 144 curvature words, 288 cap differential words, 360 cap product words; 30 finite SDR homotopies (25 nonzero defects); direct binary substitution and algebraic-normal-form Jacobian 9 with exact coefficients.",
-    "certificate": "Regenerated by scripts/verify_bar_assets.py and matched tracked bar_comparison_certificate.json as JSON.",
-    "finite_recovery": "verify_finite_recovery.py reexecuted and matched tracked certificate as JSON.",
-    "source_audit": "Standalone input closure, internal labels/citations, parent C input and shared bibliography inclusion checked. Complete A/B/C source closure not reaudited.",
-    "artin_sectors": "Executed exact SymPy Groebner for lambda=1 special cubic and computed candidate at h=1/2: both Hilbert [1,5,10,10,5,1], length32; checked base-change counterexample. Does not verify categorical Nat.",
-    "relative_source_audit": "Standalone v29 references, labels and exact certificate audited locally; parent C source input and shared bibliography updated in this commit.",
-    "diagonal_identity": "606 exact symbolic polynomial identities: rank2 unary cubic (122) and rank4 mixed binary cubic (484); plus dual number non-K-flat example.",
-    "artin_rotation_obstructions": "Local original research source exact finite check PASS (BFK weight arithmetic assumed, dual-number counterexample and toy 2x5 obstruction); new repository script matches this logic but not independently run after upload.",
-    "central_symmetry": "Exact finite character calculation with both determinant-duality conventions and artificial 2x5 obstruction matrix; certificate regenerates and matches. This is NOT a computation of derived Nat."
+    "geometric_rotation": "56 field-sector arithmetic cases; 15 Artin truncations of three bounded-free toy complexes with actual closed basis lifts, including nonzero H1; missing-closed-lift counterexample.",
+    "certificate": "verify_geometric_rotation_assets.py regenerated the certificate and matched tracked JSON.",
+    "source_audit": "New standalone complete input closure, labels, citations and parent C/shared bibliography integration passed. Existing parent input list retained; full A/B/C closure not executed."
   },
-  "retained_verification": {
-    "regular_diagonal": "Unmodified v27 Q(h) witness, regularity at h=0, all 16 products, ranks, unit minor -3 and kernel retained; full matrix construction NOT rerun this turn.",
-    "full_witness_sha256": "88d62952bfa999f57e454d68ec341b3fe8bea8df69a649710280d5b119404b78",
-    "denominator_audit": "455 coefficients with monic lcm (h^3-1)(h^6+162), retained existing computation.",
-    "standalone_curved_diagonal": "Unchanged standalone source retains its v27 10-page build/visual-review record; not recompiled this turn."
-  },
-  "retained_without_full_reaudit": [
-    "All mathematical proofs of papers A and B.",
-    "Existing formal MF, Artin residual, SM/ER, elliptic/nonelliptic and finite-diagonal comparisons in paper C.",
-    "Full v27 regular diagonal matrix computation; generic rational base implementation and certificate."
+  "retained_results_and_checks": [
+    "Existing A/B proofs, formal MF and Artin residual comparisons, finite algebraic recovery, finite-diagonal matrices and cup/characteristic comparison remain unchanged.",
+    "v27 full-witness SHA256 88d62952bfa999f57e454d68ec341b3fe8bea8df69a649710280d5b119404b78 retained; full matrix computation not rerun.",
+    "Existing nilpotent-sector, diagonal-unit, obstruction and central-symmetry results retained with their own hypotheses; general KF is no longer required for the selected path.",
+    "False unqualified Artin generator lifting remains corrected; termwise flatness is not K-flatness."
   ],
   "not_established": [
-    "(KF) exact chain-level relative stabilized-diagonal convolution/action on the same enhancement with reduction to field-level BFK kernel comparison, therefore unconditional (BC).",
-    "Unconditional identification of the finite diagonal with actual residual rotation products.",
-    "All-order comparison of the candidate with the selected formal categorical W_h.",
-    "Generic rotation-preserving equivalence, generation or relative diagonal perfectness.",
-    "General-lambda absolute polynomial; high-order coefficients at lambda^3=-12.",
-    "External referee verification, formal proof, comprehensive novelty determination.",
-    "(KF): full derived kernel-to-bimodule Hom comparison, relative cofibrant bar construction and field BFK specialization; unit alone is not sufficient, termwise flatness is not K-flatness.",
-    "Correct Artin-compatible derived Nat cochain model and full (KF), (BC), actual nc rotation and generic equivalence.",
-    "Artin Morita generation for positively graded cubic MF and vanishing of the actual 2x5 first-order obstruction.",
-    "A correct, equivariant, strictly Artin-compatible, termwise flat derived Nat complex over the mixed quantum family (and the same-enhancement KF identification). The symmetry theorem is conditional on this input."
+    "Uniform finite Morita inverse bimodules and rotation intertwiner on the algebraic noncommutative generic fiber.",
+    "Generic rotation-preserving categorical equivalence, general residual relative diagonal perfectness and generic generation.",
+    "General-lambda explicit absolute polynomial and all-coefficient/all-component noncommutative finite products.",
+    "General relative MF kernel-functor full faithfulness KF (bypassed, not proved).",
+    "Independent reaudit of every prior F/D proof, formal verification, external refereeing and comprehensive novelty determination."
   ],
   "primary_sources_checked": [
-    "Negron arXiv:1304.0527v4, Theorem5.3; target there is dg, not curved.",
-    "Tu arXiv:1009.4151v2, Appendix A Lemma A.1.",
-    "Lowen arXiv:0707.2602, Propositions3.11,3.13.",
-    "GHLR arXiv:2312.16645v5, Theorems4.7,6.14, Remark6.16.",
-    "Lin-Zhang arXiv:2310.09927v2, Theorem3.5, Remark3.6; field statement only.",
-    "Stacks Project Tag00T7, relative Jacobian criterion.",
-    "BFK 2014 Theorem 5.22 and Remark 5.21 (published PDF pp.71-73 inspected); Tu 2014 curved HPL Appendix A and Dyckerhoff 2011 Section 5 cited."
+    "Toen, The homotopy theory of dg-categories and derived Morita theory, Section2 arbitrary commutative base; Theorems8.9,8.15. PDF pages inspected.",
+    "Stacks Project Tag0B91, Lemma36.30.4, proper flat perfect pushforward and arbitrary base change.",
+    "BFK Theorem5.39; arXiv1105.3177 PDF p65 inspected. Lin-Zhang arXiv2310.09927v2 Theorem3.5/Remark3.6/Section5.",
+    "Kuznetsov arXiv0904.4330 projected-kernel interpretation; Lin-Zhang arXiv2611.05915v1 Section2.1 relative background.",
+    "Toen DOI10.1112/plms/pdn027 finite A_n result assumes smooth properness and was not applied to the nc generic fiber."
   ],
   "typesetting": {
-    "standalone_bar": {
-      "source": "papers/multiplicative_bar_comparison.tex",
-      "pages": 8,
+    "standalone_geometric_rotation": {
+      "source": "papers/geometric_rotation_basechange.tex",
+      "pages": 6,
       "build_completed": true,
-      "visual_review": "All 8 pages inspected in contact sheets; no clipping, overlap or unintended blank pages.",
+      "visual_review": "All six pages inspected in a contact sheet; no clipping or unintended blank pages.",
       "tex_inputs": {
-        "papers/common.tex": "0933403982627adcb2f0c70849a86a618c5410961f7cdd65e17d24edaf616580",
-        "papers/multiplicative_bar_comparison.tex": "f8971c49da8eaee79a39d86b3d8bb8396477575c4297d1ee1888dbfd09870c22",
-        "papers/reconstruction/multiplicative_bar_comparison.tex": "0541880e68ac471c011aeb1181322938e1c9b58fd8fa5c5151ca1bfc5eff20a7",
-        "papers/reconstruction/multiplicative_bar_references.tex": "ff836491bfee9864575c0e5def5cccbf4f12d4c3217693e39695cf352a1492ff"
+        "papers/geometric_rotation_basechange.tex": "0e17d2e6459a85c576ffe85d09ab9d661142b7ef1681c45b8355acffe99af2ff",
+        "papers/reconstruction/geometric_rotation_basechange.tex": "c8432a70f7b85063ae1b40ca010a5ec98a0ca8146af9587c66b04266dac2bbab",
+        "papers/reconstruction/geometric_rotation_references.tex": "83b21d6a31c32f7021e55ab8113d1b735a73c099c61aaabcfda1ecd2e884ace9"
       },
-      "pdf_sha256": "5afa254b0377bd2d345c28b9e5c7542f8ae75bee7d6fe2912a33c2ca585ba688",
-      "failures": {
-        "undefined_references": false,
-        "undefined_citations": false,
-        "missing_glyphs": false,
-        "overfull_boxes": false
-      },
-      "warnings": "LuaTeX-ja/microtype font-feature warnings; no missing glyphs."
+      "pdf_sha256": "2a0c8a16ec73810e8168f1d0f3b92b7fa1b5d6b533fdb4537a9806939d06006c",
+      "undefined_references": false,
+      "undefined_citations": false,
+      "missing_glyphs": false,
+      "overfull_boxes": false
     },
     "A": {
       "build_completed": false,
-      "source_pdf_receipt_verified": false,
-      "reason": "Current complete manuscript not recompiled; C and shared bibliography changed."
+      "reason": "Full current manuscript not recompiled; shared bibliography changed."
     },
     "B": {
       "build_completed": false,
-      "source_pdf_receipt_verified": false,
-      "reason": "Current complete manuscript not recompiled; C and shared bibliography changed."
+      "reason": "Full current manuscript not recompiled; shared bibliography changed."
     },
     "C": {
       "build_completed": false,
-      "source_pdf_receipt_verified": false,
-      "reason": "New v32 independent-center symmetry lemma integrated; complete C not rebuilt."
-    },
-    "standalone_relative_artin": {
-      "source": "papers/relative_artin_sector.tex",
-      "pages": 5,
-      "build_completed": true,
-      "visual_review": "All five pages inspected; no clipping or unintended blank pages",
-      "pdf_sha256": "9c5f7695c583853ea2d7de73121d154a6c3a43289b8b26991670f6a56939b07e",
-      "source_is_git_tracked": true,
-      "output_pdf_not_git_tracked": true,
-      "failures": {
-        "undefined_refs": false,
-        "undefined_citations": false,
-        "missing_glyphs": false,
-        "overfull_boxes": false
-      }
-    },
-    "standalone_diagonal_identity": {
-      "source": "papers/diagonal_kernel_identity.tex",
-      "pages": 4,
-      "build_completed": true,
-      "visual_review": "All 4 pages inspected; no clipping.",
-      "pdf_git_tracked": false
-    },
-    "standalone_artin_rotation_obstructions": {
-      "source": "papers/artin_rotation_obstructions.tex",
-      "local_draft_pages": 3,
-      "local_draft_compiled": true,
-      "remote_exact_sources_recompiled": false,
-      "note": "A fuller local draft was typeset and visually reviewed; exact remotely authored source tree not retypeset."
-    },
-    "standalone_central_symmetry": {
-      "source": "papers/central_symmetry_lifting.tex",
-      "pages": 5,
-      "build_completed": true,
-      "visual_review": "Five-page contact sheet inspected; no visible clipping or unintended blank pages.",
-      "pdf_sha256": "16e1c0165373f588ae9e538b37561d0a1db9fcf9c1e276417c271231b8cb2c19",
-      "git_tracks_pdf": false
+      "reason": "All previous inputs retained and geometric theorem integrated; full C not recompiled."
     }
   },
   "environment": {
     "python": "3.13.5",
     "sympy": "1.14.0"
   },
-  "persistence": "GitHub main remains canonical; remote commit and blob verification separate from local calculation and draft PDF checks."
+  "persistence": "Local verification and remote publication are separate. GitHub branch ref and changed blob hashes must be verified after publication."
 }

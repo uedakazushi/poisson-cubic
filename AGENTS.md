@@ -1,58 +1,30 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-11 / v32。GitHub mainを唯一の正本とする。** 00_research_plan.md、notes/bar_comparison.md、notes/curved_diagonal.md、notes/finite_algebraic_recovery.mdの順に読む。一般背景はnotes/research_notes.md、reconstruction/README.md、証明は現行論文A/B/C。旧ZIPや会話を再開条件にしない。
+**2026-11-11 / v33。GitHub mainが唯一の正本。** 最初に00_research_plan.md、次にnotes/geometric_rotation_basechange.mdを読む。旧ZIP・会話を再開の前提にしない。
 
-## 中心対称性による全Artin障害消滅：条件付き定理
+## 最優先と到達基準
 
-混合族の独立中心変数vによるΓ=μ3^(v)はhを固定。BFK sector公式において、r=1のH^0=k〈x,y,z,u〉⊕k〈v〉の四次元不変部分と、H^1=k²のΓ不変部分ゼロを得る。正しい実際の導来Nat複体C_(r,R)が項別平坦、全Artin商と厳密に互換、Γ同変で、中心vの乗法が互換な閉元なら、r=1,2のH^0はそれぞれR自由rank5,10。全Artin底変更も成立。証明はpapers/reconstruction/central_symmetry_lifting.tex、ノートはnotes/central_symmetry_lifting.md。符号とcharacterのtoy計算はcomputations/verify_central_symmetry.py。**categorical Natモデルそのものの構成、(KF)/(BC)、generic圏同値は未証明。**
+構成した代数的nc cubicの一般点を、同じKuと指定rotationを持つ可換cubicへ復元する。方程式は有限代数計算で抽出する。形式同値・方程式の代数性・generic圏同値を区別する。
 
-旧生成子持上げ補題の一般反例と依存訂正を保持。Γ破壊方向へ障害消滅を拡張しない。第一優先は正しいR-cofibrantな二側bar・同一enhancementのkernel–functor対応とArtin特殊化、次にgeneric同値。特定の2×5障害を逐次計算する優先度は今回のΓ保存部分族では低い。
+**一般MF核全忠実性(KF)を先行課題にしない。** 既存形式残余同値で可換Kuへ移し、幾何学的射影核Pとrotation核Qから真のNat複体を作る経路を用いる。新本文はpapers/reconstruction/geometric_rotation_basechange.tex。
 
-## 最優先
+## 現在使える結果
 
-代数的中心三次対から実際の低rotation積を有限代数的に構成し、核の局所飽和とEuler積分で可換式を直接抽出する。特定のformality級数の収束・代数性を先に要求しない。形式MF復元は完成底比較に使い、SM/ERはgeneric圏同値の別経路として保持する。
+- 任意のArtin局所C代数上、滑らかなN>=5変数cubicの低Nat標的はperfect kernel Homで計算でき、H0は自由rankN,binom(N,2)。全Artin底変更と積が両立する。座標とその合成の閉基底持上げを使い、独立v・対称性・H1消滅を要求しない。
+- 既存入力(F)=全Artin形式MF/残余pair同値、(D)=正則有限対角/乗法的characteristic写像の下で、ncのBCは従う。lambda=1のG_h+v^3とW_hは形式GL5同型。新証明は(F),(D)を独立に再証明したものではない。
+- 項別自由性だけでArtin生成性を持ち上げる一般補題は偽のまま。正の内部次数MFのHomのR-perfect性、導来特殊化、compact生成性を別々に確認する。gr:lem:derived-generationは追加条件を明記した有効な形。
+- 既存の有限対角、bar比較、中心対称性、相対sector、unitの結果を削除しない。一般KF自体の未解決性を、幾何学的BCの未解決性と混同しない。
 
-## 現在使えること
+## 次の証明
 
-- lambda=1の曲率付き絶対対角はQ[h]_(h)で正則。regular_diagonal.pyはabsolute_diagonal.pyを継承し、単元小行列で持上げ、全行を検査する。一般rref基底を無条件に特殊化しない。
-- verify_regular_diagonal.pyは全16合成、H^0 rank4,6、境界と六積の小行列式-3、勾配空間を検査する。有限対角の積は全Artin底変更と完備化に両立。候補Gは最後の比較にのみ使う。分母lcm(h^3-1)(h^6+162)は圏のsmoothness判別式ではない。
-- multiplicative_bar_comparison.texは同次分裂bar比較を入力に、有限対角Yoneda積=有限支持Hochschild cup積を証明する。Q(a)=epsilon_P a Pi、Jの乗法性の差は-d(Pi R_phi H R_psi I)。有限arity dg Lie共役だけでcup保存を結論しない。
-- 有限支持brace挿入はMFの内部shift付き導来自然変換への乗法的Thetaを与える。r=1,2に必要なarityは<=2,4。**写像の構成と同型性を区別する。**
-- 計算済みlambda=1候補は四本の代数方程式、初期Jacobian9で正規化でき、L=1+127q/5184+O(q^2)、C=13/36+1613q/1679616+O(q^2)、q=h^6。これを未確認の形式Wの係数と同定しない。
+指定nc残余生成子の形式MF像を明示的Gの側で追跡する。有限cell/retractの双加群P,Q、両合成の逆性、rotation intertwinerを同時に構成する。Artin次数に依存しないcell/shift上界を証明して有限代数方程式へ落とす。generic生成性と同値双加群の代数性はまだ未証明。smoothnessを仮定する有限A_n決定性を循環的に使わない。SM/ERは別経路として維持する。
 
-## v29：相対Artin sector（証明と未解決の区別）
+一般lambdaと高次元各Poisson成分の具体抽出は未完成。新しい幾何学的BCの一般性だけで、一般nc積が計算できたとは言わない。
 
-可換形式五変数cubicの勾配Koszulは任意のArtin切断で正のホモロジー零、Jac(W_m)は次数別自由で一次・二次rank5,10。μ3非恒等sectorは奇数parity。項別平坦な複体の擬同型は特殊化で検出できる。以上の証明は`papers/reconstruction/relative_artin_sector.tex`に保持する。
+## 保存・再現・正確性
 
-**(KF)を未確認の核心条件として維持する。** 相対stabilized diagonalのkernel畳込みを指定graded MFの同一enhancementで構成し、特殊化が体上BFK kernel比較と一致することを符号・内部shift込みで示す。これは実際のNatとrotation積の無条件同定ではない。検算は`computations/verify_artin_sectors.py`と証明書（Jacobianの有限計算のみ）。研究ノートは`notes/relative_artin_sector.md`。
+研究方針の一般原則に従う。証明全文、必要なコード/証明書、原稿inputと文献をmainに通常のfast-forwardで自動保存する。force push・無断PR・GitHub Actionsは禁止。要約だけを全文pushと呼ばない。remote refと全変更blobを照合する。成功時のLibrary二重保存は不要、実際のGitHub失敗時のみ緊急退避。既存Libraryファイルは無断削除しない。
 
-## 相対対角のunitと残るderived bar
+日本語LuaLaTeX、latexmkでbuild/へ生成しPDFをGit追跡しない。有効な数学的内容・証明・再現性を容量制限のため削らない。過去版や作業ログ・cacheを追加しない。
 
-**相対対角のunit（v31、証明あり）。** 任意の可換基底環の斉次三次式に対する差分商stabilized diagonalの畳込みは、有限自由graded MFへ自然な強ホモトピー同値を与える。Koszul収縮h0と摂動pについて(h0p)^(n+1)=0なので、逆とホモトピーは有限和であり、全Artin底変更・内部shift・mu3スカラー作用と両立する。原稿：`papers/reconstruction/diagonal_kernel_identity.tex`、計算：`computations/verify_diagonal_identity.py`（厳密恒等式606件）。**(KF)の全忠実性は未完成。** k[epsilon]/epsilon²上の両側無限自由周期複体は非輪状でもK-flatでない。相対cofibrant/h-projectiveな二側bar模型とBFK体上比較への同一enhancementでの特殊化を次に検証する。
-
-## 次の着手と禁止する飛躍
-
-第一優先は標的の(BC)：全Artin底で実際のNat(Id,(1)),Nat(Id,(2))が自由rank5,10、自然なH^0剰余同型を持ちThetaと両立すること。形式MF同値で可換形式cubicへ移し、相対対角kernel/sectorを構成する。gradient Koszulの相対完全性と非恒等sectorの次数を確認する。体上の次元公式、導来Hom底変更、sourceの局所自由性だけで(BC)を証明済みにしない。
-
-(BC)なら特殊fiberのJacobian同定と単元行列式でTheta_1,Theta_2は同型になる。この条件付き判定と既存Artin残余比較を合成できるが、**本族の(BC)、指定形式Wとの全次数比較、generic rotation圏同値、一般混合SMは未証明**。GHLRの包絡代数とtwisted bimoduleの二つの第二種理論の仮定も混同しない。
-
-genericでは指定生成子の像、有限cone/retract、代数的同値双加群が必要。全Artinのsmoothness/生成性だけでgenericへ進めない。一般lambda、lambda^3=-12の高次項は比較に役立つ範囲で扱う。相対対角はg(u)を検出できないためu^3係数を補作しない。
-
-## 保持・検証
-
-AのPoisson正規形/固定方向量子化、Bの17次元族・ambient復元・余次元15・核7、Cの形式MF/Artin window、二次星積、同変正規形、有限代数的積分、SM/ER、非楕円成分、A∞arity、反例を削除しない。証明記載・今回の点検・有限計算・外部査読/形式証明を区別する。既知cap/HPL/brace原理を新規成果と呼ばない。包括的新規性調査は未完了。
-
-```sh
-python3 computations/verify_bar_comparison.py --output build/bar_comparison_certificate.json
-python3 computations/verify_finite_recovery.py --output build/finite_recovery_certificate.json
-latexmk papers/multiplicative_bar_comparison.tex
-python3 scripts/verify_bar_assets.py
-```
-
-新しい計算は有限テスト代数・ホモトピー符号・候補の代数正規化の検証であり、categorical Natやv27全行列を検証しない。既存verify_regular_diagonal.pyとverify_regular_assets.pyを保持する。全行列はcanonical JSON SHA256と生成コードで再現し、不要な重複出力をGitへ追加しない。A/B/C現行全体の組版は今回未実施。詳細はvalidation.json。
-
-## 保存
-
-区切りごとに承認を求めず、方針・ノート・論文の証明全文・コード・証明書・再現手順をmainへ反映する。新input/bibliographyも統合し、要約だけのpushを全文保存と呼ばない。remote headと既存変更を保持したfast-forwardのみ。force push・無断PR・GitHub Actions禁止。反映後refと主要blob SHAを照合する。
-
-成功時はLibraryへ二重保存せず、実際のGitHub失敗時のみ緊急退避する。未同期を明記しLibrary既存ファイルは無断削除しない。日本語LuaLaTeX、latexmkでbuild/出力、PDF・旧ZIP・ログ・cache・バックアップはGit追跡しない。数学と再現性を固定容量制限のため削らない。独立境界研究/原PDFはnc-cubic2、Reyeはreyeに保全。
+`python3 scripts/verify_geometric_rotation_assets.py` と `latexmk papers/geometric_rotation_basechange.tex` を用いる。新計算は有限自由複体とsector算術だけであり、カテゴリカル定理やv27全行列の形式検証ではない。A/B/C全体の組版は未実施なら明示する。生成・計算・組版・保存は別状態。新規性の網羅的確認・外部査読・Lean検証は未実施。
