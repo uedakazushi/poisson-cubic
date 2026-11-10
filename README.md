@@ -59,6 +59,10 @@ python3 reconstruction/scripts/verify.py
 
 ## 未照合PDFと関連TeXの整理TODO
 
-追跡中PDF9本と関連TeXの対応候補、全証明の照合・組版・追跡解除の条件は [`TODO_PDF_SOURCES.md`](TODO_PDF_SOURCES.md) に管理する。取り込み済みの別原稿は `sources/candidates/` に暫定配置し、現行の主論文は上書きしない。
+追跡中PDF8本と関連TeXの対応候補、全証明の照合・組版・追跡解除の条件は [`TODO_PDF_SOURCES.md`](TODO_PDF_SOURCES.md) に管理する。取り込み済みの別原稿は `sources/candidates/` に暫定配置し、現行の主論文は上書きしない。
 
-原PDF全９本のページ数・対応ソース監査は [`SOURCE_RECOVERY_AUDIT_20261110.md`](SOURCE_RECOVERY_AUDIT_20261110.md)、部分証明の移植は `papers/source_recovery/` と `notes/source_recovery/` を参照する。
+原PDF全８本のページ数・対応ソース監査は [`SOURCE_RECOVERY_AUDIT_20261110.md`](SOURCE_RECOVERY_AUDIT_20261110.md)、部分証明の移植は `papers/source_recovery/` と `notes/source_recovery/` を参照する。
+
+## Reye論文の分離
+
+Reye 曲線・停留平面に関する原論文PDF（77頁）、部分復元TeX、計算コード、現行研究ノート・研究方針は独立リポジトリ [uedakazushi/reye](https://github.com/uedakazushi/reye) へ移行した。このリポジトリから Reye 専用資産は除外済み。関連する一般的なPoisson研究や文献引用はここに保持する。
