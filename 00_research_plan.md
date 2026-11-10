@@ -1,12 +1,28 @@
-# 研究方針：一般次元・各Poisson成分の可換復元
+# 研究方針：cubicのPoisson構造・量子化・可換復元
 
-**2026年11月10日・v17。再開時は最初に本ファイルを読む。**
+**2026年11月10日・v18。再開時は最初に本ファイルを読む。**
 
-## 正本と最優先目標
+## 正本と最優先事項
 
 **GitHub `uedakazushi/nc-cubic` の `main` だけを正本とする。** 次に `notes/research_notes.md`、`reconstruction/README.md`、現行原稿 `papers/reconstruction/rotation_saturation_reduction.tex` を読む。旧bundle、会話履歴、Libraryを再開の前提にしない。
 
-任意の n≥3、滑らかな複素cubic X、Poissonスキームの任意の被約既約成分 Z の幾何学的一般点で、構成した量子化の残余dg圏を滑らかな可換cubicのrotation付きKuznetsov成分として実現することを最優先する。有限分離体拡大・marking・降下の範囲を明記する。全てのAS-regular中心三次商の全点での存在、任意の量子化の同一視、n=1,2への無条件拡張は目標に含めない。広いAS類のZhang twist反例を、Poisson成分のgenericな存在の否定と取り違えない。
+研究全体の目標は下記の三つに限定する。目標1・2は原稿に定理と証明があり、目標3の可換復元を最優先する。完成のために不要なモジュライ分類や周辺の復元問題を新たな第四の目標にしない。既存の有効な研究成果は論文・ノートに保持する。
+
+## 最終目標は三つだけ
+
+**対象・記法：** \(X^n=V(F)\subset\mathbb P^{n+1}_{\mathbb C}\) は滑らかなcubic、\(n\ge3\)、\(N=n+2\)。周囲の非可換射影空間は \(\mathrm{nc}\mathbb P^{n+1}\)（\(N\)個の次数一生成元をもつAS-regular代数）である。
+
+1. **Poisson構造の構造定理。** 任意の \(\pi\in H^0(X,\wedge^2T_X)\) で \([\pi,\pi]=0\) を満たすものについて、三変数Jacobianブロックによる正規形、その逆構成と一般階数を記述する。**原稿上で定理・証明あり。** `papers/sections/poisson_geometry.tex` の `thm:pg-normal`。Poissonスキームの全既約成分・交叉の完全分類は、この目標の達成条件に含めない。
+2. **与えられたPoisson構造の代数的量子化。** 各固定 \((X,\pi)\) に対し、\(0\in U\subset\mathbb A^1_\hbar\) 上の次数付き代数族 \(A\) と中心三次正則元 \(\Omega\) を構成し、\(A_0=\mathbb C[z_1,\ldots,z_N]\)、\(B=A/(\Omega)\)、\(B_0=\mathbb C[z]/(F)\) とする。全ての閉ファイバーの周囲 \(A_\lambda\) はKoszul AS-regular（大域次元 \(N\)）で、\(B\) は所定のPoisson括弧を一次項にもつ次数別平坦な代数的量子化。**個々の構造について原稿上で定理・証明あり。** 同ファイルの `thm:pg-quantization`。Poisson係数空間全体を一括してパラメータ化する *相対的・一様な族* の存在はこれより強い別問題で、現在未完成である。
+3. **構成した非可換cubicからの可換復元。** 目標2で構成した \(B_\hbar\) の少なくとも非空Zariski開（必要な有限étale/分離拡大を明示）で、滑らかな可換cubic \(Y_\hbar\) とrotationを保つenhanced同値
+   \[
+   (\mathcal K(B_\hbar),\rho_{B_\hbar})
+   \simeq
+   (\operatorname{Ku}(Y_\hbar),\rho_{Y_\hbar})
+   \]
+   を構成する。**未完成・最優先。** 必要な局所proper模型とrotation、相対étale実現は原稿上で論じられ、残余対角のperfect性(SM)が核心である。任意のAS-regular中心三次商（Poisson量子化族に属さないものを含む）の全点にこの結論を主張してはならない。Zhang twistによる反例と区別する。
+
+**達成判定：** 目標1・2の原稿にある証明を一次資料・数学的論理まで監査し、目標3を上記の量化と底変更条件で無条件に証明すれば、本研究の三目標は達成とする。Poisson既約成分の完全分類、任意の量子化の一意性、全パラメータでの可換復元、可換模型の閉公式、偏極付きambient復元の完成は達成条件に付け加えない。これらの既存成果は削除せず論文・ノートに保持する。
 
 ## 現在の到達点と論理
 
@@ -14,7 +30,7 @@
 2. 所定の次数別自由な中心三次量子化が正則局所底上にあれば、properな線束生成残余dg代数 Γ_R が得られる。標準rotationは、残余smoothnessを仮定せず、逆 `(-1) R_O` を持つ。
 3. **残余対角のperfect性 (SM)** があれば、全coherent残余圏との同定とsmooth proper pairの有限型開集合へのspreadが従う。
 4. **étale局所実現 (ER) は、実在するsmooth proper pairを入力とする定理として証明を収録した。** 同値双加群の小拡大障害はrotation不変HH²に入り、幾何的Kodaira–Spencer写像で消せる。HH¹=0でintertwinerも持ち上がる。actual perfect加群のmoduliの代数性と無限小判定からétale局所実現を得る。証明は `papers/reconstruction/etale_realization.tex`。
-5. 従って、**所定の局所量子化が既にある成分ではgeneric可換復元の未解決入力は(SM)に集約される。** 全成分の量子化入力も一括して解決したわけではない。
+5. 従って、**所定の局所量子化が既にある成分ではgeneric可換復元の未解決入力は(SM)に集約される。** 目標2の「固定した各Poisson構造の代数的量子化」と、Poisson成分の係数方向を同時に保つ一様相対量子化とは区別する。後者の全成分版は未完成。
 
 この整理により、(ER)を未証明仮定として重ねて課す必要はなくなった。親原稿のactual/formal変形比較を全て再監査したという意味ではなく、同値双加群を直接持ち上げる独立の論証を用いる。自己同値一つを指定したpairを扱い、選択した `rho^3=[2]` のcoherenceまで入力・結論に含めない。
 

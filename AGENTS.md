@@ -2,12 +2,20 @@
 
 **GitHub `uedakazushi/nc-cubic` の `main` だけが正本。** 最初に `00_research_plan.md`、次に `notes/research_notes.md`、`reconstruction/README.md` を読む。旧ZIP・会話・Libraryを再開の前提にしない。
 
+## 研究目標（三つに限定）
+
+1. **Poisson構造の構造定理**：任意の滑らかなcubic \(X^n\)、\(n\ge3\) 上のPoisson構造のJacobianブロック正規形・一般階数。論文Aの `papers/sections/poisson_geometry.tex`、定理 `thm:pg-normal` に証明あり。
+2. **個別Poisson構造の代数的量子化**：\(X^n\subset\mathbb P^{n+1}\) とそのPoisson構造に対し、非可換 \(\mathbb P^{n+1}\) を表すKoszul AS-regular代数と中心三次正則商を代数的な一パラメータ族で構成する。論文Aの `thm:pg-quantization` に証明あり。各固定Poisson構造についての存在と、全Poisson係数空間上の一様相対量子化を混同しない。
+3. **構成した非可換cubicのrotation付き可換復元**：目標2の量子化のgenericファイバーに対する可換cubicのKuznetsov成分とのenhanced pair同値。最優先、未完成。残余対角perfect性(SM)の証明を最初に狙う。
+
+目標1・2を「完成」と呼ぶときは**原稿に定理・証明がある**という意味。文献・論理の徹底的独立監査はまだ必要。全AS-regular三次商の全点復元は反例があり範囲外。Poissonスキームの全成分の完全分類、ambientの一意復元、閉公式等は最終達成条件に含めない。これらの既存の価値ある成果は維持し、破棄しない。
+
 ## 最優先の研究
 
-一般次元n≥3、全Poisson既約成分の一般点でのrotation付き可換復元を最優先する。
+三目標のうち目標3のrotation付き可換復元を最優先する。固定Poisson構造ごとに目標2が保証する量子化族のgenericファイバーを扱い、可能なら各Poisson既約成分のgeneric点へ相対化する。
 現在、実在するsmooth proper pairに対するétale局所実現(ER)は `papers/reconstruction/etale_realization.tex` に、同値双加群の障害消去による証明がある。これは残余smoothnessを証明する定理ではない。
 
-当面は節点・尖点二成分の残余対角perfect性(SM)を、有限perfect双加群と実際の射 `P→Gamma_R` で示す。量子化が得られた成分では、SMからfull coherent比較、pairのspread、ER、generic可換復元へ進む。全成分の量子化入力は別途必要。
+当面は節点・尖点二成分の残余対角perfect性(SM)を、有限perfect双加群と実際の射 `P→Gamma_R` で示す。量子化が得られた成分では、SMからfull coherent比較、pairのspread、ER、generic可換復元へ進む。Poisson係数方向も同時に動かす相対量子化入力は全成分に対して未完成で、目標2の個別存在定理とは区別する。
 
 現行の独立組版入口は `papers/reconstruction/rotation_saturation_reduction.tex`。局所rotationの逆、gluing、full coherent比較、spreadの既存の全証明を保持する。三論文A/B/Cと独立境界研究を削除・要約で代替しない。
 

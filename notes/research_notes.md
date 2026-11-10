@@ -1,12 +1,18 @@
 # 研究ノート：可換復元の現在有効な知識と障害
 
-**2026年11月10日・v17。GitHub mainだけを正本とする。** 詳細な局所模型・具体式は `notes/reconstruction.md`、証明全文は `papers/reconstruction/rotation_saturation_reduction.tex` とそのinputに置く。
+**2026年11月10日・v18。GitHub mainだけを正本とする。** 詳細な局所模型・具体式は `notes/reconstruction.md`、証明全文は `papers/reconstruction/rotation_saturation_reduction.tex` とそのinputに置く。
+
+## 三目標の区別と現状
+
+構造定理 `thm:pg-normal` と個々のPoisson構造の代数的量子化 `thm:pg-quantization` は、論文A（`papers/sections/poisson_geometry.tex`）に証明が記載されている。後者は \(X^n\subset\mathbb P^{n+1}\) の各固定Poisson構造について、\(0\in U\subset\mathbb A^1_\hbar\) 上のKoszul AS-regular代数と中心三次商を与える定理であり、Poisson係数空間を同時に動かす一様族の存在定理ではない。新規性の網羅的監査と全外部入力の再証明は未実施。
+
+三番目の目標は、こうして構成した非可換cubicのgenericファイバーをrotation付きの可換cubic Kuznetsov成分として実現すること。任意のAS-regular中心三次商全体の全点についての復元は要求しない。各成分のgeneric点への一様相対化は強化課題であり、個別量子化定理の欠落と混同しない。
 
 ## 1. 復元の論理と現在の核心
 
 所定の正則局所底上の次数別自由な中心三次量子化から、properな線束生成残余dg代数Γ_Rと、逆 `(-1)R_O` を持つ標準rotationが得られる。残余対角条件(SM)があれば全coherent残余圏との一致と有限型smooth proper pairへのspreadが従う。
 
-étale局所実現(ER)は、実在するsmooth proper pairを入力とする定理として独立の証明を得た。従って量子化入力がある成分では、generic可換復元の未解決条件はSMである。非楕円二成分の量子化は既存の具体的構成を使えるが、全Poisson成分について量子化を一括して構成したわけではない。
+étale局所実現(ER)は、実在するsmooth proper pairを入力とする定理として独立の証明を得た。従って量子化入力がある成分では、generic可換復元の未解決条件はSMである。非楕円二成分の量子化は既存の具体的構成を使えるが、Poisson係数方向を保持した一様相対量子化は全成分で完成していない（各固定構造の代数的量子化の存在とは別）。
 
 ## 2. ERの実際の証明に必要な点
 
