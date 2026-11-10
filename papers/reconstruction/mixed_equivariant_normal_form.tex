@@ -1,65 +1,109 @@
 % 2026-11-10 / v23
-\section{混合中心対の同変形式復元と全次数正規形}
+\section{混合中心対の有限群同変形式復元と全次数正規形}
 \label{mnf:sec:equivariant-normal-form}
 
-本節では混合族\eqref{mt:eq:classical}--\eqref{mt:eq:center}を固定し、
-形式復元定理\ref{fo:thm:formal-reconstruction}の可換三次式が満たす
-\emph{全次数}の選択則を証明する。二次jetの係数を超える高次係数そのものを
-計算したわけではない。またここでの正規形は形式的な線形座標変換についての
-ものであり、非零の複素数$h$での代数化・圏同値・残余smoothnessを主張しない。
+本節では第\ref{mt:sec:family}節の混合中心対を固定し、
+形式復元定理\ref{fo:thm:formal-reconstruction}で得られる可換三次式の
+全次数の選択則を証明する。
+従来の対角群に$x,y$の交換と$h$の符号反転を加えることで、
+二つの形式級数を$h^3$ではなく$h^6$の級数として表せる。
+高次係数の明示値、収束、非零複素パラメータへの代数化、
+残余対角のperfect性は依然として未解決である。
 
 $H=\{(\alpha,\beta,\gamma,\delta,\varepsilon)\in\mu_3^5:
 \alpha\beta\gamma=1\}$、
 $\chi=\alpha\beta\delta$とする。$H$は
 $(x,y,u,z,v,h)\mapsto
 (\alpha x,\beta y,\gamma u,\delta z,\varepsilon v,\chi h)$
-によって$S[[h]]$に作用する。補題\ref{mt:lem:character-space}で
-非可換関係式および中心元の$H$不変性は既に証明されている。
-ここでは$\chi^3=1$を使う。
+によって作用する。補題\ref{mt:lem:character-space}において、
+この作用が非可換関係式と指定中心元を保つことを確認した。
 
-\begin{lemma}[同変formalityの選択]
-\label{mnf:lem:equivariant-formality}
-$\lambda^3\ne-3$とする。
-定理\ref{fo:thm:formal-reconstruction}のデータ
-$\Phi_h,\pi_h,W_h,\Xi_h$は、上記の$H$作用について同変となるよう
-選べる。さらにこれらの選択は、
-第\ref{kj:sec:second-jet}節で構成した
-$h^3$を法とする生成元の同定と中心式を保って行える。
-特に$W_h$は$H$不変である。
+\begin{lemma}[交換対合と非可換中心対]
+\label{mnf:lem:swap-involution}
+$\tau$を
+\[
+ \tau(x)=y,\quad \tau(y)=x,\quad
+ \tau(z)=z,\quad \tau(u)=u,\quad \tau(v)=v,\quad
+ \tau(h)=-h,\quad \tau(\lambda)=\lambda
+\]
+と定める。この作用は混合量子化$A_{h,\lambda}$の関係式
+イデアルを保ち、$\Omega_{h,\lambda}$を固定する。
+さらに$\tau^2=1$で、$\tau$は$H$を正規化する。
+従って$G=H\rtimes\langle\tau\rangle$は中心対の有限群対称性である。
 \end{lemma}
 \begin{proof}
-まず全Artin切断で考える。
-補題\ref{mt:lem:artin-pbw}のsorted monomial基底は$H$の固有ベクトルであり、
-書換えは$H$同変である。これにより、結合積を$S[[h]]$へ移す
-markedな次数付き加群同定を$H$同変に選べる。
-
-Affine Kontsevich formalityのTaylor写像は線形座標変換と可換である
-\cite[Section~6]{PKontsevich}\cite{MNFDolgushev}。同じことは
-polydifferential cochainsから全normalized Hochschild cochainsへの包含にも成り立つ。
-$H$は有限群で標数は零なので、各Artin切断の
-$H$不変部分を取る操作は完全であり、
-これらの$L_\infty$ quasi-isomorphismの不変部分への制限も
-$h$進Maurer--Cartan変形問題の同値を与える。
-したがって結合積に対応する$\pi_h$と一入力gauge
-$\Phi_h$を、$H$同変に逐次構成できる。
-これは単に任意の非線形gaugeを平均する操作ではなく、
-各持上げ段階のHochschild cocycleとその原像を不変部分で求める操作である。
-
-二次までの指定データは、
-$\pi=h\pi_1$に対するGL同変な星積と、
-生成元を同名の一次多項式に送る同型であり、
-補題\ref{kj:prop:algebra-and-center}によって$H$同変である。
-次の段階で補正を$h^r$から始めれば、この二次jetを変えない。
-係数三の中心写像$\mathcal U^{\pi_h}$も$H$同変なので、
-その逆像$W_h$は不変である。
-$\Xi_h$は補題\ref{fo:lem:constant-trivector}の一意なKoszul原像
-であるから、やはり不変である。全Artin切断で両立するよう選び逆極限を取る。
+第\ref{mt:sec:family}節と同様に$a=\lambda u$とおき、
+自由代数内の関係式を
+\[
+ r_1=xy-yx-hz^2,\quad
+ r_2=xz-zx+h(y^2+ax),\quad
+ r_3=yz-zy-h(x^2+ay)
+\]
+と書く。語の順序を変えずに$\tau$を代入すれば
+\[
+ \tau(r_1)=-r_1,\quad \tau(r_2)=r_3,\quad \tau(r_3)=r_2
+\]
+となる。式\eqref{mt:eq:center}の
+$x^3+y^3$、六語の和$T$、$xy+yx$はすべて$x,y$の交換で不変で、
+$h$は偶数冪でのみ現れるため$\tau(\Omega_{h,\lambda})=\Omega_{h,\lambda}$。
+また$\tau$は$H$の$\alpha,\beta$を交換し、
+$\chi=\alpha\beta\delta$を不変に保つので、$H$を正規化する。
+以上は商を取る前の自由代数における恒等式である。
 \end{proof}
 
-\begin{lemma}[三つの指標空間とJacobian商]
+\begin{lemma}[有限群同変なformalityデータ]
+\label{mnf:lem:equivariant-formality}
+$\lambda^3\ne-3$とする。
+定理\ref{fo:thm:formal-reconstruction}に現れる
+$\Phi_h,\pi_h,W_h,\Xi_h$は$G$同変に選べる。
+これらの選択は、第\ref{kj:sec:second-jet}節で構成した
+$h^3$を法とする生成元の同定と中心式を保って行える。
+特に$W_h$は$G$不変である。
+\end{lemma}
+\begin{proof}
+全Artin切断のPBW性は補題\ref{mt:lem:artin-pbw}にある。
+まずそこで得られる次数付きの加群同定
+$m:S[[h]]\to A_{h,\lambda}$を選ぶ。
+$H$にはsorted語基底が適合するが、$\tau$は一般にsorted語を
+sorted語に送らない。従ってsorted標識そのものが
+$G$同変であると仮定してはならない。
+代わりに$G$の全元による平均
+\[
+ m^G=\frac1{|G|}\sum_{g\in G}g_A\circ m\circ g_S^{-1}
+\]
+を取る。$g$の$h$への作用は半線形だが、各共役写像は
+$\CC[[h]]$線形で次数を保つ。また$m^G\bmod h=\mathrm{id}$である。
+各内部次数で$h$進Nakayamaを適用すると$m^G$は
+$G$同変な次数付き加群同型となる。
+
+Affine Kontsevich formalityは線形座標変換に同変であり
+\cite[Section~6]{PKontsevich}\cite{MNFDolgushev}、
+polydifferential cochainsから全normalized Hochschild cochainsへの
+包含も同変である。
+$G$は有限群、標数は零なので不変部分を取る操作は完全である。
+そのため$G$不変な$h$進Maurer--Cartan変形と一入力gaugeは、
+これらの$L_\infty$ quasi-isomorphismの不変部分を通して
+逐次比較できる。これは非線形gaugeを単純に平均するのではなく、
+各持上げ段階のcocycleとその原像を不変部分で選ぶ操作である。
+
+二次までの指定データは、$h\pi$のKontsevich星積と、
+一次生成元を同名の一次多項式へ送る同型である。
+Poisson tensorの係数と$h$への作用を合わせると
+これは$G$不変であり、
+補題\ref{kj:prop:algebra-and-center}の中心同定も$G$同変となる。
+次の段の補正を$h^3$以降に限れば、指定した二次jetを保てる。
+中心のtangent mapも$G$同変であるため、
+その一意な三次Casimir逆像$W_h$は$G$不変である。
+さらに$\Xi_h$は補題\ref{fo:lem:constant-trivector}の
+一意な定数Koszul原像だから$G$不変となる。
+各Artin段階の選択を両立させて逆極限を取る。
+\end{proof}
+
+\begin{lemma}[三指標のJacobian商と交換対合]
 \label{mnf:lem:character-quotients}
-$\lambda^3\ne-3$のとき、$S_3$および
-$J(F_\lambda)_3=(S/(\partial F_\lambda))_3$について、
+$S=\CC[x,y,z,u,v]$、
+$J(F_\lambda)=S/(\partial F_\lambda)$とする。
+$\lambda^3\ne-3$のとき
 \[
 \begin{array}{c|c|c}
 \text{指標}&S_3\text{の指標空間}&J(F_\lambda)_3\text{の指標空間}\\ \hline
@@ -69,118 +113,120 @@ $J(F_\lambda)_3=(S/(\partial F_\lambda))_3$について、
 \chi^2&\langle uz^2\rangle&0
 \end{array}
 \]
-が成り立つ。
+である。二つの非零な商空間における$\tau$作用は恒等である。
+指標$1$の$S_3$の$\tau$反不変部分は
+$\CC(x^3-y^3)$であり、これはJacobianイデアルに属する。
 \end{lemma}
 \begin{proof}
-$\gamma=(\alpha\beta)^{-1}$として
-$(\alpha,\beta,\delta,\varepsilon)$の指数を$(\ZZ/3)^4$に記すと、
-$x,y,u,z,v$の重みは
+$\gamma=(\alpha\beta)^{-1}$を消去すると、
+$(\alpha,\beta,\delta,\varepsilon)$について
+$x,y,u,z,v$の重みはそれぞれ
 $(1,0,0,0),(0,1,0,0),(2,2,0,0),(0,0,1,0),(0,0,0,1)$
-である。三次単項式35個の重みを列挙すると表の中央列を得る。
-一方、
+である。三次単項式35個を列挙して中央列を得る。
 \[
-F_x=x^2+\lambda uy,\quad F_y=y^2+\lambda ux,\quad
-F_z=z^2,\quad F_u=3u^2+\lambda xy,\quad F_v=3v^2
+ F_x=x^2+\lambda uy,\quad F_y=y^2+\lambda ux,\quad
+ F_z=z^2,\quad F_u=3u^2+\lambda xy,\quad F_v=3v^2 .
 \]
-である。指標$1$のJacobian部分空間は
-$xF_x,yF_y,zF_z,uF_u,vF_v$で張られ、
-それぞれ$x^3,y^3,z^3,u^3,v^3$に関する係数が非零なので
-五次元である。指標$\chi$では
-$zF_u=\lambda xyz+3u^2z$が一つの関係を与える。
-指標$\chi^2$では$uF_z=uz^2$が全空間を消す。
-有限群の表現の半単純性から、指標ごとの商が上表になる。
+指標$1$のJacobian部分空間は
+$xF_x,yF_y,zF_z,uF_u,vF_v$で五次元。
+指標$\chi$では$zF_u=\lambda xyz+3u^2z$、
+指標$\chi^2$では$uF_z=uz^2$が関係を与える。
+従って商は表示の通りである。
+$uxy,xyz$は$x,y$の交換で不変であり、
+指標$1$に属する六つの単項式の反不変部分は
+$x^3-y^3=xF_x-yF_y$で生成される。
 \end{proof}
 
-\begin{theorem}[二形式級数による全次数正規形]
+\begin{theorem}[二つの$h^6$形式級数による正規形]
 \label{mnf:thm:two-series}
-$\lambda^3\ne-3$とし、混合中心対
-$(A_{h,\lambda},\Omega_{h,\lambda})$の
-補題\ref{mnf:lem:equivariant-formality}による形式可換模型を$W_h$とする。
-このとき$h=0$で恒等となる$H$同変な
+$\lambda^3\ne-3$とし、混合中心対の
+補題\ref{mnf:lem:equivariant-formality}による
+形式的な可換三次式を$W_h$とする。
+このとき$h=0$で恒等となる$G$同変な
 $T_h\in\operatorname{GL}_5(\CC[[h]])$が存在し、
 \begin{equation}\label{mnf:eq:normal-form}
+ \boxed{\quad
  T_h^*W_h=
  \frac{x^3+y^3+z^3}{3}+u^3+v^3+
- \lambda_*(h^3)\,uxy+h^2c_*(h^3)\,xyz
+ \lambda_*(h^6)\,uxy+h^2c_*(h^6)\,xyz
+ \quad}
 \end{equation}
-とできる。ただし
+とできる。ここで
 \[
  \lambda_*(q)\in\lambda+q\CC[[q]],\qquad
  c_*(q)\in\CC[[q]],\qquad
  c_*(0)=\frac13+\frac{\lambda^3}{36}.
 \]
-一般に$\lambda_*$、$c_*$の高次係数が一意または代数的であるとは主張しない。
-
-特に$H$同変な代表において、
-\begin{equation}\label{mnf:eq:selection}
- [W_{3m}]\in\CC[uxy],\quad
- [W_{3m+1}]=0,\quad
- [W_{3m+2}]\in\CC[xyz]\qquad(m\ge0)
-\end{equation}
-が古典Jacobian商で成立する。
-ただし$W_0=F_\lambda$についてはこの表記を用いない。
+高次係数の一意性・代数性・解析的収束は主張しない。
 \end{theorem}
 \begin{proof}
-$W_h$は$H$不変で$h$の指標は$\chi$なので、
-その$h^r$係数$W_r$は$S_3^{\chi^{-r}}$に属す。
-補題\ref{mnf:lem:character-quotients}から
-\eqref{mnf:eq:selection}を得る。
-
-正規形の存在を次数について帰納的に示す。
-$h^{r}$を法として既に\eqref{mnf:eq:normal-form}にしたとする。
-次数$r$の残余係数は$S_3^{\chi^{-r}}$にあり、
-そのJacobian類は表の右列で生成される
-$uxy$（$r\equiv0$）、$xyz$（$r\equiv2$）、
-あるいは零（$r\equiv1$）のいずれかである。
-したがって、その係数から許された生成元の倍数を引いた差は
-次数三のJacobianイデアルに属し、
+$H$不変性と$h$の指標$\chi$から、
+$W_h=\sum_{r\ge0}h^rW_r$の係数は
+$W_r\in S_3^{\chi^{-r}}$となる。
+$\tau$不変性からさらに
+$(x\leftrightarrow y)W_r=(-1)^rW_r$が成り立つ。
+補題\ref{mnf:lem:character-quotients}によれば、
+$r\equiv1,5\pmod6$なら$W_r=0$、
+$r\equiv3\pmod6$なら$W_r$は
+$x^3-y^3$の倍数でありJacobianイデアルに属する。
+また$r\equiv4\pmod6$ならJacobian類は零。
+従ってJacobian商において許される非零な高次方向は
 \[
-  \sum_{i\in\{x,y,z,u,v\}}L_i\,\partial_iF_\lambda
+ \begin{cases}
+ \CC[uxy],&r\equiv0\pmod6,\\
+ \CC[xyz],&r\equiv2\pmod6,\\
+ 0,&r\equiv1,3,4,5\pmod6.
+ \end{cases}
 \]
-と書ける。ここで$L_i$は線形形式である。
-$H$に関して平均することにより、
-$h^r\sum_iL_i\partial_i$を不変な線形vector fieldとして選べる。
-このvector fieldの$h^r$次の形式的座標変換は、
-他の係数の次数$r$未満を変えず、
-上のJacobian項をちょうど打ち消す。
-$r\equiv0,2$なら残った係数を
-$\lambda_*$または$c_*$に吸収する。
-これを$r=1$から繰り返すと、座標変換は$h$進的に収束する。
-$T_h\equiv\operatorname{id}\pmod h$であり、
-全段階が線形かつ同変なので極限も同じ性質を持つ。
+これが選択則である。
 
-初めの二次jetは
-$W_h\equiv F_\lambda+
-h^2(xyz/3-\lambda^2u^2z/12)\pmod{h^3}$である。
-一次の変換を恒等とし、二次で
-$u\mapsto u+h^2\lambda^2z/36$と置けば、
-$u^2z$が消え、$xyz$係数は
-$1/3+\lambda^3/36$となる
-（式\eqref{kj:eq:scalar-certificate}も参照）。
-以後の変換は三次以上から始めるので、この値は保たれる。
+上式から形式正規化を帰納的に行う。
+次数$r$未満で主張の形が得られたとする。
+残余の三次式は、その次数の許された指標と$\tau$固有値を持つ。
+Jacobian商への像を、$r\equiv0$なら$uxy$、
+$r\equiv2$なら$xyz$の係数に吸収する。
+残りは三次Jacobianイデアルに属し、
+$\sum_iL_i\partial_iF_\lambda$と書ける（$L_i$は一次式）。
+$G$の平均により、$h^r\sum_iL_i\partial_i$を
+$G$不変な線形vector fieldとして選び直せる。
+その次数$r$の形式的線形座標変換でJacobian項を消去しても、
+既に固定した低次数係数は変わらない。
+この操作を全次数で繰り返すと$h$進的に収束した
+$G$同変の$T_h\equiv\mathrm{id}\pmod h$を得る。
+
+初めの二次式は
+$W_h=F_\lambda+h^2(xyz/3-\lambda^2u^2z/12)+O(h^3)$。
+一次変換を恒等とし、
+$u\mapsto u+h^2\lambda^2z/36$とすれば
+$u^2z$が消え、
+$xyz$係数は$1/3+\lambda^3/36$となる
+（式\eqref{kj:eq:scalar-certificate}）。
+この座標変換も$G$同変である。
+それ以降の操作は次数三以上から始めるため、
+$c_*(0)$は変化しない。
 \end{proof}
 
-\begin{remark}[次に計算すべき二係数]
-式\eqref{mnf:eq:normal-form}は
+\begin{remark}[最初の未決定係数と判別点]
+式\eqref{mnf:eq:normal-form}で
 \[
  \lambda_*(q)=\lambda+a_1q+O(q^2),\qquad
- c_*(q)=c_0+b_1q+O(q^2),\qquad
- c_0=\frac13+\frac{\lambda^3}{36}
+ c_*(q)=\left(\frac13+\frac{\lambda^3}{36}\right)+b_1q+O(q^2).
 \]
-と書ける。
-最初の未知数は$h^3uxy$の$a_1$と$h^5xyz$の$b_1$である。
-$h^4$の生の係数は、同変代表の古典Jacobian環で零であり、
-座標正規化で消せるが、$a_1$や$b_1$の消滅を意味しない。
-$\lambda^3=-12$では$c_0=0$なので、次に検出すべき
-射影的変形は$h^3$の$\lambda$方向、次いで$h^5$の$xyz$方向である。
-高次の明示値・収束半径・generic生成性は依然として未解決である。
+最初の未決定係数は\emph{$h^6uxy$の$a_1$と
+$h^8xyz$の$b_1$}である。
+$h^3,h^4,h^5$のJacobian変形類は零であるが、
+一般の非同変表示で生の係数が零とは限らない。
+$\lambda^3=-12$では二次の非自明類も消え、
+形式的に最初に現れ得るのは$h^6$方向となる。
+これが実際に非零かどうかは計算していない。
 \end{remark}
 
 \noindent
 \textbf{計算的照合：}
 \texttt{python3 computations/verify\_mixed\_characters.py}は
-三つの指標空間の全単項式、Jacobian関係行列の階数
-$(5,1,1)$、および$c_0$の多項式恒等式を
-$\mathbb Q[\lambda]$上で検算する。
-同変formalityと全次数の正規化は本節の数学的証明に依存し、
-この有限計算の出力ではない。
+三指標の全単項式、Jacobian関係行列の階数$(5,1,1)$、
+交換対合による自由代数の三関係と中心式の不変性、
+反不変三次式のJacobian恒等式、および$c_*(0)$の
+多項式恒等式を$\mathbb Q[\lambda]$上で検算する。
+同変formalityと全次数の正規化は数学的証明に依存し、
+有限計算や外部形式検証による結論ではない。
