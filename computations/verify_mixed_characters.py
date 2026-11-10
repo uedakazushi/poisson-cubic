@@ -68,4 +68,26 @@ G2 = x*y*z/sp.Integer(3) - lam**2*u**2*z/sp.Integer(12)
 c0 = sp.Rational(1, 3) + lam**3/sp.Integer(36)
 assert sp.expand(G2-c0*x*y*z+lam**2*z*gradients[3]/36) == 0
 print("PASS: mixed second jet normalizes to c0=1/3+lambda^3/36")
-print("Scope: character spaces over Q[lambda], not an all-order proof")
+# Additional involution tau: x <-> y, h -> -h (u,z,v,lambda fixed).
+# These are identities in the FREE noncommutative algebra.
+X, Y, Z = sp.symbols("X Y Z", commutative=False)
+hh, aa = sp.symbols("h a")
+r1 = X*Y - Y*X - hh*Z**2
+r2 = X*Z - Z*X + hh*(Y**2 + aa*X)
+r3 = Y*Z - Z*Y - hh*(X**2 + aa*Y)
+from itertools import permutations
+T = sum(sp.Mul(*p) for p in permutations((X, Y, Z)))
+omega = ((X**3+Y**3+Z**3)/3 - hh**2*T/9
+         + aa*(X*Y+Y*X)/2 + hh**2*aa**2*Z/6
+         + hh**4*aa*Z**2/18)
+def tau(p):
+    return sp.expand(p.xreplace({X:Y, Y:X, hh:-hh}))
+assert sp.expand(tau(r1)+r1) == 0
+assert sp.expand(tau(r2)-r3) == 0
+assert sp.expand(tau(r3)-r2) == 0
+assert sp.expand(tau(omega)-omega) == 0
+assert sp.expand(x*gradients[0]-y*gradients[1]-(x**3-y**3)) == 0
+for m in (u*x*y,x*y*z,u**2*z,u*z**2):
+    assert sp.expand(m.xreplace({x:y,y:x})-m) == 0
+print("PASS: free-algebra tau involution, center and antisymmetric Jacobian relation")
+print("Scope: finite character/free-algebra identities only; all-order formality remains a mathematical input")
