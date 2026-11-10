@@ -22,7 +22,7 @@
 - mixed_test_family.tex：指定中心元の閉式、全パラメータ中心性、全Artin PBWを保持。非零hの全AS性はArtin計算だけでは従わない。
 - explicit_jacobian_recovery.tex、poisson_first_order.tex、explicit_model_comparison.texの有限積分、一次消滅、分離型Hessian比較の全証明を保持する。候補の一意性と存在、一般次数と三次元の特別な結論を区別する。
 
-mixed_equivariant_normal_form.texのH同変formalityと二形式級数正規形を維持する。形式可換模型はF_{lambda_*(h³)}+h²c_*(h³)xyzへ整理できるがgeneric復元は未証明。h³のlambda方向a₁、h⁵のxyz方向b₁を次に計算する。次に行う数学的課題は、完備MF同値における指定残余生成子の像、genericでの実際の生成性、有限cone/retractまたは対角の証明書を求めること。全Artinで生成することからgeneric生成性を推論しない。混合族のh³,h⁴とlambda³=−12の高次項も計算対象とする。
+mixed_equivariant_normal_form.texのG=H⋊⟨τ⟩同変formalityと二形式級数正規形を維持する。τはx,y交換・h符号反転で、関係式と中心元を保つ。形式可換模型はF_{lambda_*(h⁶)}+h²c_*(h⁶)xyzへ整理できるがgeneric復元は未証明。h⁶のlambda方向a₁、h⁸のxyz方向b₁を次に計算する。次に行う数学的課題は、完備MF同値における指定残余生成子の像、genericでの実際の生成性、有限cone/retractまたは対角の証明書を求めること。全Artinで生成することからgeneric生成性を推論しない。λ³=−12でh²類が消える点について、最初に許されるh⁶の係数を調べる。
 
 ## 維持する存在証明の経路
 
