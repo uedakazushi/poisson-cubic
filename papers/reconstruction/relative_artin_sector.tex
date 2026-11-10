@@ -1,0 +1,277 @@
+% 2026-11-11 / v29
+\section{Artin基底上のJacobian sectorと導来自然変換の底変更}
+\label{ras:sec:artin-sector}
+
+本節では標数零の体$k$、$R_m=k[h]/(h^{m+1})$、
+$S_m=R_m[x_1,\ldots,x_5]$、次数三の
+$W_m\in(S_m)_3$を考える。$F=W_m\bmod h$は
+$\PP^4_k$の滑らかなcubic threefoldを定めるとする。
+目的は、相対的な五変数のJacobian sectorと、graded MF圏の
+$\Id\to(1),(2)$の導来自然変換を区別しながら底変更を調べることである。
+以下の$\RHom$は常に\emph{$R_m$-線形}な導来Homである。
+$R_m$の絶対的なHochschild理論を取り込まない。
+
+体上のkernelの計算にはBallard--Favero--Katzarkov\cite{RASBFK}、
+Lin--Zhang\cite[Theorem~3.5, Remark~3.6]{RASLZ}を用いる。
+残余体のstabilizationが生成元となる体上の結果は
+Dyckerhoff\cite{RASDyck}を用いる。
+以下では、非正則Artin底へ適用するときに必要な
+平坦複体の持上げと、可換対角の有限模型を明示する。
+これら既知の結果そのものの新規性は主張しない。
+
+\subsection{勾配Koszul複体の相対完全性}
+
+\begin{lemma}[勾配の全Artin完全性]\label{ras:lem:gradient}
+$K_m=K_\bullet(\partial_1W_m,\ldots,\partial_5W_m;S_m)$を
+通常のKoszul鎖複体とする。このとき
+\[
+ H_i(K_m)=0\quad(i>0),\qquad
+ H_0(K_m)=J_m:=S_m/(\partial_1W_m,\ldots,\partial_5W_m).
+\]
+$J_m$は内部次数別に有限自由な$R_m$-加群で、Hilbert級数は
+\[
+ \sum_{j\ge0}\operatorname{rank}_{R_m}(J_m)_jt^j=(1+t)^5.
+ \tag{RAS1}\label{ras:eq:hilbert}
+\]
+特に$(J_m)_1\simeq R_m^5$、$(J_m)_2\simeq R_m^{10}$である。
+全ての商$R_m\to R_a$（$a\le m$）への底変更は
+$J_m\otimes_{R_m}R_a\simeq J_a$と両立する。
+\end{lemma}
+\begin{proof}
+$F$の偏微分は原点以外に共通零点を持たない。
+$k[x_1,\ldots,x_5]$はCohen--Macaulayなので、五つの二次式は
+正則列であり、$K_0$は次数零以外で完全である。
+従って$J_0$のHilbert級数は
+$(1-t^2)^5/(1-t)^5=(1+t)^5$である。
+
+$m\ge1$のとき、各成分は$R_m$-自由なので
+\[
+ 0\longrightarrow K_0\xrightarrow{h^m}K_m
+ \longrightarrow K_{m-1}\longrightarrow0
+ \tag{RAS2}\label{ras:eq:short}
+\]
+は鎖複体の短完全列である。左端の微分は
+$h^m\partial W_m=h^m\partial F$なので、左端は実際に$K_0$である。
+長完全列による帰納法で$H_i(K_m)=0$（$i>0$）を得て、
+\[
+ 0\longrightarrow J_0\xrightarrow{h^m}J_m
+ \longrightarrow J_{m-1}\longrightarrow0
+\]
+も得る。各内部次数$j$の$J_m$の$k$-長さは
+$(m+1)\dim_k(J_0)_j$である。
+$(J_0)_j$の基底を同次数の多項式に持ち上げると、Nakayamaにより
+$R_m^{d_j}\twoheadrightarrow(J_m)_j$を得る。
+両辺の$k$-長さは$(m+1)d_j$なので、これは同型である。
+同じ持上げ基底を使えば任意の$R_a$への底変更が従う。
+\end{proof}
+
+\begin{lemma}[有限nilpotent比較の検出]\label{ras:lem:nilpotent}
+$f:C^\bullet\to D^\bullet$を、各項が$R_m$-平坦な複体の射とする。
+$f\otimes_{R_m}k$が擬同型なら、$f$は擬同型である。
+有界性は仮定しないが、\emph{各項の平坦性}は必要である。
+\end{lemma}
+\begin{proof}
+$E=\operatorname{Cone}(f)$も項別平坦である。
+有限フィルトレーション
+$E\supset hE\supset\cdots\supset h^mE\supset0$の各商は、
+平坦性により$E/hE$と複体として同型である。
+$E/hE$は非輪状であるから、有限回の短完全列を用いて$E$も
+非輪状となる。
+\end{proof}
+
+\begin{example}[特殊ファイバーの次元だけでは足りない]
+\label{ras:ex:basechange-fails}
+$R_1=k[h]/(h^2)$上の二項複体
+$C=[R_1\xrightarrow{h}R_1]$を次数$0,1$に置く。
+$H^0(C)=hR_1\simeq k$だが、
+$H^0(C)\otimes_{R_1}k\to H^0(C\otimes_{R_1}k)=k$は\emph{零写像}である。
+両コホモロジーの$k$-次元が一であっても底変更の同型は従わない。
+従って、後述の標的の底変更を体上の次元公式だけで済ませてはならない。
+\end{example}
+
+\subsection{体上のkernel比較をArtin底へ持ち上げる際の構成}
+
+$(\mathcal T_m,(1))$を、有限rank自由な次数付き
+matrix factorizationとその冪等完備化から作った$R_m$-線形dg圏とする。
+そのdg双加群による自然変換を
+\[
+ T_{r,m}:=H^0\RHom_{\mathcal T_m^e}
+ (\Delta_{\mathcal T_m},\Delta_{\mathcal T_m}(r))
+ \qquad(r=1,2)
+ \tag{RAS3}\label{ras:eq:target}
+\]
+とする。
+
+\begin{lemma}[特殊生成子のnilpotent持上げ]\label{ras:lem:generator}
+$\mathcal C_m$を$R_m$-線形dg圏とし、対象間のHom複体が
+すべて項別$R_m$-平坦とする。
+$G_m\in\mathcal C_m$の特殊化$G_0$が特殊ファイバーの
+Morita生成元であれば、$G_m$は$\mathcal C_m$のMorita生成元である。
+ここで特殊ファイバーは、対象の剰余により得るdg圏の
+Morita包絡として解釈する。
+\end{lemma}
+\begin{proof}
+$E_m=\operatorname{End}_{\mathcal C_m}(G_m)$と置く。
+任意の対象$X,Y$に対し、$G_m$を介した標準の二側bar評価
+\[
+ \bigoplus_{q\ge0}
+ \Hom(X,G_m)\otimes_{R_m}E_m^{\otimes q}
+ \otimes_{R_m}\Hom(G_m,Y)
+ \longrightarrow\Hom(X,Y)
+ \tag{RAS4}\label{ras:eq:bar-evaluation}
+\]
+を、bar微分を備えたtotal複体として考える。
+両辺は項別平坦で、その$k$への剰余は同じ評価の特殊ファイバーである。
+特殊ファイバーでは$G_0$のMorita生成性によって擬同型である。
+補題\ref{ras:lem:nilpotent}を適用すれば、元の評価も擬同型であり、
+全表現可能加群が$G_m$の誘導によって得られる。
+\end{proof}
+
+五変数の場合、$W_m=\sum_i x_i(\partial_iW_m/3)$から
+残余点のstabilization $K_m$をKoszul型の有限rank因子分解として
+作れる。$K_m,(1)K_m,(2)K_m$の直和を$G_m$とする。
+体上ではこれがgraded MFのMorita生成元となる
+\cite{RASDyck,RASBFK}。従って補題\ref{ras:lem:generator}を適用できる。
+上のbarの各項は同次多項式の有限自由$R_m$-加群の直和である。
+自然変換を計算するbar \emph{cochain}では直積が現れるが、
+$R_m$はNoetherian（従ってcoherent）であり、自由加群の直積は平坦である。
+$R_m\to k$への剰余は、各係数を成分毎に剰余する操作と可換する。
+
+差$W_m(x)-W_m(y)$を
+\[
+ W_m(x)-W_m(y)=\sum_i(x_i-y_i)D_iW_m(x,y)
+\]
+と分解し、$\sum_i(x_i-y_i)\iota_i+\sum_iD_iW_m\,\wedge e_i$を
+微分とするKoszul因子分解$\mathscr D_m$を取る。
+これは$\mathbb G_m$-同変な\emph{stabilized diagonal kernel}である。
+$x_i-y_i$は任意の$R_m$上で正則列なので、有限rank因子分解への畳込みにより
+恒等関手を与えることは、通常のKoszul contractionで確認できる。
+内部shiftを持つ$\mathscr D_m(r)$も同様である。
+
+\begin{proposition}[相対kernel作用のnilpotent検出]\label{ras:prop:kernel-action}
+$\mathscr D_m$によるkernel作用から得られる、相対的な自然な複体の射
+\[
+ \kappa_{r,m}:\Hom_{\mathrm{MF}^{\rm gr}(W_m(x)-W_m(y))}
+ (\mathscr D_m,\mathscr D_m(r))
+ \longrightarrow
+ \RHom_{\mathcal T_m^e}(\Delta,\Delta(r))
+ \tag{RAS5}\label{ras:eq:kappa}
+\]
+を、右辺で$G_m$の二側bar模型を使って表す。
+この比較の特殊ファイバーが体上のkernel定理による擬同型なら、
+$\kappa_{r,m}$は全ての$m$で擬同型である。
+\end{proposition}
+\begin{proof}
+左辺は有限自由因子分解の同次Homなので項別$R_m$-自由である。
+右辺の$G_m$-bar模型の各項は上記のように$R_m$-平坦で、
+特殊化は体上の同じbar模型となる。kernelの作用は
+$R_m$上の畳込み・合成で作るため、特殊化と可換である。
+従って特殊化が擬同型なら、補題\ref{ras:lem:nilpotent}を適用できる。
+\end{proof}
+
+\begin{remark}[比較の適用範囲]
+体上のkernel定理\cite{RASBFK}は、そのdg enhancementと
+連続kernel functorを指定する。式\eqref{ras:eq:kappa}について
+\emph{同じ}enhancementを用い、相対畳込みと$G_m$-bar評価を
+整合させる必要がある。異なる第二種Hochschild totalizationを
+同じ名前だからと同一視してはならない。
+以下の計算は、有限自由のstabilized diagonalの相対模型について行う。
+\end{remark}
+
+\subsection{恒等sectorと非恒等sector}
+
+\begin{proposition}[五変数の相対sector計算]\label{ras:prop:sectors}
+標準の$\mu_3$-sector分解を相対stabilized diagonalに適用すると、
+$\mathscr D_m$の内部shift付き自己準同型の次数零は
+\[
+ H^0\Hom(\mathscr D_m,\mathscr D_m(r))
+ \simeq (J_m)_r\quad(r=1,2)
+ \tag{RAS6}\label{ras:eq:sectors}
+\]
+となり、積は$J_m$の通常の多項式積である。
+この同型は全$R_m\to R_a$と両立する。
+\end{proposition}
+\begin{proof}
+$\mu_3$は標数零で線型簡約だから、sectorへの射影は
+$R_m$上の直和分解である。恒等sectorでは、二つの対角の
+Koszul homotopyを$y=x$で縮約すると、偏微分
+$(\partial_1W_m,\ldots,\partial_5W_m)$のKoszul複体を得る。
+補題\ref{ras:lem:gradient}により、次数零は$J_m$で、
+正のKoszulホモロジーは零である。
+
+非恒等$\zeta\in\mu_3$では、twisted対角との交点に
+$((1-\zeta)x_1,\ldots,(1-\zeta)x_5)$のKoszul複体が現れる。
+$1-\zeta$は単元なので、この五つは$S_m$上の正則列である。
+その縮約後に残るnormal determinantは\emph{奇数}（階数五）の
+cohomological parityを持つ。$(3)=[2]$によるシフトは偶数なので、
+どの内部shift$r$でもcohomological degree零には寄与しない。
+この計算は体上のsector formula\cite[Theorem~3.5]{RASLZ}の
+明示的Koszul証明を$R_m$上で行ったものであり、
+$1-\zeta$の可逆性以外に体の性質を使わない。
+恒等sectorの積はdiagonalへの多項式倍であり、積の同定も従う
+\cite[Remark~3.6]{RASLZ}。
+\end{proof}
+
+\begin{theorem}[相対kernel比較の下での(BC)]\label{ras:thm:bc}
+各$R_m$について、\emph{相対kernel作用の射\eqref{ras:eq:kappa}が
+体上のBFK kernel比較と同じenhancementにおいて定義され、
+その$h=0$剰余が擬同型である}とする。
+このとき、論文Cの条件(BC)がすべての$m$について成り立つ。
+特に
+\[
+ T_{1,m}\simeq R_m^5,\quad T_{2,m}\simeq R_m^{10},\quad
+ T_{r,m}\otimes_{R_m}k\xrightarrow{\sim}T_{r,0}\quad(r=1,2)
+\]
+であり、低次数の積は形式可換模型$W_m$のJacobian積である。
+\end{theorem}
+\begin{proof}
+補題\ref{ras:lem:generator}により、特殊生成子のbar模型で
+実際の導来自然変換を計算できる。
+命題\ref{ras:prop:kernel-action}のnilpotent持上げと
+命題\ref{ras:prop:sectors}を合成すれば、標的の同定と底変更を得る。
+内部shiftはdiagonalのequivariant characterのshiftであり、
+比較の畳込みに組み込まれている。積の比較はkernelの合成であり、
+恒等sectorでは多項式積となる。
+\end{proof}
+
+\begin{corollary}[混合族に関する条件付き正式]\label{ras:cor:formal-G}
+既存の有限Artin MF同値・線束残余比較と、
+上の相対kernel作用の仮定が与えられているとする。
+$\lambda=1$で有限曲率付き対角から計算した多項式候補
+$G_h+v^3$と、既存のformalityで選んだ可換形式三次式$W_h$は、
+$\CC[[h]]$上、恒等に近い形式線形座標変換で同型である。
+非零複素数$h$での圏同値はこの結論に含まれない。
+\end{corollary}
+\begin{proof}
+定理\ref{ras:thm:bc}と既存の乗法的characteristic写像の
+Artin判定から、全Artin次数で低次数積が一致する。
+対応を逆極限に取り、次数二の核として勾配空間を同定する。
+$h=0$では座標の同定を恒等に規格化できる。
+有限代数的積分の定理とsymmetrizerの形式三乗根により、
+両三次式を形式的な線形座標変換で同定できる。
+\end{proof}
+
+\subsection{残る検証の境界}
+
+相対kernel作用の\emph{特殊ファイバー擬同型}は体上の既知定理だが、
+非正則Artin上の有限自由enhancement、畳込み、二側barを
+同じモデルで整合させた完全な鎖レベルの実装は、
+この原稿では独立の有限行列証明書として提供していない。
+従って上の定理は必要な比較モデルを指定した\emph{条件付き}の定理である。
+前節の有限曲率付き対角と相対stabilized diagonalとの比較を
+省略して、実際の非可換rotation積と無条件に同定してはならない。
+最優先課題は、そのchain-level kernel作用の自然性・$R_m$-平坦性・
+特殊化を一つの有限自由模型で具体的に検証することである。
+
+具体的な五変数の古典特殊ファイバー
+\[
+ F_1=(x^3+y^3+z^3)/3+u^3+v^3+uxy
+\]
+では$F_x=x^2+uy$, $F_y=y^2+ux$, $F_u=3u^2+xy$から
+$u\ne0$を仮定すると$(xy)^2=9u^4$かつ
+$x^2y^2=-3u^4$となり矛盾する。従って唯一の勾配共通零点は原点。
+厳密なGr\"obner証明書は
+\texttt{computations/verify\_artin\_sectors.py}で再生成でき、
+Hilbert関数は$(1,5,10,10,5,1)$である。
+さらに計算済み候補$G_{1/2}+v^3$も同じ関数を持つことを検査する。
+これは(BC)の鎖レベルの実装を検証したものではない。

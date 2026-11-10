@@ -1,6 +1,6 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-11 / v28。GitHub mainを唯一の正本とする。** 00_research_plan.md、notes/bar_comparison.md、notes/curved_diagonal.md、notes/finite_algebraic_recovery.mdの順に読む。一般背景はnotes/research_notes.md、reconstruction/README.md、証明は現行論文A/B/C。旧ZIPや会話を再開条件にしない。
+**2026-11-11 / v29。GitHub mainを唯一の正本とする。** 00_research_plan.md、notes/bar_comparison.md、notes/curved_diagonal.md、notes/finite_algebraic_recovery.mdの順に読む。一般背景はnotes/research_notes.md、reconstruction/README.md、証明は現行論文A/B/C。旧ZIPや会話を再開条件にしない。
 
 ## 最優先
 
@@ -13,6 +13,12 @@
 - multiplicative_bar_comparison.texは同次分裂bar比較を入力に、有限対角Yoneda積=有限支持Hochschild cup積を証明する。Q(a)=epsilon_P a Pi、Jの乗法性の差は-d(Pi R_phi H R_psi I)。有限arity dg Lie共役だけでcup保存を結論しない。
 - 有限支持brace挿入はMFの内部shift付き導来自然変換への乗法的Thetaを与える。r=1,2に必要なarityは<=2,4。**写像の構成と同型性を区別する。**
 - 計算済みlambda=1候補は四本の代数方程式、初期Jacobian9で正規化でき、L=1+127q/5184+O(q^2)、C=13/36+1613q/1679616+O(q^2)、q=h^6。これを未確認の形式Wの係数と同定しない。
+
+## v29：相対Artin sector（証明と未解決の区別）
+
+可換形式五変数cubicの勾配Koszulは任意のArtin切断で正のホモロジー零、Jac(W_m)は次数別自由で一次・二次rank5,10。μ3非恒等sectorは奇数parity。項別平坦な複体の擬同型は特殊化で検出できる。以上の証明は`papers/reconstruction/relative_artin_sector.tex`に保持する。
+
+**(KF)を未確認の核心条件として維持する。** 相対stabilized diagonalのkernel畳込みを指定graded MFの同一enhancementで構成し、特殊化が体上BFK kernel比較と一致することを符号・内部shift込みで示す。これは実際のNatとrotation積の無条件同定ではない。検算は`computations/verify_artin_sectors.py`と証明書（Jacobianの有限計算のみ）。研究ノートは`notes/relative_artin_sector.md`。
 
 ## 次の着手と禁止する飛躍
 

@@ -1,6 +1,6 @@
 # 研究方針：cubicのPoisson構造・量子化・可換復元
 
-**2026年11月11日・v28。再開時は最初に本ファイルを読む。**
+**2026年11月11日・v29。再開時は最初に本ファイルを読む。**
 
 ## 正本・目標・達成基準
 
@@ -30,11 +30,13 @@ GitHub `uedakazushi/nc-cubic` の `main` を唯一の正本とする。次に `n
 
 **7. MFへの写像と残る(BC)。** 有限支持brace挿入により、実際のgraded MFの内部shift付き導来自然変換への乗法的characteristic写像Thetaを構成する。次数一・二に必要なarityは高々2,4。標的の全Artin底上のH^0が自由rank5,10で、自然な特殊化が体上のNatと同定されThetaに両立する条件(BC)を確認できれば、単元行列式でTheta_1,Theta_2の同型性が従う。**(BC)は本研究の族で未確認。従ってactual Nat同定は未完成。** 全文は `papers/reconstruction/multiplicative_bar_comparison.tex`。
 
-**8. 計算済み候補の代数的正規形。** q=h^6、u=a(q)U+h^2b(q)Z、z=h^4c(q)U+d(q)Zにより候補G_h+v^3を `(x^3+y^3+Z^3)/3+U^3+v^3+L(q)Uxy+h^2C(q)Zxy` へ移す。a,b,c,dの四代数方程式の初期Jacobianは9、初期値は(1,1/36,25/432,1)。`L=1+127q/5184+O(q^2)`、`C=13/36+1613q/1679616+O(q^2)`。指定局所解はetale近傍で代数的。この係数は候補Gの値であり、(BC)未確認のままformalityのW_hの係数と同定しない。
+**8. 可換Artin sectorの相対完全性とkernel比較(KF)。** `R_m=\mathbb C[h]/(h^{m+1})`上の滑らかな可換特殊ファイバーを持つ五変数三次形式族では、勾配Koszulは正のホモロジー零、Jacobian環は各次数R_m自由でHilbert級数`(1+t)^5`。次数一・二はrank5,10。非恒等μ3 sectorはnormal rank5の奇数parityにありH^0には寄与しない。さらに項別平坦な複体の擬同型を特殊ファイバーで検出するnilpotent補題を得た。**相対stabilized diagonalのkernel作用・bar模型・体上BFK比較を同一enhancementで同定する条件(KF)は未確認**で、(BC)全体はまだ未証明。全文は`papers/reconstruction/relative_artin_sector.tex`、要点は`notes/relative_artin_sector.md`、厳密計算は`computations/verify_artin_sectors.py`。
+
+**9. 計算済み候補の代数的正規形。** q=h^6、u=a(q)U+h^2b(q)Z、z=h^4c(q)U+d(q)Zにより候補G_h+v^3を `(x^3+y^3+Z^3)/3+U^3+v^3+L(q)Uxy+h^2C(q)Zxy` へ移す。a,b,c,dの四代数方程式の初期Jacobianは9、初期値は(1,1/36,25/432,1)。`L=1+127q/5184+O(q^2)`、`C=13/36+1613q/1679616+O(q^2)`。指定局所解はetale近傍で代数的。この係数は候補Gの値であり、(BC)未確認のままformalityのW_hの係数と同定しない。
 
 ## 未解決の核心と次の具体的着手
 
-1. **標的側の相対kernel/sectorと(BC)を第一優先。** 既存の形式MF同値で標的を可換形式cubicへ移し、Artin底上の対角kernel模型を構成する。gradient Koszulの相対完全性、恒等sectorのrank5,10、非恒等sectorの次数、自然な剰余写像とThetaとの両立を確認する。体上のBFK/Lin--Zhang公式や導来Homの底変更を、そのままH^0底変更の証明にしない。
+1. **(KF)の鎖レベル検証を第一優先。** 勾配Koszulと相対sectorの全Artin底変更は得た。次は相対stabilized diagonalのconvolutionを指定生成子の二側bar模型上で作り、内部shift・符号・µ3-equivarianceを保持してその特殊化が体上BFKのkernel擬同型に一致することを確認する。このkernel作用の同一enhancement上の同定をまだ証明していないので、(BC)とactual Natを無条件に主張しない。
 2. **形式模型との全次数比較。** (BC)が全切断で両立すれば、GとWの低積・勾配空間の同定とsymmetrizer三乗根により形式線形同値を得る。現在は条件付き。有限対角bar比較の同次分裂入力と既存形式MF/残余比較の依存箇所も監査する。
 3. **generic圏同値。** 指定生成子の像、有限cone/retract、同値双加群の代数性を調べる。SM（相対対角perfect性）・ER（etale実現）は別経路として維持する。全Artinのsmoothness・生成性だけではgenericへ進めない。
 4. **範囲拡大。** 一般lambdaの絶対式、lambda^3=-12の高次項は比較の検査に役立つ範囲で扱う。相対対角では中心g(u)が消えるため、u^3係数を相対式から補作しない。

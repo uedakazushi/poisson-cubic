@@ -1,6 +1,6 @@
 # 乗法的bar比較と実際のrotation積への残る条件
 
-**2026-11-11 / v28。最初に00_research_plan.mdを読む。GitHub mainが正本。**
+**2026-11-11 / v29。最初に00_research_plan.mdを読む。GitHub mainが正本。**
 
 ## 証明本文と状態
 
@@ -13,6 +13,10 @@
 有限対角側からの擬同型は `Q(a)=epsilon_P a Pi`。bar長を完成する一方、cochainはarity直和を保つ。tは線形係数で、t微分を導入しない。別の有限曲率化とは鎖長を上げる有限可逆行列で共役できる。証明の中でdg Lie同型から乗法性を推論していない。
 
 有限支持cochainへのLowenのbrace挿入で、graded MFの内部shift付き導来自然変換への乗法的characteristic写像Thetaを構成した。これは同型性の主張ではない。線形N段対角では内部次数r、コホモロジー次数0の増大射成分は偶数p<=min(N,2r)に限られ、r=1,2の代表はarity<=2,4で取れる。
+
+## 相対Artinの得られた結果と未解決条件
+
+可換形式三次式W_mの勾配Koszulは正のホモロジーが全Artinで零、Jacobian環は次数別R_m自由、次数1,2はrank5,10。五変数のμ3非恒等sectorは奇数parityのためH⁰へ寄与しない。項別平坦な複体は特殊化で擬同型を検出する。**相対kernel作用の同一enhancement上の構成・特殊化一致(KF)は未解決**であり、(BC)を証明したとはしない。詳細は`papers/reconstruction/relative_artin_sector.tex`と`notes/relative_artin_sector.md`。
 
 ## 実際の圏との比較に必要な(BC)
 

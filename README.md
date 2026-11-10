@@ -1,8 +1,12 @@
 # nc-cubic：Poisson構造・量子化・可換復元
 
-**2026-11-11 / v28。正本はGitHub main。** 最初に [研究方針](00_research_plan.md)、次に [乗法比較ノート](notes/bar_comparison.md) と [有限対角ノート](notes/curved_diagonal.md) を読む。
+**2026-11-11 / v29。正本はGitHub main。** 最初に [研究方針](00_research_plan.md)、次に [乗法比較ノート](notes/bar_comparison.md) と [有限対角ノート](notes/curved_diagonal.md) を読む。
 
 ## 現在の到達点
+
+**v29：相対Artin sector。** 可換形式五変数cubicの勾配Koszul複体を全Artin切断で調べ、Jacobian環の次数別自由性とrank(次数1,2)=5,10を証明した。非恒等μ3-sectorのH⁰寄与は零。相対stabilized diagonalのkernel作用が同一enhancementで体上BFK比較へ特殊化する条件(KF)を確認すれば、nilpotent検出から既存の(BC)が従う。**(KF)は未証明で、categorical Natやgeneric圏同値の完成を意味しない。** 証明：`papers/reconstruction/relative_artin_sector.tex`、ノート：`notes/relative_artin_sector.md`、検算：`computations/verify_artin_sectors.py`。
+
+
 
 一般次元のPoisson正規形と固定方向の代数的量子化は論文A、17次元族とambient復元はB、rotation付き可換復元はC。一般混合族のgeneric圏同値は未完成。
 

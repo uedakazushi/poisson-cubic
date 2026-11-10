@@ -1,0 +1,73 @@
+{
+  "algebraic_candidate_h_half": {
+    "complete_intersection_total_length": 32,
+    "hilbert_function": [
+      1,
+      5,
+      10,
+      10,
+      5,
+      1
+    ],
+    "jacobian_rank_1": 5,
+    "jacobian_rank_2": 10,
+    "leading_monomials": [
+      "u**5",
+      "u**3*x",
+      "u**3*y",
+      "u**3*z",
+      "u*x*z",
+      "u*y*z",
+      "x**2",
+      "x*y",
+      "y**2",
+      "z**2",
+      "v**2"
+    ]
+  },
+  "artin_gradient_acyclicity": "proved by finite filtration in the TeX manuscript, not by this finite Groebner test",
+  "base_change_warning": {
+    "H0": "hR (length one)",
+    "H0_basechange_map": "zero (not an isomorphism)",
+    "H0_special": "Q",
+    "base": "Q[h]/(h^2)",
+    "differential": "multiplication by h"
+  },
+  "five_variable_F_smoothness_identity": "(xy)^2-x^2*y^2 = 12*u^4 modulo the first three partial derivatives",
+  "not_verified": [
+    "relative kernel action is a quasi-isomorphism",
+    "actual MF categorical Nat or noncommutative finite-diagonal product",
+    "generic categorical equivalence"
+  ],
+  "off_diagonal_mu3_sectors": {
+    "cohomological_parity": "odd",
+    "count": 2,
+    "degree_zero_contribution": 0,
+    "normal_rank": 5
+  },
+  "scope": "exact commutative special Jacobian and one algebraic cubic specialization; categorical Morita/kernel comparison is NOT computed",
+  "special_fiber": {
+    "complete_intersection_total_length": 32,
+    "hilbert_function": [
+      1,
+      5,
+      10,
+      10,
+      5,
+      1
+    ],
+    "jacobian_rank_1": 5,
+    "jacobian_rank_2": 10,
+    "leading_monomials": [
+      "u**4",
+      "u**2*x",
+      "u**2*y",
+      "x**2",
+      "x*y",
+      "y**2",
+      "z**2",
+      "v**2"
+    ]
+  },
+  "version": "nc-cubic-v29"
+}
