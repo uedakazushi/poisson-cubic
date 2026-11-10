@@ -67,6 +67,15 @@
 - [ ] 原論文第6節のHilbert関数の独自証明で、飽和化への自然写像の全射性・向きを修正する。現行TeXの平面三次分類はSkjelnes--Smith、Harris--Roth--Starrを使用。
 - [ ] 原論文第7節の全PT BPS変換、第8節のprimary GW/PTおよびGV係数への同一視を一次文献の正確な適用条件とともに移す。
 - [ ] 原論文第5・9・10節の法束と全Artin同型、550本の網羅性と \(\mathcal O_{\mathbb P^1}(-1)^{\oplus2}\) の全証明を移植。
-- [ ] 原論文第13.2・13.3節の二点付きincidenceの全相対位置のrank層、単一foldのconormal一意性を移植・検証。これまでは \(\mathrm{Mon}=S_{275}\) を今回の追記だけで無条件に証明したとは扱わない。
+- [x] 原論文第13.2・13.3節の二点付きincidence全相対位置・単一foldのconormal一意性を移植済み。\(S_{275}\) の証明は別原稿第3・10節の結果を入力とする。特殊階数層は本文で係数比較したが、全行列の独立機械監査は未了。
 - [ ] 原論文第12節の長さ3・cusp局所模型・射影regularityを移植。
 - [ ] 77ページ原PDFの全章・証明・一次引用とTeXが一致しLuaLaTeXで再生成できることを確認した後にのみ、同PDFのGit追跡を解除する。
+
+## 2026-11-10：Reyeモノドロミーの証明再構成（今回）
+
+- [x] `papers/source_recovery/reye_full_monodromy.tex` を追加。原論文IV第13.1–13.4節の二点付きincidence全相対位置、階数表、conormalによる唯一分岐点、transposition、`S_275`、550本の対角作用を証明付きで再構成。
+- [x] `computations/source_recovery/verify_reye_two_point_ranks.py` で一般相対位置5型の二つ目の停留条件の階数を正確な有理数演算で検算。特殊層の表全体は追加の独立監査が必要。
+- [x] `computations/source_recovery/verify_reye_fold_conormal.py` で分岐conormalの特異点配置を検算。
+- [x] LuaLaTeXによる独立組版（7ページ）・引用参照解決を確認。生成PDFは追跡しない。
+- [ ] 原論文第10節の550曲線網羅性・法束、第5・9節の全Artin変形と法束、第11–12節の長さ2・3の射影実現をそれぞれ詳細にTeX化し、対応する原PDFの定理と照合する。
+- [ ] 全77ページの独立数学的内容を確実にTeXへ保持した後でのみ`papers/pdf-only/boundary/reye_stationary.pdf`の追跡解除を行う。

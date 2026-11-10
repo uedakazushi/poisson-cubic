@@ -14,7 +14,7 @@ GitHub `main` が正本で、既存PDFは数学的な情報が失われないよ
 | `papers/pdf-only/boundary/brill_noether.pdf` | `nc_cubic_unified_paper_I_ja_20261101_v2.pdf` | 58 | 大部な包括TeXと部分重複。相対gluing等は未照合 |
 | `papers/pdf-only/boundary/central_quotient_singularities.pdf` | `nc_cubic_unified_paper_VI_ja_20261101_v1.pdf` | 61 | 第15節 pp.25–27の中心曲面判別式をTeX化。Azumaya等は未移植 |
 | `papers/pdf-only/boundary/pfaffian_contact.pdf` | `nc_cubic_unified_paper_III_ja_20261101_v2.pdf` | 89 | 包括TeXのPfaffian節にかなりの重複あり。全証明一致未了 |
-| `papers/pdf-only/boundary/reye_stationary.pdf` | `nc_cubic_unified_paper_IV_ja_20261101_v2.pdf` | 77 | **§2–3 と §4 の中核、275計数・Hessian直線・長さ2・Reye三次曲線を部分復元**（`papers/source_recovery/reye_stationary_core.tex`）。§5–14は未完了 |
+| `papers/pdf-only/boundary/reye_stationary.pdf` | `nc_cubic_unified_paper_IV_ja_20261101_v2.pdf` | 77 | **§2–4の中核に加え§6–7・§13の主要証明を部分復元**（`papers/source_recovery/reye_stationary_core.tex`, `reye_full_monodromy.tex`）。§5・8–12および他節との完全照合は未完了 |
 | `papers/pdf-only/quantization/sklyanin_mixed_quantization.pdf` | `nc_cubic_unified_paper_II_ja_20261101_v16.pdf` | 195 | 包括TeX・Sklyanin節との部分重複。全混合族は未照合 |
 
 ## 今回確実にソース化した内容
@@ -52,3 +52,11 @@ LuaLaTeXと再現計算を確認すること、関連原稿が自立している
 Skjelnes--Smith (J. reine angew. Math. 794, 2023) と
 Harris--Roth--Starr (\S3.2, 2005) の一次研究に依存させた。
 77ページPDF全体のTeX置換は未完で、追跡を継続する。
+
+## 2026-11-10：原論文IV第13節の全対称モノドロミー証明の移植
+
+- `papers/source_recovery/reye_full_monodromy.tex` に原論文IV第13節の主要命題・証明を再構成：普遍停留incidence、二点付き全相対位置5型と階数欠損表、分岐conormalの唯一の特異直線、単一fold、二重推移性、`S_275`、550曲線の二つのcopyと対角作用、一般二次形式系への拡張。
+- `computations/source_recovery/verify_reye_two_point_ranks.py` により五つの一般相対位置の線形条件行列の階数を有理数体上で独立特殊化検算。各型のgeneric階数は順に12,12,12,11,12。特殊階数層の表全体はTeX中の係数消去証明に依存し、完全な機械検証とは区別する。
+- `computations/source_recovery/verify_reye_fold_conormal.py` によりconormal cubic `w1(-z1^2+2z2z3)+w2(-z3^2+2z1z2)`の孤立特異点4点と横断性、非共線性を厳密検算。
+- TeXをLuaLaTeXで二回組版し、7ページのPDFをローカル生成。PDFはGit追跡しない。
+- **原論文IV第3節のfold例、一般275点の横断性、第10節の550曲線網羅性・法束は前提のまま**。第5・8–12節その他の全証明・文献まで照合していないため、77ページの原PDFは保持する。
