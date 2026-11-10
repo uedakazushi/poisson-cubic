@@ -11,11 +11,10 @@ Poisson構造定理 thm:pg-normal と個々のPoisson構造の代数的量子化
 ## 全次数の混合同変正規形（現行の新しい補題）
 
 証明全文：papers/reconstruction/mixed_equivariant_normal_form.tex。
-非可換混合族の有限群H（αβγ=1、χ=αβδ、h↦χh）に対し、
-sorted PBW標識をH同変に選べる。Kontsevich affine formalityはGL同変であり、
+非可換混合族の有限群H（αβγ=1、χ=αβδ、h↦χh）に、交換対合τ:(x,y,h)↦(y,x,−h)を加えたG=H⋊⟨τ⟩を使う。τは自由代数でr₁↦−r₁、r₂↦r₃、r₃↦r₂、Ω↦Ωを満たす。sorted PBW標識はH同変だが、τとは一般に可換しないため、標識の全G平均でG同変な加群同定を作る。Kontsevich affine formalityはGL同変であり、
 全normalized Hochschild complexへの包含も同変。
 有限群不変部分の完全性を用いてformalityのMaurer--Cartan比較と
-一入力gaugeをH同変に選べる。中心のCasimir逆像W_hもH不変になる。
+一入力gaugeをG同変に選べる。中心のCasimir逆像W_hもG不変になる。
 この比較は既存の二次jetを保持して行える。
 
 三次単項式の指標空間は
@@ -23,18 +22,18 @@ sorted PBW標識をH同変に選べる。Kontsevich affine formalityはGL同変�
 - χ：xyz,u²z（2次元）、関係はzF_u=λxyz+3u²z。
 - χ²：uz²（1次元）、関係はuF_z=uz²。
 
-よってJacobian商の各成分はC[uxy]、C[xyz]、0。
-h^r係数は指標χ^(-r)に属する。
-各次数のJacobian理想成分をH同変な一次線形vector fieldで除く
+よってJacobian商の各成分はC[uxy]、C[xyz]、0。両生成元はτ固定であり、H自明部分のτ反不変生成元はx³−y³=xF_x−yF_yでJacobianイデアルに属する。
+h^r係数は指標χ^(-r)に属するとともに、x,y交換では固有値(-1)^rを持つ。
+各次数のJacobian理想成分をG同変な一次線形vector fieldで除く
 h進帰納法により、形式正規形
 \[
-W_h\sim F_{\lambda_*(h^3)}+h^2c_*(h^3)xyz,\quad
+W_h\sim F_{\lambda_*(h^6)}+h^2c_*(h^6)xyz,\quad
 \lambda_*(0)=\lambda,\quad c_*(0)=1/3+\lambda^3/36
 \]
 が得られる。これは具体的な高次級数の決定、収束、SM、generic圏同値ではない。
-最初の未計算係数はh³uxy方向a₁とh⁵xyz方向b₁。
-h⁴係数は古典Jacobian商で零だが、生の係数の零を意味しない。
-λ³=−12ではc₀=0でもa₁が残り得る。
+最初の未計算係数はh⁶uxy方向a₁とh⁸xyz方向b₁。
+h³,h⁴,h⁵のJacobian類は零だが、非同変表示で生の係数の零を意味しない。
+λ³=−12ではc₀=0でもh⁶のa₁が残り得る。
 厳密指標計算コード：computations/verify_mixed_characters.py。
 同じ一般性での先行研究上の初出は未確認。
 
@@ -171,7 +170,7 @@ Cの一楕円ブロックの良い複素ファイバーでの比較、有限位�
 
 ## 8. 再現と次の着手
 
-`reconstruction/README.md` の計算、build、verifyを実行する。参照とハッシュは全TeX inputを含む。計算的確認と圏論的証明は別である。最優先の次作業は、完備MF同値による指定残余生成子の像とgenericでの生成性を、有限cone/retract表示によって確認すること。混合族の同変正規形でまずh³のa₁とh⁵のb₁を計算し、λ³=−12も判別点として調べる。公開コードの厳密検算はPASSし、論文Cの組版・表示を確認した。各原稿の詳細な検証状態はvalidation.jsonを確認する。
+`reconstruction/README.md` の計算、build、verifyを実行する。参照とハッシュは全TeX inputを含む。計算的確認と圏論的証明は別である。最優先の次作業は、完備MF同値による指定残余生成子の像とgenericでの生成性を、有限cone/retract表示によって確認すること。混合族の同変正規形でまずh⁶のa₁とh⁸のb₁を計算し、λ³=−12も判別点として調べる。指標空間とτの自由代数恒等式をSymPyで厳密検算した。現行v23の論文Cは未組版で、旧入力閉包での組版・表示確認とは区別する。各原稿の詳細な検証状態はvalidation.jsonを確認する。
 
 GitHubへ全文と再現資産を保存し遠隔確認する。Libraryはpushが実際に失敗した場合だけの緊急退避とする。
 
