@@ -1,6 +1,6 @@
 # AGENTS.md — nc-cubicの研究継続指示
 
-**2026-11-10・v24。GitHub uedakazushi/nc-cubic の main が唯一の正本。** 最初に00_research_plan.md、次にnotes/research_notes.mdとreconstruction/README.mdを読む。旧ZIP・会話・Libraryを再開の前提にしない。
+**2026-11-10・v25。GitHub uedakazushi/nc-cubic の main が唯一の正本。** 最初に00_research_plan.md、次にnotes/research_notes.mdとreconstruction/README.mdを読む。旧ZIP・会話・Libraryを再開の前提にしない。
 
 ## 目標と優先順位
 
@@ -10,16 +10,13 @@
 
 証明の記載、独立監査、計算実行、形式証明を区別する。cubic n-foldの周囲はnc P^(n+1)。価値ある既存成果・証明を軽量化のため削らない。
 
-## 有限代数的復元を優先する研究方針（2026-11-10）
-最優先の経路は、代数的中心三次対 (A_h,Ω_h) から残余dg圏の実際の低rotation次数積 μ_h:Sym² V_h→W_h を有限の代数的複体で構成し、その核 K_h を局所環上の線形可積分性によって積分して可換三次式 G_h を直接得ることである。選択したformalityの形式級数そのものの代数性・収束を先に証明する必要はない。形式MF復元と全Artin残余比較は完成底上での低次数積の一致を保証するために使う。方程式抽出のためにSMの全面解決を先行条件としない。ただし実際の非可換低次数積の構成、genericでの圏同値、指定生成子の生成性は未証明であり、別々に扱う。
+## 有限代数的復元（最優先）
 
-**条件付き代数化命題。** RをNoether局所Q代数、R^をその完備化、K⊂R[x]_2を階数Nの自由直和因子とする。完成底でKが滑らかな特殊ファイバーを持つ形式三次式W^の勾配空間であれば、任意の有限jetに一致し同じ勾配空間を持つG∈R[x]_3を線形方程式から構成できる。証明は論文Cの finite_algebraic_recovery.tex。これは非可換由来のKが既に計算されたことを意味しない。
-
-**着手順。** (1) 混合族の残余rotation双加群の有限模型と合成を構成する。(2) 代数的な積の対称性、基底変更、形式比較を証明する。(3) 核の局所飽和・可積分行列の抽出・勾配と滑らかさを検算する。(4) その後、generic圏同値のためにSM/ER・有限cone/retractを扱う。既存のA/B/Cの証明と未解決事項を保持する。
+nc残余圏の実際の低rotation積を有限代数的に構成し、その核から可換方程式を直接積分する。証明全文はpapers/reconstruction/finite_algebraic_recovery.tex、検算はcomputations/verify_finite_recovery.py、障害と用途はnotes/finite_algebraic_recovery.md。人工的可換候補の積をncデータと混同しない。SM/ER・指定生成子のgeneric生成性は圏同値に関する別の課題である。
 
 ## 現行の証明方針
 
-**全次数の形式MF復元と全有限Artinの線束残余比較から、指定生成子のgeneric比較と代数化へ進む。** 証明本文と仮定を確認してから新しい推論を行う。
+**有限な実際の低rotation積を構成し、局所飽和・Euler積分で可換式を直接抽出する。形式MFとArtin比較は完成底での一致に使う。** 証明本文と仮定を確認してから新しい推論を行う。
 
 - formal_cubic_mf_reconstruction.tex：全Hochschild cochainsまで含めたformalityでπ_hと中心Casimir W_hを求める。勾配Koszulの次数論でπ_h=[Ξ_h,W_h], [Ξ_h,π_h]=0。全Artinと次数別完備底上の有限rank MF同値を得る。一ブロックは不要。代数化・generic本質全射は結論しない。
 - curved_gauge_comparison.tex：F₀=0で写像と逆写像が有限arityであるbar同型をTwへ延長する。Qのh-adic冪零性を仮定しない。flowはF_(2r+1)=O(h^r)。
@@ -29,7 +26,7 @@
 - mixed_test_family.tex：指定中心元の閉式、全パラメータ中心性、全Artin PBWを保持。非零hの全AS性はArtin計算だけでは従わない。
 - explicit_jacobian_recovery.tex、poisson_first_order.tex、explicit_model_comparison.texの有限積分、一次消滅、分離型Hessian比較の全証明を保持する。候補の一意性と存在、一般次数と三次元の特別な結論を区別する。
 
-mixed_equivariant_normal_form.texのG=H⋊⟨τ⟩同変formalityと二形式級数正規形を維持する。τはx,y交換・h符号反転で、関係式と中心元を保つ。形式可換模型はF_{lambda_*(h⁶)}+h²c_*(h⁶)xyzへ整理できるがgeneric復元は未証明。h⁶のlambda方向a₁、h⁸のxyz方向b₁を次に計算する。次に行う数学的課題は、完備MF同値における指定残余生成子の像、genericでの実際の生成性、有限cone/retractまたは対角の証明書を求めること。全Artinで生成することからgeneric生成性を推論しない。λ³=−12でh²類が消える点について、最初に許されるh⁶の係数を調べる。
+mixed_equivariant_normal_form.texのG=H⋊⟨τ⟩同変formalityと二形式級数正規形を維持する。τはx,y交換・h符号反転で、関係式と中心元を保つ。形式可換模型はF_{lambda_*(h⁶)}+h²c_*(h⁶)xyzへ整理できるがgeneric復元は未証明。h⁶のlambda方向a₁、h⁸のxyz方向b₁は有限抽出の検算に必要な場合に計算する。generic圏同値に関する次の課題は、完備MF同値における指定残余生成子の像、genericでの実際の生成性、有限cone/retractまたは対角の証明書を求めること。全Artinで生成することからgeneric生成性を推論しない。λ³=−12でh²類が消える点について、最初に許されるh⁶の係数を調べる。
 
 ## 維持する存在証明の経路
 
@@ -49,7 +46,7 @@ rotationの低次数sector計算と、Serre関手だけからrotationを得るgc
 
 ## 現行版の検証状態
 
-公開コードの二次厳密計算と既存証明書の再検算はPASS。論文Cの従前版は133頁・32 inputsで組版・表示確認済み。現行v23は新inputの追加後に全体組版・receipt検査が未実施。各原稿の組版・receipt・描画の状態はvalidation.jsonを確認する。ソースが変わった場合は共通bibliographyを使うA/B/Cのreceiptを更新し、古いPDFを現行版として提示しない。
+公開コードの二次厳密計算と既存証明書の再検算はPASS。論文Cの従前版は133頁・32 inputsで組版・表示確認済み。現行v25は新inputの追加後に全体組版・receipt検査が未実施。各原稿の組版・receipt・描画の状態はvalidation.jsonを確認する。ソースが変わった場合は共通bibliographyを使うA/B/Cのreceiptを更新し、古いPDFを現行版として提示しない。
 
 ## 保存・再現・配置
 

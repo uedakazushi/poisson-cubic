@@ -1,64 +1,400 @@
-% 2026-11-10 / v24. Finite algebraic recovery (compact integrated theorem).
-\section{有限勾配データからの代数的三次式の復元}\label{far:sec:recovery}
-本節は、非可換入力から実際の低rotation積を計算したという主張ではない。
-形式的可換三次式の係数の代数性ではなく、その勾配空間の代数的な実現を用いる。
+% 2026-11-10 / finite-algebraic-recovery v1.0 / proposed nc-cubic v24
+\section{有限の低次数積からの代数的な三次式の復元}
+\label{far:sec:recovery}
 
-\begin{theorem}[局所代数化と任意の有限jet]\label{far:thm:algebraization}
+本節では、代数的な有限データから可換三次式を取り出す問題を扱う。
+あるformalityを選んで得た形式三次式の係数が代数的であることは要求しない。
+代わりに、その勾配空間が代数的に与えられているとき、同じ勾配空間を持ち、
+任意の指定された有限jetを保つ代数的三次式を構成する。
+完成底上では、元の形式三次式との線形座標同値も得られる。
+ただし、非可換の残余圏から必要な有限データを取り出すことと、
+一般ファイバー上の圏同値を構成することは、ここでの結論とは別である。
+
+既知の構造との関係を述べる。
+可換超曲面のrotationの自然変換とJacobian環との比較には
+Lin--Zhangのsector計算と積の比較を用いる
+\cite[Theorem 3.5, Remark 3.6, Section 5]{FARLinZhang}。
+同じ勾配空間を持つ三次式の自由度はsymmetrizerの問題であり、
+その一般的背景はHwang\cite{FARHwang}にある。
+完備化の忠実平坦性と有限加群の完備化は
+\cite[Tags 00MC, 0BNH]{FARStacks}の標準結果である。
+以下はこれらを有限復元へ適用するための直接的な代数的整理であり、
+一般的な復元原理の初出を主張しない。
+
+\subsection{勾配空間の積分と任意の有限jetの保持}
+
 $(R,\mathfrak m)$をNoether局所$\mathbb Q$-代数、
-$\widehat R$をその完備化とする。
-$K\subset R[x_1,\ldots,x_N]_2$を階数$N$の自由直和因子とし、
-基底を$q_1,\ldots,q_N$とする。
-$\widehat W\in\widehat R[x]_3$が滑らかな特殊ファイバーを持ち、
-$K\otimes_R\widehat R=\langle\partial_i\widehat W\rangle$
-を満たすと仮定する。
-このとき任意の$\ell\ge1$に対し、
-$G\in R[x]_3$が存在し、
-$\langle\partial_iG\rangle=K$、
-$G\equiv\widehat W\pmod{\mathfrak m^\ell\widehat R}$を満たす。
-$V(G)\to\operatorname{Spec}R$は滑らかである。
-さらに$\widehat W$と$G$は$\mathfrak m^\ell$を法として恒等な
-形式的線形座標変換で同型である。
-\end{theorem}
-\begin{proof}
-滑らかさにより$\partial_i\widehat W$は$\widehat R$上一次独立で、
-$\nabla\widehat W=\widehat A q$となる可逆行列$\widehat A$がある。
-可積分性の有限線形系
-\[
-\mathcal L_K=\{A\in\operatorname{Mat}_N(R):
-\sum_a A_{ia}\partial_jq_a=\sum_a A_{ja}\partial_iq_a\}
-\]
-を考える。$R\to\widehat R$は平坦であり、
-$\mathcal L_K\otimes_R\widehat R=\mathcal L_{K\otimes\widehat R}$。
-$\mathcal L_K$は有限生成なので、生成元の係数を
-$R/\mathfrak m^\ell\simeq\widehat R/\mathfrak m^\ell\widehat R$
-によって近似し、$A\equiv\widehat A\bmod\mathfrak m^\ell$を
-満たす$A\in\mathcal L_K$を得る。
-$\det A$は単元だから$A$は可逆である。
-\[
-G=\frac13\sum_i x_i(Aq)_i
-\]
-とすれば、二次のEuler等式と混合偏微分の可換性から
-$\nabla G=Aq$。三次のEuler等式から有限jetの一致が従う。
-特殊ファイバーは滑らかであり、相対Jacobian判定から
-$V(G)\to\operatorname{Spec}R$は滑らかである。
+$\widehat R$をその$\mathfrak m$進完備化、$k=R/\mathfrak m$とする。
+$S_R=R[x_1,\ldots,x_N]$とし、添字の$2,3$は多項式次数を表す。
+$K\subset (S_R)_2$は階数$N$の自由直和因子で、基底を
+$q=(q_1,\ldots,q_N)^{\mathsf t}$とする。
+次の有限加群を定める：
+\begin{equation}\label{far:eq:linear-kernel}
+ \mathcal L_K=\left\{A\in\operatorname{Mat}_N(R):
+ \sum_a A_{ia}\partial_jq_a=\sum_a A_{ja}\partial_iq_a
+ \quad(1\le i<j\le N)\right\}.
+\end{equation}
+これは$N^2$未知数について、高々$N\binom N2$本の斉次線形方程式の核である。
 
-最後に$\nabla\widehat W=B\nabla G$と書くと、
-$B\equiv I\bmod\mathfrak m^\ell$。
-三次の対称三重形式$T$について
-$T(B^{\mathsf t}u,v,w)=T(u,B^{\mathsf t}v,w)$が成立する。
-この対称化条件を満たす行列は積と冪級数で閉じるため、
-$C=(B^{\mathsf t})^{1/3}$も同じ条件を満たす。
-したがって$G(Cx)=\widehat W(x)$であり、
-$C\equiv I\bmod\mathfrak m^\ell$である。
+\begin{theorem}[勾配空間からの局所代数化]\label{far:thm:algebraization}
+$\widehat W\in (S_{\widehat R})_3$の特殊化$F\in k[x]_3$が
+幾何学的に滑らかな射影三次超曲面を定め、
+\begin{equation}\label{far:eq:formal-gradient}
+ K\otimes_R\widehat R
+ =\langle\partial_1\widehat W,\ldots,\partial_N\widehat W\rangle
+ \subset (S_{\widehat R})_2
+\end{equation}
+を満たすとする。このとき任意の$\ell\ge1$について、
+$A\in\mathcal L_K\cap\operatorname{GL}_N(R)$を選び、
+\begin{equation}\label{far:eq:euler}
+ G=\frac13\sum_i x_i(Aq)_i
+\end{equation}
+とおくことで、次を満たす$G\in(S_R)_3$を構成できる。
+\begin{enumerate}
+\item $\nabla G=Aq$であり、その成分は$K$の基底である。
+\item $G\equiv\widehat W\pmod{\mathfrak m^\ell\widehat R}$である。
+\item $V(G)\subset\mathbb P^{N-1}_R$は$R$上滑らかである。
+\item $T\in\operatorname{GL}_N(\widehat R)$、
+$T\equiv I\pmod{\mathfrak m^\ell\widehat R}$が存在し、
+$\widehat W(x)=G(Tx)$となる。
+\end{enumerate}
+この方程式の構成には、$\widehat W$の係数の代数性、解析的収束、
+非可換圏の相対対角のperfect性を仮定しない。
+\end{theorem}
+
+\begin{proof}
+滑らかさから$F$の偏微分は$k$上一次独立である。
+実際、定数係数の線形関係があれば座標変換後に$F$は一変数に依存せず、
+その変数軸の射影点は特異点となる。
+仮定\eqref{far:eq:formal-gradient}とNakayamaの補題から、
+$\nabla\widehat W=\widehat A q$を満たす
+$\widehat A\in\operatorname{GL}_N(\widehat R)$がある。
+混合偏微分が交換するので、$\widehat A$は
+\eqref{far:eq:linear-kernel}の完成底上の解である。
+
+$R\to\widehat R$は平坦だから、線形写像の核について
+\[
+ \mathcal L_K\otimes_R\widehat R=\mathcal L_{K\otimes\widehat R}
+\]
+が成り立つ。$R$はNoether環なので$\mathcal L_K$は有限生成である。
+生成元を$A_1,\ldots,A_r$とし、
+$\widehat A=\sum_\nu\widehat c_\nu A_\nu$と書く。
+$R/\mathfrak m^\ell\simeq\widehat R/\mathfrak m^\ell\widehat R$より、
+$c_\nu\in R$を$\widehat c_\nu$の$\ell$次未満の近似に取れる。
+$A=\sum c_\nu A_\nu$は正確に$\mathcal L_K$に属し、
+$A\equiv\widehat A\pmod{\mathfrak m^\ell}$である。
+特に$\det A$は単元である。
+ここで解加群の特殊化次元が一定であることは仮定していない。
+
+$g=Aq$とおく。可積分性と二次のEuler等式から
+\[
+ \partial_j\left(\frac13\sum_i x_ig_i\right)
+ =\frac13\left(g_j+\sum_i x_i\partial_jg_i\right)
+ =\frac13\left(g_j+\sum_i x_i\partial_i g_j\right)=g_j.
+\]
+これが第一の主張を与える。三次のEuler等式を
+$\widehat W$にも適用すると第二の主張が従う。
+
+滑らかさは有限の次数で検出できる。
+$F$の$N$個の偏微分は正則列で、その商のHilbert級数は$(1+t)^N$である。
+従って$\overline q_i$の$k[x]_{N-1}$倍は$k[x]_{N+1}$を張る。
+有限自由加群間の写像
+\begin{equation}\label{far:eq:macaulay}
+ (S_R)_{N-1}^{\oplus N}\longrightarrow(S_R)_{N+1},
+ \qquad (b_i)\longmapsto\sum_i b_iq_i
+\end{equation}
+は特殊化で全射なので、Nakayamaにより全射である。
+各ファイバーで全$q_i$が零となる射影点は存在しない。
+$\nabla G=Aq$と$A$の可逆性から$G$にも同じことがいえ、
+射影アフィンchartのJacobian判定で$V(G)\to\operatorname{Spec}R$は滑らかである。
+
+最後に$B=\widehat A A^{-1}$とすると、
+$\nabla\widehat W=B\nabla G$、$B\equiv I\pmod{\mathfrak m^\ell}$である。
+$G(x)=\mathcal T(x,x,x)$と書く対称三重線形形式について、
+$U=B^{\mathsf t}$は
+\[
+ \mathcal T(Ua,b,c)=\mathcal T(a,Ub,c)=\mathcal T(a,b,Uc)
+\]
+を満たす。これは$\widehat W$の偏極の対称性から従う。
+$U$の多項式、およびその$\mathfrak m$進極限も同じ条件を満たす。
+よって
+\[
+ T=\sum_{j\ge0}\binom{1/3}{j}(U-I)^j
+\]
+は定義でき、$T^3=U$である。
+各引数間で$T$を移すと
+\[
+ G(Tx)=\mathcal T(Tx,Tx,Tx)
+ =\mathcal T(Ux,x,x)=\widehat W(x).
+\]
+また$T\equiv I\pmod{\mathfrak m^\ell}$である。
 \end{proof}
 
-\begin{remark}[適用上の核心]
-非可換残余pair $(\mathcal C,\rho)$について、
-$V=H^0\RHom_{\mathcal C^e}(\Delta,P)$、
-$W=H^0\RHom_{\mathcal C^e}(\Delta,P\otL P)$
-とその積を代数的に計算し、積の対称性と完成底でのJacobian比較を
-証明することが未解決の入力である。
-これが得られれば、上の定理と
-第\ref{sec:explicit-jacobian-recovery}節の有限積分を適用できる。
-候補方程式の存在からgenericでのrotation付き圏同値は従わない。
+\begin{remark}[代数化されるもの]\label{far:rem:scope}
+定理は$G$が$R$上に存在することを示すが、
+座標変換$T$が$R$上に定義されるとは主張しない。
+$\widehat W$自体も代数的である必要はない。
+例えば$e^{3h}x_1^3+\sum_{i>1}x_i^3$は
+$x_1\mapsto e^h x_1$によって定数族と形式同型である。
+さらに、非可換pairと$\widehat W$のpairの形式同値を仮定すれば、
+これを$G$のpairへの形式同値へ置き換えられるが、
+その同値の非零パラメータへの代数化は別問題である。
 \end{remark}
+
+\subsection{低次数積からの適用条件}
+
+\begin{corollary}[代数的な低次数積があれば十分]\label{far:cor:product}
+$V_R,W_R$を有限自由$R$-加群、
+$\mu:V_R\otimes_RV_R\to W_R$を$R$-双線形写像とする。
+完成底上に、$V_R\otimes\widehat R\simeq(S_{\widehat R})_1$と
+$W_R\otimes\widehat R\simeq\operatorname{Jac}(\widehat W)_2$という同定があり、
+$\mu\otimes\widehat R$がJacobian環の積となると仮定する。
+$\widehat W$の特殊ファイバーは定理\ref{far:thm:algebraization}と同様に滑らかとする。
+このとき$\mu$は対称であり、
+\[
+ \overline\mu:\operatorname{Sym}^2V_R\longrightarrow W_R
+\]
+は全射である。その核$K$は階数$N=\operatorname{rank}V_R$の自由直和因子となり、
+定理\ref{far:thm:algebraization}を適用できる。
+完成底での一次部分の同定を用いて、$\widehat W$の座標も変更してよい。
+\end{corollary}
+\begin{proof}
+$\mu-\mu^{\mathrm{op}}$は忠実平坦な底変更後に零だから零である。
+$\operatorname{coker}\overline\mu$も底変更後に零だから零である。
+$W_R$が自由なので全射は分裂し、核は有限射影、従って局所環上自由である。
+核の底変更は勾配空間に一致し、その階数は$N$である。
+\end{proof}
+
+\begin{proposition}[有限複体からの降下]\label{far:prop:finite-model}
+非可換pairに対し、次数$1,2$の導来自然変換の$H^0$を計算する
+有限自由三項複体
+\[
+ C_j^{-1}\longrightarrow C_j^0\longrightarrow C_j^1\qquad(j=1,2)
+\]
+と、$H^0$上で合成を誘導する代数的な写像が与えられたとする。
+これらの複体が実際の導来自然変換を計算すること、
+完備化との比較が合成を保つことを仮定する。
+完成底上でそれらの$H^0$と積が系\ref{far:cor:product}のJacobianデータに一致すれば、
+$R$上で同系の入力を構成できる。
+\end{proposition}
+\begin{proof}
+$H^0(C_j)$は有限加群で、平坦な底変更についてコホモロジーは可換である。
+完成底上で有限自由となるので、忠実平坦降下により$R$上有限射影、従って自由となる。
+合成を$H^0$に降ろして系\ref{far:cor:product}を使う。
+\end{proof}
+
+\begin{remark}[未構成の入力]
+非可換圏がproperであることや、各Artin切断で可換模型を持つことだけから、
+命題\ref{far:prop:finite-model}の有限複体と比較を得たことにはならない。
+特に、bar複体を有限長で切った行列や、線束間のHomの階数表を、
+導来自然変換の積そのものと同一視してはならない。
+この命題は非可換残余対角のperfect性を仮定しない条件付き経路であり、
+その有限模型を無条件に構成した定理ではない。
+可換cubic $N\ge5$について次数$1,2$の同定は
+\cite[Theorem 3.5, Remark 3.6]{FARLinZhang}のsector計算による。
+非恒等sectorはこの二つの次数には寄与しないが、全次数の同定とは区別する。
+\end{remark}
+
+\subsection{一変数底での有限アルゴリズム}
+
+以下$R=k[h]_{(h)}$、$k$は計算可能な標数零の体とする。
+$k=\mathbb Q(\lambda)$等も許すが、この場合は$\lambda$についての一般点の計算であり、
+分母が消える特殊値への一様な主張はしない。
+
+\begin{lemma}[核の局所飽和]\label{far:lem:saturation}
+$E$を$R$係数の有限行列とする。
+$k(h)$上の核の基底を取り、各列の分母を払って多項式列を得る。
+これを並べた行列を$B$とする。
+$B(0)$の列が従属なら、$0\ne c\in\ker B(0)$と$c_j\ne0$を取り、
+第$j$列を$Bc/h$で置き換える。
+この操作は有限回で終了し、得られた列は$\ker_R E$の$R$-基底となる。
+\end{lemma}
+\begin{proof}
+$Bc$は$h$で割り切れるので各段階の列は多項式である。
+列の外積は$c_j/h$倍されるから、その全Pl\"ucker座標に共通する
+$h$の最大冪の指数は一ずつ減る。
+指数は非負整数なので停止する。停止時にはある最大minorが単元である。
+従って列は$R^n$の直和因子を張る。
+$k(h)$上の列空間は最初の核と同じであり、単元minorで座標を解けば、
+その空間に属する任意の$R^n$の元の係数は$R$に属する。
+これが核全体との一致を示す。
+\end{proof}
+
+\begin{proposition}[指定特殊ファイバーを保つ実行手順]\label{far:prop:algorithm}
+$\overline\mu$の行列と滑らかな特殊三次式$F$が与えられ、
+$F$の勾配が特殊化した核の基底になるとする。
+次の有限手順は、$G\bmod h=F$を満たす局所可逆な積分解の存在を判定し、
+存在すればその一つを有理関数係数で構成する。
+\begin{enumerate}
+\item $\overline\mu(0)$の非零最大minorを選び、その列をpivotとして核の基底$q$を作る。
+\item $\nabla F=A_0q(0)$を満たす可逆行列$A_0$を線形代数で求める。
+\item \eqref{far:eq:linear-kernel}の行列$E_K$に補題\ref{far:lem:saturation}を適用し、基底$B$を求める。
+\item $B(0)c_0=\operatorname{vec}(A_0)$を解く。解がなければ指定特殊解の持上げは存在しない。
+\item $\operatorname{vec}(A)=Bc_0$とし、\eqref{far:eq:euler}を用いる。
+\end{enumerate}
+定理\ref{far:thm:algebraization}の形式的入力が存在すれば第四段階は成功する。
+\end{proposition}
+\begin{proof}
+最初のminorは$R$の単元なので、核の基底は$h=0$で正則である。
+飽和基底は解加群全体の基底だから、第四段階は特殊化$A_0$を持つ解の存在と同値である。
+最後の$A$は$A_0$に特殊化するため可逆であり、Euler積分の証明を適用できる。
+\end{proof}
+
+\begin{example}[一般点の核だけでは不十分]
+$E=(h\ \ 1\ \ 1)$の核に対して、分母を払った二列
+$(-1,h,0)^{\mathsf t}$、$(-1,0,h)^{\mathsf t}$は
+$h=0$で従属となる。その差を$h$で割ると
+$(0,-1,1)^{\mathsf t}$を得る。
+この飽和により、例えば特殊解$(0,1,-1)^{\mathsf t}$の持上げを正しく検出できる。
+一方$E=(h\ \ 0)$では特殊解$(1,0)^{\mathsf t}$は持ち上がらない。
+特殊化した線形方程式を解くだけでは、この区別を検出できない。
+\end{example}
+
+\begin{remark}[検証器の範囲]
+\texttt{computations/finite\_recovery.py}は以上の手順を実装する。
+入力は\emph{既に与えられた}対称積の行列であり、非可換代数からその行列を作るコードではない。
+出力時に核、可積分性、勾配、特殊化を厳密に検査する。
+滑らかさは特殊勾配イデアルの零次元性で確認する。
+理論上は\eqref{far:eq:macaulay}の単元minorも有限証明書となる。
+$N=5$の場合、この行列のサイズは$210\times350$である。
+一般アルゴリズムの最適な計算量は主張しない。
+\end{remark}
+
+\section{混合候補の二パラメータ族と厳密な積表}
+\label{far:sec:mixed}
+
+次の可換族を、非可換混合族との比較に用いる\emph{候補族}として考える：
+\begin{equation}\label{far:eq:family}
+ H_{L,C}=\frac{x^3+y^3+z^3}{3}+u^3+v^3+L uxy+C xyz.
+\end{equation}
+本節はこの可換族自身の計算であり、$L,C$を非可換入力から決定したものではない。
+特に、以下の積表を実際の非可換rotation積と同定する比較は未構成である。
+
+\subsection{全パラメータでの積と可積分性}
+
+Jacobian商の次数二において
+\begin{align*}
+ x^2&=-Cyz-Lyu,& y^2&=-Cxz-Lxu,& z^2&=-Cxy,\\
+ u^2&=-\tfrac L3xy,& v^2&=0.
+\end{align*}
+従って
+\[
+ (xy,xz,xu,xv,yz,yu,yv,zu,zv,uv)
+\]
+は次数二商の基底である。
+始域を$(x^2,y^2,z^2,u^2,v^2)$とこの十単項式の順に取ると、
+積は$[D\mid I_{10}]$であり、$D$の非零行は
+\[
+\begin{array}{c|rrrrr}
+ &x^2&y^2&z^2&u^2&v^2\\\hline
+xy&0&0&-C&-L/3&0\\
+xz&0&-C&0&0&0\\
+xu&0&-L&0&0&0\\
+yz&-C&0&0&0&0\\
+yu&-L&0&0&0&0
+\end{array}
+\]
+である。残り五行は零である。この表示は全パラメータで階数十を持つ。
+
+\begin{proposition}[混合領域の積分解空間]\label{far:prop:symmetrizer}
+$q=\nabla H_{L,C}$とし、$LC\ne0$とする。
+可積分行列の空間は正確に
+\[
+ \left\{\operatorname{diag}(a,a,a,a,b):a,b\in\mathbb C\right\}
+\]
+である。従って勾配空間を保つ三次式は
+$a(H_{L,C}-v^3)+bv^3$の形である。
+可逆な積分解の条件は$ab\ne0$である。
+\end{proposition}
+\begin{proof}
+表示した二次元空間は直接代入で可積分である。
+逆に$50\times25$の可積分性行列$E$は、次のminorによって階数二十三以上となる。
+変数順を$(x,y,z,u,v)$とし、行は$(i,j)$を辞書式に並べ、
+各対について係数変数を同じ順に並べる。列は$A_{ia}$を行優先で並べる。
+\emph{零始まり}で行
+\[
+\begin{gathered}
+0,1,2,5,6,7,8,10,11,12,13,15,16,17,19,22,23,34,37,38,42,44,49
+\end{gathered}
+\]
+と列
+\[
+0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,19,20,21,22,23
+\]
+を選んだ行列式は
+\begin{equation}\label{far:eq:minor}
+ 5971968\,C^5L^5
+\end{equation}
+である。各成分は\eqref{far:eq:linear-kernel}の微分から指定されるため、
+これは有限の多項式恒等式による証明書である。
+添付コードは有理係数でこの行列式を展開して検査する。
+核の次元は二以下であり、既に二次元の解を得ているので等号となる。
+\end{proof}
+
+$L=1,C=0$では可積分性行列の階数は二十二、$LC\ne0$では二十三である。
+従って、混合候補の特殊点で解空間が跳ぶことは実際に起こる。
+定理\ref{far:thm:algebraization}と局所飽和の手順は、この跳びを許している。
+軸上でのすべての値を一括して一定次元とは扱わない。
+例えば$L=0,C=2$では核の次元は五になる。
+
+\subsection{滑らかさの必要十分条件}
+
+\begin{proposition}[候補族の滑らかさ判別]\label{far:prop:discriminant}
+複素数$L,C$について$V(H_{L,C})\subset\mathbb P^4$が滑らかであることと、
+\begin{equation}\label{far:eq:discriminant}
+ \Delta(L,C)=(L^3+3+3C^3)^2-12L^3C^3\ne0
+\end{equation}
+は同値である。ここで$\Delta$は滑らかさを判定する多項式であり、
+五変数三次式の普遍判別式をこの族へ制限したものの重複度まで同定してはいない。
+\end{proposition}
+\begin{proof}
+偏微分が同時に零なら$v=0$である。
+さらに$xy=0$なら$x=y=z=u=0$となるので、射影特異点では$xy\ne0$である。
+$xH_x-yH_y=x^3-y^3$より、$x=1$とし$y=\zeta$、$\zeta^3=1$とできる。
+$z=\zeta^2z_0,u=\zeta^2u_0$とおくと、条件は
+\[
+ z_0^2=-C,\qquad u_0^2=-L/3,\qquad 1+Cz_0+Lu_0=0
+\]
+となる。$a=Lu_0,b=Cz_0$とおけば
+$a^2=-L^3/3,b^2=-C^3,a+b=-1$である。
+従って$4a^2b^2=(1+L^3/3+C^3)^2$から$\Delta=0$を得る。
+
+逆に$LC\ne0$かつ$\Delta=0$とする。
+\[
+ a=\frac{L^3-3-3C^3}{6},\qquad
+ b=\frac{-3-L^3+3C^3}{6}
+\]
+とおくと、$a+b=-1$であり、
+$a^2+L^3/3=b^2+C^3=\Delta/36=0$である。
+よって$u_0=a/L,z_0=b/C$が所要の解を与える。
+$C=0$では条件は$L^3=-3$となり、$u_0=-1/L,z_0=0$が解である。
+$L=0$では$C^3=-1$となり、$z_0=-1/C,u_0=0$が解である。
+$L=C=0$では$\Delta=9\ne0$である。
+Euler等式から偏微分の共通零点は超曲面上にあり、必要十分性が従う。
+\end{proof}
+
+\subsection{有限jetが決めないもの}
+
+混合量子化で既に得られている二次式は、座標変換後に
+\[
+ H_{\lambda,\,h^2c_0(\lambda)}\pmod{h^3},
+ \qquad c_0(\lambda)=\frac13+\frac{\lambda^3}{36}
+\]
+となる。これと形式的選択則だけから全次数の係数は決まらない。
+実際、任意の$a,b\in\mathbb C$について
+\[
+ L(h)=\lambda+ah^6,\qquad
+ C(h)=h^2\bigl(c_0(\lambda)+bh^6\bigr)
+\]
+は、同じ二次jetと同じ冪の選択則を持つ代数的な候補を与える。
+$\lambda^3\ne-3$なら$\Delta(L(0),C(0))=(\lambda^3+3)^2\ne0$なので、
+すべて零の近傍で滑らかである。
+これは実際の非可換入力に複数の復元先があるという主張ではない。
+未計算の低rotation積が$a,b$を区別する必要がある、という注意である。
+
+検算では、人工的な可換入力
+$L=1+2h^6$、$C=13h^2/36+3h^8$の積の終域基底をさらに変更し、
+その行列だけから命題\ref{far:prop:algorithm}で両係数を全次数で回収した。
+非可換由来の積を計算したという意味ではない。
+実際の混合中心対に対する未解決の入力は、
+命題\ref{far:prop:finite-model}の有限複体、合成、および完成底との比較である。

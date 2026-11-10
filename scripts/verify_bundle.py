@@ -127,4 +127,13 @@ with tempfile.TemporaryDirectory(prefix="nc-cubic-second-jet-") as td:
     assert actual["mixed_star_product"]["generator_associators_checked"]==125
     print("PASS exact Kontsevich second-jet identities (categorical proofs are separate)")
 
+with tempfile.TemporaryDirectory(prefix="nc-cubic-finite-recovery-") as td:
+    dest = Path(td) / "finite_recovery_certificate.json"
+    run = subprocess.run([sys.executable, str(ROOT/"computations/verify_finite_recovery.py"),
+                          "--output", str(dest)], cwd=ROOT, capture_output=True, text=True, timeout=180)
+    assert run.returncode == 0, run.stdout + run.stderr
+    assert json.loads(dest.read_text(encoding="utf-8")) == json.loads(
+        (ROOT/"computations/finite_recovery_certificate.json").read_text(encoding="utf-8")), "finite recovery certificate mismatch"
+    print("PASS exact finite algebraic recovery (synthetic commutative input, not nc category)")
+
 print("Source/receipt and exact algebra audit complete. Categorical proofs are not formalized.")

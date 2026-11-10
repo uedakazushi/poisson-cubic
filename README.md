@@ -1,6 +1,6 @@
 # nc-cubic：Poisson構造・代数的量子化・可換復元
 
-**2026-11-10・v24。正本はGitHub main。** 最初に [研究方針](00_research_plan.md)、次に [研究ノート](notes/research_notes.md) を読む。
+**2026-11-10・v25。正本はGitHub main。** 最初に [研究方針](00_research_plan.md)、次に [研究ノート](notes/research_notes.md) を読む。
 
 ## 三つの目標
 
@@ -12,12 +12,21 @@
 
 証明の記載、独立点検、計算実行、外部査読・形式検証を区別する。個別量子化と全Poisson係数方向を保つ一様相対量子化は別問題。任意のAS-regular中心三次商の全点へのrotation付き復元には反例がある。
 
-## 有限代数的復元を優先する研究方針（2026-11-10）
-最優先の経路は、代数的中心三次対 (A_h,Ω_h) から残余dg圏の実際の低rotation次数積 μ_h:Sym² V_h→W_h を有限の代数的複体で構成し、その核 K_h を局所環上の線形可積分性によって積分して可換三次式 G_h を直接得ることである。選択したformalityの形式級数そのものの代数性・収束を先に証明する必要はない。形式MF復元と全Artin残余比較は完成底上での低次数積の一致を保証するために使う。方程式抽出のためにSMの全面解決を先行条件としない。ただし実際の非可換低次数積の構成、genericでの圏同値、指定生成子の生成性は未証明であり、別々に扱う。
+## 有限代数的復元（現行の最優先方針）
 
-**条件付き代数化命題。** RをNoether局所Q代数、R^をその完備化、K⊂R[x]_2を階数Nの自由直和因子とする。完成底でKが滑らかな特殊ファイバーを持つ形式三次式W^の勾配空間であれば、任意の有限jetに一致し同じ勾配空間を持つG∈R[x]_3を線形方程式から構成できる。証明は論文Cの finite_algebraic_recovery.tex。これは非可換由来のKが既に計算されたことを意味しない。
+代数的な非可換中心対から残余dg圏の**実際の**低rotation導来自然変換の積を有限代数的複体で構成し、その核を局所飽和・線形可積分性・Euler積分で可換三次式に直接復元する。選択したformalityの無限級数そのものの代数性・収束を先行条件にしない。形式MF復元は完成底での積の比較と可積分性に利用する。
 
-**着手順。** (1) 混合族の残余rotation双加群の有限模型と合成を構成する。(2) 代数的な積の対称性、基底変更、形式比較を証明する。(3) 核の局所飽和・可積分行列の抽出・勾配と滑らかさを検算する。(4) その後、generic圏同値のためにSM/ER・有限cone/retractを扱う。既存のA/B/Cの証明と未解決事項を保持する。
+**証明全文：** [有限代数的復元](papers/reconstruction/finite_algebraic_recovery.tex)。Noether局所底で、完成底の滑らかな形式三次式と同じ勾配空間を持ち、任意の有限jetを保つ代数的三次式を構成する。DVRでの核の飽和・混合可換候補の積と滑らかさ式 $(L^3+3+3C^3)^2-12L^3C^3$ も記す。
+
+**再現資産：** [finite_recovery.py](computations/finite_recovery.py)、[verify_finite_recovery.py](computations/verify_finite_recovery.py)、[有限計算証明書](computations/finite_recovery_certificate.json)、[研究ノート](notes/finite_algebraic_recovery.md)。実際の非可換低次数積はまだ計算されておらず、人工可換候補の検算と区別する。generic圏同値、指定生成子のgeneric生成性、SM/ERも別途未証明である。
+
+**再現方法**（リポジトリルートで実行）：
+```sh
+python3 computations/verify_finite_recovery.py --output build/finite_recovery_certificate.json
+latexmk papers/finite_algebraic_recovery.tex
+python3 scripts/verify_bundle.py
+```
+単独原稿7ページは組版済み。現行A/B/C全文の組版・receiptは未検査であり、PDFはGit追跡しない。
 
 ## 可換三次式を構成する
 
@@ -83,7 +92,7 @@ W_h\sim F_{\lambda_*(h^6)}+h^2c_*(h^6)xyz,\qquad
 
 全Artin切断での成功から、相対残余対角のperfect性(SM)は自動的には従わない。P¹上の既知の生成子退化例から、特殊fiberと全Artin切断がsmoothなのにgenericが非smoothなrank4のproper dg模型を明示した。これは本研究のnc cubicに指定されたΓの反例ではない。またその反例のcohomologyは底上flatではなく、現行線束模型の追加構造を否定しない。
 
-次は、完備MF同値による指定生成子の像、実際の有限cone/retract表示、generic base changeと代数化を確認する。実在するsmooth proper pairからのétale実現ER、有限bar右逆によるSM判定、非楕円fivefoldと全成分の相対化も維持する。
+まず実際のnc低rotation積と完成底比較を構成し、有限積分を行う。その後、指定生成子の像、有限cone/retract、generic base changeと圏同値を確認する。実在するsmooth proper pairからのétale実現ER、有限bar右逆によるSM判定、非楕円fivefoldと全成分の相対化も維持する。
 
 ## 原稿と再現
 
@@ -104,7 +113,7 @@ Python 3.10以上、SymPy、LuaLaTeX、LuaTeX-ja/ltjsarticleと標準数学パ�
 詳細は [reconstruction/README.md](reconstruction/README.md) と [validation.json](validation.json)。
 PDFとbuild receiptはGit対象外のbuild/へ生成する。主論文receiptは全TeX inputを含む。
 
-**v23の検証状態：** 既存の二次星積・tensor・積行列の厳密検算はv22ソースでPASS。新しい指標商と交換対合の自由代数恒等式も別途SymPyで厳密検算した。現行v23の論文Cは新節追加後にまだ全体組版・receipt検査していない（従前は133頁・32 inputsを組版済み）。既存の具体計算証明書と独立SM/ERの検算も再実行した。A/Bを含めた詳細はvalidation.jsonを参照。これらは圏論的証明の形式検証や外部査読ではない。
+**v25の検証状態：** 既存の二次星積・tensor・積行列の厳密検算はv22ソースでPASS。新しい指標商と交換対合の自由代数恒等式も別途SymPyで厳密検算した。現行v25の論文A/B/Cは新節追加後にまだ全体組版・receipt検査していない（従前は133頁・32 inputsを組版済み）。既存の具体計算証明書と独立SM/ERの検算も再実行した。A/Bを含めた詳細はvalidation.jsonを参照。これらは圏論的証明の形式検証や外部査読ではない。
 
 ## 資料の配置と保存
 

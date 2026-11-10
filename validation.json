@@ -1,8 +1,8 @@
 {
-  "version": "nc-cubic-v23",
+  "version": "nc-cubic-v25",
   "date": "2026-11-10",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only after an actual GitHub publication failure.",
-  "scope": "All-order formal graded MF reconstruction plus a G=H semidirect <tau> equivariant h^6 two-series formal normal form for the mixed family; generic algebraization and residual smoothness remain open.",
+  "scope": "Complete finite algebraic recovery proof and algorithms integrated; actual nc low rotation product, its completed-base comparison and generic equivalence remain open.",
   "current_entry": "00_research_plan.md",
   "proofs_written_and_reviewed": [
     {
@@ -48,6 +48,10 @@
     {
       "source": "papers/reconstruction/mixed_equivariant_normal_form.tex",
       "content": "Argument for G-equivariant formality including averaging semilinear PBW markings, swap involution tau:(x,y,h)->(y,x,-h), and all-order formal GL5 normal form F_{lambda_*(h^6)}+h^2 c_*(h^6) xyz. Finite character/Jacobian and free-algebra identities checked with exact SymPy; the formality argument itself has not been independently formally verified or externally refereed."
+    },
+    {
+      "source": "papers/reconstruction/finite_algebraic_recovery.tex",
+      "content": "Conditional local algebraization preserving finite jets and formal linear equivalence; DVR saturation algorithm; commutative mixed-template products, integrability rank minor and smoothness polynomial. Full mathematical proof written; not independently externally refereed."
     }
   ],
   "retained_without_full_reaudit": [
@@ -78,35 +82,37 @@
     "Values of the first permitted all-order normal-form coefficients a1 at h^6 uxy and b1 at h^8 xyz; no all-order constancy at lambda^3=-12; no generic algebraization.",
     "Uniform relative quantization retaining all Poisson coefficient directions, all-point reconstruction, or unique global descent.",
     "All nonzero-h AS-regularity and global algebraic flatness of the mixed presentation solely from its Artin PBW proof.",
-    "External referee approval, Lean verification, or comprehensive novelty determination."
+    "External referee approval, Lean verification, or comprehensive novelty determination.",
+    "Actual nc-derived low-rotation product matrix and finite model, its completed-base Jacobian comparison, and generic nc/commutative category equivalence."
   ],
   "executed_exact_checks": [
     "Published reconstructed computations/verify_kontsevich_second_jet.py independently executed: universal Q=-2adj(H), contraction=-6det(H), mixed Poisson/Casimir, 3 commutators, 35 cubic symmetrizations, 125 generator associators, specified center image, 5x15 gradient and 10x15 product, minor9, Euler and c(lambda) identity.",
     "reconstruction/scripts/verify.py: independent SM/ER source closure, source/PDF receipt and three exact nonelliptic/tangent/sector certificates passed.",
     "New exact check computations/verify_mixed_characters.py reproduced and executed using SymPy: H character monomial dimensions (6,2,1), Jacobian ranks (5,1,1), c0 polynomial identity, tau(r1)=-r1, tau(r2)=r3, tau(r3)=r2, tau(Omega)=Omega in the free algebra, and x Fx-y Fy=x^3-y^3 all PASS. The finite script does not verify equivariant formality, the h^6 formal coordinate induction or generic MF equivalence.",
-    "Previous bundle source/PDF receipts for papers A, B, C were not regenerated following this source and shared-bibliography change."
+    "Previous bundle source/PDF receipts for papers A, B, C were not regenerated following this source and shared-bibliography change.",
+    "2026-11-10: computations/verify_finite_recovery.py executed; regenerated output exactly matched tracked computations/finite_recovery_certificate.json. Synthetic commutative input, not actual nc natural-transformation product."
   ],
   "typesetting": {
     "C": {
       "source": "papers/rotation_cubic_reconstruction.tex",
       "build_completed": false,
       "source_pdf_receipt_verified": false,
-      "current_source": "v23",
-      "reason": "New TeX input added; whole paper not yet typeset after this change."
+      "current_source": "v25",
+      "reason": "Current v25 parent paper not typeset or source/PDF receipt verified after integration."
     },
     "A": {
       "source": "papers/poisson_cubic_quantization.tex",
       "build_completed": false,
       "source_pdf_receipt_verified": false,
-      "current_source": "v23",
-      "reason": "Shared bibliography updated; former receipt no longer corresponds to current input closure."
+      "current_source": "v25",
+      "reason": "Current v25 parent paper not typeset or source/PDF receipt verified after integration."
     },
     "B": {
       "source": "papers/generic17_ambient_recovery.tex",
       "build_completed": false,
       "source_pdf_receipt_verified": false,
-      "current_source": "v23",
-      "reason": "Shared bibliography updated; former receipt no longer corresponds to current input closure."
+      "current_source": "v25",
+      "reason": "Current v25 parent paper not typeset or source/PDF receipt verified after integration."
     },
     "standalone_SM_ER": {
       "source": "papers/reconstruction/rotation_saturation_reduction.tex",
@@ -127,12 +133,31 @@
       "note": "Current manuscript A/B/C not visually reviewed after v23 changes; independent SM/ER section unaffected."
     },
     "reproduction": "Run python3 computations/verify_mixed_characters.py; then scripts/build.py and scripts/verify_bundle.py locally. Full re-typesetting and current receipt checks not yet performed.",
-    "engine": "LuaHBTeX1.18.0 (TeX Live2025/dev/Debian), LuaTeX-ja and standard math packages."
+    "engine": "LuaHBTeX1.18.0 (TeX Live2025/dev/Debian), LuaTeX-ja and standard math packages.",
+    "standalone_finite_recovery": {
+      "source": "papers/finite_algebraic_recovery.tex",
+      "pages": 7,
+      "build_completed": true,
+      "source_pdf_receipt_verified": false,
+      "note": "LuaLaTeX standalone build performed in local verification; PDF deliberately untracked. No parent A/B/C build performed."
+    }
   },
   "environment": {
     "python": "3.12.14",
     "sympy": "1.14.0",
-    "note": "New exact SymPy character checks executed; no full v23 typesetting or full bundle verification performed. Previous compiled PDFs cannot be represented as current v23 outputs."
+    "note": "Finite exact SymPy checks executed and certificate regenerated on 2026-11-10; parent A/B/C not built for v25."
   },
-  "persistence": "v23 mathematical manuscript, script, plan and notes updated on GitHub main; remote ref and changed blob SHA checked separately. Current A/B/C TeX input changes have not been re-typeset, and previous receipts are not valid for v23."
+  "persistence": "GitHub main is authoritative; remote ref and source blobs verified separately after push; no PDF tracked and Library is used only after a failed GitHub push.",
+  "finite_algebraic_recovery": {
+    "proof": "papers/reconstruction/finite_algebraic_recovery.tex",
+    "standalone": "papers/finite_algebraic_recovery.tex",
+    "notes": "notes/finite_algebraic_recovery.md",
+    "code": "computations/finite_recovery.py",
+    "test": "computations/verify_finite_recovery.py",
+    "certificate": "computations/finite_recovery_certificate.json",
+    "exact_checks_passed": true,
+    "synthetic_input_not_nc": true,
+    "actual_nc_product_constructed": false,
+    "generic_equivalence_proved": false
+  }
 }
