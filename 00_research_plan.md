@@ -62,7 +62,7 @@ R=C[r,s]_(r,s)、Γ_R=REnd(G) に対し、実際の有限perfect双加群 P と�
 
 17次元族では分離型の有理商は2次元、法線は6+9=15次元、元の可換cubicのJacobian変形への17次元接写像の核は平面移動6とPoissonスカラー1である。これを量子化後の可換模型への写像と同一視しない。固定したcubic・平面上のスカラー束から楕円Picardへの有理写像障害は、動く模型や分岐対応を否定しない。
 
-Brill–Noether・Pfaffian接触の独立技術原稿、中心曲面判別式の証明と検算は [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) にGit blob同一で移管した。PDF-onlyの原本は完全な転送・TeX照合まで本リポジトリに残す。可換復元への直接の依存がない独立境界研究は今後そちらで保守する。Reye 論文・停留平面・275/550計数に関する研究資産は専用リポジトリ https://github.com/uedakazushi/reye を正本とする。原稿にある唯一の証明を軽量化のため削除しない。新規性の包括的文献照合と全既存証明の独立監査は未完了。
+Brill–Noether・Pfaffian接触の独立技術原稿、中心曲面判別式の証明と検算は [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) にGit blob同一で移管した。PDF-only原本8件はnc-cubic2へGit blob一致で移転済み。TeXとの完全照合は未了。可換復元への直接の依存がない独立境界研究は今後そちらで保守する。Reye 論文・停留平面・275/550計数に関する研究資産は専用リポジトリ https://github.com/uedakazushi/reye を正本とする。原稿にある唯一の証明を軽量化のため削除しない。新規性の包括的文献照合と全既存証明の独立監査は未完了。
 
 ## 証明・計算・再現の状態
 
@@ -86,9 +86,9 @@ Brill–Noether・Pfaffian接触の独立技術原稿、中心曲面判別式の
 
 ## 現行の研究資産の配置
 
-主論文A/B/Cは `papers/`、現行研究ノートは `notes/`。研究再開時は本方針→`notes/research_notes.md`→`notes/reconstruction.md`→`papers/rotation_cubic_reconstruction.tex` の順で読む。独立組版入口は `papers/reconstruction/rotation_saturation_reduction.tex`。LuaLaTeXの再生成はリポジトリルートで `latexmk papers/rotation_cubic_reconstruction.tex` とする。`build/` の生成PDFはGitに含めず、ソース未確認PDFは保全のため `papers/pdf-only/` に例外的に置く。
+主論文A/B/Cは `papers/`、現行研究ノートは `notes/`。研究再開時は本方針→`notes/research_notes.md`→`notes/reconstruction.md`→`papers/rotation_cubic_reconstruction.tex` の順で読む。独立組版入口は `papers/reconstruction/rotation_saturation_reduction.tex`。LuaLaTeXの再生成はリポジトリルートで `latexmk papers/rotation_cubic_reconstruction.tex` とする。`build/` の生成PDFはGitに含めず、ソース未照合の原PDFはnc-cubic2で保全し、本リポジトリではPDFを追跡しない。
 
-※ PDF原本のうち研究ノート二本は `notes/pdf-only/`、論文系六本は `papers/pdf-only/` に分類した。その他のPDFは生成対象でありGit追跡しない。
+原PDFはnc-cubic2のノート2件・論文6件に移転済み。nc-cubicの追跡PDFは0件。
 
 ## 相対smoothnessの近道と避けるべき推論
 

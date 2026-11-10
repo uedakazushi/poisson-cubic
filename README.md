@@ -59,17 +59,17 @@ latexmk papers/reconstruction/rotation_saturation_reduction.tex
 python3 reconstruction/scripts/verify.py
 ```
 
-ルート `.latexmkrc` によりLuaLaTeXを用い、全生成PDFをGit対象外の `build/` に出力する。完全なTeXソースを確認できないPDF原本だけは、例外リストに従って `papers/pdf-only/` と `notes/pdf-only/` に暫定保存する。詳しくは `papers/README.md` と `notes/README.md` を参照。
+ルート `.latexmkrc` によりLuaLaTeXを用い、全生成PDFをGit対象外の `build/` に出力する。完全なTeXソースと未照合の原PDF8件は [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) にGit blob一致で移転済み。本リポジトリはPDFを追跡しない。詳しくは `papers/README.md` と `notes/README.md` を参照。
 
-※ PDF原本のうち研究ノート二本は `notes/pdf-only/`、論文系六本は `papers/pdf-only/` に分類した。その他のPDFは生成対象でありGit追跡しない。
+原PDFはnc-cubic2の `notes/pdf-only/` に2件、`papers/pdf-only/` に6件保全されている。
 
 ## PDFの追跡とソース復旧（2026-11-10）
 
-原則としてTeXと検証コードのみをGitで追跡し、PDFは`latexmk`で`build/`へ生成する。独立した二次ジェットの結果は `papers/independent/poisson_second_jet.tex` に再構成し、以前のPDFの追跡を解除した。現在のPDF原本の例外リストは `papers/pdf-only/README.md` と `notes/pdf-only/README.md` に記録する。対応ソースが未確認の資料を、数学的証明が失われる状態で機械的に削除しない。
+原則としてTeXと検証コードのみをGitで追跡し、PDFは`latexmk`で`build/`へ生成する。独立した二次ジェットの結果は `papers/independent/poisson_second_jet.tex` に再構成し、以前のPDFの追跡を解除した。移転済みPDF原本の参照先は `papers/pdf-only/README.md` と `notes/pdf-only/README.md` に記録する。対応ソースが未確認の資料を、数学的証明が失われる状態で機械的に削除しない。
 
 ## 未照合PDFと関連TeXの整理TODO
 
-追跡中PDF8本と関連TeXの対応候補、全証明の照合・組版・追跡解除の条件は [`TODO_PDF_SOURCES.md`](TODO_PDF_SOURCES.md) に管理する。取り込み済みの別原稿は `sources/candidates/` に暫定配置し、現行の主論文は上書きしない。
+移転済みPDF8本と関連TeXの対応候補、全証明の照合・組版・追跡解除の条件は [`TODO_PDF_SOURCES.md`](TODO_PDF_SOURCES.md) に管理する。取り込み済みの別原稿は `sources/candidates/` に暫定配置し、現行の主論文は上書きしない。
 
 原PDF全８本のページ数・対応ソース監査は [`SOURCE_RECOVERY_AUDIT_20261110.md`](SOURCE_RECOVERY_AUDIT_20261110.md)、部分証明の移植は `papers/source_recovery/` と `notes/source_recovery/` を参照する。
 
@@ -79,11 +79,11 @@ Reye 曲線・停留平面に関する原論文PDF（77頁）、部分復元TeX�
 
 ## 相対smoothness (SM) の有限判定
 
-`notes/sm_bar_and_spreading.tex` はPDF-only研究ノートの第18--21節から、有限bar対角のretract判定とgeneric fibreからのspread補題を証明付きで回復した現行ノート。 `latexmk notes/sm_bar_and_spreading.tex` で再生成する。**特殊ファイバーや全Artin切断のsmoothnessだけではSMを結論しない。** 元PDFの他の部分は未照合なので追跡を保持する。
+`notes/sm_bar_and_spreading.tex` はPDF-only研究ノートの第18--21節から、有限bar対角のretract判定とgeneric fibreからのspread補題を証明付きで回復した現行ノート。 `latexmk notes/sm_bar_and_spreading.tex` で再生成する。**特殊ファイバーや全Artin切断のsmoothnessだけではSMを結論しない。** 元PDFの他の部分は未照合なのでnc-cubic2で原本を保全する。
 
 ## 三目標への集中と独立研究の移管
 
-独立したPfaffian・Brill–Noether境界研究の**証明全文**（大部の独立TeX）と中心曲面の判別式・検算コードは [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) の `main` へGit blob一致で移管した。主研究のPoisson構造・量子化・可換復元に必要な原稿とSMの反例・正則性補題は本リポジトリに保持する。境界PDFの一部はGitHub APIのバイナリ制約により**まだ本リポジトリに保全**しており、転送したとは扱わない。可換復元のSMを進めるため、境界原稿の全面再構築を当面の優先課題にしない。
+独立したPfaffian・Brill–Noether境界研究の**証明全文**（大部の独立TeX）と中心曲面の判別式・検算コードは [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) の `main` へGit blob一致で移管した。主研究のPoisson構造・量子化・可換復元に必要な原稿とSMの反例・正則性補題は本リポジトリに保持する。原PDF全8件はnc-cubic2へ移転済みで、Git blob SHA一致を確認した。完全なTeX復元は未了。可換復元のSMを進めるため、境界原稿の全面再構築を当面の優先課題にしない。
 
 ## 相対smoothnessの線束生成子による判定
 

@@ -45,11 +45,11 @@ SMなしにERを適用しない。perfect対象moduliの代数性だけで可換
 
 1. 主要公表原稿は `papers/`、研究ノートは `notes/` に置く。公表前の未完成結果も証明全文を保持する。再開はルート `00_research_plan.md` から始める。
 2. 原稿やノートを移動するときは全 `\\input`、引用・参照、検算・ビルドスクリプト、検証台帳のパスを同時に直す。旧パスに重複するファイルを残さない。
-3. 組版はルート `.latexmkrc` と `latexmk papers/rotation_cubic_reconstruction.tex` などを使い、LuaLaTeXで `build/` にPDFと中間生成物を作る。生成PDFはGitで追跡しない。例外の `papers/pdf-only/` は完全な原稿TeXを未確認の原本だけで、内容を失わないよう保持する。
+3. 組版はルート `.latexmkrc` と `latexmk papers/rotation_cubic_reconstruction.tex` などを使い、LuaLaTeXで `build/` にPDFと中間生成物を作る。生成PDFはGitで追跡しない。原PDF8件はnc-cubic2に移転済み。本リポジトリでPDFの追跡例外を作らない。
 4. 再現テストは `python3 scripts/verify_bundle.py`、`python3 reconstruction/scripts/build.py`、`python3 reconstruction/scripts/verify.py`。実行していない組版や数学的形式検証を成功したと報告しない。
 5. 正本はGitHub `main`、LibraryはGitHub push実失敗時のみの緊急退避。GitHub Actions、force pushは使わない。
 
-※ PDF原本のうち研究ノート二本は `notes/pdf-only/`、論文系六本は `papers/pdf-only/` に分類した。その他のPDFは生成対象でありGit追跡しない。
+原PDF8件はnc-cubic2の `notes/pdf-only/` と `papers/pdf-only/` に移転済み。TeXとの完全照合は未了。
 
 ## 主目標に集中するための分離規則（2026-11-10）
 
@@ -57,7 +57,7 @@ SMなしにERを適用しない。perfect対象moduliの代数性だけで可換
 - **可換復元（SM）最優先**。移管後の詳細なPDF全面TeX化や周辺モジュライの完全分類より、非楕円二成分の実際の残余対角有限perfect証明書を優先する。
 - `notes/sm_bar_and_spreading.tex` に有限bar段階のretract判定・generic spreadingの完全な証明を記載した。**generic smoothness が既に判明すれば**局所化上の相対smoothnessが得られるが、特殊ファイバーのsmoothnessだけからgenericを結論しない。有限barの右逆を実際に持ち上げることを優先する。
 - `notes/source_recovery/dg_perfectness_counterexamples.tex` にArtin切断や特殊ファイバーのperfect性だけから相対perfectnessが従わない反例を保持する。ただし特殊ファイバーdg代数自体がsmoothでないため、これをSM失敗の反例とは扱わない。
-- 例外的に追跡中のPDF原本は転送・全定理照合を確認するまで保持する。GitHubに反映したと報告するのは遠隔コミットとblobを再取得できた場合だけ。
+- 原PDFをnc-cubicに再追加しない。原本はnc-cubic2に保全し、TeX復元の完了と移転を混同しない。GitHubに反映したと報告するのは遠隔コミットとblobを再取得できた場合だけ。
 
 ## A∞経路の現行研究指示（2026-11-10）
 

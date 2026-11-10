@@ -4,16 +4,7 @@ __pycache__/
 .venv/
 # Ignore every generated PDF, including root and nested paper PDFs.
 *.pdf
-# PDFs with source not yet confirmed are the ONLY explicit exceptions.
-!papers/pdf-only/ambient/central_cubic_technical.pdf
-!papers/pdf-only/ambient/central_pair_formal_moduli.pdf
-!papers/pdf-only/boundary/brill_noether.pdf
-!papers/pdf-only/boundary/central_quotient_singularities.pdf
-!papers/pdf-only/boundary/pfaffian_contact.pdf
-!papers/pdf-only/boundary/reye_stationary.pdf
-!papers/pdf-only/quantization/sklyanin_mixed_quantization.pdf
-!notes/pdf-only/categorical_boundary_notes.pdf
-!notes/pdf-only/finite_smoothness_notes.pdf
+# All original PDFs are preserved in nc-cubic2; do not track PDFs here.
 *.aux
 *.bbl
 *.bcf

@@ -38,8 +38,8 @@ for item in ("AGENTS.md","00_research_plan.md","notes/research_notes.md",
         raise SystemExit("Required source missing: "+item)
 result = subprocess.run(["git","ls-files","-z"], cwd=ROOT, capture_output=True, check=True)
 tracked = [p.decode() for p in result.stdout.split(b"\0") if p]
-bad_pdf = [p for p in tracked if p.endswith(".pdf") and not (p.startswith("papers/pdf-only/") or p.startswith("notes/pdf-only/"))]
+bad_pdf = [p for p in tracked if p.lower().endswith(".pdf")]
 if bad_pdf:
-    raise SystemExit("Generated PDFs are tracked: "+", ".join(bad_pdf))
+    raise SystemExit("PDFs are tracked in nc-cubic: "+", ".join(bad_pdf))
 print(f"PASS: {len(MAIN)} document roots, {len(seen)} TeX files in their closure, "
-      f"{sum(p.endswith('.pdf') for p in tracked)} preserved PDF-only originals.")
+      "0 tracked PDFs; originals in nc-cubic2.")
