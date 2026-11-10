@@ -1,0 +1,388 @@
+% 2026-11-11 / v28
+\section{有限対角のYoneda積と有限支持Hochschild積}
+\label{mb:sec:comparison}
+
+本節の目的は、有限対角の計算と射影残余圏の間にある比較を分解することである。
+以下で証明するのは、同次分裂bar比較を持つ有限対角の合成積と、
+有限支持Hochschild cochainのcup積の同定、およびMFへの乗法的characteristic写像の構成である。
+この写像の全Artin切断における同型性には後述の条件(BC)を残す。
+生成された有限行列の恒等式から、この条件やgeneric圏同値を結論しない。
+
+先行研究との関係を明記する。cap作用によるYoneda積との比較は
+Negron\cite[Theorem~5.3]{MBNegron}の標準的方法に基づく。
+同論文では受け手はdg代数であるため、ここで必要な曲率を持つ受け手・
+bar長の完備化・有限支持という組合せを直接検証する。
+曲率摂動にはTu\cite[Appendix~A, Lemma~A.1]{MBTu}を用いる。
+有限支持のtwisting挿入はLowen\cite[Propositions~3.11, 3.13]{MBLowen}の
+brace写像であり、これらの原理自体の新規性は主張しない。
+本研究の有限行列模型への同時適用の初出は未確認である。
+
+\subsection{入力と二種類の完備化}
+$R$を可換$\mathbb Q$-代数、$A=R\oplus A_+$を連結内部次数付き$R$-代数とする。
+$A$はコホモロジー次数零にあり、各内部次数成分は有限自由とする。
+$w\in Z(A)_3$を固定し、$A^e=A\otimes_R A^{\rm op}$と置く。
+正規化bar分解を
+\[
+ B_p=A\otimes_R(sA_+)^{\otimes p}\otimes_R A,
+ \qquad |s a|_{\rm coh}=-1
+\]
+と書く。内部次数は多項式次数である。
+$b$は通常のbar微分であり、鎖長を一つ下げる。
+$\deg(t)=(2,-3)$、$t$を可逆とし、bar長について各二重次数内で完備化する。
+完成barを$\widehat B$と書く。一方、Hochschild cochainは\emph{arityについて直和}を取り、
+\[
+ C_c(A,w)=\Hom^{\rm cont}_{A^e[t,t^{-1}]}(\widehat B,A[t,t^{-1}])
+\]
+とする。右辺の値域はbar長に関して離散であり、各同次cochainは有限arityである。
+この$C_c$を通常のarity積totalizationと置き換えない。
+
+$B$の元を$a_0[a_1|\cdots|a_p]a_{p+1}$と書く。
+$\delta$はbarのすべての隙間に$t w$を交代符号で挿入する作用である。
+$\mathcal D_B=b+\delta$とすると
+\begin{equation}\label{mb:eq:bar-curvature}
+ \mathcal D_B^2=t(w_L-w_R),\qquad \varepsilon_B\mathcal D_B=0.
+\end{equation}
+実際、$b^2=\delta^2=0$であり、$b\delta+\delta b$では内部の項が相殺し、
+左右端の$tw$だけが残る。従って$C_c$の微分は平方零である。
+
+次の入力を明示的に仮定する。
+\begin{enumerate}
+\item $P_p=0$（$p<0$または$p>N$）で、$P\to A$は同次有限生成射影$A^e$-分解である。
+\item $P$と$B$の間に、鎖長を保つ$A^e$-線形な同次special deformation retraction（収縮を$\eta$と書く）
+\begin{equation}\label{mb:eq:sdr}
+ pi=1,\quad b\eta+\eta b=1-ip,\quad \eta^2=\eta i=p\eta=0
+\end{equation}
+があり、$\eta$は鎖長を一つ上げる。増大射とも両立する。
+\end{enumerate}
+例えばKoszul分解がbar分解の次数毎に分裂する部分複体であり、商の各項が射影なら、
+商は非負鎖次数の完全な射影複体である。最下次数から順に全射を分裂させることで商を縮約でき、
+これから\eqref{mb:eq:sdr}を得る。
+本研究の適用では、Koszul完全性・次数毎自由性・交叉空間の分裂を入力として用いる。
+有限次数のHilbert関数だけを、この全次数の入力の代わりにしない。
+
+\subsection{bar曲率の有限対角への移送}
+\begin{lemma}[有限支持に適合する曲率摂動]\label{mb:lem:perturbation}
+上の入力の下で
+\begin{align*}
+ I&=(1+\eta\delta)^{-1}i,&
+ \Pi&=p(1+\delta\eta)^{-1},&
+ H&=(1+\eta\delta)^{-1}\eta,\\
+ D_P&=d_P+p\delta(1+\eta\delta)^{-1}i
+\end{align*}
+は同次な曲率付きspecial deformation retractionを与える。すなわち
+\[
+ D_P^2=t(w_L-w_R),\quad \Pi I=1,\quad
+ 1-I\Pi=\mathcal D_BH+H\mathcal D_B,
+ \quad \varepsilon_P\Pi=\varepsilon_B.
+\]
+$I,H$は連続で、$\Pi$はbar長$N$より大きい入力で零である。
+$D_P$は$d_P+\sum_{j\ge1}t^j s_j$という有限和で、$s_j$は鎖長を$2j-1$上げる。
+\end{lemma}
+\begin{proof}
+$\eta\delta$と$\delta\eta$はbar長を二つ上げるため、幾何級数は完成bar上で意味を持つ。
+曲率$t(w_L-w_R)$は$A^e$-線形写像と可換し、Tuの曲率摂動補題を
+\eqref{mb:eq:sdr}の符号規約で適用できる。
+同補題は線形写像の恒等式なので、この分裂した$R$-線形状況でも同じ証明が通る。
+$D_P$の$t^j$成分は鎖長を$2j-1$上げるから、$P$の有界性により有限個しか残らない。
+$\Pi$の各項は、bar長を増やしてから$p$を適用する。
+従って入力長が$N$を超えると零であり、残る場合にも和は有限である。
+増大射の等式は、$\varepsilon_Pp=\varepsilon_B$と
+正の長さを持つ項を増大射が消すことから従う。
+\end{proof}
+
+$P$に既に別の曲率付き微分$D'$が構成されていても、同じ比較を使える。
+\begin{lemma}[有限曲率化の選択独立性]\label{mb:lem:uniqueness}
+$D'$と$D_P$がともに$d_P+\sum_{j\ge1}t^js_j$の形で同じ曲率を持つなら、
+\[
+ U=1+\sum_{j\ge1}t^j u_j,\qquad D'U=UD_P
+\]
+となる有限な可逆写像がある。$u_j$は鎖長を$2j$上げ、$\varepsilon_PU=\varepsilon_P$である。
+\end{lemma}
+\begin{proof}
+$t$の次数順に方程式を解く。$j$段目の障害は
+$\operatorname{End}_{A^e}(P)$のコホモロジー次数$1-2j<0$の閉元である。
+閉じていることは$D'^2=D_P^2$と、それ以前の比較式から従う。
+$P$が対角の射影分解なので、この負次数のコホモロジーは
+$\Ext^{1-2j}_{A^e}(A,A)=0$である。従って$u_j$を選べる。
+$2j>N$なら$u_j=0$であり、最後に残り得る障害も同じ負Ext消滅から零となる。
+$U-1$は鎖長を厳密に上げるので、その逆も有限幾何級数である。
+増大射との両立も鎖長から従う。
+\end{proof}
+
+\subsection{cap作用と乗法性のホモトピー}
+$\Delta_B$をbarのdeconcatenationとする。
+内部の積と曲率挿入を切断の左右へ分ければ、
+$\Delta_B\mathcal D_B=(\mathcal D_B\otimes1+1\otimes\mathcal D_B)\Delta_B$となる。
+テンソル積では中間の右曲率と左曲率が相殺する。
+cochain $\phi$の右cap作用を
+\[
+ R_\phi=(1\otimes\phi)\Delta_B
+\]
+で定める。ここでは$(\psi\otimes\phi)(x\otimes y)=
+(-1)^{|\phi||x|}\psi(x)\otimes\phi(y)$のKoszul符号を用いる。
+例えば偶次数代数上のarity $p$のcochainは、長さ$n$のbarの最後の$p$入力を取り、
+符号$(-1)^{p(n-p)}$を伴って値を右端へ掛ける。
+
+\begin{lemma}[曲率付きcap恒等式]\label{mb:lem:cap}
+有限支持cochainについて
+\[
+ [\mathcal D_B,R_\phi]=R_{d\phi},\qquad
+ R_\phi R_\psi=R_{\phi\smile\psi},\qquad
+ \varepsilon_BR_\phi=\phi
+\]
+である。$R_\phi$は連続で、bar長を高々$\operatorname{arity}(\phi)$だけ下げる。
+\end{lemma}
+\begin{proof}
+微分の式は$\Delta_B$の微分との両立、積の式はdeconcatenationの余結合性による。
+符号はテンソル積のKoszul符号で一致する。曲率挿入についても、切断の左側に挿入する項と
+右側に挿入する項の直和であり、同じ証明が成り立つ。
+最後の式は左のbar長が零となる切断だけを増大射が残すことによる。
+有限支持なので、各出力長に寄与する入力長は有限区間に限られる。
+\end{proof}
+
+\begin{theorem}[有限対角の乗法的bar比較]\label{mb:thm:yoneda-cup}
+上の入力の下で、内部次数を保つ環同型
+\[
+ H^*\operatorname{End}_{A^e[t,t^{-1}]}(P,D_P)
+ \ \simeq\ H^*C_c(A,w)
+\]
+がある。左辺の積は行列合成、右辺はcup積である。
+一つの向きのcochain写像は
+\begin{equation}\label{mb:eq:q-map}
+ Q(a)=\varepsilon_Pa\Pi
+\end{equation}
+で与えられる。これを非可換入力から作った別の有限曲率化に用いる場合は、
+補題\ref{mb:lem:uniqueness}の$U$で共役する。
+\end{theorem}
+\begin{proof}
+$K=\Hom_{A^e[t,t^{-1}]}((P,D_P),A[t,t^{-1}])$と置く。
+補題\ref{mb:lem:perturbation}を双対化すると
+\[
+ \alpha:C_c\longrightarrow K,\quad\phi\longmapsto\phi I,
+ \qquad
+ \beta:K\longrightarrow C_c,\quad v\longmapsto v\Pi
+\]
+は互いに逆なホモトピー同値である。
+$H$は長さを増やすため、$\phi H$は再び有限支持であり、この双対化に積totalizationを要しない。
+
+増大射からの写像
+$e:\operatorname{End}(P,D_P)\to K$、$a\mapsto\varepsilon_Pa$も擬同型である。
+実際、$t$の指数で濾過する。固定コホモロジー次数では$P$の二つの鎖次数が
+$0,\ldots,N$に限られるため、可能な$t$指数は有限区間に入る。
+従ってこの濾過の比較は収束し、随伴次数では通常の
+$\Hom(P,P)\to\Hom(P,A)$の擬同型へ帰着する。
+後者は$P$が有界射影分解であることから従う。
+よって$Q=\beta e$は擬同型である。
+
+乗法性を別に確認する。
+\[
+ J(\phi)=\Pi R_\phi I
+\]
+と置くと、$eJ=\alpha$なので$J$も擬同型であり、$H(J)$は$H(Q)$の逆である。
+$\phi,\psi$が次数零の閉cochainなら
+\begin{align}
+ J(\phi)J(\psi)-J(\phi\smile\psi)
+ &=\Pi R_\phi(I\Pi-1)R_\psi I\notag\\
+ &=-d_{\operatorname{End}(P)}\bigl(\Pi R_\phi H R_\psi I\bigr).
+ \label{mb:eq:product-homotopy}
+\end{align}
+一般次数では右辺に$(-1)^{|\phi|}$を加える。
+$I$は無限和でも、$R_\psi$の有界な長さ減少と$\Pi$の長さ上界から、
+この式の$P$上の値は有限和である。
+従って$H(J)$、その逆$H(Q)$は環同型である。
+単位は$\Pi I=1$から保たれる。
+\end{proof}
+
+この定理は、適用する分裂比較の入力を明示した有限対角の理論である。
+文献\cite[Theorem~6.14, Remark~6.16]{MBGHLR}の
+二つの第二種理論を無条件に同一視することはしていない。
+同論文の外積生成条件や対角の本質像条件は、本節の環同型からは従わない。
+
+\section{MFへのcharacteristic写像と低次数判定}
+\label{mb:sec:characteristic}
+
+\subsection{有限支持brace挿入}
+$\mathcal T$を$(A,-tw)$の有限rank graded MFのdg圏とする。
+その対象のtwisting行列を$q_X=sQ_X$とし、suspension後の次数は零とする。
+有限支持cochain$\phi$を有限行列に拡張し、
+\begin{equation}\label{mb:eq:embrace}
+ (\operatorname{embr}_Q\phi)_n(a_n,\ldots,a_1)=
+ \sum_{j_0,\ldots,j_n\ge0}
+ \overline\phi_{n+\sum j_i}
+ (q_{X_n}^{\otimes j_n},a_n,\ldots,a_1,q_{X_0}^{\otimes j_0})
+\end{equation}
+と置く。中間の$q_{X_i}$も各$a_{i+1},a_i$間へ挿入する。
+内部次数$r$のcochainは$\Id$から$(r)$へのcoherent自然変換を与える。
+
+\begin{proposition}[乗法的characteristic写像]\label{mb:prop:characteristic}
+式\eqref{mb:eq:embrace}は有限和であり、微分とbraceを保つ。
+従って有限対角について
+\[
+ \begin{gathered}
+ \Theta_r:H^0\operatorname{End}(P,D)_r\longrightarrow
+ \Hom_{D(\mathcal T^e)}(\Delta_{\mathcal T},\Delta_{\mathcal T}(r)),\\
+ [a] \longmapsto [\operatorname{embr}_Q(\varepsilon_Pa\Pi)].
+ \end{gathered}
+\]
+という、積と内部シフトに両立する写像を得る。
+この写像の存在だけから同型性は従わない。
+\end{proposition}
+\begin{proof}
+$\phi$のarity上界を$M$とすると、$n+\sum j_i\le M$の項しか現れない。
+従って$Q_X$の冪零性を必要としない。
+brace合成に現れる平面的な入力配置を、先に$q$を挿入するか、先にcochainを挿入するかで
+数え直すと、各項が一対一に対応する。$q$のsuspended次数は零なので、
+残りの入力のKoszul符号も一致する。これがLowenのbrace恒等式の有限支持版である。
+構造cochain$m=m_0+m_2$はtwisting後にMF圏の構造へ移り、
+対象方程式により曲率成分は零となる。従って微分とcup積を保つ。
+通常のcategory barからのcochainは、増大射を導来圏で逆にすることで
+表示した導来自然変換へ写る。ここではnaive cochain複体全体が
+導来Hochschild複体を計算すると仮定する必要はない。
+最後に定理\ref{mb:thm:yoneda-cup}を合成する。
+\end{proof}
+
+\begin{corollary}[低rotation次数に必要なarity]\label{mb:cor:arity}
+$P_p=A^e\otimes_R E_p$が線形で、$E_p$の内部次数が$p$なら、
+コホモロジー次数零・内部次数$r$の$\varepsilon_Pa$は
+偶数$p\le\min(N,2r)$の成分しか持たない。
+従って$\Theta_1$と$\Theta_2$には、それぞれarity高々二、高々四の
+characteristic cochainを選べる。
+\end{corollary}
+\begin{proof}
+$P_p$から$A[t,t^{-1}]$への次数零写像では$t$指数が$-p/2$であり、
+値の多項式次数は$r-p/2$となる。これは非負でなければならない。
+$\Pi$はbar長を増やしてから有限対角へ射影するので、cochainの入力arityも同じ上界を持つ。
+\end{proof}
+
+\subsection{全Artin同型性に残る条件}
+本研究で計算した五変数模型について、$R=\CC[h]_{(h)}$、
+$R_m=R/(h^{m+1})$とする。有限対角側の次数一・二は自由rank五・十で、
+積と全Artin底変更は既存の正則行列計算で確認されている。
+$\mathcal T_m=\MF^{\ZZ}(A_m,\Omega_m)$と置き、
+\[
+ T_{r,m}=\Hom_{D(\mathcal T_m^e)}(\Delta_m,\Delta_m(r))
+ \quad(r=1,2)
+\]
+と書く。次の条件を独立に掲げる。
+
+\noindent\textbf{(BC)} $T_{1,m},T_{2,m}$がそれぞれ自由rank五・十であり、
+その自然な剰余写像が$T_{r,m}\otimes_{R_m}\CC\simeq T_{r,0}$を与え、
+この同定と$\Theta_r$が両立する。
+
+\begin{theorem}[条件付きArtin同定]\label{mb:thm:artin-criterion}
+各$m$で(BC)が成り立つなら、$\Theta_1,\Theta_2$は全$m$で同型であり、
+有限対角で計算した対称積は実際のMF内部shift積と同定される。
+さらに既存のArtin残余比較を入力すると、同じ結論が線束生成残余pairのrotation積に成り立つ。
+\end{theorem}
+\begin{proof}
+$h=0$では多項式$x_i$のcharacteristic写像は行列因子分解上の$x_i$倍である。
+可換cubicの次数一・二の導来自然変換はJacobian環の同じ次数成分であり、
+この多項式倍が同定を与える\cite[Theorem~3.5, Remark~3.6]{MBLinZhang}。
+五変数では非恒等sectorは奇数コホモロジー次数を持ち、この次数零比較に寄与しない。
+有限対角側の特殊積も同じJacobian積なので、$\Theta_r\bmod h$は同型である。
+(BC)とsourceの自由性から$\Theta_r$は同じrankの自由$R_m$-加群間の写像で、
+行列式の剰余が非零である。行列式は単元なので同型である。
+乗法性は命題\ref{mb:prop:characteristic}、rotationへの移送は入力した残余比較による。
+\end{proof}
+
+\begin{remark}[未確認の適用条件]\label{mb:rem:remaining}
+本稿は(BC)を証明していない。
+既存の形式MF同値によってtargetを可換形式cubicへ移した後、
+相対のsector/kernel模型とその底変更を確認することが次の具体的課題である。
+体上の次元公式を、非正則Artin底へそのまま引用して済ませてはならない。
+特に、導来Hom複体の底変更とその$H^0$の底変更は異なる。
+sourceの正則性やrank計算だけではtarget側の条件は成立しない。
+形式MF同値・Artin残余比較そのものの全証明の独立再監査も、本稿の作業では行っていない。
+\end{remark}
+
+(BC)がすべての$m$で両立して確認されれば、低次数積の核から
+既存の形式模型$W_h$と計算済み多項式$G_h+v^3$の勾配空間を同定できる。
+基底の同定を$h=0$で恒等に規格化し、形式的symmetrizerの三乗根を取れば、
+両三次式は恒等に近い形式線形座標変換で同型になる。
+これは有限代数的積分の定理の適用である。
+しかし、その帰結も現段階では(BC)に条件付きであり、非零複素パラメータの圏同値は別に残る。
+
+\section{計算済み混合候補の代数的正規形}
+\label{mb:sec:normal-form}
+ここでは圏論的な比較を使わず、有限対角から得た具体的多項式だけを扱う。
+$q=h^6$、
+\[
+ A(q)=1+\frac{29q}{648}+\frac{q^2}{4374}
+\]
+として
+\begin{align*}
+ G_h+v^3={}&\frac{x^3+y^3+z^3}{3}+v^3+
+ \frac{h^2}{3}xyz+(1+q/54)uxy\\
+ &-\frac{h^4}{18}uz^2-\frac{h^2}{12}u^2z+A(q)u^3
+\end{align*}
+を固定する。これは$\lambda=1$に対する候補である。
+
+\begin{proposition}[四本の代数方程式による正規化]\label{mb:prop:algebraic-normal-form}
+$q=0$の\'etale近傍上に定義された代数的関数$a,b,c,d$で
+\[
+ (a,b,c,d)(0)=\left(1,\frac1{36},\frac{25}{432},1\right)
+\]
+を満たすものがあり、
+\[
+ u=a(q)U+h^2b(q)Z,\qquad z=h^4c(q)U+d(q)Z
+\]
+は上の候補を
+\[
+ \frac{x^3+y^3+Z^3}{3}+U^3+v^3+
+ L(q)Uxy+h^2C(q)Zxy
+\]
+へ変換する。$a,b,c,d$は次の四方程式の指定局所解である：
+\begin{align}
+ A a^3-qa^2c/12-q^2ac^2/18+q^2c^3/3&=1,\notag\\
+ 3Aa^2b-(a^2d+2qabc)/12-q(2acd+qb c^2)/18+qc^2d&=0,\notag\\
+ 3Aab^2-(2abd+qb^2c)/12-(ad^2+2qbc d)/18+cd^2&=0,\label{mb:eq:algebraic-system}\\
+ Aq b^3-qb^2d/12-qbd^2/18+d^3/3&=1/3.\notag
+\end{align}
+ここで
+\[
+ L=(1+q/54)a+qc/3,\qquad C=(1+q/54)b+d/3.
+\]
+最初の係数は
+\begin{equation}\label{mb:eq:first-coefficients}
+ \boxed{\quad L(q)=1+\frac{127}{5184}q+O(q^2),\qquad
+ C(q)=\frac{13}{36}+\frac{1613}{1679616}q+O(q^2).\quad}
+\end{equation}
+\end{proposition}
+\begin{proof}
+代入後の$U^3,U^2Z,UZ^2,Z^3$の係数を比較すると
+\eqref{mb:eq:algebraic-system}となる。二つの混合係数はそれぞれ$h^2,h^4$を
+因子に持ち、それらを多項式として除いているので、$h=0$でも方程式が定義される。
+指定した初期値は$q=0$での解であり、四方程式の$(a,b,c,d)$に関する
+Jacobian行列の行列式はこの点で$9$である。
+従ってその局所解空間から$q$直線への射影は相対次元零のsmooth射、すなわち\'etale射であり、指定形式解は一意で代数的である。
+この標準のJacobian判定は\cite[Tag 00T7]{MBStacks}を参照する。
+線形変換の行列式$ad-qbc$は初期値一なので可逆である。
+
+四方程式を$q$で微分し、初期値で解くと
+\[
+ a'(0)=-\frac{23}{1728},\quad
+ b'(0)=-\frac{139}{1679616},\quad
+ c'(0)=-\frac{2323}{3359232},\quad
+ d'(0)=\frac{37}{23328}.
+\]
+$L,C$の定義に代入すれば\eqref{mb:eq:first-coefficients}を得る。
+すべて有理数上の線形代数であり、二次以上の項の推測や数値補間は用いていない。
+\end{proof}
+
+\begin{remark}[係数の意味]
+これにより、\emph{計算済み候補}の$h^6Uxy$係数と$h^8Zxy$係数が決まった。
+(BC)と形式比較が未確認なので、既存のformalityで選んだ$W_h$の係数が
+無条件にこれらの値であるとは主張しない。
+またこの命題は四本の有限代数方程式による明示化であり、
+全域で一価な有理式を与えるものでもない。
+\end{remark}
+
+\subsection{再現と検証の範囲}
+\texttt{computations/verify\_bar\_comparison.py}は
+$M_2(\mathbb Q)[z]/(z^2)$、曲率$zI_2$に対し、有限語でbar曲率144件、
+capと微分の両立288件、cap積360件を厳密演算で検査する。
+$t=1$への偶周期特殊化による符号点検であり、無限barの証明の代用ではない。
+さらに有限分裂複体で\eqref{mb:eq:product-homotopy}を30件点検し、
+うち25件では乗法性の差が実際に非零で、そのホモトピー原像が一致する。
+四本の正規化方程式・Jacobian行列式・一次係数も有理数上で再計算する。
+このscriptは実際のcategorical Nat、generic圏同値、v27の全行列を検証していない。

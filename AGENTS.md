@@ -1,50 +1,42 @@
-# AGENTS.md — nc-cubicの研究継続指示
+# AGENTS.md — nc-cubic研究継続
 
-**2026-11-11 / v27。GitHub mainを正本とする。** 最初に00_research_plan.md、次にnotes/curved_diagonal.md、notes/finite_algebraic_recovery.mdを読む。一般背景はnotes/research_notes.mdとreconstruction/README.md、証明は現行論文A/B/C。旧ZIPや会話を必要としない構成にする。
+**2026-11-11 / v28。GitHub mainを唯一の正本とする。** 00_research_plan.md、notes/bar_comparison.md、notes/curved_diagonal.md、notes/finite_algebraic_recovery.mdの順に読む。一般背景はnotes/research_notes.md、reconstruction/README.md、証明は現行論文A/B/C。旧ZIPや会話を再開条件にしない。
 
-## 最優先の研究
+## 最優先
 
-代数的中心三次対から **実際の低rotation積** を有限代数的に構成し、核の局所飽和とEuler積分により可換三次式を直接抽出する。formalityの特定の無限級数の収束・代数性を先に要求しない。形式MF復元は完成底比較に使う。SM/ERはgeneric圏同値の別経路として保持する。
+代数的中心三次対から実際の低rotation積を有限代数的に構成し、核の局所飽和とEuler積分で可換式を直接抽出する。特定のformality級数の収束・代数性を先に要求しない。形式MF復元は完成底比較に使い、SM/ERはgeneric圏同値の別経路として保持する。
 
-## 現在の確定範囲
+## 現在使えること
 
-- λ=1の混合非可換入力の曲率付き絶対対角について、すべての高次ホモトピー・閉自己準同型をQ[h]_(h)上で正則に選べる。一般のrref基底をそのまま特殊化しない。
-- `computations/regular_diagonal.py` は既存の `absolute_diagonal.py` を継承し、h=0で可逆な小行列による線形持上げを使う。全行の等式を検査する。一般rankが特殊rankと同じだと無検査に推測しない。
-- `verify_regular_diagonal.py` は全16合成、H⁰rank4,6、境界と六つの積の小行列式−3、勾配空間との一致を検証する。候補Gは最後の積分検査にのみ使う。
-- 有限対角の積は全Artin切断と完備化に両立する。生成元u,x,y,zを用いた核の積分式Gは `curved_diagonal_recovery.tex` と同じ。v³を独立因子として加える。
-- 保存行列の係数分母のlcmは(h³−1)(h⁶+162)。これはsmoothness判別式ではない。
-- 有限arityのbar同型による共役は有限支持Hochschild cochainsのdg Lie同型を与える。arity上界L_G(L_F+M−1)。これだけでcup積保存を結論しない。
+- lambda=1の曲率付き絶対対角はQ[h]_(h)で正則。regular_diagonal.pyはabsolute_diagonal.pyを継承し、単元小行列で持上げ、全行を検査する。一般rref基底を無条件に特殊化しない。
+- verify_regular_diagonal.pyは全16合成、H^0 rank4,6、境界と六積の小行列式-3、勾配空間を検査する。有限対角の積は全Artin底変更と完備化に両立。候補Gは最後の比較にのみ使う。分母lcm(h^3-1)(h^6+162)は圏のsmoothness判別式ではない。
+- multiplicative_bar_comparison.texは同次分裂bar比較を入力に、有限対角Yoneda積=有限支持Hochschild cup積を証明する。Q(a)=epsilon_P a Pi、Jの乗法性の差は-d(Pi R_phi H R_psi I)。有限arity dg Lie共役だけでcup保存を結論しない。
+- 有限支持brace挿入はMFの内部shift付き導来自然変換への乗法的Thetaを与える。r=1,2に必要なarityは<=2,4。**写像の構成と同型性を区別する。**
+- 計算済みlambda=1候補は四本の代数方程式、初期Jacobian9で正規化でき、L=1+127q/5184+O(q^2)、C=13/36+1613q/1679616+O(q^2)、q=h^6。これを未確認の形式Wの係数と同定しない。
 
-証明全文は `papers/reconstruction/regular_diagonal_recovery.tex`。次元・rankの有限検算はKoszul分解の全次数完全性やPBW性の代用ではない。
+## 次の着手と禁止する飛躍
 
-## 次の着手
+第一優先は標的の(BC)：全Artin底で実際のNat(Id,(1)),Nat(Id,(2))が自由rank5,10、自然なH^0剰余同型を持ちThetaと両立すること。形式MF同値で可換形式cubicへ移し、相対対角kernel/sectorを構成する。gradient Koszulの相対完全性と非恒等sectorの次数を確認する。体上の次元公式、導来Hom底変更、sourceの局所自由性だけで(BC)を証明済みにしない。
 
-1. 一入力を標識したbar双加群の比較を構成し、有限対角のYoneda積とcompactly supported Hochschild cup積を同定する。内部shiftと周期変数を保持する。
-2. 実際の残余dg圏の導来自然変換へ比較する。包絡代数上の第二種理論とtwisted bimodule categoryの理論を区別し、GHLR Theorem6.14/Remark6.16、Polishchuk–Positselski §§3.3,3.5の条件を個別に確認する。
-3. 指定生成子の像、generic生成性、有限cone/retractと同値双加群を調べる。全Artinのsmoothness/生成性だけではgenericへ進めない。
-4. 一般λの絶対式やh⁶,h⁸係数は比較の検査に必要な範囲で扱う。相対対角はg(u)を検出できず、中心u³係数を相対式から補作しない。
+(BC)なら特殊fiberのJacobian同定と単元行列式でTheta_1,Theta_2は同型になる。この条件付き判定と既存Artin残余比較を合成できるが、**本族の(BC)、指定形式Wとの全次数比較、generic rotation圏同値、一般混合SMは未証明**。GHLRの包絡代数とtwisted bimoduleの二つの第二種理論の仮定も混同しない。
 
-**未証明：** finite diagonal=actual Nat、指定形式Wとの全次数積比較、generic rotation付き圏同値、一般混合残余SM。今回の正則化はこれらを解決したという主張ではない。
+genericでは指定生成子の像、有限cone/retract、代数的同値双加群が必要。全Artinのsmoothness/生成性だけでgenericへ進めない。一般lambda、lambda^3=-12の高次項は比較に役立つ範囲で扱う。相対対角はg(u)を検出できないためu^3係数を補作しない。
 
-## 保持すべき数学
+## 保持・検証
 
-論文Aの一般Poisson正規形と固定方向の代数的量子化、論文Bの17次元族・ambient復元・余次元15・核7、論文Cの形式MF/Artin相対window、二次星積、同変正規形、有限代数的積分、SM/ER、非楕円成分、A∞arity、反例を削除しない。本文に証明があること、今回の点検、計算検証、外部査読・形式証明を区別する。既知結果を新規成果としない。新規性の網羅的調査は未完了。
-
-## 再現と検査
+AのPoisson正規形/固定方向量子化、Bの17次元族・ambient復元・余次元15・核7、Cの形式MF/Artin window、二次星積、同変正規形、有限代数的積分、SM/ER、非楕円成分、A∞arity、反例を削除しない。証明記載・今回の点検・有限計算・外部査読/形式証明を区別する。既知cap/HPL/brace原理を新規成果と呼ばない。包括的新規性調査は未完了。
 
 ```sh
-python3 computations/verify_regular_diagonal.py --output build/regular_diagonal_certificate.json --full-output build/regular_diagonal_full.json
+python3 computations/verify_bar_comparison.py --output build/bar_comparison_certificate.json
 python3 computations/verify_finite_recovery.py --output build/finite_recovery_certificate.json
-latexmk papers/curved_diagonal_recovery.tex
-python3 scripts/verify_regular_assets.py
+latexmk papers/multiplicative_bar_comparison.tex
+python3 scripts/verify_bar_assets.py
 ```
 
-追跡証明書とJSONの内容を比較する。全行列データのSHA256はcanonical sorted compact UTF-8 JSONについての値。容易に再生成できる全行列を重複して追跡しない。今回の単独原稿は10頁で組版・全頁表示確認済み。A/B/C全体の現行再組版と全旧計算の再実行は未実施。validation.jsonに状態を分離する。
+新しい計算は有限テスト代数・ホモトピー符号・候補の代数正規化の検証であり、categorical Natやv27全行列を検証しない。既存verify_regular_diagonal.pyとverify_regular_assets.pyを保持する。全行列はcanonical JSON SHA256と生成コードで再現し、不要な重複出力をGitへ追加しない。A/B/C現行全体の組版は今回未実施。詳細はvalidation.json。
 
-## 保存規則
+## 保存
 
-研究の区切りに承認を求めず、方針・ノート・論文の証明全文・コード・必要な証明書・再現手順をmainへ反映する。新inputとbibliographyも統合する。要約だけのpushを全文保存と呼ばない。remote headを先に確認し、既存変更を保持して通常のfast-forwardのみ。force push・無断PR・GitHub Actionsは禁止。反映後にrefと主要blob SHAを照合する。
+区切りごとに承認を求めず、方針・ノート・論文の証明全文・コード・証明書・再現手順をmainへ反映する。新input/bibliographyも統合し、要約だけのpushを全文保存と呼ばない。remote headと既存変更を保持したfast-forwardのみ。force push・無断PR・GitHub Actions禁止。反映後refと主要blob SHAを照合する。
 
-GitHub反映が成功した場合はLibraryへ二重保存しない。実際に失敗した場合のみ緊急退避し、未同期を明示する。Libraryの既存ファイルを無断削除しない。
-
-日本語LuaLaTeXを既定にし、latexmkでbuild/へ出力する。PDF・旧ZIP・ログ・cache・旧稿・バックアップをGit追跡しない。数学的内容と再現性を固定容量のため削らない。独立境界研究と原PDFはnc-cubic2、Reye研究はreyeに保全されている。
+成功時はLibraryへ二重保存せず、実際のGitHub失敗時のみ緊急退避する。未同期を明記しLibrary既存ファイルは無断削除しない。日本語LuaLaTeX、latexmkでbuild/出力、PDF・旧ZIP・ログ・cache・バックアップはGit追跡しない。数学と再現性を固定容量制限のため削らない。独立境界研究/原PDFはnc-cubic2、Reyeはreyeに保全。

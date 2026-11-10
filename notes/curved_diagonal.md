@@ -1,73 +1,68 @@
 # 曲率付き対角：正則な有限積と可換候補
 
-**2026-11-11 / v27。最初に00_research_plan.mdを読む。GitHub mainを正本とする。**
+**2026-11-11 / v28。最初に00_research_plan.mdを読む。GitHub mainが正本。** 乗法的bar比較と次の(BC)課題は `notes/bar_comparison.md`。
 
 ## 現在の結論と証明所在
 
-実際の混合関係式 `[y,z]=h(x²+u y), [z,x]=h(y²+u x), [x,y]=h z²` と指定中心元（λ=1）から、絶対曲率付き対角の閉自己準同型を構成し、全16個の順序付き合成を計算した。人工的な可換候補を積表の入力にはしていない。
+混合関係式 `[y,z]=h(x^2+uy), [z,x]=h(y^2+ux), [x,y]=hz^2` と指定中心元（lambda=1）から、絶対曲率付き対角の閉自己準同型を構成し、全16順序付き合成を計算した。人工可換候補を積表の入力にしない。
 
-現在は Q(h) 上だけでなく **R=Q[h]_(h) 上で、分解・高次ホモトピー・閉行列・積・コホモロジー基底をすべて正則に選べる**。低次数H⁰は自由rank4,6であり、積も含め全Artin切断およびQ[[h]]への底変更と両立する。これは有限曲率付き対角の自己準同型代数についての結果である。actual Nat、指定形式模型Wとの全次数比較、generic Ku同値を証明したことにはならない。
+R=Q[h]_(h)上で分解・高次ホモトピー・閉行列・積・基底をすべて正則に選べる。H^0は自由rank4,6で、積を含め全Artin切断・Q[[h]]への底変更と両立する。これは有限対角の結果である。新しい同次分裂bar比較により有限支持cup積へ同定できるが、actual Natへのcharacteristic写像が同型となる標的条件(BC)は未確認。指定Wとの全次数比較・generic Ku同値も未証明。
 
-証明全文：`papers/reconstruction/curved_diagonal_recovery.tex`、`regular_diagonal_recovery.tex`（同ディレクトリ）。単独入口は `papers/curved_diagonal_recovery.tex`。既存の全Artin PBWと有界Koszul分解の完全性への依存は本文に明記し、有限Hilbert関数検査で置き換えない。外部査読・形式検証・包括的新規性調査は未実施。
+証明は `papers/reconstruction/curved_diagonal_recovery.tex`, `regular_diagonal_recovery.tex`, `multiplicative_bar_comparison.tex`。有限行列計算は全次数PBW/Koszul完全性の代用ではない。外部査読・形式証明・包括的新規性調査は未完了。
 
 ## 候補式と核
 
-四変数の候補は
+`G_h=(x^3+y^3+z^3)/3+h^2xyz/3+(1+h^6/54)uxy-h^4uz^2/18-h^2u^2z/12+(1+29h^6/648+h^12/4374)u^3`。
 
-`G_h=(x³+y³+z³)/3+h²xyz/3+(1+h⁶/54)uxy-h⁴uz²/18-h²u²z/12+(1+29h⁶/648+h¹²/4374)u³`。
+独立中心変数vはv^3の一変数因子として加える。Q(h)の恒等式から得た多項式で、特定hでの補間ではない。核は
 
-独立中心変数vはv³の一変数因子として加える。これはQ(h)上の恒等式から得た多項式であり、特定のhでの補間ではない。
+- `q_u=(3+h^6/54)u^2-h^2uz/6+xy`
+- `q_x=x^2+h^2yz/3+(1+h^6/54)uy`
+- `q_y=y^2+h^2xz/3+(1+h^6/54)ux`
+- `q_z=z^2-h^4uz/18-(13h^2/12+h^8/162)u^2`。
 
-核の基底は
+`G_x=q_x, G_y=q_y, G_z=q_z+h^2q_u/3, G_u=(1+h^6/54)q_u-h^4q_z/18`。基底変換の行列式1+h^6/27はRの単元だが、h^6=-27で同じ可逆性を主張しない。G_0+v^3は滑らかなF_1。
 
-- `q_u=(3+h⁶/54)u²-h²uz/6+xy`
-- `q_x=x²+h²yz/3+(1+h⁶/54)uy`
-- `q_y=y²+h²xz/3+(1+h⁶/54)ux`
-- `q_z=z²-h⁴uz/18-(13h²/12+h⁸/162)u²`。
+## 正則化と局所自由性
 
-`G_x=q_x, G_y=q_y, G_z=q_z+h²q_u/3, G_u=(1+h⁶/54)q_u-h⁴q_z/18`。基底変換の行列式は `1+h⁶/27`、従ってR上の単元。例外値h⁶=-27で同じ可逆性を主張しない。G₀+v³は滑らかなF₁である。
+有限線形系MX=BでM(0)の独立列J、その独立行Iを選び、M[I,J]の逆だけで持ち上げ、残りの未知数は零にする。一般・特殊rankが同じなら正則解となる。実装はrank一致を推測せず全行の等式を厳密検査し、列が右辺を張らなければ停止する。一般の核飽和と像への持上げを区別する。
 
-## 正則化の方法と検査証明書
+45個の局所系から高次ホモトピーと四閉行列を構成。小複体の隣接項はr=1で(0,10,56)、r=2で(4,35,120)、微分rankは一般・特殊とも(0,6)、(4,25)。C_2^0の四境界と六つの実際の合成ux,uy,uz,xy,xz,yzを並べた35x10行列の先頭10行の行列式はh=0で-3。これが閉元のR基底とH^0の自由性、全Artin底変更の根拠であり、有限個の切断テストではない。
 
-有限線形系MX=Bで、特殊化M(0)の独立な列Jとその独立な行Iを選ぶ。M[I,J]の逆だけを使い、残りの未知数を零にする。一般点と特殊点のrankが同じなら正則な解となる。実装はこのrankの一致を推測せず、必ず全行のMX=Bを厳密に検査する。所定の列が右辺を張らなければ停止する。一般の核飽和とこの像への持上げを混同しない。
+D=h^6+162、L=1+h^6/54として
+`u^2=9h^2 uz/D-54xy/D`、
+`x^2=-Luy-h^2yz/3`、`y^2=-Lux-h^2xz/3`、
+`z^2=(4h^10+675h^4)uz/(36D)-(2h^8+351h^2)xy/(6D)`。
 
-45個の局所系から正則な高次ホモトピーと四つの閉行列を作った。小複体の隣接項はr=1で(0,10,56)、r=2で(4,35,120)。微分rankは一般点・特殊点とも(0,6)、(4,25)。
+有限行列455種類の係数分母lcmはQ^*を除き `(h^3-1)(h^6+162)`。これは選んだ表示の分母であって圏のsmoothness判別式ではない。
 
-C₂⁰の四つの境界と、六つの実際の合成 ux,uy,uz,xy,xz,yz を並べた35×10行列の最初の10行の行列式はh=0で **-3**。したがってこれらは閉元加群のR基底をなし、六合成がH⁰(C₂)のR基底になる。これが全Artin底変更の根拠であり、有限個の切断を試しただけではない。
+## 有限性・相対模型・障害
 
-D=h⁶+162、L=1+h⁶/54として正則な積は
+長さNの線形対角でs_j:P_p->P_(p+2j-1)。N=5ならs_1,s_2,s_3だけでD^2=t(Omega_L-Omega_R)。五変数の小複体r=1,2の隣接次元は(0,15,126)、(5,70,330)。持上げ・合成は内部次数六以下の係数で扱える。これらはcochain次元でありNat次元ではない。
 
-`u²=9h² uz/D−54xy/D`,
-`x²=−Luy−h²yz/3`, `y²=−Lux−h²xz/3`,
-`z²=(4h¹⁰+675h⁴)uz/(36D)−(2h⁸+351h²)xy/(6D)`。
+uを底とする相対対角はg(u)を加えても不変で、u^3係数を検出できない。相対式は
+`G_rel=(x^3+y^3+z^3)/3+h^2xyz/3+lambda(1+h^6/54)uxy-h^4lambda uz^2/18-h^2lambda^2u^2z/12`。
+一般lambda!=0への相対式はuのスケーリングで得るが、絶対式を同じ操作で一般化しない。
 
-保存した有限行列の455種類の有理係数の分母の最小公倍数は、Q×を除いて `(h³−1)(h⁶+162)`。これは行列表示の分母であり、圏のsmoothness判別式ではない。
+Q(h)の任意のrref基底はh=0で極を持つ。最終Gが多項式でも中間模型の正則性は従わない。正則な別模型を作り同じGへの積分を確認済み。
 
-## 有限性・相対模型・再利用する障害
+## 積の比較の現在地
 
-長さNの線形対角Pに対しs_j:P_p→P_(p+2j−1)を構成する。N=5ならs₁,s₂,s₃だけでD²=t(Ω_L−Ω_R)。五変数の小複体r=1,2の隣接次元は(0,15,126)、(5,70,330)。持上げ・合成の係数は内部次数六以下で扱える。これらはcochain次元であってNat次元ではない。
+F,F^-1のarity上界L_F,L_Gから、arity<=Mのcoderivationの共役はarity<=L_G(L_F+M-1)。これは有限支持dg Lie同型であり、それだけではcup保存を意味しない。
 
-uを底に置く相対対角はg(u)を中心元に加えても変わらず、u³の係数を検出できない。相対式は
-`G_rel=(x³+y³+z³)/3+h²xyz/3+lambda(1+h⁶/54)uxy−h⁴lambda uz²/18−h²lambda²u²z/12`。
-一般lambda≠0への相対式はuのスケーリングから得るが、絶対式を同じ操作で一般化しない。
+新しい `multiplicative_bar_comparison.tex` ではcap作用と明示的ホモトピーを使って、同次分裂比較の下でYoneda積=cup積を証明した。MFの実際の導来自然変換へはbrace挿入による乗法的写像を構成済み。同型性には標的側の(BC)が残る。次は可換形式模型の相対kernel/sectorにより(BC)を検査する。sourceのrankや体上の公式からH^0底変更を推論しない。全Artin成功からgeneric圏同値・SMを結論せず、SM/ERと指定生成子の有限cone/retractも保持する。
 
-Q(h)上の任意のrref基底はh=0で極を持ち得る。多項式Gが得られたことだけで中間模型の正則性を推論しない。現在は単元小行列を用いた別の正則な模型と、同じGへの積分を実際に検証している。
+候補Gについてはq=h^6の代数正規形のL_1=127/5184、C_1=1613/1679616を得た。これは元の形式Wの係数への無条件な同定ではない。詳細は新ノートと本文。
 
-## 次の比較で使える補題と未解決箇所
-
-FとF⁻¹がそれぞれarity≤L_F,L_Gのbar同型、F₀=0なら、arity≤Mのcoderivation Xに対しFXF⁻¹のarityは≤L_G(L_F+M−1)。これにより有限支持Hochschildコチェインのdg Lie同型を得る。証明はregular_diagonal_recovery.texのrd:lem:bounded-conjugation。これは **cup積を保つ比較の証明ではない**。
-
-優先する次の作業は、一入力を標識したbar双加群による比較を作り、有限対角のYoneda積とcompactly supported Hochschild cup積を同定すること。次に内部shift、三次周期性、非恒等sectorを含めて残余圏のNatへ移す。全Artinでの成功からgeneric圏同値・相対対角perfect性を結論しない。SM/ERと指定生成子の有限cone/retractは別経路として維持する。
-
-## 再現手順と一次資料
-
-Python 3、SymPy 1.14で次を実行する。
+## 再現・一次資料
 
 ```sh
 python3 computations/verify_regular_diagonal.py --output build/regular_diagonal_certificate.json --full-output build/regular_diagonal_full.json
 latexmk papers/curved_diagonal_recovery.tex
+python3 computations/verify_bar_comparison.py --output build/bar_comparison_certificate.json
+latexmk papers/multiplicative_bar_comparison.tex
 ```
 
-`regular_diagonal.py` は既存 `absolute_diagonal.py` を継承し、持上げ線形系だけを差し替える。`verify_regular_diagonal.py` は nc 関係式から全計算を再生成する。追跡中の小証明書には積表・rank・小行列・分母・全行列のcanonical JSON SHA256を収録。大きな全行列データは同じコマンドで再生成でき、Gitで重複保守しない。
+regular_diagonal.pyはabsolute_diagonal.pyの線形持上げを差し替え、verify_regular_diagonal.pyは非可換関係から全行列を再生成する。小証明書は積表・rank・小行列・分母・全行列canonical JSON SHA256を保持。再生成できる全行列は重複保守しない。
 
-Guan–Holstein–Lazarev–Rasmussen, arXiv:2312.16645v5 (2026-09-17), Theorems4.7,6.14, Remark6.16（PDF pp.32–33）。Polishchuk–Positselski, arXiv:1010.0982v2, §§3.3,3.5。第二種Hochschildという名称だけで異なるtotalization・双加群導来圏を同一視しない。適用条件を本非可換族について確認したとはしていない。
+GHLR arXiv:2312.16645v5 (2026-09-17), Theorems4.7,6.14/Remark6.16（PDF pp.32--33）、Polishchuk--Positselski arXiv:1010.0982v2 §§3.3,3.5の異なるtotalizationと導来圏を区別する。今回のcap/HPL/braceの一次資料と適用範囲は `notes/bar_comparison.md`、`multiplicative_bar_references.tex` に記録する。
