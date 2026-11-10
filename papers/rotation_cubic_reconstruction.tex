@@ -3,8 +3,8 @@
 \title{非可換三次超曲面のrotation付き可換復元\\
 \large 明示的な二次模型・形式的復元・代数化の障害}
 \author{}
-\date{2026年11月10日・論文C（研究草稿 v22）}
-\fancyhead[R]{\small 2026-11-10 / v22}
+\date{2026年11月10日・論文C（研究草稿 v23）}
+\fancyhead[R]{\small 2026-11-10 / v23}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -16,7 +16,7 @@ Kontsevich formalityで中心元を実際のPoisson Casimirへ戻し、
 有限arityのbar同型を任意の有限rank twisted complexへ延長し、
 全有限Artin切断および次数別完備基底上で、内部shiftと三次周期性を保つMF同値を得る。
 さらに相対特異圏と有限windowを用い、Artin底上の線束生成残余pairをMF pairと同定する。
-最小混合試験族については、可換模型の二次項
+最小混合試験族については、全次数の同変形式正規形を二つの一変数級数で与え、可換模型の二次項
 $xyz/3-\lambda^2u^2z/12$と、低次数rotation積の全行列を求める。
 そのJacobian類は$(1/3+\lambda^3/36)[xyz]$である。
 中心元の単純な可換化と、この復元式は異なる。
@@ -71,6 +71,8 @@ Kuznetsov成分の一次変形として消えることを、Todd補正を含め�
 第\ref{kj:sec:second-jet}節で混合族の二次方程式とrotation積を決定する。
 第\ref{fo:sec:formal-cubic}節では、一般の斉次中心三次形式変形に対して、
 一ブロックの仮定なしに全次数の可換MF模型を構成する。
+第\ref{mnf:sec:equivariant-normal-form}節では混合族の有限群対称性により、
+形式復元先を$F_{\lambda_*(h^3)}+h^2c_*(h^3)xyz$に正規化する。
 第\ref{am:sec:comparison}節ではArtin底上の線束生成残余pairとの比較を証明する。
 この形式的な存在結果から、非零パラメータの代数的復元や相対対角のperfect性を
 直ちには結論しない。
@@ -100,6 +102,7 @@ exact圏とdg商からenhanced比較を構成する。
 \input{papers/reconstruction/curved_gauge_comparison}
 \input{papers/reconstruction/kontsevich_second_jet}
 \input{papers/reconstruction/formal_cubic_mf_reconstruction}
+\input{papers/reconstruction/mixed_equivariant_normal_form}
 \input{papers/reconstruction/artin_residual_mf_comparison}
 \input{papers/reconstruction/artin_smoothness_obstruction}
 \input{papers/reconstruction/etale_realization}
