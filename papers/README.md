@@ -12,4 +12,4 @@
 
 リポジトリルートから `latexmk papers/poisson_cubic_quantization.tex` などを実行する。設定は `.latexmkrc`。PDFと補助ファイルはすべて `build/` に生成し、Gitで追跡しない。
 
-`papers/pdf-only/` の8本と `notes/pdf-only/` の2本は対応する完全なTeXソースが未確認の原本なので、研究成果の欠落を防ぐため例外的にGitに保持する。対応ソースが正しく再構築された後にだけ追跡解除を検討する。
+`papers/pdf-only/` の6本と `notes/pdf-only/` の2本は対応する完全なTeXソースが未確認の原本なので、研究成果の欠落を防ぐため例外的にGitに保持する。対応ソースが正しく再構築された後にだけ追跡解除を検討する。

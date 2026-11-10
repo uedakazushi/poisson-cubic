@@ -1,6 +1,6 @@
 # nc-cubic：Poisson構造・代数的量子化・可換復元
 
-**2026-11-10・v19。正本はこのGitHubリポジトリのmainのみ。** 最初に `00_research_plan.md`、次に `notes/research_notes.md` を読む。Library保存はpush実失敗時の緊急避難だけとする。
+**2026-11-10・v20。正本はこのGitHubリポジトリのmainのみ。** 最初に `00_research_plan.md`、次に `notes/research_notes.md` を読む。Library保存はpush実失敗時の緊急避難だけとする。
 
 ## 最終目標（三本柱）
 
@@ -61,7 +61,7 @@ python3 reconstruction/scripts/verify.py
 
 ルート `.latexmkrc` によりLuaLaTeXを用い、全生成PDFをGit対象外の `build/` に出力する。完全なTeXソースを確認できないPDF原本だけは、例外リストに従って `papers/pdf-only/` と `notes/pdf-only/` に暫定保存する。詳しくは `papers/README.md` と `notes/README.md` を参照。
 
-※ PDF原本のうち研究ノート二本は `notes/pdf-only/`、論文系七本は `papers/pdf-only/` に分類した。その他のPDFは生成対象でありGit追跡しない。
+※ PDF原本のうち研究ノート二本は `notes/pdf-only/`、論文系六本は `papers/pdf-only/` に分類した。その他のPDFは生成対象でありGit追跡しない。
 
 ## PDFの追跡とソース復旧（2026-11-10）
 

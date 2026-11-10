@@ -88,7 +88,7 @@ Brill–Noether・Pfaffian接触の独立技術原稿、中心曲面判別式の
 
 主論文A/B/Cは `papers/`、現行研究ノートは `notes/`。研究再開時は本方針→`notes/research_notes.md`→`notes/reconstruction.md`→`papers/rotation_cubic_reconstruction.tex` の順で読む。独立組版入口は `papers/reconstruction/rotation_saturation_reduction.tex`。LuaLaTeXの再生成はリポジトリルートで `latexmk papers/rotation_cubic_reconstruction.tex` とする。`build/` の生成PDFはGitに含めず、ソース未確認PDFは保全のため `papers/pdf-only/` に例外的に置く。
 
-※ PDF原本のうち研究ノート二本は `notes/pdf-only/`、論文系八本は `papers/pdf-only/` に分類した。その他のPDFは生成対象でありGit追跡しない。
+※ PDF原本のうち研究ノート二本は `notes/pdf-only/`、論文系六本は `papers/pdf-only/` に分類した。その他のPDFは生成対象でありGit追跡しない。
 
 ## 相対smoothnessの近道と避けるべき推論
 

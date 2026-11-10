@@ -1,10 +1,10 @@
 {
-  "version": "nc-cubic-v17",
+  "version": "nc-cubic-v20",
   "date_jst": "2026-11-10",
   "research_scope": "For every n>=3 and each reduced cubic Poisson component, seek generic rotation-compatible commutative realization.",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library is emergency-only after an actual failed push.",
   "current_validation": "reconstruction/validation.json",
-  "current_proof_section": "papers/reconstruction/hochschild_obstructions.tex",
+  "current_proof_section": "papers/sections/minimal_ainfty_arity.tex",
   "papers": {
     "A": {
       "source": "papers/poisson_cubic_quantization.tex",
@@ -16,7 +16,7 @@
     },
     "C": {
       "source": "papers/rotation_cubic_reconstruction.tex",
-      "status": "Shared étale-realization proof and BFK sector obstruction section integrated. The 15-page reconstruction export was rebuilt and checked; full parent C was not rebuilt."
+      "status": "Paper-C existing proofs retained, new relative SOD smoothness equivalence, 2-degree minimal A-infinity structure and m7/m12 Hochschild constraints integrated; current full Paper C not rebuilt this session."
     }
   },
   "current_results": [
@@ -25,7 +25,10 @@
     "Etale realization for actual smooth proper dg pairs, by equivariant bimodule obstruction cancellation",
     "For the stated local quantum input, generic commutative reconstruction conditional only on residual diagonal perfectness",
     "Explicit exact 35-parameter geometric deformation slices for nodal and cuspidal fivefold examples",
-    "Cubic HH3 parity: rotation-invariant part vanishes in every dimension n>=3; ordinary HH3=2 only for cubic sevenfold (n=7), and is zero for the two cubic fivefold test components"
+    "Cubic HH3 parity: rotation-invariant part vanishes in every dimension n>=3; ordinary HH3=2 only for cubic sevenfold (n=7), and is zero for the two cubic fivefold test components",
+    "Relative SM equivalence: for the finite admissible exceptional sequence, residual Gamma smooth iff line-bundle generator Lambda smooth (application of Perry Lemma 4.15(3)).",
+    "Line-bundle generator cohomology H=H^0 direct sum H^n with square-zero H^n; strictly unital minimal A-infinity arities k=2 mod n, so fivefold first m7, next m12.",
+    "First operation m7 defines HH^7(H,H)_{-5}; m12 constrained by delta(m12)=-[m7,m7]/2; numerical object-index candidates for n=5: 2478+303, scalar diagonal 7."
   ],
   "unresolved": [
     "Residual diagonal perfectness (SM)",
@@ -33,7 +36,8 @@
     "Explicit reconstructed coefficients",
     "Coherence with a chosen rho^3=[2] isomorphism",
     "All-points realization and unique global descent",
-    "An actual relative diagonal lift; the Hochschild cubic-root parity does not imply smoothness"
+    "An actual relative diagonal lift; the Hochschild cubic-root parity does not imply smoothness",
+    "Actual m7 coefficients, a chosen relative dg contraction, the m12 obstruction cochain, finite bar diagonal retract; no calculation of these yet."
   ],
   "retained_inputs": {
     "componentwise_reduction": {
@@ -81,7 +85,7 @@
     "notes": "notes/",
     "latexmk": ".latexmkrc",
     "generated_pdf": "build/ (Git ignored)",
-    "pdf_only_sources": "papers/pdf-only/ (8) and notes/pdf-only/ (2)"
+    "pdf_only_sources": "papers/pdf-only/ (6) and notes/pdf-only/ (2)"
   },
   "research_focus": "SM: actual finite perfect Gamma_R^e-diagonal certificate for nonelliptic nodal/cuspidal two-parameter quantum cubic fivefolds, then generic rotation-compatible commutative reconstruction.",
   "sm_finite_bar_source": {
@@ -91,5 +95,15 @@
     "local_typesetting": "LuaLaTeX via latexmk, 4 pages, no log warnings",
     "proof_scope": "Finite bar retract criterion; generic spreading; Artin detection; no unconditional smoothness claim",
     "remaining": "Construct actual finite diagonal retract for nonelliptic relative Gamma_R"
+  },
+  "sm_ainfty": {
+    "source": "papers/sections/minimal_ainfty_arity.tex",
+    "computation": "computations/verify_minimal_ainfty_arity.py",
+    "certificate": "computations/minimal_ainfty_arity_certificate.json",
+    "exact_arithmetic": "independently checked integer object-index pattern counts for n=3..8; remote certificate matches",
+    "typesetting": "A local standalone prototype containing the same mathematical lemmas was compiled with LuaLaTeX (4 pages). Exact new integrated parent Paper C build not run in this turn.",
+    "proof_scope": "Known relative semiorthogonal smoothness criterion (Perry Lemma 4.15(3)) applied to the line-bundle generator; degree, cohomology, and index arguments written out.",
+    "not_proved": "nonelliptic residual smoothness, actual A-infinity higher multiplication coefficients, finite bar right inverse",
+    "novel_math": "Application and bookkeeping; comprehensive novelty check not completed."
   }
 }

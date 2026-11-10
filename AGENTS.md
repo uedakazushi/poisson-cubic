@@ -49,7 +49,7 @@ SMなしにERを適用しない。perfect対象moduliの代数性だけで可換
 4. 再現テストは `python3 scripts/verify_bundle.py`、`python3 reconstruction/scripts/build.py`、`python3 reconstruction/scripts/verify.py`。実行していない組版や数学的形式検証を成功したと報告しない。
 5. 正本はGitHub `main`、LibraryはGitHub push実失敗時のみの緊急退避。GitHub Actions、force pushは使わない。
 
-※ PDF原本のうち研究ノート二本は `notes/pdf-only/`、論文系八本は `papers/pdf-only/` に分類した。その他のPDFは生成対象でありGit追跡しない。
+※ PDF原本のうち研究ノート二本は `notes/pdf-only/`、論文系六本は `papers/pdf-only/` に分類した。その他のPDFは生成対象でありGit追跡しない。
 
 ## 主目標に集中するための分離規則（2026-11-10）
 
