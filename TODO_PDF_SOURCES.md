@@ -1,5 +1,9 @@
 # PDF原本とTeXソースの照合 TODO（2026-11-10）
 
+## 可換復元を優先する運用
+
+SMに直接必要なPDFのTeX化は `notes/pdf-only/finite_smoothness_notes.pdf` と `papers/pdf-only/ambient/central_cubic_technical.pdf` の関連部分を優先する。独立境界TeXと中心判別式・検算コードは [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) に同一blobで移管済み。**境界PDFのバイナリはnc-cubic2に未転送**であり元の場所に保持する。完全な原PDFを一挙にTeX化する作業を可換復元のSM証明より優先しない。
+
 ## 原則と現在の状態
 
 - [x] GitHub `main` を研究の正本とし、論文・研究ノートは原則TeXから再生成する。
@@ -14,17 +18,17 @@
 ## 追跡中PDFごとのチェックリスト
 
 - [ ] `papers/pdf-only/ambient/central_cubic_technical.pdf`：中心三次量子化の詳細。関連候補 `papers/sections/poisson_geometry.tex`、`papers/generic17_ambient_recovery.tex`、`sources/candidates/poisson_ambient_bridge_v6.tex`。**第28節の中心チャート貼合せとvery-general正則性の命題・証明は `papers/source_recovery/central_cubic_generic_smoothness.tex` に部分的にTeX化済み（未完全照合）。**中心元の有限公式、AS正則性、一般軌道、正則 locus 等についてPDFの命題・証明と照合する。
-- [ ] `papers/pdf-only/ambient/central_pair_formal_moduli.pdf`：中心三次対、全Artin比較、偏極付き復元。関連候補 `papers/generic17_ambient_recovery.tex`、`papers/boundary/pfaffian_brill_noether_technical.tex`、`papers/sections/poisson_geometry.tex`。全Artin次数での同型と局所化、低次数中心の証明を点検する。
-- [ ] `papers/pdf-only/boundary/brill_noether.pdf`：Brill–Noether境界。関連候補 `papers/boundary/pfaffian_brill_noether_technical.tex`、`papers/sections/mixed_center_picard.tex`。相対Picard、接錐、6次境界Torelliの定理・証明・仮定を逐一比較する。
-- [ ] `papers/pdf-only/boundary/central_quotient_singularities.pdf`：中心商と特異圏。関連候補 `papers/sections/rotation_models.tex`、`notes/research_notes.tex`、`papers/boundary/pfaffian_brill_noether_technical.tex`。**中心曲面の完全判別式・特異点・混合パラメータへの変換は `papers/source_recovery/central_fiber_discriminant.tex` に証明付きで移植済み。Azumaya locus、Brauer指数6、非可換tails判別の完全証明は未収録。**有限正則性判別、Brauer・行列因子化・特異圏について未収録の補題を探索する。
-- [ ] `papers/pdf-only/boundary/pfaffian_contact.pdf`：Pfaffian/contact型境界。関連候補 `papers/boundary/pfaffian_brill_noether_technical.tex`、`papers/sections/all_poisson_components.tex`。接触同値・高次正規形・計算証明書を対応させる。
-- [ ] `papers/pdf-only/quantization/sklyanin_mixed_quantization.pdf`：Sklyanin型の混合量子化・点加群・可換対応。関連候補 `papers/sections/explicit_hesse_center.tex`、`papers/sections/elliptic_reconstruction.tex`、`papers/boundary/pfaffian_brill_noether_technical.tex`、`sources/candidates/elliptic_v5/`。**大部な原PDF全体のTeXは未確認**。全混合項、例外値、点スキーム、同型判定を比較する。
+- [ ] `papers/pdf-only/ambient/central_pair_formal_moduli.pdf`：中心三次対、全Artin比較、偏極付き復元。関連候補 `papers/generic17_ambient_recovery.tex`、[nc-cubic2の独立境界TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pfaffian_brill_noether_technical.tex)、`papers/sections/poisson_geometry.tex`。全Artin次数での同型と局所化、低次数中心の証明を点検する。
+- [ ] `papers/pdf-only/boundary/brill_noether.pdf`：Brill–Noether境界。関連候補 [nc-cubic2の独立境界TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pfaffian_brill_noether_technical.tex)、`papers/sections/mixed_center_picard.tex`。相対Picard、接錐、6次境界Torelliの定理・証明・仮定を逐一比較する。
+- [ ] `papers/pdf-only/boundary/central_quotient_singularities.pdf`：中心商と特異圏。関連候補 `papers/sections/rotation_models.tex`、`notes/research_notes.tex`、[nc-cubic2の独立境界TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pfaffian_brill_noether_technical.tex)。**中心曲面の完全判別式・特異点・混合パラメータへの変換は [nc-cubic2の中心曲面判別式TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/central_fiber_discriminant.tex) に証明付きで移植済み。Azumaya locus、Brauer指数6、非可換tails判別の完全証明は未収録。**有限正則性判別、Brauer・行列因子化・特異圏について未収録の補題を探索する。
+- [ ] `papers/pdf-only/boundary/pfaffian_contact.pdf`：Pfaffian/contact型境界。関連候補 [nc-cubic2の独立境界TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pfaffian_brill_noether_technical.tex)、`papers/sections/all_poisson_components.tex`。接触同値・高次正規形・計算証明書を対応させる。
+- [ ] `papers/pdf-only/quantization/sklyanin_mixed_quantization.pdf`：Sklyanin型の混合量子化・点加群・可換対応。関連候補 `papers/sections/explicit_hesse_center.tex`、`papers/sections/elliptic_reconstruction.tex`、[nc-cubic2の独立境界TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pfaffian_brill_noether_technical.tex)、`sources/candidates/elliptic_v5/`。**大部な原PDF全体のTeXは未確認**。全混合項、例外値、点スキーム、同型判定を比較する。
 - [ ] `notes/pdf-only/finite_smoothness_notes.pdf`：有限パラメータの正則性・証明監査。関連候補 `notes/research_notes.tex`、`papers/sections/poisson_geometry.tex`、`papers/sections/rotation_models.tex`。**第23節（pp.26–31）のperfectness反例・Artin切断・Hom有限性は `notes/source_recovery/dg_perfectness_counterexamples.tex` に部分的にTeX化済み。その他の節は未照合。**非可換generic smoothnessの条件、有限中心性、行列因子化、反例を保持する。
-- [ ] `notes/pdf-only/categorical_boundary_notes.pdf`：圏論的境界・gluing。関連候補 `papers/boundary/pfaffian_brill_noether_technical.tex`、`notes/reconstruction_notes.tex`、`sources/candidates/elliptic_v5/notes.tex`。形式的主張、追加仮定、障害・反例を照合する。
+- [ ] `notes/pdf-only/categorical_boundary_notes.pdf`：圏論的境界・gluing。関連候補 [nc-cubic2の独立境界TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pfaffian_brill_noether_technical.tex)、`notes/reconstruction_notes.tex`、`sources/candidates/elliptic_v5/notes.tex`。形式的主張、追加仮定、障害・反例を照合する。
 
 ## 今回収録・既収録のTeXに関する確認
 
-- [x] Libraryの大部ソース`nc_cubic_threefold_research_ja_20261030_v18.tex`は`papers/boundary/pfaffian_brill_noether_technical.tex`と**末尾改行1文字を除きバイト一致**（Git blob SHA比較）。よって同じ本文の再追加は不要。
+- [x] Libraryの大部ソース`nc_cubic_threefold_research_ja_20261030_v18.tex`は[nc-cubic2の独立境界TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pfaffian_brill_noether_technical.tex)と**末尾改行1文字を除きバイト一致**（Git blob SHA比較）。よって同じ本文の再追加は不要。
 - [x] Libraryの`nc_cubic_v5_elliptic_reconstruction.tex`、`nc_cubic_v5_preamble.tex`、`nc_cubic_v5_refs.tex`は、それぞれ現行の`papers/sections/elliptic_reconstruction.tex`、`notes/reconstruction_preamble.tex`、`notes/reconstruction_references.tex`と本文一致。
 - [x] 別原稿`nc_cubic_poisson_ambient_bridge_v6.tex`、一楕円ブロックv5の入口・ノート・依存TeXを`sources/candidates/`に配置。自動的に現行論文へ統合されたわけではない。
 - [x] Libraryの以前の包括原稿v16・v17・基礎稿を`sources/candidates/longform/`に照合候補として確保。v18との節見出しは重なるが、本文・証明単位の差分確認は未了。**現行の正本ではなく一時的な照合入力**であり、整理後に有用な内容を現行稿へ取り込み、重複候補を除去する。
@@ -41,8 +45,8 @@
 ## 2026-11-10：８本の原本を確定・照合した追加進捗
 
 - [x] GitHubで追跡中のPDF８本に対応する原本（同一バイトサイズのLibrary PDF）をすべて特定し、８本の目次・総ページ数を点検。合計574ページ。照合表は `SOURCE_RECOVERY_AUDIT_20261110.md`。
-- [x] 論文VIの中心三次曲面の必要十分判別式 `H(H+1)(27H+28)` と特異点の分類を証明付きで `papers/source_recovery/central_fiber_discriminant.tex` に移植。混合パラメータの因子 `(α³+9)(28α³+243)` への変換も移植。
-- [x] 判別式２本、特殊点のHessian、`H=9` のGroebner基底を有理数演算で確認。再現用 `computations/source_recovery/verify_central_fiber_discriminant.py` を追加。
+- [x] 論文VIの中心三次曲面の必要十分判別式 `H(H+1)(27H+28)` と特異点の分類を証明付きで [nc-cubic2の中心曲面判別式TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/central_fiber_discriminant.tex) に移植。混合パラメータの因子 `(α³+9)(28α³+243)` への変換も移植。
+- [x] 判別式２本、特殊点のHessian、`H=9` のGroebner基底を有理数演算で確認。再現用 [nc-cubic2の記号検算コード](https://github.com/uedakazushi/nc-cubic2/blob/main/computations/verify_central_fiber_discriminant.py) を追加。
 - [ ] 論文VIの非可換tailsへの判別式昇格を証明するAzumaya性・local order・Brauer指数6・特異圏の資料をTeX化する。中心曲面の判別式だけで済ませない。
 - [ ] 総574ページを一つの現行原稿に機械的に結合するのではなく、原PDFごとの章・定理・証明・依存計算の完全照合後にPDFを追跡解除する。
 

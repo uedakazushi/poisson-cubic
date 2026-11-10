@@ -8,7 +8,7 @@
 | B：一般17次元族・ambient復元 | `papers/generic17_ambient_recovery.tex` |
 | C：rotation付き可換復元 | `papers/rotation_cubic_reconstruction.tex` |
 
-`papers/sections/` は論文共通節と証明、`papers/reconstruction/` はCの共有節と独立組版、`papers/exports/` は部分節の読解用組版、`papers/boundary/` は独立境界研究のTeXを格納。独立組版は第四の主論文ではない。
+`papers/sections/` は論文共通節と証明、`papers/reconstruction/` はCの共有節と独立組版、`papers/exports/` は部分節の読解用組版、独立境界原稿の証明全文は [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) へ移管した。独立組版は第四の主論文ではない。
 
 リポジトリルートから `latexmk papers/poisson_cubic_quantization.tex` などを実行する。設定は `.latexmkrc`。PDFと補助ファイルはすべて `build/` に生成し、Gitで追跡しない。
 

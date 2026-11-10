@@ -21,7 +21,7 @@ GitHub `main` が正本で、既存PDFは数学的な情報が失われないよ
 
 - `notes/source_recovery/dg_perfectness_counterexamples.tex`：特殊・Artin perfect性は相対perfectnessを含意しないこと、非開性、Hom有限性。原本p.26–31。
 - `papers/source_recovery/central_cubic_generic_smoothness.tex`：二つの中心チャートの貼合せによるperfectnessとvery-general中心三次商の正則性。比較原稿p.43–44。
-- `papers/source_recovery/central_fiber_discriminant.tex`：中心曲面の完全判別式、特異点の全列挙、混合因子への帰結。原論文VI p.25–27。有限恒等式は `computations/source_recovery/verify_central_fiber_discriminant.py` でも検査する。
+- [nc-cubic2の中心曲面判別式TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/central_fiber_discriminant.tex)：中心曲面の完全判別式、特異点の全列挙、混合因子への帰結。原論文VI p.25–27。有限恒等式は [nc-cubic2の記号検算コード](https://github.com/uedakazushi/nc-cubic2/blob/main/computations/verify_central_fiber_discriminant.py) でも検査する。
 
 ## この比較で特に失ってはならない成果
 
@@ -39,3 +39,7 @@ LuaLaTeXと再現計算を確認すること、関連原稿が自立している
 
 
 **Reye原論文77ページ・専用ソース・検証コードの移行先：** https://github.com/uedakazushi/reye （移行先の同一PDF blob SHA検証済み）。
+
+## 分離先（現在有効）
+
+独立のPfaffian・Brill–Noether技術原稿（全TeX）および中心ファイバー判別式TeX・検算コードは [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) へGit blob一致で移管した。PDF8本・574ページの本リポジトリでの保全状態は変わらない。これらがnc-cubic2に転送済みと誤認しない。

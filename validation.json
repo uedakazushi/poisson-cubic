@@ -68,7 +68,7 @@
       "scope": "Regular local degreewise-free input, proper model, bounded Orlov decomposition. Current rotation and conditional fullness results are in reconstruction/."
     }
   },
-  "boundary": "All pre-existing technical proofs and unique PDF-only sources retained; high-order boundary calculations not rerun.",
+  "boundary": "Large independent Pfaffian/Brill--Noether technical TeX and central-fiber discriminant TeX + verifier transferred with identical Git blob SHAs to uedakazushi/nc-cubic2/main. Eight PDF-only originals remain tracked here pending binary transfer and full proof audit; not claimed migrated.",
   "reproduction": {
     "build": "python3 reconstruction/scripts/build.py",
     "verify": "python3 reconstruction/scripts/verify.py",
@@ -82,5 +82,6 @@
     "latexmk": ".latexmkrc",
     "generated_pdf": "build/ (Git ignored)",
     "pdf_only_sources": "papers/pdf-only/ (8) and notes/pdf-only/ (2)"
-  }
+  },
+  "research_focus": "SM: actual finite perfect Gamma_R^e-diagonal certificate for nonelliptic nodal/cuspidal two-parameter quantum cubic fivefolds, then generic rotation-compatible commutative reconstruction."
 }

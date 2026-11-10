@@ -50,3 +50,10 @@ SMなしにERを適用しない。perfect対象moduliの代数性だけで可換
 5. 正本はGitHub `main`、LibraryはGitHub push実失敗時のみの緊急退避。GitHub Actions、force pushは使わない。
 
 ※ PDF原本のうち研究ノート二本は `notes/pdf-only/`、論文系八本は `papers/pdf-only/` に分類した。その他のPDFは生成対象でありGit追跡しない。
+
+## 主目標に集中するための分離規則（2026-11-10）
+
+- [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) に移した独立境界TeX（Pfaffian/Brill–Noether）と中心判別式・検算の全文を、本リポジトリで重複保守しない。必要な数式・補題は主論文A/Cに自立して記載する。
+- **可換復元（SM）最優先**。移管後の詳細なPDF全面TeX化や周辺モジュライの完全分類より、非楕円二成分の実際の残余対角有限perfect証明書を優先する。
+- `notes/source_recovery/dg_perfectness_counterexamples.tex` にArtin切断や特殊ファイバーのperfect性だけから相対perfectnessが従わない反例を保持する。ただし特殊ファイバーdg代数自体がsmoothでないため、これをSM失敗の反例とは扱わない。
+- 例外的に追跡中のPDF原本は転送・全定理照合を確認するまで保持する。GitHubに反映したと報告するのは遠隔コミットとblobを再取得できた場合だけ。

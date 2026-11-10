@@ -1,6 +1,6 @@
 # 研究ノート：可換復元の現在有効な知識と障害
 
-**2026年11月10日・v18。GitHub mainだけを正本とする。** 詳細な局所模型・具体式は `notes/reconstruction.md`、証明全文は `papers/reconstruction/rotation_saturation_reduction.tex` とそのinputに置く。
+**2026年11月10日・v19。GitHub mainだけを正本とする。** 詳細な局所模型・具体式は `notes/reconstruction.md`、証明全文は `papers/reconstruction/rotation_saturation_reduction.tex` とそのinputに置く。
 
 ## 三目標の区別と現状
 
@@ -64,7 +64,7 @@ Bの分離型は余次元15、法線は中心変数一次6方向と二次9方向
 
 混合15方向の中心式と一次持上げの一意性は独立節に保持する。有限体特殊化の成功を普遍中心性の証明としない。`fermat_center_certificate.json` の15項整数恒等式は混合なし三変数Fermat中心式の証明書である。
 
-Cの一楕円ブロックの良い複素ファイバーでの比較、有限位数条件付き多ブロック比較、形式復元の既存証明は保持する。一般混合項の全点復元、二つ以上の無限位数ブロックの全生成、元の底への一意降下は未解決。Brill–Noether、Pfaffian、特異圏の境界研究の唯一の証明を削除しない。Reye研究は専用リポジトリ https://github.com/uedakazushi/reye に原PDF・TeX・検証コードを移行して保持する。PDF-only資産の全面的TeX再構成と全過去計算の再監査は未了。
+Cの一楕円ブロックの良い複素ファイバーでの比較、有限位数条件付き多ブロック比較、形式復元の既存証明は保持する。一般混合項の全点復元、二つ以上の無限位数ブロックの全生成、元の底への一意降下は未解決。独立Pfaffian/Brill–Noether技術原稿と中心曲面の判別式・検算は [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) に全文をGit blob一致で移管した。対応するPDF原本は未転送のため本リポジトリに残る。Reye研究は専用リポジトリ https://github.com/uedakazushi/reye に原PDF・TeX・検証コードを移行して保持する。PDF-only資産の全面的TeX再構成と全過去計算の再監査は未了。
 
 ## 8. 再現と次の着手
 
@@ -75,3 +75,9 @@ GitHubへ全文と再現資産を保存し遠隔確認する。Libraryはpushが
 ## Hochschildの第三次数障害（現行の確定した整理）
 
 滑らかなN変数三次F（n=N−2≥3）に対するBFK Theorem 5.39の恒等sectorは偶数次 q=2r にJ(F)_{3r}を与え、μ₃の非自明二sectorは3|Nなら次数q=N/3に各一次元を与える。二sectorのrotation固有値はζ,ζ²。したがってHH³はN=9の場合だけC²で、全N≥5でHH³のrotation不変部分は零。具体的検証は`papers/reconstruction/hochschild_obstructions.tex` と同じディレクトリの整数証明書を参照。形式変形の一次障害の消滅と有限型でのSMを混同しない。
+
+## SMの回復済み反例から分かること
+
+`notes/source_recovery/dg_perfectness_counterexamples.tex` は、原PDF `notes/pdf-only/finite_smoothness_notes.pdf` の第23節（pp.26–31）をTeXで復元したもの。例えば `R=k[[h]]`、`Lambda=R⊕R eps⊕R eta`（`|eps|=|eta|=1`、積零）上の `d(e)=h e eps` で定まるdg加群 `M` は、`R`-perfect、特殊ファイバー `M_k\simeq Lambda_k` はperfect、さらに全Artin切断 `M/(h^a)` もperfectだが、一般ファイバーでnonperfectとなる。したがって `M` 自体は相対的にnonperfect。**この例の特殊ファイバー代数 `Lambda_k` はsmoothではない**ため、`Gamma_R` のSMを否定する反例ではない。
+
+回復稿には `R=k[[h]]` で特殊化 `P_k` がperfect、`N` が底上perfectなら `RHom_Gamma(P,N)` は底上perfectとなるという補助結果もある。しかし **Hochschild cochainsの底上有限性は対角perfectnessではない**。今後は有限cell/retractの実際の底上持上げ、増大射およびホモトピーの有限個の整合式を構成する。単なるすべてのArtin切断での成功を証明書の代用にしない。

@@ -1,6 +1,6 @@
 # nc-cubic：Poisson構造・代数的量子化・可換復元
 
-**2026-11-10・v18。正本はこのGitHubリポジトリのmainのみ。** 最初に `00_research_plan.md`、次に `notes/research_notes.md` を読む。Library保存はpush実失敗時の緊急避難だけとする。
+**2026-11-10・v19。正本はこのGitHubリポジトリのmainのみ。** 最初に `00_research_plan.md`、次に `notes/research_notes.md` を読む。Library保存はpush実失敗時の緊急避難だけとする。
 
 ## 最終目標（三本柱）
 
@@ -76,3 +76,7 @@ python3 reconstruction/scripts/verify.py
 ## Reye論文の分離
 
 Reye 曲線・停留平面に関する原論文PDF（77頁）、部分復元TeX、計算コード、現行研究ノート・研究方針は独立リポジトリ [uedakazushi/reye](https://github.com/uedakazushi/reye) へ移行した。このリポジトリから Reye 専用資産は除外済み。関連する一般的なPoisson研究や文献引用はここに保持する。
+
+## 三目標への集中と独立研究の移管
+
+独立したPfaffian・Brill–Noether境界研究の**証明全文**（大部の独立TeX）と中心曲面の判別式・検算コードは [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) の `main` へGit blob一致で移管した。主研究のPoisson構造・量子化・可換復元に必要な原稿とSMの反例・正則性補題は本リポジトリに保持する。境界PDFの一部はGitHub APIのバイナリ制約により**まだ本リポジトリに保全**しており、転送したとは扱わない。可換復元のSMを進めるため、境界原稿の全面再構築を当面の優先課題にしない。
