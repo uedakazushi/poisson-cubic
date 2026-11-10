@@ -83,5 +83,13 @@
     "generated_pdf": "build/ (Git ignored)",
     "pdf_only_sources": "papers/pdf-only/ (8) and notes/pdf-only/ (2)"
   },
-  "research_focus": "SM: actual finite perfect Gamma_R^e-diagonal certificate for nonelliptic nodal/cuspidal two-parameter quantum cubic fivefolds, then generic rotation-compatible commutative reconstruction."
+  "research_focus": "SM: actual finite perfect Gamma_R^e-diagonal certificate for nonelliptic nodal/cuspidal two-parameter quantum cubic fivefolds, then generic rotation-compatible commutative reconstruction.",
+  "sm_finite_bar_source": {
+    "source": "notes/sm_bar_and_spreading.tex",
+    "git_blob": "2eea7dcfc3df29fece082649102163f9c661c5ac",
+    "pdf_source": "notes/pdf-only/finite_smoothness_notes.pdf (sections 18-21, pp 23-25)",
+    "local_typesetting": "LuaLaTeX via latexmk, 4 pages, no log warnings",
+    "proof_scope": "Finite bar retract criterion; generic spreading; Artin detection; no unconditional smoothness claim",
+    "remaining": "Construct actual finite diagonal retract for nonelliptic relative Gamma_R"
+  }
 }

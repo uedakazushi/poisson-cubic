@@ -8,6 +8,10 @@
 - `notes/reconstruction_notes.tex`：一楕円ブロックと相対化の技術ノート
 - `notes/rotation_saturation_reduction_v14.md`：既存のrotation・saturation補足ノート
 
+- `notes/sm_bar_and_spreading.tex`：SMの有限bar対角判定・generic spreading。PDF-only原本第18--21節を証明付きで再構成した独立ノート
+
 TeXノートもルートから `latexmk notes/research_notes.tex` と `latexmk notes/reconstruction_notes.tex` で組版する。生成PDFは `build/` に置き、Git追跡しない。
 
 ソース未確認のノート原本PDFは `notes/pdf-only/` に二本保存する。これらのみ例外的なGit追跡対象である。
+
+`latexmk notes/sm_bar_and_spreading.tex` で現行SMの有限判定ノートを再生成する。

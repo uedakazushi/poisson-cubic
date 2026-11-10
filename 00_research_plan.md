@@ -92,4 +92,8 @@ Brill–Noether・Pfaffian接触の独立技術原稿、中心曲面判別式の
 
 ## 相対smoothnessの近道と避けるべき推論
 
-可換復元の最短経路は、既存の非楕円（節点・尖点）二パラメータ量子化について、残余dg代数 `Gamma_R` の対角の **実際の有限perfectモデルと射** を構成し、その特殊化で擬同型を確認すること。具体式は `papers/sections/nonelliptic_quantization.tex`、局所proper模型は `papers/sections/local_projective_model.tex`、回復済みの負例は `notes/source_recovery/dg_perfectness_counterexamples.tex`。特に **Artin切断すべてのperfectnessや基底上のHomの有限性だけではSMを結論しない。** 負例は特殊ファイバーの代数自体がsmoothでないので、smooth special fiberを持つ我々の対角の反例ではない。必要な有限証明書の作り方・相対Orlov比較の具体的構成に研究資源を集中する。
+可換復元の最短経路は、既存の非楕円（節点・尖点）二パラメータ量子化について、残余dg代数 `Gamma_R` の対角の **実際の有限perfectモデルと射** を構成し、その特殊化で擬同型を確認すること。具体的な判定として、`Gamma_R` の相対bar解消の有限段階 `P_d -> Gamma_R` が導来双加群圏で右逆を持つこととSMは同値である（証明は `notes/sm_bar_and_spreading.tex`）。具体式は `papers/sections/nonelliptic_quantization.tex`、局所proper模型は `papers/sections/local_projective_model.tex`、回復済みの負例は `notes/source_recovery/dg_perfectness_counterexamples.tex`。特に **Artin切断すべてのperfectnessや基底上のHomの有限性だけではSMを結論しない。** 負例は特殊ファイバーの代数自体がsmoothでないので、smooth special fiberを持つ我々の対角の反例ではない。必要な有限証明書の作り方・相対Orlov比較の具体的構成に研究資源を集中する。
+
+### 有限bar模型の明確な目標
+
+`notes/sm_bar_and_spreading.tex` に、proper dg代数の相対対角がsmoothである必要十分条件として、ある有限bar-skeleton `P_d → Gamma_R` の右逆の存在を証明した。またgeneric fiberでのsmoothnessから非空局所化上の相対smoothnessが従うが、**special smoothnessからgeneric smoothnessは未証明**である。次に必要なものは節点・尖点二成分の実際の相対bar右逆、または同等の有限perfect対角証明書である。元の34ページPDFの第18--21節からTeXを回復したが全PDF復元ではない。

@@ -8,7 +8,7 @@ GitHub `main` が正本で、既存PDFは数学的な情報が失われないよ
 | Gitで追跡中のPDF | 対応した原本（2026-11-01） | ページ数 | TeXの現状 |
 |---|---|---:|---|
 | `notes/pdf-only/categorical_boundary_notes.pdf` | `nc_cubic_unified_notes_ja_20261101_v1.pdf` | 16 | 関連ノートあり、11節の完全照合未了 |
-| `notes/pdf-only/finite_smoothness_notes.pdf` | `nc_cubic_p4_notes_ja_20261101_v4.pdf` | 34 | 第23節 pp.26–31のdg反例をTeX化 |
+| `notes/pdf-only/finite_smoothness_notes.pdf` | `nc_cubic_p4_notes_ja_20261101_v4.pdf` | 34 | 第18--21節 pp.23--25の有限bar対角・spreadingと、第23節 pp.26--31のdg反例をTeX化 |
 | `papers/pdf-only/ambient/central_cubic_technical.pdf` | `nc_cubic_p4_paper_ja_20261101_v5.pdf` | 61 | 第28節 pp.43–44の中心正則性をTeX化 |
 | `papers/pdf-only/ambient/central_pair_formal_moduli.pdf` | `nc_cubic_unified_paper_V_ja_20261101_v16.pdf` | 60 | 量子化、中心三次対、全Artin比較の関連TeXあり、一致未了 |
 | `papers/pdf-only/boundary/brill_noether.pdf` | `nc_cubic_unified_paper_I_ja_20261101_v2.pdf` | 58 | 大部な包括TeXと部分重複。相対gluing等は未照合 |
@@ -43,3 +43,5 @@ LuaLaTeXと再現計算を確認すること、関連原稿が自立している
 ## 分離先（現在有効）
 
 独立のPfaffian・Brill–Noether技術原稿（全TeX）および中心ファイバー判別式TeX・検算コードは [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) へGit blob一致で移管した。PDF8本・574ページの本リポジトリでの保全状態は変わらない。これらがnc-cubic2に転送済みと誤認しない。
+
+- `notes/sm_bar_and_spreading.tex`：第18--21節（pp.23--25）の有限bar-skeleton対角判定、Artin底での検出、generic spreading、smoothnessを未証明のまま残す必要性。相対smoothnessそのものは未証明。原本34ページの完全TeX化ではない。

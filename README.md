@@ -77,6 +77,10 @@ python3 reconstruction/scripts/verify.py
 
 Reye 曲線・停留平面に関する原論文PDF（77頁）、部分復元TeX、計算コード、現行研究ノート・研究方針は独立リポジトリ [uedakazushi/reye](https://github.com/uedakazushi/reye) へ移行した。このリポジトリから Reye 専用資産は除外済み。関連する一般的なPoisson研究や文献引用はここに保持する。
 
+## 相対smoothness (SM) の有限判定
+
+`notes/sm_bar_and_spreading.tex` はPDF-only研究ノートの第18--21節から、有限bar対角のretract判定とgeneric fibreからのspread補題を証明付きで回復した現行ノート。 `latexmk notes/sm_bar_and_spreading.tex` で再生成する。**特殊ファイバーや全Artin切断のsmoothnessだけではSMを結論しない。** 元PDFの他の部分は未照合なので追跡を保持する。
+
 ## 三目標への集中と独立研究の移管
 
 独立したPfaffian・Brill–Noether境界研究の**証明全文**（大部の独立TeX）と中心曲面の判別式・検算コードは [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) の `main` へGit blob一致で移管した。主研究のPoisson構造・量子化・可換復元に必要な原稿とSMの反例・正則性補題は本リポジトリに保持する。境界PDFの一部はGitHub APIのバイナリ制約により**まだ本リポジトリに保全**しており、転送したとは扱わない。可換復元のSMを進めるため、境界原稿の全面再構築を当面の優先課題にしない。

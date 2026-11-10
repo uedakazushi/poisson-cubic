@@ -23,7 +23,7 @@ SMに直接必要なPDFのTeX化は `notes/pdf-only/finite_smoothness_notes.pdf`
 - [ ] `papers/pdf-only/boundary/central_quotient_singularities.pdf`：中心商と特異圏。関連候補 `papers/sections/rotation_models.tex`、`notes/research_notes.tex`、[nc-cubic2の独立境界TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pfaffian_brill_noether_technical.tex)。**中心曲面の完全判別式・特異点・混合パラメータへの変換は [nc-cubic2の中心曲面判別式TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/central_fiber_discriminant.tex) に証明付きで移植済み。Azumaya locus、Brauer指数6、非可換tails判別の完全証明は未収録。**有限正則性判別、Brauer・行列因子化・特異圏について未収録の補題を探索する。
 - [ ] `papers/pdf-only/boundary/pfaffian_contact.pdf`：Pfaffian/contact型境界。関連候補 [nc-cubic2の独立境界TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pfaffian_brill_noether_technical.tex)、`papers/sections/all_poisson_components.tex`。接触同値・高次正規形・計算証明書を対応させる。
 - [ ] `papers/pdf-only/quantization/sklyanin_mixed_quantization.pdf`：Sklyanin型の混合量子化・点加群・可換対応。関連候補 `papers/sections/explicit_hesse_center.tex`、`papers/sections/elliptic_reconstruction.tex`、[nc-cubic2の独立境界TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pfaffian_brill_noether_technical.tex)、`sources/candidates/elliptic_v5/`。**大部な原PDF全体のTeXは未確認**。全混合項、例外値、点スキーム、同型判定を比較する。
-- [ ] `notes/pdf-only/finite_smoothness_notes.pdf`：有限パラメータの正則性・証明監査。関連候補 `notes/research_notes.tex`、`papers/sections/poisson_geometry.tex`、`papers/sections/rotation_models.tex`。**第23節（pp.26–31）のperfectness反例・Artin切断・Hom有限性は `notes/source_recovery/dg_perfectness_counterexamples.tex` に部分的にTeX化済み。その他の節は未照合。**非可換generic smoothnessの条件、有限中心性、行列因子化、反例を保持する。
+- [ ] `notes/pdf-only/finite_smoothness_notes.pdf`：有限パラメータの正則性・証明監査。関連候補 `notes/research_notes.tex`、`papers/sections/poisson_geometry.tex`、`papers/sections/rotation_models.tex`。**第18--21節（pp.23--25）の有限bar対角判定・generic spreadingを `notes/sm_bar_and_spreading.tex` に、第23節（pp.26--31）のperfectness反例・Artin切断・Hom有限性を `notes/source_recovery/dg_perfectness_counterexamples.tex` に証明付きでTeX化した。その他の節は未照合。**非可換generic smoothnessの条件、有限中心性、行列因子化、反例を保持する。
 - [ ] `notes/pdf-only/categorical_boundary_notes.pdf`：圏論的境界・gluing。関連候補 [nc-cubic2の独立境界TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pfaffian_brill_noether_technical.tex)、`notes/reconstruction_notes.tex`、`sources/candidates/elliptic_v5/notes.tex`。形式的主張、追加仮定、障害・反例を照合する。
 
 ## 今回収録・既収録のTeXに関する確認
@@ -64,3 +64,7 @@ SMに直接必要なPDFのTeX化は `notes/pdf-only/finite_smoothness_notes.pdf`
 ## 独立した Reye 研究
 
 Reye 論文・停留平面の PDF（77ページ）と TeX・計算コードおよび残課題は [uedakazushi/reye](https://github.com/uedakazushi/reye) へ移した。ここでは非Reyeの残り８本だけを扱う。
+
+### SMに関係する部分TeX化の現在の到達点
+
+`notes/sm_bar_and_spreading.tex`（第18--21節、pp.23--25）を日本語LuaLaTeXで4ページに組版し、有限bar段階retract判定、Artin底検出、generic spreadingの証明を再構成した。現行のSMが証明されたことを意味しない。元の34ページPDFは他節の完全照合が済んでいないため、Git追跡を継続する。

@@ -40,3 +40,5 @@ latexmk papers/reconstruction/rotation_saturation_reduction.tex
 python3 reconstruction/scripts/build.py
 python3 reconstruction/scripts/verify.py
 ```
+
+SMの有限bar対角・generic spreadingの証明は `notes/sm_bar_and_spreading.tex`（根拠原本：`notes/pdf-only/finite_smoothness_notes.pdf` 第18--21節）。今回の補題はSM自体を証明しない。

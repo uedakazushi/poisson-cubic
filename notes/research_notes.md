@@ -81,3 +81,9 @@ GitHubへ全文と再現資産を保存し遠隔確認する。Libraryはpushが
 `notes/source_recovery/dg_perfectness_counterexamples.tex` は、原PDF `notes/pdf-only/finite_smoothness_notes.pdf` の第23節（pp.26–31）をTeXで復元したもの。例えば `R=k[[h]]`、`Lambda=R⊕R eps⊕R eta`（`|eps|=|eta|=1`、積零）上の `d(e)=h e eps` で定まるdg加群 `M` は、`R`-perfect、特殊ファイバー `M_k\simeq Lambda_k` はperfect、さらに全Artin切断 `M/(h^a)` もperfectだが、一般ファイバーでnonperfectとなる。したがって `M` 自体は相対的にnonperfect。**この例の特殊ファイバー代数 `Lambda_k` はsmoothではない**ため、`Gamma_R` のSMを否定する反例ではない。
 
 回復稿には `R=k[[h]]` で特殊化 `P_k` がperfect、`N` が底上perfectなら `RHom_Gamma(P,N)` は底上perfectとなるという補助結果もある。しかし **Hochschild cochainsの底上有限性は対角perfectnessではない**。今後は有限cell/retractの実際の底上持上げ、増大射およびホモトピーの有限個の整合式を構成する。単なるすべてのArtin切断での成功を証明書の代用にしない。
+
+## 有限bar段階によるSMの直接判定
+
+回復原稿 `notes/sm_bar_and_spreading.tex` は、`Gamma_R ∈ Perf(R)` なら相対二側bar解消の有限skeleton `P_d` は `Gamma_R^e`-perfectで、`hocolim_d P_d ≃ Gamma_R` となり、**SMと「あるdで `P_d → Gamma_R` が導来右逆を持つ」は同値**であることを証明する。特殊ファイバーの右逆だけで底上の右逆を得ることはできない。
+
+また `R` noetherian整域でproperなdg模型のgeneric fiberがsmoothなら、perfect dg加群のfiltered-colimit descentとconeのgeneric消滅から、ある非空局所化で相対smoothになる。ただしspecial smoothnessだけではgeneric smoothnessはまだ得られない。以上は `notes/pdf-only/finite_smoothness_notes.pdf` の第18--21節（pp.23--25）の有効な補題・証明を整理したもので、元の34ページ全体のTeX化ではない。可換復元の核心は実際の有限bar右逆（または同等の有限対角証明書）を非楕円二成分で構成することである。
