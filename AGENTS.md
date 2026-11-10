@@ -1,6 +1,6 @@
 # AGENTS.md — nc-cubicの研究継続指示
 
-**2026-11-10・v22。GitHub uedakazushi/nc-cubic の main が唯一の正本。** 最初に00_research_plan.md、次にnotes/research_notes.mdとreconstruction/README.mdを読む。旧ZIP・会話・Libraryを再開の前提にしない。
+**2026-11-10・v23。GitHub uedakazushi/nc-cubic の main が唯一の正本。** 最初に00_research_plan.md、次にnotes/research_notes.mdとreconstruction/README.mdを読む。旧ZIP・会話・Libraryを再開の前提にしない。
 
 ## 目標と優先順位
 
@@ -22,7 +22,7 @@
 - mixed_test_family.tex：指定中心元の閉式、全パラメータ中心性、全Artin PBWを保持。非零hの全AS性はArtin計算だけでは従わない。
 - explicit_jacobian_recovery.tex、poisson_first_order.tex、explicit_model_comparison.texの有限積分、一次消滅、分離型Hessian比較の全証明を保持する。候補の一意性と存在、一般次数と三次元の特別な結論を区別する。
 
-次に行う数学的課題は、完備MF同値における指定残余生成子の像、genericでの実際の生成性、有限cone/retractまたは対角の証明書を求めること。全Artinで生成することからgeneric生成性を推論しない。混合族のh³,h⁴とlambda³=−12の高次項も計算対象とする。
+mixed_equivariant_normal_form.texのH同変formalityと二形式級数正規形を維持する。形式可換模型はF_{lambda_*(h³)}+h²c_*(h³)xyzへ整理できるがgeneric復元は未証明。h³のlambda方向a₁、h⁵のxyz方向b₁を次に計算する。次に行う数学的課題は、完備MF同値における指定残余生成子の像、genericでの実際の生成性、有限cone/retractまたは対角の証明書を求めること。全Artinで生成することからgeneric生成性を推論しない。混合族のh³,h⁴とlambda³=−12の高次項も計算対象とする。
 
 ## 維持する存在証明の経路
 
@@ -42,7 +42,7 @@ rotationの低次数sector計算と、Serre関手だけからrotationを得るgc
 
 ## 現行版の検証状態
 
-公開コードの二次厳密計算と既存証明書の再検算はPASS。論文Cは133頁・32 inputsで組版・表示確認を行った。各原稿の組版・receipt・描画の状態はvalidation.jsonを確認する。ソースが変わった場合は共通bibliographyを使うA/B/Cのreceiptを更新し、古いPDFを現行版として提示しない。
+公開コードの二次厳密計算と既存証明書の再検算はPASS。論文Cの従前版は133頁・32 inputsで組版・表示確認済み。現行v23は新inputの追加後に全体組版・receipt検査が未実施。各原稿の組版・receipt・描画の状態はvalidation.jsonを確認する。ソースが変わった場合は共通bibliographyを使うA/B/Cのreceiptを更新し、古いPDFを現行版として提示しない。
 
 ## 保存・再現・配置
 
