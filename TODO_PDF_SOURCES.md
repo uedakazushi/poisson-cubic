@@ -18,7 +18,7 @@
 - [ ] `papers/pdf-only/boundary/brill_noether.pdf`：Brill–Noether境界。関連候補 `papers/boundary/pfaffian_brill_noether_technical.tex`、`papers/sections/mixed_center_picard.tex`。相対Picard、接錐、6次境界Torelliの定理・証明・仮定を逐一比較する。
 - [ ] `papers/pdf-only/boundary/central_quotient_singularities.pdf`：中心商と特異圏。関連候補 `papers/sections/rotation_models.tex`、`notes/research_notes.tex`、`papers/boundary/pfaffian_brill_noether_technical.tex`。**中心曲面の完全判別式・特異点・混合パラメータへの変換は `papers/source_recovery/central_fiber_discriminant.tex` に証明付きで移植済み。Azumaya locus、Brauer指数6、非可換tails判別の完全証明は未収録。**有限正則性判別、Brauer・行列因子化・特異圏について未収録の補題を探索する。
 - [ ] `papers/pdf-only/boundary/pfaffian_contact.pdf`：Pfaffian/contact型境界。関連候補 `papers/boundary/pfaffian_brill_noether_technical.tex`、`papers/sections/all_poisson_components.tex`。接触同値・高次正規形・計算証明書を対応させる。
-- [ ] `papers/pdf-only/boundary/reye_stationary.pdf`：停留平面／Reye曲線。**§2–3と§4.1–4.4の主要結果を `papers/source_recovery/reye_stationary_core.tex` に証明付きで部分復元し、Chern積分275等は厳密検算済み**。残る§5–14（法束・全Artin Hilbert/PT・550本のruling・monodromy全対称群・長さ3とcusp）の完全なTeXと必要な計算を復元する。77ページの原PDFはその間保持。
+- [ ] `papers/pdf-only/boundary/reye_stationary.pdf`：停留平面／Reye曲線。**§2–3と§4.1–4.4の主要結果を `papers/source_recovery/reye_stationary_core.tex` に証明付きで部分復元し、Chern積分275等は厳密検算済み**。§6–7と§13は別TeXへ主証明を再構成済み。残る§5・8–12の全証明、§6–7・§13の依存補題、550本の曲線網羅性・法束、長さ3とcuspの全計算を照合する。77ページの原PDFはその間保持。
 - [ ] `papers/pdf-only/quantization/sklyanin_mixed_quantization.pdf`：Sklyanin型の混合量子化・点加群・可換対応。関連候補 `papers/sections/explicit_hesse_center.tex`、`papers/sections/elliptic_reconstruction.tex`、`papers/boundary/pfaffian_brill_noether_technical.tex`、`sources/candidates/elliptic_v5/`。**大部な原PDF全体のTeXは未確認**。全混合項、例外値、点スキーム、同型判定を比較する。
 - [ ] `notes/pdf-only/finite_smoothness_notes.pdf`：有限パラメータの正則性・証明監査。関連候補 `notes/research_notes.tex`、`papers/sections/poisson_geometry.tex`、`papers/sections/rotation_models.tex`。**第23節（pp.26–31）のperfectness反例・Artin切断・Hom有限性は `notes/source_recovery/dg_perfectness_counterexamples.tex` に部分的にTeX化済み。その他の節は未照合。**非可換generic smoothnessの条件、有限中心性、行列因子化、反例を保持する。
 - [ ] `notes/pdf-only/categorical_boundary_notes.pdf`：圏論的境界・gluing。関連候補 `papers/boundary/pfaffian_brill_noether_technical.tex`、`notes/reconstruction_notes.tex`、`sources/candidates/elliptic_v5/notes.tex`。形式的主張、追加仮定、障害・反例を照合する。
@@ -46,7 +46,7 @@
 - [x] 判別式２本、特殊点のHessian、`H=9` のGroebner基底を有理数演算で確認。再現用 `computations/source_recovery/verify_central_fiber_discriminant.py` を追加。
 - [ ] 論文VIの非可換tailsへの判別式昇格を証明するAzumaya性・local order・Brauer指数6・特異圏の資料をTeX化する。中心曲面の判別式だけで済ませない。
 - [x] 論文IV（Reye）の §2–3、§4.1–4.4 の主要な数学的内容を証明付きで `papers/source_recovery/reye_stationary_core.tex` に復元。LuaLaTeXで8ページを二回組版し、`computations/source_recovery/verify_reye_275.py` でChern数、Porteous積分275、行列式・Hesse恒等式を正確に検証。
-- [ ] 論文IVの残りの §5–14 にある法束・Hilbert/PT・全Artin変形、550本と対角 monodromy、長さ3の cusp 局所模型を完全TeX化する。目次・各証明の対応と原論文77ページの再生成性を確認するまで原PDFを保持。
+- [ ] 論文IVの未移植の中心は §5・8–12 の法束・全Artin変形、550本の網羅性、長さ3のcusp局所模型、および§6–7・§13の依存補題と校訂である。全77ページの再生成性を確認するまで原PDFを保持。
 - [ ] 総651ページを一つの現行原稿に機械的に結合するのではなく、原PDFごとの章・定理・証明・依存計算の完全照合後にPDFを追跡解除する。
 
 ## PDFを一つ外すためのチェック項目
