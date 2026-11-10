@@ -1,8 +1,8 @@
 {
-  "version": "nc-cubic-v22",
+  "version": "nc-cubic-v23",
   "date": "2026-11-10",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only after an actual GitHub publication failure.",
-  "scope": "Explicit second-jet reconstruction, all-order graded MF reconstruction and all finite Artin line-generated residual pair reconstruction; generic algebraization remains open.",
+  "scope": "All-order formal graded MF reconstruction plus equivariant two-series formal normal form for the mixed family; generic algebraization, residual smoothness and specified-generator comparison remain open.",
   "current_entry": "00_research_plan.md",
   "proofs_written_and_reviewed": [
     {
@@ -44,6 +44,10 @@
     {
       "source": "notes/research_notes.md",
       "content": "Elementary sufficient condition: a finite free ordinary algebra over C[[h]] with smooth special fiber is relatively smooth, by idempotent lifting and R-split kernels. This does not establish smoothness for the current positive-cohomology A-infinity model."
+    },
+    {
+      "source": "papers/reconstruction/mixed_equivariant_normal_form.tex",
+      "content": "Proof of H-equivariant formality choice for the mixed central cubic and all-order formal GL5 normal form F_{lambda_*(h^3)}+h^2 c_*(h^3) xyz. Finite character/Jacobian ranks checked independently; full formality steps not externally or formally verified."
     }
   ],
   "retained_without_full_reaudit": [
@@ -63,69 +67,46 @@
     "Caldararu-Tu, NYJM19 (2013),305-342, Theorem2.12; Tu, Compositio150 (2014),1549-1578, arXiv1009.4151 Sections2.2,6.1.",
     "Chen, arXiv2402.11613v3, Theorems2.10,7.2 and Corollary2.11; dg enhancement is constructed in this manuscript.",
     "Sasha, MathOverflow question256391, answer of2016-12-05; Stacks Project Tags0BQT,09M1.",
-    "Arinkin-Caldararu, arXiv1007.1671v2, coefficient self-intersection obstruction; retained as a research-note warning."
+    "Arinkin-Caldararu, arXiv1007.1671v2, coefficient self-intersection obstruction; retained as a research-note warning.",
+    "Kontsevich q-alg/9709040, Section 6, GL-equivariant affine formality; Dolgushev math/0307212, equivariant formality under invariant connections (Adv. Math. 191 (2005), 147-177)."
   ],
   "not_established": [
     "Generic algebraic reconstruction for general mixed quantizations, convergence or algebraization of W_h and of the equivalence.",
     "Generation by the specified residual object after complete-base comparison or generic localization.",
     "Residual relative diagonal perfectness SM for the specified general mixed/nonelliptic cubic model.",
     "A general special-to-generic smoothness theorem under the additional cohomology-flat minimal A-infinity hypotheses.",
-    "Closed higher mixed coefficients h^3,h^4 and full algebraic equations; no all-order constancy at lambda^3=-12.",
+    "Values of the new all-order normal-form coefficients a1 at h^3 uxy and b1 at h^5 xyz; no vanishing of all higher terms at lambda^3=-12.",
     "Uniform relative quantization retaining all Poisson coefficient directions, all-point reconstruction, or unique global descent.",
     "All nonzero-h AS-regularity and global algebraic flatness of the mixed presentation solely from its Artin PBW proof.",
     "External referee approval, Lean verification, or comprehensive novelty determination."
   ],
   "executed_exact_checks": [
     "Published reconstructed computations/verify_kontsevich_second_jet.py independently executed: universal Q=-2adj(H), contraction=-6det(H), mixed Poisson/Casimir, 3 commutators, 35 cubic symmetrizations, 125 generator associators, specified center image, 5x15 gradient and 10x15 product, minor9, Euler and c(lambda) identity.",
-    "scripts/verify_bundle.py --require-pdfs: all A/B/C source/PDF receipts, source closures, distinct labels and bibliography keys, resolved references/citations; existing exact Jacobian, Hessian-model, mixed-center and arity certificates regenerated and matched; new second-jet certificate regenerated in a temporary directory. Exit 0.",
-    "reconstruction/scripts/verify.py: independent SM/ER source closure, source/PDF receipt and three exact nonelliptic/tangent/sector certificates passed."
+    "reconstruction/scripts/verify.py: independent SM/ER source closure, source/PDF receipt and three exact nonelliptic/tangent/sector certificates passed.",
+    "New exact check computations/verify_mixed_characters.py was reproduced and executed with SymPy 1.14: H character monomial dimensions (6,2,1), Jacobian ranks (5,1,1) over Q[lambda], and c0 polynomial identity all PASS. Does not verify equivariant formality or all-order normal-form construction.",
+    "Previous bundle source/PDF receipts for papers A, B, C were not regenerated following this source and shared-bibliography change."
   ],
   "typesetting": {
     "C": {
       "source": "papers/rotation_cubic_reconstruction.tex",
-      "pages": 133,
-      "tex_inputs": 32,
-      "source_pdf_receipt_verified": true,
-      "build_completed": true,
-      "failures": {
-        "undefined_references": false,
-        "undefined_citations": false,
-        "missing_glyphs": false,
-        "overfull_boxes": false
-      },
-      "pdf_sha256": "a8b4ae648f46f6291ea01e66f2d60d72dc2dc6e11c9cd67d8e5facfc97229e50"
+      "build_completed": false,
+      "source_pdf_receipt_verified": false,
+      "current_source": "v23",
+      "reason": "New TeX input added; whole paper not yet typeset after this change."
     },
     "A": {
       "source": "papers/poisson_cubic_quantization.tex",
-      "pages": 46,
-      "tex_inputs": 19,
-      "build_completed": true,
-      "source_pdf_receipt_verified": true,
-      "failures": {
-        "undefined_references": false,
-        "undefined_citations": false,
-        "missing_glyphs": false,
-        "overfull_boxes": false
-      },
-      "pdf_sha256": "98f9f53fe2103ef92ce412bcce6c1402f4f989ad0195fbcf4709cd29e35b886e"
+      "build_completed": false,
+      "source_pdf_receipt_verified": false,
+      "current_source": "v23",
+      "reason": "Shared bibliography updated; former receipt no longer corresponds to current input closure."
     },
     "B": {
       "source": "papers/generic17_ambient_recovery.tex",
-      "pages": 18,
-      "tex_inputs": 2,
-      "build_completed": true,
-      "source_pdf_receipt_verified": true,
-      "failures": {
-        "undefined_references": false,
-        "undefined_citations": false,
-        "missing_glyphs": false,
-        "overfull_boxes": false
-      },
-      "nonfatal_warnings": [
-        "Math font size substitution 4.5pt to 5pt.",
-        "Math tokens omitted in PDF bookmarks; body text and equations render correctly."
-      ],
-      "pdf_sha256": "0b9dcc86770bc6bc3c020e5f35ec2100cac271353b1fdea87642fcd0e5d8aa5b"
+      "build_completed": false,
+      "source_pdf_receipt_verified": false,
+      "current_source": "v23",
+      "reason": "Shared bibliography updated; former receipt no longer corresponds to current input closure."
     },
     "standalone_SM_ER": {
       "source": "papers/reconstruction/rotation_saturation_reduction.tex",
@@ -142,17 +123,16 @@
       "pdf_sha256": "e0e482cde806ea74fe2f2b672d997aee7691c44910eed4e7b24c00636dd16eb6"
     },
     "visual_review": {
-      "C": "All 133 pages rendered and inspected in six contact sheets; pages89,93,101 also inspected at reading size; no clipping, overlaps, glyph loss or blank-page defects observed.",
-      "A_B": "All A46 pages and B18 pages inspected in contact sheets; corrected B pages11-12 also inspected at reading size. No clipping, overlaps, glyph loss or unintended blank pages observed.",
-      "standalone_SM_ER": "All 15 pages inspected in a contact sheet; no clipping, overlaps or unintended blank pages observed."
+      "standalone_SM_ER": "All 15 pages inspected in a contact sheet; no clipping, overlaps or unintended blank pages observed.",
+      "note": "Current manuscript A/B/C not visually reviewed after v23 changes; independent SM/ER section unaffected."
     },
-    "reproduction": "README.md and reconstruction/README.md; generated PDFs, receipts, caches and logs are ignored by Git.",
+    "reproduction": "Run python3 computations/verify_mixed_characters.py; then scripts/build.py and scripts/verify_bundle.py locally. Full re-typesetting and current receipt checks not yet performed.",
     "engine": "LuaHBTeX1.18.0 (TeX Live2025/dev/Debian), LuaTeX-ja and standard math packages."
   },
   "environment": {
     "python": "3.12.14",
     "sympy": "1.14.0",
-    "note": "Current published code and source/PDF receipts were executed and checked. A user-level LuaLaTeX configuration reuses installed package assets. PDF byte identity across different TeX engine/package versions is not guaranteed."
+    "note": "New exact SymPy character checks executed; no full v23 typesetting or full bundle verification performed. Previous compiled PDFs cannot be represented as current v23 outputs."
   },
-  "persistence": "This file records current mathematical, code and typesetting verification. Remote ref, full tree and changed blobs are checked separately after publication."
+  "persistence": "Current manuscript and verification state only. GitHub remote ref and blob verification follows updates."
 }
