@@ -8,3 +8,5 @@
 他の数学的成果も失われないよう、各原PDFは全章・全証明との照合が済むまではGitで保持する。全体の進捗と残作業は `TODO_PDF_SOURCES.md` に記す。
 
 - `papers/source_recovery/central_fiber_discriminant.tex`：原論文VI（`central_quotient_singularities.pdf`）第15節 pp.25–27 の中心曲面の判別式と特異点の分類。検証コードは `computations/source_recovery/verify_central_fiber_discriminant.py`。Azumaya・Brauer・非可換tailsの残りはPDFに保持。
+
+- `papers/source_recovery/reye_stationary_core.tex`：原論文IV（`reye_stationary.pdf`、77ページ）の §2–3 と §4.1–4.4 の中核を証明付きで復元。275停留点・Hessian pencil・長さ2・275本のReye三次曲線を扱う。`computations/source_recovery/verify_reye_275.py` はChern・Hesseの有限恒等式を検証。**このTeXは原PDF全体の代替ではない**。

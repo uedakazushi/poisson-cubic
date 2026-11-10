@@ -14,10 +14,12 @@ GitHub `main` が正本で、既存PDFは数学的な情報が失われないよ
 | `papers/pdf-only/boundary/brill_noether.pdf` | `nc_cubic_unified_paper_I_ja_20261101_v2.pdf` | 58 | 大部な包括TeXと部分重複。相対gluing等は未照合 |
 | `papers/pdf-only/boundary/central_quotient_singularities.pdf` | `nc_cubic_unified_paper_VI_ja_20261101_v1.pdf` | 61 | 第15節 pp.25–27の中心曲面判別式をTeX化。Azumaya等は未移植 |
 | `papers/pdf-only/boundary/pfaffian_contact.pdf` | `nc_cubic_unified_paper_III_ja_20261101_v2.pdf` | 89 | 包括TeXのPfaffian節にかなりの重複あり。全証明一致未了 |
-| `papers/pdf-only/boundary/reye_stationary.pdf` | `nc_cubic_unified_paper_IV_ja_20261101_v2.pdf` | 77 | **独立した対応TeXを未発見**。最優先 |
+| `papers/pdf-only/boundary/reye_stationary.pdf` | `nc_cubic_unified_paper_IV_ja_20261101_v2.pdf` | 77 | **§2–3 と §4 の中核、275計数・Hessian直線・長さ2・Reye三次曲線を部分復元**（`papers/source_recovery/reye_stationary_core.tex`）。§5–14は未完了 |
 | `papers/pdf-only/quantization/sklyanin_mixed_quantization.pdf` | `nc_cubic_unified_paper_II_ja_20261101_v16.pdf` | 195 | 包括TeX・Sklyanin節との部分重複。全混合族は未照合 |
 
 ## 今回確実にソース化した内容
+
+- `papers/source_recovery/reye_stationary_core.tex`：原論文IVの §2–3・§4.1–4.4 と対応する275停留平面、定階数4のHessian直線、長さ2の停留点・単純分岐、gradient Reye模型、275本の相異なる曲線。独立した8ページのLuaLaTeX原稿（原PDF77ページ全体ではない）。`computations/source_recovery/verify_reye_275.py` でChern・積分275・Hesse式を厳密検算した。
 
 - `notes/source_recovery/dg_perfectness_counterexamples.tex`：特殊・Artin perfect性は相対perfectnessを含意しないこと、非開性、Hom有限性。原本p.26–31。
 - `papers/source_recovery/central_cubic_generic_smoothness.tex`：二つの中心チャートの貼合せによるperfectnessとvery-general中心三次商の正則性。比較原稿p.43–44。
