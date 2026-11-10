@@ -58,3 +58,15 @@
 - [ ] `git ls-files '*.pdf'`、ビルドとコード検証、READMEの参照先を再点検して`main`へpushする。
 
 本TODOは「対応候補を確保してから比較・統合する」という作業計画であり、全9本のソース復旧完了を宣言するものではない。
+
+## 2026-11-10：Reye 論文 IV の Hilbert/PT・ruling 移植
+
+- [x] \`papers/source_recovery/reye_stationary_core.tex\` に、原論文IV第6・7節の \(\operatorname{Hilb}_{3m}\) と \(\mathrm{PT}_{0,3}\) のスキーム同型および仮想数275の証明を追加した（以前の275停留点・法束定理を入力）。
+- [x] 同TeXに原論文IV命題13.1の普遍停留incidenceの滑らか既約な35次元ベクトル束模型と275点被覆の推移性を追加した。
+- [x] 同TeXに原論文IV命題13.13の、rulingを選ぶ等方平面による550本の二成分分解を、原論文第10.4節の網羅性・法束を仮定した形で追加した。
+- [ ] 原論文第6節のHilbert関数の独自証明で、飽和化への自然写像の全射性・向きを修正する。現行TeXの平面三次分類はSkjelnes--Smith、Harris--Roth--Starrを使用。
+- [ ] 原論文第7節の全PT BPS変換、第8節のprimary GW/PTおよびGV係数への同一視を一次文献の正確な適用条件とともに移す。
+- [ ] 原論文第5・9・10節の法束と全Artin同型、550本の網羅性と \(\mathcal O_{\mathbb P^1}(-1)^{\oplus2}\) の全証明を移植。
+- [ ] 原論文第13.2・13.3節の二点付きincidenceの全相対位置のrank層、単一foldのconormal一意性を移植・検証。これまでは \(\mathrm{Mon}=S_{275}\) を今回の追記だけで無条件に証明したとは扱わない。
+- [ ] 原論文第12節の長さ3・cusp局所模型・射影regularityを移植。
+- [ ] 77ページ原PDFの全章・証明・一次引用とTeXが一致しLuaLaTeXで再生成できることを確認した後にのみ、同PDFのGit追跡を解除する。

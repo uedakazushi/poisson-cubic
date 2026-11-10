@@ -434,13 +434,171 @@ $\lambda=0$ または $\lambda^3=-8$ である。
 包含先の滑らかさを与える。
 \end{proof}
 
+
+\section{全 Hilbert スキームと安定対の275計数}
+以下は原論文IV第6--8節の内容を、数学的主張の依存関係を明確にして復元したものである。
+一般のgradient Reye三様体を $X=X_{W_F}$、対称テンソル偏極を
+$H=\OO_X(1)$ と書く。前節の275本の曲線を $C_U$ とする。
+
+\begin{lemma}[平面三次曲線の分類]\label{lem:plane3restored}
+Hilbert多項式 $3m$ を持つ $\PP^N$（$N\ge2$）の任意の閉部分スキームは、
+一意な平面上の三次超曲面である。
+\end{lemma}
+\begin{proof}
+これは Skjelnes--Smith の小次数 Hilbert スキームの幾何学的分類
+\cite{SkjelnesSmith} の特殊例である。$\PP^4$ については
+Harris--Roth--Starr \cite[\S3.2]{HarrisRothStarr} にも明記されている。
+非被約・非純次元の候補を初めから除外した分類ではない。
+原論文IV第6節の Hilbert 関数による別証明は飽和化の写像の向きに
+再点検を要するため、ここでは正当性を確認した既知の分類を使用する。
+\end{proof}
+
+\begin{lemma}[平面のsupportの一意性]\label{lem:plane-support-restored}
+$X_W=\PP(W^\perp)\cap\Sym^2\PP(T)$ が射影平面を含まないとする。
+平面 $\PP(B)$ 上の三次曲線 $C\subset X_W$ に対し、
+$B\subset\Sym^2U$ となる3次元部分空間 $U\subset T$ は一意である。
+\end{lemma}
+\begin{proof}
+平面座標 $t$ で $B$ の一般元を対称 $5\times5$ 線形行列 $A(t)$ と書く。
+$C=V(f)$ で三次minorがすべて消えるから、ある定数テンソル $C_0$ について
+$\bigwedge^3A(t)=f(t)C_0$。$C_0=0$ なら平面全体が $X_W$ に含まれてしまう。
+$f(t)\ne0$ の開集合では $\bigwedge^3\operatorname{im}A(t)$ が一定なので
+$\operatorname{im}A(t)$ は固定した部分空間 $U$ となる。
+その次元 $r$ が4以上なら、基準行列との比較から $\bigwedge^3g(t)$ が
+scalar の可逆自己同型 $g(t)$ を得る。$r>3$ ではこれはすべての3次元部分空間を
+保つから $g(t)$ 自身がscalarであり、$\dim B=3$ に矛盾する。
+ゆえに $r=3$。分解可能な $\bigwedge^3U$ から $U$ を一意に復元する。
+$B\subset\Sym^2U$ は線形条件なので開集合から全体へ延長される。
+\end{proof}
+
+\begin{theorem}[原論文IV定理6.5・7.2]\label{thm:reye-pt275-restored}
+一般の $F$ について自然な射
+\[
+ Z_F\xrightarrow{\sim}\Hilb_{3m}(X,H)
+ \xrightarrow{\sim} P_0(X,3)
+\]
+はスキーム同型であり、三者は275個の被約点である。
+標準の Calabi--Yau 安定対の対称障害理論による仮想計数は
+$P_{0,3}=275$ である。
+\end{theorem}
+\begin{proof}
+$X$ は Picard 数1の滑らかな Calabi--Yau 三様体なので射影平面を含まない。
+実際、$D\simeq\PP^2\subset X$ なら随伴公式から $N_{D/X}=\OO_D(-3)$、
+$HD^2=-3$ となるが、$D\equiv aH$、$a>0$ なので $HD^2=a^2H^3>0$ と矛盾する。
+補題\ref{lem:plane3restored}により、任意の $[C]\in\Hilb_{3m}(X,H)$ は
+一意な $\PP(B)$ 上の三次超曲面である。
+補題\ref{lem:plane-support-restored}で $U$ を復元すると
+$\dim(W_F^\perp\cap\Sym^2U)\ge3$、従って $U\in Z_F$。
+一般性からその次元は正確に3であり $B=B_U$。
+その平面内の $X$ の方程式は非零の determinant 三次式なので $C=C_U$ である。
+こうして閉点は275個に限られる。
+既存の法束計算 $H^0(C_U,N_{C_U/X})=0$ より Hilbert 接空間が零で、
+Nakayamaによって各局所環は被約な点となる。これで最初のスキーム同型を得る。
+
+安定対 $(\mathcal F,s)$ には純1次元の支持 $C$ と零次元層 $Q$ による
+$0\to\OO_C\to\mathcal F\to Q\to0$ が付随する。
+小次数曲線の Hilbert 多項式下界
+$\deg C=3\Rightarrow\chi(\OO_C)\ge0$ を用いれば、
+$\chi(\mathcal F)=0$ は $\chi(\OO_C)=\operatorname{length}Q=0$ を強制する。
+従って各安定対は $(\OO_C,1)$ である。
+任意の基底上の family でも、すべての幾何学的fiberで $Q=0$ だから
+Nakayamaにより $Q=0$ が族全体で成立し、Hilbert familyと安定対familyが
+互いに逆に対応する。よって第二のスキーム同型を得る。
+275点は滑らかな0次元スキームなので対称障害理論の接・障害は消え、
+各仮想寄与が1、全数が275となる。
+\end{proof}
+
+\begin{remark}[GV比較と校訂課題]
+原論文IV第7--8節はPT側の三角的BPS変換およびprimary GW/PT対応から
+種数1・次数3のGV係数も275と結論している。この稿では外部定理の全仮定を
+独立監査していないため、その主張は原PDFを証明所在として残す。
+また旧稿の一般 Hilbert 関数の別証明で使う飽和化への写像
+$R/\ell R\to R_Z$ の全射性は再確認を要する。
+\end{remark}
+
+\section{普遍停留 incidence と275点被覆の推移性}
+\begin{theorem}[原論文IV命題13.1]\label{thm:reye-univ-incidence}
+$\mathcal H=\Sym^3T^\vee$ とし、
+$\mathcal H\times\Gr(3,T)$ の滑らかな三次式・滑らかな平面切断の開部分で
+$\delta_F:T\to\Sym^2U^\vee$ の四次minorによる退化スキームを
+$\mathcal I^{\rm sm}$ と書く。
+補空間付き平面 $(U,K)$、$T=U\oplus K$ の空間
+$\mathcal B\simeq\mathrm{GL}_5/(\mathrm{GL}_3\times\mathrm{GL}_2)$
+上の階数23束
+\[
+ \mathcal E=\Sym^3\mathcal U^\vee\oplus
+ (\mathcal U^\vee\otimes\Sym^2\mathcal K^\vee)\oplus
+ \Sym^3\mathcal K^\vee
+\]
+の滑らかな開部分と $\mathcal I^{\rm sm}$ は自然に同型である。
+特に $\mathcal I^{\rm sm}$ は滑らか既約・次元 $12+23=35$。
+従って一般の275停留点の有限étale被覆のmonodromyは推移的である。
+\end{theorem}
+\begin{proof}
+$T=U\oplus K$ で三次式を分解すると
+$\Sym^3T^\vee=\Sym^3U^\vee\oplus
+(\Sym^2U^\vee\otimes K^\vee)\oplus
+(U^\vee\otimes\Sym^2K^\vee)\oplus\Sym^3K^\vee$。
+$\delta_F(K)=0$ は第二項の消滅に等しいので自由度は$10+9+4=23$。
+滑らかな平面切断では接方向の三つの偏微分は一次独立だから
+$\ker\delta_F=K$、$\operatorname{rank}\delta_F=3$。
+逆に階数3のchartで行列を
+$\begin{pmatrix}I_3&B\\0&C\end{pmatrix}$ とすると、四次minorのidealは
+$C$ の六成分で生成される。退化スキーム上で$C=0$となり、
+$\ker\delta_F=\{(-Bb,b)\}$ は $U$ の補空間をなす。
+この逆構成は基底変更と両立するのでスキーム同型となる。
+一般275点の非空性から、この開部分は非空で既約である。
+275点の退化スキームは一般の基底上で有限étaleだから、
+連結な全空間を持ちmonodromyは推移的となる。
+\end{proof}
+
+\section{double symmetroid の550本とrulingの標準的二分}
+\begin{proposition}[原論文IV命題13.13：依存関係付き]\label{prop:reye-550-restored}
+一般のgradient二次形式系に対応するdouble symmetroid族を
+$Y_\Omega\to\Omega$ とする。
+原論文IV第10.4節の「次数1曲線の網羅性」と法束
+$N_{L/Y}=\OO_{\PP^1}(-1)^{\oplus2}$ を入力とすると
+\[
+ \Hilb_{m+1}(Y_\Omega/\Omega)\simeq
+ \mathcal I_\Omega\amalg\mathcal I_\Omega
+\]
+という有限étale被覆の同型がある。
+二つの成分はrank4 pencilに共通する等方平面が選ぶrulingと、そのdeck変換像である。
+したがって550点側のmonodromyは275点側の群の対角像となる。
+\end{proposition}
+\begin{proof}
+停留平面 $U$ のkernel $K_U=\ker\delta_F(U)$ に対し
+$\ell_U=\PP(K_U)$ は全点rank4のHessian直線で、
+任意の $k\in K_U$ についてpolar quadricは $U$ 上で零となる。
+rank4 quadricの極大等方平面の二つの連結な $\PP^1$ 族のStein因子が
+ruling二重被覆である。この共通等方平面$U$は
+$\ell_U$上にsectionを与え、その像とdeck変換像を$L_U^\pm$とする。
+これは普遍kernelと$U$から代数的に作るため、rulingの局所的な番号付けに依存しない。
+従って $\mathcal I_\Omega\amalg\mathcal I_\Omega$ から相対Hilbertスキームへの射を得る。
+入力した曲線の網羅性より幾何学的fiberで全550本に全単射となる。
+法束の消滅からHilbertスキームは各点でétale、
+射影族の固有性より有限étaleとなるので、この射は同型である。
+同じ$U$が両成分を対応付けるためloopは両成分で同じ置換を誘導する。
+deck involutionは二成分を交換するが、基底のloopではない。
+\end{proof}
+
+\begin{remark}[全対称群に残る証明]
+原論文IVの monodromy $S_{275}$ には、異なる二つの停留平面の
+全相対位置のrank層分類による二重推移性（定理13.5）と、
+分岐conormalから分岐点がただ一つと示すtransposition（定理13.9）が必要である。
+本稿はその全証明を移植したものではない。
+二重推移性と単一transpositionを仮定すればその共役で全transpositionが得られ
+$S_{275}$となり、前命題により550側は対角$S_{275}$となる。
+原PDF追跡解除の条件にはこの二証明と第10節の曲線網羅性の移植を含める。
+\end{remark}
+
 \section{復元範囲と検証の所在}
 本稿は元の77ページ論文のうち、Kodaira--Spencer 零理想、275点の列挙、
 Hessian の定階数直線、長さ二の局所模型、一般 gradient Reye 模型の regularity、
 および275本の平面三次曲線の構成を復元した。
 以下は\emph{未復元}であり、原 PDF の追跡解除を許さない。
-全 Hilbert/PT moduli の同定と BPS 係数、法束と全 Artin 変形、
-二つの275成分による550本の曲線の分類、monodromy $S_{275}$ と対角作用、
+GVとの比較、法束と全 Artin 変形、
+550曲線の完全網羅性および二重推移性・分岐の一意性による monodromy $S_{275}$ と対角作用、
 長さ三と cusp の全証明である。
 数学的な数値については $C_2,C_3,C_4$、Schubert 積分275、
 Hesse 行列式の恒等式、$D_\lambda$ の行列式を有理整数演算で再計算した。
@@ -452,5 +610,14 @@ Hesse 行列式の恒等式、$D_\lambda$ の行列式を有理整数演算で�
 \bibitem{Hesse} M. Artebani and I. Dolgachev, \emph{The Hesse pencil of plane cubic curves}, Enseign. Math. 55 (2009), 235--273. \url{https://doi.org/10.4171/LEM/55-3-3}.
 \bibitem{Boralevi} A. Boralevi and E. Mezzetti, \emph{Pencils of singular quadrics of constant rank and their orbits}, Rend. Istit. Mat. Univ. Trieste 54 (2022), Art. 16. \url{https://doi.org/10.13137/2464-8728/34102}.
 \bibitem{HT} S. Hosono and H. Takagi, \emph{Mirror symmetry and projective geometry of Reye congruences I}, J. Algebraic Geom. 23 (2014), 279--312, Proposition 2.1. \url{https://doi.org/10.1090/S1056-3911-2013-00618-9}.
+\bibitem{SkjelnesSmith} R. Skjelnes and G. G. Smith,
+\emph{Smooth Hilbert schemes: their classification and geometry},
+J. reine angew. Math. 794 (2023), 281--305,
+\url{https://doi.org/10.1515/crelle-2022-0083}.
+\bibitem{HarrisRothStarr} J. Harris, M. Roth and J. Starr,
+\emph{Curves of small degree on cubic threefolds},
+Rocky Mountain J. Math. 35 (2005), 761--817,
+\url{https://arxiv.org/abs/math/0202067}.
+
 \end{thebibliography}
 \end{document}

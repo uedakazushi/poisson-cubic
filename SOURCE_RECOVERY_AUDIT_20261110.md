@@ -39,3 +39,16 @@ GitHub `main` が正本で、既存PDFは数学的な情報が失われないよ
 LuaLaTeXと再現計算を確認すること、関連原稿が自立していることを確認した上で
 `git rm --cached`を行う。見出し類似や断片的なTeX化だけでは解除しない。
 参照 TODO：[`TODO_PDF_SOURCES.md`](TODO_PDF_SOURCES.md)。
+
+## 2026-11-10：Reye 第6・7・13節の追加ソース移植
+
+\`papers/source_recovery/reye_stationary_core.tex\` に、元の275定理に続けて
+全HilbertスキームとPT計数、35次元の普遍停留incidence、550本の二つの標準成分の構成を移植した。
+これらの証明は既存の275停留平面・法束の計算や、元論文IV第10.4節の次数1曲線の網羅性に依存する。
+二重推移性と単一transpositionの全証明は依然未収録であり、
+モノドロミーが全対称群であることの独立再証明には至っていない。
+
+旧原稿第6節の飽和化のHilbert関数比較は校訂を要するため、平面三次の分類を
+Skjelnes--Smith (J. reine angew. Math. 794, 2023) と
+Harris--Roth--Starr (\S3.2, 2005) の一次研究に依存させた。
+77ページPDF全体のTeX置換は未完で、追跡を継続する。
