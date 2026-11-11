@@ -4,7 +4,10 @@
 以下の中心元表示はEtingof--Ginzburg \cite[\S9]{EG} のRains型計算および
 本研究の\href{https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pdf-only/ambient/central_pair_formal_moduli.pdf}{既存の中心三次対技術稿}
 第14節にある結果のFermat規格化であり、新しい中心公式とは主張しない。
-今回の独立計算は有限体の次数四イデアル所属検査である。
+従来の独立計算は有限体での次数四イデアル所属検査に留まったが、
+現在は論文Aの
+\texttt{papers/support/papers/sections/fermat\_mixed\_universal\_center.tex}
+で全係数の普遍的な中心性を厳密に証明した。
 
 \subsection{全15混合方向の中心三次元}
 $f=(x^3+y^3+z^3)/3$、$U=\langle u,v\rangle$とし、
@@ -31,12 +34,17 @@ $\operatorname{sym}(xy)=(xy+yx)/2$とする。
 &+\left(H+\frac{h^2A^2}{6}-\frac{h^4BC}{18}\right)z+g(u,v)
 \end{align}
 となり、$h=0$で$F$に特殊化する。
-既存原稿の全係数による普遍的中心性の証明を今回独立に再実行してはいない。
+この有限多項式は現在、論文Aで普遍的な中心元として証明済みである。
+\texttt{computations/verify\_universal\_fermat\_mixed\_center.py}
+では$A,B,C,D,E,H$を独立な中心不定元とし、
+$\hbar$も変数のまま$\mathbb Q(\hbar)$上の次数四関係式行列を厳密に還元する。
+行列の列数339、関係式の倍数162、一般階数と$\hbar=0$での階数はいずれも144、
+全三交換子の剰余は零である。これにより原点を含む開集合での厳密な中心性が従う。
 新たな \texttt{computations/verify\_mixed\_center.py} では
 $p=1009$、$h=0,1,2,5,13$、各$h$に3組ずつ混合係数を代入して、
 次数四の自由語625個における二次関係式の生成部分空間
 （階数555）に全ての交換子が属することを確認した。
-有限特殊化の成功は普遍的な証明ではない。
+以下の有限特殊化は追加の検算であり、現在の普遍的証明の根拠ではない。
 $A\ne0$だけの模型で$h^2A^2z/6$を省くと
 $h=1$の次数四検査で中心性が失われることも確認した。
 \end{remark}
