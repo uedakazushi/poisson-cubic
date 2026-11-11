@@ -1,0 +1,175 @@
+\section{正則三次超曲面の ambient に対する1周期性}\label{sec:pg-ambient-periodicity}
+本節では，定理\ref{thm:pg-quantization}で構成した次数付き量子化の ambient を，
+最初から一頂点の次数付き代数と仮定しない場合にも考える。
+以下の周期性はAS双対性と正規族の次数から従うものであり，
+全ての抽象的な非可換cubic threefoldが超曲面表示を持つという主張ではない。
+
+局所有限な正の連結 $\mathbb Z$-代数
+$\mathcal B=\bigoplus_{i,j\in\mathbb Z}\mathcal B_{ij}$ に対し，
+$\mathcal B_{ii}=\CC$，$\mathcal B_{ij}=0$（$j<i$）とする。
+$\mathcal B(r)_{ij}=\mathcal B_{i+r,j+r}$ と置き，
+添字を保つ同型 $\mathcal B\simeq\mathcal B(r)$ があるとき
+$r$ \emph{周期的}という。
+通常の connected graded algebra $D=\bigoplus_{n\geq0}D_n$ に
+付随する $\check D_{ij}=D_{j-i}$ は1周期的である。
+逆に1周期同型を選ぶと，それを用いて $\mathcal B_{0n}$ の積を
+定めることで $\mathcal B\simeq\check D$ と復元できる。
+この同値では周期同型そのものを選ぶことに注意する。
+
+次数 $d>0$ の\emph{正則正規族}とは，
+$g_i\in\mathcal B_{i,i+d}$ の族で，すべての $i\leq j$ について
+\begin{equation}\label{eq:pg-ambient-normal-family}
+ g_i\mathcal B_{i+d,j+d}
+ =\mathcal B_{ij}g_j\subset\mathcal B_{i,j+d}
+\end{equation}
+を満たし，各 $g_i$ の左右乗法が対応する成分上で単射となるものをいう。
+正規族の定義については
+Chan--Nyman~\cite[Definition~8.6]{PChanNymanNormalFamily}も参照されたい。
+ここでは中心性を仮定しない。
+
+\begin{theorem}[正則正規超曲面の ambient の周期]\label{thm:pg-ambient-gcd}
+$\mathcal B$ は二次Koszul AS正則 $\mathbb Z$-代数で，
+左右のAS条件を満たし，各単純加群は有限生成射影加群による
+有限の最小線型解消を持つとする。
+そのAS次元とGorenstein parameterが同じ $N$ であり，
+次数 $d$ の正則正規族が存在するならば，最小正周期 $p$ は
+\[
+ p\mid\gcd(N,d)
+\]
+を満たす。特に $\gcd(N,d)=1$ なら
+$\mathcal B\simeq\mathcal B(1)$ である。
+\end{theorem}
+
+\begin{proof}
+まず正規族から $d$ 周期性を構成する。
+各 $a\in\mathcal B_{ij}$ に対して
+\eqref{eq:pg-ambient-normal-family}と左右正則性から，
+\[
+ ag_j=g_i\sigma_{ij}(a),\qquad
+ \sigma_{ij}(a)\in\mathcal B_{i+d,j+d}
+\]
+を満たす元が一意に存在し，$\sigma_{ij}$ は線型同型となる。
+$a\in\mathcal B_{ij}$，$b\in\mathcal B_{j\ell}$ について
+\[
+ (ab)g_\ell
+ =a(g_j\sigma_{j\ell}(b))
+ =g_i\sigma_{ij}(a)\sigma_{j\ell}(b)
+\]
+だから，$g_i$ を消去して
+$\sigma_{i\ell}(ab)=\sigma_{ij}(a)\sigma_{j\ell}(b)$ を得る。
+従って
+\begin{equation}\label{eq:pg-ambient-sigma}
+ \sigma:\mathcal B\xrightarrow{\sim}\mathcal B(d)
+\end{equation}
+は $\mathbb Z$-代数同型である。
+
+次にKoszul双対 $E=\mathcal B^!$ を考える。
+有限線型解消と左右AS双対性から，$E$ はindex $N$ の
+局所Frobenius $\mathbb Z$-代数となる
+（Bondal--Polishchuk~\cite[Proposition~4.1, \S5]{PBondalPolishchukHelices}）。
+具体的には，最高次数の同定
+$\lambda_i:E_{i,i+N}\xrightarrow{\sim}\CC$ を選ぶと，
+\[
+ E_{ij}\otimes E_{j,i+N}\longrightarrow E_{i,i+N}
+ \xrightarrow{\lambda_i}\CC
+\]
+が各相補次数で完全対合である。
+この対合から，任意の $a\in E_{ij}$ に対して
+\[
+ \lambda_i(ab)=\lambda_j(b\nu_{ij}(a))
+ \quad(b\in E_{j,i+N})
+\]
+となる線型同型 $\nu_{ij}:E_{ij}\to E_{i+N,j+N}$ が定まる。
+$a\in E_{ij},c\in E_{j\ell},b\in E_{\ell,i+N}$ に対して
+\[
+ \lambda_i((ac)b)
+ =\lambda_j((cb)\nu(a))
+ =\lambda_\ell(b\nu(a)\nu(c))
+\]
+であるから，対合の完全性により
+$\nu(ac)=\nu(a)\nu(c)$ となる。
+従って $\nu:E\xrightarrow{\sim}E(N)$ は $\mathbb Z$-代数同型である。
+次数一部分で逆双対を取り，二次関係を保つことを用いると，
+\begin{equation}\label{eq:pg-ambient-rho}
+ \rho:\mathcal B\xrightarrow{\sim}\mathcal B(N)
+\end{equation}
+が得られる。
+
+周期の集合
+$\operatorname{Per}(\mathcal B)=
+\{r\in\mathbb Z:\mathcal B\simeq\mathcal B(r)\}$
+は $\mathbb Z$ の部分群である。
+\eqref{eq:pg-ambient-sigma}と\eqref{eq:pg-ambient-rho}から
+$d,N\in\operatorname{Per}(\mathcal B)$ なので，
+$\gcd(N,d)$ も周期となる。
+二つの同型が可換であることは必要ない。
+\end{proof}
+
+\begin{corollary}[三次三様体の ambient]\label{cor:pg-cubic-ambient-periodic}
+$\mathcal B$ を標準 $(1,5,10,10,5,1)$ 型の
+5次元Koszul AS正則 $\mathbb Z$-代数とし，
+次数3の正則正規族 $g_i\in\mathcal B_{i,i+3}$ を持つとする。
+このとき
+\[
+ \mathcal B\simeq\mathcal B(1).
+\]
+従って通常の connected graded 5次元AS正則代数 $D$ により
+$\mathcal B\simeq\check D$ と書ける。
+特に $\dim\mathcal B_{i,i+n}=\binom{n+4}{4}$ ならば
+$H_D(t)=(1-t)^{-5}$ である。
+\end{corollary}
+\begin{proof}
+定理\ref{thm:pg-ambient-gcd}を $N=5,d=3$ に適用する。
+実際，\eqref{eq:pg-ambient-sigma}の $\sigma$ と
+\eqref{eq:pg-ambient-rho}の $\rho$ から
+\[
+ \theta_{ij}=
+ \rho^{-1}_{i+1,j+1}\circ
+ \sigma_{i+3,j+3}\circ\sigma_{ij}:
+ \mathcal B_{ij}\longrightarrow\mathcal B_{i+1,j+1}
+\]
+が1周期同型となる（$2\cdot3-5=1$）。
+$\mathcal B_{0n}$ 上の積を
+$a*b=a\,\theta^m(b)$（$a\in\mathcal B_{0m}$）と定めれば，
+所望の次数付き代数が復元される。
+\end{proof}
+
+\begin{proposition}[低次数の核からの正規性判定]\label{prop:pg-cubic-normal-criterion}
+$\mathcal B$ は次数一生成で
+$\dim\mathcal B_{i,i+1}=5$ とする。
+斉次両側イデアル $I\subset\mathcal B$ が
+\[
+ I_{i,i+3}=\CC g_i,\qquad \dim I_{i,i+4}=5
+\]
+を満たし，各 $g_i$ が左右正則なら，$(g_i)$ は次数3の正則正規族である。
+\end{proposition}
+\begin{proof}
+$I_{i,i+4}$ の二つの部分空間
+\[
+ g_i\mathcal B_{i+3,i+4},
+ \qquad \mathcal B_{i,i+1}g_{i+1}
+\]
+は，正則性によってともに5次元であり，よって一致する。
+これは長さ一の正規関係である。
+次数一生成と結合律による帰納法で任意の $j\geq i$ に対する
+\eqref{eq:pg-ambient-normal-family}を得る。
+\end{proof}
+
+\begin{remark}[適用範囲と既知結果との関係]\label{rem:pg-ambient-pair-scope}
+定理\ref{thm:pg-quantization}で構成した $A_\lambda$ と
+$\Omega_\lambda\in Z(A_\lambda)_3$ は，初めから通常の
+次数付き代数と中心正則元なので，その付随 $\mathbb Z$-代数は
+明らかに1周期的である。
+系\ref{cor:pg-cubic-ambient-periodic}の意義は，
+\emph{正則正規三次超曲面表示だけを仮定し，
+ambientに1周期構造を選ばなくても同じ結論が従う}点にある。
+
+一方，構成した $\theta$ が商イデアル $I=(g_i)$ を保ち，
+$\theta(I)=I(1)$ を満たすとはこの議論だけでは言えない。
+従って，商 $\mathcal B/I$ が同時に一つの次数付き商 $D/(G)$ として
+表示されることや，$G$ を中心化できること，$D$ が
+Calabi--Yauとなることは別の問題である。
+抽象的な非可換cubicの全てがこの超曲面表示を持つことも主張しない。
+この周期性定理は既知のKoszul--Frobenius双対性と正規族の性質の
+組合せであり，新規性・初出の最終確認は未了である。
+\end{remark}
