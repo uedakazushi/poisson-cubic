@@ -8,9 +8,9 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月12日・論文A（投稿準備稿 v43）}
+\date{2026年11月12日・論文A（投稿準備稿 v44）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-12 / A-v43}
+\fancyhead[R]{\small 2026-11-12 / A-v44}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -27,12 +27,12 @@ Bondal予想の次元下界を、平面曲線の射影joinを構成して導く�
 各Poisson構造に対して、原点を含む一変数Zariski開集合上に
 Koszul Artin--Schelter正則な周囲の量子化と
 中心正則三次元による量子超曲面を構成する。
-さらにFermat型の任意の中心混合係数について、
-六つの独立な係数と量子化パラメータを保持した
-厳密な普遍多項式中心元を与える。
-滑らかな三変数三次制限を持つ一般のブロックについては、
-形式的中心元の存在を入力に、有限の行列式による
-普遍有理表示を構成する。
+さらに一般Hesse型の任意のパラメータと全ての中心混合係数について、
+量子化パラメータの有限多項式で表せる
+\emph{厳密な普遍中心三次公式}を構成する。
+Hesse標準形により任意の滑らかな三変数三次制限へ
+この公式を適用でき、同じ対象に対する有限行列式の
+普遍有理表示も形式的中心元存在定理に依存せずに得る。
 さらに，標準5次元Koszul AS正則$\mathbb Z$-代数が
 正則正規三次超曲面を持てば，ambient自体が1周期的であることを示す。
 固定した滑らかなcubic fivefoldに現れる節点型・尖点型の
@@ -180,38 +180,51 @@ $2\cdot3-5=1$を用いてambientは1周期的となる。
 厳密な恒等式検査に基づく。これは全次数の閉公式ではなく、
 一般的な中心元存在定理と区別した二次の明示結果である。
 
-さらに、$g(x,y,z)=f(x,y,z,0)$が滑らかな平面三次曲線を定める
-任意の混合Jacobianブロックについて、
-形式的中心元の存在から\emph{全次数で厳密に中心}な
-\emph{有限行列式による普遍的有理式}を構成する
-（定理\ref{thm:pg-universal-determinant}）。
-中心変数が二つの場合、次数三の35単項式から
-純中心三次式4個と規格化係数1個を除く30方向について、
-$30\times30$行列$M$とその列置換$M_j$を用い、
-$\det M_j/\det M$だけで中心元を表す。
-Fermat基準点で$\det M=-72$（中心変数なし）、
-$4608$（中心変数二つ）を厳密検算した。
-この新しい結果は既存の形式的中心元存在補題を入力とする
-\emph{普遍的決定式表示}であり、
-短い普遍不変式による閉多項式公式や
-特異ブロックへの無条件な延長を主張しない。
-
-
-さらに、$g(x,y,z)=(x^3+y^3+z^3)/3$の場合には、
-中心係数$A,B,C,D,E,H$を全て独立とした
-\emph{普遍的な有限多項式中心元}を得る
+まず論文C関連のFermat型全混合中心式を、
+$\mathbb Q(\hbar)$上の普遍的な次数四関係式の恒等式として検証し、
+形式的中心元の存在を仮定しない
+\emph{有限多項式の厳密な中心元}とする
 （定理\ref{thm:pg-fermat-mixed-universal}）。
-これは既存の論文C関連技術稿に現れた式について
-$\mathbb Q(\hbar)$上の自由語339個・関係ベクトル162個の
-厳密な線形代数で全交換子の普遍的消滅を証明したものであり、
-形式的中心元存在定理には依存しない。
-中心変数による平行移動で
-任意の対角二次混合項を取り込める
-（系\ref{cor:pg-fermat-all-mixed}）。
-\emph{一般の滑らかな平面三次$g$}については、
-前記の行列式表示を用いる。
-Fermat型の短い多項式公式と、
-一般$g$の有理決定式公式は異なる水準の明示性である。
+次にこの公式を一般の
+\[
+ g_t(x,y,z)=\frac{x^3+y^3+z^3}{3}+txyz
+\]
+へ拡張する。任意の$t$と独立な中心混合係数
+$A,B,C,D,E,H$について、二次量子化パラメータ$q=\hbar^2$の
+高々二次の七つの係数多項式を使って
+中心三次元を与える（定理\ref{thm:pg-universal-hesse-mixed}）。
+$\mathbb Q(\hbar,t)$上で339自由語・162関係ベクトルからなる
+行列の階数144と、三つの交換子の剰余零を証明する。
+$\hbar=0$でも階数が144なので、原点を含む開部分に
+全係数恒等式が降下する。これは有限特殊化の成功や
+形式的な存在証明を新定理として扱うものではなく、
+\emph{厳密な普遍多項式恒等式}を用いた構成である。
+
+一般のHesse型に含まれる対角二次混合項は中心変数による
+平行移動で消去できる
+（系\ref{cor:pg-universal-hesse-all-mixed}）。
+さらに任意の滑らかな平面三次式はHesse標準形に
+線形変換できるので、\emph{任意の滑らかな三変数制限}
+$F(x,y,z,0)$を持つJacobianブロックについて、
+選んだHesse座標での\emph{有限多項式中心元}を得る
+（系\ref{cor:pg-smooth-ternary-explicit}）。
+元の座標を保ちたいときには、
+次数三交換子行列の非零小行列を用いた
+普遍Cramer表示も得られる
+（定理\ref{thm:pg-universal-determinant}）。
+中心変数が二つなら$30\times30$の決定式を使う。
+以前は形式的中心元の存在に依存したが、
+今はHesse型の明示定理によって\emph{この仮定を除けた}。
+
+適用範囲を明確にするため、
+滑らかな三変数三次制限に対する
+この無条件の明示公式と、
+三次制限が節点型・尖点型・零などの場合の
+形式的存在定理を区別する。
+前者の新規性は全混合方向を同時に扱う普遍恒等式であり、
+Sklyanin中心元の既知の基本公式自体ではない。
+一般の特異ブロックまでを一つの短い式で覆う主張や、
+GL$_3$不変な元座標での閉多項式公式はしない。
 
 \subsection*{具体例と適用範囲}
 非楕円型の節点ブロック・尖点ブロックが、
@@ -237,9 +250,11 @@ Br\"uckmann型消滅定理を利用する既知の背景結果
 続く第\ref{sec:pg-leaves}節と第\ref{sec:pg-degeneracy}節で
 葉・退化スキームの幾何を記述し、
 第\ref{sec:pg-quantization}節で量子化を構成する。
-Fermat型の完全な普遍混合多項式中心元は
+Fermat型の普遍混合中心元は
 第\ref{sec:pg-fermat-mixed-universal}節、
-一般の滑らかな三変数制限に対する有限行列式の中心元公式は
+全Hesse型の短い普遍多項式中心元と滑らかな三変数制限への帰結は
+第\ref{sec:pg-hesse-mixed-universal}節、
+元の座標で計算する有限行列式の中心元公式は
 第\ref{sec:pg-universal-determinant}節で扱う。
 そのambientの周期性は第\ref{sec:pg-ambient-periodicity}節で扱う。
 Bondal予想の帰結は第\ref{sec:pg-bondal}節、
@@ -249,6 +264,7 @@ Bondal予想の帰結は第\ref{sec:pg-bondal}節、
 \input{papers/sections/complete_intersections}
 \input{papers/sections/poisson_geometry}
 \input{papers/sections/fermat_mixed_universal_center}
+\input{papers/sections/hesse_mixed_universal_center}
 \input{papers/sections/universal_casimir_determinant}
 \input{papers/sections/ambient_periodicity}
 \input{papers/sections/fermat_relative_poisson_components}
