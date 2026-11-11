@@ -97,7 +97,7 @@
     "point_scheme_thickening": "SymPy Q(h) commutative chart identities and Groebner standard-monomial lengths24 at h=1,2,3. No automatic verification of Sklyanin theorem or global point functor.",
     "lambda_point_scheme": "Ran SymPy script: 12 Groebner computations over lambda=0,1,2,-1 and h=0,1,2 with local length24, exact polynomial reduction and nilpotent shear checks. Regenerated JSON in local working copy. Not a formal proof of point-module functor.",
     "discriminant_boundary": "Local SymPy exact reductions passed, finite field p=11 boundary lambda=2 with h=0,1,2 all rank24; 3 nonzero-branch local rings length6. Standalone expanded Japanese LuaLaTeX draft compiled to 3 pages and visually checked; concise integrated GitHub TeX not independently compiled.",
-    "article_A_static": "PASS 20 bibkeys, 51 citations, 131 labels, no missing/duplicate keys on article A complete input closure as fetched from GitHub",
+    "article_A_static": "PASS 20 bibkeys, 51 citation uses, 131 labels, 115 references, no missing or duplicate keys across entire article A input closure fetched from GitHub",
     "article_A_example": "Independent local SymPy demonstration: 56 Jacobi and 56 Euler-wedge components PASS; latest GitHub script including smoothness check not re-executed",
     "article_A_universal_casimir_jet": "PASS in local SymPy symbolic independent-coefficient expansion (20 coefficients, 3 commutators) modulo h^4, upgraded to h^5 by a proved anti-involution+flatness argument; exact uploaded script not rerun"
   },
@@ -184,8 +184,8 @@
     "exact_test": "computations/verify_poisson_article_A.py",
     "editorial": {
       "status": "Abstract, Introduction and prior-work comparison rewritten; manuscript A now uses dedicated bibliography",
-      "static_citation_check": "PASS (20 bibitems; 51 citation instances; no missing references)",
-      "static_label_check": "PASS (131 labels; no missing ref/eqref targets and no duplicate labels, including all 9 input files for article A)",
+      "static_citation_check": "PASS, all 10 article-A sources: 20 bibliography keys, 51 citation uses, no missing or duplicated keys",
+      "static_label_check": "PASS, all 10 article-A sources: 131 labels, 115 ref/eqref uses, no unresolved targets or duplicate labels",
       "caveat": "Static regex checks, not a full TeX parse or document build"
     },
     "mathematical_check": {
@@ -211,11 +211,15 @@
       ],
       "primary_sources_checked_in_this_stage": [
         "Etingof Lie Groups and Lie Algebras MIT course notes: original PDF printed p88 Prop16.9, printed p114 Definition21.13/Lemma21.14, printed p137 Thm25.17, printed p173 §32.2; inspected original page images.",
-        "Dolgushev arXiv:math/0612288v3: original PDF printed p9 Prop1 and printed p15 Thm3; inspected original page images; hypotheses are smooth complex affine variety with trivial canonical bundle and formal Kontsevich deformation."
-      ]
+        "Dolgushev arXiv:math/0612288v3: original PDF printed p9 Prop1 and printed p15 Thm3; inspected original page images; hypotheses are smooth complex affine variety with trivial canonical bundle and formal Kontsevich deformation.",
+        "Mori and Smith arXiv:1502.07403v2, PDF printed p5 Theorem 1.4 standard+rank-two-minor criterion, PDF printed p12 Corollary 2.9 3-CY iff AS-regular, domain; checked original page images.",
+        "Berger and Taillefer, JNCG (2007) original PDF p242 Theorem 1.1(i): arbitrary lower-degree potential on 3-CY potential is PBW and 3-CY; checked original page image.",
+        "Etingof and Ginzburg arXiv:0709.3593v4 original PDF pp29-30 Proposition 8.1.1(i), proof uses polynomial relative base R=C[u], no isolated singularity hypothesis in part (i); original pages checked."
+      ],
+      "relative_absolute_kontsevich_bridge": "Clarified in paper A: differential cochains in active x are included in absolute polydifferentials; graph formula for active-only Pi differentiates only x, hence same absolute Kontsevich star product. Standard formality/absolute completed CY assumptions still not independently fully established."
     },
     "typesetting": {
-      "whole_article_A": "NOT RUN: private GitHub source is accessible through connector but not cloneable in current container execution environment"
+      "whole_article_A": "NOT RUN: access through private GitHub connector, not cloned into the available local LuaLaTeX runtime; static checks only."
     },
     "universal_casimir_jet": {
       "theorem_labels": [
@@ -231,8 +235,10 @@
       "references_checked": [
         "Berger-Taillefer J. Noncommut. Geom. (2007), Theorem 1.1(i), original PDF p242",
         "Etingof-Ginzburg arXiv:0709.3593v4, Proposition 8.1.1(i), original PDF pp29-30, uses relative base R=C[u] in proof"
-      ]
-    }
+      ],
+      "theorem_integration": "Quantization theorem thm:pg-quantization now explicitly asserts parity-invariant choice of algebraic central cubic; proof averages over a symmetric Zariski open. Source has explicit universal Hessian commutator identity mod h^4."
+    },
+    "version": "A-v39"
   },
   "papers_layout": {
     "entrypoints": [
