@@ -1,6 +1,10 @@
 # 公表用論文
 
-最初にルート `00_research_plan.md` を読む。主論文は三本。
+最初にルート 00_research_plan.md を読む。現在の最優先課題は**論文Aの完成**。
+原稿 papers/poisson_cubic_quantization.tex は独立のAbstract/Introduction/文献
+(papers/references_poisson_cubic.tex) を持つ。
+証明監査・先行研究・未完了課題は notes/poisson_article_submission_audit.md。
+A全体の組版・主定理の完全監査は未完了。主論文三本は維持する。
 
 | 論文 | 組版入口 |
 |---|---|
