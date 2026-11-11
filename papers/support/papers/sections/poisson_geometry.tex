@@ -1038,18 +1038,46 @@ $\hbar$ 倍して完備化した pronilpotent dg Lie 代数の Maurer--Cartan �
 \pi_f=\sum_{\mathrm{cyc}}f_{x_1}\partial_{x_2}\wedge\partial_{x_3}
 \]
 という相対形式 Poisson 構造の star product が $A$ と次数付き $R$-線形同型をもつ。
-$\Pi$ は $\partial_{u_\alpha}$ 成分をもたないため、絶対グラフ公式で現れる微分も active 変数だけであり、
-同じ $\Pi$ が絶対 Kontsevich class の代表となる。
+$\Pi$ は $\partial_{u_\alpha}$ 成分をもたない。
+ここで相対形式変形と絶対形式変形の対応を明確にする。
+$\CC[u]$ 上の多微分作用素は、$x_i$ に関する微分だけを使い、
+係数は $\CC[x,u]$ に属する。
+これらを全変数 $(x,u)$ 上の多微分作用素とみなしても
+その定義式は変わらず、Gerstenhaber括弧、Hochschild微分、
+および$\hbar$進Maurer--Cartan方程式を保つ。
+また、$\Pi$から作るKontsevichの各グラフでは内部の微分を
+$\Pi$のベクトル添字に沿って行うので、$\partial_u$は一度も現れない。
+従って\emph{相対Kontsevich積を絶対係数に忘れた積}は、
+同じ$\Pi$を全変数の多ベクトルとみなしたときの
+\emph{絶対Kontsevich積そのもの}である。
+相対gauge同型も絶対Hochschild gaugeとして使えるため、
+$\widehat A_f$の絶対Kontsevich classも$\Pi$で代表される。
+この結論は「相対同値を忘れれば必ず同じ絶対Poisson classになる」
+という一般論の無証明な利用ではなく、今回の\emph{中心係数で微分しない}
+グラフ公式に依存する。
 
 \cite[Theorem 3, Proposition 1]{PDolgushev}を適用する。
-台は滑らかな affine space で標準束は自明であり、双対化双加群が自明であることは上で確認した。
+台は滑らかな複素アフィン空間$\mathbb A^{m+3}$で、
+標準束が自明である。
+上の絶対双加群分解は有限完備自由分解と中心差$u^L-u^R$のKoszul分解
+から構成され、内部次数のshiftを忘れたVan den Bergh双対化双加群は
+twistなしで$\widehat A_f$自身に同型である。
+従ってDolgushevのunimodularity判定を
+いま構成した\emph{絶対}差分積へ適用する条件が揃う。
 よって標準体積形式
 $\omega_0=dx_1\wedge dx_2\wedge dx_3\wedge du_1\wedge\cdots\wedge du_m$ に対し、
 単元 $\rho\in R[x][[\hbar]]^\times$ で $L_\Pi(\rho\omega_0)=0$ となるものが存在する。
-全次数 $m+3$ の成分を取る。
-$\Pi$ の重みは零であり、$\rho$ の次数零成分は $c(\hbar)\in\CC[[\hbar]]^\times$ だから
-$L_\Pi\omega_0=0$ となる。
-ここで単元性は $\rho\bmod\hbar$ が多項式環の単元、従って非零定数であることによる。
+標準体積形式$\omega_0$の全次数は$m+3$で、
+$\Pi$の全重みは零である。
+$\rho=\rho_0(\hbar)+\rho_{>0}$を
+多項式変数の全次数零成分と正次数成分に分けると、
+$\rho_0(0)\ne0$である。
+実際$\rho\bmod\hbar$は多項式環の単元、従って非零定数だからである。
+$L_\Pi(\rho\omega_0)$の全次数$m+3$の成分は
+$\rho_0(\hbar)L_\Pi\omega_0$に等しい。
+したがって$L_\Pi(\rho\omega_0)=0$と
+$\rho_0(\hbar)\in\CC[[\hbar]]^\times$から
+$L_\Pi\omega_0=0$を得る。
 
 $\nu=dx_1\wedge dx_2\wedge dx_3$ とすると相対一形式
 $\alpha=\iota_\Pi\nu$ は $d_R\alpha=0$ を満たす。
