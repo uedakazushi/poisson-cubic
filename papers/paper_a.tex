@@ -8,9 +8,9 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月12日・論文A（投稿準備稿 v40）}
+\date{2026年11月12日・論文A（投稿準備稿 v41）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-12 / A-v40}
+\fancyhead[R]{\small 2026-11-12 / A-v41}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -174,6 +174,22 @@ $2\cdot3-5=1$を用いてambientは1周期的となる。
 厳密な恒等式検査に基づく。これは全次数の閉公式ではなく、
 一般的な中心元存在定理と区別した二次の明示結果である。
 
+さらに、$g(x,y,z)=f(x,y,z,0)$が滑らかな平面三次曲線を定める
+任意の混合Jacobianブロックについて、
+形式的中心元の存在から\emph{全次数で厳密に中心}な
+\emph{有限行列式による普遍的有理式}を構成する
+（定理\ref{thm:pg-universal-determinant}）。
+中心変数が二つの場合、次数三の35単項式から
+純中心三次式4個と規格化係数1個を除く30方向について、
+$30\times30$行列$M$とその列置換$M_j$を用い、
+$\det M_j/\det M$だけで中心元を表す。
+Fermat基準点で$\det M=-72$（中心変数なし）、
+$4608$（中心変数二つ）を厳密検算した。
+この新しい結果は既存の形式的中心元存在補題を入力とする
+\emph{普遍的決定式表示}であり、
+短い普遍不変式による閉多項式公式や
+特異ブロックへの無条件な延長を主張しない。
+
 
 \subsection*{具体例と適用範囲}
 非楕円型の節点ブロック・尖点ブロックが、
@@ -199,6 +215,8 @@ Br\"uckmann型消滅定理を利用する既知の背景結果
 続く第\ref{sec:pg-leaves}節と第\ref{sec:pg-degeneracy}節で
 葉・退化スキームの幾何を記述し、
 第\ref{sec:pg-quantization}節で量子化を構成する。
+一般の滑らかな三変数制限に対する有限行列式の中心元公式は
+第\ref{sec:pg-universal-determinant}節で扱う。
 そのambientの周期性は第\ref{sec:pg-ambient-periodicity}節で扱う。
 Bondal予想の帰結は第\ref{sec:pg-bondal}節、
 非楕円型成分とその量子化は第\ref{ne:examples}節以下、
@@ -206,6 +224,7 @@ Bondal予想の帰結は第\ref{sec:pg-bondal}節、
 各主張の証明に用いた既知の結果と本稿の新しい帰結を分けて記述する。
 \input{papers/sections/complete_intersections}
 \input{papers/sections/poisson_geometry}
+\input{papers/sections/universal_casimir_determinant}
 \input{papers/sections/ambient_periodicity}
 \input{papers/sections/fermat_relative_poisson_components}
 \input{papers/sections/bondal_cubic}
