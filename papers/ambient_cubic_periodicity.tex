@@ -1,0 +1,205 @@
+\documentclass[10pt,a4paper]{ltjsarticle}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage[unicode,hidelinks]{hyperref}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{proposition}[theorem]{命題}
+\renewcommand{\proofname}{証明}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\cB}{\mathcal B}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\Per}{\operatorname{Per}}
+\title{正則な三次超曲面を持つ非可換射影四空間の1周期性}
+\author{研究草稿：既知の双対性からの系}
+\date{2026年11月12日・第1版}
+\begin{document}
+\maketitle
+\begin{abstract}
+正則正規族の次数とKoszul AS正則代数のGorenstein parameterが互いに素なら，
+ambientの$\Z$-代数は1周期的である．特に標準多項式型の非可換射影四空間に
+正則な三次超曲面があれば，ambientは通常の連結次数付きAS正則代数に付随する
+$\Z$-代数と同型になる．鍵は正規族からの3周期同型と，AS双対性からの5周期同型である．
+二つの同型の可換性，中心性，Veroneseへの移行は不要である．
+商イデアルを保つ1周期構造や中心三次元による表示は，本稿の結論と区別する．
+\end{abstract}
+
+\section{設定と主張}
+基礎体を標数零の代数閉体$k$とする．局所有限な正の連結$\Z$-代数
+$\cB=(\cB_{ij})$について，$\cB_{ii}=k$，$\cB_{ij}=0$（$j<i$），
+$\cB_{ij}\cB_{j\ell}\subset\cB_{i\ell}$という規約を用いる．
+$\cB(r)_{ij}=\cB_{i+r,j+r}$とし，同型は添字を保つものとする．
+
+次数$d>0$の\emph{正則正規族}とは，$g_i\in\cB_{i,i+d}$の族で，すべての$i\le j$に対し
+\begin{equation}\label{eq:normal}
+ g_i\cB_{i+d,j+d}=\cB_{ij}g_j\subset\cB_{i,j+d}
+\end{equation}
+を満たし，各$g_i$の左右の乗法が該当する全成分上で単射であるものをいう．
+正規族の定義はChan--Nyman\cite[Definition 8.6]{CN}の規約である．
+
+\begin{theorem}\label{thm:gcd}
+$\cB$を次元$N$，Gorenstein parameter $N$のKoszul AS正則$\Z$-代数とする．
+左右のAS条件と，有限生成射影加群からなる各単純加群の有限最小線型解消を仮定する．
+次数$d$の正則正規族が存在すれば，最小正周期$p$は
+\[
+ p\mid\gcd(N,d)
+\]
+を満たす．特に$\gcd(N,d)=1$なら$\cB\simeq\cB(1)$である．
+\end{theorem}
+
+\begin{corollary}\label{cor:cubic}
+$\cB$が標準$1,5,10,10,5,1$型のKoszul AS正則$\Z$-代数で，
+$\cA=\cB/(g_i)$が次数3の正則正規族による商なら，$\cB\simeq\cB(1)$である．
+従って$\cB$は通常の連結次数付き5次元AS正則代数$B$の付随$\Z$-代数
+$\check B_{ij}=B_{j-i}$と同型である．行のHilbert級数が$(1-t)^{-5}$なら
+$B$のHilbert級数も同じである．
+\end{corollary}
+
+\paragraph{既知結果との関係．}
+Koszul--Frobenius双対性とFrobenius $\Z$-代数のindexによる周期性は
+Bondal--Polishchuk\cite[Proposition 4.1, \S5]{BP}の既知結果である．
+本稿は正規族の定義とそれらを組み合わせる初等的帰結を証明付きで整理する．
+この組合せの初出・新規性は未確認であり，新しい分類定理として扱わない．
+Chan--Nymanの主な適用は楕円曲線の三次埋め込みであり，
+cubic threefoldの一般表示定理を同論文に帰してはいない．
+
+\section{証明}
+\begin{lemma}\label{lem:normal}
+次数$d$の正則正規族は$\cB\simeq\cB(d)$を与える．
+\end{lemma}
+\begin{proof}
+正規性と$g_i$による左乗法の単射性から，各$a\in\cB_{ij}$について
+\[
+ ag_j=g_i\sigma_{ij}(a),\qquad \sigma_{ij}(a)\in\cB_{i+d,j+d}
+\]
+を満たす元が一意に存在する．$g_j$による右乗法の単射性と
+\eqref{eq:normal}の等号により$\sigma_{ij}$は線型同型である．
+$a\in\cB_{ij}$，$b\in\cB_{j\ell}$に対して
+\[
+ (ab)g_\ell=a(g_j\sigma_{j\ell}(b))
+ =g_i\sigma_{ij}(a)\sigma_{j\ell}(b).
+\]
+$g_i$を消去すれば積の保存が従い，単位も保存する．
+よって$\sigma:\cB\xrightarrow{\sim}\cB(d)$である．
+$a=g_i$と置けば，同じ消去から$\sigma_{i,i+d}(g_i)=g_{i+d}$も得られる．
+\end{proof}
+
+\begin{lemma}\label{lem:AS}
+定理\ref{thm:gcd}の$\cB$には$\cB\simeq\cB(N)$が存在する．
+\end{lemma}
+\begin{proof}
+前向き二次双対を$E=\cB^!$とする．逆向きExt代数を用いる規約とは
+oppositeと添字の向きを合わせる．Koszul--Frobenius双対性
+\cite[Proposition 4.1]{BP}により，非零な写像
+$\lambda_i:E_{i,i+N}\xrightarrow{\sim}k$を選ぶと，各積
+\[
+ E_{ij}\otimes E_{j,i+N}\longrightarrow E_{i,i+N}
+ \xrightarrow{\lambda_i}k
+\]
+は完全対合である．完全対合で一意に定まる線型同型
+$\nu_{ij}:E_{ij}\to E_{i+N,j+N}$を
+\[
+ \lambda_i(ab)=\lambda_j(b\nu_{ij}(a))
+ \quad (b\in E_{j,i+N})
+\]
+で定義する．$a\in E_{ij}$，$c\in E_{j\ell}$，$b\in E_{\ell,i+N}$について
+\[
+ \lambda_i((ac)b)=\lambda_j((cb)\nu(a))
+ =\lambda_\ell(b\nu(a)\nu(c)).
+\]
+完全性から$\nu(ac)=\nu(a)\nu(c)$を得る．長さが$N$を超える成分は零である．
+よって$\nu:E\xrightarrow{\sim}E(N)$は代数同型である．
+次数一上の逆双対写像$(\nu_{i,i+1}^{-1})^*$は二次関係を保つので，
+二次性により$\rho:\cB\xrightarrow{\sim}\cB(N)$へ延びる．
+\end{proof}
+
+\begin{proof}[定理\ref{thm:gcd}の証明]
+$\Per(\cB)=\{r\in\Z:\cB\simeq\cB(r)\}$は$\Z$の部分群である．
+$r$と$s$の同型を適切な添字で合成すれば$r+s$の同型が得られ，
+逆同型を添字移動すれば$-r$も周期となる．同型同士の可換性は不要である．
+前二補題より$d,N\in\Per(\cB)$なので$\gcd(N,d)\in\Per(\cB)$となる．
+最小正周期はそれを割る．
+\end{proof}
+
+\begin{proof}[系\ref{cor:cubic}の証明と1周期同型の構成]
+$N=5,d=3$を代入する．$\sigma:\cB\to\cB(3)$，
+$\rho:\cB\to\cB(5)$を上の同型とすると
+\begin{equation}\label{eq:one}
+ \theta_{ij}
+ =\rho_{i+1,j+1}^{-1}\circ\sigma_{i+3,j+3}\circ\sigma_{ij}
+ :\cB_{ij}\longrightarrow\cB_{i+1,j+1}
+\end{equation}
+が1周期同型である．これは$2\cdot3-5=1$を実装している．
+$B_n=\cB_{0n}$とし，$a\in B_m,b\in B_n$に対し
+$a*b=a\theta^m(b)$と定めると結合的な連結次数付き代数になる．
+$\check B_{ij}=B_{j-i}\to\cB_{ij}$を$\theta^i$で与えれば代数同型である．
+この同型は標準射影加群と単純加群を対応させ，二次性，Koszul性，
+AS条件，線型解消の型が保たれる．
+\end{proof}
+
+\section{低次数の核から正規性を確認する方法}
+\begin{proposition}\label{prop:low}
+$\cB$が次数一生成で，$I\subset\cB$が斉次両側イデアルとする．
+$I_{i,i+3}=kg_i$で各$g_i$が左右正則であり，全$i$について
+$\dim\cB_{i,i+1}=5$，$\dim I_{i,i+4}=5$なら，$(g_i)$は正規族である．
+\end{proposition}
+\begin{proof}
+$\cB_{i,i+1}g_{i+1}$と$g_i\cB_{i+3,i+4}$は$I_{i,i+4}$の部分空間である．
+正則性により両者とも5次元なので一致する．これは次数一上の正規性であり，
+次数一生成と結合律により任意の長さの語について\eqref{eq:normal}へ延びる．
+\end{proof}
+
+$\cB$の行のHilbert級数が$(1-t)^{-5}$，$\cA=\cB/I$の行の級数が
+$(1-t^3)/(1-t)^5$なら
+\[
+ \dim I_{i,i+3}=35-34=1,\qquad\dim I_{i,i+4}=70-65=5.
+\]
+従って三次核の非零生成元の左右非零因子性を確認できれば適用できる．
+例えば$\cB$が$\Z$-domainならこの非零因子性は自動的である．
+命題は$\cB$のAS正則性をHilbert級数から推論するものではない．
+
+\section{適用範囲と分類への帰結}
+\paragraph{一般次元．}
+標準多項式型の非可換$\mathbb P^{n+1}$では$N=n+2$である．
+次数$d$の正則正規族を持つambientの最小周期は$\gcd(n+2,d)$を割る．
+cubicでは$n=2,3$で1周期性が従い，$n=4$では周期が1または3としか絞れない．
+後者は最小周期3の例の存在を主張していない．
+
+\paragraph{ambientと対の区別．}
+本稿で構成した$\theta$について，$\theta(I)=I(1)$は証明していない．
+補題\ref{lem:normal}の$\sigma$は生成元の族を保つが，
+補題\ref{lem:AS}の$\rho$も$I$を保つための議論は別に必要である．
+従って本稿だけで商全体の1周期表示$A=B/(G)$，まして$G$の中心性や
+$B$のCalabi--Yau性を結論してはいけない．これはambientの1周期性の証明に
+欠落があるという意味ではなく，主張する対象の違いである．
+
+\paragraph{現行nc-cubic研究への適用．}
+現行論文Bは，最初から5次元Koszul AS正則次数付き代数$B$と中心正則三次元$G$の対を扱う．
+そのambientの1周期性は定義から明らかであり，本稿は一頂点表示を仮定しない正則正規三次族へ拡張する．
+任意の抽象的な非可換cubic圏がこのような超曲面表示を持つという定理は含まない．
+別のhelixを選び直すことや導来同値だけによる復元も含まない．
+一般AS正則$\Z$-代数に非1周期例が存在しても，この制限付きambientの主張とは矛盾しない．
+
+\paragraph{検証状態．}
+本稿は数学的証明であり，有限標本計算・全証明の形式検証・外部査読を行ったという意味ではない．
+双対性の入力は一次資料のProposition 4.1を確認し，周期同型とその合成は本文で証明した．
+中心三次対の全分類，商イデアルの5周期同型による不変性，一般の抽象的cubicの表示定理は未主張である．
+
+\begin{thebibliography}{9}
+\bibitem{BP}
+A. I. Bondal and A. E. Polishchuk,
+\emph{Homological properties of associative algebras: the method of helices},
+Russian Acad. Sci. Izv. Math. \textbf{42} (1994), no.~2, 219--260.
+Proposition 4.1 (pp.~234--235), \S5 (pp.~239 ff.).
+DOI: \href{https://doi.org/10.1070/IM1994v042n02ABEH001536}{10.1070/IM1994v042n02ABEH001536}.
+\bibitem{CN}
+D. Chan and A. Nyman,
+\emph{Noncommutative linear systems and noncommutative elliptic curves},
+\href{https://arxiv.org/abs/2211.12465}{arXiv:2211.12465}.
+定義番号は著者公開版Definition 8.6 (p.~35)による．
+\url{https://web.maths.unsw.edu.au/~danielch/paper/ncelliptic.pdf}
+（2026年11月12日確認）．
+\end{thebibliography}
+\end{document}
