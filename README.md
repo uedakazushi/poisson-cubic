@@ -17,7 +17,7 @@ IntroductionとAbstractを改訂し、文献・label静的整合性を点検済�
 
 ## 正則三次超曲面のambientは1周期的
 
-標準5次元Koszul AS正則Z代数に次数3の左右正則な正規族があれば、ambientは必ず1周期的。正規族から3周期、Koszul–Frobenius双対性から5周期を得て、2×3−5=1で構成する。一般には最小周期がgcd(N,d)を割る。中心性や周期同型の可換性は不要。証明全文は `papers/ambient_cubic_periodicity.tex`、仮定・未解決の区別・再現手順は `notes/ambient_cubic_periodicity.md`。既知の一般論からの系として扱い、新規性は未確認。ambientの1周期性と、商イデアルを保つ1周期構造・中心三次元による表示・任意の抽象的nc cubicの超曲面表示の存在を区別する。単独稿は `latexmk papers/ambient_cubic_periodicity.tex` で再生成できる。この結果の保存は、上の論文A最優先方針を変更しない。
+標準5次元Koszul AS正則Z代数に次数3の左右正則な正規族があれば、ambientは必ず1周期的。正規族から3周期、Koszul–Frobenius双対性から5周期を得て、2×3−5=1で構成する。一般には最小周期がgcd(N,d)を割る。中心性や周期同型の可換性は不要。証明全文は `papers/support/papers/ambient_cubic_periodicity.tex`、仮定・未解決の区別・再現手順は `notes/ambient_cubic_periodicity.md`。既知の一般論からの系として扱い、新規性は未確認。ambientの1周期性と、商イデアルを保つ1周期構造・中心三次元による表示・任意の抽象的nc cubicの超曲面表示の存在を区別する。単独稿は `latexmk papers/paper_a.tex` で再生成できる。この結果の保存は、上の論文A最優先方針を変更しない。
 
 ## Bondal予想（論文Aの新しい帰結）
 
@@ -25,11 +25,11 @@ IntroductionとAbstractを改訂し、文献・label静的整合性を点検済�
 
 ## Point schemeとPoisson零点（二パラメータでの新定理）
 
-F_λ=(x³+y³+z³)/3+u³+v³+λuxy の混合量子化について、λ³+3≠0、h⁶+27≠0 の範囲で、h非零のpoint schemeはSklyanin楕円曲線 E_h と長さ24の有限平坦成分S_{h,λ}の非交和。h=0のスキーム論的平坦閉包はPoisson零点スキームD0と一致。λ≠0では12個の二重点、λ=0では3個の八重点へ衝突（各局所環 C[x,y,z]/(x²,y²,z²)）。全文 `papers/support/papers/reconstruction/point_scheme_lambda_family.tex`、単独組版 `papers/point_scheme_lambda_family.tex`、計算 `computations/verify_lambda_point_scheme.py`。一般nc cubicへ無条件に適用しない。
+F_λ=(x³+y³+z³)/3+u³+v³+λuxy の混合量子化について、λ³+3≠0、h⁶+27≠0 の範囲で、h非零のpoint schemeはSklyanin楕円曲線 E_h と長さ24の有限平坦成分S_{h,λ}の非交和。h=0のスキーム論的平坦閉包はPoisson零点スキームD0と一致。λ≠0では12個の二重点、λ=0では3個の八重点へ衝突（各局所環 C[x,y,z]/(x²,y²,z²)）。全文 `papers/support/papers/reconstruction/point_scheme_lambda_family.tex`、単独組版 `papers/support/papers/point_scheme_lambda_family.tex`、計算 `computations/verify_lambda_point_scheme.py`。一般nc cubicへ無条件に適用しない。
 
 ## 特異境界の局所代数
 
-λ³=-3で元の可換cubicは特異でも、point-moduleの孤立部分を記述する可換化環はC[λ,h]上自由rank24。h≠0の境界では3二重点と3六重点（局所環C[t]/t^6）。h=0では六重点はC[t,z]/(t^3,z²)になり局所型が変わる。λ境界の局所模型はhλ≠0で(v³+(λ³+3)/3)²=0。証明 `papers/support/papers/reconstruction/point_scheme_discriminant_boundary.tex`、単独原稿 `papers/point_scheme_discriminant_boundary.tex`、検証 `computations/verify_lambda_discriminant.py`。Poisson零点との一致はsmooth cubic領域以外には主張しない。
+λ³=-3で元の可換cubicは特異でも、point-moduleの孤立部分を記述する可換化環はC[λ,h]上自由rank24。h≠0の境界では3二重点と3六重点（局所環C[t]/t^6）。h=0では六重点はC[t,z]/(t^3,z²)になり局所型が変わる。λ境界の局所模型はhλ≠0で(v³+(λ³+3)/3)²=0。証明 `papers/support/papers/reconstruction/point_scheme_discriminant_boundary.tex`、単独原稿 `papers/support/papers/point_scheme_discriminant_boundary.tex`、検証 `computations/verify_lambda_discriminant.py`。Poisson零点との一致はsmooth cubic領域以外には主張しない。
 
 ## 現在の結論
 
@@ -46,8 +46,8 @@ F_λ=(x³+y³+z³)/3+u³+v³+λuxy の混合量子化について、λ³+3≠0�
 | A：Poisson正規形・量子化 | `papers/paper_a.tex` |
 | B：17次元族・ambient復元 | `papers/paper_b.tex` |
 | C：統合原稿 | `papers/paper_c.tex` |
-| 今回：全coherentへの飽和 | `papers/coherent_residual_saturation.tex` |
-| 一般点の三shift生成 | `papers/rotation_orbit_generic_reconstruction.tex` |
+| 今回：全coherentへの飽和 | `papers/support/papers/coherent_residual_saturation.tex` |
+| 一般点の三shift生成 | `papers/support/papers/rotation_orbit_generic_reconstruction.tex` |
 
 [今回の研究ノート](notes/coherent_residual_saturation.md)に証明の依存、監査範囲、再開点を整理した。証明本文は単独稿と論文Cが同じTeXをinputする。既存の証明と計算資産は保持する。
 
