@@ -5,7 +5,7 @@
 ## 最優先指示：論文Aを投稿可能な水準へ
 
 現在は論文Aの証明・文献・構成の独立監査と改訂を最優先する。
-入口は papers/poisson_cubic_quantization.tex、専用文献は papers/references_poisson_cubic.tex、
+入口は papers/paper_a.tex、専用文献は papers/support/papers/references_poisson_cubic.tex、
 現在有効な研究ノートは notes/poisson_article_submission_audit.md。
 最初に prop:pg-represent、lem:pg-linearize、lem:pg-quadratic-lie と thm:pg-bondal を監査する。
 次に prop:pg-PBW、lem:pg-formal-center の相対/絶対Calabi–Yau・formality・代数化を
@@ -18,11 +18,11 @@ Sklyanin中心公式と本論文の貢献をIntroductionで区別する。
 
 ## 論文A：Bondal予想の帰結
 
-全滑らかなcubic n-fold (n>=3) のPoisson構造についてBondalのD_{2j}次元下界を、正規形のJacobianブロックから選ぶ平面曲線のjoinで証明。`papers/sections/bondal_cubic.tex` に証明全文、`notes/bondal_cubic.md` に次の監査点。現行の正規形 `thm:pg-normal` に依存する。旧正規形のLie代数補題と射影ランク低下の独立監査が次の優先事項。Fano4/5の既知結果と新規性を区別する。
+全滑らかなcubic n-fold (n>=3) のPoisson構造についてBondalのD_{2j}次元下界を、正規形のJacobianブロックから選ぶ平面曲線のjoinで証明。`papers/support/papers/sections/bondal_cubic.tex` に証明全文、`notes/bondal_cubic.md` に次の監査点。現行の正規形 `thm:pg-normal` に依存する。旧正規形のLie代数補題と射影ランク低下の独立監査が次の優先事項。Fano4/5の既知結果と新規性を区別する。
 
 ## Point schemeの現行結果
 
-混合族の全滑らかな係数λ（λ³+3≠0）に拡張。Sklyaninが滑らかなh⁶+27≠0、h非零でPoint(B)=E_h⊔S_{h,λ}。有限部分の環はmonicなx²+λy,y²+λx,z²,v³+1+λxy/3+h²z(λ²/6−2xy/3)で自由rank24。vは単元、明示せん断でh方向の抽象同型。h=0のflat schematic closureはPoisson零点の埋め込みスキーム。λ≠0で12二重点、λ=0で3八重点。証明 `papers/reconstruction/point_scheme_lambda_family.tex`、ノート `notes/point_scheme_poisson_zero.md`。Sklyaninの点列scheme/translationは既知入力。特異λ³=−3・退化h⁶=−27と一般nc cubicは未解決。
+混合族の全滑らかな係数λ（λ³+3≠0）に拡張。Sklyaninが滑らかなh⁶+27≠0、h非零でPoint(B)=E_h⊔S_{h,λ}。有限部分の環はmonicなx²+λy,y²+λx,z²,v³+1+λxy/3+h²z(λ²/6−2xy/3)で自由rank24。vは単元、明示せん断でh方向の抽象同型。h=0のflat schematic closureはPoisson零点の埋め込みスキーム。λ≠0で12二重点、λ=0で3八重点。証明 `papers/support/papers/reconstruction/point_scheme_lambda_family.tex`、ノート `notes/point_scheme_poisson_zero.md`。Sklyaninの点列scheme/translationは既知入力。特異λ³=−3・退化h⁶=−27と一般nc cubicは未解決。
 
 ## 特異境界の有限点の局所型
 
@@ -53,3 +53,6 @@ Sklyanin中心公式と本論文の貢献をIntroductionで区別する。
 区切りごとに承認を求めず、証明全文・研究方針・ノート・必要ソースをmainへ通常のfast-forwardで反映する。全文の代わりに要約だけを保存しない。remote headと既存変更を保持し、force push・無断PR・GitHub Actions禁止。refと変更blobを照合する。
 
 成功時はLibraryへ二重保存せず、実際のGitHub失敗時のみ緊急退避する。既存Libraryファイルを無断削除しない。日本語LuaLaTeX、PDFはGit追跡せずbuild/へ生成。旧版ZIP・ログ・cache・重複は追加せず、数学的内容と再現性を容量制限のため削らない。
+
+## papers/の配置規則
+papers/直下に置くファイルはpaper_a.tex、paper_b.tex、paper_c.texのみ。補助TeX・参考文献・短い独立原稿はpapers/support/papers/以下に配置する。主原稿はpapers/support/をinput探索先として使用する。新たなpapers/直下のファイルを作らない。
