@@ -1,37 +1,173 @@
 \input{papers/common}
-\hypersetup{pdftitle={滑らかな三次超曲面のPoisson構造と代数的量子化}}
-\title{滑らかな三次超曲面のPoisson構造と代数的量子化\\
-\large 正規形・退化スキーム・中心三次元}
+\hypersetup{pdftitle={滑らかな三次超曲面のPoisson構造：正規形・退化軌跡・代数的量子化}}
+\title{滑らかな三次超曲面のPoisson構造\\
+\large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月12日・論文A（研究草稿 v38）}
+\date{2026年11月12日・論文A（投稿準備稿 v38）}
+\fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
+\fancyhead[R]{\small 2026-11-12 / A-v38}
 \begin{document}
 \maketitle
 \begin{abstract}
-複素数体上の滑らかな射影三次超曲面のPoisson構造を扱う。
-三変数Jacobianブロックの正規形、symplectic leafと退化スキーム、
-sixfold・sevenfoldの計数的幾何、固定Fermatと相対Poisson schemeの成分数の対比、中心三次正則元を持つ
-次数付き代数的量子化を統一して記述する。正規形から全退化階数のBondal予想を、Jacobianブロックの曲線joinを明示することで証明する。
-次元三以上の滑らかな通常の射影完全交叉では、
-非零Poisson構造が射影空間、quadric、cubic、(2,2)に限ることを
-古典的消滅定理から示す。
-滑らかなHesse型に対する中心三次元の明示式も記録する。
-残余圏のrotation付き可換復元は論文Cで扱い、
-本稿の量子化定理だけから射影圏のsmoothnessを結論しない。
+複素数体上の滑らかな射影三次超曲面
+$X=V(F)\subset\mathbb P^{n+1}$（$n\geq3$）の正則Poisson構造を研究する。
+全ての大域双ベクトル場を定数三重ベクトル$P$の縮約
+$\iota_{dF}P$で一意に記述し、
+Jacobi恒等式とHessianの線形系から、
+任意の非零Poisson構造を三変数Jacobianブロックの直和に帰着する。
+この正規形から、全ての許される退化階数における
+Bondal予想の次元下界を、平面曲線の射影joinを構成して導く。
+さらに退化スキームの生成イデアル、滑らかな平面三次制限を持つ場合の
+有限平坦critical cover、symplectic leafの幾何を記述する。
+各Poisson構造に対して、原点を含む一変数Zariski開集合上に
+Koszul Artin--Schelter正則な周囲の量子化と
+中心正則三次元による量子超曲面を構成する。
+固定した滑らかなcubic fivefoldに現れる節点型・尖点型の
+非楕円Poisson成分と、Hesse型の明示中心元も扱う。
+高次元の正規形と量子化の構成を主結果とし、
+既知の三次元分類、一般のFano多様体についてのBondal予想、
+Sklyanin中心公式との関係を区別する。
 \end{abstract}
 \tableofcontents
+
 \section{序論}\label{sec:paperA-introduction}
-\(X=V(F)\subset\mathbb P^{n+1}_{\mathbb C}\)、\(n\ge3\) を滑らかな
-三次超曲面とする。Poisson構造の分類、量子化の存在と
-明示性、量子化された中心三次商の性質は別の問題である。
-本稿では固定された \(X\) 上のPoisson構造を定数三重ベクトルの縮約
-\(\iota_{dF}P\) によって表示し、Hessianの条件から正規形を得る。
-退化のscheme構造、固定Fermatと相対Poisson schemeの既約成分の対比、有限次数の数値計算を含め、
-量子化におけるPBW性、形式中心元、代数化を区別する。
-既知の完全交叉の消滅は\cite{FuHwangCI}、
-potential量子化と中心元は\cite{EG,SmithTate}を参照する。
-量子化から得る残余dg圏のsmooth proper性や
-rotation付き可換復元は論文Cの対象であり、
-この論文の主定理から無条件に従うとは主張しない。
+
+\subsection*{問題設定と先行研究}
+$\mathbb C$上の滑らかな三次超曲面
+$X=V(F)\subset\mathbb P(V)$、$\dim V=N=n+2\geq5$を固定する。
+本稿の対象は
+\[
+ \operatorname{Pois}(X)=
+ \{\pi\in H^0(X,\wedge^2T_X):[\pi,\pi]=0\}
+\]
+と、そこから得られる非可換な次数付き量子化である。
+Poisson構造の分類、特定の$\pi$の量子化の存在、
+全ての$\pi$を同時に動かす相対モジュライの分類は異なる問題である。
+本稿では初めの二つについて定理を与えるが、
+相対Poissonスキームの全既約成分の分類は主張しない。
+
+三次元の滑らかなcubicについては、
+Loray--Pereira--Touzet~\cite{LPTPoissonCubic}および
+Mayanskiy~\cite[Theorem~1]{PMayanskiy}による分類があり、
+非零Poisson構造の射影化はPl\"ucker埋込みの
+$\operatorname{Gr}(2,5)$となる。
+本稿の正規形はこれを低次元の場合として含む一方、
+高次元では一般階数$2,4,\ldots$の複数のブロックが現れ得る。
+退化軌跡の次元に関するBondal予想は
+Gualtieri--Pym~\cite{BondalGualtieriPym}によって
+Fano四次元まで証明され、
+Druel--Pereira--Pym--Touzet~\cite{BondalDruelPereiraPymTouzet}
+によってFano五次元で証明された。
+本稿の帰結は、滑らかな三次超曲面という特定のクラスについて
+任意の次元を同時に扱うものであり、一般のFano多様体への主張ではない。
+
+量子化に関しては、三次元Sklyanin代数、
+potentialによるPBW変形および中心元の理論を入力とする
+\cite{PMoriSmith,PBergerTaillefer,EG,SmithTate}。
+Kontsevichのformality~\cite{PKontsevich}と
+DolgushevのCalabi--Yau/Poisson双対性~\cite{PDolgushev}を利用する箇所は、
+既知の一般理論と本稿固有の相対化・代数化の議論を区別して示す。
+
+\subsection*{主要結果I：Poisson正規形}
+第一の結果（定理\ref{thm:pg-normal}）は、
+\[
+ \wedge^3V\ \xrightarrow{\;\sim\;}\ 
+ H^0(X,\wedge^2T_X),\qquad
+ P\longmapsto \iota_{dF}P|_X
+\]
+という線形同型（命題\ref{prop:pg-represent}）と、
+Jacobi恒等式の代数的記述から始まる。
+非零のPoisson構造に対して、ある$k\geq1$、$m\geq0$、
+$N=3k+m$および直和分解
+$V=W_1\oplus\cdots\oplus W_k\oplus U$（$\dim W_s=3$）が存在し、
+\[
+ F=\sum_{s=1}^k f_s(x_s,u),\qquad
+ P=\sum_{s=1}^k
+ \partial_{x_{s1}}\wedge\partial_{x_{s2}}\wedge\partial_{x_{s3}}
+\]
+と書ける。$U$の座標$u$はPoisson中心であり、
+各$W_s$上で括弧は$f_s$のJacobian括弧となる。
+一般階数は$2k$である。
+この分解は存在の主張であり、個々の座標や
+中心三次項の配分の一意性は要求しない。
+証明の核心は、Hessianの線形系から作る二次Lie代数を
+$\mathfrak{sl}_2$因子の直和に帰着する補題
+\ref{lem:pg-quadratic-lie}である。
+
+$n=3$では$N=5$なので$k=1$であり、
+$\operatorname{Gr}(3,V)\cong\operatorname{Gr}(2,V^*)$
+という既知のGrassmann記述が回復される。
+高次元でも一般の滑らかな$F$では非零構造の一般階数が
+二である（系\ref{cor:pg-generic}）。
+固定した特殊な$F$では複数ブロックの成分が現れるので、
+「一般のcubic」と「固定cubicのPoissonスキームの一般点」を混同しない。
+
+\subsection*{主要結果II：退化軌跡とBondal予想}
+$D_{2j}(\pi)=V(\pi^{j+1})$を階数が$2j$以下になる閉部分スキームとする。
+定理\ref{thm:pg-bondal}において、任意の$n\geq3$、
+$2j<n$について
+\[
+ \dim D_{2j}(\pi)\geq 2j+1
+\]
+を証明する。一般階数$2k$で$j<k$の場合には、
+$j+1$個の互いに独立なJacobianブロックから平面曲線を選び、
+それらの射影join$J_{j+1}$を$D_{2j}(\pi)$に含める。
+$\dim J_{j+1}=2j+1$であり、
+射影化でEuler方向が消えることが階数低下の鍵となる。
+この証明は前記の正規形定理に依存する。
+退化軌跡の台の次元下界と、その非被約スキーム構造は区別する。
+
+より精密には命題\ref{prop:pg-deg-ideal}が全階数の
+退化スキームのイデアル層の生成元を与える。
+各ブロックの中心座標$u=0$への制限が
+滑らかな平面三次曲線を定めるという追加仮定の下では、
+補題\ref{lem:pg-critical-cover}と命題\ref{prop:pg-zero-ci}により、
+有限平坦critical coverと零点の完全交叉性・次数を得る。
+この追加仮定は、正規形やBondal予想の定理そのものには課さない。
+
+\subsection*{主要結果III：代数的な中心三次量子化}
+定理\ref{thm:pg-quantization}は、固定した任意の$\pi$に対し、
+$0$を含む一変数Zariski開集合$U\subset\mathbb A^1_\hbar$上で
+二次関係式による代数$A_U$と三次中心元$\Omega_U$を構成する。
+その閉ファイバーはKoszul AS-regularで、生成元数$N$、
+Hilbert級数$(1-t)^{-N}$、大域次元$N$を持つ。
+中心正則商$B_U=A_U/(\Omega_U)$は
+$S/(F)$の平坦量子化であり、
+各ファイバーはAS-Gorenstein、Hilbert級数
+$(1-t^3)/(1-t)^N$を持つ。
+この構成は\emph{各Poisson構造ごと}のものであり、
+全Poisson係数空間にわたる単一の相対量子化族、
+または$\operatorname{qgr}B_\hbar$のsmoothnessを結論しない。
+原点を含む開集合の存在と、特定の閉点における公式の可逆性も区別する。
+
+\subsection*{具体例と適用範囲}
+非楕円型の節点ブロック・尖点ブロックが、
+滑らかなcubic fivefold上の固定Poissonスキームの
+既約成分の一般点として現れる例を定理\ref{ne:main}に与える。
+これは全cubicを動かす相対Poissonモジュライの
+既約成分性を述べるものではない。
+楕円型のHesseブロックについては、既知の
+Sklyanin中心元の公式を本稿のPoissonパラメータで書き直し、
+具体的な中心三次式を与える（定理\ref{thm:explicit-hesse-center}）。
+これらの特別な式を、全ての混合ブロックに対する閉公式とは主張しない。
+
+完全交叉におけるPoisson構造の存在判定
+（定理\ref{thm:ci-poisson-existence}）は
+Br\"uckmann型消滅定理を利用する既知の背景結果
+\cite{FuHwangCI}として記す。
+また、論文中のCalabi--Yau完全交叉や数値的不変量の計算は、
+所定の平面三次制限・滑らかさの仮定の下で適用する。
+
+\subsection*{構成}
+まず第\ref{sec:pg-extension}節で双ベクトル場を定数三重ベクトルで表示し、
+第\ref{sec:pg-normal}節で正規形を証明する。
+続く第\ref{sec:pg-leaves}節と第\ref{sec:pg-degeneracy}節で
+葉・退化スキームの幾何を記述し、
+第\ref{sec:pg-quantization}節で量子化を構成する。
+Bondal予想の帰結は第\ref{sec:pg-bondal}節、
+非楕円型成分とその量子化は第\ref{ne:examples}節以下、
+明示Hesse公式は第\ref{sec:explicit-hesse-center}節に置く。
+各主張の証明に用いた既知の結果と本稿の新しい帰結を分けて記述する。
 \input{papers/sections/complete_intersections}
 \input{papers/sections/poisson_geometry}
 \input{papers/sections/fermat_relative_poisson_components}
@@ -39,5 +175,5 @@ rotation付き可換復元は論文Cの対象であり、
 \input{papers/sections/nonelliptic_poisson_components}
 \input{papers/sections/nonelliptic_quantization}
 \input{papers/sections/explicit_hesse_center}
-\input{papers/references}
+\input{papers/references_poisson_cubic}
 \end{document}
