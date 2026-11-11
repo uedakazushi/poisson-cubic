@@ -24,7 +24,7 @@ H([a,b],[c,d])+H([b,c],[a,d])+H([c,a],[b,d])=0
 に代入すると、全Hに共通の等方方向が存在して基点自由性と矛盾する。
 半単純Wのrank2以上の単純因子も最高根の正根分解から同様に排除する。
 従ってWはsl2の直和となる。
-**監査上の未完事項：** この原稿の論理的経路は点検したが、可解根基の表現定理の正確な参照箇所と全root-system型の最高根分解を一次資料で再確認していない。
+**一次資料で確認した範囲：** Etingof, *Lie Groups and Lie Algebras* 原PDFの p.88 Proposition 16.9（可解根基のスカラー作用）、p.114 Definition 21.13 / Lemma 21.14（非単純正根の正根和）、p.137 Theorem 25.17（最高ウェイト）、p.173 §32.2（最高根の設定）を本文・ページ画像で確認し、論文Aの最高根の証明記述を明確化した。これは外部入力の参照監査であって、基点自由からの全Lie補題の形式検証ではない。
 Euler列からのPoisson表現（prop:pg-represent）、Jacobiのdivergence（prop:pg-jacobi-extension）、Hessian（lem:pg-linearize）も独立再監査の対象として残す。
 
 ## 独立検算と限界
@@ -50,7 +50,7 @@ A全体のLuaLaTeXコンパイル・PDF表示確認・非楕円成分の全行�
 
 ## 次の具体的な着手順
 
-1. prop:pg-represent、lem:pg-linearize、lem:pg-quadratic-lie の証明の独立再検証・一次文献照合。
+1. prop:pg-represent、lem:pg-linearize、lem:pg-quadratic-lie の証明の独立再検証。Etingofの主要一次資料は確認済みなので、Jacobi線形化・Bertini・Lie構成の接続を重点監査する。
 2. lem:pg-formal-center と prop:pg-PBW の相対formality、完備双加群分解、絶対CY、代数化の妥当性を徹底検査。
 3. 論文A全体のlatexmk組版・視覚確認、整数証明書の再実行、網羅的文献比較。主張の仮定と証明の所在を確認して投稿判定する。
 4. 数学的まとまりを保ちつつ非楕円量子化をAに収めるか独立論文へ分けるか再評価する。価値ある証明を削除しない。
