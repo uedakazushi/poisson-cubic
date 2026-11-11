@@ -1,9 +1,9 @@
 {
-  "version": "nc-cubic-v44",
+  "version": "nc-cubic-v46",
   "date": "2026-11-12",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only following actual GitHub publication failure.",
-  "scope": "Article A submission-oriented introduction, bibliography separation, independent finite Poisson/Bondal checks, and explicit pending-audit plan; existing A/B/C mathematical results retained.",
+  "scope": "Article A universal explicit algebraic cubic center: exact Fermat mixed polynomial identity over Q(h), central shifts, and conditional Cramer determinant formula for any smooth active cubic; retain papers B/C.",
   "proofs_written_and_checked": [
     {
       "source": "papers/support/papers/reconstruction/point_scheme_discriminant_boundary.tex",
@@ -99,7 +99,9 @@
     "discriminant_boundary": "Local SymPy exact reductions passed, finite field p=11 boundary lambda=2 with h=0,1,2 all rank24; 3 nonzero-branch local rings length6. Standalone expanded Japanese LuaLaTeX draft compiled to 3 pages and visually checked; concise integrated GitHub TeX not independently compiled.",
     "article_A_static": "PASS 20 bibkeys, 51 citation uses, 131 labels, 115 references, no missing or duplicate keys across entire article A input closure fetched from GitHub",
     "article_A_example": "Independent local SymPy demonstration: 56 Jacobi and 56 Euler-wedge components PASS; latest GitHub script including smoothness check not re-executed",
-    "article_A_universal_casimir_jet": "PASS in local SymPy symbolic independent-coefficient expansion (20 coefficients, 3 commutators) modulo h^4, upgraded to h^5 by a proved anti-involution+flatness argument; exact uploaded script not rerun"
+    "article_A_universal_casimir_jet": "PASS in local SymPy symbolic independent-coefficient expansion (20 coefficients, 3 commutators) modulo h^4, upgraded to h^5 by a proved anti-involution+flatness argument; exact uploaded script not rerun",
+    "article_A_fermat_mixed_universal": "PASS locally: 339 weighted free words, 162 quadratic relation multiples, rank 144 both over QQ(h) and at h=0, 3 universal center commutators reduce to 0 over QQ(h); all 6 coefficients algebraically independent.",
+    "article_A_classical_casimir_minor": "PASS locally using exact rational SymPy matrices: 9x9 determinant -72 (m=0), 30x30 determinant +4608 (m=2)."
   },
   "primary_sources_checked": [
     "Burke-Stevenson arXiv1507.00830v1, Prop4.18/Lemmas6.1,6.2/Thm6.4: PDF pp12-14,17-19 inspected including screenshots.",
@@ -126,7 +128,10 @@
     "General point-scheme flat-limit theorem for arbitrary noncommutative cubic threefolds; degeneration at lambda^3=-3 or h^6=-27; independent verification of all Sklyanin deformation theorems; first publication novelty.",
     "Full point scheme at h^6=-27 or Poisson zero degeneracy on singular cubic lambda^3=-3; these are outside the smooth limit theorem.",
     "Article A full independent proof audit, complete novelty review and submission-ready typeset final PDF.",
-    "Global exact central lift with prescribed Hessian second jet; the universal mod h^5 Casimir formula alone does not imply it."
+    "Global exact central lift with prescribed Hessian second jet; the universal mod h^5 Casimir formula alone does not imply it.",
+    "A short GL3-invariant central cubic formula for an arbitrary smooth ternary cubic with arbitrary center mixing (Hesse parameter t generic): not established; only Cramer determinant expression conditional on formal central existence.",
+    "Relative formality/absolute CY input of lem:pg-formal-center still pending complete independent mathematical audit.",
+    "Singular active cubic block extension of the fixed-size determinant formula remains open."
   ],
   "typesetting": {
     "standalone_coherent_residual": {
@@ -238,7 +243,55 @@
       ],
       "theorem_integration": "Quantization theorem thm:pg-quantization now explicitly asserts parity-invariant choice of algebraic central cubic; proof averages over a symmetric Zariski open. Source has explicit universal Hessian commutator identity mod h^4."
     },
-    "version": "A-v39"
+    "version": "A-v43",
+    "exact_universal_fermat_mixed_center": {
+      "source": "papers/support/papers/sections/fermat_mixed_universal_center.tex",
+      "theorem_labels": [
+        "thm:pg-fermat-mixed-universal",
+        "cor:pg-fermat-all-mixed"
+      ],
+      "certificate": "computations/verify_universal_fermat_mixed_center.py",
+      "status": "PROVED: local h=0 algebraic polynomial centrality for all independent graded central coefficients A,B,C,D,E,H; uses exact Q(h) syzygy reduction and equal ranks at h=0; no formal-center lemma needed.",
+      "dimensions": {
+        "free_weighted_degree4_words": 339,
+        "degree4_relation_multiples": 162,
+        "generic_Qh_rank": 144,
+        "special_h0_rank": 144,
+        "universal_commutator_remainders": [
+          0,
+          0,
+          0
+        ]
+      },
+      "verification": "A standalone local Python SymPy implementation of the identical free-word and rational-function algorithm was actually executed and PASS; script uploaded to GitHub, exact committed script not reexecuted after upload.",
+      "applies_to": "Any number of central variables and their arbitrary degree-1/2/3 coefficient polynomials; diagonal quadratic mixtures by explicit central translation; coordinate GL3 Fermat orbit.",
+      "limitations": "Cubic active restriction must be GL3-equivalent to Fermat for the short polynomial formula; AS regularity of ambient is separate from centrality; full literature novelty not checked.",
+      "compact_formula": "sym(F-h^2*det(Hess_x(F))/12+h^2*A*B*C/6+h^4*(A*z^2+B*x^2+C*y^2-A*C*x-A*B*y-B*C*z)/18) for F=(x^3+y^3+z^3)/3+Axy+Byz+Czx+Dx+Ey+Hz+G"
+    },
+    "generic_universal_determinant": {
+      "source": "papers/support/papers/sections/universal_casimir_determinant.tex",
+      "theorem_labels": [
+        "lem:pg-det-classical-kernel",
+        "thm:pg-universal-determinant"
+      ],
+      "status": "CONDITIONAL ON existing formal-central existence lemma lem:pg-formal-center: exact rational center for all smooth ternary restriction g, with coefficients rational in h^2 and all cubic coefficients.",
+      "proof": "Classical degree-three Jacobian Casimir kernel equals C*F+C[u]_3 if ternary g smooth. Therefore r=N3-d-1 dimensional complement. After formal central lift gives rank≤r over C(h), nonzero r×r classical minor gives rank≥r, hence Cramer solution solves all rows.",
+      "exact_classical_minors": [
+        {
+          "m": 0,
+          "columns": 9,
+          "determinant": -72
+        },
+        {
+          "m": 2,
+          "columns": 30,
+          "determinant": 4608
+        }
+      ],
+      "certificate": "computations/verify_universal_casimir_minor.py",
+      "verification": "Exact SymPy classical Poisson matrix generated and determinants verified locally (-72, 4608). This is not a quantum center check.",
+      "limits": "Singular/zero active ternary cubic may have larger classical Casimir kernel; one universal determinant chart not globally valid; short Hesse-t mixed polynomial not yet obtained."
+    }
   },
   "papers_layout": {
     "entrypoints": [
