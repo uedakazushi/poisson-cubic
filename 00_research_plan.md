@@ -21,10 +21,10 @@ A全体の組版、非楕円行列証明書全件の再実行、引用理論の�
 
 **新たに確立した低次結果：** 論文Aの lem:pg-center-parity と prop:pg-universal-casimir-jet により、三次中心元はWeyl表示でhの偶数次だけを含む形に選べる。全20係数を持つ任意の三変数以下三次式 f について、sym(f-h² det Hess_x f/12) は mod h⁵ で中心であることを普遍恒等式として確認した。厳密計算証明書は computations/verify_cubic_casimir_jet.py。これは全次数中心元の存在と区別する。Etingof–Ginzburg Prop.8.1.1(i)、Berger–Taillefer Thm.1.1(i) の原PDF該当箇所を確認した。現在の証明監査の残核は、複数中心変数への相対formalityと完成CY双加群分解の適用である。
 
-**次に行う数学的作業：** まず lem:pg-quadratic-lie（Bertini、可解根基、最高根）と
-prop:pg-represent、lem:pg-linearizeを逐語的に監査する。
-続いて lem:pg-formal-center の相対formality、絶対Calabi–Yau、Dolgushev入力、
-prop:pg-PBWを一次文献と照合する。最後に全定理・検算・組版を査読可能に整理する。
+**次に行う数学的作業：** まず lem:pg-formal-center の相対Kontsevich formality、
+完備双加群分解からの絶対Calabi–Yau性、Dolgushev入力、prop:pg-PBWを
+一次文献と逐語照合する。次に lem:pg-quadratic-lie（Bertini、可解根基、最高根）、
+prop:pg-represent、lem:pg-linearizeの未監査部分を解消する。最後に全定理・検算・組版を査読可能に整理する。
 滑らかなcubic threefoldのGrassmann記述は既知、Fano四・五次元のBondal予想も既知。
 高次元cubicへの帰結や非楕円Poisson成分の新規性の網羅調査は未完了。
 全Poisson係数で一様な量子化や中心商のqgr smoothnessは主張しない。
