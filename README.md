@@ -1,10 +1,15 @@
-# nc-cubic：全coherent残余pairの一般点復元
+# nc-cubic：論文Aの投稿準備と一般点可換復元
 
-**2026-11-12 / v43。GitHub mainが正本。** 最初に[研究方針](00_research_plan.md)を読む。
+**2026-11-12 / v43。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
 
-## Fermat固定Poisson schemeと相対schemeの対比（論文A）
+## 現在の最優先課題：論文Aの公表準備
 
-既存のPoisson正規形により、\(n\ge3\) のFermat cubic \(n\)-foldの被約Poisson schemeの既約成分は、\(n+2\) 個の座標添字を各大きさ3以上のブロックへ分割する各集合分割に対応する。Fermatでの成分数は \(n=3,4,5,6,7\) で \(1,11,36,92,491\)。cubicも動かす相対Poisson schemeでは一般rankごとに一つ、合計 \(\lfloor(n+2)/3\rfloor\) 個（\(1,2,2,2,3\)）。本文証明 `papers/sections/fermat_relative_poisson_components.tex`、ノート `notes/fermat_relative_poisson_components.md`、整数検算 `computations/verify_poisson_component_comparison.py`。schemeの非被約構造・Fermat最大性・初出確認は未完了。正規形定理の独立再監査は未実施。
+滑らかなcubic hypersurfaceのPoisson正規形・退化軌跡・Bondal予想・代数的量子化を独立論文として推敲する。
+原稿 papers/poisson_cubic_quantization.tex、専用文献 papers/references_poisson_cubic.tex、
+現在有効な証明監査と課題 notes/poisson_article_submission_audit.md、独立有限検算 computations/verify_poisson_article_A.py。
+IntroductionとAbstractを改訂し、文献・label静的整合性を点検済み。
+主定理の全独立監査、全A組版、全旧証明書再実行は未完成。投稿可能判定は行っていない。
+論文B/Cの成果は保持し、新規拡張は論文Aの仕上げの後に再開する。
 
 ## Bondal予想（論文Aの新しい帰結）
 
