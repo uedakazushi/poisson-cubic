@@ -1,9 +1,9 @@
 # 研究方針：Poisson cubic論文Aの投稿品質確立と非可換cubicの可換復元
 
 **2026年11月12日 / v43。再開時は最初に読む。GitHub uedakazushi/nc-cubic の main が唯一の正本。**
-**現在の最優先課題は論文Aの公表水準への改訂。** 最新原稿は papers/poisson_cubic_quantization.tex、
+**現在の最優先課題は論文Aの公表水準への改訂。** 最新原稿は papers/paper_a.tex、
 詳細な監査・未確認点・着手方法は notes/poisson_article_submission_audit.md。
-関連文献は papers/references_poisson_cubic.tex、独立検算は computations/verify_poisson_article_A.py。
+関連文献は papers/support/papers/references_poisson_cubic.tex、独立検算は computations/verify_poisson_article_A.py。
 論文B/Cの有効な成果と証明を保持するが、当面はその新規拡張を優先しない。
 
 ## 最優先課題：論文Aを公表可能にする
@@ -31,7 +31,7 @@ prop:pg-PBWを一次文献と照合する。最後に全定理・検算・組版
 
 ## Poisson構造定理の新たな帰結：Bondal予想（論文A）
 
-**証明を追加。** n>=3の滑らかなcubic n-foldの任意のPoisson構造に対して、全j（2j<n）のD_{2j}は次元2j+1以上の既約成分を持つ。非零Poissonの正規形F=Σ f_s(x_s,u)、一般rank2kを使い、j<kならr=j+1個のブロック内の平面曲線C_s⊂{f_s(x_s,0)=0}のjoin J_rを構成する。J_r⊂X、dim J_r=2r−1。全ブロックのJacobian rank2ならEulerベクトルが像に入り射影化でrankが2下がり、いずれかrank0ならもとからrank≤2r−2。従ってJ_r⊂D_{2j}。π=0またはj>=kはD=X。全文 `papers/sections/bondal_cubic.tex`、ノート `notes/bondal_cubic.md`。**正規形定理thm:pg-normalに依存し、その既存証明全体の独立再監査は未完了。** 2013年Fano4、2026年Fano5の既知定理との重複に注意し、新規性は未確定。正規形のLie代数補題を次に優先監査する。
+**証明を追加。** n>=3の滑らかなcubic n-foldの任意のPoisson構造に対して、全j（2j<n）のD_{2j}は次元2j+1以上の既約成分を持つ。非零Poissonの正規形F=Σ f_s(x_s,u)、一般rank2kを使い、j<kならr=j+1個のブロック内の平面曲線C_s⊂{f_s(x_s,0)=0}のjoin J_rを構成する。J_r⊂X、dim J_r=2r−1。全ブロックのJacobian rank2ならEulerベクトルが像に入り射影化でrankが2下がり、いずれかrank0ならもとからrank≤2r−2。従ってJ_r⊂D_{2j}。π=0またはj>=kはD=X。全文 `papers/support/papers/sections/bondal_cubic.tex`、ノート `notes/bondal_cubic.md`。**正規形定理thm:pg-normalに依存し、その既存証明全体の独立再監査は未完了。** 2013年Fano4、2026年Fano5の既知定理との重複に注意し、新規性は未確定。正規形のLie代数補題を次に優先監査する。
 
 ## Point schemeの二パラメータ族とPoisson零点（論文C、証明あり）
 
@@ -41,13 +41,13 @@ prop:pg-PBWを一次文献と照合する。最後に全定理・検算・組版
 
 **λ=0の衝突。** λ≠0ではSは12個の長さ2の非被約点。λ=0では3個の長さ8の点へ衝突し、各局所環は C[x,y,z]/(x²,y²,z²)、Hilbert関数(1,3,3,1)。全長24は保存。λ³=−3では元のcubicが特異、h⁶=−27ではSklyaninが退化するため適用外。
 
-証明全文は `papers/reconstruction/point_scheme_lambda_family.tex`、再生成可能な単独LuaLaTeX入口は `papers/point_scheme_lambda_family.tex`、現行研究ノートは `notes/point_scheme_poisson_zero.md`、厳密検算は `computations/verify_lambda_point_scheme.py`。前段のλ=1非被約・平坦極限の証明は `point_scheme_thickening.tex` に保持。3D Sklyanin point-scheme定理は既知入力。一般のnc cubicに対する同一結果や全先行研究上の新規性は未確認。
+証明全文は `papers/support/papers/reconstruction/point_scheme_lambda_family.tex`、再生成可能な単独LuaLaTeX入口は `papers/point_scheme_lambda_family.tex`、現行研究ノートは `notes/point_scheme_poisson_zero.md`、厳密検算は `computations/verify_lambda_point_scheme.py`。前段のλ=1非被約・平坦極限の証明は `point_scheme_thickening.tex` に保持。3D Sklyanin point-scheme定理は既知入力。一般のnc cubicに対する同一結果や全先行研究上の新規性は未確認。
 
 ## 特異な混合係数境界でのpoint scheme（論文C）
 
 **証明済みの有限平坦モデル。** 特殊値 λ³=-3 では元の可換cubicが特異となりPoisson多様体の零点定理の適用外だが、既存の中心座標u=1における有限point-module可換化環は C[λ,h] 上で自由rank24（基底 x^a y^b z^c v^d、a,b,c=0,1; d=0,1,2）。これは λ,h の分母を使わず、判別式境界やh=0にも代数的に延長する。**h=0のこの環はB_0自身のpoint schemeではない。**
 
-λ³=-3、h≠0では支持が6点：x=y=0から3個の二重点、非零x,yの3枝に各局所環C[v]/(v^6)の曲線的六重点。h=0では同じ3枝の局所環はC[v,z]/(v³,z²)となり、長さ6は同じでも埋め込み次元は1から2へ変化。δ=λ³+3を境界の局所パラメータとすると非零枝で hλ≠0 の模型は (v³+δ/3)²=0で、一般λの3二重点が判別式上で1六重点に合体する。証明: `papers/reconstruction/point_scheme_discriminant_boundary.tex`、単独LuaLaTeX `papers/point_scheme_discriminant_boundary.tex`、有限検算 `computations/verify_lambda_discriminant.py`。
+λ³=-3、h≠0では支持が6点：x=y=0から3個の二重点、非零x,yの3枝に各局所環C[v]/(v^6)の曲線的六重点。h=0では同じ3枝の局所環はC[v,z]/(v³,z²)となり、長さ6は同じでも埋め込み次元は1から2へ変化。δ=λ³+3を境界の局所パラメータとすると非零枝で hλ≠0 の模型は (v³+δ/3)²=0で、一般λの3二重点が判別式上で1六重点に合体する。証明: `papers/support/papers/reconstruction/point_scheme_discriminant_boundary.tex`、単独LuaLaTeX `papers/point_scheme_discriminant_boundary.tex`、有限検算 `computations/verify_lambda_discriminant.py`。
 
 有限部分の全パラメータ平坦性と、**滑らかなPoisson零点との平坦極限の同定**は異なる。後者はλ³≠-3のv41定理の範囲に保ち、特異境界では無条件に主張しない。h⁶=-27のSklyanin退化も未調査。
 
