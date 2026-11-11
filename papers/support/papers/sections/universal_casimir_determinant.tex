@@ -1,0 +1,202 @@
+\section{中心三次元の普遍的な行列式表示}\label{sec:pg-universal-determinant}
+本節の目的は、中心元を形式的冪級数の存在だけで扱うことなく、
+三次の有限次元線形代数で\emph{実際に計算できる有理式}として与えることである。
+以下の定理の中心元存在の部分は補題\ref{lem:pg-formal-center}に依存する。
+同補題で使う相対formalityと完備Calabi--Yau双対性の独立監査は
+引き続き必要であり、本節の行列計算だけでその入力を証明したとはしない。
+
+中心変数$u=(u_1,\dots,u_m)$を固定し、
+$S=\CC[x,y,z,u_1,\ldots,u_m]$、$F\in S_3$とする。
+$g(x,y,z)=F(x,y,z,0)$とし、
+$A_{F,\hbar}$は
+\[
+[y,z]=\hbar\sym(F_x),\quad
+[z,x]=\hbar\sym(F_y),\quad
+[x,y]=\hbar\sym(F_z),\quad [u_\alpha,-]=0
+\tag{DQ}\label{eq:pg-det-quantum}
+\]
+で定まる次数付き代数とする。
+$\sym$は全変数のWeyl対称化であり、
+中心変数の移動には何も作用しない。
+
+\begin{lemma}[滑らかな三次制限の古典的Casimir]\label{lem:pg-det-classical-kernel}
+$g=F(x,y,z,0)$が滑らかな平面三次曲線を定めるとする。
+$S$の$F$に付随する三変数Jacobian Poisson括弧に対し
+\[
+ \ker\left(S_3\xrightarrow{p\mapsto(\{p,x\},\{p,y\},\{p,z\})}
+ S_4^{\oplus3}\right)
+ =\CC F\oplus \CC[u_1,\ldots,u_m]_3.
+ \tag{CK}\label{eq:pg-det-classical-kernel}
+\]
+ここで$\CC[u]_3=0$は$m=0$の場合を含む。
+\end{lemma}
+\begin{proof}
+まず$g$だけのJacobian括弧を考える。
+$0\ne p\in\CC[x,y,z]_d$、$1\le d\le3$がCasimirなら、
+$d_xp\wedge d_xg=0$、すなわち
+$d_xp$と$d_xg$は$\CC(x,y,z)$上比例する。
+Euler等式を両方へ適用すると
+$3g\,p_{x_i}=d\,p\,g_{x_i}$（$i=1,2,3$）となる。
+滑らかな平面三次$g$は既約であり、
+非零の$g_{x_i}$は次数二だから$g\nmid g_{x_i}$。
+よって$g\mid p$である。
+従って$d<3$なら$p=0$、$d=3$なら$p=cg$に限る。
+
+一般の$P\in S_3$をCasimirとする。
+$u=0$への制限は上の議論から$P(x,0)=c g$。
+そこで$Q=P-cF$とすると、$Q$は$u$を含む。
+$Q=\sum_{a=1}^3Q_a$を$u$の次数$a$の斉次成分に分ける。
+もし最小の非零次数$a$が$1$または$2$なら、
+$[u]^a$の各係数について$\{Q_a,-\}_g=0$となる。
+それらは$x,y,z$に関して次数$3-a<3$なので零となり矛盾する。
+従って$Q$は$u$だけの三次式である。
+逆向きの包含は$F$と$u_\alpha$がCasimirであることから明らか。
+最後の直和は$g\ne0$による。
+\end{proof}
+
+$\mathcal B_d$を全変数の次数$d$の単項式の固定した順序付き基底とし、
+$N_d=\dim_\CC S_d=\binom{m+d+2}{d}$とする。
+命題\ref{prop:pg-PBW}とそのパラメータ版によって、
+$(F,\hbar)$の適切なZariski開近傍で
+$\{\sym(q):q\in\mathcal B_d\}$は$(A_{F,\hbar})_d$の基底となる。
+以下、$d=3,4$だけを用いる。
+$\hbar=0$で交換子は消えるので、平坦性により
+\[
+ \mathcal D_{F,\hbar}:S_3\longrightarrow S_4^{\oplus3},\qquad
+ p\longmapsto\frac1\hbar
+  \bigl([\sym(p),x],[\sym(p),y],[\sym(p),z]\bigr)
+ \tag{CM}\label{eq:pg-det-commutator-matrix}
+\]
+をWeyl基底で表した行列は原点で正則な有理関数の成分を持つ。
+右辺は$A_{F,\hbar}$で計算した後、Weyl基底へ戻す。
+$\hbar=0$で$\mathcal D_{F,0}$は古典Jacobian括弧である。
+
+\begin{theorem}[普遍的なCramer表示]\label{thm:pg-universal-determinant}
+補題\ref{lem:pg-formal-center}の形式的中心三次元の存在を入力とする。
+$g=F(x,y,z,0)$が滑らかな平面三次曲線を定めるとする。
+必要ならactive線形座標変換を施し、
+$F$の$x^3$係数$a$を非零とする。
+$F_{\mathrm{cent}}=F(0,0,0,u)$、および
+\[
+ d=\binom{m+2}{3},\qquad
+ r=N_3-d-1=\binom{m+5}{3}-\binom{m+2}{3}-1
+\]
+と置く（$m=0$なら$d=0$）。
+$S_3$の単項式基底から$x^3$と純中心三次単項式を除いた
+$r$個を$w_1,\dots,w_r$とする。
+
+$\mathcal D_{F,0}$の$w_j$への制限は単射なので、
+そのWeyl座標表示から$r$個の行を選び、
+$r\times r$の小行列
+\[
+ M(F,\hbar)=
+ \bigl(\ell_i(\mathcal D_{F,\hbar}(w_j))\bigr)_{i,j=1}^r,\quad
+ b(F,\hbar)=
+ \bigl(\ell_i(\mathcal D_{F,\hbar}(x^3))\bigr)_{i=1}^r
+ \tag{MP}\label{eq:pg-det-minor}
+\]
+が$\det M(F,0)\ne0$を満たすようにできる。
+$\ell_i$は$S_4^{\oplus3}$の所定の座標射影である。
+$M_j$を$M$の第$j$列を$b$に置き換えた行列とすると、
+$\det M(F,\hbar)\ne0$の開集合上で
+\begin{equation}
+ \boxed{\quad
+ \Omega_{F,\hbar}=
+ F_{\mathrm{cent}}+
+ a\left[
+ \sym(x^3)-
+ \sum_{j=1}^r
+ \frac{\det M_j(F,\hbar)}{\det M(F,\hbar)}
+ \sym(w_j)\right].
+ \quad}
+ \label{eq:pg-det-universal-center}
+\end{equation}
+は厳密な中心三次元であり、$\Omega_{F,0}=F$である。
+各係数は$\hbar^2$の有理関数で、分母は$\hbar=0$で消えない。
+同じ行選択について、式\eqref{eq:pg-det-universal-center}は
+$F$の係数の有理関数としても与えられる。
+従って滑らかな$g$を持つ係数空間は、
+必要な線形座標チャートと有限個の小行列チャートによって覆われ、
+それぞれに**普遍的な有限行列式表示**が存在する。
+\end{theorem}
+\begin{proof}
+補題\ref{lem:pg-det-classical-kernel}より
+$\mathcal D_{F,0}$の核は$d+1$次元、
+従って階数は$r$であり、$W=\langle w_1,\dots,w_r\rangle$
+への制限は単射である。よって選んだ$M$は$\hbar=0$で可逆。
+
+形式的中心三次元$\widehat\Omega$は法$\hbar$で$F$に一致するため、
+次数三の純中心単項式の$d$次元部分空間と合わせると、
+$\CC((\hbar))$上で
+$\ker\mathcal D_{F,\hbar}$に少なくとも$d+1$次元がある。
+従って$\mathcal D_{F,\hbar}$の階数は高々$r$。
+一方、$M$は$\hbar=0$で可逆なので、$\CC(\hbar)$上の階数は
+少なくとも$r$である。よって階数は厳密に$r$となる。
+
+Cramer公式により
+$p=x^3-\sum_j(\det M_j/\det M)w_j$は
+選んだ$r$行に関して$\mathcal D_{F,\hbar}(p)=0$を満たす。
+$\mathcal D_{F,\hbar}$の階数が$r$なので、
+選択した行は全行の行空間を張り、
+$p$は\emph{全ての行}に関して核に属する。
+ゆえに$\sym(p)$は$x,y,z$の全てと可換であり、
+純中心項$F_{\mathrm{cent}}$を足しても中心である。
+
+$\hbar=0$では$p$は$x^3$係数が一、純中心三次の係数が零のCasimirである。
+補題\ref{lem:pg-det-classical-kernel}と
+$x^3$の係数が$a\ne0$であることから
+$p=(F-F_{\mathrm{cent}})/a$となり、主張した剰余を得る。
+
+最後に補題\ref{lem:pg-center-parity}の反自己同型を考える。
+Weyl単項式は反転で不変で、
+$[\sym(w),x_i]/\hbar$も反自己同型で不変である。
+そのWeyl係数は$\hbar\mapsto-\hbar$で不変となるので、
+$M,b$および式\eqref{eq:pg-det-universal-center}の係数は
+$\CC(F\text{の係数})(\hbar^2)$に属する。
+$\det M(F,0)\ne0$は原点での分母の正則性を保証する。
+構成は有限個の二次関係式から作る有限次数の線形方程式に
+四則演算と行列式を適用するだけなので、
+同じ行選択上で$F$の係数について有理的に変動する。
+\end{proof}
+
+\begin{example}[Fermat基準点での非零小行列]\label{ex:pg-det-fermat-minors}
+$F_0=(x^3+y^3+z^3)/3+F_{\mathrm{cent}}(u)$とする。
+全次数三・四の単項式を
+$(x,y,z,u_1,\ldots,u_m)$の指数の辞書式降順に並べ、
+$\mathcal D_{F_0,0}$の行を先に$x$、次に$y,z$の交換子の順で並べる。
+$w_j$は$x^3$と純中心三次単項式を除いた辞書式順とする。
+$\mathcal D_{F_0,0}|_W$の転置行列をRREFにして
+最初の主元行を選ぶと、次の厳密整数値を得る。
+\[
+ \begin{array}{c|ccc}
+ \text{中心変数数 }m&N_3&r&\det M(F_0,0)\\\hline
+ 0&10&9&-72\\
+ 2&35&30&4608
+ \end{array}
+\]
+再現コードは
+\texttt{computations/verify\_universal\_casimir\_minor.py}。
+これは$\hbar=0$の階数と開条件の\emph{厳密な計算}であり、
+量子中心性そのものの計算証明書ではない。
+一方、定理の行列式公式は
+形式的中心三次元の存在を仮定した線形代数から
+全ての$\hbar$について厳密に中心性を与える。
+\end{example}
+
+\begin{remark}[既存の混合Fermat公式と一般の式]\label{rem:pg-det-scope}
+論文Cの関連研究には、Fermat型$g$に
+$Axy+Byz+Czx+Dx+Ey+Hz+F_{\mathrm{cent}}$を加えた
+全混合方向について、$\hbar^4$までの有限多項式中心元の
+\emph{候補閉公式}がある（現行の
+\texttt{papers/support/papers/sections/mixed\_center\_picard.tex}）。
+その有限体特殊化での中心性検査は
+\texttt{computations/verify\_mixed\_center.py}に記録されているが、
+全係数についての普遍的な独立証明は未完了である。
+本節の決定式表示は一般の滑らかな三変数制限と
+任意の中心混合項に及ぶ一方、
+係数の少ない短い多項式・不変式であるとは主張しない。
+また$g$が節点型・尖点型・恒等的零の場合は
+補題\ref{lem:pg-det-classical-kernel}を適用できず、
+別の行列チャートまたは既知の特別公式を使う必要がある。
+全ての特異$g$にも一つの式で正則に延長することは未証明である。
+\end{remark}
