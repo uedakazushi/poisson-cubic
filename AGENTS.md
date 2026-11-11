@@ -7,9 +7,9 @@
 現在は論文Aの証明・文献・構成の独立監査と改訂を最優先する。
 入口は papers/paper_a.tex、専用文献は papers/support/papers/references_poisson_cubic.tex、
 現在有効な研究ノートは notes/poisson_article_submission_audit.md。
-最初に prop:pg-represent、lem:pg-linearize、lem:pg-quadratic-lie と thm:pg-bondal を監査する。
-次に prop:pg-PBW、lem:pg-formal-center の相対/絶対Calabi–Yau・formality・代数化を
+まず prop:pg-PBW、lem:pg-formal-center の相対/絶対Calabi–Yau・formality・代数化を
 Mori–Smith、Berger–Taillefer、Kontsevich、Dolgushev、Etingof–Ginzburgの一次資料と照合する。
+次に prop:pg-represent、lem:pg-linearize、lem:pg-quadratic-lie、thm:pg-bondalを独立監査する。
 既知のcubic threefold Grassmann分類、Fano四・五次元Bondal予想、
 Sklyanin中心公式と本論文の貢献をIntroductionで区別する。
 全原稿AのLuaLaTeX組版と必要な整数行列証明書の再実行を経て投稿判定する。
