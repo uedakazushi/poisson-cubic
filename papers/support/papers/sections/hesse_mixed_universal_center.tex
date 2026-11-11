@@ -146,6 +146,54 @@ $\hbar=0$の適切な近傍で厳密な中心性が成立する。
 $d=f=g=0$なので$\Omega_{F,0}=F$。
 \end{proof}
 
+\begin{corollary}[Hessianによるコンパクトな普遍式]
+\label{cor:pg-hesse-hessian-form}
+定理\ref{thm:pg-universal-hesse-mixed}の$F$に対し
+\[
+ H_F=\det\operatorname{Hess}_{x,y,z}(F)
+\]
+とおく。また上記の$Q,Z_2,L,R_2,R_{11}$を使い
+\[
+\begin{aligned}
+ \Psi_t(F)={}&
+ \frac{t(8-t^3)}{48}g_t
+ -\frac{t^4}{48}Q
+ +\frac{2-t^3}{36}Z_2\\
+ &+\frac{t(8-t^3)}{144}L
+ -\frac{t^2}{24}R_2
+ -\frac{t^3+4}{72}R_{11}.
+\end{aligned}
+\]
+すると普遍中心三次元は
+\begin{equation}
+ \boxed{\quad
+ \Omega_{F,\hbar}
+ =\sym\left(
+ F-\frac{\hbar^2}{12}H_F
+ +\frac{\hbar^2}{6}ABC
+ +\hbar^4\Psi_t(F)
+ \right).
+ \quad}
+ \label{eq:pg-hesse-hessian-closed}
+\end{equation}
+特に$\hbar^2$項は普遍Hessian補正
+（命題\ref{prop:pg-universal-casimir-jet}）であり、
+中心係数$ABC/6$は中心元の規格化の自由度を反映する。
+本式は$\hbar^4$項まで含めることで
+\emph{全ての$\hbar$次数について厳密に中心}となる。
+\end{corollary}
+\begin{proof}
+$H_F$をactive変数だけで微分して展開すると
+\[
+ H_F=-2t^2S+2(t^3+4)xyz+
+ 2t^2Q-4tZ_2-2R_2+2tR_{11}+2ABC
+\]
+である。
+これを右辺に代入して$\hbar^2$と$\hbar^4$の係数を比較すると、
+式\eqref{eq:pg-hm-center}と恒等的に一致する。
+従って定理の中心性から従う。
+\end{proof}
+
 \begin{remark}[既存の中心元との整合性]
 $t=0$では
 $U=1$、$W=-2\hbar^2/3$、$c=e=1$、
