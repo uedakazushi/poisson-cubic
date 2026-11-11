@@ -13,6 +13,14 @@
 5. 非楕円Poisson成分（ne:main）：固定した二つの滑らかなcubic fivefoldのPoisson schemeで2次元成分を示す。35列の線形化Jacobi行列がrank33という整数証明書に依存する。今回全行列を再実行したわけではない。全cubicを動かすrelative成分性を主張しない。
 6. Hesse中心元（thm:explicit-hesse-center）：既知Sklyanin公式のPoissonパラメータへの翻訳。基本中心公式の新規性は主張しない。
 
+## 正則三次超曲面のambientの周期性（論文Aに統合）
+
+- **証明済み（仮定付き）**：標準型 (1,5,10,10,5,1) の5次元Koszul AS正則Z代数が、次数3の左右正則な正規族を持つとき、ambientは1周期的。より一般に次元・AS parameter N の対象に次数dの正則正規族があれば、最小周期は gcd(N,d) を割る。**本文の証明**：`papers/support/papers/sections/ambient_periodicity.tex`（定理 `thm:pg-ambient-gcd`、系 `cor:pg-cubic-ambient-periodic`、正規性判定命題 `prop:pg-cubic-normal-criterion`）。主論文入力は `papers/paper_a.tex`。正規族の消去が d 周期、局所Frobenius/Koszul双対性が N 周期を与える。N=5,d=3 なら 2×3−5=1。
+- **論文Aとの接続**：定理 `thm:pg-quantization` の量子化は最初からgraded ambientと中心三次元を構成するため、その族の1周期性は自明。新しい帰結は、最初からgradedと仮定せず正則正規三次超曲面を持つZ代数ambientへ拡張する点。非1周期的な一般AS正則Z代数と矛盾しない。
+- **未証明**：この構成による任意の1周期同型が三次商イデアルを保つこと、商の同時1周期化、中心化・CY化、任意の抽象的nc cubicの超曲面表示の存在は主張しない。既知の一般論からの系で、結論自体の新規性は未確認。
+- **文献**：Bondal--Polishchuk, *Homological properties of associative algebras: the method of helices*, Russian Acad. Sci. Izv. Math. 42 (1994), 219--260, Proposition 4.1 と §5, DOI 10.1070/IM1994v042n02ABEH001536。Chan--Nyman, *Noncommutative linear systems and noncommutative elliptic curves*, arXiv:2211.12465, Definition 8.6。引用キーは `PBondalPolishchukHelices`、`PChanNymanNormalFamily`。
+- **検証状態**：数学的証明を論文Aに書き、今回一次資料の文献情報と定義を照合。本文の全独立監査、形式検証、外部査読、論文A全体の組版とは区別する。既存の論文A公表準備優先順位は維持。
+
 ## 三次中心元：検証した新しい有効結果
 
 - **反自己同型による偶数次正規化**（補題 lem:pg-center-parity、本文 papers/support/papers/sections/poisson_geometry.tex）：Jacobian量子化の関係式は、語の反転と h→-h による反自己同型で符号が逆転する。中心元をこの反自己同型で平均し、Weyl対称化で表せば、任意の既存の中心三次元を法hでの剰余を変えずにhの偶数次係数だけの形へ規格化できる。これは**中心元の存在を仮定した結論**であり、その存在自体には lem:pg-formal-center が必要。
