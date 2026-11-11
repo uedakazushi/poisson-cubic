@@ -1,0 +1,169 @@
+\section{Fermat型の普遍混合中心三次公式}
+\label{sec:pg-fermat-mixed-universal}
+本節では定理\ref{thm:pg-quantization}の形式的中心元存在証明を使わずに、
+Fermat型の三変数Jacobianブロックの\emph{全混合係数}に対する
+有限多項式の中心三次元を構成する。
+この式は論文Cに関連する既存技術稿に書かれていたが、
+これまでの独立検証は有限体特殊化に留まっていた。
+ここでは六つの係数を互いに独立な記号として保ち、
+$\hbar$も不定元とした全係数恒等式の証明を与える。
+
+\begin{theorem}[普遍Fermat混合中心三次元]
+\label{thm:pg-fermat-mixed-universal}
+$R$を標数零の可換次数付き$\CC$-代数とし、
+$A,B,C\in R_1$、$D,E,H\in R_2$、$G\in R_3$を任意に取る。
+\[
+ F=\frac{x^3+y^3+z^3}{3}
+   +Axy+Byz+Czx+Dx+Ey+Hz+G
+ \tag{FM}\label{eq:pg-fermat-mixed-F}
+\]
+とおき、
+\[
+ [x,y]=\hbar(z^2+By+Cx+H),\quad
+ [y,z]=\hbar(x^2+Ay+Cz+D),\quad
+ [z,x]=\hbar(y^2+Ax+Bz+E)
+ \tag{FR}\label{eq:pg-fermat-mixed-rel}
+\]
+で定まる$R[\hbar]$-代数を$\mathcal A_F$とする。
+$T=xyz+xzy+yxz+yzx+zxy+zyx$、
+$\sym(xy)=(xy+yx)/2$などと書く。
+このとき
+\begin{align}
+\Omega_{F,\hbar}={}&
+ \frac{x^3+y^3+z^3}{3}-\frac{\hbar^2}{9}T
+ +A\sym(xy)+B\sym(yz)+C\sym(zx)\notag\\
+ &+\left(D+\frac{\hbar^2B^2}{6}-\frac{\hbar^4AC}{18}\right)x
+ +\left(E+\frac{\hbar^2C^2}{6}-\frac{\hbar^4AB}{18}\right)y\notag\\
+ &+\left(H+\frac{\hbar^2A^2}{6}-\frac{\hbar^4BC}{18}\right)z
+ +\frac{\hbar^4}{18}(Az^2+Bx^2+Cy^2)+G
+ \label{eq:pg-fermat-mixed-Omega}
+\end{align}
+は、少なくとも$\hbar=0$を含む共通のPBW開部分上で
+$\mathcal A_F$の\emph{厳密な中心元}となり、
+$\Omega_{F,0}=F$を満たす。
+これは有限次ジェットの主張ではなく、全ての交換子が
+厳密に零であるという代数的恒等式である。
+特に式は$R$や中心変数の個数によらず有効である。
+\end{theorem}
+\begin{proof}
+証明は有限次元の非可換自由語の\emph{普遍的な整数・有理関数恒等式}
+で行う。係数は最初から独立な中心不定元としてよいので、
+まず
+\[
+ R_0=\mathbb Q[A,B,C,D,E,H],\qquad
+ \deg(A,B,C)=1,\quad\deg(D,E,H)=2
+\]
+を考える。$x,y,z$も次数一、$\hbar$は次数零とする。
+自由な語の各中央係数は可換に並べ、active変数の語順だけを保持する。
+
+全次数四の自由語は、中央係数の重み$0,1,2,3,4$と
+active語の長さ$4,3,2,1,0$ごとに列挙すると339個ある。
+三つの関係式\eqref{eq:pg-fermat-mixed-rel}を
+左右から全次数合計二の中央係数・active語で掛けると
+162個の関係ベクトルを得る。
+ここでactive語を長さ$a,b$に分けて
+中央重み$c$を選び、$a+b+c=2$とする。
+\[
+ \mathcal V_4=\mathrm{span}_{\mathbb Q(\hbar)}
+  \{\text{全次数四の339語}\},\quad
+ I_4=\mathrm{span}_{\mathbb Q(\hbar)}
+  \{\text{上記162関係ベクトル}\}.
+\]
+これらは全次数四で必要な\emph{全ての}二次関係式の倍数である。
+
+有理関数体$\mathbb Q(\hbar)$上で
+160個余りの有限行列を正確に行簡約すると
+$\dim I_4=144$であり、
+\[
+ [\Omega_{F,\hbar},x],\quad
+ [\Omega_{F,\hbar},y],\quad
+ [\Omega_{F,\hbar},z]
+ \quad\in I_4
+ \tag{FC}\label{eq:pg-fermat-mixed-certificate}
+\]
+が三つとも成立する。
+全次数・全中央係数単項式・全active語を保持する
+独立な計算実装
+\texttt{computations/verify\_universal\_fermat\_mixed\_center.py}
+は$\mathbb Q(\hbar)$の分数体演算だけを用いる。
+乱数、有限体への特殊化、混合係数への代入は一切行わない。
+スクリプトは339個の列、162個の関係ベクトル、
+階数144と三つの零余剰を全て検査する。
+したがってこれは任意の$A,B,C,D,E,H$への特殊化に先立つ
+\emph{普遍的な恒等式}である。
+
+分数体上での所属からは初め有限個の$\hbar$の分母を除く
+開部分での中心性が得られる。
+Fermat三次元斉次Jacobian代数の
+$\hbar=0$近傍でのKoszul AS正則性と、
+potentialの次数を下げるPBW変形の定理
+\cite{PMoriSmith,PBergerTaillefer}により、
+この可換係数族の各斉次部分は、原点を含む適切な開上で
+$\hbar$-torsion-freeである。
+従って分数体上で消える三交換子は
+この開部分上でも消える。
+式の剰余は$\hbar=0$を代入すれば直ちに$F$となる。
+\end{proof}
+
+\begin{corollary}[対角二次混合を含む全Fermat型]
+\label{cor:pg-fermat-all-mixed}
+$u$を任意個の中心次数一変数とし、
+\[
+ F=\frac{x^3+y^3+z^3}{3}
+ +p\,x^2+q\,y^2+r\,z^2+
+ Axy+Byz+Czx+Dx+Ey+Hz+G
+ \tag{FA}\label{eq:pg-fermat-all-mixed}
+\]
+とする。ただし$p,q,r,A,B,C$は中心一次式、
+$D,E,H$は中心二次式、$G$は中心三次式である。
+$X=x+p$, $Y=y+q$, $Z=z+r$を置き、
+\[
+ \begin{aligned}
+ D'&=D-p^2-Aq-Cr,&
+ E'&=E-q^2-Ap-Br,&
+ H'&=H-r^2-Bq-Cp,\\
+ G'&=G+\tfrac23(p^3+q^3+r^3)
+     +Apq+Bqr+Crp-Dp-Eq-Hr
+ \end{aligned}
+ \tag{TS}\label{eq:pg-fermat-translation}
+\]
+とすると、
+$F$は$(X,Y,Z)$に関して
+\eqref{eq:pg-fermat-mixed-F}の形となり、
+その係数は$A,B,C,D',E',H',G'$である。
+従って定理\ref{thm:pg-fermat-mixed-universal}の公式へ
+これらを代入し、$X,Y,Z$を$x+p,y+q,z+r$に戻すことで、
+\emph{任意の}中心変数混合項を含むFermat型の
+明示的な有限多項式中心三次元を得る。
+\end{corollary}
+\begin{proof}
+$F(x,y,z,u)$に$x=X-p$, $y=Y-q$, $z=Z-r$を代入して
+三次式を展開すると\eqref{eq:pg-fermat-translation}を得る。
+$p,q,r$は中心なので、線形平行移動は交換子を保ち、
+Weyl対称化と可換である。
+ゆえに定理の中心元をこの座標同型で引き戻せる。
+\end{proof}
+
+\begin{remark}[Hessianジェットとの一致と新規性]
+\label{rem:pg-fermat-mixed-hessian}
+\eqref{eq:pg-fermat-mixed-F}のactive Hessian行列式は
+\[
+ \det\operatorname{Hess}_{x,y,z}(F)
+ =2(4xyz-A^2z-B^2x-C^2y+ABC).
+\]
+従って公式\eqref{eq:pg-fermat-mixed-Omega}の$\hbar^2$部分は
+命題\ref{prop:pg-universal-casimir-jet}の
+$-\hbar^2\det(\operatorname{Hess}F)/12$と、
+純中心項$\hbar^2ABC/6$を除き一致する。
+
+式\eqref{eq:pg-fermat-mixed-Omega}自体は
+論文Cの関連研究に既に現れたものであり、
+今回新たに得た成果は、全ての中心係数を独立な記号として保持した
+\emph{普遍的・厳密な中心性の計算証明}と
+\eqref{eq:pg-fermat-all-mixed}への明示的拡張である。
+先行文献に同じ公式が含まれるかは未確認であり、
+無条件な新規性は主張しない。
+一般のHesseパラメータ$t\ne0$については
+定理\ref{thm:pg-universal-determinant}の有理行列式を使えるが、
+同様に簡潔な$\hbar$の多項式公式はまだ得られていない。
+\end{remark}
