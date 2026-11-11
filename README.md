@@ -1,6 +1,6 @@
 # nc-cubic：論文Aの投稿準備と一般点可換復元
 
-**2026-11-12 / v43。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
+**2026-11-12 / v44。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
 
 ## 現在の最優先課題：論文Aの公表準備
 
@@ -57,6 +57,8 @@ latexmk papers/coherent_residual_saturation.tex
 ## 運用
 
 GitHub mainのみを正本とし、通常のfast-forwardで保存する。PDFは追跡せずbuild/へ生成。GitHub Actions・force pushは禁止。Libraryは実際のGitHub保存失敗時の緊急退避のみ。旧ZIP・会話を再開条件にしない。独立境界/未照合PDFはnc-cubic2、Reyeはreyeに保全されている。
+
+**新しい証明付き低次結果：** 論文AではWeyl中心元の偶性と、普遍Hessian二次補正による mod h⁵ 中心性を追加した。計算証明書は computations/verify_cubic_casimir_jet.py。全次数の形式的中心元の相対CY/formality監査はなお優先課題。
 
 ## papers/の構成
 papers/直下にはpaper_a.tex、paper_b.tex、paper_c.texの三つのみを置く。その他の既存原稿・参考文献・分割節はpapers/support/papers/以下に保存。リポジトリrootからlatexmk papers/paper_a.tex等で組版する。
