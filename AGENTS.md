@@ -46,7 +46,7 @@ Sklyanin中心公式と本論文の貢献をIntroductionで区別する。
 
 論文A/B/Cの有効な証明・コード・必要証明書・反例を保持する。一般KFは未解決だが現行経路の前提でない。項別自由性だけの生成子持上げは偽のまま。smoothness・perfect性・通常導来底変更を区別する。既知の飽和原理を新規成果としない。
 
-`python3 scripts/verify_coherent_residual_assets.py --rerun-orbit` と `latexmk papers/coherent_residual_saturation.tex`。前者はsource参照と旧64 Euler/41 MF恒等式の再現確認であり新定理の形式検証でない。今回新単独稿5頁を組版・表示確認、A/B/C全体は未組版。検証状況はvalidation.jsonに分離する。
+`python3 scripts/verify_coherent_residual_assets.py --rerun-orbit` と `latexmk papers/paper_c.tex`。前者はsource参照と旧64 Euler/41 MF恒等式の再現確認であり新定理の形式検証でない。今回新単独稿5頁を組版・表示確認、A/B/C全体は未組版。検証状況はvalidation.jsonに分離する。
 
 ## 保存
 
