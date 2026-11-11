@@ -1,5 +1,5 @@
 {
-  "version": "nc-cubic-v43",
+  "version": "nc-cubic-v44",
   "date": "2026-11-12",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only following actual GitHub publication failure.",
@@ -97,8 +97,9 @@
     "point_scheme_thickening": "SymPy Q(h) commutative chart identities and Groebner standard-monomial lengths24 at h=1,2,3. No automatic verification of Sklyanin theorem or global point functor.",
     "lambda_point_scheme": "Ran SymPy script: 12 Groebner computations over lambda=0,1,2,-1 and h=0,1,2 with local length24, exact polynomial reduction and nilpotent shear checks. Regenerated JSON in local working copy. Not a formal proof of point-module functor.",
     "discriminant_boundary": "Local SymPy exact reductions passed, finite field p=11 boundary lambda=2 with h=0,1,2 all rank24; 3 nonzero-branch local rings length6. Standalone expanded Japanese LuaLaTeX draft compiled to 3 pages and visually checked; concise integrated GitHub TeX not independently compiled.",
-    "article_A_static": "20 bibitems; 51 cite uses; 119 labels; no missing cite/ref or duplicate keys/labels in assembled article A sources.",
-    "article_A_example": "Independent local SymPy demonstration: 56 Jacobi and 56 Euler-wedge components PASS; latest GitHub script including smoothness check not re-executed"
+    "article_A_static": "PASS 20 bibkeys, 51 citations, 131 labels, no missing/duplicate keys on article A complete input closure as fetched from GitHub",
+    "article_A_example": "Independent local SymPy demonstration: 56 Jacobi and 56 Euler-wedge components PASS; latest GitHub script including smoothness check not re-executed",
+    "article_A_universal_casimir_jet": "PASS in local SymPy symbolic independent-coefficient expansion (20 coefficients, 3 commutators) modulo h^4, upgraded to h^5 by a proved anti-involution+flatness argument; exact uploaded script not rerun"
   },
   "primary_sources_checked": [
     "Burke-Stevenson arXiv1507.00830v1, Prop4.18/Lemmas6.1,6.2/Thm6.4: PDF pp12-14,17-19 inspected including screenshots.",
@@ -124,7 +125,8 @@
     "General theorem that Poisson zero schemes equal flat limits of point schemes outside the explicit mixed cubic family.",
     "General point-scheme flat-limit theorem for arbitrary noncommutative cubic threefolds; degeneration at lambda^3=-3 or h^6=-27; independent verification of all Sklyanin deformation theorems; first publication novelty.",
     "Full point scheme at h^6=-27 or Poisson zero degeneracy on singular cubic lambda^3=-3; these are outside the smooth limit theorem.",
-    "Article A full independent proof audit, complete novelty review and submission-ready typeset final PDF."
+    "Article A full independent proof audit, complete novelty review and submission-ready typeset final PDF.",
+    "Global exact central lift with prescribed Hessian second jet; the universal mod h^5 Casimir formula alone does not imply it."
   ],
   "typesetting": {
     "standalone_coherent_residual": {
@@ -182,8 +184,8 @@
     "exact_test": "computations/verify_poisson_article_A.py",
     "editorial": {
       "status": "Abstract, Introduction and prior-work comparison rewritten; manuscript A now uses dedicated bibliography",
-      "static_citation_check": "PASS (20 keys; 51 citations; no missing keys or duplicate bibitems; post-Lie-proof edit)",
-      "static_label_check": "PASS (119 labels; no duplicate labels or missing ref/eqref targets)",
+      "static_citation_check": "PASS (20 bibitems; 51 citation instances; no missing references)",
+      "static_label_check": "PASS (131 labels; no missing ref/eqref targets and no duplicate labels, including all 9 input files for article A)",
       "caveat": "Static regex checks, not a full TeX parse or document build"
     },
     "mathematical_check": {
@@ -214,6 +216,22 @@
     },
     "typesetting": {
       "whole_article_A": "NOT RUN: private GitHub source is accessible through connector but not cloneable in current container execution environment"
+    },
+    "universal_casimir_jet": {
+      "theorem_labels": [
+        "lem:pg-center-parity",
+        "prop:pg-universal-casimir-jet"
+      ],
+      "manuscript_section": "papers/support/papers/sections/poisson_geometry.tex",
+      "statement": "For arbitrary f of active degree <=3 over a commutative central coefficient ring, sym(f-h^2 det(Hess_x f)/12) central modulo h^5 near h=0 (PBW/h-flat); normalized central formal lifts have only even powers of h in Weyl ordering.",
+      "computation": "Exact symbolic Q[a_0,...,a_19] identity for all 20 independent coefficients; each of the three universal commutators reduces to zero modulo h^4 using only the three Jacobian relations. Involution plus flatness upgrades to modulo h^5.",
+      "independent_execution": "PASS: locally executed equivalent universal SymPy reduction for 20 independent coefficients; 3 generator checks all zero. Independently verified Hesse central formula second h-jet. Exact uploaded GitHub script not executed after upload.",
+      "script": "computations/verify_cubic_casimir_jet.py",
+      "full_formal_center_existence": "NOT settled by second jet; relies on lem:pg-formal-center and its relative-formality / completed absolute Calabi-Yau argument, pending full audit",
+      "references_checked": [
+        "Berger-Taillefer J. Noncommut. Geom. (2007), Theorem 1.1(i), original PDF p242",
+        "Etingof-Ginzburg arXiv:0709.3593v4, Proposition 8.1.1(i), original PDF pp29-30, uses relative base R=C[u] in proof"
+      ]
     }
   },
   "papers_layout": {
