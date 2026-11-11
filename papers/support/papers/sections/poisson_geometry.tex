@@ -1194,7 +1194,7 @@ $f\in R[x_1,x_2,x_3]$を全次数三の任意の多項式とし、
  x_2x_1\rightsquigarrow x_1x_2-\hbar\sym(f_{x_3}),\quad
  x_3x_1\rightsquigarrow x_1x_3+\hbar\sym(f_{x_2}),\quad
  x_3x_2\rightsquigarrow x_2x_3-\hbar\sym(f_{x_1})
- \tag{R}\label{eq:pg-jet-reductions}
+ \tag{CR}\label{eq:pg-jet-reductions}
 \]
 で置き換える。各置換は代数の定義関係式そのものである。
 $\hbar$次数が三以下の範囲では、
@@ -1202,6 +1202,17 @@ $\hbar$次数が三以下の範囲では、
 $\sym(f_{\mathrm{univ}}-\hbar^2H_{f_{\mathrm{univ}}}/12)$と
 各$x_i$との交換子を展開して\eqref{eq:pg-jet-reductions}で還元すると、
 次数三以下の各係数が$\mathbb Q[t_{abc}]$内で零になる。
+これを古典Jacobian括弧$\{-,-\}_f$で書き直すと、
+より明示的な普遍恒等式
+\[
+ [\sym_R(f),x_i]\equiv
+ \frac{\hbar^3}{12}\sym_R(\{H_f,x_i\}_f)
+ \pmod{\hbar^4 A_f}
+ \tag{JH}\label{eq:pg-jet-hessian-identity}
+\]
+を得る。実際、$\sym_R(H_f)$の$x_i$との交換子の一次項は
+$\hbar\sym_R(\{H_f,x_i\}_f)$なので、
+この恒等式は$\Theta_f$の可換性の計算と同値である。
 二十個の独立係数を保持して全係数を厳密に展開する
 再現可能な検算コードは
 \texttt{computations/verify\_cubic\_casimir\_jet.py}である。
