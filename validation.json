@@ -1,105 +1,101 @@
 {
-  "version": "nc-cubic-v35",
+  "version": "nc-cubic-v36",
   "date": "2026-11-11",
-  "authoritative": "GitHub uedakazushi/nc-cubic main; Library only after actual push failure.",
   "current_entry": "00_research_plan.md",
-  "scope": "Generic reconstruction of the line-generated residual pair of a one-parameter central cubic quantization under existing L and CF; explicit mixed target additionally uses D. Complete-base compact inverse is bypassed, not constructed.",
+  "authoritative": "GitHub uedakazushi/nc-cubic main; Library only following actual GitHub publication failure.",
+  "scope": "Smooth line-bundle-generated category equals the entire bounded coherent category; extends existing generic residual reconstruction under L,CF (and D for the explicit polynomial).",
   "proofs_written_and_checked": [
     {
-      "source": "papers/reconstruction/rotation_orbit_generic_reconstruction.tex",
+      "source": "papers/reconstruction/coherent_residual_saturation.tex",
       "labels": [
-        "rog:thm:orbit"
+        "crs:thm:abstract",
+        "crs:cor:level"
       ],
-      "status": "Ungraded thick classification is a primary-source input; the conservative forgetful functor, regrading, and compact-localization argument are written and checked."
+      "status": "Direct proof via the smooth diagonal, pseudo-perfect modules and finite evaluation; no presumed generation of all coherent objects."
     },
     {
-      "source": "papers/reconstruction/rotation_orbit_generic_reconstruction.tex",
+      "source": "papers/reconstruction/coherent_residual_saturation.tex",
       "labels": [
-        "rog:prop:euler"
+        "crs:lem:sections",
+        "crs:lem:finite-lines",
+        "crs:thm:coherent"
       ],
-      "status": "Direct Koszul/Clifford derivation, internal/cohomological grading and root-of-unity norm checked. N=5 Euler vector is (-9,9,0)."
+      "status": "Verified hypotheses for AS-regular central cubic quotients using Burke-Stevenson derived sections, chi and finite cohomological dimension."
     },
     {
-      "source": "papers/reconstruction/rotation_orbit_generic_reconstruction.tex",
+      "source": "papers/reconstruction/coherent_residual_saturation.tex",
       "labels": [
-        "rog:lem:localization",
-        "rog:thm:laurent"
+        "crs:lem:descent",
+        "crs:prop:residual-smooth",
+        "crs:thm:generic"
       ],
-      "status": "Fixed finite-object localization and generic generation proved under existing local proper/window input L and actual completed functor CF. Does not infer effectivity from an arbitrary compatible Artin tower."
-    },
-    {
-      "source": "papers/reconstruction/rotation_orbit_generic_reconstruction.tex",
-      "labels": [
-        "rog:lem:descent",
-        "rog:thm:geometric-generic",
-        "rog:cor:mixed"
-      ],
-      "status": "Compact generic kernel descends to a finite algebraic extension by filtered-colimit descent, perfect-cone support, and a closed point. Explicit lambda=1 target also depends on existing D. No explicit kernel matrices or extension degree supplied."
+      "status": "Finite-field smoothness descent proved by restriction/retract; gluing and saturation extend existing L,CF generic theorem to full coherent residual pair. Explicit formula still depends on D."
     }
   ],
+  "independent_audit_scope": [
+    "Stevenson Theorem6.13 primary PDF p26: all thick subcategories of the affine hypersurface singularity category, not just tensor ideals.",
+    "Regrading and compact-localization step reviewed; no error found in this audited step.",
+    "Restriction of completed functor to fixed finite objects before Laurent localization reviewed; the entire formality construction is not independently reaudited."
+  ],
   "executed_exact_checks": {
-    "rotation_orbit": "64 exact Euler vectors with sum zero and squared norm 2*3^(N-1); 41 exact 32-by-32 polynomial MF identities for the special mixed cubic, retaining the periodic variable t.",
-    "certificate": "verify_rotation_orbit_assets.py regenerated and JSON-matched the tracked certificate.",
-    "source_audit": "Complete new standalone closure, labels/citations and C/shared-bibliography integration checked. All 31 prior C inputs retained and one input added (32 total including common and references). Complete old A/B/C closure not audited."
+    "orbit_reexecution": "Existing verify_rotation_orbit.py rerun: 64 Euler vectors and 41 exact 32x32 MF polynomial identities passed.",
+    "unchanged_script_git_blob": "ad87ed126e4d157208fffac3d16c38a3ffd80dec",
+    "regenerated_certificate_git_blob": "79bf60036f597ead16bca22d526a5f807d535ebd",
+    "source_audit": "scripts/verify_coherent_residual_assets.py --rerun-orbit passed source closure, labels, citations, parent C integration and exact JSON match.",
+    "not_a_formal_proof": "No new toy calculation is claimed to prove the saturation theorem."
   },
-  "dependency_audit": {
-    "L": "Inspected local_projective_model theorem/input and finite Koszul lift, and the three stabilization images in the existing window. Entire old proof not independently rechecked.",
-    "CF": "Inspected formal_cubic_mf_reconstruction complete-graded corollary and its fixed internal-degree convergence argument. Entire prior Kontsevich/curved proof not independently rechecked.",
-    "D": "Retained earlier finite-diagonal and multiplicative comparison and formal G/W identification; complete prior nc matrices not rerun."
-  },
-  "retained_without_rerun": [
-    "All A/B proofs and existing C technical sections and counterexamples.",
-    "v27 full matrix witness and certificates.",
-    "v33 geometric BC and v34 one-sided Morita/Popescu tests."
+  "primary_sources_checked": [
+    "Burke-Stevenson arXiv1507.00830v1, Prop4.18/Lemmas6.1,6.2/Thm6.4: PDF pp12-14,17-19 inspected including screenshots.",
+    "Toen-Vaquie arXivmath/0503269v5 Lemma2.8(2): PDF pp21-22 inspected including screenshot.",
+    "Perry Noncommutative homological projective duality (2019), Lemma4.15(3), primary accepted-manuscript HTML inspected.",
+    "Stevenson arXiv1105.4698v3 Theorem6.13 and Dyckerhoff arXiv0904.4713v5 Section2.4: primary PDF pages inspected."
+  ],
+  "retained_without_full_reaudit": [
+    "All previous A/B/C mathematical sections and computation sources retained.",
+    "L local regular-base stabilization/window proof; CF full curved formality and inverse coherence; D noncommutative diagonal comparison not fully independently reaudited.",
+    "v27 full noncommutative matrix witness not regenerated this turn; its retained SHA256 is 88d62952bfa999f57e454d68ec341b3fe8bea8df69a649710280d5b119404b78."
   ],
   "not_established": [
-    "Ordinary compact inverse kernel over the entire completed local base or an equivalence through h=0.",
-    "Explicit generic kernel matrices, finite cell-size bound or degree of the required finite extension.",
-    "Equality of the line-generated residual category with the full coherent residual category.",
-    "Explicit general-lambda equations or a simultaneous multi-parameter/all-moduli-component theorem.",
-    "Independent audit of every existing L/CF/D proof, external refereeing, formal verification and exhaustive novelty search."
-  ],
-  "primary_sources_checked": [
-    "Stevenson arXiv:1105.4698v3 Theorem6.13; PDF p26 rendered and read.",
-    "Dyckerhoff arXiv:0904.4713v5 Sections2.4,5.6/Theorem5.9; PDF p31 rendered and read.",
-    "Toen-Vaquie arXiv:math/0503269v5 Lemmas2.8,2.10; PDF pp22-23 rendered and read.",
-    "Stacks09SM compact-localization, 00FV closed-point residue fields, 0BQQ projective-subscheme line generators."
+    "Explicit generic equivalence-kernel matrices, extension degree or effective diagonal generation level.",
+    "Equivalence of the whole noncommutative projective derived category with that of the commutative cubic; only residual pairs are compared.",
+    "Finite global dimension of the graded affine quotient B.",
+    "Relative equivalence including h=0, compact inverse over the entire completed base, or multi-parameter all-component extension.",
+    "Comprehensive novelty determination, external referee check, or formal proof."
   ],
   "typesetting": {
-    "standalone_rotation_orbit": {
-      "source": "papers/rotation_orbit_generic_reconstruction.tex",
-      "pages": 7,
+    "standalone_coherent_residual": {
+      "source": "papers/coherent_residual_saturation.tex",
+      "pages": 5,
       "build_completed": true,
-      "visual_review": "All seven final pages inspected in two contact sheets; no clipping, overlap or unintended blank pages.",
+      "visual_review": "All five pages inspected in a contact sheet; no clipping, overlap or unintended blank pages.",
       "tex_inputs": {
-        "papers/rotation_orbit_generic_reconstruction.tex": "84a55352a7c299952fc5626d148e683ba3dd9c3d0727aab628b3ddb3e60cabec",
-        "papers/reconstruction/rotation_orbit_generic_reconstruction.tex": "152832bb5f4105017c42d043018cb5d7b0e984832a84337b4e3661c11269433d",
-        "papers/reconstruction/rotation_orbit_references.tex": "ee0aba85dce0eaafa321f91d0cb7c9a29fdb229baf7673a29e8ca0c030185d99"
+        "papers/coherent_residual_saturation.tex": "b54ad30d2b934401b01811f4e0f4ba449bb45ca4e4f192ac03cfd675f847b6a2",
+        "papers/reconstruction/coherent_residual_saturation.tex": "da45ccdd1e59af6a2a8fab7c528038e82646173dc1cf298fe52ae9e9494dd308",
+        "papers/reconstruction/coherent_residual_references.tex": "74da29f303bd5e1bc1b975819801113869328023ce814d5ce6a2c61389db52b1"
       },
-      "pdf_sha256": "8162768493e6462b398cea471f38a1be5af476322edaabf857f227f7a52737e6",
+      "pdf_sha256": "1749d0084be6704cd9ff9fd40a3a94f162b41768eb86c7eb69f17a6caef7de04",
       "undefined_references": false,
       "undefined_citations": false,
       "missing_glyphs": false,
       "overfull_boxes": false,
-      "warnings": "ltjsarticle old rm command warning; no missing glyphs.",
-      "pdf_git_tracked": false
+      "warnings": "Deprecated old font command in a legacy notation; no missing glyphs."
     },
     "A": {
       "build_completed": false,
-      "reason": "Current complete paper not rebuilt; shared bibliography changed; C introduction and input list updated."
+      "reason": "Full current manuscript not rebuilt."
     },
     "B": {
       "build_completed": false,
-      "reason": "Current complete paper not rebuilt; shared bibliography changed; C introduction and input list updated."
+      "reason": "Full current manuscript not rebuilt."
     },
     "C": {
       "build_completed": false,
-      "reason": "Current complete paper not rebuilt; shared bibliography changed; C introduction and input list updated."
+      "reason": "All existing input sections retained; new saturation section integrated, full manuscript not rebuilt."
     }
   },
   "environment": {
     "python": "3.13.5",
     "sympy": "1.14.0"
   },
-  "persistence": "Local generation, proof checking, finite computation and typesetting are separate from remote publication; verify branch and changed blob hashes after push."
+  "persistence": "Creation, computation, typesetting and remote publication are separate. Remote branch and changed blobs are verified after push."
 }

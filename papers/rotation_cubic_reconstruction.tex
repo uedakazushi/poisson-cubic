@@ -1,108 +1,112 @@
 \input{papers/common}
 \hypersetup{pdftitle={非可換三次超曲面のrotation付き可換復元}}
 \title{非可換三次超曲面のrotation付き可換復元\\
-\large 有限方程式・形式的比較・次数シフト軌道による一般点復元}
+\large 有限方程式・次数シフト軌道・全coherent残余圏}
 \author{}
-\date{2026年11月11日・論文C（研究草稿 v35）}
-\fancyhead[R]{\small 2026-11-11 / v35}
+\date{2026年11月11日・論文C（研究草稿 v36）}
+\fancyhead[R]{\small 2026-11-11 / v36}
 \begin{document}
 \maketitle
 \begin{abstract}
 滑らかな射影cubicの中心非可換変形から、rotationを保持した可換模型を構成する。
-形式MF復元と局所window、有限代数的積分、混合族の正則有限対角と乗法的比較を扱う。
-可換側のprojected kernelにより低rotation積の全Artin底変更を証明し、
+形式MF復元、局所window、有限代数的積分、混合族の正則有限対角と乗法的比較を扱う。
+可換側のprojected kernelにより低rotation積の全Artin底変更を示し、
 計算済み三次式と形式復元先を形式線形同型で同定する。
-一般点への移行には、完備MF同値を固定した三つのstabilizationへ制限してからパラメータを可逆にする。
-Euler形式により像の非零性を示し、孤立斉次超曲面の非零対象の次数シフト軌道が生成することから、
-Laurent体上の残余pair同値を得る。perfect双加群の有限表示性によって有限代数拡大へ降下する。
-この統合結果は、現行稿の局所proper/window入力(L)、実際の完備MF同値(CF)に依存し、
-明示的な混合式の同定にはさらに有限対角比較(D)を用いる。
-全依存証明の独立再監査を完了したという意味ではない。
-対象は一変数量子化の線束生成残余pairの幾何学的一般点であり、
-全coherent残余圏との一致、完備底全体のcompact逆核、同値行列の明示化は別課題として区別する。
+完備MF同値を固定三対象へ制限してからパラメータを反転し、Euler形式と
+孤立超曲面の次数シフト軌道による生成性からLaurent体上の同値を得る。
+perfect双加群の有限表示性により有限代数拡大へ降下する。
+さらにGorenstein環の導来sectionとsmooth対角を用い、
+一般点の線束生成部分が全coherent導来圏に一致することを示す。
+従って既存の局所proper/window入力(L)と実際の完備MF同値(CF)の下で、
+一変数量子化の全coherent残余pairを幾何学的一般点で可換cubicから復元できる。
+明示的混合式にはさらに有限対角比較(D)を使う。
+全依存証明の独立監査を完了したという意味ではない。
+射影化全体の導来同値、同値行列、有限拡大次数、多変数基底への適用は別課題である。
 \end{abstract}
 \tableofcontents
 \section{序論と対象の区別}\label{sec:paperC-introduction}
-代数的入力は五つ以上の次数一生成元を持つKoszul AS-regular代数
-$A_\hbar$、三次中心正則元$\Omega_\hbar$、その商$B_\hbar=A_\hbar/(\Omega_\hbar)$である。
-形式復元では、多項式環の次数付きflat形式変形と滑らかな古典三次式を持ち上げる中心元を仮定する。
-論文Bでは周囲を$B$、中心商を$A$と書くため記号を区別する。
-本稿の一般点の結論は、線束生成残余dg圏$\mathcal K^{\rm lin}_{B}$と指定rotationの対についてである。
-全coherent残余圏とこの部分圏を無条件に同一視しない。
-目標の同値は
+入力は五つ以上の次数一生成元を持つnoetherian Koszul AS-regular代数$A_\hbar$、
+三次中心正則元$\Omega_\hbar$、その商$B_\hbar=A_\hbar/(\Omega_\hbar)$である。
+形式復元では、多項式環の次数付きflat形式変形と滑らかな古典三次式を持ち上げる中心元を用いる。
+論文Bでは周囲と商の記号が逆なので区別する。
+
+線束と有限操作から作る$\mathcal K_B^{\rm lin}$と、全coherent導来圏の残余部分
+$\mathcal K_B^{\rm coh}$は、証明なしに同一視しない。
+本稿ではまず前者の一般点同値を構成し、
+第\ref{crs:sec:saturation}節で一般点smoothnessにより両者の一致を証明する。
+得られる結論は、$K=\mathbb C(h)$のある有限拡大$K'/K$上の
 \[
- (\mathcal K^{\rm lin}_{B_K}\otimes_KK',\rho_B)
- \simeq(\operatorname{Ku}(Y_{K'}),\rho_Y),\qquad K=\mathbb C(h),\quad [K':K]<\infty.
+ (\mathcal K^{\rm coh}_{B_{K'}},\rho_B)
+ \simeq(\operatorname{Ku}(Y_{K'}),\rho_Y).
 \]
-Torelli型の一意性、方程式の抽出、形式同値、一般点の同値、具体的な同値核を区別する。
+Torelli型の一意性、方程式、形式同値、一般点存在、同値核の明示化を区別する。
 任意のAS-regular中心三次商の全点復元にはrotation付き反例があり、構成した量子化族を対象とする。
 
 Poisson構造と代数的量子化は論文A、17次元族とambient復元は論文Bに置く。
-一般17次元中心三次対から元の可換cubicの変形への忘却は、分離点で核が7次元で、
+17次元中心三次対から元のcubicへの忘却は分離点で核7次元であり、
 中心平面の移動6方向とPoissonスカラー1方向に分かれる。
-元のcubicと中心平面を固定すれば、スカラーの$\mathbb G_m$から
-平面楕円曲線の$\operatorname{Pic}^0$への一価有理写像は定数である。
-従って可換模型やmarkingの変化を含む復元と、固定曲線上の素朴なPicardパラメータ化を区別する。
+元のcubicと平面を固定すると、$\mathbb G_m$から平面楕円曲線の$\operatorname{Pic}^0$への
+一価有理写像は定数である。可換模型やmarkingの変化を含む復元と、この固定曲線の記述を区別する。
 
-\subsection{有限方程式と形式的な比較}
-第\ref{sec:explicit-jacobian-recovery}節と第\ref{far:sec:recovery}節は、
-低rotation積の核からの有限積分と局所代数化を扱う。
-第\ref{cd:sec:finite-diagonal}節と第\ref{rd:sec:regular}節は、
-実際の混合非可換入力から有限対角の閉行列と全合成を求め、
-正則性・全Artin底変更と代数的候補$G_h+v^3$を与える。
+\subsection{有限方程式と形式比較}
+第\ref{sec:explicit-jacobian-recovery}節と第\ref{far:sec:recovery}節で、
+低rotation積の核を有限線形代数で積分し局所代数化する。
+第\ref{cd:sec:finite-diagonal}節と第\ref{rd:sec:regular}節では、
+実際の混合入力の対角・閉行列・全合成から正則な代数的三次候補$G_h+v^3$を得る。
 第\ref{mb:sec:comparison}節と第\ref{mb:sec:characteristic}節は、
-Yoneda積を有限支持cup積と比較し、実際の圏への乗法的characteristic写像を構成する。
+そのYoneda積を有限支持cup積と比較し、圏へのcharacteristic写像を構成する。
 
-標的条件(BC)は第\ref{gr:sec:basechange}節の可換側射影核で処理する。
-射影核$P$とrotation核$Q$に対する$Rq_*R\mathcal Hom(P,Q^{\star r})$は真の導来Natを計算するperfect複体である。
-座標切断とその合成が特殊基底を閉元として持ち上げるため、次数一・二の$H^0$底変更が成立する。
-一般の相対MF核全忠実性(KF)、独立中心変数、$H^1$の消滅は不要である。
-形式MF・Artin残余比較と有限対角比較(D)を使うと、$\lambda=1$の候補式は$W_h$と形式線形同型となる。
-既存証明への依存と、その全てを独立に再監査したことを区別する。
+標的の(BC)は第\ref{gr:sec:basechange}節の幾何学的射影核で処理する。
+$Rq_*R\mathcal Hom(P,Q^{\star r})$が真のNatを計算するperfect複体となり、
+座標とその合成による閉基底持上げから次数一・二の自然な$H^0$底変更を得る。
+一般のMF核全忠実性(KF)、独立中心変数、$H^1$の消滅は先行条件にしない。
+既存の形式MF・Artin残余比較と(D)の下で、$\lambda=1$の候補は$W_h$と形式線形同型になる。
+これら既存証明への依存と、独立再監査の範囲を明記する。
 
-\subsection{次数シフト軌道による一般点復元}
-第\ref{rog:sec:generic}節では、既存の局所proper/window入力(L)と
-第\ref{fo:sec:formal-cubic}節の実際の完備MF同値(CF)を用いる。
-(CF)は単なる両立Artin同値列より強く、固定した有限対象のHomで通常の完備係数写像を与える。
-原点のstabilization $K_R$とその三つのshiftを固定し、functorを制限してから$h$を反転する。
-特殊点のEulerベクトル
+\subsection{一般点の生成性と全coherentへの拡張}
+第\ref{rog:sec:generic}節では(L)と第\ref{fo:sec:formal-cubic}節の(CF)を用いる。
+(CF)は単なるArtin同値列ではなく、固定有限対象のHomに通常の完備係数写像を与える。
+原点のstabilizationとその三shiftへ制限してから$h$を反転する。
+Eulerベクトル
 \[
  \chi_r=\sum_{s\equiv-r\ ({\rm mod}\ 3)}(-1)^s\binom Ns,
  \qquad \sum_{r=0}^2\chi_r^2=2\cdot3^{N-1}
 \]
-が非零なので、像$E_L$は一般点でも非零である。
+が非零なので一般点の像は零でない。
+Stevensonの分類\cite{ROGStevenson}と次数の再付与・compact局所化により、
+その三shiftが可換MFを生成する。Laurent体上で得たcompact核を有限体拡大へ降下する。
+(D)を加えれば復元先を明示的$G_h+v^3$に取れる。
 
-Stevensonの非次数付き特異圏分類\cite{ROGStevenson}を、次数の再付与とcompact局所化によりgradedへ戻すと、
-$E_L,E_L(1),E_L(2)$が可換graded MFを生成すると分かる。
-従って(L),(CF)の下でLaurent体上の実際の残余pair同値を得る。
-そこで逆核はcompactとなり、有限表示性により有限代数拡大上へ降下できる。
-(D)をさらに使う混合族では、復元先を計算済みの$G_h+v^3$に固定する。
-この一般点の証明は、完備底全体のcompact逆核や非可換smoothnessを先取りしない。
+第\ref{crs:sec:saturation}節は、残余smoothnessと例外成分の貼合せから線束部分のsmoothnessを得る。
+Gorenstein環の導来sectionにより任意のcoherent対象$M$の$R\operatorname{Hom}(G_B,M)$は体上perfectであり、
+smoothな生成代数の対角によりその代数上でもperfectとなる。
+評価射のconeを全twistで検出すると零となるため、線束部分は$D^b(\operatorname{qgr}B)$全体に一致する。
+この新しい議論は一般点smoothnessを使い、特殊点からの生成性の持上げを仮定しない。
 
-\subsection{保持する結果と結論の境界}
-純Poisson一次消滅、分離Hessian比較と中心可換化との差、混合中心閉式・全Artin PBW、
-二次星積、同変形式正規形、四代数方程式による正規化を保持する。
-相対sector、対角unit、Artin障害、中心対称性は、それぞれの仮定下で有効な比較結果である。
-項別自由性だけでは生成性を持ち上げられない反例、および全Artinでsmoothでも一般点で非smoothな例も保持する。
-新しい経路は、一般点の非零性と全次数シフト軌道を用いるため、これらの反例と矛盾しない。
+\subsection{保持する結果と境界}
+純Poisson一次消滅、分離Hessianと中心可換化との差、混合中心閉式・全Artin PBW、
+二次星積、同変正規形、四方程式による正規化、相対sector、対角unit、Artin障害、
+中心対称性を保持する。項別自由性だけの生成子持上げ、全Artin smoothからの一般点smoothnessに対する
+反例も有効なままである。現在の証明は一般点での非零性とrotation軌道を使う。
 
-第\ref{os:sec:algebraization}節の片側Morita判定とPopescuによる代数化は、
-特殊点を含む相対同値を目指すより強い十分条件として残す。
-完備底全体のcompact逆核は未構成だが、幾何学的一般点の証明の先行条件ではなくなった。
-同値核の行列、有限拡大の次数、全coherent残余圏との一致、多変数基底への一括拡張は未完了である。
-存在の有限表示性を、有効な同値行列の計算と呼ばない。
+第\ref{os:sec:algebraization}節の片側Morita/Popescu判定は、特殊点を含む相対同値への別経路とする。
+完備底全体のcompact逆核、同値核行列、有限拡大次数、多変数の全係数方向は未完成。
+全coherent残余pairの同値は、射影化全体と可換cubic全体の導来同値を意味しない。
+例外成分との貼合せは別の情報であり、アフィン環$B$の有限global dimensionも主張しない。
 
-\subsection{先行研究と依存する比較}
-Kontsevichのformality\cite{PKontsevich}、C\u{a}ld\u{a}raru--Tuのgraded比較\cite{CT}、
-TuのKoszul双対\cite{CGTu}、Ditoの二次星積\cite{KJDito}、Shoikhetのwheel消滅\cite{KJShoikhet}を区別して使う。
-相対stabilizationにはChen\cite{AMChen}、有限対角にはNegron\cite{MBNegron}、
-曲率HPLにはTu\cite{MBTu}、characteristic写像にはLowen\cite{MBLowen}を用いる。
-異なる第二種Hochschild理論\cite{CDGHLR,RDPP}を名前だけで同一視しない。
-幾何学的標的はTo\"enの相対Morita\cite{GRToen}、Kuznetsovの射影核\cite{GRKuznetsov}、
-perfect直接像\cite{GRStacks}と、BFK・Lin--Zhangの体上計算\cite{GRBFK,GRLZ}による。
-一般点の新しい組合せにはStevenson\cite{ROGStevenson}、Dyckerhoff\cite{ROGDyckerhoff}、
-compact局所化\cite{ROGStacks}、To\"en--Vaqui\'eのperfect降下\cite{ROGTV}を用いる。
-既知原理の新規性は主張せず、この組合せの包括的新規性調査・外部査読は未完了である。
+\subsection{先行研究と依存}
+Kontsevich\cite{PKontsevich}、C\u{a}ld\u{a}raru--Tu\cite{CT}、Tu\cite{CGTu}、
+Dito\cite{KJDito}、Shoikhet\cite{KJShoikhet}の各入力の範囲を区別する。
+stabilizationにはChen\cite{AMChen}、有限対角にはNegron\cite{MBNegron}、
+曲率HPLにはTu\cite{MBTu}、characteristicにはLowen\cite{MBLowen}を使う。
+第二種Hochschild理論\cite{CDGHLR,RDPP}の異なるtotalizationを同一視しない。
+幾何学的標的はTo\"en\cite{GRToen}、Kuznetsov\cite{GRKuznetsov}、
+perfect直接像\cite{GRStacks}、BFK・Lin--Zhang\cite{GRBFK,GRLZ}による。
+一般点にはStevenson\cite{ROGStevenson}、Dyckerhoff\cite{ROGDyckerhoff}、
+compact局所化\cite{ROGStacks}、perfect降下\cite{ROGTV}を使う。
+全coherentへの拡張はBurke--Stevenson\cite{CRSBS}、To\"en--Vaqui\'e\cite{CRSTV}、
+Perry\cite{CRSPerry}の既知原理を本族へ適用する。一般原理の新規性は主張せず、
+包括的新規性調査・外部査読と全依存の独立再監査は未完了である。
 
 \input{papers/reconstruction/explicit_jacobian_recovery}
 \input{papers/reconstruction/finite_algebraic_recovery}
@@ -127,6 +131,7 @@ compact局所化\cite{ROGStacks}、To\"en--Vaqui\'eのperfect降下\cite{ROGTV}�
 \input{papers/reconstruction/artin_residual_mf_comparison}
 \input{papers/reconstruction/geometric_rotation_basechange}
 \input{papers/reconstruction/rotation_orbit_generic_reconstruction}
+\input{papers/reconstruction/coherent_residual_saturation}
 \input{papers/reconstruction/one_sided_morita_algebraization}
 \input{papers/reconstruction/artin_smoothness_obstruction}
 \input{papers/reconstruction/etale_realization}

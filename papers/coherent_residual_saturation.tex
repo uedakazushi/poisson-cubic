@@ -1,0 +1,29 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage[margin=25mm,headheight=16pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,xcolor}
+\usepackage[unicode,colorlinks=true,linkcolor=blue!40!black,citecolor=blue!40!black,urlcolor=blue!45!black]{hyperref}
+\usepackage{fancyhdr}
+\allowdisplaybreaks[2]
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small 非可換三次超曲面の一般点復元}\fancyhead[R]{\small 2026-11-11 / v36}\fancyfoot[C]{\thepage}
+\newtheorem{theorem}{定理}[section]\newtheorem{lemma}[theorem]{補題}
+\newtheorem{proposition}[theorem]{命題}\newtheorem{corollary}[theorem]{系}
+\theoremstyle{definition}\newtheorem{example}[theorem]{例}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{注意}\renewcommand{\proofname}{証明}
+\title{線束生成部分の飽和と全coherent残余圏\\\large 一般点のsmoothnessによる復元範囲の拡張}
+\author{}\date{2026年11月11日・研究草稿 v36}
+\begin{document}\maketitle
+\begin{abstract}
+非可換射影超曲面の線束生成部分がsmoothなら、その部分は全coherent有界導来圏に一致する。
+Gorenstein環の導来sectionから、線束と任意のcoherent対象のHomの有限性、
+および全twistによる零対象の検出を得る。
+smoothな生成代数の対角を用いて評価射のconeを消し、全体の生成性を示す。
+これを既存の一変数量子化の一般点復元に適用すると、
+線束生成残余pairだけでなく全coherent残余pairを可換cubicから復元できる。
+既存の局所windowと完備MF比較への依存、今回の新しい証明、
+まだ行っていない全依存証明の独立監査を区別する。
+\end{abstract}
+\input{papers/reconstruction/coherent_residual_saturation}
+\begin{thebibliography}{99}
+\input{papers/reconstruction/coherent_residual_references}
+\end{thebibliography}
+\end{document}

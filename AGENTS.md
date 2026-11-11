@@ -1,31 +1,29 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-11 / v35。mainが唯一の正本。** 00_research_plan.md、notes/rotation_orbit_generic_reconstruction.mdから読む。旧会話・ZIPを再開条件にしない。
+**2026-11-11 / v36。GitHub mainが正本。** 00_research_plan.md、notes/coherent_residual_saturation.md、notes/rotation_orbit_generic_reconstruction.mdを先に読む。
 
-## 現在の結論
+## 現行の結論と依存
 
-既存の(L)局所proper/windowと(CF)次数別完備有限rank MF同値の下で、一変数量子化の線束生成残余pairの幾何学的一般点は可換cubicのKu pairと同値になる。明示的lambda=1族では(D)をさらに使い、復元先は既存多項式G_h+v^3。証明全文はpapers/reconstruction/rotation_orbit_generic_reconstruction.tex。
+(L)局所proper/windowと(CF)実際の完備MF同値下の一変数量子化について、有限拡大K'/C(h)上の全coherent残余pairの可換復元を得る。lambda=1の明示式には(D)も必要。既存全依存を独立再監査した意味ではない。
 
-これは(L),(CF),(D)の全独立監査を完了したという主張ではない。一般coherent残余圏や多変数モジュライ全体と混同しない。
+一般点では非零像の三shiftが生成するためLaurent体上の同値が得られ、compact核の有限表示性で有限体拡大へ降下する。完備底全体の逆核を先に作る課題へ戻らない。
 
-## 論理の核心
+新節coherent_residual_saturation.texは、B=A/(w)のGorenstein/section条件から任意MのRHom(O(j),M)が体上perfectであることと全twistによる検出を示す。smoothな線束生成代数の対角によりRHom(G,M)はその代数上perfectとなり、評価coneの直交からC_lin=Db(qgr B)。残余smoothnessと有限例外貼合せで適用し、K_lin=K_cohを得る。一般点以外で無条件の一致を宣言しない。
 
-- K_R=stab(R)、T_R=K_R⊕K_R(1)⊕K_R(2)がwindowからK^linを生成し、Gamma_R=REnd(T_R)はproper。
-- 完備functorを固定三対象に制限してからhを反転する。固定Hom成分は有限自由なので通常のA∞写像となる。任意のLaurent対象に形式級数を評価する必要はない。
-- Eulerベクトルchi_r=Σ_(s+r=0 mod3)(-1)^s binom(N,s)、二乗和2*3^(N-1)。N=5は(-9,9,0)。N=9ではchi0=0なので一般次元で自己Eulerだけを使わない。
-- 一般点の像Eは非零。Stevensonのungraded分類をregradingとcompact局所化でgradedへ戻し、E,E(1),E(2)が生成すると証明する。非零対象単独のgraded生成性は主張しない。
-- 一般体上の逆核はcompactになり、有限表示性で有限生成部分代数に降下し、perfect coneを非空開で消して閉点を取る。有限拡大C(h)上の同値を得る。完備底全体のcompact逆核は未構成のままでよい。
+## 次に進めること
 
-## 次の優先事項
+(CF)の曲率formality/coherent inverse全構成、(L)の通常導来stabilization/window、(D)の乗法的比較を独立監査する。今回点検済みなのはStevenson Thm6.13の適用範囲、次数再付与、固定HomのLaurent局所化と、新しい飽和証明。
 
-(L)のwindow/proper底変更、(CF)のcurved formalityとcomplete-graded比較、明示式の(D)を独立監査する。その後、三シフト生成の有限cellと同値核を明示化する。存在の証明を具体行列の計算と呼ばない。有限拡大の次数、h=0近傍同値、一般lambdaの閉公式、K^lin=全残余、多変数一括適用は未完了。
+同値核の行列・有限拡大次数・三shift生成の有効なcell上界は未計算。全Db(qgr B)と可換Db(coh Y)の同値は主張しない。残余同値では貼合せが残る。多変数族・全モジュライ一般点・特殊点を含む相対同値は別課題。
 
-(KF)や完備逆核を一般点の先行条件に戻さない。片側Morita、Popescu、SM/ERはより強い相対結論の別経路として保持する。旧生成子持上げの反例や全Artin smooth/generic nonsmooth例も削除しない。
+## 保持・検証
 
-## 保存と検証
+論文A/B/Cの有効な証明・コード・必要証明書・反例を保持する。一般KFは未解決だが現行経路の前提でない。項別自由性だけの生成子持上げは偽のまま。smoothness・perfect性・通常導来底変更を区別する。既知の飽和原理を新規成果としない。
 
-研究区切りに承認不要で証明全文・方針・ノート・必要なコード/証明書をmainへ通常のfast-forwardで保存する。force push、無断PR、GitHub Actionsは禁止。要約だけを全文pushと呼ばず、remote refと変更blobを照合する。Libraryは実際のpush失敗時のみ緊急退避。既存Libraryファイルの無断削除は禁止。
+`python3 scripts/verify_coherent_residual_assets.py --rerun-orbit` と `latexmk papers/coherent_residual_saturation.tex`。前者はsource参照と旧64 Euler/41 MF恒等式の再現確認であり新定理の形式検証でない。今回新単独稿5頁を組版・表示確認、A/B/C全体は未組版。検証状況はvalidation.jsonに分離する。
 
-日本語LuaLaTeX、PDFはbuild/に生成しGit追跡しない。旧ZIP、旧稿、ログ、cacheを追加しない。既存A/B/Cの有効な数学・証明・検証資産を容量のため削除しない。
+## 保存
 
-`python3 scripts/verify_rotation_orbit_assets.py`、`latexmk papers/rotation_orbit_generic_reconstruction.tex`。新計算は64Eulerベクトルと41特殊Koszul行列恒等式であり、generic同値kernelや旧nc全行列を計算したものではない。全A/B/C組版・全旧計算を実行していなければ明記する。生成、証明点検、計算、組版、遠隔保存は別状態。
+区切りごとに承認を求めず、証明全文・研究方針・ノート・必要ソースをmainへ通常のfast-forwardで反映する。全文の代わりに要約だけを保存しない。remote headと既存変更を保持し、force push・無断PR・GitHub Actions禁止。refと変更blobを照合する。
+
+成功時はLibraryへ二重保存せず、実際のGitHub失敗時のみ緊急退避する。既存Libraryファイルを無断削除しない。日本語LuaLaTeX、PDFはGit追跡せずbuild/へ生成。旧版ZIP・ログ・cache・重複は追加せず、数学的内容と再現性を容量制限のため削らない。
