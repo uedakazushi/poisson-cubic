@@ -205,15 +205,23 @@ $\lambda(h_\alpha)H(v,v)=0$ が全 $H$ に対して成立する。
 これは基点自由性に反する。従って $W$ は半単純である。
 
 階数二以上の単純因子があるとする。
-その最高根 $\theta$ は二つの正根 $\alpha,\beta$ の和に書ける。
-$a=e_\alpha$、$b=e_\beta$、$v=[a,b]\neq0$ とすれば
-$[a,v]=[b,v]=0$ である。
+その最高根 $\theta$ は単純根ではない
+（既約かつ階数二以上の根系では最高根のsupportは全ての単純根を含む）。
+正根でありながら単純でない根は二つの正根の和となるので
+\cite[Lemma~21.14および\S32.2]{PEtingofLie}、
+$\theta=\alpha+\beta$ と書ける。
+対応する根ベクトル$a=e_\alpha$、$b=e_\beta$を選ぶと
+根空間の標準的交換子関係から
+$v=[a,b]\neq0$ は最高根空間の元となる。
+最高根性により$\theta+\alpha,\theta+\beta$は根でなく、
+従って $[a,v]=[b,v]=0$ である。
 $\theta(h)\neq0$ となる Cartan 元を選び、
 \eqref{eq:pg-lie-H}に $(a,b,h,v)$ を代入すると
 $\theta(h)H(v,v)=0$ となり、再び基点を得て矛盾する。
 従って $W\simeq\mathfrak{sl}_2^{\oplus k}$ である。
-用いた根分解・最高ウェイトの事実は
-\cite[\S19.4, Theorem 25.17, \S32.2]{PEtingofLie}を参照。
+用いた可解根基の表現定理は\cite[Proposition~16.9]{PEtingofLie}、
+根分解・最高ウェイトと最高根の事実は
+\cite[\S19.4, Lemma~21.14, Theorem~25.17, \S32.2]{PEtingofLie}を参照。
 
 異なる単純イデアルは $B$ に関して直交する。
 実際、$x=[a,b]$ が一方に、$y$ が他方に属せば
