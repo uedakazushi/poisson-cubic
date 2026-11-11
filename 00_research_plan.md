@@ -1,7 +1,13 @@
 # 研究方針：非可換cubicの一般点復元
 
-**2026年11月11日 / v42。再開時は最初に読む。GitHub `uedakazushi/nc-cubic` の `main` が唯一の正本。**
+**2026年11月12日 / v43。再開時は最初に読む。GitHub `uedakazushi/nc-cubic` の `main` が唯一の正本。**
 次は `notes/point_scheme_poisson_zero.md`、`notes/bondal_cubic.md`、`notes/coherent_residual_saturation.md` と `notes/rotation_orbit_generic_reconstruction.md`。具体式は `notes/curved_diagonal.md`、形式比較は `notes/geometric_rotation_basechange.md`。完備底全体の別経路は `notes/one_sided_morita.md`。一般背景は論文A/B/Cと `notes/research_notes.md`。旧ZIP・会話を再開条件にしない。
+
+## 論文A：固定Fermatと相対Poisson schemeの既約成分
+
+**既存Poisson正規形定理を入力とする新しい計数的帰結の証明を追加。** \(N=n+2\ge5\) とする。Fermat \(X_N=\{\sum_i z_i^3=0\}\) のアフィンPoisson schemeの被約既約成分は、\([N]\) を各大きさ3以上の非順序集合分割に分ける各分割 \(\mathcal B\) に対応し、成分は \(\bigoplus_{B\in\mathcal B}\widehat{\mathrm{Gr}}(3,\mathbb C^B)\)、次元は \(3N-8|\mathcal B|\)。全成分数はrestricted Bell number \(\sum_k\left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}\)。一方、滑らかなcubicと非零Poisson構造を同時に動かす相対schemeは一般rank \(2k\) ごとに一成分、合計 \(\lfloor N/3\rfloor\) 成分であり、商次元の閉公式を本文に記載。\(n=3,4,5,6,7\) に対しFermat成分は \(1,11,36,92,491\)、相対成分は \(1,2,2,2,3\)。
+
+**証明と範囲**：`papers/sections/fermat_relative_poisson_components.tex` を論文Aに組み込み。入力は `thm:pg-normal`, `lem:pg-linearize`, `prop:pg-represent`, `ne:blocks`。詳細な現在有効知識と再現は `notes/fermat_relative_poisson_components.md`、整数検算は `computations/verify_poisson_component_comparison.py`。**今回既存正規形定理の全証明を独立再監査したとはしない。** 既約成分は被約の基礎位相空間であり、Poisson schemeのnilpotent構造、成分交叉、Fermat最大性、先行研究上の初出は未解決。rank2は全cubicで一成分である一方、高rankのFermat特殊ファイバーは座標分割によって多数に分裂する。論文Aが自己完結するよう数え上げの証明全文を保持した。
 
 ## Poisson構造定理の新たな帰結：Bondal予想（論文A）
 

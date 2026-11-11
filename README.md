@@ -1,6 +1,10 @@
 # nc-cubic：全coherent残余pairの一般点復元
 
-**2026-11-11 / v42。GitHub mainが正本。** 最初に[研究方針](00_research_plan.md)を読む。
+**2026-11-12 / v43。GitHub mainが正本。** 最初に[研究方針](00_research_plan.md)を読む。
+
+## Fermat固定Poisson schemeと相対schemeの対比（論文A）
+
+既存のPoisson正規形により、\(n\ge3\) のFermat cubic \(n\)-foldの被約Poisson schemeの既約成分は、\(n+2\) 個の座標添字を各大きさ3以上のブロックへ分割する各集合分割に対応する。Fermatでの成分数は \(n=3,4,5,6,7\) で \(1,11,36,92,491\)。cubicも動かす相対Poisson schemeでは一般rankごとに一つ、合計 \(\lfloor(n+2)/3\rfloor\) 個（\(1,2,2,2,3\)）。本文証明 `papers/sections/fermat_relative_poisson_components.tex`、ノート `notes/fermat_relative_poisson_components.md`、整数検算 `computations/verify_poisson_component_comparison.py`。schemeの非被約構造・Fermat最大性・初出確認は未完了。正規形定理の独立再監査は未実施。
 
 ## Bondal予想（論文Aの新しい帰結）
 
