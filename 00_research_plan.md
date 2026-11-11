@@ -1,6 +1,6 @@
 # 研究方針：Poisson cubic論文Aの投稿品質確立と非可換cubicの可換復元
 
-**2026年11月12日 / v44。再開時は最初に読む。GitHub uedakazushi/nc-cubic の main が唯一の正本。**
+**2026年11月12日 / v45。再開時は最初に読む。GitHub uedakazushi/nc-cubic の main が唯一の正本。**
 **現在の最優先課題は論文Aの公表水準への改訂。** 最新原稿は papers/paper_a.tex、
 詳細な監査・未確認点・着手方法は notes/poisson_article_submission_audit.md。
 関連文献は papers/support/papers/references_poisson_cubic.tex、独立検算は computations/verify_poisson_article_A.py と computations/verify_cubic_casimir_jet.py。
