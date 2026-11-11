@@ -1,10 +1,18 @@
 {
-  "version": "nc-cubic-v36",
+  "version": "nc-cubic-v37",
   "date": "2026-11-11",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only following actual GitHub publication failure.",
-  "scope": "Smooth line-bundle-generated category equals the entire bounded coherent category; extends existing generic residual reconstruction under L,CF (and D for the explicit polynomial).",
+  "scope": "Bondal degeneracy conjecture for all smooth cubic n-folds n>=3 as a consequence of the existing Jacobian block normal form, via explicit joins; retain all prior work.",
   "proofs_written_and_checked": [
+    {
+      "source": "papers/sections/bondal_cubic.tex",
+      "labels": [
+        "thm:pg-bondal",
+        "rem:pg-bondal-scope"
+      ],
+      "status": "Direct join dimension and rank-drop proof reviewed. DEPENDS on existing thm:pg-normal, whose complete Lie-theoretic classification proof was not independently reaudited this turn."
+    },
     {
       "source": "papers/reconstruction/coherent_residual_saturation.tex",
       "labels": [
@@ -48,7 +56,8 @@
     "Burke-Stevenson arXiv1507.00830v1, Prop4.18/Lemmas6.1,6.2/Thm6.4: PDF pp12-14,17-19 inspected including screenshots.",
     "Toen-Vaquie arXivmath/0503269v5 Lemma2.8(2): PDF pp21-22 inspected including screenshot.",
     "Perry Noncommutative homological projective duality (2019), Lemma4.15(3), primary accepted-manuscript HTML inspected.",
-    "Stevenson arXiv1105.4698v3 Theorem6.13 and Dyckerhoff arXiv0904.4713v5 Section2.4: primary PDF pages inspected."
+    "Stevenson arXiv1105.4698v3 Theorem6.13 and Dyckerhoff arXiv0904.4713v5 Section2.4: primary PDF pages inspected.",
+    "Gualtieri–Pym (2013), Poisson modules and degeneracy loci DOI10.1112/plms/pds090: Bondal conjecture and Fano dimension four; Druel–Pereira–Pym–Touzet arXiv:2606.03424 (2026): Fano dimension five."
   ],
   "retained_without_full_reaudit": [
     "All previous A/B/C mathematical sections and computation sources retained.",
@@ -60,7 +69,8 @@
     "Equivalence of the whole noncommutative projective derived category with that of the commutative cubic; only residual pairs are compared.",
     "Finite global dimension of the graded affine quotient B.",
     "Relative equivalence including h=0, compact inverse over the entire completed base, or multi-parameter all-component extension.",
-    "Comprehensive novelty determination, external referee check, or formal proof."
+    "Comprehensive novelty determination, external referee check, or formal proof.",
+    "Independent complete revalidation of the existing Lie algebra normal form, exhaustive novelty/prior art for Bondal on cubic n-folds n>=6, and scheme-theoretic dimension/primary decomposition from the new join argument."
   ],
   "typesetting": {
     "standalone_coherent_residual": {
@@ -82,7 +92,7 @@
     },
     "A": {
       "build_completed": false,
-      "reason": "Full current manuscript not rebuilt."
+      "reason": "New Bondal section inserted; full current A manuscript NOT recompiled in this update."
     },
     "B": {
       "build_completed": false,

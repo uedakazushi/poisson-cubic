@@ -1,6 +1,10 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-11 / v36。GitHub mainが正本。** 00_research_plan.md、notes/coherent_residual_saturation.md、notes/rotation_orbit_generic_reconstruction.mdを先に読む。
+**2026-11-11 / v37。GitHub mainが正本。** 00_research_plan.md、notes/coherent_residual_saturation.md、notes/rotation_orbit_generic_reconstruction.mdを先に読む。
+
+## 論文A：Bondal予想の帰結
+
+全滑らかなcubic n-fold (n>=3) のPoisson構造についてBondalのD_{2j}次元下界を、正規形のJacobianブロックから選ぶ平面曲線のjoinで証明。`papers/sections/bondal_cubic.tex` に証明全文、`notes/bondal_cubic.md` に次の監査点。現行の正規形 `thm:pg-normal` に依存する。旧正規形のLie代数補題と射影ランク低下の独立監査が次の優先事項。Fano4/5の既知結果と新規性を区別する。
 
 ## 現行の結論と依存
 

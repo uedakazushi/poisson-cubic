@@ -1,7 +1,11 @@
 # 研究方針：非可換cubicの一般点復元
 
-**2026年11月11日 / v36。再開時は最初に読む。GitHub `uedakazushi/nc-cubic` の `main` が唯一の正本。**
-次は `notes/coherent_residual_saturation.md` と `notes/rotation_orbit_generic_reconstruction.md`。具体式は `notes/curved_diagonal.md`、形式比較は `notes/geometric_rotation_basechange.md`。完備底全体の別経路は `notes/one_sided_morita.md`。一般背景は論文A/B/Cと `notes/research_notes.md`。旧ZIP・会話を再開条件にしない。
+**2026年11月11日 / v37。再開時は最初に読む。GitHub `uedakazushi/nc-cubic` の `main` が唯一の正本。**
+次は `notes/bondal_cubic.md`、`notes/coherent_residual_saturation.md` と `notes/rotation_orbit_generic_reconstruction.md`。具体式は `notes/curved_diagonal.md`、形式比較は `notes/geometric_rotation_basechange.md`。完備底全体の別経路は `notes/one_sided_morita.md`。一般背景は論文A/B/Cと `notes/research_notes.md`。旧ZIP・会話を再開条件にしない。
+
+## Poisson構造定理の新たな帰結：Bondal予想（論文A）
+
+**証明を追加。** n>=3の滑らかなcubic n-foldの任意のPoisson構造に対して、全j（2j<n）のD_{2j}は次元2j+1以上の既約成分を持つ。非零Poissonの正規形F=Σ f_s(x_s,u)、一般rank2kを使い、j<kならr=j+1個のブロック内の平面曲線C_s⊂{f_s(x_s,0)=0}のjoin J_rを構成する。J_r⊂X、dim J_r=2r−1。全ブロックのJacobian rank2ならEulerベクトルが像に入り射影化でrankが2下がり、いずれかrank0ならもとからrank≤2r−2。従ってJ_r⊂D_{2j}。π=0またはj>=kはD=X。全文 `papers/sections/bondal_cubic.tex`、ノート `notes/bondal_cubic.md`。**正規形定理thm:pg-normalに依存し、その既存証明全体の独立再監査は未完了。** 2013年Fano4、2026年Fano5の既知定理との重複に注意し、新規性は未確定。正規形のLie代数補題を次に優先監査する。
 
 ## 最終目標と現在の結論
 
