@@ -44,6 +44,7 @@ A全体のLuaLaTeXコンパイル・PDF表示確認・非楕円成分の全行�
 - Gualtieri–Pym, DOI:10.1112/plms/pds090：Bondal予想とFano四次元の既知結果。
 - Druel–Pereira–Pym–Touzet, arXiv:2606.03424 (2026)：Fano五次元での全結果、高次元一般Fanoでの部分結果。
 - Mori–Smith, arXiv:1502.07403、Berger–Taillefer, arXiv:math/0610112、Kontsevich, arXiv:q-alg/9709040、Dolgushev, arXiv:math/0612288、Etingof–Ginzburg, arXiv:0709.3593、Smith–Tateは量子化の既知入力。
+- **Dolgushev一次資料の確認（2026-11-12）：** arXiv:math/0612288v3 の Proposition 1（PDF印刷p.9；不変形式でのunimodularity判定）と Theorem 3（印刷p.15；dualizing bimoduleが自明であることとunimodularityの同値）を原PDF本文・ページ画像で照合した。Theorem 3の仮定は滑らかな複素アフィン多様体、標準束自明、形式星積である。論文Aにおける絶対Calabi–Yau性の示し方、相対係数・完備双加群・形式星積への適用の全仮定は未監査。
 - Brueckmann消滅のFu–Hwang経由の引用は原論文へ遡って条件を監査する。
 これらは調査・比較した文献であり、全ての引用定理を今回一次PDFから再検証したという意味ではない。
 高次元cubicの正規形・Bondal結論の包括的新規性照合は未完成。
