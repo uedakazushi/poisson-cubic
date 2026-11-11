@@ -68,8 +68,8 @@ A全体のLuaLaTeXコンパイル・PDF表示確認・非楕円成分の全行�
 
 ## 次の具体的な着手順
 
-1. prop:pg-represent、lem:pg-linearize、lem:pg-quadratic-lie の証明の独立再検証。Etingofの主要一次資料は確認済みなので、Jacobi線形化・Bertini・Lie構成の接続を重点監査する。
-2. lem:pg-formal-center と prop:pg-PBW の相対formality、完備双加群分解、絶対CY、代数化の妥当性を徹底検査する。中心元の偶性と普遍Hessian二次補正は検証済みだが、全次数の存在証明の代わりにはならない。
+1. lem:pg-formal-center と prop:pg-PBW の相対formality、完備双加群分解、絶対CY、代数化の妥当性を徹底検査する。中心元の偶性と普遍Hessian二次補正は検証済みだが、全次数の存在証明の代わりにはならない。
+2. prop:pg-represent、lem:pg-linearize、lem:pg-quadratic-lie の証明の独立再検証。Etingofの主要一次資料は確認済みなので、Jacobi線形化・Bertini・Lie構成の接続を重点監査する。
 3. 論文A全体のlatexmk組版・視覚確認、整数証明書の再実行、網羅的文献比較。主張の仮定と証明の所在を確認して投稿判定する。
 4. 数学的まとまりを保ちつつ非楕円量子化をAに収めるか独立論文へ分けるか再評価する。価値ある証明を削除しない。
 
