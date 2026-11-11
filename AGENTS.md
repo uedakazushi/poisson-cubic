@@ -1,6 +1,6 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-12 / v43。GitHub mainが唯一の正本。** 最初に 00_research_plan.md を読む。
+**2026-11-12 / v44。GitHub mainが唯一の正本。** 最初に 00_research_plan.md を読む。
 
 ## 最優先指示：論文Aを投稿可能な水準へ
 
@@ -56,3 +56,6 @@ Sklyanin中心公式と本論文の貢献をIntroductionで区別する。
 
 ## papers/の配置規則
 papers/直下に置くファイルはpaper_a.tex、paper_b.tex、paper_c.texのみ。補助TeX・参考文献・短い独立原稿はpapers/support/papers/以下に配置する。主原稿はpapers/support/をinput探索先として使用する。新たなpapers/直下のファイルを作らない。
+
+## 確認済みのCasimir低次公式
+論文Aの lem:pg-center-parity と prop:pg-universal-casimir-jet を維持する。任意の中心係数上の三変数以下三次fに対し sym(f-h² det Hess_x f/12) は mod h⁵ で中心。20独立係数の厳密記号計算コード computations/verify_cubic_casimir_jet.py は値代入試験ではない。ただしこれは全次数中心元の存在を証明しない。次に絶対CYと相対Kontsevich/Dolgushev適用を検証する。
