@@ -8,9 +8,9 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月12日・論文A（投稿準備稿 v41）}
+\date{2026年11月12日・論文A（投稿準備稿 v42）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-12 / A-v41}
+\fancyhead[R]{\small 2026-11-12 / A-v42}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -191,6 +191,22 @@ $4608$（中心変数二つ）を厳密検算した。
 特異ブロックへの無条件な延長を主張しない。
 
 
+さらに、$g(x,y,z)=(x^3+y^3+z^3)/3$の場合には、
+中心係数$A,B,C,D,E,H$を全て独立とした
+\emph{普遍的な有限多項式中心元}を得る
+（定理\ref{thm:pg-fermat-mixed-universal}）。
+これは既存の論文C関連技術稿に現れた式について
+$\mathbb Q(\hbar)$上の自由語339個・関係ベクトル162個の
+厳密な線形代数で全交換子の普遍的消滅を証明したものであり、
+形式的中心元存在定理には依存しない。
+中心変数による平行移動で
+任意の対角二次混合項を取り込める
+（系\ref{cor:pg-fermat-all-mixed}）。
+\emph{一般の滑らかな平面三次$g$}については、
+前記の行列式表示を用いる。
+Fermat型の短い多項式公式と、
+一般$g$の有理決定式公式は異なる水準の明示性である。
+
 \subsection*{具体例と適用範囲}
 非楕円型の節点ブロック・尖点ブロックが、
 滑らかなcubic fivefold上の固定Poissonスキームの
@@ -215,6 +231,8 @@ Br\"uckmann型消滅定理を利用する既知の背景結果
 続く第\ref{sec:pg-leaves}節と第\ref{sec:pg-degeneracy}節で
 葉・退化スキームの幾何を記述し、
 第\ref{sec:pg-quantization}節で量子化を構成する。
+Fermat型の完全な普遍混合多項式中心元は
+第\ref{sec:pg-fermat-mixed-universal}節、
 一般の滑らかな三変数制限に対する有限行列式の中心元公式は
 第\ref{sec:pg-universal-determinant}節で扱う。
 そのambientの周期性は第\ref{sec:pg-ambient-periodicity}節で扱う。
@@ -224,6 +242,7 @@ Bondal予想の帰結は第\ref{sec:pg-bondal}節、
 各主張の証明に用いた既知の結果と本稿の新しい帰結を分けて記述する。
 \input{papers/sections/complete_intersections}
 \input{papers/sections/poisson_geometry}
+\input{papers/sections/fermat_mixed_universal_center}
 \input{papers/sections/universal_casimir_determinant}
 \input{papers/sections/ambient_periodicity}
 \input{papers/sections/fermat_relative_poisson_components}
