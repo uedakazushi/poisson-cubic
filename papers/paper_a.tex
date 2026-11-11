@@ -8,9 +8,9 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月12日・論文A（投稿準備稿 v39）}
+\date{2026年11月12日・論文A（投稿準備稿 v40）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-12 / A-v39}
+\fancyhead[R]{\small 2026-11-12 / A-v40}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -27,6 +27,8 @@ Bondal予想の次元下界を、平面曲線の射影joinを構成して導く�
 各Poisson構造に対して、原点を含む一変数Zariski開集合上に
 Koszul Artin--Schelter正則な周囲の量子化と
 中心正則三次元による量子超曲面を構成する。
+さらに，標準5次元Koszul AS正則$\mathbb Z$-代数が
+正則正規三次超曲面を持てば，ambient自体が1周期的であることを示す。
 固定した滑らかなcubic fivefoldに現れる節点型・尖点型の
 非楕円Poisson成分と、Hesse型の明示中心元も扱う。
 高次元の正規形と量子化の構成を主結果とし、
@@ -145,6 +147,18 @@ $(1-t^3)/(1-t)^N$を持つ。
 または$\operatorname{qgr}B_\hbar$のsmoothnessを結論しない。
 原点を含む開集合の存在と、特定の閉点における公式の可逆性も区別する。
 
+$N=5$すなわち非可換cubic threefoldの場合には，
+ambientに初めから次数付き表示を仮定する必要がないことも分かる。
+系\ref{cor:pg-cubic-ambient-periodic}によれば，標準5次元Koszul
+AS正則$\mathbb Z$-代数に正則正規三次族が存在すれば，
+AS双対性による5周期性と正規族による3周期性から
+$2\cdot3-5=1$を用いてambientは1周期的となる。
+この帰結はBondal--PolishchukのKoszul--Frobenius双対性
+\cite{PBondalPolishchukHelices}と正規族の概念
+\cite{PChanNymanNormalFamily}に基づく。
+ただし三次イデアルを保つ1周期同型や，任意の抽象的cubicの
+超曲面表示の存在まで結論するものではない。
+
 さらに中心元の反自己同型に関する偶数次正規化を示し
 （補題\ref{lem:pg-center-parity}）、
 任意の三変数Jacobianブロックについて
@@ -185,12 +199,14 @@ Br\"uckmann型消滅定理を利用する既知の背景結果
 続く第\ref{sec:pg-leaves}節と第\ref{sec:pg-degeneracy}節で
 葉・退化スキームの幾何を記述し、
 第\ref{sec:pg-quantization}節で量子化を構成する。
+そのambientの周期性は第\ref{sec:pg-ambient-periodicity}節で扱う。
 Bondal予想の帰結は第\ref{sec:pg-bondal}節、
 非楕円型成分とその量子化は第\ref{ne:examples}節以下、
 明示Hesse公式は第\ref{sec:explicit-hesse-center}節に置く。
 各主張の証明に用いた既知の結果と本稿の新しい帰結を分けて記述する。
 \input{papers/sections/complete_intersections}
 \input{papers/sections/poisson_geometry}
+\input{papers/sections/ambient_periodicity}
 \input{papers/sections/fermat_relative_poisson_components}
 \input{papers/sections/bondal_cubic}
 \input{papers/sections/nonelliptic_poisson_components}
