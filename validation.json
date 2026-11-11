@@ -1,10 +1,20 @@
 {
-  "version": "nc-cubic-v38",
+  "version": "nc-cubic-v39",
   "date": "2026-11-11",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only following actual GitHub publication failure.",
-  "scope": "Bondal degeneracy conjecture for all smooth cubic n-folds n>=3 as a consequence of the existing Jacobian block normal form, via explicit joins; retain all prior work. New mixed point-module initial-point support E_h plus 12 fixed points, contrasted with Poisson zeros E_0 plus 12 doubled scheme points.",
+  "scope": "Mixed nc cubic point-scheme scheme structure: elliptic Sklyanin curve plus 12 doubled points; isolated component abstractly isomorphic, not embedded-identical, to Poisson zeros.",
   "proofs_written_and_checked": [
+    {
+      "source": "papers/reconstruction/point_scheme_thickening.tex",
+      "labels": [
+        "ps39:lem:abelian",
+        "ps39:prop:length",
+        "ps39:thm:comparison",
+        "ps39:thm:global"
+      ],
+      "status": "Full scheme-theoretic argument using central-coordinate multilinearization, exact commutative chart and nontrivial Sklyanin shift; relies on classical Sklyanin scheme/translation theorem. Standalone typeset separately."
+    },
     {
       "source": "papers/reconstruction/point_scheme_poisson_zero.tex",
       "labels": [
@@ -58,7 +68,8 @@
     "unchanged_script_git_blob": "ad87ed126e4d157208fffac3d16c38a3ffd80dec",
     "regenerated_certificate_git_blob": "79bf60036f597ead16bca22d526a5f807d535ebd",
     "source_audit": "scripts/verify_coherent_residual_assets.py --rerun-orbit passed source closure, labels, citations, parent C integration and exact JSON match.",
-    "not_a_formal_proof": "No new toy calculation is claimed to prove the saturation theorem."
+    "not_a_formal_proof": "No new toy calculation is claimed to prove the saturation theorem.",
+    "point_scheme_thickening": "SymPy Q(h) commutative chart identities and Groebner standard-monomial lengths24 at h=1,2,3. No automatic verification of Sklyanin theorem or global point functor."
   },
   "primary_sources_checked": [
     "Burke-Stevenson arXiv1507.00830v1, Prop4.18/Lemmas6.1,6.2/Thm6.4: PDF pp12-14,17-19 inspected including screenshots.",
@@ -79,7 +90,7 @@
     "Relative equivalence including h=0, compact inverse over the entire completed base, or multi-parameter all-component extension.",
     "Comprehensive novelty determination, external referee check, or formal proof.",
     "Independent complete revalidation of the existing Lie algebra normal form, exhaustive novelty/prior art for Bondal on cubic n-folds n>=6, and scheme-theoretic dimension/primary decomposition from the new join argument.",
-    "Scheme-level identification of the 12 isolated point-module components, point-scheme flat degeneration, or generic noncommutative cubic point-scheme classification."
+    "Special fibers h=0 or h^6=-27; point scheme of general nc cubic or other lambda; formal verification of global point module functor."
   ],
   "typesetting": {
     "standalone_coherent_residual": {
@@ -109,7 +120,13 @@
     },
     "C": {
       "build_completed": false,
-      "reason": "All existing input sections retained; new saturation section integrated, full manuscript not rebuilt."
+      "reason": "Point scheme section appended; complete C not recompiled."
+    },
+    "standalone_point_scheme_thickening": {
+      "source": "papers/point_scheme_thickening.tex",
+      "pages": 3,
+      "build_completed": true,
+      "visual_review": "All 3 pages rendered; labels/citations resolved after second LuaLaTeX run; local standalone preamble may differ from repo common.tex"
     }
   },
   "environment": {

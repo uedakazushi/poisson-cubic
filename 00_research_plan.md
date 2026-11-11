@@ -1,6 +1,6 @@
 # 研究方針：非可換cubicの一般点復元
 
-**2026年11月11日 / v38。再開時は最初に読む。GitHub `uedakazushi/nc-cubic` の `main` が唯一の正本。**
+**2026年11月11日 / v39。再開時は最初に読む。GitHub `uedakazushi/nc-cubic` の `main` が唯一の正本。**
 次は `notes/bondal_cubic.md`、`notes/coherent_residual_saturation.md` と `notes/rotation_orbit_generic_reconstruction.md`。具体式は `notes/curved_diagonal.md`、形式比較は `notes/geometric_rotation_basechange.md`。完備底全体の別経路は `notes/one_sided_morita.md`。一般背景は論文A/B/Cと `notes/research_notes.md`。旧ZIP・会話を再開条件にしない。
 
 ## Poisson構造定理の新たな帰結：Bondal予想（論文A）
@@ -9,7 +9,7 @@
 
 ## Point schemeとPoisson零点（混合lambda=1）
 
-**集合論的に証明。** 非零一般h（h^6!=-27）のB_h=A_h/(Omega_h)のpoint moduleの初期点集合はE_h⊔Σ。E_hはu=v=0のSklyaninのHesse曲線 x³+y³+z³+h²xyz=0、Σはu!=0の固定点12点。Poisson零点の台はE_0⊔Σで、E_0はFermat曲線。h=1の(1,1,-1,0,0)はpoint scheme上だがX0上でない。Poisson零点のΣ部分はスキーム長24（12点、各横断長2）。point schemeの12点のscheme厚化は未確認。論文Cの `papers/reconstruction/point_scheme_poisson_zero.tex` と `notes/point_scheme_poisson_zero.md` を参照。これは一般のnc cubicのpoint scheme分類ではない。
+**スキーム論的にも証明（論文C新節）。** 非零一般h（h^6!=-27）のB_h=A_h/(Omega_h)のpoint moduleの初期点集合はE_h⊔Σ。E_hはu=v=0のSklyaninのHesse曲線 x³+y³+z³+h²xyz=0、Σはu!=0の固定点12点。Poisson零点の台はE_0⊔Σで、E_0はFermat曲線。h=1の(1,1,-1,0,0)はpoint scheme上だがX0上でない。Poisson零点のΣ部分はスキーム長24（12点、各横断長2）。point schemeの孤立12点もそれぞれ長さ2で総長24。Poisson零点の孤立厚化と抽象的には同型だが、射影空間での接方向は異なる。明示同型はv'=v+h²z(1/6−2xy/3)/(3v²)。E_h方向の中心変数の余分な厚化はSklyanin shiftの非自明平行移動と中心性から排除。全文 papers/reconstruction/point_scheme_thickening.tex。論文Cの `papers/reconstruction/point_scheme_poisson_zero.tex` と `notes/point_scheme_poisson_zero.md` を参照。これは一般のnc cubicのpoint scheme分類ではない。
 
 ## 最終目標と現在の結論
 
