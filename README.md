@@ -1,10 +1,14 @@
 # nc-cubic：全coherent残余pairの一般点復元
 
-**2026-11-11 / v37。GitHub mainが正本。** 最初に[研究方針](00_research_plan.md)を読む。
+**2026-11-11 / v38。GitHub mainが正本。** 最初に[研究方針](00_research_plan.md)を読む。
 
 ## Bondal予想（論文Aの新しい帰結）
 
 滑らかなcubic n-fold（n>=3）の全Poisson構造についてBondal予想を証明した。一般rank2kの正規形から、j<kではj+1個のJacobian三変数ブロックの平面曲線join（次元2j+1）をD_{2j}に構成する。既存の正規形定理に依存し、その全証明の独立監査・高次元での新規性確認は未完了。本文 `papers/sections/bondal_cubic.tex`、ノート `notes/bondal_cubic.md`。2013年Fano4、2026年Fano5の既存結果を参照。
+
+## Point schemeとPoisson零点
+
+混合lambda=1の非可換cubicでは、一般h非零のpoint moduleの初期点集合はSklyanin曲線E_h:x³+y³+z³+h²xyz=0と固定点12点の非交和。Poisson零点はE_0（Fermat）と同じ12点（後者はscheme長24）。一般に同一視できない。証明は論文C `papers/reconstruction/point_scheme_poisson_zero.tex`。point schemeの12点のscheme構造は未確認。
 
 ## 現在の結論
 

@@ -1,10 +1,14 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-11 / v37。GitHub mainが正本。** 00_research_plan.md、notes/coherent_residual_saturation.md、notes/rotation_orbit_generic_reconstruction.mdを先に読む。
+**2026-11-11 / v38。GitHub mainが正本。** 00_research_plan.md、notes/coherent_residual_saturation.md、notes/rotation_orbit_generic_reconstruction.mdを先に読む。
 
 ## 論文A：Bondal予想の帰結
 
 全滑らかなcubic n-fold (n>=3) のPoisson構造についてBondalのD_{2j}次元下界を、正規形のJacobianブロックから選ぶ平面曲線のjoinで証明。`papers/sections/bondal_cubic.tex` に証明全文、`notes/bondal_cubic.md` に次の監査点。現行の正規形 `thm:pg-normal` に依存する。旧正規形のLie代数補題と射影ランク低下の独立監査が次の優先事項。Fano4/5の既知結果と新規性を区別する。
+
+## Point schemeの現行結果
+
+混合lambda=1,h非零かつh^6!=-27でpoint module初期点集合E_h⊔Σ（E_hはSklyanin曲線、Σは定数列の12点）。Poisson零点台E_0⊔Σとは一致せず、E_hは計算済みG_h+v³のu=v=0切断と一致。論文Cに証明を置き、12点のpoint scheme scheme構造は未確認として残す。Sklyanin中心元による商と定数列の中心作用を区別する。
 
 ## 現行の結論と依存
 
