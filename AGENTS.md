@@ -1,6 +1,6 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-11 / v41。GitHub mainが正本。** 00_research_plan.md、notes/coherent_residual_saturation.md、notes/rotation_orbit_generic_reconstruction.mdを先に読む。
+**2026-11-11 / v42。GitHub mainが正本。** 00_research_plan.md、notes/coherent_residual_saturation.md、notes/rotation_orbit_generic_reconstruction.mdを先に読む。
 
 ## 論文A：Bondal予想の帰結
 
@@ -9,6 +9,10 @@
 ## Point schemeの現行結果
 
 混合族の全滑らかな係数λ（λ³+3≠0）に拡張。Sklyaninが滑らかなh⁶+27≠0、h非零でPoint(B)=E_h⊔S_{h,λ}。有限部分の環はmonicなx²+λy,y²+λx,z²,v³+1+λxy/3+h²z(λ²/6−2xy/3)で自由rank24。vは単元、明示せん断でh方向の抽象同型。h=0のflat schematic closureはPoisson零点の埋め込みスキーム。λ≠0で12二重点、λ=0で3八重点。証明 `papers/reconstruction/point_scheme_lambda_family.tex`、ノート `notes/point_scheme_poisson_zero.md`。Sklyaninの点列scheme/translationは既知入力。特異λ³=−3・退化h⁶=−27と一般nc cubicは未解決。
+
+## 特異境界の有限点の局所型
+
+判別式λ³=-3を越えて孤立point-module可換化環のC[λ,h]自由rank24が証明された。境界h≠0で3×2 +3×6、六重点はC[v]/(v^6)、h=0ではC[v,z]/(v³,z²)。hλ≠0で局所一変数式(v³+(λ³+3)/3)²=0。論文Cの `point_scheme_discriminant_boundary.tex` を使用。Sklyanin部分の退化h⁶=-27と、特異cubicのPoisson零点定理は別扱い。h=0の代数的延長をB0のpoint schemeと同一視しない。証明原稿と有限計算証明書を残す。
 
 ## 現行の結論と依存
 

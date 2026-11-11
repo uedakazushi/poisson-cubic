@@ -1,6 +1,6 @@
 # nc-cubic：全coherent残余pairの一般点復元
 
-**2026-11-11 / v41。GitHub mainが正本。** 最初に[研究方針](00_research_plan.md)を読む。
+**2026-11-11 / v42。GitHub mainが正本。** 最初に[研究方針](00_research_plan.md)を読む。
 
 ## Bondal予想（論文Aの新しい帰結）
 
@@ -9,6 +9,10 @@
 ## Point schemeとPoisson零点（二パラメータでの新定理）
 
 F_λ=(x³+y³+z³)/3+u³+v³+λuxy の混合量子化について、λ³+3≠0、h⁶+27≠0 の範囲で、h非零のpoint schemeはSklyanin楕円曲線 E_h と長さ24の有限平坦成分S_{h,λ}の非交和。h=0のスキーム論的平坦閉包はPoisson零点スキームD0と一致。λ≠0では12個の二重点、λ=0では3個の八重点へ衝突（各局所環 C[x,y,z]/(x²,y²,z²)）。全文 `papers/reconstruction/point_scheme_lambda_family.tex`、単独組版 `papers/point_scheme_lambda_family.tex`、計算 `computations/verify_lambda_point_scheme.py`。一般nc cubicへ無条件に適用しない。
+
+## 特異境界の局所代数
+
+λ³=-3で元の可換cubicは特異でも、point-moduleの孤立部分を記述する可換化環はC[λ,h]上自由rank24。h≠0の境界では3二重点と3六重点（局所環C[t]/t^6）。h=0では六重点はC[t,z]/(t^3,z²)になり局所型が変わる。λ境界の局所模型はhλ≠0で(v³+(λ³+3)/3)²=0。証明 `papers/reconstruction/point_scheme_discriminant_boundary.tex`、単独原稿 `papers/point_scheme_discriminant_boundary.tex`、検証 `computations/verify_lambda_discriminant.py`。Poisson零点との一致はsmooth cubic領域以外には主張しない。
 
 ## 現在の結論
 

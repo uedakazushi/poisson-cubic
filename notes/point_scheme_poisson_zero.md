@@ -1,6 +1,6 @@
 # 混合nc cubicのpoint schemeとPoisson零点
 
-**2026-11-11 / v41。最初に00_research_plan.mdを読む。GitHub mainが正本。**
+**2026-11-11 / v42。最初に00_research_plan.mdを読む。GitHub mainが正本。**
 
 ## 現行の主要結果
 
@@ -17,6 +17,10 @@ h=0で E0⊔S0 はXλ上のPoisson零点スキームD0に**射影空間内の埋
 - **直接証明**：可換化のmonic Gröbner基底、24の自由基底、vの可逆性、明示shear、平坦性、12→3支持衝突。全文は `papers/reconstruction/point_scheme_lambda_family.tex`。
 - **既知入力**：三次元Sklyaninの滑らかなpoint schemeと非自明translation、中心三次元が点モジュールを消すこと。これによりE_hとその冪零横断方向が決まる。参考文献は現行Cのpoint-scheme節を参照。
 - **計算**：`python3 computations/verify_lambda_point_scheme.py --output build/lambda_point_scheme_certificate.json`。λ=0,1,2,-1、h=0,1,2の12個の有理パラメータでGröbner長さ24、二変数多項式恒等式、shearのz²-倍数性を確認。これはSklyanin定理やpoint functorの形式検証ではない。
+
+## 特異境界で得た有限代数的結果
+
+判別式λ³=-3では可換cubicが特異になり、smooth Poisson零点との一致は述べない。しかし有限componentの環はC[λ,h]上自由rank24。λ0³=-3でx=y=0の枝は3二重点、非零x,yの各3枝にh≠0でC[v]/v^6という曲線的六重点。h=0ではC[v,z]/(v³,z²)となり、長さ6を保ちながら埋め込み次元が変わる。δ=λ³+3、x=-λζ、y=-λζ²なら非零hの局所模型は(v³+δ/3)²=0。境界を挟む3二重点→1六重点の衝突を表す。全文 `papers/reconstruction/point_scheme_discriminant_boundary.tex`。全体のSklyanin楕円曲線はh⁶≠-27の既知定理に依存。
 
 ## 次の研究課題
 

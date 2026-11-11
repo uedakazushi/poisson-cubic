@@ -1,6 +1,6 @@
 # 研究方針：非可換cubicの一般点復元
 
-**2026年11月11日 / v41。再開時は最初に読む。GitHub `uedakazushi/nc-cubic` の `main` が唯一の正本。**
+**2026年11月11日 / v42。再開時は最初に読む。GitHub `uedakazushi/nc-cubic` の `main` が唯一の正本。**
 次は `notes/point_scheme_poisson_zero.md`、`notes/bondal_cubic.md`、`notes/coherent_residual_saturation.md` と `notes/rotation_orbit_generic_reconstruction.md`。具体式は `notes/curved_diagonal.md`、形式比較は `notes/geometric_rotation_basechange.md`。完備底全体の別経路は `notes/one_sided_morita.md`。一般背景は論文A/B/Cと `notes/research_notes.md`。旧ZIP・会話を再開条件にしない。
 
 ## Poisson構造定理の新たな帰結：Bondal予想（論文A）
@@ -16,6 +16,14 @@
 **λ=0の衝突。** λ≠0ではSは12個の長さ2の非被約点。λ=0では3個の長さ8の点へ衝突し、各局所環は C[x,y,z]/(x²,y²,z²)、Hilbert関数(1,3,3,1)。全長24は保存。λ³=−3では元のcubicが特異、h⁶=−27ではSklyaninが退化するため適用外。
 
 証明全文は `papers/reconstruction/point_scheme_lambda_family.tex`、再生成可能な単独LuaLaTeX入口は `papers/point_scheme_lambda_family.tex`、現行研究ノートは `notes/point_scheme_poisson_zero.md`、厳密検算は `computations/verify_lambda_point_scheme.py`。前段のλ=1非被約・平坦極限の証明は `point_scheme_thickening.tex` に保持。3D Sklyanin point-scheme定理は既知入力。一般のnc cubicに対する同一結果や全先行研究上の新規性は未確認。
+
+## 特異な混合係数境界でのpoint scheme（論文C）
+
+**証明済みの有限平坦モデル。** 特殊値 λ³=-3 では元の可換cubicが特異となりPoisson多様体の零点定理の適用外だが、既存の中心座標u=1における有限point-module可換化環は C[λ,h] 上で自由rank24（基底 x^a y^b z^c v^d、a,b,c=0,1; d=0,1,2）。これは λ,h の分母を使わず、判別式境界やh=0にも代数的に延長する。**h=0のこの環はB_0自身のpoint schemeではない。**
+
+λ³=-3、h≠0では支持が6点：x=y=0から3個の二重点、非零x,yの3枝に各局所環C[v]/(v^6)の曲線的六重点。h=0では同じ3枝の局所環はC[v,z]/(v³,z²)となり、長さ6は同じでも埋め込み次元は1から2へ変化。δ=λ³+3を境界の局所パラメータとすると非零枝で hλ≠0 の模型は (v³+δ/3)²=0で、一般λの3二重点が判別式上で1六重点に合体する。証明: `papers/reconstruction/point_scheme_discriminant_boundary.tex`、単独LuaLaTeX `papers/point_scheme_discriminant_boundary.tex`、有限検算 `computations/verify_lambda_discriminant.py`。
+
+有限部分の全パラメータ平坦性と、**滑らかなPoisson零点との平坦極限の同定**は異なる。後者はλ³≠-3のv41定理の範囲に保ち、特異境界では無条件に主張しない。h⁶=-27のSklyanin退化も未調査。
 
 ## 最終目標と現在の結論
 

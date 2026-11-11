@@ -1,0 +1,36 @@
+{
+  "version": "nc-cubic-v42",
+  "date": "2026-11-11",
+  "scope": "Exact quotient identities and finite characteristic-11 checks, not categorical scheme verification",
+  "boundary": "lambda^3=-3,lambda nonzero",
+  "relative_free_rank": 24,
+  "special_support": "3 length-2 points plus 3 length-6 points",
+  "h_nonzero_sixfold_ring": "C[t]/(t^6)",
+  "h_zero_sixfold_ring": "C[t,s]/(t^3,s^2)",
+  "modular_tests": [
+    {
+      "lambda_mod_11": 2,
+      "h_mod_11": 0,
+      "total_length": 24,
+      "length_each_nonzero_xy_branch": 6
+    },
+    {
+      "lambda_mod_11": 2,
+      "h_mod_11": 1,
+      "total_length": 24,
+      "length_each_nonzero_xy_branch": 6
+    },
+    {
+      "lambda_mod_11": 2,
+      "h_mod_11": 2,
+      "total_length": 24,
+      "length_each_nonzero_xy_branch": 6
+    }
+  ],
+  "not_verified": [
+    "Sklyanin point-functor theorem",
+    "General Poisson zeros for singular cubic",
+    "Degenerate h^6=-27 Sklyanin curve",
+    "All noncommutative cubic threefolds"
+  ]
+}

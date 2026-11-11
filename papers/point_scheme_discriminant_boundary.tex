@@ -1,0 +1,23 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[unicode,colorlinks=true]{hyperref}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{注意}
+\renewcommand{\proofname}{証明}
+\title{混合非可換cubicの特異境界におけるpoint scheme\\\large 六重点と有限平坦な衝突}
+\author{}\date{2026年11月11日・v42}
+\begin{document}\maketitle
+\begin{abstract}
+混合係数の判別式$\lambda^3+3=0$では元の可換cubicは特異になるが、
+非可換中心商のpoint schemeの孤立部分は$\mathbb C[\lambda,h]$上
+自由階数24の模型に延長できる。$h\ne0$の判別式上では三個の二重点と
+三個の曲線的六重点が現れる。六重点の局所環は$\mathbb C[t]/(t^6)$、
+$h=0$では$\mathbb C[t,z]/(t^3,z^2)$である。
+滑らかなPoisson多様体の零点定理への無条件な拡張は主張しない。
+\end{abstract}
+\input{papers/reconstruction/point_scheme_discriminant_boundary}
+\end{document}

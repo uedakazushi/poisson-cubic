@@ -1,10 +1,19 @@
 {
-  "version": "nc-cubic-v41",
+  "version": "nc-cubic-v42",
   "date": "2026-11-11",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only following actual GitHub publication failure.",
-  "scope": "Two-parameter mixed lambda and h family: finite flat isolated point-scheme component rank24 with lambda=0 collision of twelve doubles to three octuples; h=0 flat closure equals Poisson zero scheme. Preserve existing cubic reconstruction and Bondal work.",
+  "scope": "Finite flat rank-24 point-module commutative chart across lambda^3=-3, with 3 double and 3 sixfold points at h nonzero, and local algebra jump at h zero; previous results retained.",
   "proofs_written_and_checked": [
+    {
+      "source": "papers/reconstruction/point_scheme_discriminant_boundary.tex",
+      "labels": [
+        "pdb:thm:flat",
+        "pdb:thm:sixfold",
+        "pdb:cor:double-cubic"
+      ],
+      "status": "Proof of monic Groebner rank24 across all lambda,h, local algebras at lambda^3=-3 and the doubled-cubic collision. This does not extend smooth-Poisson zero theorem to singular X."
+    },
     {
       "source": "papers/reconstruction/point_scheme_lambda_family.tex",
       "labels": [
@@ -86,7 +95,8 @@
     "source_audit": "scripts/verify_coherent_residual_assets.py --rerun-orbit passed source closure, labels, citations, parent C integration and exact JSON match.",
     "not_a_formal_proof": "No new toy calculation is claimed to prove the saturation theorem.",
     "point_scheme_thickening": "SymPy Q(h) commutative chart identities and Groebner standard-monomial lengths24 at h=1,2,3. No automatic verification of Sklyanin theorem or global point functor.",
-    "lambda_point_scheme": "Ran SymPy script: 12 Groebner computations over lambda=0,1,2,-1 and h=0,1,2 with local length24, exact polynomial reduction and nilpotent shear checks. Regenerated JSON in local working copy. Not a formal proof of point-module functor."
+    "lambda_point_scheme": "Ran SymPy script: 12 Groebner computations over lambda=0,1,2,-1 and h=0,1,2 with local length24, exact polynomial reduction and nilpotent shear checks. Regenerated JSON in local working copy. Not a formal proof of point-module functor.",
+    "discriminant_boundary": "Local SymPy exact reductions passed, finite field p=11 boundary lambda=2 with h=0,1,2 all rank24; 3 nonzero-branch local rings length6. Standalone expanded Japanese LuaLaTeX draft compiled to 3 pages and visually checked; concise integrated GitHub TeX not independently compiled."
   },
   "primary_sources_checked": [
     "Burke-Stevenson arXiv1507.00830v1, Prop4.18/Lemmas6.1,6.2/Thm6.4: PDF pp12-14,17-19 inspected including screenshots.",
@@ -109,7 +119,8 @@
     "Independent complete revalidation of the existing Lie algebra normal form, exhaustive novelty/prior art for Bondal on cubic n-folds n>=6, and scheme-theoretic dimension/primary decomposition from the new join argument.",
     "Special fibers h=0 or h^6=-27; point scheme of general nc cubic or other lambda; formal verification of global point module functor.",
     "General theorem that Poisson zero schemes equal flat limits of point schemes outside the explicit mixed cubic family.",
-    "General point-scheme flat-limit theorem for arbitrary noncommutative cubic threefolds; degeneration at lambda^3=-3 or h^6=-27; independent verification of all Sklyanin deformation theorems; first publication novelty."
+    "General point-scheme flat-limit theorem for arbitrary noncommutative cubic threefolds; degeneration at lambda^3=-3 or h^6=-27; independent verification of all Sklyanin deformation theorems; first publication novelty.",
+    "Full point scheme at h^6=-27 or Poisson zero degeneracy on singular cubic lambda^3=-3; these are outside the smooth limit theorem."
   ],
   "typesetting": {
     "standalone_coherent_residual": {
