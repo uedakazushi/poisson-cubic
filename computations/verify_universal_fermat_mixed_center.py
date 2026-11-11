@@ -140,11 +140,32 @@ def verify():
     for r in R:
         reduce(r, insert=True)
     assert (len(B), len(R), len(pivots)) == (339, 162, 144)
+    # A separate rational-rank calculation at h=0 proves h-flatness in degree 4:
+    # the rank over Q(h) and the rank at h=0 are both 144.
+    special_pivots = {}
+    for relation in R:
+        row = {positions[key]: sp.Rational(sp.sympify(value).subs(h, 0))
+               for key, value in relation.items()
+               if sp.sympify(value).subs(h, 0) != 0}
+        while row:
+            lead = min(row)
+            if lead not in special_pivots:
+                coefficient = row[lead]
+                special_pivots[lead] = {i: v / coefficient for i, v in row.items()}
+                break
+            factor = row[lead]
+            for i, v in special_pivots[lead].items():
+                new = row.get(i, sp.S.Zero) - factor * v
+                if new:
+                    row[i] = new
+                else:
+                    row.pop(i, None)
+    assert len(special_pivots) == 144
     Om = omega()
     for generator in (x, y, z):
         comm = add(mul(Om, generator), scale(mul(generator, Om), -1))
         assert not reduce(comm), "universal centrality failed"
-    print("PASS: 339 basis words; 162 relation multiples; ideal rank 144")
+    print("PASS: 339 basis words; 162 relation multiples; ranks 144 at h=0 and over Q(h)")
     print("PASS: 3 exact universal commutators vanish over Q(h)[A,B,C,D,E,H]")
 
 
