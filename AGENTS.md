@@ -1,6 +1,20 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-11 / v42。GitHub mainが正本。** 00_research_plan.md、notes/coherent_residual_saturation.md、notes/rotation_orbit_generic_reconstruction.mdを先に読む。
+**2026-11-12 / v43。GitHub mainが唯一の正本。** 最初に 00_research_plan.md を読む。
+
+## 最優先指示：論文Aを投稿可能な水準へ
+
+現在は論文Aの証明・文献・構成の独立監査と改訂を最優先する。
+入口は papers/poisson_cubic_quantization.tex、専用文献は papers/references_poisson_cubic.tex、
+現在有効な研究ノートは notes/poisson_article_submission_audit.md。
+最初に prop:pg-represent、lem:pg-linearize、lem:pg-quadratic-lie と thm:pg-bondal を監査する。
+次に prop:pg-PBW、lem:pg-formal-center の相対/絶対Calabi–Yau・formality・代数化を
+Mori–Smith、Berger–Taillefer、Kontsevich、Dolgushev、Etingof–Ginzburgの一次資料と照合する。
+既知のcubic threefold Grassmann分類、Fano四・五次元Bondal予想、
+Sklyanin中心公式と本論文の貢献をIntroductionで区別する。
+全原稿AのLuaLaTeX組版と必要な整数行列証明書の再実行を経て投稿判定する。
+局所的な厳密検算を全定理の形式証明と取り違えない。
+論文B/Cの証明・コードを保持し、研究対象の新たな拡張よりAの完成を優先する。
 
 ## 論文A：Bondal予想の帰結
 
