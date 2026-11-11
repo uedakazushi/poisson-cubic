@@ -15,7 +15,10 @@ assert sp.simplify(G.reduce(x*x*y*y)[1]-lam**2*x*y)==0
 # Check the explicit shear by clearing v denominators; result is divisible by z^2.
 c=lam**2/sp.Integer(6)-2*x*y/sp.Integer(3)
 t=h**2*z*c
-assert sp.cancel((v+t/(3*v**2))**3-v**3-t).subs(z,0)==0
+numerator, denominator = sp.fraction(sp.cancel((v+t/(3*v**2))**3-v**3-t))
+assert sp.expand(numerator).coeff(z,0) == 0
+assert sp.expand(numerator).coeff(z,1) == 0
+assert not denominator.has(z)
 assert sp.simplify((1+lam*x*y/3)*(1-lam*x*y/(3+lam**3))-1).expand().subs(x*x*y*y,lam**2*x*y)==0
 
 # Count the Artin ring length using standard monomials of each Groebner ideal.
