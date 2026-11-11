@@ -1,6 +1,6 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-12 / v44。GitHub mainが唯一の正本。** 最初に 00_research_plan.md を読む。
+**2026-11-12 / v46。GitHub mainが唯一の正本。** 最初に 00_research_plan.md を読む。
 
 ## 最優先指示：論文Aを投稿可能な水準へ
 
@@ -59,3 +59,6 @@ papers/直下に置くファイルはpaper_a.tex、paper_b.tex、paper_c.texの�
 
 ## 確認済みのCasimir低次公式
 論文Aの lem:pg-center-parity と prop:pg-universal-casimir-jet を維持する。任意の中心係数上の三変数以下三次fに対し sym(f-h² det Hess_x f/12) は mod h⁵ で中心。20独立係数の厳密記号計算コード computations/verify_cubic_casimir_jet.py は値代入試験ではない。ただしこれは全次数中心元の存在を証明しない。次に絶対CYと相対Kontsevich/Dolgushev適用を検証する。
+
+## 量子中心三次元の現行結果と作業順
+論文A thm:pg-fermat-mixed-universal（六つの独立中心係数のFermat混合中心元）は、computations/verify_universal_fermat_mixed_center.pyによりQ(h)上の339列・162関係・階数144・三交換子剰余0とh=0の同階数を厳密検証済み。形式的中心存在を仮定しない。中心平行移動で対角二次混合を含む。論文A thm:pg-universal-determinantは任意の滑らかな三変数制限gに対するCramer決定式で、形式中心存在補題に依存する。検算はcomputations/verify_universal_casimir_minor.py。研究ノート notes/universal_casimir.md をまず参照し、Hesse一般tの短い普遍式探索と形式中心補題の完全監査を続ける。数学的に価値のある既存のFermat式を単に有限特殊化候補と呼び直さない。一般の特異gまで一つの式で覆うとは主張しない。
