@@ -1,9 +1,9 @@
 {
-  "version": "nc-cubic-v42",
-  "date": "2026-11-11",
+  "version": "nc-cubic-v43",
+  "date": "2026-11-12",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only following actual GitHub publication failure.",
-  "scope": "Finite flat rank-24 point-module commutative chart across lambda^3=-3, with 3 double and 3 sixfold points at h nonzero, and local algebra jump at h zero; previous results retained.",
+  "scope": "Article A submission-oriented introduction, bibliography separation, independent finite Poisson/Bondal checks, and explicit pending-audit plan; existing A/B/C mathematical results retained.",
   "proofs_written_and_checked": [
     {
       "source": "papers/reconstruction/point_scheme_discriminant_boundary.tex",
@@ -96,7 +96,9 @@
     "not_a_formal_proof": "No new toy calculation is claimed to prove the saturation theorem.",
     "point_scheme_thickening": "SymPy Q(h) commutative chart identities and Groebner standard-monomial lengths24 at h=1,2,3. No automatic verification of Sklyanin theorem or global point functor.",
     "lambda_point_scheme": "Ran SymPy script: 12 Groebner computations over lambda=0,1,2,-1 and h=0,1,2 with local length24, exact polynomial reduction and nilpotent shear checks. Regenerated JSON in local working copy. Not a formal proof of point-module functor.",
-    "discriminant_boundary": "Local SymPy exact reductions passed, finite field p=11 boundary lambda=2 with h=0,1,2 all rank24; 3 nonzero-branch local rings length6. Standalone expanded Japanese LuaLaTeX draft compiled to 3 pages and visually checked; concise integrated GitHub TeX not independently compiled."
+    "discriminant_boundary": "Local SymPy exact reductions passed, finite field p=11 boundary lambda=2 with h=0,1,2 all rank24; 3 nonzero-branch local rings length6. Standalone expanded Japanese LuaLaTeX draft compiled to 3 pages and visually checked; concise integrated GitHub TeX not independently compiled.",
+    "article_A_static": "20 bibitems; 49 cite uses; 119 labels; no unresolved cite/ref keys or duplicates; syntactic checks from GitHub contents",
+    "article_A_example": "Independent local SymPy demonstration: 56 Jacobi and 56 Euler-wedge components PASS; latest GitHub script including smoothness check not re-executed"
   },
   "primary_sources_checked": [
     "Burke-Stevenson arXiv1507.00830v1, Prop4.18/Lemmas6.1,6.2/Thm6.4: PDF pp12-14,17-19 inspected including screenshots.",
@@ -120,7 +122,8 @@
     "Special fibers h=0 or h^6=-27; point scheme of general nc cubic or other lambda; formal verification of global point module functor.",
     "General theorem that Poisson zero schemes equal flat limits of point schemes outside the explicit mixed cubic family.",
     "General point-scheme flat-limit theorem for arbitrary noncommutative cubic threefolds; degeneration at lambda^3=-3 or h^6=-27; independent verification of all Sklyanin deformation theorems; first publication novelty.",
-    "Full point scheme at h^6=-27 or Poisson zero degeneracy on singular cubic lambda^3=-3; these are outside the smooth limit theorem."
+    "Full point scheme at h^6=-27 or Poisson zero degeneracy on singular cubic lambda^3=-3; these are outside the smooth limit theorem.",
+    "Article A full independent proof audit, complete novelty review and submission-ready typeset final PDF."
   ],
   "typesetting": {
     "standalone_coherent_residual": {
@@ -142,7 +145,7 @@
     },
     "A": {
       "build_completed": false,
-      "reason": "New Bondal section inserted; full current A manuscript NOT recompiled in this update."
+      "reason": "Substantial Introduction and bibliography updates on 2026-11-12. Citation/label references statically checked; LuaLaTeX build and PDF page visual review not executed."
     },
     "B": {
       "build_completed": false,
@@ -170,5 +173,41 @@
     "python": "3.13.5",
     "sympy": "1.14.0"
   },
-  "persistence": "Creation, computation, typesetting and remote publication are separate. Remote branch and changed blobs are verified after push."
+  "persistence": "Creation, computation, typesetting and remote publication are separate. Remote branch and changed blobs are verified after push.",
+  "article_A_submission_audit": {
+    "manuscript": "papers/poisson_cubic_quantization.tex",
+    "bibliography": "papers/references_poisson_cubic.tex",
+    "research_note": "notes/poisson_article_submission_audit.md",
+    "exact_test": "computations/verify_poisson_article_A.py",
+    "editorial": {
+      "status": "Abstract, Introduction and prior-work comparison rewritten; manuscript A now uses dedicated bibliography",
+      "static_citation_check": "PASS (20 keys; 49 citations; no missing keys or duplicate bibitems)",
+      "static_label_check": "PASS (119 labels; no duplicate labels or missing ref/eqref targets)",
+      "caveat": "Static regex checks, not a full TeX parse or document build"
+    },
+    "mathematical_check": {
+      "status": "PASS on local independently constructed test for 56 Jacobi components and 56 join Euler-wedge components over exact rational coefficients",
+      "scope": "One explicit smooth two-block cubic; cannot prove Lie algebra normal form or arbitrary n Bondal",
+      "uploaded_script_rerun": "NOT RUN in GitHub execution environment; latest script adds smoothness zero-dimensional gradient check; exact uploaded version not re-executed"
+    },
+    "proofs": {
+      "established_in_existing_draft": [
+        "prop:pg-represent",
+        "lem:pg-quadratic-lie",
+        "thm:pg-normal",
+        "thm:pg-bondal",
+        "thm:pg-quantization"
+      ],
+      "independently_fully_reaudited": "NO",
+      "pending": [
+        "Original-source verification of Etingof Lie input and root-system argument",
+        "Full review of relative PBW and completed relative/absolute Calabi-Yau argument and Dolgushev input",
+        "Independent rerun of nonelliptic 33-rank certificates",
+        "Comprehensive originality/prior art review of high-dimensional cubic Bondal and normal form"
+      ]
+    },
+    "typesetting": {
+      "whole_article_A": "NOT RUN: private GitHub source is accessible through connector but not cloneable in current container execution environment"
+    }
+  }
 }
