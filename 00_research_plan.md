@@ -1,9 +1,9 @@
 # 研究方針：Poisson cubic論文Aの投稿品質確立と非可換cubicの可換復元
 
-**2026年11月12日 / v43。再開時は最初に読む。GitHub uedakazushi/nc-cubic の main が唯一の正本。**
+**2026年11月12日 / v44。再開時は最初に読む。GitHub uedakazushi/nc-cubic の main が唯一の正本。**
 **現在の最優先課題は論文Aの公表水準への改訂。** 最新原稿は papers/paper_a.tex、
 詳細な監査・未確認点・着手方法は notes/poisson_article_submission_audit.md。
-関連文献は papers/support/papers/references_poisson_cubic.tex、独立検算は computations/verify_poisson_article_A.py。
+関連文献は papers/support/papers/references_poisson_cubic.tex、独立検算は computations/verify_poisson_article_A.py と computations/verify_cubic_casimir_jet.py。
 論文B/Cの有効な成果と証明を保持するが、当面はその新規拡張を優先しない。
 
 ## 最優先課題：論文Aを公表可能にする
@@ -18,6 +18,8 @@
 文献キー・文書内label/refの静的整合性はPASS。二ブロックcubicのJacobi56成分と
 Bondal joinの外積56成分を厳密計算でPASS。これは主定理の形式証明ではない。
 A全体の組版、非楕円行列証明書全件の再実行、引用理論の全独立監査は未実施。
+
+**新たに確立した低次結果：** 論文Aの lem:pg-center-parity と prop:pg-universal-casimir-jet により、三次中心元はWeyl表示でhの偶数次だけを含む形に選べる。全20係数を持つ任意の三変数以下三次式 f について、sym(f-h² det Hess_x f/12) は mod h⁵ で中心であることを普遍恒等式として確認した。厳密計算証明書は computations/verify_cubic_casimir_jet.py。これは全次数中心元の存在と区別する。Etingof–Ginzburg Prop.8.1.1(i)、Berger–Taillefer Thm.1.1(i) の原PDF該当箇所を確認した。現在の証明監査の残核は、複数中心変数への相対formalityと完成CY双加群分解の適用である。
 
 **次に行う数学的作業：** まず lem:pg-quadratic-lie（Bertini、可解根基、最高根）と
 prop:pg-represent、lem:pg-linearizeを逐語的に監査する。
