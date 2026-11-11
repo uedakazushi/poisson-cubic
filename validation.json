@@ -97,7 +97,7 @@
     "point_scheme_thickening": "SymPy Q(h) commutative chart identities and Groebner standard-monomial lengths24 at h=1,2,3. No automatic verification of Sklyanin theorem or global point functor.",
     "lambda_point_scheme": "Ran SymPy script: 12 Groebner computations over lambda=0,1,2,-1 and h=0,1,2 with local length24, exact polynomial reduction and nilpotent shear checks. Regenerated JSON in local working copy. Not a formal proof of point-module functor.",
     "discriminant_boundary": "Local SymPy exact reductions passed, finite field p=11 boundary lambda=2 with h=0,1,2 all rank24; 3 nonzero-branch local rings length6. Standalone expanded Japanese LuaLaTeX draft compiled to 3 pages and visually checked; concise integrated GitHub TeX not independently compiled.",
-    "article_A_static": "PASS 20 bibkeys, 51 citation uses, 131 labels, 115 references, no missing or duplicate keys across entire article A input closure fetched from GitHub",
+    "article_A_static": "PASS: all 12 input files for A gathered through GitHub: 22 bibkeys, 55 citations, 161 labels, 156 refs; 0 missing or duplicate keys.",
     "article_A_example": "Independent local SymPy demonstration: 56 Jacobi and 56 Euler-wedge components PASS; latest GitHub script including smoothness check not re-executed",
     "article_A_universal_casimir_jet": "PASS in local SymPy symbolic independent-coefficient expansion (20 coefficients, 3 commutators) modulo h^4, upgraded to h^5 by a proved anti-involution+flatness argument; exact uploaded script not rerun",
     "article_A_fermat_mixed_universal": "PASS locally: 339 weighted free words, 162 quadratic relation multiples, rank 144 both over QQ(h) and at h=0, 3 universal center commutators reduce to 0 over QQ(h); all 6 coefficients algebraically independent.",
@@ -189,8 +189,8 @@
     "exact_test": "computations/verify_poisson_article_A.py",
     "editorial": {
       "status": "Abstract, Introduction and prior-work comparison rewritten; manuscript A now uses dedicated bibliography",
-      "static_citation_check": "PASS, all 10 article-A sources: 20 bibliography keys, 51 citation uses, no missing or duplicated keys",
-      "static_label_check": "PASS, all 10 article-A sources: 131 labels, 115 ref/eqref uses, no unresolved targets or duplicate labels",
+      "static_citation_check": "PASS (post-universal center): 22 bibitems, 55 citation uses, no unresolved citation keys or duplicated bibitems.",
+      "static_label_check": "PASS (post-universal center): 161 labels, 156 refs/eqrefs, no missing or duplicated targets.",
       "caveat": "Static regex checks, not a full TeX parse or document build"
     },
     "mathematical_check": {
@@ -224,7 +224,7 @@
       "relative_absolute_kontsevich_bridge": "Clarified in paper A: differential cochains in active x are included in absolute polydifferentials; graph formula for active-only Pi differentiates only x, hence same absolute Kontsevich star product. Standard formality/absolute completed CY assumptions still not independently fully established."
     },
     "typesetting": {
-      "whole_article_A": "NOT RUN: access through private GitHub connector, not cloned into the available local LuaLaTeX runtime; static checks only."
+      "whole_article_A": "NOT RUN in this turn: static reference/source closure confirmed; LuaLaTeX compilation and PDF visual check not performed."
     },
     "universal_casimir_jet": {
       "theorem_labels": [
@@ -263,10 +263,11 @@
           0
         ]
       },
-      "verification": "A standalone local Python SymPy implementation of the identical free-word and rational-function algorithm was actually executed and PASS; script uploaded to GitHub, exact committed script not reexecuted after upload.",
+      "verification": "A local standalone SymPy implementation was executed successfully with Q(h) rank144, special h=0 rank144, and all three universal commutators reducing to zero; the GitHub-hosted script itself was not executed after upload.",
       "applies_to": "Any number of central variables and their arbitrary degree-1/2/3 coefficient polynomials; diagonal quadratic mixtures by explicit central translation; coordinate GL3 Fermat orbit.",
       "limitations": "Cubic active restriction must be GL3-equivalent to Fermat for the short polynomial formula; AS regularity of ambient is separate from centrality; full literature novelty not checked.",
-      "compact_formula": "sym(F-h^2*det(Hess_x(F))/12+h^2*A*B*C/6+h^4*(A*z^2+B*x^2+C*y^2-A*C*x-A*B*y-B*C*z)/18) for F=(x^3+y^3+z^3)/3+Axy+Byz+Czx+Dx+Ey+Hz+G"
+      "compact_formula": "sym(F-h^2*det(Hess_x(F))/12+h^2*A*B*C/6+h^4*(A*z^2+B*x^2+C*y^2-A*C*x-A*B*y-B*C*z)/18) for F=(x^3+y^3+z^3)/3+Axy+Byz+Czx+Dx+Ey+Hz+G",
+      "flatness_argument": "Over Q[h]_(h), degree-four relation matrix has generic and special rank144, so Smith invariant factors are units; quotient is h-torsion-free and generic polynomial identities descend to neighborhood of h=0. This is independent of full-degree PBW."
     },
     "generic_universal_determinant": {
       "source": "papers/support/papers/sections/universal_casimir_determinant.tex",
