@@ -1,13 +1,33 @@
-# 研究方針：非可換cubicの一般点復元
+# 研究方針：Poisson cubic論文Aの投稿品質確立と非可換cubicの可換復元
 
-**2026年11月12日 / v43。再開時は最初に読む。GitHub `uedakazushi/nc-cubic` の `main` が唯一の正本。**
-次は `notes/point_scheme_poisson_zero.md`、`notes/bondal_cubic.md`、`notes/coherent_residual_saturation.md` と `notes/rotation_orbit_generic_reconstruction.md`。具体式は `notes/curved_diagonal.md`、形式比較は `notes/geometric_rotation_basechange.md`。完備底全体の別経路は `notes/one_sided_morita.md`。一般背景は論文A/B/Cと `notes/research_notes.md`。旧ZIP・会話を再開条件にしない。
+**2026年11月12日 / v43。再開時は最初に読む。GitHub uedakazushi/nc-cubic の main が唯一の正本。**
+**現在の最優先課題は論文Aの公表水準への改訂。** 最新原稿は papers/poisson_cubic_quantization.tex、
+詳細な監査・未確認点・着手方法は notes/poisson_article_submission_audit.md。
+関連文献は papers/references_poisson_cubic.tex、独立検算は computations/verify_poisson_article_A.py。
+論文B/Cの有効な成果と証明を保持するが、当面はその新規拡張を優先しない。
 
-## 論文A：固定Fermatと相対Poisson schemeの既約成分
+## 最優先課題：論文Aを公表可能にする
 
-**既存Poisson正規形定理を入力とする新しい計数的帰結の証明を追加。** \(N=n+2\ge5\) とする。Fermat \(X_N=\{\sum_i z_i^3=0\}\) のアフィンPoisson schemeの被約既約成分は、\([N]\) を各大きさ3以上の非順序集合分割に分ける各分割 \(\mathcal B\) に対応し、成分は \(\bigoplus_{B\in\mathcal B}\widehat{\mathrm{Gr}}(3,\mathbb C^B)\)、次元は \(3N-8|\mathcal B|\)。全成分数はrestricted Bell number \(\sum_k\left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}\)。一方、滑らかなcubicと非零Poisson構造を同時に動かす相対schemeは一般rank \(2k\) ごとに一成分、合計 \(\lfloor N/3\rfloor\) 成分であり、商次元の閉公式を本文に記載。\(n=3,4,5,6,7\) に対しFermat成分は \(1,11,36,92,491\)、相対成分は \(1,2,2,2,3\)。
+**達成基準：** (i) Poisson正規形とBondal予想を含む主要定理の証明と仮定が独立に監査され、
+(ii) 量子化の形式的中心元・PBW・代数化について一次資料と比較してギャップが解消され、
+(iii) 新規性と既知結果の境界がIntroductionに明記され、
+(iv) 全LuaLaTeX入力・引用・計算証明書を必要な範囲で再生成し目視検証できること。
+これらを満たすまでは投稿準備段階と記し、投稿可能とは断定しない。
 
-**証明と範囲**：`papers/sections/fermat_relative_poisson_components.tex` を論文Aに組み込み。入力は `thm:pg-normal`, `lem:pg-linearize`, `prop:pg-represent`, `ne:blocks`。詳細な現在有効知識と再現は `notes/fermat_relative_poisson_components.md`、整数検算は `computations/verify_poisson_component_comparison.py`。**今回既存正規形定理の全証明を独立再監査したとはしない。** 既約成分は被約の基礎位相空間であり、Poisson schemeのnilpotent構造、成分交叉、Fermat最大性、先行研究上の初出は未解決。rank2は全cubicで一成分である一方、高rankのFermat特殊ファイバーは座標分割によって多数に分裂する。論文Aが自己完結するよう数え上げの証明全文を保持した。
+**すでに行った整備：** Abstract/Introductionを大幅改訂し、20件の専用bibliographyに分離。
+文献キー・文書内label/refの静的整合性はPASS。二ブロックcubicのJacobi56成分と
+Bondal joinの外積56成分を厳密計算でPASS。これは主定理の形式証明ではない。
+A全体の組版、非楕円行列証明書全件の再実行、引用理論の全独立監査は未実施。
+
+**次に行う数学的作業：** まず lem:pg-quadratic-lie（Bertini、可解根基、最高根）と
+prop:pg-represent、lem:pg-linearizeを逐語的に監査する。
+続いて lem:pg-formal-center の相対formality、絶対Calabi–Yau、Dolgushev入力、
+prop:pg-PBWを一次文献と照合する。最後に全定理・検算・組版を査読可能に整理する。
+滑らかなcubic threefoldのGrassmann記述は既知、Fano四・五次元のBondal予想も既知。
+高次元cubicへの帰結や非楕円Poisson成分の新規性の網羅調査は未完了。
+全Poisson係数で一様な量子化や中心商のqgr smoothnessは主張しない。
+
+## 保持する論文A/B/Cの研究到達点
 
 ## Poisson構造定理の新たな帰結：Bondal予想（論文A）
 
@@ -41,7 +61,7 @@
 
 全Db(qgr B)と可換Db(coh Y)の同値は主張しない。残余同値でも例外成分との貼合せは異なり得る。Bそのものの有限global dimensionも主張しない。特殊点を含む相対同値、有限拡大次数・同値行列、多変数の全モジュライ方向は未完成。
 
-## 現在の最短証明経路
+## 論文Cにおける現行の最短証明経路（保持）
 
 1. (L)によりK_R=stab(R)、T_R=K_R⊕K_R(1)⊕K_R(2)が線束生成残余圏を表すproper生成代数Gamma_Rを与える。
 2. (CF)を固定三対象に制限し、各固定Hom次数の通常の完備係数写像としてからhを反転する。任意のLaurent対象へ無限Taylor和を新しく評価しない。
@@ -62,7 +82,7 @@
 
 論文Cの形式MF、相対window、有限積分、全16積、bar/cup/characteristic比較、幾何学的BC、片側Morita/Popescu、相対sector、対角unit、中心対称性、純Poisson一次消滅、分離Hessian、非楕円fivefold、35係数slice、A∞arity、SM/ERおよび反例を保持する。有効な証明を容量削減のため要約・削除しない。
 
-## 次の優先課題
+## 論文Cの保留課題（論文Aの投稿準備を優先）
 
 1. **残る依存の独立監査。** 今回はStevensonの適用範囲、次数再付与、固定HomのLaurent局所化を点検した。次に(CF)の曲率formality・coherent inverseの全構成と、(L)の通常導来stabilization/window、明示式への(D)を順に監査する。証明の記載と独立監査を区別する。
 2. **有効化。** 三shift生成の有限cell、同値核の行列、有限拡大次数を明示する。今回、線束生成代数の対角のq段表示があれば全coherent対象もq段で生成されることを示したが、qは未計算。
