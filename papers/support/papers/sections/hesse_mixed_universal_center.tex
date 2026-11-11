@@ -1,0 +1,253 @@
+\section{一般Hesse型の全混合方向に対する普遍中心三次式}
+\label{sec:pg-hesse-mixed-universal}
+本節ではFermat型に限らず、Hesse三次形式
+\[
+ g_t(x,y,z)=\frac{x^3+y^3+z^3}{3}+txyz
+\]
+の任意のパラメータ$t$に対して、中心変数を含む全ての三次混合項を
+\emph{有限個の多項式係数}で量子化した中心三次元を与える。
+この構成は形式的中心元の存在補題
+\ref{lem:pg-formal-center}を使用しない。
+非零の混合係数を独立な記号のまま保持し、
+$\hbar,t$の有理関数体上で自由語の関係式への所属を
+厳密に検証することで証明する。
+得られる式はFermat型の
+定理\ref{thm:pg-fermat-mixed-universal}を$t=0$として含む。
+
+\subsection{短い多項式による普遍公式}
+$R$を標数零の可換次数付き$\CC$-代数とする。
+$A,B,C\in R_1$、$D,E,H\in R_2$、$G\in R_3$、
+$t\in\CC$を任意に取って
+\begin{equation}
+ F=g_t(x,y,z)+Axy+Byz+Czx+Dx+Ey+Hz+G
+ \label{eq:pg-hm-F}
+\end{equation}
+とおく。$R[\hbar]$上の次数付き代数
+$\mathcal A_{F,\hbar}$を
+\begin{equation}
+\begin{aligned}
+ [x,y]&=\hbar\bigl(z^2+t\sym(xy)+By+Cx+H\bigr),\\
+ [y,z]&=\hbar\bigl(x^2+t\sym(yz)+Ay+Cz+D\bigr),\\
+ [z,x]&=\hbar\bigl(y^2+t\sym(zx)+Ax+Bz+E\bigr)
+\end{aligned}
+\tag{HR}\label{eq:pg-hm-rel}
+\end{equation}
+で定める。$\deg\hbar=0$であり、全ての$R$の元は中心とする。
+記法
+\[
+\begin{aligned}
+ S={}&x^3+y^3+z^3,&
+ T={}&\sym(xyz),\\
+ Q={}&A\sym(xy)+B\sym(yz)+C\sym(zx),&
+ Z_2={}&Az^2+Bx^2+Cy^2,\\
+ L={}&Dx+Ey+Hz,&
+ R_2={}&B^2x+C^2y+A^2z,\\
+ R_{11}={}&ACx+ABy+BCz
+\end{aligned}
+\]
+を用いる。ここで$\sym(xyz)$は六語の平均である。
+
+\begin{theorem}[Hesse型の普遍混合中心三次式]
+\label{thm:pg-universal-hesse-mixed}
+$q=\hbar^2$とし、次の七つの多項式を定義する。
+\begin{equation}
+\begin{aligned}
+ U={}&1+\frac{qt^2}{2}+\frac{q^2t}{6}-\frac{q^2t^4}{48},\\
+ W={}&\frac{(4-qt^2)(12t+q(t^3-8))}{48},\\
+ c={}&\frac{(4-qt^2)(12+qt^2)}{48},&
+ d={}&\frac{q(12t+q(2-t^3))}{36},\\
+ e={}&1+\frac{q^2t(8-t^3)}{144},&
+ f={}&\frac{q(4-qt^2)}{24},\\
+ g={}&-\frac{q(12t+q(t^3+4))}{72}.
+\end{aligned}
+\tag{HC}\label{eq:pg-hm-coefficients}
+\end{equation}
+このとき
+\begin{equation}
+ \boxed{\quad
+ \Omega_{F,\hbar}
+ =\frac{U}{3}S+WT+cQ+dZ_2+eL+fR_2+gR_{11}+G
+ \quad}
+ \label{eq:pg-hm-center}
+\end{equation}
+は$\hbar=0$を含む適切なZariski開部分上で
+$\mathcal A_{F,\hbar}$の\emph{厳密な中心元}となる。
+また$\Omega_{F,0}=F$である。
+これは$\hbar$について有限な多項式公式であり、
+$n$個の中心変数に係数$A,\ldots,G$を特殊化する場合でも
+中心変数の個数に依存せず同じ表示が有効である。
+$t^3=-1$を排除する条件はこの\emph{中心性の恒等式そのもの}には不要だが、
+$g_t=0$が滑らかな平面三次であるためには$t^3\ne-1$が必要である。
+\end{theorem}
+\begin{proof}
+基底係数を
+$R_0=\mathbb Q[A,B,C,D,E,H]$、
+$\deg A=\deg B=\deg C=1$、
+$\deg D=\deg E=\deg H=2$とする。
+$t,\hbar$は独立な次数零の不定元とする。
+$G$は中心なので零としてよい。
+非可換自由語では中央係数を可換な単項式としてまとめ、
+$x,y,z$の順序付き語をそのまま保持する。
+以下、全次数四の自由語空間を$V_4$、式
+\eqref{eq:pg-hm-rel}の三つの二次関係式の
+左右からの全次数二の倍数が張る空間を$I_4$とする。
+
+中央係数の重み$0,1,2,3,4$の単項式の個数は
+順に$1,3,9,19,39$である。各重み$c$について
+$x,y,z$からなる長さ$4-c$の語を列挙すると
+\[
+ \dim_{\mathbb Q(\hbar,t)}V_4
+ =1\cdot81+3\cdot27+9\cdot9+19\cdot3+39=339.
+\]
+全次数二の左右の倍数を列挙すると
+162個の関係ベクトルが得られる。
+\emph{これらは全次数四の二次関係式のイデアル成分を生成する。}
+
+式\eqref{eq:pg-hm-coefficients}を
+\eqref{eq:pg-hm-center}に代入し、三交換子
+$[\Omega_{F,\hbar},x]$、$[\Omega_{F,\hbar},y]$、
+$[\Omega_{F,\hbar},z]$を自由語で展開する。
+162関係ベクトルの行列を$\mathbb Q(\hbar,t)$上で
+厳密に行簡約すると
+\[
+ \operatorname{rank}I_4=144,\qquad
+ [\Omega_{F,\hbar},x],\
+ [\Omega_{F,\hbar},y],\
+ [\Omega_{F,\hbar},z]\in I_4
+ \tag{UC}\label{eq:pg-hm-certificate}
+\]
+となる。この恒等式は六つの中心係数を独立不定元として扱い、
+$\hbar,t$を特殊化せずに得られた。
+検証コード
+\texttt{computations/verify\_universal\_hesse\_mixed\_center.py}
+が全339基底、162関係と三交換子を再生成して
+有理関数体上の行簡約を実行する。
+有限体や有理数標本での補間は証明に用いない。
+
+分数体上での関係式所属を$\hbar=0$まで降下させるには
+階数を比較する。$\hbar=0$で二次関係は通常の可換化関係なので
+\[
+ \dim(V_4/I_4)|_{\hbar=0}
+ =15+3\cdot10+9\cdot6+19\cdot3+39=195.
+\]
+従って$\operatorname{rank}I_4|_{\hbar=0}=339-195=144$であり、
+上の一般階数と一致する。
+ここで最後の等式は任意の$t$について成立する。
+従って$(\hbar,t)$-平面の直線$\hbar=0$を含む
+あるZariski開近傍で、関係行列の階数は144に一定であり、
+階数144の小行列は単元として取れる。
+行空間とその商はこの近傍上局所自由であるから、
+分数体上で零の三交換子はその局所自由商でも零となる。
+ゆえに任意の$t$に特殊化しても、
+$\hbar=0$の適切な近傍で厳密な中心性が成立する。
+この降下に、全次数のPBW性を別途仮定する必要はない。
+
+最後に$q=0$で$U=c=e=1$、$W=t$、
+$d=f=g=0$なので$\Omega_{F,0}=F$。
+\end{proof}
+
+\begin{remark}[既存の中心元との整合性]
+$t=0$では
+$U=1$、$W=-2\hbar^2/3$、$c=e=1$、
+$d=\hbar^4/18$、$f=\hbar^2/6$、
+$g=-\hbar^4/18$となる。
+ゆえに定理\ref{thm:pg-fermat-mixed-universal}の
+全混合Fermat式を正確に回復する。
+$A=B=C=D=E=H=G=0$では
+定理\ref{thm:explicit-hesse-center}の
+Sklyanin中心元を回復する。
+それらは既知の入力・先行研究上の貢献と区別する。
+\end{remark}
+
+\subsection{対角二次混合と任意の滑らかな三変数三次式}
+
+\begin{corollary}[全ての中心混合項を含むHesse型]
+\label{cor:pg-universal-hesse-all-mixed}
+中心次数一の$\ell_x,\ell_y,\ell_z$に対し
+\[
+ \widetilde F=g_t(x,y,z)
+ +\ell_xx^2+\ell_yy^2+\ell_zz^2
+ +Axy+Byz+Czx+Dx+Ey+Hz+G
+\]
+を考える。$X=x+\ell_x$、$Y=y+\ell_y$、
+$Z=z+\ell_z$と置く。係数を
+\begin{equation}
+\begin{aligned}
+ A'&=A-t\ell_z,& B'&=B-t\ell_x,& C'&=C-t\ell_y,\\
+ D'&=D-\ell_x^2-A\ell_y-C\ell_z+t\ell_y\ell_z,\\
+ E'&=E-\ell_y^2-A\ell_x-B\ell_z+t\ell_x\ell_z,\\
+ H'&=H-\ell_z^2-B\ell_y-C\ell_x+t\ell_x\ell_y,\\
+ G'&=G+\tfrac23(\ell_x^3+\ell_y^3+\ell_z^3)
+ +A\ell_x\ell_y+B\ell_y\ell_z+C\ell_z\ell_x\\
+ &\qquad-D\ell_x-E\ell_y-H\ell_z
+ -t\ell_x\ell_y\ell_z
+\end{aligned}
+\tag{HT}\label{eq:pg-hm-translation}
+\end{equation}
+と定めると
+\[
+ \widetilde F
+ =g_t(X,Y,Z)+A'XY+B'YZ+C'ZX+D'X+E'Y+H'Z+G'.
+\]
+したがって定理\ref{thm:pg-universal-hesse-mixed}の公式に
+$A',B',C',D',E',H',G'$を代入して
+$X=x+\ell_x$などへ引き戻すと、
+\emph{任意の}Hesse型三次式と中心変数の混合項に対する
+有限多項式の厳密な中心三次元が得られる。
+\end{corollary}
+\begin{proof}
+表示式は三次式の展開による恒等式である。
+$\ell_x,\ell_y,\ell_z$は中心元なので、
+平行移動はJacobian量子化の交換子を保ち、
+次数付き代数の同型を定める。
+従って中心元を引き戻せる。
+\end{proof}
+
+\begin{corollary}[任意の滑らかな平面三次制限]\label{cor:pg-smooth-ternary-explicit}
+$F(x,y,z,u)$を斉次三次式とし、
+$g(x,y,z)=F(x,y,z,0)$が滑らかな平面三次曲線を定めるとする。
+Hesse標準形\cite[Lemma~1]{ArtebaniDolgachev}により、
+$M\in\mathrm{GL}_3(\CC)$、$\lambda\ne0$、
+$t^3\ne-1$を選んで
+$g(x)=\lambda\,g_t(Mx)$と書ける。
+\[
+ F'(X,u)=\lambda^{-1}F(M^{-1}X,u),
+ \qquad \hbar'=\lambda\det(M)\,\hbar
+\]
+とおく。$F'$はその混合係数を
+系\ref{cor:pg-universal-hesse-all-mixed}の形に一意に書ける。
+同系によって構成した中心元$\Omega_{F',\hbar'}$から
+\[
+ \boxed{\quad
+ \Omega_{F,\hbar}(x,u)
+ =\lambda\Omega_{F',\hbar'}(Mx,u)
+ \quad}
+ \tag{HG}\label{eq:pg-hm-arbitrary-ternary}
+\]
+を得る。これは$F$のJacobian量子化において
+$\hbar=0$近傍の\emph{厳密な}中心三次元であり、
+$\Omega_{F,0}=F$である。
+形式的中心元の存在補題を入力せず、
+Hesse標準形の選択と有限個の多項式演算だけで構成できる。
+\end{corollary}
+\begin{proof}
+定数三重ベクトルの変換則から、
+$X=Mx$の座標ではJacobian交換子の量子化パラメータが
+$\hbar'=\lambda\det(M)\hbar$になる。
+中心元は代数同型で中心元に移り、
+$\lambda$倍によって零ファイバーの剰余が$F$となる。
+\end{proof}
+
+\begin{remark}[範囲と新規性]
+本定理は、非可換量子化の中心性を\emph{全係数の恒等式}として
+証明するものであって、各閉ファイバーのAS正則性・domain性や
+中心商の平坦性をこの有限次数の検算のみから結論しない。
+それらは命題\ref{prop:pg-PBW}、定理\ref{thm:pg-quantization}で
+別途扱う。
+一つの固定した元の座標に対するGL$_3$同変な短い不変式を
+得たとは主張しない。座標選択でHesse標準形を求めた後に
+適用できる\emph{有限多項式の統一的公式}である。
+また$g=0$、節点型・尖点型など、三変数制限が滑らかでない
+場合の包括的な閉公式は本節からは従わない。
+公式自体の先行研究上の完全な新規性は未確認である。
+\end{remark}
