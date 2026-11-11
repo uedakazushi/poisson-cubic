@@ -6,7 +6,7 @@
   "scope": "Article A submission-oriented introduction, bibliography separation, independent finite Poisson/Bondal checks, and explicit pending-audit plan; existing A/B/C mathematical results retained.",
   "proofs_written_and_checked": [
     {
-      "source": "papers/reconstruction/point_scheme_discriminant_boundary.tex",
+      "source": "papers/support/papers/reconstruction/point_scheme_discriminant_boundary.tex",
       "labels": [
         "pdb:thm:flat",
         "pdb:thm:sixfold",
@@ -15,7 +15,7 @@
       "status": "Proof of monic Groebner rank24 across all lambda,h, local algebras at lambda^3=-3 and the doubled-cubic collision. This does not extend smooth-Poisson zero theorem to singular X."
     },
     {
-      "source": "papers/reconstruction/point_scheme_lambda_family.tex",
+      "source": "papers/support/papers/reconstruction/point_scheme_lambda_family.tex",
       "labels": [
         "psl:lem:free",
         "psl:thm:universal-flat",
@@ -24,14 +24,14 @@
       "status": "Direct proof of rank24 basis and flatness, nilpotent v-shear, smooth-lambda Poisson special fiber, support collision. Scheme point-module identification relies on known Sklyanin theorem and the central-coordinate functor argument in the previous section."
     },
     {
-      "source": "papers/reconstruction/point_scheme_thickening.tex",
+      "source": "papers/support/papers/reconstruction/point_scheme_thickening.tex",
       "labels": [
         "ps39:thm:flat-limit"
       ],
       "status": "Constructs flat family E_h disjoint union Sigma_h over U=Spec C[h,(h^6+27)^-1], with explicit trivialization of isolated finite component; special fiber is Poisson zero subscheme, while point scheme of B_0 is X_0."
     },
     {
-      "source": "papers/reconstruction/point_scheme_thickening.tex",
+      "source": "papers/support/papers/reconstruction/point_scheme_thickening.tex",
       "labels": [
         "ps39:lem:abelian",
         "ps39:prop:length",
@@ -41,7 +41,7 @@
       "status": "Full scheme-theoretic argument using central-coordinate multilinearization, exact commutative chart and nontrivial Sklyanin shift; relies on classical Sklyanin scheme/translation theorem. Standalone typeset separately."
     },
     {
-      "source": "papers/reconstruction/point_scheme_poisson_zero.tex",
+      "source": "papers/support/papers/reconstruction/point_scheme_poisson_zero.tex",
       "labels": [
         "prop:psp-point-support",
         "prop:psp-comparison"
@@ -49,7 +49,7 @@
       "status": "Set-theoretic classification via central linear coordinates and 3D Sklyanin point-module theorem; explicit 12 fixed points; Poisson critical scheme has length24. The full point scheme's nilpotent structure is not established."
     },
     {
-      "source": "papers/sections/bondal_cubic.tex",
+      "source": "papers/support/papers/sections/bondal_cubic.tex",
       "labels": [
         "thm:pg-bondal",
         "rem:pg-bondal-scope"
@@ -57,7 +57,7 @@
       "status": "Direct join dimension and rank-drop proof reviewed. DEPENDS on existing thm:pg-normal, whose complete Lie-theoretic classification proof was not independently reaudited this turn."
     },
     {
-      "source": "papers/reconstruction/coherent_residual_saturation.tex",
+      "source": "papers/support/papers/reconstruction/coherent_residual_saturation.tex",
       "labels": [
         "crs:thm:abstract",
         "crs:cor:level"
@@ -65,7 +65,7 @@
       "status": "Direct proof via the smooth diagonal, pseudo-perfect modules and finite evaluation; no presumed generation of all coherent objects."
     },
     {
-      "source": "papers/reconstruction/coherent_residual_saturation.tex",
+      "source": "papers/support/papers/reconstruction/coherent_residual_saturation.tex",
       "labels": [
         "crs:lem:sections",
         "crs:lem:finite-lines",
@@ -74,7 +74,7 @@
       "status": "Verified hypotheses for AS-regular central cubic quotients using Burke-Stevenson derived sections, chi and finite cohomological dimension."
     },
     {
-      "source": "papers/reconstruction/coherent_residual_saturation.tex",
+      "source": "papers/support/papers/reconstruction/coherent_residual_saturation.tex",
       "labels": [
         "crs:lem:descent",
         "crs:prop:residual-smooth",
@@ -134,8 +134,8 @@
       "visual_review": "All five pages inspected in a contact sheet; no clipping, overlap or unintended blank pages.",
       "tex_inputs": {
         "papers/coherent_residual_saturation.tex": "b54ad30d2b934401b01811f4e0f4ba449bb45ca4e4f192ac03cfd675f847b6a2",
-        "papers/reconstruction/coherent_residual_saturation.tex": "da45ccdd1e59af6a2a8fab7c528038e82646173dc1cf298fe52ae9e9494dd308",
-        "papers/reconstruction/coherent_residual_references.tex": "74da29f303bd5e1bc1b975819801113869328023ce814d5ce6a2c61389db52b1"
+        "papers/support/papers/reconstruction/coherent_residual_saturation.tex": "da45ccdd1e59af6a2a8fab7c528038e82646173dc1cf298fe52ae9e9494dd308",
+        "papers/support/papers/reconstruction/coherent_residual_references.tex": "74da29f303bd5e1bc1b975819801113869328023ce814d5ce6a2c61389db52b1"
       },
       "pdf_sha256": "1749d0084be6704cd9ff9fd40a3a94f162b41768eb86c7eb69f17a6caef7de04",
       "undefined_references": false,
@@ -176,8 +176,8 @@
   },
   "persistence": "Creation, computation, typesetting and remote publication are separate. Remote branch and changed blobs are verified after push.",
   "article_A_submission_audit": {
-    "manuscript": "papers/poisson_cubic_quantization.tex",
-    "bibliography": "papers/references_poisson_cubic.tex",
+    "manuscript": "papers/paper_a.tex",
+    "bibliography": "papers/support/papers/references_poisson_cubic.tex",
     "research_note": "notes/poisson_article_submission_audit.md",
     "exact_test": "computations/verify_poisson_article_A.py",
     "editorial": {
@@ -215,5 +215,16 @@
     "typesetting": {
       "whole_article_A": "NOT RUN: private GitHub source is accessible through connector but not cloneable in current container execution environment"
     }
+  },
+  "papers_layout": {
+    "entrypoints": [
+      "papers/paper_a.tex",
+      "papers/paper_b.tex",
+      "papers/paper_c.tex"
+    ],
+    "support": "papers/support/papers/",
+    "verified_direct_files_only": true,
+    "build_verified": false,
+    "comment": "GitHub tree verified: only three direct files, 92 support files; compilation not executed."
   }
 }
