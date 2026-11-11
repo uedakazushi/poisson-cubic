@@ -1,13 +1,13 @@
 # 論文Aの投稿準備：現行の監査と再開点
 
 **2026-11-12 / A-v38。** 最初に 00_research_plan.md を読む。
-論文本文は papers/poisson_cubic_quantization.tex、専用文献は papers/references_poisson_cubic.tex。
+論文本文は papers/paper_a.tex、専用文献は papers/support/papers/references_poisson_cubic.tex。
 本ノートは現在有効な知識・依存・課題を整理し、証明全文を重複させない。
 
 ## 主張の確実性と所在
 
-1. Poisson正規形（thm:pg-normal、papers/sections/poisson_geometry.tex）：全非零構造の三変数Jacobianブロック分解。n>=3、X smooth。証明は記載済みだが、核心のLie代数補題 lem:pg-quadratic-lie を含め、今回の全面的独立監査は未完了。
-2. Bondal予想（thm:pg-bondal、papers/sections/bondal_cubic.tex）：全 2j<n について dim D_{2j}>=2j+1。j<k で j+1 個のブロック上の平面曲線joinを構成し、Euler線の射影化でrankが2低下する。正規形定理に依存。scheme-theoretic primary分解を与える主張ではない。高次元での新規性調査は未完。
+1. Poisson正規形（thm:pg-normal、papers/support/papers/sections/poisson_geometry.tex）：全非零構造の三変数Jacobianブロック分解。n>=3、X smooth。証明は記載済みだが、核心のLie代数補題 lem:pg-quadratic-lie を含め、今回の全面的独立監査は未完了。
+2. Bondal予想（thm:pg-bondal、papers/support/papers/sections/bondal_cubic.tex）：全 2j<n について dim D_{2j}>=2j+1。j<k で j+1 個のブロック上の平面曲線joinを構成し、Euler線の射影化でrankが2低下する。正規形定理に依存。scheme-theoretic primary分解を与える主張ではない。高次元での新規性調査は未完。
 3. 退化スキーム（prop:pg-deg-ideal）：任意の正規形に適用できる。critical cover と零点の完全交叉（lem:pg-critical-cover、prop:pg-zero-ci）には各 f_s(x_s,0) が滑らかな平面三次という追加仮定が必要。
 4. 量子化（thm:pg-quantization）：個々のPoisson構造に対する原点を含む一変数Zariski開上のAS-regular ambientと中心正則三次商。相対PBW、相対/絶対Calabi–Yau、形式的中心元と次数3の代数化が主要依存。全係数上の一様相対量子化やqgrのsmoothnessは未証明。
 5. 非楕円Poisson成分（ne:main）：固定した二つの滑らかなcubic fivefoldのPoisson schemeで2次元成分を示す。35列の線形化Jacobi行列がrank33という整数証明書に依存する。今回全行列を再実行したわけではない。全cubicを動かすrelative成分性を主張しない。
