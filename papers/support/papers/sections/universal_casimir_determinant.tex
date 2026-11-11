@@ -1,9 +1,13 @@
 \section{中心三次元の普遍的な行列式表示}\label{sec:pg-universal-determinant}
 本節の目的は、中心元を形式的冪級数の存在だけで扱うことなく、
 三次の有限次元線形代数で\emph{実際に計算できる有理式}として与えることである。
-以下の定理の中心元存在の部分は補題\ref{lem:pg-formal-center}に依存する。
-同補題で使う相対formalityと完備Calabi--Yau双対性の独立監査は
-引き続き必要であり、本節の行列計算だけでその入力を証明したとはしない。
+以前は中心元存在の部分を補題\ref{lem:pg-formal-center}に依存させていたが、
+現在は系\ref{cor:pg-smooth-ternary-explicit}が
+滑らかな三変数三次制限について\emph{形式的中心元の存在を仮定せず}
+厳密な代数的中心三次元を与える。
+従って以下の決定式の定理は、その明示式から導かれる
+\emph{無条件の線形代数的帰結}となった。
+決定式はHesse標準形の選択なしに元の座標で計算できる点でも有用である。
 
 中心変数$u=(u_1,\dots,u_m)$を固定し、
 $S=\CC[x,y,z,u_1,\ldots,u_m]$、$F\in S_3$とする。
@@ -72,8 +76,8 @@ $\hbar=0$で交換子は消えるので、平坦性により
 $\hbar=0$で$\mathcal D_{F,0}$は古典Jacobian括弧である。
 
 \begin{theorem}[普遍的なCramer表示]\label{thm:pg-universal-determinant}
-補題\ref{lem:pg-formal-center}の形式的中心三次元の存在を入力とする。
 $g=F(x,y,z,0)$が滑らかな平面三次曲線を定めるとする。
+本定理では形式的中心元存在補題を仮定しない。
 必要ならactive線形座標変換を施し、
 $F$の$x^3$係数$a$を非零とする。
 $F_{\mathrm{cent}}=F(0,0,0,u)$、および
@@ -125,11 +129,14 @@ $\mathcal D_{F,0}$の核は$d+1$次元、
 従って階数は$r$であり、$W=\langle w_1,\dots,w_r\rangle$
 への制限は単射である。よって選んだ$M$は$\hbar=0$で可逆。
 
-形式的中心三次元$\widehat\Omega$は法$\hbar$で$F$に一致するため、
-次数三の純中心単項式の$d$次元部分空間と合わせると、
-$\CC((\hbar))$上で
-$\ker\mathcal D_{F,\hbar}$に少なくとも$d+1$次元がある。
-従って$\mathcal D_{F,\hbar}$の階数は高々$r$。
+系\ref{cor:pg-smooth-ternary-explicit}によれば
+$\hbar=0$の近傍で$\Omega_{F,\hbar}\bmod\hbar=F$
+を満たす\emph{代数的な厳密中心三次元}が存在する。
+その$x^3$のWeyl係数は$\hbar=0$で$a\ne0$なので、
+同中心元は$\CC(\hbar)$上で純中心三次単項式の$d$次元部分空間と独立である。
+従って
+$\ker\mathcal D_{F,\hbar}$は少なくとも$d+1$次元となり、
+$\mathcal D_{F,\hbar}$の階数は高々$r$。
 一方、$M$は$\hbar=0$で可逆なので、$\CC(\hbar)$上の階数は
 少なくとも$r$である。よって階数は厳密に$r$となる。
 
@@ -179,8 +186,9 @@ $\mathcal D_{F_0,0}|_W$の転置行列をRREFにして
 これは$\hbar=0$の階数と開条件の\emph{厳密な計算}であり、
 量子中心性そのものの計算証明書ではない。
 一方、定理の行列式公式は
-形式的中心三次元の存在を仮定した線形代数から
-全ての$\hbar$について厳密に中心性を与える。
+系\ref{cor:pg-smooth-ternary-explicit}の代数的中心元と
+線形代数から、形式的中心存在補題を使用せずに
+$\det M\ne0$の全ての$\hbar$で厳密に中心性を与える。
 \end{example}
 
 \begin{remark}[既存の混合Fermat公式と一般の式]\label{rem:pg-det-scope}
@@ -194,9 +202,13 @@ $Axy+Byz+Czx+Dx+Ey+Hz+F_{\mathrm{cent}}$の
 従来の有限体特殊化
 \texttt{computations/verify\_mixed\_center.py}より強い。
 系\ref{cor:pg-fermat-all-mixed}により対角二次混合項も含む。
-本節の決定式表示はさらに一般の滑らかな三変数制限と
-任意の中心混合項に及ぶ一方、
-係数の少ない短い多項式・不変式であるとは主張しない。
+現在は定理\ref{thm:pg-universal-hesse-mixed}と
+系\ref{cor:pg-smooth-ternary-explicit}により、
+\emph{任意の滑らかな三変数制限と全中心混合項}についても
+Hesse標準形を経由する短い有限多項式公式がある。
+本節の決定式はそれと別の、元の座標を保った
+普遍的な有理線形代数の表示であり、
+$g$の全係数に対する単一のGL$_3$不変多項式とは主張しない。
 また$g$が節点型・尖点型・恒等的零の場合は
 補題\ref{lem:pg-det-classical-kernel}を適用できず、
 別の行列チャートまたは既知の特別公式を使う必要がある。
