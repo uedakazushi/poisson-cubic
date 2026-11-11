@@ -875,6 +875,10 @@ $\operatorname{gldim}A_\lambda=N$、$\operatorname{Hilb}_{A_\lambda}(t)=(1-t)^{-
 \operatorname{injdim}B_\lambda=N-1,\qquad
 \text{AS parameter}=N-3=n-1.
 \]
+\item $U$ を$\hbar\mapsto-\hbar$で不変に取れ、
+語の反転と$\hbar$の符号反転による反自己同型に関して
+$\Omega^\dagger=\Omega$と選べる。
+そのWeyl対称化表示には$\hbar$の奇数次の項が現れない。
 \end{enumerate}
 \end{theorem}
 
@@ -1290,6 +1294,11 @@ Hilbert 級数は PBW 基底から $(1-t)^{-N}$ である。
 補題\ref{lem:pg-formal-center}と\ref{lem:pg-algebraize-center}を各ブロックに適用し、開集合を共通に縮めると
 $\Omega_s\in Z(A_{f_s}|_U)_3$、$\Omega_s\bmod\hbar=f_s$ を得る。
 異なるブロックは可換なので $\Omega=\sum_s\Omega_s$ は $A$ の中心元で、residue は $F$。
+さらに$U$を$\hbar\mapsto-\hbar$で不変な開集合へ縮め、
+補題\ref{lem:pg-center-parity}の反自己同型で各$\Omega_s$を平均する。
+これにより$\Omega^\dagger=\Omega$と選べ、
+次数三のWeyl対称化係数は$\hbar$に関し偶関数となる。
+この正規化は中心性・剰余・正則性の証明を損なわない。
 
 少なくとも一つの $f_s$ は active 変数に依存する。
 そうでなければ $F$ は中心変数だけに依存し、active 座標点に特異点をもつ。
