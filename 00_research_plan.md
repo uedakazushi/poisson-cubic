@@ -29,6 +29,10 @@ prop:pg-represent、lem:pg-linearizeの未監査部分を解消する。最後�
 高次元cubicへの帰結や非楕円Poisson成分の新規性の網羅調査は未完了。
 全Poisson係数で一様な量子化や中心商のqgr smoothnessは主張しない。
 
+## 論文Aに統合したambient周期性の帰結
+
+標準5次元Koszul AS正則Z代数に正則正規な三次超曲面があれば、正規族由来の3周期とAS双対性由来の5周期を合成してambientは1周期的。一般定理は最小周期がgcd(N,d)を割ること。証明は `papers/support/papers/sections/ambient_periodicity.tex` を `papers/paper_a.tex` から入力し、必要な一次文献を論文Aのbibliographyに追加した。これは既知一般論からの帰結で、新規性は未確認。三次イデアルを保つ1周期同型や抽象的な全nc cubicの超曲面表示は未証明として明記している。現行のPoisson正規形・量子化の独立監査を最優先する方針は変更しない。
+
 ## 保持する論文A/B/Cの研究到達点
 
 ## Poisson構造定理の新たな帰結：Bondal予想（論文A）
