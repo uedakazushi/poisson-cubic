@@ -1,6 +1,6 @@
 # 論文Aの投稿準備：現行の監査と再開点
 
-**2026-11-12 / A-v40。** 最初に 00_research_plan.md を読む。
+**2026-11-12 / A-v43。** 最初に 00_research_plan.md を読む。
 論文本文は papers/paper_a.tex、専用文献は papers/support/papers/references_poisson_cubic.tex。
 本ノートは現在有効な知識・依存・課題を整理し、証明全文を重複させない。
 
@@ -20,6 +20,17 @@
 - **未証明**：この構成による任意の1周期同型が三次商イデアルを保つこと、商の同時1周期化、中心化・CY化、任意の抽象的nc cubicの超曲面表示の存在は主張しない。既知の一般論からの系で、結論自体の新規性は未確認。
 - **文献**：Bondal--Polishchuk, *Homological properties of associative algebras: the method of helices*, Russian Acad. Sci. Izv. Math. 42 (1994), 219--260, Proposition 4.1 と §5, DOI 10.1070/IM1994v042n02ABEH001536。Chan--Nyman, *Noncommutative linear systems and noncommutative elliptic curves*, arXiv:2211.12465, Definition 8.6。引用キーは `PBondalPolishchukHelices`、`PChanNymanNormalFamily`。
 - **検証状態**：数学的証明を論文Aに書き、今回一次資料の文献情報と定義を照合。本文の全独立監査、形式検証、外部査読、論文A全体の組版とは区別する。既存の論文A公表準備優先順位は維持。
+
+## 普遍的・厳密な代数的中心三次公式
+
+現在の主成果と再現手順は \`notes/universal_casimir.md\` に統合した。
+証明は
+\`papers/support/papers/sections/fermat_mixed_universal_center.tex\` と
+\`papers/support/papers/sections/universal_casimir_determinant.tex\`。
+
+- **Fermat型の全混合項**：既存の論文C関連式について、中心係数A,B,C,D,E,Hを独立記号、hを不定元として、全次数四の自由語339個、三二次関係の倍数162個を Q(h) 上で正確に還元し、行列階数144、三交換子の剰余零を得た。さらにh=0でも階数144を別計算で確認したので、次数四商が原点でh-torsion-free、したがって原点を含むZariski開上で厳密に中心である。**これは形式的中心元存在補題に依存しない厳密な計算証明。** \`computations/verify_universal_fermat_mixed_center.py\` が現在の検証コード。中心平行移動で対角二次混合を含む。
+- **任意の滑らかな三変数三次制限**：古典Jacobian括弧の次数三Casimirが C F⊕C[u]_3 となることを直接証明。これと形式的中心元の存在補題を組み合わせ、次数三交換子のr×r小行列を用いたCramer式で厳密な中心元を与える（m=2ならr=30）。Fermat基準点でm=0の小行列式 -72、m=2の小行列式 4608を有理数計算で確認。**形式的中心元の一般的存在補題とその相対Calabi–Yau/formality監査が依然として必要な条件付き結果。**
+- **未解決**：Hesseパラメータ一般値と全混合の短い多項式/GL3同変閉公式、特異制限の包括公式、一般形式中心元存在証明の全独立監査、新規性の網羅調査。
 
 ## 三次中心元：検証した新しい有効結果
 
@@ -77,7 +88,7 @@ A全体のLuaLaTeXコンパイル・PDF表示確認・非楕円成分の全行�
 
 ## 次の具体的な着手順
 
-1. lem:pg-formal-center と prop:pg-PBW の相対formality、完備双加群分解、絶対CY、代数化の妥当性を徹底検査する。中心元の偶性と普遍Hessian二次補正は検証済みだが、全次数の存在証明の代わりにはならない。
+1. Fermat型全混合の普遍的な短い公式は今回厳密証明に到達した。次にHesse一般値の短い閉公式を探索し、同時に lem:pg-formal-center と prop:pg-PBW の相対formality、完備双加群分解、絶対CY、代数化の妥当性を徹底検査する。中心元の偶性と普遍Hessian二次補正は検証済みだが、全次数の存在証明の代わりにはならない。
 2. prop:pg-represent、lem:pg-linearize、lem:pg-quadratic-lie の証明の独立再検証。Etingofの主要一次資料は確認済みなので、Jacobi線形化・Bertini・Lie構成の接続を重点監査する。
 3. 論文A全体のlatexmk組版・視覚確認、整数証明書の再実行、網羅的文献比較。主張の仮定と証明の所在を確認して投稿判定する。
 4. 数学的まとまりを保ちつつ非楕円量子化をAに収めるか独立論文へ分けるか再評価する。価値ある証明を削除しない。
