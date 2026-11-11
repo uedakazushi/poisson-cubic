@@ -1,35 +1,38 @@
-# nc-cubic：有限代数的な可換復元
+# nc-cubic：有限方程式と一般点の可換復元
 
-**2026-11-11 / v34。GitHub mainが正本。** [研究方針](00_research_plan.md)から再開する。
+**2026-11-11 / v35。GitHub mainが正本。** [研究方針](00_research_plan.md)から再開する。
 
-## 現在の最短経路
+## 現在の到達点
 
-非可換中心三次対から有限対角の低積と可換式を抽出する。実際の低rotation標的は、既存形式残余同値で可換Kuへ移し、幾何学的射影核で全Artin底変更を証明する。一般MF核比較KFは先行条件にしない。
+既存の局所proper/window模型(L)と次数別完備MF同値(CF)を入力する範囲で、一変数量子化の**線束生成残余pair**は、有限拡大K'/C(h)上で滑らかな可換cubicのKuznetsov pairと同値になる。
 
-generic段階の必要データを減らした。**可換smooth proper側からnc proper側への一つの右perfect核**が特殊点で同値なら、逆核と底上の同値が従う。その核が完備底の通常の導来圏でcompactに実現すれば、Popescu降下で指定有限jetを保つetale代数化が得られる。nc側のsmoothnessは仮定でなく結果。
+完備底全体のcompact逆核を先に作らず、固定生成子の像をLaurent体へ移す。Eulerベクトルで非零性を検出し、孤立斉次超曲面の非零対象の次数シフト軌道が生成することを使う。三次では三つのshiftで足りる。体上のcompact核は有限代数拡大へ降下できる。
 
-**具体的な混合nc cubicについて、このcompact形式逆核はまだ構成していない。** 各Artin同値や固定rank MFだけでcompact性を推論しない。次は可換側の一生成子の逆像の、一様な有限cell/retract表示を作る。
+lambda=1混合族では既存(D)の低積比較も使い、復元先を既存の明示的多項式G_h+v^3に固定できる。N=5のEulerベクトルは(-9,9,0)。一般Nでも三成分二乗和2*3^(N-1)は非零。
 
-## 原稿
+**範囲の注意：** 既存(L),(CF),(D)の全証明の独立再監査ではない。全coherent残余圏との一致、多変数全モジュライ、同値核の具体行列、拡大次数、h=0を含む相対同値は別課題。一般点の存在証明と有効な計算を区別する。
+
+## 原稿と再現
 
 | 内容 | 入口 |
 |---|---|
-| A：Poisson・量子化 | `papers/poisson_cubic_quantization.tex` |
-| B：17次元族・ambient復元 | `papers/generic17_ambient_recovery.tex` |
-| C：rotation付き復元の現行統合稿 | `papers/rotation_cubic_reconstruction.tex` |
-| 射影核とArtin底変更 | `papers/geometric_rotation_basechange.tex` |
-| 片側核の特殊点判定と代数化 | `papers/one_sided_morita_algebraization.tex` |
+| A：Poisson正規形・固定方向の量子化 | `papers/poisson_cubic_quantization.tex` |
+| B：17次元族とambient復元 | `papers/generic17_ambient_recovery.tex` |
+| C：rotation付き復元・統合稿 | `papers/rotation_cubic_reconstruction.tex` |
+| 軌道生成と一般点復元・単独稿 | `papers/rotation_orbit_generic_reconstruction.tex` |
 
-新しい証明全文は `papers/reconstruction/one_sided_morita_algebraization.tex` をCと単独稿で共有する。[研究ノート](notes/one_sided_morita.md)に未解決条件と着手方法を記載。
-
-既存入力(F),(D)下でlambda=1の計算済みGと形式WはGL5同型。新しい抽象判定を合わせても、generic同値の実現には具体的compact核が必要。旧証明、反例、非可換計算資産を保持している。
+新本文は `papers/reconstruction/rotation_orbit_generic_reconstruction.tex` をCと単独稿で共有する。[研究ノート](notes/rotation_orbit_generic_reconstruction.md)に依存と残る問題を整理した。
 
 ```sh
-python3 computations/verify_one_sided_morita.py --output build/one_sided_morita_certificate.json
-python3 scripts/verify_one_sided_morita_assets.py
-latexmk papers/one_sided_morita_algebraization.tex
+python3 computations/verify_rotation_orbit.py --output build/rotation_orbit_certificate.json
+python3 scripts/verify_rotation_orbit_assets.py
+latexmk papers/rotation_orbit_generic_reconstruction.tex
 ```
 
-通常のねじった2×2行列代数で206個の恒等式、balanced relation階数、period補正mod h^8、compact性反例を検算。新単独稿5頁を組版・表示確認済み。nc核やカテゴリカル証明の形式検証ではない。A/B/C全体の現行組版、旧全計算の再実行は未実施。詳細は `validation.json`。
+検算は64個のEulerベクトルと、混合special cubicの32×32行列の41恒等式。生成分類、形式functor、generic kernelの計算機証明ではない。新単独稿7頁を組版・全頁表示確認した。現行A/B/C全体の再組版と旧計算全件の再実行は未実施。正確な状態はvalidation.json。
 
-mainを正本にfast-forwardのみで保存し、PDFはbuild/へ生成してGit追跡しない。GitHub Actions/force pushは禁止。Libraryは実際のpush失敗時のみ緊急退避。独立境界/未照合PDFはnc-cubic2、Reyeはreyeに保全。
+## 運用
+
+通常のfast-forwardのみ。GitHub Actionsとforce pushは禁止。PDFは追跡せずbuild/へ生成する。Library保存は実際のpush失敗時の緊急退避だけ。旧ZIP・会話を再開の前提にしない。
+
+既存の有限対角、bar比較、幾何学的BC、片側Morita/Popescu、SM/ERと反例を保持する。独立境界研究/未照合原PDFはnc-cubic2、Reyeはreyeに保全。

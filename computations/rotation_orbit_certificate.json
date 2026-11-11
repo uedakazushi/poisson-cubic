@@ -1,0 +1,120 @@
+{
+  "version": "nc-cubic-v35",
+  "date": "2026-11-11",
+  "scope": "Exact special cubic MF and Euler identities; no generic kernel computation.",
+  "Euler_N_checked": [
+    1,
+    64
+  ],
+  "Euler_samples": [
+    {
+      "N": 5,
+      "Euler_vector": [
+        -9,
+        9,
+        0
+      ]
+    },
+    {
+      "N": 6,
+      "Euler_vector": [
+        -18,
+        9,
+        9
+      ]
+    },
+    {
+      "N": 7,
+      "Euler_vector": [
+        -27,
+        0,
+        27
+      ]
+    },
+    {
+      "N": 8,
+      "Euler_vector": [
+        -27,
+        -27,
+        54
+      ]
+    },
+    {
+      "N": 9,
+      "Euler_vector": [
+        0,
+        -81,
+        81
+      ]
+    },
+    {
+      "N": 10,
+      "Euler_vector": [
+        81,
+        -162,
+        81
+      ]
+    }
+  ],
+  "five_variable_special_MF": {
+    "polynomial": "u**3 + u*x*y + v**3 + x**3/3 + y**3/3 + z**3/3",
+    "underlying_exterior_rank": 32,
+    "matrix_identities_checked": 41,
+    "Euler_vector": [
+      -9,
+      9,
+      0
+    ],
+    "graded_cohomology_terms": {
+      "0": [
+        {
+          "exterior_degree": 0,
+          "t_power": 0,
+          "cohomological_degree": 0,
+          "multiplicity": 1
+        },
+        {
+          "exterior_degree": 3,
+          "t_power": -1,
+          "cohomological_degree": 1,
+          "multiplicity": 10
+        }
+      ],
+      "1": [
+        {
+          "exterior_degree": 2,
+          "t_power": -1,
+          "cohomological_degree": 0,
+          "multiplicity": 10
+        },
+        {
+          "exterior_degree": 5,
+          "t_power": -2,
+          "cohomological_degree": 1,
+          "multiplicity": 1
+        }
+      ],
+      "2": [
+        {
+          "exterior_degree": 1,
+          "t_power": -1,
+          "cohomological_degree": -1,
+          "multiplicity": 5
+        },
+        {
+          "exterior_degree": 4,
+          "t_power": -2,
+          "cohomological_degree": 0,
+          "multiplicity": 5
+        }
+      ]
+    },
+    "periodic_variable_retained": true
+  },
+  "not_verified": [
+    "Stevenson thick-subcategory theorem or regrading/compact-generation proof.",
+    "Existing local/window input L and completed formal functor CF.",
+    "All prior noncommutative diagonal matrices and input D.",
+    "Explicit generic inverse kernel, cell bound, or extension degree."
+  ]
+}

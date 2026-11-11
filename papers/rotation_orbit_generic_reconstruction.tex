@@ -1,0 +1,35 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage[margin=25mm,headheight=16pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[unicode,colorlinks=true,linkcolor=blue!40!black,citecolor=blue!40!black,urlcolor=blue!45!black]{hyperref}
+\usepackage{xcolor,fancyhdr}
+\allowdisplaybreaks[2]
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small 非可換三次超曲面の可換復元}
+\fancyhead[R]{\small 2026-11-11 / v35}\fancyfoot[C]{\thepage}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{注意}
+\renewcommand{\proofname}{証明}
+\title{次数シフト軌道による非可換三次超曲面の一般点復元\\
+\large Euler形式・Laurent局所化・有限代数拡大への降下}
+\author{}\date{2026年11月11日・研究草稿 v35}
+\begin{document}\maketitle
+\begin{abstract}
+孤立斉次超曲面のgraded matrix factorization圏では、非零対象の全次数シフト軌道が生成する。
+三次の場合、この軌道は三対象で足りる。残余体stabilizationのEulerベクトルが非零であることを使い、
+既存の次数別完備MF同値が送った対象のLaurent一般ファイバーが非零であることを示す。
+局所proper/window模型と完備MF同値を既存入力とする範囲で、線束生成非可換残余pairは
+Laurent体上で可換cubicのKuznetsov pairと同値になる。
+perfect双加群の有限表示性から、同値は有限代数拡大上へ降下できる。
+混合族の既存の低次数比較をさらに用いると、復元先は計算済みの多項式三次式に取れる。
+完備底全体のcompact逆核、全coherent残余圏との一致、具体的な同値行列は結論しない。
+\end{abstract}
+\tableofcontents
+\input{papers/reconstruction/rotation_orbit_generic_reconstruction}
+\begin{thebibliography}{99}
+\input{papers/reconstruction/rotation_orbit_references}
+\end{thebibliography}
+\end{document}

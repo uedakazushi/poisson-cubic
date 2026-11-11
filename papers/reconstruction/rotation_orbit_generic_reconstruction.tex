@@ -1,0 +1,352 @@
+% 2026-11-11 / v35
+\section{次数シフト軌道による一般ファイバーの可換復元}
+\label{rog:sec:generic}
+
+完備底全体でcompactな逆核を先に構成することは、一般点での復元には過剰な十分条件である。
+本節では、既存の次数別完備な有限rank MF同値を\emph{固定した三対象}へ制限し、
+先にパラメータを可逆にする。その像の非零性をEuler形式で検出し、
+孤立超曲面の特異圏の分類から三つの次数シフトが生成することを示す。
+逆核のcompact性は、この体上の生成性から得る。
+従って全Artinの生成性を完備底へ持ち上げる誤った推論は使わない。
+
+既知の入力は、Stevensonの特異圏のthick部分圏分類
+\cite[Theorem~6.13]{ROGStevenson}、行列因子分解と特異圏の比較および
+残余体stabilizationのendomorphism計算\cite[\S2.4, \S5.6]{ROGDyckerhoff}、
+compact対象の局所化原理\cite[Proposition~13.37.6]{ROGStacks}、
+perfect双加群の有限表示性\cite[Lemmas~2.8, 2.10]{ROGTV}である。
+これら既知の原理の新規性は主張しない。本稿の非可換入力への適用は、
+後述の\textbf{(L),(CF)}および明示式を使う場合の\textbf{(D)}という既存証明に依存する。
+
+\subsection{孤立斉次超曲面の次数シフト軌道}
+
+$K$を標数零の体、$S=K[x_1,\ldots,x_N]$、$W\in S_d$、$d\ge2$とする。
+$S/(W)$の特異点集合は原点だけであると仮定する。
+有限生成射影加群上のgraded MFのホモトピー圏を冪等完備化して$\mathcal T^{\rm gr}$と書く。
+内部shiftの規約は$M(r)_q=M_{q+r}$、周期性は$(d)=[2]$とする。
+
+\begin{theorem}[非零対象のシフト軌道は生成する]\label{rog:thm:orbit}
+任意の非零対象$E\in\mathcal T^{\rm gr}$について
+\[
+ \operatorname{thick}\{E(j):j\in\mathbb Z\}=\mathcal T^{\rm gr}.
+ \tag{RO1}\label{rog:eq:orbit}
+\]
+従って$E\oplus E(1)\oplus\cdots\oplus E(d-1)$は生成対象である。
+単独の$E$がgraded圏を生成するとは主張しない。
+\end{theorem}
+\begin{proof}
+次数を忘れる関手を$U$とする。$U$は有限rank対象で保守的である。
+実際、$U(E)$の恒等射が非斉次の多項式ホモトピーの境界なら、
+その行列の各成分を内部次数に分解し、恒等射に寄与する次数だけを取ると
+gradedな縮約を得る。冪等因子についても、対応する閉冪等射の境界に同じ操作を行う。
+従って$U(E)\ne0$である。
+
+$S/(W)$の特異点集合は一点なので、\cite[Theorem~6.13]{ROGStevenson}により
+次数を忘れた特異圏の冪等完備化には非零の真のthick部分圏がない。
+正則環$S$上のMFと特異圏との比較から、任意の有限graded MF $Z$について
+$U(Z)\in\operatorname{thick}(U(E))$となる。
+この事実だけでgraded生成性を宣言せず、次の次数の再付与を使う。
+
+非次数付き$S$-加群$M$に対し、
+\[
+ (\mathcal R M)_j=M\quad(j\in\mathbb Z),\qquad
+ a_\ell:M_j\longrightarrow M_{j+\ell}
+\]
+と定め、後者は元の$a_\ell$の作用とする。
+非次数付きMFの第一微分はコピーの添字を保ち、第二微分は添字を$d$上げるように定める。
+すると$\mathcal R$は、任意rankのgraded projective MFのホモトピー圏への完全関手となる。
+非次数付き射はコピーの添字を保つ射へ送り、ホモトピーの二つの成分には
+内部次数$-d,0$を与える。これにより境界の式を保つ。
+coneとの両立は、coneの第二成分にあるコピーの添字を$d$ずらして確認できる。
+また自由加群は、全shiftを直和したgraded自由加群へ移り、射影加群はその直和因子へ移る。
+
+有限graded MFについて自然な同型
+\[
+ \mathcal R U(E)\simeq\bigoplus_{j\in\mathbb Z}E(j)
+ \tag{RO2}\label{rog:eq:regrading}
+\]
+がある。元の内部次数とコピーの添字の差を固定した成分が、右辺の各直和成分である。
+第一微分は両次数を保ち、第二微分は両次数を$d$上げるので、この分解はMFの分解である。
+同じことは$Z$についても成り立つ。
+従って$\mathcal R$を有限thick構成へ適用すると、
+$Z$は$\{E(j)\}$の生成する局所化部分圏に属する。
+
+有限rank graded MFから直和への射は有限個の行列係数で決まり、有限個の直和成分を通る。
+従ってこれらは大きなgraded MFホモトピー圏のcompact対象である。
+compact対象の局所化原理\cite[\S13.37]{ROGStacks}により、
+局所化部分圏に属するcompact対象はそのcompact生成対象のthick閉包に属する。
+この原理は$\{E(j)\}$が生成するdg局所化部分圏に適用すればよく、
+大きなMF圏全体の生成性を別に仮定する必要はない。
+実際、この局所化部分圏で全$E(j)$と右直交する$Y$に対して、
+$\operatorname{Hom}(-,Y)$が直和を直積へ送ることから$Y$自身も$Y$と直交し、$Y=0$となる。
+よって\eqref{rog:eq:orbit}を得る。最後は$(d)=[2]$から従う。
+\end{proof}
+
+\subsection{残余体stabilizationのEuler形式}
+
+今度は$d=3$とし、$F\in k[x_1,\ldots,x_N]_3$を滑らかな射影cubicを定める三次式とする。
+$K_F$を原点の残余体のstabilizationとする。
+\begin{proposition}[非零のEulerベクトル]\label{rog:prop:euler}
+$r=0,1,2$について
+\[
+ \chi_r:=\sum_p(-1)^p\dim_k\operatorname{Hom}(K_F,K_F(r)[p])
+ =\sum_{\substack{0\le s\le N\\s\equiv-r\pmod3}}(-1)^s\binom Ns.
+ \tag{RO3}\label{rog:eq:euler}
+\]
+この三成分ベクトルは零でない。より正確に
+\[
+ \chi_0+\chi_1+\chi_2=0,\qquad
+ \chi_0^2+\chi_1^2+\chi_2^2=2\cdot3^{N-1}.
+ \tag{RO4}\label{rog:eq:norm}
+\]
+$N=5$では$(\chi_0,\chi_1,\chi_2)=(-9,9,0)$である。
+\end{proposition}
+\begin{proof}
+$F=\sum_i x_if_i$、$f_i=(\partial_iF)/3$、
+$f_i=\sum_jx_ja_{ij}$、$a_{ij}=(\partial_jf_i)/2$と置く。
+外積作用$e_i\wedge-$の二重次数を$(-1,1)$、
+収縮$\iota_i$を$(1,-1)$、周期変数$t$を$(2,-3)$とする。
+$K_F$の微分は
+\[
+ Q=\sum_i x_i\iota_i+t\sum_i f_i(e_i\wedge-),\qquad Q^2=tF.
+\]
+そのendomorphism代数のsuper交換子微分について
+\[
+ d(e_i\wedge-)=x_i,\qquad
+ \xi_i:=\iota_i-t\sum_j a_{ij}(e_j\wedge-),\qquad d\xi_i=0.
+\]
+順序を固定した$e_J\xi_I$はendomorphism加群の基底である。
+実際、標準の$e_J\iota_I$からの変換は三角的である。
+この基底では微分は$x_1,\ldots,x_N$のKoszul微分となる。
+また$\xi_i\xi_j+\xi_j\xi_i=-t(a_{ij}+a_{ji})$であり、右辺は原点で零となる一次式なので境界である。
+従って、周期変数を残した二重次数付きコホモロジーは
+\[
+ \bigwedge(\xi_1,\ldots,\xi_N)\otimes_k k[t,t^{-1}],
+ \qquad\deg\xi_i=(1,-1)
+ \tag{RO5}\label{rog:eq:exterior}
+\]
+となる。これは\cite[\S5.6]{ROGDyckerhoff}のClifford計算の三次の場合でもある。
+
+$\xi_I t^j$が内部shift $r$のHomに寄与する条件は
+$-|I|-3j=r$であり、cohomological次数は$|I|+2j$である。
+$0\le|I|\le N$なので各$r$について有限個しか寄与せず、符号は$(-1)^{|I|}$。
+これで\eqref{rog:eq:euler}を得る。
+
+$A(z)=(1-z)^N$を$z^3-1$で割った余りの係数が、順序を除いて$\chi_r$である。
+原始三乗根$\zeta$において$A(\zeta)=(1-\zeta)^N\ne0$なので三成分は同時には零でない。
+$A(1)=0$、$|1-\zeta|^2=3$と三点のFourier公式から\eqref{rog:eq:norm}を得る。
+これは整数恒等式なので、基礎体に依らない。$N=5$の値は直接代入する。
+\end{proof}
+
+\begin{remark}
+一般$N$で自己Euler数$\chi_0$だけを使うのは誤りである。
+例えば$N=9$では$\chi_0=0$となるが、三成分ベクトルは非零である。
+また上の群は\emph{生成対象間のHom}であり、$\operatorname{Nat}(\mathrm{Id},\rho^r)$ではない。
+\end{remark}
+
+\subsection{固定した有限対象上では形式functorを先に局所化できる}
+
+$R=\mathbb C[h]_{(h)}$、$K=\mathbb C(h)$、
+$\widehat R=\mathbb C[[h]]$、$L=\mathbb C((h))$とする。
+代数的中心三次対$(A_R,\Omega_R)$について、次の既存入力を使用する。
+\begin{description}
+\item[\textup{(L)}] 次数別flatな局所量子化と有限Koszul分解、
+線束生成残余圏のproper模型、regular底のstabilization/window比較がある。
+原点の$R$-加群の有限rank stabilizationを$K_R$とすると
+\[
+ T_R=K_R\oplus K_R(1)\oplus K_R(2),\quad
+ \Gamma_R=R\operatorname{End}(T_R),\quad
+ \mathcal K^{\rm lin}_{B_R}\simeq\operatorname{Perf}(\Gamma_R),
+ \qquad \Gamma_R\in\operatorname{Perf}(R).
+ \tag{RO6}\label{rog:eq:source}
+\]
+この模型とHomは$\widehat R,L$への平坦底変更に両立する。
+\item[\textup{(CF)}] 次数別完備底上の有限rank graded MFに、
+内部shiftと指定周期性を保つ実際の$\widehat R$-線形$A_\infty$同値
+\[
+ \Phi:\operatorname{MF}^{\mathbb Z}(A^{\rm gr}_{\widehat R},\Omega)
+ \simeq\operatorname{MF}^{\mathbb Z}(\widehat R[x],W_h)
+ \tag{RO7}\label{rog:eq:completed}
+\]
+がある。$W_h\bmod h=F$は滑らかで、$\Phi$は剰余で恒等。
+単なる両立したArtin同値の列ではなく、現行稿の
+\texttt{fo:cor:complete-graded}で構成した、固定内部次数内で収束するfunctorを使う。
+\end{description}
+記号(CF)は完備底の実際のfunctorを指し、先行節で(F)と呼んだArtin残余同値の列と区別する。
+本節はこれら既存証明の全独立再監査ではない。新しい一般点の議論が何に依存するかを明示した。
+
+\begin{remark}[\textup{(L)}の三つのstabilization]
+三つの対象を選ぶのは、特殊生成性からの持上げではない。
+$a=N-3$とすると、windowは線束$\mathcal O(a),\mathcal O(a+1),\mathcal O(a+2)$を
+有限長切断$B(j)_{<1-a}$のstabilizationのshiftへ送る。
+そのfiltrationの商は$B_r\otimes_RR(j-r)$（$0\le r\le j-a$）である。
+従って三角的に$K_R(a),K_R(a+1),K_R(a+2)$と同じthick部分圏を生成する。
+三次周期性でこれを\eqref{rog:eq:source}の三つの対象に換えられる。
+proper性は線束生成模型のHom公式から継承する。
+この主張は全coherent残余圏と線束生成部分の同一性を含まない。
+\end{remark}
+
+\begin{lemma}[有限対象への制限とLaurent局所化]\label{rog:lem:localization}
+\textup{(L),(CF)}の下で$E=\Phi(K_{\widehat R})$と置くと、
+$E$は通常の$\widehat R[x]$上の有限rank graded MFであり、
+\[
+ \operatorname{Perf}(\Gamma_R\otimes_RL)
+ \simeq\operatorname{thick}\{E_L,E_L(1),E_L(2)\}
+ \tag{RO8}\label{rog:eq:image}
+\]
+というrotationと周期性を保つ同値がある。
+また$\operatorname{Hom}(E,E(r))$は$r=0,1,2$で$\widehat R$-perfectであり、
+その特殊・一般ファイバー間のEuler数は\eqref{rog:eq:euler}に等しい。
+\end{lemma}
+\begin{proof}
+固定した有限rankの基礎加群と固定cohomological次数では、MF行列の各成分の
+内部次数と$t$の指数は固定される。従って各成分は有限自由な
+$\widehat R$-加群$\widehat R[x]_j$に属する。
+(CF)の$F_{2q+1}=O(h^q)$によるtwistingの和は、その有限自由成分内で収束する。
+結果は$x$の次数を無制限に増やす級数ではなく、$h$の形式係数を持つ有限次数の多項式行列である。
+固定個数の射に対する各Taylor成分も同じ理由で通常の$\widehat R$-多重線形写像となる。
+恒等式と逆functorは全Artin剰余で成立し、成分の分離性によって$\widehat R$上で成立する。
+
+従って$T_{\widehat R}$の有限対象部分圏では、(CF)は\emph{通常の}endomorphism複体の
+$A_\infty$準同型を与える。$\widehat R\to L$は平坦なので、これをテンソルすると
+通常の準同型である。固定cohomological次数のHomの形成はこの平坦底変更と可換する。
+$\Phi$を任意のLaurent係数対象へ新たに拡張することは使わず、
+この固定部分圏のpretriangulated・冪等包絡を取って\eqref{rog:eq:image}を得る。
+有限twisted complexのtwisting行列は厳密上三角に取れるため、包絡への延長では有限個のTaylor成分だけが使われる。
+したがって$L$への移行後に新しい無限級数の収束を要求しない。
+
+Homのperfect性は(L)と(CF)から従い、$K_R(r)$は周期性により$T_R$のshiftの直和因子である。
+有界有限射影複体のEuler数は特殊化で不変なので、剰余の$K_F$について計算した
+\eqref{rog:eq:euler}が一般ファイバーでも保たれる。
+内部shiftと周期性の自然比較も、この固定部分圏への制限と平坦底変更で保たれる。
+\end{proof}
+
+\begin{theorem}[Laurent体上の生成性と可換復元]\label{rog:thm:laurent}
+\textup{(L),(CF)}の下で、$N\ge5$に対し
+\[
+ (\mathcal K^{\rm lin}_{B_R}\otimes_RL,\rho)
+ \simeq\bigl(\operatorname{Ku}(V(W_h)_L),\rho_{W_h}\bigr).
+ \tag{RO9}\label{rog:eq:laurent}
+\]
+特に$\Gamma_R\otimes_RL$はsmooth properである。
+完備底上の逆核のcompact性、または非可換側のsmoothnessを先に仮定しない。
+\end{theorem}
+\begin{proof}
+$W_h$の判別式は特殊ファイバーで非零なので単元であり、$V(W_h)_L$は滑らか。
+$E_L=0$なら全$r$について$\operatorname{Hom}(E_L,E_L(r))$のEuler数は零となる。
+補題\ref{rog:lem:localization}と命題\ref{rog:prop:euler}に矛盾するので$E_L\ne0$。
+定理\ref{rog:thm:orbit}により、$E_L\oplus E_L(1)\oplus E_L(2)$は
+可換graded MF全体を生成する。
+\eqref{rog:eq:image}の像は従って全MFである。
+体上のOrlov比較を合成すると\eqref{rog:eq:laurent}を得る。
+可換側のKuznetsov成分はsmooth properなので、Morita不変性から最後の結論を得る。
+\end{proof}
+
+\begin{remark}[既存の反例との相違]
+$[\mathcal O_{\mathbb P^1}(-1)\xrightarrow{hs}\mathcal O_{\mathbb P^1}]$は一般点で点の層となり、
+全Artinでの生成性から完備底の生成性を導けない。
+本節はこの推論を行わない。一般ファイバーの\emph{非零性}と、
+孤立斉次超曲面の\emph{全次数シフト軌道}という追加構造を使う。
+Euler数が非零という条件だけでは、一般の導来圏で生成性は従わない。
+\end{remark}
+
+\subsection{体拡大上の同値から有限代数拡大上の同値へ}
+
+\begin{lemma}[固定された可換模型へのgeneric降下]\label{rog:lem:descent}
+$K$を標数零の体、$L/K$を任意の体拡大、$\Gamma,\mathsf C$を$K$上properなdg代数とし、
+$\mathsf C$をsmoothとする。両側にrotationを表す可逆双加群と、必要なら三次周期同型を指定する。
+$L$上でrotation・周期性を保つMorita同値があれば、ある有限代数拡大$K'/K$上でも
+同じ二つの代数の間にそれらを保つMorita同値がある。
+\end{lemma}
+\begin{proof}
+$L$上の同値を可換側から非可換側への核$P_L$で表す。
+これは右$\Gamma_L$-perfectであり、$\mathsf C_L$のsmoothnessにより
+$\mathsf C_L^{\rm op}\otimes_L\Gamma_L$上でもperfectである
+\cite[Lemma~2.8]{ROGTV}。
+$L$を有限生成$K$-部分代数のfiltered colimitとして表し、
+\cite[Lemma~2.10]{ROGTV}により核とrotation比較を一つの有限生成整域$D\subset L$へ降ろす。
+$\mathsf C_D$は$D$-properなので、包絡代数上のperfect加群を右$\Gamma_D$へ制限してもperfectである。
+
+$Q_D=R\operatorname{Hom}_{\Gamma_D}(P_D,\Gamma_D)$と置く。
+片側smoothnessにより$Q_D$は右$\mathsf C_D$-perfectであり、随伴の単位・余単位のconeは
+$D$-perfectである。$L$への底変更後は零なので、
+有限生成性と$D\subset L$により、ある$0\ne f\in D$を反転すれば両coneは零となる。
+rotation比較のconeも同様に消せる。
+指定周期性の図式はperfect双加群間の有限個の射の等式であるから、
+必要なら段階を拡大し、さらに一つの元を反転して等式を保つ。
+任意の高次群作用を有限の周期図式と同一視してはいない。
+
+$\operatorname{Spec}D_f$の閉点を一つ取る。その剰余体$K'$はZariskiの補題により$K$の有限拡大であり、
+標数零なので分離的である。そこでの底変更が所要の同値を与える。
+これは元の$L$上の形式分枝を全次数で再現する主張ではない。
+\end{proof}
+
+\begin{theorem}[一変数量子化の幾何学的一般点]\label{rog:thm:geometric-generic}
+\textup{(L),(CF)}を満たす一変数中心三次量子化に対し、
+ある有限拡大$K'/\mathbb C(h)$と滑らかな三次超曲面$Y/K'$が存在して
+\[
+ (\mathcal K^{\rm lin}_{B_K}\otimes_KK',\rho)
+ \simeq(\operatorname{Ku}(Y),\rho_Y)
+ \tag{RO10}\label{rog:eq:generic}
+\]
+となる。$\mathcal K^{\rm lin}$と全coherent残余圏との同一性は、この定理に含めない。
+\end{theorem}
+\begin{proof}
+定理\ref{rog:thm:laurent}で$L=\mathbb C((h))$上の同値を得た。
+$W_h$の有限個の三次係数と判別式の逆を含む有限生成$K$-部分代数$D_0\subset L$を取ると、
+$Y_0=V(W_{D_0})$は$D_0$上の滑らかな射影cubic族である。
+その線束の有限和を残余成分へ射影した生成子を$H_{D_0}$、
+生成dg代数を$\mathsf C_{D_0}=R\operatorname{End}(H_{D_0})$とする。
+これはsmooth properで、底変更と両立する。
+ここで生成子は相対ampleな全線束が生成することと、座標のKoszul完全列によって
+$N$個の連続したtwistへ減らすことから得られる。
+射影は有限個のexceptional mutationによる。
+この有限線束生成の基底環に関する一般性は\cite[\S36.16]{ROGStacks}を参照する。
+
+$L$上の同値核を、$D_0$を含む有限生成$K$-部分代数へ降ろす。
+以後は補題\ref{rog:lem:descent}の証明と同じであり、
+properな二つのconeを消して閉点を選ぶ。
+その点では$Y_0$も滑らかなcubicへ特殊化し、\eqref{rog:eq:generic}を得る。
+この一般存在定理は、$Y$の係数の閉公式や同値核の行列を明示するものではない。
+\end{proof}
+
+\begin{corollary}[計算済み混合三次式への復元]\label{rog:cor:mixed}
+\textup{(L),(CF)}に加えて、既存の有限対角・characteristic比較\textup{(D)}を使う。
+$\lambda=1$の混合族に対し、$\widetilde G_h$を
+\[
+\begin{aligned}
+ \widetilde G_h={}&(x^3+y^3+z^3)/3+v^3+h^2xyz/3+(1+h^6/54)uxy\\
+ &-h^4uz^2/18-h^2u^2z/12+
+ (1+29h^6/648+h^{12}/4374)u^3
+\end{aligned}
+\tag{RO11}\label{rog:eq:explicit}
+\]
+とする。このとき、ある有限拡大$K'/\mathbb C(h)$上で
+\[
+ (\mathcal K^{\rm lin}_{B_K}\otimes_KK',\rho)
+ \simeq(\operatorname{Ku}(V(\widetilde G_h)_{K'}),\rho_{\widetilde G}) .
+\]
+従って、この線束生成残余pairの\emph{幾何学的一般点}は、計算済みの代数的三次式から復元される。
+\end{corollary}
+\begin{proof}
+既存の幾何学的低rotation底変更と\textup{(D)}により、
+$W_h$と$\widetilde G_h$は$\widehat R$上で形式線形同型である。
+その行列を$L$へ移せば通常の線形座標変換になる。
+定理\ref{rog:thm:laurent}の可換模型をこの固定された$K$上のcubicへ換え、
+補題\ref{rog:lem:descent}を適用する。
+特殊式$\widetilde G_0$は滑らかなので、$\widetilde G_h$の一般点も滑らかである。
+\end{proof}
+
+\subsection{得られたことと未解決の境界}
+
+以上は、\emph{既存入力\textup{(L),(CF)}（明示式にはさらに\textup{(D)}）の下で}、
+一般点での生成性とcompactな逆核の存在を証明する。
+完備底全体の右$\widehat\Gamma$-perfectな逆核や、$h=0$を含むétale近傍の同値は結論しない。
+体上で得た有限cellの存在は証明したが、そのcell数の明示上界、
+双加群の具体的行列、必要な有限拡大の次数は求めていない。
+
+(L)の局所proper模型、(CF)の全次数形式MF同値、(D)の乗法的比較について、
+現行本文に証明があることと、今回それら全てを独立再監査したことは区別する。
+本節で直接証明・点検したのは、軌道生成、Euler検出、固定対象の局所化、体拡大からの降下である。
+異なるPoisson成分を同時に動かす多変数基底の一般点、任意$\lambda$の明示式、
+線束生成部分と全coherent残余圏の一致は別の課題として残る。
+次の優先課題は、この到達点の依存証明の監査と、同値の有限データの明示化である。

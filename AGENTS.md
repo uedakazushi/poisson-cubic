@@ -1,27 +1,31 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-11 / v34。GitHub mainが唯一の正本。** 00_research_plan.md、notes/one_sided_morita.md、notes/geometric_rotation_basechange.mdの順に読む。旧ZIP・会話を再開条件にしない。
+**2026-11-11 / v35。mainが唯一の正本。** 00_research_plan.md、notes/rotation_orbit_generic_reconstruction.mdから読む。旧会話・ZIPを再開条件にしない。
 
-## 最優先
+## 現在の結論
 
-有限代数的な可換方程式抽出と、可換側のprojected kernelによるBCを維持する。一般MF核全忠実性KFには戻らない。generic段階では可換smooth proper Cからnc proper Gammaへの **一つの形式逆核P_hat** を作る。
+既存の(L)局所proper/windowと(CF)次数別完備有限rank MF同値の下で、一変数量子化の線束生成残余pairの幾何学的一般点は可換cubicのKu pairと同値になる。明示的lambda=1族では(D)をさらに使い、復元先は既存多項式G_h+v^3。証明全文はpapers/reconstruction/rotation_orbit_generic_reconstruction.tex。
 
-新定理：右Gamma-perfectな(C,Gamma)-双加群Pが特殊点で同値なら、底上でも同値。逆Q=RHom_Gamma(P,Gamma)、単位・余単位はperfect Nakayamaで同型。Gammaのsmoothnessは結論。rotationは一射の剰余可逆性で判定でき、HH0(C/R)=Rを確認すれば三次周期性はetale scalar根で補正できる。
+これは(L),(CF),(D)の全独立監査を完了したという主張ではない。一般coherent残余圏や多変数モジュライ全体と混同しない。
 
-P_hatが通常の導来圏に存在し右Gamma_hat-perfectなら、Cのsmoothnessから包絡代数上compactになり、Popescuとperfect dg加群のfiltered-colimit降下で任意の有限jetを保つetale代数化ができる。証明はpapers/reconstruction/one_sided_morita_algebraization.tex。
+## 論理の核心
 
-**具体的nc cubicでこのP_hatの実現・右perfect性・左作用/rotationのcoherenceは未確認。** 固定rank MF、R-perfect Hom、各Artin段階のperfect性だけで満たしたとしない。可換側の一生成子Hの逆像に、一様な有限cell/retract表示を作ることが次の作業。逆核と両逆性を独立に構成する必要はない。
+- K_R=stab(R)、T_R=K_R⊕K_R(1)⊕K_R(2)がwindowからK^linを生成し、Gamma_R=REnd(T_R)はproper。
+- 完備functorを固定三対象に制限してからhを反転する。固定Hom成分は有限自由なので通常のA∞写像となる。任意のLaurent対象に形式級数を評価する必要はない。
+- Eulerベクトルchi_r=Σ_(s+r=0 mod3)(-1)^s binom(N,s)、二乗和2*3^(N-1)。N=5は(-9,9,0)。N=9ではchi0=0なので一般次元で自己Eulerだけを使わない。
+- 一般点の像Eは非零。Stevensonのungraded分類をregradingとcompact局所化でgradedへ戻し、E,E(1),E(2)が生成すると証明する。非零対象単独のgraded生成性は主張しない。
+- 一般体上の逆核はcompactになり、有限表示性で有限生成部分代数に降下し、perfect coneを非空開で消して閉点を取る。有限拡大C(h)上の同値を得る。完備底全体のcompact逆核は未構成のままでよい。
 
-## 既存の依存と禁止する飛躍
+## 次の優先事項
 
-v33の幾何学的BCは任意のArtin局所C代数とN>=5の滑らかなcubicに適用できる。ncへの適用は(F)形式MF/Artin残余同値、(D)正則有限対角/乗法的characteristicに依存する。これら全部を今回独立再監査したとは言わない。lambda=1のGとWの形式GL5同型とgeneric圏同値を区別する。
+(L)のwindow/proper底変更、(CF)のcurved formalityとcomplete-graded比較、明示式の(D)を独立監査する。その後、三シフト生成の有限cellと同値核を明示化する。存在の証明を具体行列の計算と呼ばない。有限拡大の次数、h=0近傍同値、一般lambdaの閉公式、K^lin=全残余、多変数一括適用は未完了。
 
-項別自由性だけの生成子持上げ反例を保持する。通常の自己Extの次数制約だけでA∞演算を打ち切らない。SM/ER・smooth proper有限A_n決定性をnc側のsmoothnessなしで使わない。一般lambdaや全Poisson成分の具体核は未構成。
+(KF)や完備逆核を一般点の先行条件に戻さない。片側Morita、Popescu、SM/ERはより強い相対結論の別経路として保持する。旧生成子持上げの反例や全Artin smooth/generic nonsmooth例も削除しない。
 
-A/Bの全結果、Cの形式MF・window・二次星積・対角・bar・sector・unit・対称性・反例・SM/ERを削除しない。証明全文は現行本文へ統合し、重複する要約だけを保存しない。
+## 保存と検証
 
-## 再現と保存
+研究区切りに承認不要で証明全文・方針・ノート・必要なコード/証明書をmainへ通常のfast-forwardで保存する。force push、無断PR、GitHub Actionsは禁止。要約だけを全文pushと呼ばず、remote refと変更blobを照合する。Libraryは実際のpush失敗時のみ緊急退避。既存Libraryファイルの無断削除は禁止。
 
-`python3 scripts/verify_one_sided_morita_assets.py` と `latexmk papers/one_sided_morita_algebraization.tex`。206恒等式等は通常の行列代数模型でありnc compact核の検算ではない。新単独稿5頁を組版・表示確認。A/B/C全体の現行組版と旧全行列再計算は未実施なら明記する。
+日本語LuaLaTeX、PDFはbuild/に生成しGit追跡しない。旧ZIP、旧稿、ログ、cacheを追加しない。既存A/B/Cの有効な数学・証明・検証資産を容量のため削除しない。
 
-研究方針の一般原則を守り、区切りごとに承認なしでmainへ全文と再現資産をfast-forward保存する。remote変更を保持、force push・無断PR・GitHub Actions禁止。変更blobを照合する。成功時Libraryへ二重保存せず、実際の失敗時のみ緊急退避。日本語LuaLaTeX、PDFは追跡せずbuild/へ出す。旧ZIP・ログ・cache・重複を除き、数学や証明を容量のため削らない。
+`python3 scripts/verify_rotation_orbit_assets.py`、`latexmk papers/rotation_orbit_generic_reconstruction.tex`。新計算は64Eulerベクトルと41特殊Koszul行列恒等式であり、generic同値kernelや旧nc全行列を計算したものではない。全A/B/C組版・全旧計算を実行していなければ明記する。生成、証明点検、計算、組版、遠隔保存は別状態。
