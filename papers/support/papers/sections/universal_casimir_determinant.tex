@@ -184,15 +184,17 @@ $\mathcal D_{F_0,0}|_W$の転置行列をRREFにして
 \end{example}
 
 \begin{remark}[既存の混合Fermat公式と一般の式]\label{rem:pg-det-scope}
-論文Cの関連研究には、Fermat型$g$に
-$Axy+Byz+Czx+Dx+Ey+Hz+F_{\mathrm{cent}}$を加えた
-全混合方向について、$\hbar^4$までの有限多項式中心元の
-\emph{候補閉公式}がある（現行の
-\texttt{papers/support/papers/sections/mixed\_center\_picard.tex}）。
-その有限体特殊化での中心性検査は
-\texttt{computations/verify\_mixed\_center.py}に記録されているが、
-全係数についての普遍的な独立証明は未完了である。
-本節の決定式表示は一般の滑らかな三変数制限と
+論文Cの関連研究にあったFermat型$g$と
+$Axy+Byz+Czx+Dx+Ey+Hz+F_{\mathrm{cent}}$の
+有限多項式中心元の式は、本稿の
+定理\ref{thm:pg-fermat-mixed-universal}で
+\emph{六つの独立な中心係数を持つ普遍恒等式として証明した}。
+その証明書は
+\texttt{computations/verify\_universal\_fermat\_mixed\_center.py}であり、
+従来の有限体特殊化
+\texttt{computations/verify\_mixed\_center.py}より強い。
+系\ref{cor:pg-fermat-all-mixed}により対角二次混合項も含む。
+本節の決定式表示はさらに一般の滑らかな三変数制限と
 任意の中心混合項に及ぶ一方、
 係数の少ない短い多項式・不変式であるとは主張しない。
 また$g$が節点型・尖点型・恒等的零の場合は
