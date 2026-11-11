@@ -1,16 +1,14 @@
 # nc-cubic：全coherent残余pairの一般点復元
 
-**2026-11-11 / v40。GitHub mainが正本。** 最初に[研究方針](00_research_plan.md)を読む。
+**2026-11-11 / v41。GitHub mainが正本。** 最初に[研究方針](00_research_plan.md)を読む。
 
 ## Bondal予想（論文Aの新しい帰結）
 
 滑らかなcubic n-fold（n>=3）の全Poisson構造についてBondal予想を証明した。一般rank2kの正規形から、j<kではj+1個のJacobian三変数ブロックの平面曲線join（次元2j+1）をD_{2j}に構成する。既存の正規形定理に依存し、その全証明の独立監査・高次元での新規性確認は未完了。本文 `papers/sections/bondal_cubic.tex`、ノート `notes/bondal_cubic.md`。2013年Fano4、2026年Fano5の既存結果を参照。
 
-## Point schemeとPoisson零点
+## Point schemeとPoisson零点（二パラメータでの新定理）
 
-混合lambda=1の非可換cubicでは、一般h非零のpoint moduleの初期点集合はSklyanin曲線E_h:x³+y³+z³+h²xyz=0と固定点12点の非交和。Poisson零点はE_0（Fermat）と同じ12点（後者はscheme長24）。一般に同一視できない。証明は論文C `papers/reconstruction/point_scheme_poisson_zero.tex`。孤立12点は各々長さ2の二重点でPoisson零点の孤立厚化と抽象的には同型。ただし埋め込み接方向が違う。楕円曲線側には余分な中心方向の厚化がない。証明: papers/reconstruction/point_scheme_thickening.tex。
-
-**平坦極限:** h≠0のpoint schemeの閉包はh=0でPoisson零点スキームに一致。E_h楕円曲線族と長さ24の有限平坦Sigma_hを構成して証明した。これはB_0自身のpoint scheme(X0全体)と違う。
+F_λ=(x³+y³+z³)/3+u³+v³+λuxy の混合量子化について、λ³+3≠0、h⁶+27≠0 の範囲で、h非零のpoint schemeはSklyanin楕円曲線 E_h と長さ24の有限平坦成分S_{h,λ}の非交和。h=0のスキーム論的平坦閉包はPoisson零点スキームD0と一致。λ≠0では12個の二重点、λ=0では3個の八重点へ衝突（各局所環 C[x,y,z]/(x²,y²,z²)）。全文 `papers/reconstruction/point_scheme_lambda_family.tex`、単独組版 `papers/point_scheme_lambda_family.tex`、計算 `computations/verify_lambda_point_scheme.py`。一般nc cubicへ無条件に適用しない。
 
 ## 現在の結論
 

@@ -1,0 +1,187 @@
+% 2026-11-11 / v41
+\section{混合係数を動かしたpoint schemeの同時平坦極限}
+\label{psl:sec:family}
+
+前節の$\lambda=1$のpoint schemeの構成を、混合係数$\lambda$そのものを動かす二パラメータ族に拡張する。
+特に$\lambda=0$では孤立点の支持が合体するが、scheme長は保存される。
+中心三次商のpoint schemeと、その半古典Poisson構造の零点スキームの関係は、
+この衝突を含む族でも維持される。
+
+\subsection{二パラメータの有限平坦模型}
+
+$\Lambda=\operatorname{Spec}\mathbb C[\lambda,(\lambda^3+3)^{-1}]$、
+$H=\operatorname{Spec}\mathbb C[h,(h^6+27)^{-1}]$、
+$T=\Lambda\times H$とする。
+$F_\lambda=(x^3+y^3+z^3)/3+u^3+v^3+\lambda uxy$は
+$\lambda^3+3\ne0$で滑らかなcubic threefoldを定める。
+既存の混合族（\texttt{mt:eq:relations}, \texttt{mt:eq:center}）の
+非可換代数$A_{h,\lambda}$と中心元$\Omega_{h,\lambda}$について、
+$B_{h,\lambda}=A_{h,\lambda}/(\Omega_{h,\lambda})$と置く。
+
+可換化した中心元は、$\mathbb P^4_T$上の三次式
+\begin{equation}
+ \Omega_{h,\lambda}^{\mathrm{ab}}
+ =F_\lambda-\frac{2h^2}{3}xyz
+ +\frac{h^2\lambda^2u^2}{6}z+\frac{h^4\lambda u}{18}z^2
+ \tag{PL1}\label{psl:eq:abelian}
+\end{equation}
+である。次の閉部分スキームを定める：
+\begin{align}
+ \mathcal E&=V(u,v,x^3+y^3+z^3+h^2xyz),\notag\\
+ \mathcal S&=V(x^2+\lambda uy,\ y^2+\lambda ux,\ z^2,
+                       \Omega_{h,\lambda}^{\mathrm{ab}})
+                  \subset\mathbb P^4_T.
+ \tag{PL2}\label{psl:eq:families}
+\end{align}
+
+\begin{lemma}[孤立部分の24次の自由模型]\label{psl:lem:free}
+$\mathcal S$は$u\ne0$に含まれる。$u=1$では
+\begin{equation}
+ \begin{split}
+ \mathcal O(\mathcal S)
+ &=R[x,y,z,v]/(x^2+\lambda y,\ y^2+\lambda x,\ z^2,\
+                 1+v^3+\lambda xy/3+h^2zC),\\
+ C&=\lambda^2/6-2xy/3,
+ \quad R=\mathbb C[\lambda,h,(\lambda^3+3)^{-1},(h^6+27)^{-1}].
+ \end{split}
+ \tag{PL3}\label{psl:eq:24}
+\end{equation}
+この環は$R$上階数24の自由加群であり、基底は
+\[
+ \{x^ay^bz^cv^d\mid 0\le a,b,c\le1,\ 0\le d\le2\}.
+ \tag{PL4}\label{psl:eq:basis}
+\]
+さらに$\mathcal S$は$h$に依らず抽象スキームとして自明化できる。
+具体的に$u=1$上で$v$は単元であり、
+\begin{equation}
+ v'=v+\frac{h^2z}{3v^2}\left(\frac{\lambda^2}{6}-\frac{2xy}{3}\right)
+ \tag{PL5}\label{psl:eq:shear}
+\end{equation}
+により$\mathcal S\simeq\mathcal S_{h=0}\times_\Lambda T$を得る。
+\end{lemma}
+\begin{proof}
+$u=0$上で最初の三つの二次方程式は$x^2=y^2=z^2=0$となる。
+その商では$\Omega^{\mathrm{ab}}=v^3$に冪零元を加えたものなので、
+射影点では$v\ne0$の局所化と両立せず、$\mathcal S$の台は$u\ne0$である。
+これは有限型でのset-theoreticな記述に加えて、$u=0$の閉部分スキームが
+空であることを示す。
+
+$u=1$では、$x^2=-\lambda y$、$y^2=-\lambda x$ゆえ
+$x^3=y^3=-\lambda xy$、$z^2=z^3=0$となり、
+\eqref{psl:eq:abelian}は\eqref{psl:eq:24}に一致する。
+二つの方程式$x^2+\lambda y,y^2+\lambda x$は、総次数順序で
+先頭単項式$x^2,y^2$を持つmonic Gr\"obner基底である。
+実際唯一の$S$-多項式は$\lambda(y^3-x^3)$であり、
+二つの関係により零へ還元される。
+従って$R[x,y]$の商は基底$1,x,y,xy$を持つ階数4の自由加群。
+その上に$z^2=0$を加えて階数8、最後に$v$のmonic三次関係を
+加えて階数24を得る。従って$\mathcal S/T$は有限平坦である。
+
+$t=xy$とすると$t^2=\lambda^2t$なので
+\[
+ (1+\lambda t/3)^{-1}=1-\frac{\lambda t}{3+\lambda^3}.
+\]
+従って$1+\lambda t/3$は単元、$h^2zC$は二乗零である。
+式\eqref{psl:eq:24}から$v^3$、従って$v$も単元になる。
+さらに$z^2=0$なので
+\[
+ (v')^3=v^3+h^2zC,
+\]
+となり、残りの関係は$1+(v')^3+\lambda xy/3=0$である。
+逆向きの変換は同じ二乗零の変位を引けばよい。
+これは$R$上の環の同型であり、単なる点集合の対応ではない。
+\end{proof}
+
+\begin{theorem}[任意の滑らかな混合係数での平坦極限]
+\label{psl:thm:universal-flat}
+$T$上の$\mathcal E$、$\mathcal S$は交わらず、
+$\mathcal Z=\mathcal E\sqcup\mathcal S\subset\mathbb P^4_T$は平坦である。
+すべての$\lambda^3+3\ne0$、$h\ne0$、$h^6+27\ne0$に対し
+\[
+ \mathcal Z_{h,\lambda}\simeq
+ \operatorname{Point}(B_{h,\lambda})
+ \qquad\text{（初期点の表現スキーム）},
+ \tag{PL6}\label{psl:eq:point}
+\]
+$h=0$では$\mathbb P^4$内の閉部分スキームとして
+\[
+ \boxed{\quad \mathcal Z_{0,\lambda}=D_0(\pi_{X_\lambda}).\quad}
+ \tag{PL7}\label{psl:eq:limit}
+\]
+従って一般$h$のpoint schemeのスキーム論的平坦閉包は
+任意の滑らかな混合係数$\lambda$でPoisson零点スキームへ特殊化する。
+全ファイバーのHilbert多項式は$3t+24$である。
+\end{theorem}
+\begin{proof}
+補題\ref{psl:lem:free}より$\mathcal S$は$u\ne0$に含まれ、
+$\mathcal E$は$u=0$上にあるから両者は交わらない。
+$\mathcal S$は有限自由、$\mathcal E$はHesse pencilの相対平面三次曲線で
+$h^6+27$を反転した範囲では滑らか、従って両者は$T$上平坦である。
+
+$h\ne0$では中心一次元$u,v$の多重線形化により、どちらかが非零な
+point moduleは定数列となる。$u=1$上のpoint moduleは
+$B_{h,\lambda}$の可換化とスキームとして一致するので$\mathcal S$で表される。
+$u=0,v\ne0$のチャートでは可換化の解はない。
+$u=v=0$では$B_{h,\lambda}$は$\lambda$に依らない
+三次元Sklyanin中心商となり、そのpoint schemeは滑らかな$\mathcal E_h$。
+$h\ne0$ではSklyaninの点列shiftは非自明なtranslationだから
+$p_0\ne p_1$となる。この二点の2次小行列は各点近傍で単元であり、
+中心性の多重線形化から$u=v=0$が冪零的方向も含めて強制される。
+従って$\mathcal E$に余分な厚化はない。
+ここでは前節のSklyanin定理を使い、全$\lambda$に同じ証明を適用している。
+
+$h=0$のPoisson bracketは
+$\{y,z\}=x^2+\lambda uy$、
+$\{z,x\}=y^2+\lambda ux$、
+$\{x,y\}=z^2$、$\{u,-\}=\{v,-\}=0$。
+$u=v=0$では$F_\lambda|_{u=v=0}$が滑らかなFermat三次曲線で、
+EulerベクトルがアフィンPoissonの像に入るため射影化で零になる。
+中心方向が非零の点ではEulerベクトルは像に入らず、
+零点のスキーム条件は三つのactive偏微分と$F_\lambda$で与えられる。
+これらはまさに$\mathcal S_{h=0}$の方程式である。
+よって$\mathcal Z_{0,\lambda}=D_0(\pi_{X_\lambda})$は埋め込みスキームとして成立する。
+
+$T$は整域、$\mathcal Z/T$は平坦なので$h$-torsionを持たず、
+$D(h)$上の閉部分スキームのschematic closureに一致する。
+曲線$\mathcal E_h$はHilbert多項式$3t$、有限部分は長さ24だから、
+全体は$3t+24$である。
+\end{proof}
+
+\subsection{零混合係数での衝突}
+
+\begin{corollary}[12個の二重点から3個の八重点への合体]
+\label{psl:cor:collision}
+$h\ne0$、$h^6+27\ne0$を固定する。
+$\lambda\ne0$、$\lambda^3+3\ne0$では$\mathcal S_{h,\lambda}$は
+12個の相異なる支持点を持ち、各局所環は
+$\mathbb C[\varepsilon]/(\varepsilon^2)$に同型である。
+$\lambda=0$では支持は三点となり、各局所環は
+\[
+ \boxed{\mathbb C[x,y,z]/(x^2,y^2,z^2)}
+ \tag{PL8}\label{psl:eq:octuple}
+\]
+に同型で長さ8である。この衝突は有限平坦族の中で起き、
+全長24が保存される。
+\end{corollary}
+\begin{proof}
+$\lambda\ne0$では$x^2+\lambda y=y^2+\lambda x=0$の解は
+$(x,y)=(0,0)$と、$x^3=-\lambda^3$、$y=-x^2/\lambda$を満たす三点である。
+Jacobian行列式$4xy-\lambda^2$はそれぞれ
+$-\lambda^2$、$3\lambda^2$で零でない。
+$v'^3=-1-\lambda xy/3$は$xy=0$または$\lambda^2$なので、
+$\lambda^3+3\ne0$なら各$x,y$解に三つの単純根が対応する。
+$z^2=0$により各点の局所環はdual number。
+$\lambda=0$では$x^2=y^2=z^2=0$、$v'^3=-1$となるので、
+三つの根ごとに\eqref{psl:eq:octuple}を得る。
+\end{proof}
+
+\begin{remark}[特殊化と新規性の範囲]
+\label{psl:rem:scope}
+$\lambda=0$でもPoisson零点スキームの平坦極限は成立するが、
+$B_{0,\lambda}$自身のpoint schemeは可換cubic $X_\lambda$全体である。
+$\lambda^3=-3$では$X_\lambda$が特異となるため、上の滑らかな
+Poisson cubicに関する主張の対象外である。
+Sklyaninの退化値$h^6=-27$も除外した。
+一般の非可換cubicがこのような平坦極限を持つとは主張しない。
+今回の全$\lambda$定理は前節の具体例の拡張であり、先行研究上の初出は未確認。
+\end{remark}

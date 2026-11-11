@@ -1,6 +1,6 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-11 / v40。GitHub mainが正本。** 00_research_plan.md、notes/coherent_residual_saturation.md、notes/rotation_orbit_generic_reconstruction.mdを先に読む。
+**2026-11-11 / v41。GitHub mainが正本。** 00_research_plan.md、notes/coherent_residual_saturation.md、notes/rotation_orbit_generic_reconstruction.mdを先に読む。
 
 ## 論文A：Bondal予想の帰結
 
@@ -8,9 +8,7 @@
 
 ## Point schemeの現行結果
 
-混合lambda=1,h非零かつh^6!=-27でpoint module初期点集合E_h⊔Σ（E_hはSklyanin曲線、Σは定数列の12点）。Poisson零点台E_0⊔Σとは一致せず、E_hは計算済みG_h+v³のu=v=0切断と一致。論文Cに証明を置き、孤立12点は各々長さ2、総長24。u=1のイデアル(x²+y,y²+x,z²,1+v³+xy/3+h²z(1/6−2xy/3))。Poisson零点と抽象スキーム同型だが埋め込み不一致。Sklyanin曲線には中心方向の厚化なし。新節 papers/reconstruction/point_scheme_thickening.tex。Sklyanin中心元による商と定数列の中心作用を区別する。
-
-**新しい平坦極限定理:** 点スキームの非零hからのschematic closureはh=0でPoisson零点スキーム（embedded）に一致。Hesse E_hのflat性、Sigma_hのv-shearによる自明平坦性。B_0そのもののpoint schemeはX0で異なる。論文C point_scheme_thickening.tex を参照。一般への拡張は未証明。
+混合族の全滑らかな係数λ（λ³+3≠0）に拡張。Sklyaninが滑らかなh⁶+27≠0、h非零でPoint(B)=E_h⊔S_{h,λ}。有限部分の環はmonicなx²+λy,y²+λx,z²,v³+1+λxy/3+h²z(λ²/6−2xy/3)で自由rank24。vは単元、明示せん断でh方向の抽象同型。h=0のflat schematic closureはPoisson零点の埋め込みスキーム。λ≠0で12二重点、λ=0で3八重点。証明 `papers/reconstruction/point_scheme_lambda_family.tex`、ノート `notes/point_scheme_poisson_zero.md`。Sklyaninの点列scheme/translationは既知入力。特異λ³=−3・退化h⁶=−27と一般nc cubicは未解決。
 
 ## 現行の結論と依存
 

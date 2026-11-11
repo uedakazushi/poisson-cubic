@@ -1,17 +1,25 @@
 # 混合nc cubicのpoint schemeとPoisson零点
 
-**2026-11-11 / v38。最初に00_research_plan.mdを読む。** 論文Cの新しい証明は `papers/reconstruction/point_scheme_poisson_zero.tex`。
+**2026-11-11 / v41。最初に00_research_plan.mdを読む。GitHub mainが正本。**
 
-## セット論の結論
+## 現行の主要結果
 
-混合族lambda=1, h!=0, h^6!=-27でB_h=A_h/(Omega_h)。u=v=0の部分は3D Sklyanin [y,z]=hx², [z,x]=hy², [x,y]=hz²で、点列の初期点はE_h: x³+y³+z³+h²xyz=0。中心Ω|_(u=v=0)はSklyaninの中心三次元、すべての点モジュールを消す。uまたはv非零なら中心一次元との交換関係で点列は定数、そこでz=0, x²+uy=y²+ux=0, F1=0。u=1にしてx=y=0とx³=-1,y=-x²の場合に分かれ、v³=-1または-4/3、合計12点Σ。従ってpoint module初期点集合=E_h⊔Σ。
+二パラメータ族 F_λ=(x³+y³+z³)/3+u³+v³+λuxy、λ³+3≠0、h⁶+27≠0 において、h≠0のpoint moduleの初期点スキームは楕円曲線 E_h と有限スキーム S_{h,λ} の非交和。E_h は u=v=0、x³+y³+z³+h²xyz=0でλに依存しない。Sはu=1チャートの可換化で表す。
 
-Poisson零点の台=E_0⊔Σ、E_0: sum cubes=0。u=1でcritical equationsは横断的にx,y,v方向が単純で、z²だけが残るからPoisson零点schemeのΣ部分は12点の長さ2ずつ、合計24。point schemeの12点も各々長さ2で総長24。Poisson零点と抽象スキーム同型だが埋め込み接方向は異なる（新原稿point_scheme_thickening.tex参照）。同じ曲線E_hは計算済み復元候補G_h+v³のu=v=0制限でも現れるが、point scheme全体がG上にあるとは主張しない。
+有限環は R[x,y,z,v]/(x²+λy,y²+λx,z²,1+v³+λxy/3+h²z(λ²/6−2xy/3))、R=C[λ,h,(λ³+3)^(-1),(h⁶+27)^(-1)]。x^a y^b z^c v^d（a,b,c=0,1;d=0,1,2）を基底とする自由rank24。t=xy, t²=λ²t、(1+λt/3)^(-1)=1−λt/(3+λ³)よりvは単元。v'=v+h²z(λ²/6−2xy/3)/(3v²)によりh方向の抽象的同型が得られる。
 
-**反例:** h=1で(1,1,-1,0,0)はE_hの点モジュールだがF1=1/3なので元の可換cubic X0の点ではない。一般hでもxyz≠0ならF1=-h²xyz/3≠0。
+h=0で E0⊔S0 はXλ上のPoisson零点スキームD0に**射影空間内の埋め込みスキームとして**一致し、h≠0のpoint schemeのflat schematic closure。Hilbert多項式3t+24。h=0のB自身のpoint schemeはXλ全体である点を保持。
 
-## 意味と次の検証
+λ≠0ではx,yの4個の単純点と各3個のv根があり、12個の長さ2点。λ=0ではx²=y²=z²=0、v'^3+1=0により3個の長さ8の点に合体。各局所環はC[x,y,z]/(x²,y²,z²)、Hilbert関数(1,3,3,1)。λ³=−3とh⁶=−27は一般定理の適用外。
 
-非可換point schemeとPoisson零点が一致するのではなく、零点の孤立部分は変形しても点として残り、楕円曲線部分はHesse pencilで動く。h=0のpoint schemeはX0全体で、E_hの極限との混同に注意。
+## 証明と依存
 
-12点の厚化とSklyanin楕円曲線のscheme的非交和は新原稿で証明。次は一般lambda・退化パラメータの研究。既知3D Sklyanin点モジュール結果の仮定 h^6!=-27 を維持する。任意のnc cubicへの一般化は未証明。
+- **直接証明**：可換化のmonic Gröbner基底、24の自由基底、vの可逆性、明示shear、平坦性、12→3支持衝突。全文は `papers/reconstruction/point_scheme_lambda_family.tex`。
+- **既知入力**：三次元Sklyaninの滑らかなpoint schemeと非自明translation、中心三次元が点モジュールを消すこと。これによりE_hとその冪零横断方向が決まる。参考文献は現行Cのpoint-scheme節を参照。
+- **計算**：`python3 computations/verify_lambda_point_scheme.py --output build/lambda_point_scheme_certificate.json`。λ=0,1,2,-1、h=0,1,2の12個の有理パラメータでGröbner長さ24、二変数多項式恒等式、shearのz²-倍数性を確認。これはSklyanin定理やpoint functorの形式検証ではない。
+
+## 次の研究課題
+
+この族の結果を一般k=1三変数Jacobianブロックの量子化・多中心変数へ拡張するため、中心一次元のmultilinearized commutationによる定数列の局所模型、非定数列の楕円曲線運動、半古典臨界スキームの埋め込み一致条件を分離して調べる。複数activeブロックのpoint schemeや全nc cubicへの一般化は未証明。λ³=−3特異境界、h⁶=−27退化Sklyaninも別問題として保持。
+
+抽象scheme同型と射影埋め込みの同一性を区別し、既知結果と本研究の寄与、新規性未確認を明記する。

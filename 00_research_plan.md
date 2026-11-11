@@ -1,17 +1,21 @@
 # 研究方針：非可換cubicの一般点復元
 
-**2026年11月11日 / v40。再開時は最初に読む。GitHub `uedakazushi/nc-cubic` の `main` が唯一の正本。**
-次は `notes/bondal_cubic.md`、`notes/coherent_residual_saturation.md` と `notes/rotation_orbit_generic_reconstruction.md`。具体式は `notes/curved_diagonal.md`、形式比較は `notes/geometric_rotation_basechange.md`。完備底全体の別経路は `notes/one_sided_morita.md`。一般背景は論文A/B/Cと `notes/research_notes.md`。旧ZIP・会話を再開条件にしない。
+**2026年11月11日 / v41。再開時は最初に読む。GitHub `uedakazushi/nc-cubic` の `main` が唯一の正本。**
+次は `notes/point_scheme_poisson_zero.md`、`notes/bondal_cubic.md`、`notes/coherent_residual_saturation.md` と `notes/rotation_orbit_generic_reconstruction.md`。具体式は `notes/curved_diagonal.md`、形式比較は `notes/geometric_rotation_basechange.md`。完備底全体の別経路は `notes/one_sided_morita.md`。一般背景は論文A/B/Cと `notes/research_notes.md`。旧ZIP・会話を再開条件にしない。
 
 ## Poisson構造定理の新たな帰結：Bondal予想（論文A）
 
 **証明を追加。** n>=3の滑らかなcubic n-foldの任意のPoisson構造に対して、全j（2j<n）のD_{2j}は次元2j+1以上の既約成分を持つ。非零Poissonの正規形F=Σ f_s(x_s,u)、一般rank2kを使い、j<kならr=j+1個のブロック内の平面曲線C_s⊂{f_s(x_s,0)=0}のjoin J_rを構成する。J_r⊂X、dim J_r=2r−1。全ブロックのJacobian rank2ならEulerベクトルが像に入り射影化でrankが2下がり、いずれかrank0ならもとからrank≤2r−2。従ってJ_r⊂D_{2j}。π=0またはj>=kはD=X。全文 `papers/sections/bondal_cubic.tex`、ノート `notes/bondal_cubic.md`。**正規形定理thm:pg-normalに依存し、その既存証明全体の独立再監査は未完了。** 2013年Fano4、2026年Fano5の既知定理との重複に注意し、新規性は未確定。正規形のLie代数補題を次に優先監査する。
 
-## Point schemeとPoisson零点（混合lambda=1）
+## Point schemeの二パラメータ族とPoisson零点（論文C、証明あり）
 
-**スキーム論的にも証明（論文C新節）。** 非零一般h（h^6!=-27）のB_h=A_h/(Omega_h)のpoint moduleの初期点集合はE_h⊔Σ。E_hはu=v=0のSklyaninのHesse曲線 x³+y³+z³+h²xyz=0、Σはu!=0の固定点12点。Poisson零点の台はE_0⊔Σで、E_0はFermat曲線。h=1の(1,1,-1,0,0)はpoint scheme上だがX0上でない。Poisson零点のΣ部分はスキーム長24（12点、各横断長2）。point schemeの孤立12点もそれぞれ長さ2で総長24。Poisson零点の孤立厚化と抽象的には同型だが、射影空間での接方向は異なる。明示同型はv'=v+h²z(1/6−2xy/3)/(3v²)。E_h方向の中心変数の余分な厚化はSklyanin shiftの非自明平行移動と中心性から排除。全文 papers/reconstruction/point_scheme_thickening.tex。論文Cの `papers/reconstruction/point_scheme_poisson_zero.tex` と `notes/point_scheme_poisson_zero.md` を参照。これは一般のnc cubicのpoint scheme分類ではない。
+**混合係数λの全滑らかな値へ拡張。** F_λ=(x³+y³+z³)/3+u³+v³+λuxy、λ³+3≠0、h⁶+27≠0。h≠0のB_{h,λ}のpoint module初期点の表現スキームは、λに依らないSklyanin Hesse楕円曲線 E_h: u=v=0, x³+y³+z³+h²xyz=0 と、u=1上の有限スキームS_{h,λ}の非交和。有限部分の可換商は x²+λy=y²+λx=z²=0, 1+v³+λxy/3+h²z(λ²/6−2xy/3)=0。基底 x^a y^b z^c v^d (a,b,c=0,1; d=0,1,2)によりλ,h同時に自由rank24。λ³+3≠0ならvは単元で、v'=v+h²z(λ²/6−2xy/3)/(3v²)によりS_{h,λ}はh方向に抽象的に自明。
 
-**平坦極限による強化（新定理）。** U=Spec C[h,(h^6+27)^(-1)]上、h非零のpoint scheme E_h⊔Sigma_hの射影空間内のschematic closureはflatで、そのh=0の特殊ファイバーはPoisson零点スキームE_0⊔Zcritと*埋め込みスキームとして*一致する。Sigma_hは明示的なvの冪零shearでSigma_0×Uに同型、E_hはHesse楕円曲線の滑らかな族。Hilbert多項式3t+24。h=0のB_0自身のpoint schemeはX0全体であり、このflat limitとは違う。証明 papers/reconstruction/point_scheme_thickening.tex の ps39:thm:flat-limit。一般の非可換cubicで同様の平坦極限が存在するかは未解決。
+**scheme-theoretic平坦極限。** E_h⊔S_{h,λ}は二パラメータで平坦、h=0の埋め込みスキームはX_λ上のPoisson零点D_0(π)。Hilbert多項式は3t+24。h=0の非可換代数そのもののpoint schemeはX_λ全体であり、平坦閉包とは区別する。
+
+**λ=0の衝突。** λ≠0ではSは12個の長さ2の非被約点。λ=0では3個の長さ8の点へ衝突し、各局所環は C[x,y,z]/(x²,y²,z²)、Hilbert関数(1,3,3,1)。全長24は保存。λ³=−3では元のcubicが特異、h⁶=−27ではSklyaninが退化するため適用外。
+
+証明全文は `papers/reconstruction/point_scheme_lambda_family.tex`、再生成可能な単独LuaLaTeX入口は `papers/point_scheme_lambda_family.tex`、現行研究ノートは `notes/point_scheme_poisson_zero.md`、厳密検算は `computations/verify_lambda_point_scheme.py`。前段のλ=1非被約・平坦極限の証明は `point_scheme_thickening.tex` に保持。3D Sklyanin point-scheme定理は既知入力。一般のnc cubicに対する同一結果や全先行研究上の新規性は未確認。
 
 ## 最終目標と現在の結論
 
