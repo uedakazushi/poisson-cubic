@@ -13,6 +13,21 @@
 5. 非楕円Poisson成分（ne:main）：固定した二つの滑らかなcubic fivefoldのPoisson schemeで2次元成分を示す。35列の線形化Jacobi行列がrank33という整数証明書に依存する。今回全行列を再実行したわけではない。全cubicを動かすrelative成分性を主張しない。
 6. Hesse中心元（thm:explicit-hesse-center）：既知Sklyanin公式のPoissonパラメータへの翻訳。基本中心公式の新規性は主張しない。
 
+## 三次中心元：検証した新しい有効結果
+
+- **反自己同型による偶数次正規化**（補題 lem:pg-center-parity、本文 papers/support/papers/sections/poisson_geometry.tex）：Jacobian量子化の関係式は、語の反転と h→-h による反自己同型で符号が逆転する。中心元をこの反自己同型で平均し、Weyl対称化で表せば、任意の既存の中心三次元を法hでの剰余を変えずにhの偶数次係数だけの形へ規格化できる。これは**中心元の存在を仮定した結論**であり、その存在自体には lem:pg-formal-center が必要。
+- **普遍Hessian二次補正**（命題 prop:pg-universal-casimir-jet）：active三変数に関して次数3以下の任意の f （係数は任意の可換中心環）について、
+  \[
+  \Theta_f=\operatorname{sym}\left(f-\frac{h^2}{12}\det\operatorname{Hess}_{x,y,z}f\right)
+  \]
+  はJacobain交換子の代数で3生成元と **mod h^4** で可換。証明は20個の独立係数 a_{ijk}（i+j+k≤3）の多項式を自由語の隣接転置規則で有界h次数に還元し、全係数がQ[a]で恒等的に零となる厳密記号計算に基づく。計算では20係数を特殊化していない。反自己同型とh-torsion-free PBW性から、**mod h^5** の中心性が従う。これは実際の厳密な有限証明書を持つ低次結果であり、全次数の中心元をこの式で与えるとは主張しない。
+- **二次係数の必要条件**：偶数次正規化した形式的中心元 sym(f+h² f₂+...) については f₂ + (det Hess f)/12 が古典Jacobian括弧のCasimirである。したがって二次補正は、Casimirの不定性を除いてHessian式により決定する。所定の二次係数が全高次で実現されるという主張とは区別する。
+- **検証コード**：computations/verify_cubic_casimir_jet.py（SymPy）。別個の実行環境で同じ20係数普遍式の3生成元に対する零恒等式を確認し、さらにHesse明示中心公式のh²係数と一致することを検算した。GitHubに登録したスクリプトそのもののクローン環境での再実行は未確認。
+- **先行研究**：Berger–Taillefer, *PBW deformations of Calabi–Yau algebras*, J. Noncommut. Geom. 1 (2007), p.242 Theorem 1.1(i), p.246以降 Theorem 3.1、Theorem 3.6を原PDFで確認。正規ポテンシャルに低次ポテンシャルを加えるPBW変形と3-CYを与え、AのPBW性の**各u特殊化**には適用できる。全係数環上の自由性は別途確認する必要がある。
+- Etingof–Ginzburg, *Noncommutative del Pezzo surfaces and Calabi-Yau algebras*, arXiv:0709.3593v4、PDF pp.29–30, Proposition 8.1.1(i)とその証明を原PDFページ画像で確認。同命題の証明自身が R=C[u] 上の相対微分・formality・CYから中心元を作り、中心元の存在に **isolated singularity仮定を課さない**。複数中心変数のR=C[u_1,...,u_m]への適用は原文にそのまま書かれた定理ではないため、論文Aの相対完備双加群論証がなお重要。
+
+**投稿のための残課題：** universal finite h-jetの計算証明書は論文中の還元規則を読めば再実行できるが、査読で計算なしの短い恒等式証明が必要と判断される場合は導出を補う。主定理 thm:pg-quantization 全次数の中心元については、絶対CY双加群分解・相対Kontsevich対応・Dolgushevの全適用条件の逐語監査が未完成。低次の証明を中心元の存在証明と混同しない。
+
 ## Lie代数補題の検査点
 
 K(P)の基点自由性からBertiniを用いて、V上もsupport W上も非退化な対称形式 B in K(P) を取る。
@@ -52,7 +67,7 @@ A全体のLuaLaTeXコンパイル・PDF表示確認・非楕円成分の全行�
 ## 次の具体的な着手順
 
 1. prop:pg-represent、lem:pg-linearize、lem:pg-quadratic-lie の証明の独立再検証。Etingofの主要一次資料は確認済みなので、Jacobi線形化・Bertini・Lie構成の接続を重点監査する。
-2. lem:pg-formal-center と prop:pg-PBW の相対formality、完備双加群分解、絶対CY、代数化の妥当性を徹底検査。
+2. lem:pg-formal-center と prop:pg-PBW の相対formality、完備双加群分解、絶対CY、代数化の妥当性を徹底検査する。中心元の偶性と普遍Hessian二次補正は検証済みだが、全次数の存在証明の代わりにはならない。
 3. 論文A全体のlatexmk組版・視覚確認、整数証明書の再実行、網羅的文献比較。主張の仮定と証明の所在を確認して投稿判定する。
 4. 数学的まとまりを保ちつつ非楕円量子化をAに収めるか独立論文へ分けるか再評価する。価値ある証明を削除しない。
 
