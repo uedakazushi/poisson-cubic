@@ -11,6 +11,10 @@ IntroductionとAbstractを改訂し、文献・label静的整合性を点検済�
 主定理の全独立監査、全A組版、全旧証明書再実行は未完成。投稿可能判定は行っていない。
 論文B/Cの成果は保持し、新規拡張は論文Aの仕上げの後に再開する。
 
+## 正則三次超曲面のambientは1周期的
+
+標準5次元Koszul AS正則Z代数に次数3の左右正則な正規族があれば、ambientは必ず1周期的。正規族から3周期、Koszul–Frobenius双対性から5周期を得て、2×3−5=1で構成する。一般には最小周期がgcd(N,d)を割る。中心性や周期同型の可換性は不要。証明全文は `papers/ambient_cubic_periodicity.tex`、仮定・未解決の区別・再現手順は `notes/ambient_cubic_periodicity.md`。既知の一般論からの系として扱い、新規性は未確認。ambientの1周期性と、商イデアルを保つ1周期構造・中心三次元による表示・任意の抽象的nc cubicの超曲面表示の存在を区別する。単独稿は `latexmk papers/ambient_cubic_periodicity.tex` で再生成できる。この結果の保存は、上の論文A最優先方針を変更しない。
+
 ## Bondal予想（論文Aの新しい帰結）
 
 滑らかなcubic n-fold（n>=3）の全Poisson構造についてBondal予想を証明した。一般rank2kの正規形から、j<kではj+1個のJacobian三変数ブロックの平面曲線join（次元2j+1）をD_{2j}に構成する。既存の正規形定理に依存し、その全証明の独立監査・高次元での新規性確認は未完了。本文 `papers/sections/bondal_cubic.tex`、ノート `notes/bondal_cubic.md`。2013年Fano4、2026年Fano5の既存結果を参照。
