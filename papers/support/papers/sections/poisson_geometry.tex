@@ -1084,6 +1084,127 @@ $\widehat\eta=\sum_ja_j(\hbar)l_j$ と書けば
 $\eta_O=\sum_ja_j(0)l_j$ は同じ residue をもつ。
 係数の分母は原点で消えないので、それらの零点を除けばよい。
 \end{proof}
+
+\begin{lemma}[中心三次元の偶性]\label{lem:pg-center-parity}
+命題\ref{prop:pg-PBW}の代数的族$A_f$について、
+$\hbar\mapsto-\hbar$で不変な$0$を含む開集合へ必要なら縮める。
+生成元に
+\[
+ x_i^\dagger=x_i,\qquad u_\alpha^\dagger=u_\alpha,\qquad
+ \hbar^\dagger=-\hbar,\qquad(ab)^\dagger=b^\dagger a^\dagger
+\]
+を指定すると、$\CC$-線形の反自己同型$\dagger$が定まる。
+中心元$\Omega\in Z(A_f)_3$、$\Omega\bmod\hbar=f$があれば、
+同じ剰余をもつ中心元を$\Omega^\dagger=\Omega$となるように選べる。
+特に形式的中心元も同様に選べ、Weyl対称化表示では
+\[
+ \widehat\Omega
+ =\sym_R\bigl(f+\hbar^2 f_2+\hbar^4 f_4+\cdots\bigr),
+ \qquad f_{2r}\in R[x_1,x_2,x_3]_3
+\]
+である。ここで添字$3$は中心変数$u_\alpha$も次数一と
+数えた全次数を意味する。
+\end{lemma}
+\begin{proof}
+定義関係式
+$r_i=[x_j,x_k]-\hbar\sym_R(f_{x_i})$に対し、
+$r_i^\dagger=-r_i$である。したがって反自己同型が商へ降り、
+中心を保つ。$\dagger^2=1$なので
+$(\Omega+\Omega^\dagger)/2$は中心であり、$\hbar=0$では$f$に一致する。
+完備化でも同じ操作が可能である。
+
+全次数三のWeyl対称化
+$\sym_R:R[x_1,x_2,x_3]_3[[\hbar]]\to\widehat A_{f,3}$
+は$\hbar=0$で恒等写像となり、
+PBW性と完備Nakayamaにより同型である。
+代数的族についてもこの有限自由加群間の写像は
+原点で可逆なので、さらに開集合を縮めれば同型となる。
+対称化した単語は反転で不変であるから、
+$\dagger$はその係数の$\hbar\mapsto-\hbar$に対応する。
+したがって不変な中心元の対称化係数は$\hbar$の偶冪だけを含む。
+\end{proof}
+
+\begin{proposition}[普遍的なCasimirの二次補正]\label{prop:pg-universal-casimir-jet}
+$f\in R[x_1,x_2,x_3]$を全次数三の任意の多項式とし、
+\[
+ H_f=\det\left(\frac{\partial^2f}
+ {\partial x_i\partial x_j}\right)_{i,j=1}^3,\qquad
+ \Theta_f=\sym_R\left(f-\frac{\hbar^2}{12}H_f\right)\in A_f
+\]
+とおく。命題\ref{prop:pg-PBW}の開集合上で
+\[
+ [\Theta_f,x_i]\in\hbar^5 A_f\qquad(i=1,2,3),
+ \qquad [\Theta_f,u_\alpha]=0.
+ \tag{CJ}\label{eq:pg-casimir-jet}
+\]
+従って$\Theta_f$は$\hbar^5$を法として中心元であり、
+法$\hbar$で$f$となる。
+さらに補題\ref{lem:pg-center-parity}で正規化した
+任意の形式的中心元について、$\hbar^2$係数$f_2$は
+\[
+ \left\{f_2+\frac1{12}H_f,x_i\right\}_f=0\quad(i=1,2,3)
+ \tag{JC}\label{eq:pg-jet-casimir-condition}
+\]
+を満たす。
+最後の条件は$f_2=-H_f/12$が
+\emph{全次数で厳密な中心元に延長する}ことを主張しない。
+\end{proposition}
+\begin{proof}
+まず$\hbar^4$を法とした恒等式を示す。
+係数が代数的に独立な二十個の不定元である
+\[
+ f_{\mathrm{univ}}=\sum_{a+b+c\le3}
+ t_{abc}x_1^a x_2^b x_3^c
+\]
+を考える。これは中心係数環を任意に特殊化できる普遍式である。
+自由語では、隣り合った逆順の文字を
+\[
+ x_2x_1\rightsquigarrow x_1x_2-\hbar\sym(f_{x_3}),\quad
+ x_3x_1\rightsquigarrow x_1x_3+\hbar\sym(f_{x_2}),\quad
+ x_3x_2\rightsquigarrow x_2x_3-\hbar\sym(f_{x_1})
+ \tag{R}\label{eq:pg-jet-reductions}
+\]
+で置き換える。各置換は代数の定義関係式そのものである。
+$\hbar$次数が三以下の範囲では、
+逆転数が減るか$\hbar$次数が増えるため、還元は必ず停止する。
+$\sym(f_{\mathrm{univ}}-\hbar^2H_{f_{\mathrm{univ}}}/12)$と
+各$x_i$との交換子を展開して\eqref{eq:pg-jet-reductions}で還元すると、
+次数三以下の各係数が$\mathbb Q[t_{abc}]$内で零になる。
+二十個の独立係数を保持して全係数を厳密に展開する
+再現可能な検算コードは
+\texttt{computations/verify\_cubic\_casimir\_jet.py}である。
+数値の特殊化や標本点での検査ではない。
+よって任意の中心係数環への特殊化で
+$[\Theta_f,x_i]\in\hbar^4A_f$となる。
+
+一方、$\Theta_f^\dagger=\Theta_f$であり、
+$[\Theta_f,x_i]^\dagger=-[\Theta_f,x_i]$である。
+PBW性により$\hbar$は非零因子なので、
+$[\Theta_f,x_i]=\hbar^4b_i$と書くと
+$b_i^\dagger=-b_i$となる。
+法$\hbar$では反転は可換多項式環の恒等写像だから
+$b_i\bmod\hbar=0$、従って$b_i\in\hbar A_f$。
+これで法$\hbar^5$の結論を得る。
+中心変数との可換性は定義から従う。
+
+最後に$\widehat\Omega=\sym_R(f+\hbar^2f_2+O(\hbar^4))$
+との交換子を比較する。
+前二段の恒等式および量子化の一次Poisson条件から
+$\hbar^3\{f_2+H_f/12,x_i\}_f=0\bmod\hbar^4$
+となり、PBW性から\eqref{eq:pg-jet-casimir-condition}が従う。
+\end{proof}
+\begin{remark}[Hesse公式との照合]
+$f=(x_1^3+x_2^3+x_3^3)/3+t x_1x_2x_3$なら
+\[
+ H_f=2(t^3+4)x_1x_2x_3-2t^2(x_1^3+x_2^3+x_3^3).
+\]
+したがって$-\hbar^2H_f/12$は
+定理\ref{thm:explicit-hesse-center}の
+中心式の$\hbar^2$係数と一致する。
+これは既知のSklyanin公式との整合性チェックであって、
+一般$f$の全高次中心公式が同じ形になるという主張ではない。
+\end{remark}
+
 \begin{lemma}\label{lem:pg-central-linear}
 $D$ を連結次数付き代数、$z\in D_1$ を中心正則元とする。
 $C=D/(z)$ が次元 $d$、AS parameter $d$ の Koszul AS-regular なら、
