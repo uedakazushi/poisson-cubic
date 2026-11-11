@@ -1,4 +1,4 @@
-% 2026-11-11 / v39
+% 2026-11-11 / v40
 \section{混合cubicのpoint schemeの非被約構造}
 \label{ps39:sec}
 以下では混合族$\lambda=1$、$h\in\mathbb C^\times$、
@@ -144,3 +144,69 @@ Poisson零点全体$E_0\sqcup Z_{\mathrm{crit}}$と
 point scheme全体が復元cubic上にあるとは主張しない。
 Sklyanin退化値$h^6=-27$と$h=0$は上の定理の範囲外である。
 \end{remark}
+
+\subsection{零変形パラメータへの平坦極限}
+\begin{theorem}[point schemeの平坦閉包はPoisson零点]
+\label{ps39:thm:flat-limit}
+$U=\operatorname{Spec}\mathbb C[h,(h^6+27)^{-1}]$とし、
+$\mathcal Z\subset\mathbb P^4_U$を次の二つの閉部分スキームの非交和とする。
+\[
+\mathcal E=V(u,v,x^3+y^3+z^3+h^2xyz),
+\]
+\[
+\mathcal S=V(x^2+uy,y^2+ux,z^2,\Omega_h^{\mathrm{ab}}),
+\quad
+\Omega_h^{\mathrm{ab}}=
+F_1+h^2z\left(\frac{u^2}{6}-\frac{2xy}{3}\right)
++\frac{h^4u}{18}z^2.
+\]
+すると$\mathcal Z=\mathcal E\sqcup\mathcal S$は$U$上平坦で、
+\[
+\boxed{\quad
+\mathcal Z_h\simeq\operatorname{Point}(B_h)\quad(h\ne0),
+\qquad
+\mathcal Z_0=D_0(\pi_{X_0}).
+\quad}
+\tag{PS40}\label{ps39:eq:flat}
+\]
+ここで第二式は$\mathbb P^4$の閉部分スキームとして成立する。
+従って$h\ne0$のpoint schemeの$\mathbb P^4_U$内の
+スキーム論的閉包の特殊ファイバーはPoisson零点スキームである。
+全ファイバーのHilbert多項式は$3t+24$である。
+一方$B_0$自体のpoint schemeは可換cubic $X_0$全体であり、
+$\mathcal Z_0$とは異なる。
+\end{theorem}
+\begin{proof}
+$\mathcal S$の$u=0$部分では三つの二次方程式から
+$x=y=z=0$、中心三次式から$v^3=0$となる。
+射影的共通零点は存在しないので
+$\mathcal S\subset\{u\ne0\}$である。
+従って$\mathcal E$と$\mathcal S$は交わらない。
+
+$u=1$の$\mathcal S$は式\eqref{ps39:eq:ideal}で定義される。
+この環で$v$は単元であり、
+式\eqref{ps39:eq:shear}は$h$を固定した
+$\mathbb C[h]$-代数の同型となる。
+その逆は$z^2=0$の下で同じせん断を逆向きに施す式で与えられる。
+従って$\mathcal S\simeq\mathcal S_0\times U$で、
+長さ24の有限平坦族である。
+$\mathcal E$は$\mathbb P^2_U$内の相対三次曲線で、
+$h^6+27$を反転したため滑らかな楕円曲線族となり、特に平坦である。
+よって非交和$\mathcal Z$も平坦である。
+
+$h\ne0$では定理\ref{ps39:thm:global}を使い、
+$\mathcal Z_h$がpoint schemeと一致する。
+$h=0$では$\mathcal E_0=E_0$、
+$\mathcal S_0=V(x^2+uy,y^2+ux,z^2,F_1)$となり、
+前節の零点計算から
+$\mathcal Z_0=E_0\sqcup Z_{\mathrm{crit}}=D_0(\pi_{X_0})$
+がスキームとして成立する。
+$U$は整域で$\mathcal Z$は$U$-flatなので、
+$h=0$に支持される余分な閉成分はなく、
+$\mathcal Z$は穿孔底上のpoint schemeのスキーム論的閉包である。
+各$\mathcal E_h$は次数3・種数1の平面三次曲線だから
+Hilbert多項式は$3t$、$\mathcal S_h$は長さ24だから、
+全体の多項式は$3t+24$である。
+$h=0$の非可換関係は可換化し、$B_0$のpoint schemeが
+$X_0$全体となることも明らかである。
+\end{proof}

@@ -1,10 +1,17 @@
 {
-  "version": "nc-cubic-v39",
+  "version": "nc-cubic-v40",
   "date": "2026-11-11",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only following actual GitHub publication failure.",
-  "scope": "Mixed nc cubic point-scheme scheme structure: elliptic Sklyanin curve plus 12 doubled points; isolated component abstractly isomorphic, not embedded-identical, to Poisson zeros.",
+  "scope": "Flat closure of the generic mixed cubic point scheme specializes scheme-theoretically to the Poisson zero scheme; retain previously proved elliptic plus twelve doubled point decomposition.",
   "proofs_written_and_checked": [
+    {
+      "source": "papers/reconstruction/point_scheme_thickening.tex",
+      "labels": [
+        "ps39:thm:flat-limit"
+      ],
+      "status": "Constructs flat family E_h disjoint union Sigma_h over U=Spec C[h,(h^6+27)^-1], with explicit trivialization of isolated finite component; special fiber is Poisson zero subscheme, while point scheme of B_0 is X_0."
+    },
     {
       "source": "papers/reconstruction/point_scheme_thickening.tex",
       "labels": [
@@ -90,7 +97,8 @@
     "Relative equivalence including h=0, compact inverse over the entire completed base, or multi-parameter all-component extension.",
     "Comprehensive novelty determination, external referee check, or formal proof.",
     "Independent complete revalidation of the existing Lie algebra normal form, exhaustive novelty/prior art for Bondal on cubic n-folds n>=6, and scheme-theoretic dimension/primary decomposition from the new join argument.",
-    "Special fibers h=0 or h^6=-27; point scheme of general nc cubic or other lambda; formal verification of global point module functor."
+    "Special fibers h=0 or h^6=-27; point scheme of general nc cubic or other lambda; formal verification of global point module functor.",
+    "General theorem that Poisson zero schemes equal flat limits of point schemes outside the explicit mixed cubic family."
   ],
   "typesetting": {
     "standalone_coherent_residual": {
@@ -124,9 +132,9 @@
     },
     "standalone_point_scheme_thickening": {
       "source": "papers/point_scheme_thickening.tex",
-      "pages": 3,
+      "pages": 4,
       "build_completed": true,
-      "visual_review": "All 3 pages rendered; labels/citations resolved after second LuaLaTeX run; local standalone preamble may differ from repo common.tex"
+      "visual_review": "Four pages rendered in local standalone variant; full GitHub integration source not independently recompiled."
     }
   },
   "environment": {

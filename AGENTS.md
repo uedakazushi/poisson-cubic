@@ -1,6 +1,6 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-11 / v39。GitHub mainが正本。** 00_research_plan.md、notes/coherent_residual_saturation.md、notes/rotation_orbit_generic_reconstruction.mdを先に読む。
+**2026-11-11 / v40。GitHub mainが正本。** 00_research_plan.md、notes/coherent_residual_saturation.md、notes/rotation_orbit_generic_reconstruction.mdを先に読む。
 
 ## 論文A：Bondal予想の帰結
 
@@ -9,6 +9,8 @@
 ## Point schemeの現行結果
 
 混合lambda=1,h非零かつh^6!=-27でpoint module初期点集合E_h⊔Σ（E_hはSklyanin曲線、Σは定数列の12点）。Poisson零点台E_0⊔Σとは一致せず、E_hは計算済みG_h+v³のu=v=0切断と一致。論文Cに証明を置き、孤立12点は各々長さ2、総長24。u=1のイデアル(x²+y,y²+x,z²,1+v³+xy/3+h²z(1/6−2xy/3))。Poisson零点と抽象スキーム同型だが埋め込み不一致。Sklyanin曲線には中心方向の厚化なし。新節 papers/reconstruction/point_scheme_thickening.tex。Sklyanin中心元による商と定数列の中心作用を区別する。
+
+**新しい平坦極限定理:** 点スキームの非零hからのschematic closureはh=0でPoisson零点スキーム（embedded）に一致。Hesse E_hのflat性、Sigma_hのv-shearによる自明平坦性。B_0そのもののpoint schemeはX0で異なる。論文C point_scheme_thickening.tex を参照。一般への拡張は未証明。
 
 ## 現行の結論と依存
 

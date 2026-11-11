@@ -1,6 +1,6 @@
 # nc-cubic：全coherent残余pairの一般点復元
 
-**2026-11-11 / v39。GitHub mainが正本。** 最初に[研究方針](00_research_plan.md)を読む。
+**2026-11-11 / v40。GitHub mainが正本。** 最初に[研究方針](00_research_plan.md)を読む。
 
 ## Bondal予想（論文Aの新しい帰結）
 
@@ -9,6 +9,8 @@
 ## Point schemeとPoisson零点
 
 混合lambda=1の非可換cubicでは、一般h非零のpoint moduleの初期点集合はSklyanin曲線E_h:x³+y³+z³+h²xyz=0と固定点12点の非交和。Poisson零点はE_0（Fermat）と同じ12点（後者はscheme長24）。一般に同一視できない。証明は論文C `papers/reconstruction/point_scheme_poisson_zero.tex`。孤立12点は各々長さ2の二重点でPoisson零点の孤立厚化と抽象的には同型。ただし埋め込み接方向が違う。楕円曲線側には余分な中心方向の厚化がない。証明: papers/reconstruction/point_scheme_thickening.tex。
+
+**平坦極限:** h≠0のpoint schemeの閉包はh=0でPoisson零点スキームに一致。E_h楕円曲線族と長さ24の有限平坦Sigma_hを構成して証明した。これはB_0自身のpoint scheme(X0全体)と違う。
 
 ## 現在の結論
 
