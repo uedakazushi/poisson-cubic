@@ -1,9 +1,9 @@
 {
-  "version": "nc-cubic-v53",
+  "version": "nc-cubic-v54",
   "date": "2026-11-12",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only following actual GitHub publication failure.",
-  "scope": "Paper A-v50: algebraic central cubic and AS-regular quantization proved for ALL Poisson structures on every smooth cubic n-fold n>=3, including singular or zero ternary block restrictions, using universal commutator rank identities, Cramer determinants and Bertini central-cubic splitting. Formal existence, Kontsevich and Dolgushev no longer used in the proof. Existing Poisson stack, normal form, Bondal, explicit Hesse and paper C results retained; 17-dimensional nc cubic moduli is moved to nc-cubic2 and ambient recovery is integrated into A.",
+  "scope": "Paper A-v51: algebraic central cubic and AS-regular quantization proved for ALL Poisson structures on every smooth cubic n-fold n>=3, including singular or zero ternary block restrictions, using universal commutator rank identities, Cramer determinants and Bertini central-cubic splitting. Formal existence, Kontsevich and Dolgushev no longer used in the proof. Existing Poisson stack, normal form, Bondal, explicit Hesse and paper C results retained; 17-dimensional nc cubic moduli is moved to nc-cubic2 and ambient recovery is integrated into A.. Ambient Z-algebra periodicity is included in the nc-cubic2 moduli paper rather than article A.",
   "proofs_written_and_checked": [
     {
       "source": "papers/support/papers/reconstruction/point_scheme_discriminant_boundary.tex",
@@ -170,7 +170,7 @@
     },
     "A": {
       "build_completed": false,
-      "reason": "Substantial Introduction and bibliography updates on 2026-11-12. Citation/label references statically checked; LuaLaTeX build and PDF page visual review not executed."
+      "reason": "Article A-v51 updated after periodicity transfer; LuaLaTeX build and visual PDF inspection not performed."
     },
     "B": {
       "build_completed": false,
@@ -206,8 +206,8 @@
     "exact_test": "computations/verify_poisson_article_A.py",
     "editorial": {
       "status": "Abstract, Introduction and prior-work comparison rewritten; manuscript A now uses dedicated bibliography",
-      "static_citation_check": "PASS (A-v49 post-move): 25 bibitems and 61 citations, no missing/duplicate keys across 16 sources.",
-      "static_label_check": "PASS (A-v49 post-move): 210 labels and 225 refs, no duplicates or unresolved refs across 16 source files.",
+      "static_citation_check": "PENDING refreshed A-v51 source-closure citation check following removal of periodicity.",
+      "static_label_check": "PENDING refreshed A-v51 source-closure reference check following removal of periodicity.",
       "caveat": "Static regex checks, not a full TeX parse or document build"
     },
     "mathematical_check": {
@@ -242,7 +242,7 @@
       "formal_center_route": "Removed from the proof and source body of article A. Earlier Dolgushev/Kontsevich/relative absolute completed CY approach was an unaudited alternative, not required for the now purely algebraic centre existence theorem. Do not restore it as a needed dependency."
     },
     "typesetting": {
-      "whole_article_A": "NOT RUN after this revision: no full LuaLaTeX build/PDF visual inspection performed. TeX sources available via connected private GitHub only."
+      "whole_article_A": "NOT RUN after periodicity section removal; full LuaLaTeX build and PDF inspection outstanding."
     },
     "universal_casimir_jet": {
       "theorem_labels": [
@@ -516,6 +516,7 @@
     "not_executed": "Full LuaLaTeX build/PDF inspection of modified article A and moved moduli manuscript, and rerun of moved verification scripts not performed in this change",
     "known_open_problem": "17-dimensional constructed nc cubic family not proved to be a moduli irreducible component; general Serre-Veronese lifting not proved",
     "independent_determinant_check": "PASS: an independent local SymPy reproduction of the transferred 31x31 integer tangent matrix at F0 yielded -5538243375000. This was an equivalent reimplementation, not execution of the exact GitHub script.",
-    "paper_B_removed": "papers/paper_b.tex deleted from nc-cubic main after destination files were verified; current direct paper entrypoints are A/C."
+    "paper_B_removed": "papers/paper_b.tex deleted from nc-cubic main after destination files were verified; current direct paper entrypoints are A/C.",
+    "ambient_periodicity": "The complete Z-algebra periodicity proof, normal-family criterion and bibliography are present in nc-cubic2/papers/sections/ambient_periodicity.tex and included in its nc_cubic_threefold_moduli.tex (destination main 0689e7d). Theorems are no longer part of article A; general quadratic-envelope recovery stays in A."
   }
 }

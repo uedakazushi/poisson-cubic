@@ -1,6 +1,6 @@
 # nc-cubic：論文Aの投稿準備と一般点可換復元
 
-**2026-11-12 / v53。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
+**2026-11-12 / v54。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
 
 ## 論文Cの一般次元化（2026-11-12）
 
@@ -116,10 +116,6 @@ PBW/AS条件の全独立監査、モジュライ上の量子化族の接着、
 
 中央平行移動とArtebani–DolgachevのHesse標準形により、**任意の滑らかな三変数三次制限と全混合項**に適用できる。したがってこの範囲では形式的中心元存在補題を使わず代数的量子化を構成でき、元座標のCramer決定式表示も無条件となった。非滑らかな制限を含む全Poisson構造の代数的中心元は上記のCramer法で証明済み。
 形式的存在証明の監査はもはや主定理の依存ではない。公式・状態・再現手順は[現行研究ノート](notes/universal_casimir.md)、証明は`papers/paper_a.tex`、検証コードは`computations/verify_universal_hesse_mixed_center.py`。
-
-## 正則三次超曲面のambientは1周期的
-
-標準5次元Koszul AS正則Z代数に次数3の左右正則な正規族があれば、ambientは必ず1周期的。正規族から3周期、Koszul–Frobenius双対性から5周期を得て、2×3−5=1で構成する。一般には最小周期がgcd(N,d)を割る。中心性や周期同型の可換性は不要。証明全文は `papers/support/papers/ambient_cubic_periodicity.tex`、仮定・未解決の区別・再現手順は `notes/ambient_cubic_periodicity.md`。既知の一般論からの系として扱い、新規性は未確認。ambientの1周期性と、商イデアルを保つ1周期構造・中心三次元による表示・任意の抽象的nc cubicの超曲面表示の存在を区別する。単独稿は `latexmk papers/paper_a.tex` で再生成できる。この結果の保存は、上の論文A最優先方針を変更しない。
 
 ## Bondal予想（論文Aの新しい帰結）
 

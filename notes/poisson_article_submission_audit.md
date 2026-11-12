@@ -1,6 +1,6 @@
 # 論文Aの投稿準備：現行の監査と再開点
 
-**2026-11-12 / A-v50。** 最初に 00_research_plan.md を読む。
+**2026-11-12 / A-v51。** 最初に 00_research_plan.md を読む。
 論文本文は papers/paper_a.tex、専用文献は papers/support/papers/references_poisson_cubic.tex。
 本ノートは現在有効な知識・依存・課題を整理し、証明全文を重複させない。
 
@@ -22,10 +22,7 @@ n=7のCalabi--Yau四次元のHodge数は
 移管先の新しい独立草稿に保持されている。
 この研究の独立公表価値・主要primary分解の独立監査は未確定。
 Aの数学的な中核に必要な証明を外部の草稿へのリンクで代用していない。
-最新Aの静的検査では全16入力ファイルに
-239個のequation環境、6個のalign環境、210ラベル・225参照、
-25文献項目・61引用があり、未解決参照・重複なし。
-LuaLaTeX実組版・PDF目視は未実施。
+論文A-v51では周期性節を除き、現行入力・式番号・引用の静的検査と全LuaLaTeX組版・PDF目視をそれぞれ確認する。今回この編集段階では全文の実組版は未実施。
 
 ## 任意次元の新しい主定理と検証の状態
 
@@ -86,14 +83,6 @@ LuaLaTeX全組版の独立監査は未完了。
 4. **全Poisson量子化（thm:pg-quantization、thm:pg-universal-determinant、thm:pg-ad-all-poisson）**：全ての滑らかなcubic上のPoisson構造について原点を含む一変数Zariski開上にAS-regular ambientと中心正則三次商を代数的に構成。三変数制限が特異・零でも全体三次のactive gradient gcd=1、古典Casimir核一定、普遍量子交換子行列のminor恒等式とCramer、中心三次の配分Bertiniによって証明。**形式的中心元・formality・Dolgushevを量子化定理の存在証明に使わない。** 相対PBWとAS条件・正規形は従来の入力で全独立監査が必要。モジュライ全係数上の大域的同変量子化やqgr smoothnessは未証明。
 5. 非楕円Poisson成分（ne:main）：固定した二つの滑らかなcubic fivefoldのPoisson schemeで2次元成分を示す。35列の線形化Jacobi行列がrank33という整数証明書に依存する。今回全行列を再実行したわけではない。全cubicを動かすrelative成分性を主張しない。
 6. Hesse中心元（thm:explicit-hesse-center）：既知Sklyanin公式のPoissonパラメータへの翻訳。基本中心公式の新規性は主張しない。
-
-## 正則三次超曲面のambientの周期性（論文Aに統合）
-
-- **証明済み（仮定付き）**：標準型 (1,5,10,10,5,1) の5次元Koszul AS正則Z代数が、次数3の左右正則な正規族を持つとき、ambientは1周期的。より一般に次元・AS parameter N の対象に次数dの正則正規族があれば、最小周期は gcd(N,d) を割る。**本文の証明**：`papers/support/papers/sections/ambient_periodicity.tex`（定理 `thm:pg-ambient-gcd`、系 `cor:pg-cubic-ambient-periodic`、正規性判定命題 `prop:pg-cubic-normal-criterion`）。主論文入力は `papers/paper_a.tex`。正規族の消去が d 周期、局所Frobenius/Koszul双対性が N 周期を与える。N=5,d=3 なら 2×3−5=1。
-- **論文Aとの接続**：定理 `thm:pg-quantization` の量子化は最初からgraded ambientと中心三次元を構成するため、その族の1周期性は自明。新しい帰結は、最初からgradedと仮定せず正則正規三次超曲面を持つZ代数ambientへ拡張する点。非1周期的な一般AS正則Z代数と矛盾しない。
-- **未証明**：この構成による任意の1周期同型が三次商イデアルを保つこと、商の同時1周期化、中心化・CY化、任意の抽象的nc cubicの超曲面表示の存在は主張しない。既知の一般論からの系で、結論自体の新規性は未確認。
-- **文献**：Bondal--Polishchuk, *Homological properties of associative algebras: the method of helices*, Russian Acad. Sci. Izv. Math. 42 (1994), 219--260, Proposition 4.1 と §5, DOI 10.1070/IM1994v042n02ABEH001536。Chan--Nyman, *Noncommutative linear systems and noncommutative elliptic curves*, arXiv:2211.12465, Definition 8.6。引用キーは `PBondalPolishchukHelices`、`PChanNymanNormalFamily`。
-- **検証状態**：数学的証明を論文Aに書き、今回一次資料の文献情報と定義を照合。本文の全独立監査、形式検証、外部査読、論文A全体の組版とは区別する。既存の論文A公表準備優先順位は維持。
 
 ## 全Poisson構造の代数的中心三次元：証明済みの核心と依存
 
@@ -196,8 +185,7 @@ F=(x^3+y^3+z^3+a^3+b^3+c^3+u^3+v^3)/3+uxy+vab
 現行のGitHub版はgradient理想の零次元性によるsmoothnessチェックを追加したため、GitHub版そのものの再実行は未確認。
 これは一具体例の厳密計算であり、一般次元の証明を形式検証するものではない。
 
-2026-11-12の最新静的検査では、論文A入力閉包の22 bibliography keys、56 citation uses、175 labels、184 ref/eqrefに、未解決引用・重複bibitem・未解決ref・重複labelがない（コンパイル検証ではない）。
-A全体のLuaLaTeXコンパイル・PDF表示確認・非楕円成分の全行列証明書の再計算は未実施。
+論文A-v51の全入力に対する未解決引用・参照および表示式番号の静的再点検は保存後に行う。全体LuaLaTeX組版・PDF表示確認・非楕円成分の全行列証明書再計算は未実施。
 
 ## 一次文献の位置づけ
 

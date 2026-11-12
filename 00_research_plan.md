@@ -1,6 +1,6 @@
 # 研究方針：滑らかなcubicのPoisson moduli stacksと量子化
 
-**2026年11月12日 / v53。再開時は必ず最初に読む。GitHub uedakazushi/nc-cubic のmainが唯一の正本。**
+**2026年11月12日 / v54。再開時は必ず最初に読む。GitHub uedakazushi/nc-cubic のmainが唯一の正本。**
 最上位目標は論文A（papers/paper_a.tex）を投稿可能な水準へ仕上げること。
 現在の数学的最優先課題は、**全次元のsmooth cubicの全Poisson構造に対する
 代数的中心三次元と量子化定理を、形式的中心元の存在定理に依存せず完成させること**。
@@ -12,7 +12,7 @@
 
 ## 一般次元ambient復元とBの再編
 
-`papers/support/papers/sections/ambient_recovery_general.tex` を論文Aに統合。二次ambientの次数$d\ge3$の超曲面商から、低次数の乗法によりambientと方程式直線を復元する。noetherian AS Gorenstein条件で偏極付き圏からの復元も証明。Serre関手のみでの復元は三次三様体の追加条件付きで、一般次元については未証明。旧Bの41次元中心三次対、17係数正規形、分離型余次元15、忘却核7と関連証明・計算コードはnc-cubic2の `papers/nc_cubic_threefold_moduli.tex` および研究ノートに統合した。構成した17次元族のnc cubic moduli内の既約成分性は未証明。主リポジトリの公表原稿はAとCの二つ。
+`papers/support/papers/sections/ambient_recovery_general.tex` を論文Aに統合。二次ambientの次数$d\ge3$の超曲面商から、低次数の乗法によりambientと方程式直線を復元する。noetherian AS Gorenstein条件で偏極付き圏からの復元も証明。Serre関手のみでの復元は三次三様体の追加条件付きで、一般次元については未証明。旧Bの41次元中心三次対、17係数正規形、分離型余次元15、忘却核7と関連証明・計算コードはnc-cubic2の `papers/nc_cubic_threefold_moduli.tex` および研究ノートに統合した。構成した17次元族のnc cubic moduli内の既約成分性は未証明。標準5次元AS正則$\mathbb Z$-代数の正則正規三次族からの1周期性は`nc-cubic2/papers/sections/ambient_periodicity.tex`に証明を保持し、非可換三次三様体のモジュライ原稿に統合する。論文AはPoisson構造と量子化を中心とし、一般次元のquadratic envelope復元は引き続き論文Aに保持する。主リポジトリの公表原稿はAとCの二つ。
 
 ## 現行の研究入口と主なファイル
 
@@ -225,10 +225,6 @@ Hesse/行列式チャートの同型とmoduli stackへの降下、
    数学的検算とは別にLuaLaTeX全組版・PDF目視・引用・
    厳密計算証明書の必要な範囲の再現を確認する。
    全てが済むまで投稿可能と断定しない。
-
-## 論文Aに統合したambient周期性の帰結
-
-標準5次元Koszul AS正則Z代数に正則正規な三次超曲面があれば、正規族由来の3周期とAS双対性由来の5周期を合成してambientは1周期的。一般定理は最小周期がgcd(N,d)を割ること。証明は `papers/support/papers/sections/ambient_periodicity.tex` を `papers/paper_a.tex` から入力し、必要な一次文献を論文Aのbibliographyに追加した。これは既知一般論からの帰結で、新規性は未確認。三次イデアルを保つ1周期同型や抽象的な全nc cubicの超曲面表示は未証明として明記している。現行のPoisson正規形・量子化の独立監査を最優先する方針は変更しない。
 
 ## 保持する論文A/Cとnc-cubic2の研究到達点
 
