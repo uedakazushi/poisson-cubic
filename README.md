@@ -1,44 +1,38 @@
 # nc-cubic — Poisson cubic の量子化とrotation付き可換復元
 
-**2026-11-12 / v56。** 正本は GitHub `main`。研究再開は[現行研究方針](00_research_plan.md)から。
+**2026-11-12 / v57。** GitHub mainが正本。研究再開は [00_research_plan.md](00_research_plan.md) から。
 
-## 現行の二論文
+| 原稿 | 主題 |
+|---|---|
+| [論文A](papers/paper_a.tex)（A-v51） | smooth cubicのPoisson正規形・退化・Bondal予想・代数的量子化・Poisson moduli |
+| [論文B](papers/paper_b.tex)（B-v41） | 一般次元の中心三次非可換超曲面のrotation付き全coherent可換復元、基礎体上の模型 |
 
-| 論文 | 現行LuaLaTeX原稿 | 主題 |
-|---|---|---|
-| **A** | [papers/paper_a.tex](papers/paper_a.tex) | 滑らかな三次超曲面のPoisson正規形、退化スキーム、Bondal予想、代数的量子化、Poisson moduli stacks |
-| **B** | [papers/paper_b.tex](papers/paper_b.tex) | 一般次元の中心三次非可換超曲面に関するrotation付き全coherent残余圏の可換復元 |
+## 論文Bの現在の結論
 
-論文A（A-v51）は、各smooth cubic $n$-fold（$n\ge3$）の全Poisson構造をJacobian三変数ブロックに分解し、形式的中心元存在に依存しない普遍Cramer中心元・AS正則ambientによる代数量子化を主張する。定理の証明を記載済みだが、正規形Lie補題、普遍Hesseの全係数恒等式、PBW/AS条件、Bondal予想・stack成分数の独立監査と包括的な新規性調査は未完了。監査は[notes/poisson_article_submission_audit.md](notes/poisson_article_submission_audit.md)。
+代数的・次数別flatな中心三次変形と、局所window/proper比較(L)、実際の完備graded MF同値(CF)の下で、元の体K=C(h)上にsmooth cubic模型を取り、有限拡大後に全coherent残余pairとのrotation付き同値を得る。一般点AS正則性はflat入力から導く。模型は全n>=3で幾何学的に一意。BFKの既知結果により、任意の非零対象とその二つのrotationの直和の生成時間は幾何学的一般点で2(n+2)(n+3)-1以下となる。
 
-論文B（旧Cの内容をそのまま継承する B-v40）は、局所proper/window模型(L)、実際の完備graded MF同値(CF)、一般ファイバーのnoetherian Koszul AS正則性を仮定し、有限拡大後に非可換中心三次商の全coherent残余pairとsmooth cubicのKuznetsov pairのrotation付きMorita同値を得る。(L),(CF)は原稿に証明があるが、全依存の独立監査は未完了。特定の混合族には追加で(D)が必要。主定理は[general_dimension_recovery.tex](papers/support/papers/reconstruction/general_dimension_recovery.tex)、監査は[notes/general_dimension_categorical_reconstruction.md](notes/general_dimension_categorical_reconstruction.md)。
+主経路は固定三対象比較→Euler非零性→既知の軌道生成→有限降下→coherent飽和→低Nat底変更→基礎体上の勾配積分。全MF同値の代わりに固定三対象のenhanced比較でも十分。一般の対角比較(D)は明示式を指定する追加入力であり、一般存在に使わない。同じ(L),(CF)を課した多変数正則局所基底にも分数体上の結論を拡張する。
 
-17次元非可換三次三様体モジュライ、ambientの1周期性、六・七次元Poisson退化schemeと独立境界研究は [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) を正本とする。一般次元のquadratic-envelopeによるambient復元定理は論文Aに残す。
+**未完了**：(L),(CF)の全依存・enhancement・inverse coherenceの独立監査。全nc cubicの無条件復元、同値核の基礎体への降下、特殊点を含む相対同値、全モジュライ上の接着は主張しない。
 
-## 現行ディレクトリ
+証明は [一般次元主定理](papers/support/papers/reconstruction/general_dimension_recovery.tex) と [基礎体降下の節](papers/support/papers/reconstruction/generic_cubic_descent.tex)。監査・最短経路・反例・次の具体作業は [notes/paper_b_proof_audit.md](notes/paper_b_proof_audit.md)。B-v41の実施状態は [validation_paper_b.json](validation_paper_b.json)。
 
-- `00_research_plan.md`：最初に読む研究方針、証明状態、研究の優先順位。
-- `papers/paper_a.tex`・`papers/paper_b.tex`：二つの主論文入口。入力節と文献は `papers/support/papers/sections/`・`papers/support/papers/reconstruction/`・`papers/support/papers/references*.tex`。
-- `notes/`：現在有効な計算・反例・独立監査上の課題。
-- `computations/`：再生成可能な有限計算と、必要な証明書。
-- `reconstruction/`：論文Bの局所・étale比較の再現スクリプト。
-- `sources/candidates/`：まだ現行原稿との内容照合が必要な候補TeX。新しい主論文の入口ではなく、照合なしに削除しない。
-- `notes/source_recovery/`：外部に保全されたPDF原本の[内容一覧](notes/source_recovery/pdf_mathematical_inventory.md)・[未照合箇所](notes/source_recovery/pdf_source_checklist.md)と、必要部分のTeX復元。
+## 論文Aと関連研究
 
-## 組版と静的検査
+論文Aの全Poisson量子化では形式中心元存在に依存しないCramer法を用いる。正規形Lie補題、普遍Hesse中心、PBW/AS条件、退化・成分数の全独立監査と新規性調査は未完。[投稿監査](notes/poisson_article_submission_audit.md)と[中心元ノート](notes/universal_casimir.md)を参照する。
 
-リポジトリルートから実行する。
+17次元モジュライ、ambient周期性、6/7次元の詳細scheme幾何、独立境界研究は [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) が正本。一般次元quadratic-envelope復元はAに保持する。数学的に未照合の候補は `sources/candidates/`、外部に保全したPDFの未照合内容は `notes/source_recovery/`。既存の有効な支持節・反例・計算証明書は保持する。
+
+## 再現
 
 ```sh
 python3 scripts/check_layout.py
 python3 scripts/verify_bundle.py
-python3 scripts/verify_article_a_numbering.py
+python3 computations/verify_generic_cubic_descent.py --output build/generic_cubic_descent_checks.json
 latexmk papers/paper_a.tex
 latexmk papers/paper_b.tex
-# 領収記録付きで二論文をまとめて組版する場合
-python3 scripts/build.py
 ```
 
-必要なものはLuaLaTeX（LuaTeX-jaを含む）とlatexmk。VS Code の LaTeX Workshop はルートの `.latexmkrc` を使用し、PDF・aux・log・syncTeXは `build/` に作る。**ソースの静的整合性が通ったことは組版成功や数学的証明の独立検証を意味しない。** 実際の検証は [validation.json](validation.json) に記録する。
+LuaLaTeX、LuaTeX-ja、latexmk、計算にはPython 3とSymPyが必要。PDF・中間物は `build/` に生成しGit追跡しない。新しい計算は既知の可換入力に対するQ(t)上の有限検算であり、非可換低Natの計算ではない。全文組版と証明監査は静的検査とは別。Aなどの既存検証記録は `validation.json` に残し、Bの最新状態と混同しない。
 
-GitHub main にfast-forward pushし、GitHub Actions・force pushは使わない。PDFと中間ファイルはGitで追跡しない。LibraryはGitHub push失敗時のみ緊急退避する。
+GitHub mainへfast-forwardで保存し、GitHub Actions・force pushを使わない。LibraryはGitHub保存に実際に失敗した場合のみ緊急退避する。

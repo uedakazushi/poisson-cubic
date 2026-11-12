@@ -1,50 +1,48 @@
 % !TEX root = paper_b.tex
-% 2026-11-12 / paper B v40. Supporting sources: papers/support/papers/.
+% 2026-11-12 / paper B v41. Supporting sources: papers/support/papers/.
 \makeatletter
 \def\input@path{{papers/support/}}
 \makeatother
 \input{papers/common}
-\hypersetup{pdftitle={一般次元の中心三次非可換超曲面のrotation付き可換復元}}
+\hypersetup{pdftitle={中心三次非可換超曲面の可換復元と基礎体上の模型}}
 \title{一般次元の中心三次非可換超曲面の可換復元\\
-\large Matrix factorization・rotation軌道・全coherent残余圏}
+\large 基礎体上の模型・rotation軌道・全coherent残余圏}
 \author{}
-\date{2026年11月12日・論文B（研究草稿 v40）}
+\date{2026年11月12日・論文B（研究草稿 v41）}
 \fancyhead[L]{\small 中心三次非可換超曲面と可換復元}
-\fancyhead[R]{\small 2026-11-12 / B-v40}
+\fancyhead[R]{\small 2026-11-12 / B-v41}
 \begin{document}
 \maketitle
 \begin{abstract}
-任意の$n\ge3$について、滑らかな三次超曲面の一変数flatな中心三次非可換変形を考える。
-局所proper/window模型(L)と、全次数にわたり内部シフトを保つ実際の完備
-matrix-factorization同値(CF)の下で、ある$\mathbb C(h)$の有限拡大上、
-非可換超曲面の\emph{全coherent}残余圏と滑らかな可換三次$n$次元超曲面の
-Kuznetsov成分がrotation付きMorita同値になることを証明する。
-証明は任意次元のstabilizationのEulerベクトル、
-孤立超曲面の非零対象の三つのshiftによる生成、
-perfect双加群の有限表示性、smoothnessと線束検出による飽和を組み合わせる。
-形式的MF復元および局所windowの一般次元での証明は本稿に収録するが、
-それらの全依存関係の独立再監査は完了していない。
-低rotation積による可換方程式抽出は全次元で有限線形代数に帰着する。
-五変数の混合族では有限対角比較(D)を追加して復元先を明示する。
-任意の抽象的非可換三次超曲面への適用、多変数族全体の一様復元、
-射影化全体の導来同値、同値核の明示行列は主張しない。
+$n\ge3$について、滑らかな三次超曲面の代数的・次数別flatな中心三次非可換変形を考える。
+局所proper/window模型(L)と実際の完備graded matrix-factorization同値(CF)の下で、
+元の体$K=\mathbb C(h)$上に滑らかな可換cubic模型を構成し、有限拡大後に
+そのKuznetsov成分と非可換超曲面の全coherent残余圏とのrotation付きMorita同値を得る。
+一般点のAS正則性は次数別Koszul持上げから従い、独立の仮定ではない。
+存在を先に確立した後、smoothnessに基づく低rotation積の底変更と有限の可積分性を用いて
+方程式だけを基礎体へ降ろす。同値核の基礎体への降下とは区別する。
+模型の幾何学的一意性は$n=3$も含めて成立する。
+BFKの既知の生成定理により、幾何学的一般点の任意の非零対象とその二つのrotationの直和は、
+生成段数$2(n+2)(n+3)-1$以下のstrong generatorとなる。
+同じ比較条件を課した多変数正則局所基底にも一般点の議論を拡張する。
+(L),(CF)の構成は本文にあるが、全依存の独立再監査は完了していない。
+五変数混合族の明示式には追加の対角比較(D)を使う。
+全nc cubicへの無条件の適用、特殊点を含む相対同値、全射影化の導来同値は主張しない。
 \end{abstract}
 \tableofcontents
 
 \section*{主題と結果の射程}
-本論文の中心は、中心三次商$B=A/(\Omega)$に付随する
-rotation付き残余pairから可換三次超曲面を\emph{存在として}復元することである。
-存在には形式的MF同値と一般点への降下が必要であり、
-低次数自然変換の積から方程式を計算する問題とは区別する。
-次元は終始$n\ge3$、変数の個数は$N=n+2\ge5$とする。
-最初に一般次元の主定理と証明の依存をまとめ、
-その後に局所模型、形式的比較、一般点生成性、全coherentへの飽和の証明を置く。
-明示五変数計算、Poisson一次変形、楕円モデル、point scheme、相対障害など
-有効な既存の結果は後半に収録し、一般定理の仮定を検証する補助資料と区別する。
-既存の各節の個別の「主結果」はその節の仮定のもとでの結果であり、
-一般点可換復元を無条件に強めるものではない。
+中心三次商$B=A/(\Omega)$のrotation付き残余pairについて、幾何学的な可換模型の存在、
+その方程式の定義体、同値双加群の定義体を分けて扱う。
+主経路は、固定三対象の比較、既知のshift軌道生成、perfect核の有限降下、
+coherent飽和、低rotation積からの基礎体上の方程式抽出である。
+具体的な低積の行列を先に計算することは、一般点での存在証明の前提としない。
+局所模型・形式比較・相対障害・明示族の有効な既存証明は全て保持する。
+後半の各節の結果はその節固有の仮定の下で読み、主定理を無条件に強めるものとしない。
+生成性とTorelliに用いる既知結果、その組合せによる本稿の帰結、新規性未確認の部分を区別する。
 
 \input{papers/reconstruction/general_dimension_recovery}
+\input{papers/reconstruction/generic_cubic_descent}
 
 \part{一般次元の復元定理を支える構成}
 \input{papers/sections/local_projective_model}

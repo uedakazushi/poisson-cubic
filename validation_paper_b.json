@@ -1,0 +1,82 @@
+{
+  "version": "B-v41",
+  "date": "2026-11-12",
+  "entrypoint": "papers/paper_b.tex",
+  "proof_inputs": [
+    "(L) actual relative window/stabilization/proper comparison",
+    "(CF) actual completed graded MF equivalence, or the replacement enhanced three-object comparison"
+  ],
+  "conclusions": {
+    "ambient_AS": "derived from degreewise-flat polynomial specialization",
+    "model_field": "K=C(h), without extension for the equation",
+    "equivalence_field": "some finite extension Kprime/K, not asserted over K",
+    "uniqueness": "geometric, for every n>=3",
+    "geometric_generation_bound": "2(n+2)(n+3)-1, imported from BFK Theorem 5.15",
+    "multivariable": "conditional on analogous L and CF over a regular local base"
+  },
+  "audited_this_task": [
+    "degreewise Koszul/dual resolution argument for automatic generic AS regularity",
+    "low dgNat base change after smoothness",
+    "integrability and base-field equation extraction",
+    "geometric same-gradient uniqueness proof",
+    "BFK variable translation and algebraically closed field hypothesis",
+    "multivariable gradient Koszul elimination"
+  ],
+  "independent_full_audit_completed": false,
+  "not_established": [
+    "unconditional L/CF for all abstract nc cubics",
+    "equivalence over the original field",
+    "model regular at h=0 or prescribed special fiber in the generic theorem",
+    "equivalence kernels or extension degrees",
+    "global moduli descent"
+  ],
+  "exact_computation": {
+    "script": "computations/verify_generic_cubic_descent.py",
+    "executed": true,
+    "field": "Q(t)",
+    "examples": 3,
+    "integrability_dimensions": [
+      5,
+      1,
+      1
+    ],
+    "gradient_identities": 16,
+    "categorical_computation": false
+  },
+  "typesetting": {
+    "whole_paper_B": {
+      "executed": false
+    },
+    "new_two_section_excerpt": {
+      "executed": true,
+      "pages": 7,
+      "visual_check": "seven-page contact sheet inspected; no clipping or overlaps detected",
+      "external_references": "22 reference labels printed literally in the standalone excerpt rather than assigned fictitious section numbers",
+      "undefined_references": false,
+      "undefined_citations": false,
+      "overfull_boxes": false,
+      "missing_glyphs": false,
+      "font_note": "Japanese italic font shape falls back to the regular Japanese font",
+      "pdf_sha256": "2d8634c2e1c9fdc59e670a3eee416f538f6a0a448627edec8c84c95086b844b7"
+    }
+  },
+  "primary_sources_checked": [
+    {
+      "id": "arXiv:1012.0864v3",
+      "date": "2013-10-14",
+      "locations": "PDF p.6 (field and level convention), p.41 Theorem 5.15",
+      "page_images_checked": true
+    },
+    {
+      "id": "arXiv:2310.09927v2",
+      "date": "2024-06-04",
+      "locations": "PDF p.9 Theorem 3.5/Remark 3.6; p.11 Theorem 5.1",
+      "page_images_checked": true
+    }
+  ],
+  "novelty": "The field-descent combination is proved here using existing inputs; exhaustive novelty survey incomplete. Shift generation and rotation Torelli are known.",
+  "environment": {
+    "python": "3.13.5",
+    "sympy": "1.14.0"
+  }
+}
