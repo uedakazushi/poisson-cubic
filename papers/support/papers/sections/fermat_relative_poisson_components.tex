@@ -22,10 +22,10 @@ relative stackでは連結群$\mathrm{PGL}(V)$で割る。
 $N=n+2\ge5$、$V=\mathbb C^N$、$S=\operatorname{Sym}(V^*)$とする。
 $F\in S_3$が滑らかな射影cubic $X_F\subset\mathbb P(V)$を定めるとき、
 命題\ref{prop:pg-represent}により、複素点の集合として
-\[
+\begin{equation}
  \operatorname{Pois}(X_F)(\mathbb C)=
  \{P\in\Lambda^3V:\,[\iota_{dF}P,\iota_{dF}P]=0\}
-\]
+\end{equation}
 と同一視する（右辺には射影化の規約を適用する）。
 Jacobi方程式は$P$について二次斉次である。
 $F_N=\sum_{i=1}^N z_i^3$、$X_N=V(F_N)$について
@@ -53,12 +53,12 @@ $k$個の\emph{非順序}非空部分集合へ分割する方法の数とする�
 $n\ge3$、$N=n+2$とする。定理\ref{thm:pg-normal}の下で、
 \begin{enumerate}
 \item Fermat cubic $X_N$のアフィンPoissonスキームの被約既約成分は
-\[
+\begin{equation}
  \#\operatorname{Irr}(\mathfrak P_N^{\mathrm{Fer}})
  =\sum_{k=1}^{\lfloor N/3\rfloor}
   \left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}.
- \tag{F}\label{eq:pg-fermat-count}
-\]
+ \label{eq:pg-fermat-count}
+\end{equation}
  一般Poisson階数$2k$の成分の個数は
  $\left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}$で、
  各成分のアフィン次元は$3N-8k$である。
@@ -78,10 +78,10 @@ $N$を$k$個の整数$\ge3$の和に分割する方法と一対一に対応す�
 \item cubic自身も動かす
 \emph{relative moduli stack of Poisson structures}では、
 一般階数$2k$ごとにただ一つの既約成分が存在し、従って
-\[
+\begin{equation}
  \#\operatorname{Irr}(\mathfrak{Pois}^{\mathrm{rel}}_n)=\left\lfloor\frac{N}{3}\right\rfloor.
- \tag{R}\label{eq:pg-relative-count}
-\]
+ \label{eq:pg-relative-count}
+\end{equation}
  その商スタック次元は$m=N-3k$として
 \begin{equation}
  \label{eq:pg-relative-dim}
@@ -122,11 +122,11 @@ $|B_s|\ge3$かつ$W_s\subset V_{B_s}:=\langle e_i:i\in B_s\rangle$である。
 $\{1,\ldots,N\}$の大きさ$3$以上の$k$個のブロックへの分割$\mathcal B$を得る。
 
 逆に、そのような分割$\mathcal B=\{B_1,\ldots,B_k\}$に対して
-\[
+\begin{equation}
  Z_{\mathcal B}=\bigoplus_{s=1}^k
  \widehat{\operatorname{Gr}}(3,V_{B_s})
  \ \subset\ \Lambda^3V
-\]
+\end{equation}
 を考える。ハットはPl\"ucker埋込のアフィン錐（零点も含む）を表す。
 これは線形独立な$\Lambda^3V_{B_s}$の中の錐の直積であり、閉かつ既約である。
 各$P_s$は分解可能で、$F_N=\sum_s\sum_{i\in B_s}z_i^3$は
@@ -137,9 +137,9 @@ $Z_{\mathcal B}\subset\operatorname{Pois}(X_N)$である。
 
 $|B_s|=b_s$とすると
 $\dim\widehat{\operatorname{Gr}}(3,V_{B_s})=3(b_s-3)+1$なので
-\[
+\begin{equation}
  \dim Z_{\mathcal B}=\sum_s(3b_s-8)=3N-8k.
-\]
+\end{equation}
 異なる$k$については、縮約写像
 $\Lambda^2V^*\to V$のrankが一般点で$3k$なので、
 小さい$k$の成分の閉包は大きい$k$の一般点を含めない。
@@ -218,14 +218,14 @@ $P_k$の$\mathrm{GL}_N$軌道$\mathcal O_{N,k}$である。
 実際$N=3k+m$とすると、$P_k$の安定化子のLie次元は
 $8k+3km+m^2$なので、$N^2-(8k+3km+m^2)=k(3N-8)$となる。
 $P_k$を固定した三次式は
-\[
+\begin{equation}
  F=c(u)+\sum_{s=1}^k\bigl(f_{s,3}(x_s)+f_{s,2}(x_s,u)+f_{s,1}(x_s,u)\bigr)
-\]
+\end{equation}
 の形の線形空間であり、係数次元は
-\[
+\begin{equation}
  \ell_{N,k}=\binom{m+2}{3}
  +k\left(10+6m+3\binom{m+1}{2}\right).
-\]
+\end{equation}
 その射影化の滑らかなcubicの部分は非空既約開集合である
 （Fermat三次式が例になる）。よってrank$\,2k$層は既約で
 次元$k(3N-8)+\ell_{N,k}-1$を持ち、
@@ -234,11 +234,11 @@ $\dim\mathrm{PGL}_N=N^2-1$を引くと式\eqref{eq:pg-relative-dim}を得る。
 異なるrank層の閉包が互いに包含されないことを確かめる。
 小さい$k$の層の閉包では縮約写像のrankが高々$3k$という閉条件が残る。
 一方、隣り合う層について直接計算すると
-\[
+\begin{equation}
  \bigl(k(3N-8)+\ell_{N,k}-1\bigr)
  -\bigl((k+1)(3N-8)+\ell_{N,k+1}-1\bigr)
  =3(3k-1)(N-3k)+8>0.
-\]
+\end{equation}
 従って大きい$k$の層の閉包が小さい$k$の層全体を含むこともない。
 以上によりrankごとに一つずつの既約成分となる。
 零切断はrank二の相対錐の閉包に含まれる。
