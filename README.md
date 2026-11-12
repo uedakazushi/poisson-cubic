@@ -1,6 +1,6 @@
 # nc-cubic：論文Aの投稿準備と一般点可換復元
 
-**2026-11-12 / v48。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
+**2026-11-12 / v49。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
 
 ## 現在の最優先課題：論文Aの公表準備
 
@@ -35,6 +35,14 @@ AS-Gorenstein中心商の各内部次数が平坦に変動する。
 全Poisson moduliの大域的量子化やqgrのsmoothnessを主張しない。
 完全な独立証明監査・一次文献調査・LuaLaTeX全組版は未完了。
 次は高次元の表示チャートの同変性・モジュライ降下を優先する。
+
+**座標不変な高次元補正：** 定数三重ベクトルPと三次式FのHessianの縮約
+H(P,F)=ΣP^{ijk}P^{abc}F_{ia}F_{jb}F_{kc}/6を導入し、
+任意次元の中心三次元を（中心項の正規化の下で）
+sym(F-h²H(P,F)/12+h⁴K)と表せる。h²項はブロック分解に依存せず、
+h⁴補正はHesseブロックから有限式として得られる。
+証明は`papers/support/papers/sections/general_dimension_universal_quantization.tex`。
+6例でHessian縮約恒等式を厳密検算した。
 
 ## 量子中心三次元：全Hesse型の普遍多項式公式
 
