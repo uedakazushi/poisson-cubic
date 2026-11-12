@@ -1,4 +1,4 @@
-\section{相対形式復元と楕円ブロックの具体模型}\label{sec:intro}
+\section{Artin形式復元・étale局所化と具体模型の概要}\label{sec:intro}
 
 滑らかなcubicのKuznetsov成分を
 \[
@@ -14,13 +14,15 @@
 任意の非可換な圏の組がその像に属することを述べない。
 幾何側のenhanced同値は、包含・射影と合成してFourier--Mukai核で表されるため、
 同定理のFourier--Mukai条件を満たす。
-本節以下では、この存在問題のうち、Artin基底での形式復元、
-smooth properな相対dg圏のétale局所実現、
-および楕円ブロックを用いる具体模型を扱う。
-主定理\ref{gdr:thm:generic}の一般点における復元とは、
-基底と追加仮定の範囲を区別して適用する。
+ここでは、主定理\ref{gdr:thm:generic}とは
+基底と仮定の異なる三種類の結果を先に整理する。
+第一にArtin局所基底上の標識付き形式復元、
+第二にsmooth properな代数的dg圏のétale局所実現、
+第三にSklyaninブロックを用いる有限係数の具体模型である。
+形式的な存在から一般の有限パラメータでの存在が
+自動的に従うわけではない。
 
-\subsection{形式的な存在と一意性}
+\subsection{Artin基底での標識付き形式復元}
 
 \begin{theorem}[次数付き変形の形式的可換モデル]\label{thm:main}
  \(X=V(F)\subset\PP^{n+1}_{\CC}\) を滑らかなcubic、\(n\ge3\) とする。
@@ -68,7 +70,7 @@ smooth properな相対dg圏のétale局所実現、
 降下、任意の非零パラメータでの可換モデルの存在を含まない。
 また \(F_\hbar=F\) を意味しない。
 
-\subsection{代数的族における局所的存在}
+\subsection{smooth properな代数的族のétale局所復元}
 
 定理\ref{thm:etale}は、有限型複素底 \(S\) 上のsmooth properな代数的dg圏の族
 \(\cK_S\) と、可逆perfect bimoduleで表された自己同値 \(\rho_S\) を入力とする。
@@ -87,7 +89,7 @@ rotationを忘れた形式的復元も成立する（定理\ref{thm:unpolarized-
 étale局所モデルを作れる（系\ref{cor:etale-unpolarized}）。
 これらは局所的な実現の結果であり、rotationなしの大域的な一意性とは分けて扱う。
 
-\subsection{有限パラメータを含む明示的族}
+\subsection{楕円ブロックによる有限係数の可換模型}
 
 \[
  S_h=\CC\langle x,y,z\rangle/
@@ -173,7 +175,7 @@ rotationを忘れた形式的復元も成立する（定理\ref{thm:unpolarized-
 一般のAS-regular中心三次商については、smooth properかつCalabi--Yauな例にも
 定理\ref{thm:zhang-cy-fourfold-counterexample}の反例がある。
 
-\subsection{先行研究と本稿の位置}
+\subsection{比較に用いる既知結果と本稿の構成}
 
 Orlov \cite{Orlov} とCassidy--Conner--Kirkman--Moore \cite{CCKM} は、
 中心正則元による商、特異圏、matrix factorization、残余成分の比較を与える。
@@ -239,7 +241,11 @@ Huybrechts \cite[Section 9]{HuyUpdate} の四次元における一般的な非�
 基礎となる既知定理の新規性は主張しない。
 可換点からの量子化族のすべての有限パラメータで同じ復元が成立するとは結論しない。
 
-\section{次数付き変形から相対残余圏を作る}\label{sec:relative}
+\section{次数付き変形から相対残余圏を構成する}\label{sec:relative}
+
+以下では、Artin底上で用いる残余dg圏を、
+通常の有界coherent導来圏と区別して構成する。
+特に、compact対象の底変更、相対例外列とrotationの順に議論する。
 
 \subsection{nilpotentな底変更によるcompactnessの検出}
 
@@ -394,7 +400,12 @@ Huybrechts \cite[Section 9]{HuyUpdate} の四次元における一般的な非�
  評価写像とそのconeも底変更と両立するので、残余圏とrotationまで両立する。
 \end{proof}
 
-\section{rotation付きの形式的復元}\label{sec:formal}
+\section{rotation付き残余圏の形式的可換復元}\label{sec:formal}
+
+前節の相対残余圏に対し、変形関手とHochschild接写像を比較し、
+Artin帰納法によって標識付き模型を構成する。
+rotationを忘れた場合の結論は次元によって異なるため、
+同じ変形問題として扱わない。
 
 \subsection{正確な変形問題}
 

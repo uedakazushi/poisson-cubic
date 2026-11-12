@@ -1,5 +1,5 @@
 % !TEX root = paper_b.tex
-% 2026-11-12 / paper B v50. Supporting sources: papers/support/papers/.
+% 2026-11-12 / paper B v51. Supporting sources: papers/support/papers/.
 \makeatletter
 \def\input@path{{papers/support/}}
 \makeatother
@@ -8,9 +8,9 @@
 \title{中心三次非可換変形の一般点における可換復元\\
 \large Matrix factorizationとrotation付き残余圏}
 \author{}
-\date{2026年11月12日・論文B（研究草稿 v50）}
+\date{2026年11月12日・論文B（研究草稿 v51）}
 \fancyhead[L]{\small 中心三次非可換変形の可換復元}
-\fancyhead[R]{\small 2026-11-12 / B-v50}
+\fancyhead[R]{\small 2026-11-12 / B-v51}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -139,14 +139,17 @@ MFの生成定理およびrotation付きTorelliを入力とする
 
 \part{相対形式復元と代数的実現の適用範囲}
 
-この部では、Artin基底における形式的復元、smooth properな相対dg圏の
-étale局所実現、およびその適用を妨げる条件を整理する。
+この部では、Artin基底上の形式復元と、
+smooth properな代数的dg圏のétale局所実現を扱う。
+いずれも主定理の一般点復元と異なる基底上の主張であり、
+必要な有限性・smoothnessを個別に明記する。
 これらは主定理\ref{gdr:thm:generic}の代数的一般点の議論と補完的である。
 とくに、各Artin切断の比較、完備局所基底上の相対smoothness、
 有限型底上のétale局所同値を同一視しない。
 明示された追加仮定の下での結果と、適用条件を調べる反例を区別する。
 
-\input{papers/sections/rotation_models}
+\input{papers/sections/relative_formal_models}
+\input{papers/sections/relative_etale_models}
 \input{papers/sections/rotation_obstruction}
 \input{papers/sections/relative_saturation}
 \input{papers/reconstruction/artin_smoothness_obstruction}
@@ -159,18 +162,23 @@ MFの生成定理およびrotation付きTorelliを入力とする
 
 この部では、一般の存在定理だけでは指定されない具体的な可換三次式と、
 それを得るために必要な規格化・対角比較・有限計算を扱う。
-楕円一ブロックの式と複数ブロックの条件付き結果、
-非可換中心式の単純な可換化が復元式と異なる現象、
-混合量子化族の閉公式と二次jetを、それぞれの仮定の下で述べる。
+まずSklyanin一ブロックの比較から始め、
+多ブロック外部積の完全忠実性と生成性の条件を区別する。
+次に楕円・混合族の明示式を計算し、
+非可換中心式の単純な可換化と復元先の方程式の相違を示す。
+例外パラメータでの非proper性は、その適用範囲を示す反例として末尾に置く。
 明示式の特定に用いる比較(D)は、主定理の存在部分の仮定ではない。
 
 \input{papers/reconstruction/poisson_first_order}
+\input{papers/sections/sklyanin_block_models}
+\input{papers/sections/multiblock_generation}
 \input{papers/sections/elliptic_reconstruction}
 \input{papers/reconstruction/explicit_model_comparison}
 \input{papers/reconstruction/mixed_test_family}
 \input{papers/reconstruction/curved_gauge_comparison}
 \input{papers/reconstruction/kontsevich_second_jet}
 \input{papers/reconstruction/mixed_equivariant_normal_form}
+\input{papers/sections/relative_parameter_boundary}
 
 \part{Point schemeとPoisson零点のスキーム論的比較}
 
