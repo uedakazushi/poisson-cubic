@@ -2,6 +2,20 @@
 
 **2026-11-12 / v52。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
 
+## 論文Cの一般次元化（2026-11-12）
+
+論文Cは [papers/paper_c.tex](papers/paper_c.tex) を
+**任意の n>=3 の中心三次非可換超曲面のrotation付き可換復元**を主題に再構成した。
+主定理は [general_dimension_recovery.tex](papers/support/papers/reconstruction/general_dimension_recovery.tex)。
+局所proper/window (L)、実際の完備graded MF同値 (CF)、一般ファイバーの
+AS-regular/noetherian仮定の下で、有限拡大後の全coherent残余pairと
+滑らかなcubic n-foldのKuznetsov pairが同値になる。
+高次元でのEuler非零性、三shift生成、有限降下、coherent飽和は既存証明をまとめた。
+五変数の明示式は追加で(D)を使う応用として保持。
+完全な独立証明監査および全CのLuaLaTeX組版は未実施。
+監査入口 [研究ノート](notes/general_dimension_categorical_reconstruction.md)。
+一般Poisson moduliの研究と定理Aは引き続き論文Aに置く。
+
 ## 現在の最優先課題：論文Aの公表準備
 
 滑らかなcubic hypersurfaceのPoisson正規形・退化軌跡・Bondal予想・代数的量子化を独立論文として推敲する。

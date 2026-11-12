@@ -25,6 +25,28 @@
 - 特異三次制限の独立検算：computations/verify_singular_cubic_classical_kernel.py
 - 式番号・引用の静的検査：scripts/verify_article_a_numbering.py
 
+## 論文C：一般次元の中心三次非可換超曲面の可換復元
+
+現行稿は `papers/paper_c.tex` (C-v40)、主定理と証明依存は
+`papers/support/papers/reconstruction/general_dimension_recovery.tex`。
+$n\ge3$、$N=n+2$ とし、一変数代数的flat中心三次対で局所window/proper (L) と
+実際の完備graded MF同値 (CF)、一般点のnoetherian Koszul AS-regular条件が
+成立すれば、有限拡大 $K'/\mathbb C(h)$ 上で
+$(\mathcal K^{\mathrm{coh}}_{B_{K'}},\rho_B)\simeq
+(\operatorname{Ku}(Y),\rho_Y)$（$Y/K'$滑らかなcubic $n$-fold）。
+三shift生成、Eulerノルム $2\cdot3^{N-1}$、有限perfect核の降下、
+smoothnessからのcoherent飽和は全次元の既存証明を合成する。
+可換模型の一意性は $n>3$ で Pirozhkov のTorelliを使用（代数閉包後）。
+五変数混合族の閉公式には追加で(D)を使用する。
+
+(L),(CF) の全依存の独立監査は未完成であり、原稿記載の証明が
+無条件に一般の全非可換三次超曲面へ適用できるとは扱わない。
+多変数全体の同時可換復元、計算済み模型の一般次元閉公式、
+有限拡大次数、具体同値核、特殊点込みの同値も未完成。
+現行の検証入口：`notes/general_dimension_categorical_reconstruction.md`。
+次は (CF) の内部次数付き曲率比較と (L) の相対window/stabilization を
+独立監査し、論文Aの各量子化線に適用する。
+
 ## 論文Aの範囲：一般次元に集中する
 
 論文Aの本体は、任意次元の滑らかな三次超曲面について
@@ -259,7 +281,7 @@ Hesse/行列式チャートの同型とmoduli stackへの降下、
 
 論文Cの形式MF、相対window、有限積分、全16積、bar/cup/characteristic比較、幾何学的BC、片側Morita/Popescu、相対sector、対角unit、中心対称性、純Poisson一次消滅、分離Hessian、非楕円fivefold、35係数slice、A∞arity、SM/ERおよび反例を保持する。有効な証明を容量削減のため要約・削除しない。
 
-## 論文Cの保留課題（論文Aの投稿準備を優先）
+## 論文Cの残る課題（一般次元稿の独立監査と適用）
 
 1. **残る依存の独立監査。** 今回はStevensonの適用範囲、次数再付与、固定HomのLaurent局所化を点検した。次に(CF)の曲率formality・coherent inverseの全構成と、(L)の通常導来stabilization/window、明示式への(D)を順に監査する。証明の記載と独立監査を区別する。
 2. **有効化。** 三shift生成の有限cell、同値核の行列、有限拡大次数を明示する。今回、線束生成代数の対角のq段表示があれば全coherent対象もq段で生成されることを示したが、qは未計算。

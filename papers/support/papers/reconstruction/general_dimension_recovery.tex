@@ -1,0 +1,196 @@
+% 2026-11-12 / C-v40: 主定理を次元に依存しない形へ統合する。
+\section{一般次元の中心三次非可換超曲面と主定理}
+\label{gdr:sec:main}
+
+\subsection{対象、標準的なrotation、二種類の残余圏}
+$\mathbb C$上で$n\ge3$、$N=n+2$、$a=N-3=n-1$と置く。
+$R=\mathbb C[h]_{(h)}$、$\widehat R=\mathbb C[[h]]$、
+$K=\mathbb C(h)$、$L=\mathbb C((h))$とする。
+$A_R=\bigoplus_{j\ge0}(A_R)_j$を中央$R$代数で、$(A_R)_0=R$、
+各$(A_R)_j$は有限自由、かつ次数付き代数として
+$A_R/hA_R\simeq \mathbb C[x_1,\ldots,x_N]$とする。
+$\Omega_R\in Z(A_R)_3$の剰余を滑らかな三次式$F$とし、
+$B_R=A_R/(\Omega_R)$と置く。
+この\emph{代数的・次数別flat}という入力なしに形式的近傍から
+一般点の存在を主張しない。
+
+体上の$B=B_K$（および必要な有限体拡大上）に対し
+$\mathcal O_B(j)=\pi B(j)$、$\mathcal C_B=
+\operatorname{thick}\{\mathcal O_B(j):j\in\mathbb Z\}
+\subset D^b(\operatorname{qgr}B)$と置き、次を区別する：
+\begin{equation}\label{gdr:eq:residual-defs}
+\begin{aligned}
+ \mathcal K_B^{\rm lin}
+ &=\mathcal C_B\cap
+ \langle\mathcal O_B,\ldots,\mathcal O_B(a-1)\rangle^\perp,\\
+ \mathcal K_B^{\rm coh}
+ &=D^b(\operatorname{qgr}B)\cap
+ \langle\mathcal O_B,\ldots,\mathcal O_B(a-1)\rangle^\perp .
+\end{aligned}
+\end{equation}
+内部次数シフト$(1)$と左mutationを合成した
+\begin{equation}\label{gdr:eq:rotation}
+ \rho_B=L_{\mathcal O_B}\circ(1)
+\end{equation}
+をrotationとする。可換な滑らかな
+$Y=V(W)\subset\mathbb P_{k}^{N-1}$でも同じ規約で
+\begin{equation}\label{gdr:eq:ku-def}
+ \operatorname{Ku}(Y)=
+ \langle\mathcal O_Y,\ldots,\mathcal O_Y(n-2)\rangle^\perp,
+ \qquad \rho_Y=L_{\mathcal O_Y}\circ(1)
+\end{equation}
+と定める。すべてenhancementと冪等完備化を伴う。
+$\mathcal K_B^{\rm lin}$と$\mathcal K_B^{\rm coh}$の一致は
+定義からは従わない。
+
+\subsection{依存条件を明示した一般次元定理}
+
+以下の二条件を、互いに異なる入力として記す。
+\begin{description}
+\item[(L)] 定義\ref{lp:def:input}と定理\ref{lp:thm:main}の局所模型、
+命題\ref{am:prop:Gamma-basechange}の正則局所模型との比較が適用でき、
+原点のstabilization $K_R$ の三つの内部shift
+$T_R=K_R\oplus K_R(1)\oplus K_R(2)$の生成代数
+$\Gamma_R=R\operatorname{End}(T_R)$が$R$-perfectで
+$\mathcal K_{B_R}^{\rm lin}\simeq\operatorname{Perf}(\Gamma_R)$
+を表し、$\widehat R,L$へのHomの底変更と整合する。
+\item[(CF)] 内部shiftおよび$(3)\simeq[2]$と整合し、剰余で恒等となる
+\emph{実際の}完備係数上の有限rank graded MFの$A_\infty$同値
+\begin{equation}\label{gdr:eq:cf}
+ \operatorname{MF}^{\mathbb Z}(A_{\widehat R},\Omega_{\widehat R})
+ \simeq
+ \operatorname{MF}^{\mathbb Z}
+   (\widehat R[x_1,\ldots,x_N],W_h)
+\end{equation}
+が存在する。$W_h\in\widehat R[x_1,\ldots,x_N]_3$は
+$W_h\bmod h=F$を満たす。
+切断ごとの同値の単なる列を(CF)と呼ばない。
+\end{description}
+ここで(L)は\ref{lp:sec:main}節と\ref{am:sec:comparison}節、
+(CF)は定理\ref{fo:thm:formal-reconstruction}と
+系\ref{fo:cor:complete-graded}に既存の証明がある。
+その記載と全依存の独立再監査を区別する。
+
+\begin{theorem}[一般次元のrotation付き全coherent可換復元]
+\label{gdr:thm:generic}
+上の代数的中心三次対$(A_R,\Omega_R)$に対し、(L),(CF)が成立し、
+$A_K$が両側noetherian Koszul AS-regularでglobal dimensionと
+Gorenstein parameterがともに$N$であると仮定する。
+すると$\mathbb C(h)$の有限拡大$K'/K$と滑らかな三次超曲面
+$Y\subset\mathbb P^{n+1}_{K'}$が存在し、
+\begin{equation}\label{gdr:eq:main}
+ \boxed{\quad
+ (\mathcal K^{\rm coh}_{B_{K'}},\rho_B)
+ \simeq
+ (\operatorname{Ku}(Y),\rho_Y).
+ \quad}
+\end{equation}
+同値はrotationとその三次周期比較を保つMorita同値である。
+さらに$D^b(\operatorname{qgr}B_K)$は線束から古典的に生成され、
+$K$上smooth properである。
+\end{theorem}
+\begin{proof}
+(L)より三つのstabilizationで線束生成残余圏を表示できる。
+(CF)をこの\emph{固定した三対象}に制限してから$L$へ平坦局所化する。
+この順序であれば、任意のLaurent係数対象へ未定義の無限Taylor和を
+評価する必要はない。補題\ref{rog:lem:localization}により
+像は$E_L,E_L(1),E_L(2)$のthick閉包である。
+
+特殊ファイバーの残余体stabilizationについて
+命題\ref{rog:prop:euler}が
+\begin{equation}\label{gdr:eq:euler}
+ \chi_r=
+ \sum_{\substack{0\le s\le N\\s\equiv-r\,(\mathrm{mod}\,3)}}
+ (-1)^s\binom Ns,\qquad
+ \sum_{r=0}^{2}\chi_r^2=2\cdot3^{N-1}>0
+\end{equation}
+を与える。(L)のperfectなHomと(CF)によってEuler数が保存されるので、
+$E_L\ne0$である。滑らかな$W_h$は原点以外に臨界点を持たない。
+定理\ref{rog:thm:orbit}を$E_L$に適用すると、
+その三つのshiftは可換graded MF全体を生成する。
+Orlov比較を合成して
+\begin{equation}\label{gdr:eq:laurent}
+ (\mathcal K^{\rm lin}_{B_L},\rho_B)
+ \simeq (\operatorname{Ku}(V(W_h)_L),\rho_{W_h})
+\end{equation}
+を得る（定理\ref{rog:thm:laurent}）。
+
+可換側はsmooth properである。有限生成双加群への核の降下と、
+単位・余単位のconeの消滅を用いる
+補題\ref{rog:lem:descent}と定理\ref{rog:thm:geometric-generic}から、
+有限拡大$K'/K$と滑らかな$Y/K'$について
+$\mathcal K_{B_{K'}}^{\rm lin}\simeq\operatorname{Ku}(Y)$を得る。
+これは同値の有限表示性による存在であり、$K'$の次数や同値行列は算出しない。
+
+最後に$\mathcal K_{B_{K'}}^{\rm lin}$のsmoothnessを
+補題\ref{crs:lem:descent}で$K$へ降ろす。
+AS-Gorenstein性、$\chi$条件、線束からのHomの有限性と検出
+（補題\ref{crs:lem:sections}）を使うと、
+命題\ref{crs:prop:residual-smooth}と定理\ref{crs:thm:coherent}により
+$D^b(\operatorname{qgr}B_K)=\mathcal C_{B_K}$となる。
+同じ飽和を有限拡大$K'$上にも適用し、
+$\mathcal K^{\rm lin}_{B_{K'}}=\mathcal K^{\rm coh}_{B_{K'}}$を得る。
+こうして\eqref{gdr:eq:main}が成立する。
+\end{proof}
+
+\begin{corollary}[可換模型の一意性]\label{gdr:cor:uniqueness}
+$n>3$とする。定理\ref{gdr:thm:generic}で得たrotation付きpairの
+可換三次模型$Y$は、代数閉包$\overline{K'}$へ底変更した後、
+射影同型を除いて一意である。
+\end{corollary}
+\begin{proof}
+二つの模型の間にrotation付きenhanced同値があるから、
+Pirozhkovのcubic $n>3$の場合のcategorical Torelli定理
+\cite{Pirozhkov}を適用する。
+これは可換模型の一意性であり、非可換ambientや
+同値核の一意性を意味しない。
+\end{proof}
+
+\subsection{計算できる模型と適用範囲}
+
+\begin{corollary}[五変数混合族の明示的復元]\label{gdr:cor:mixed}
+$n=3$で、既存の$\lambda=1$の混合一変数量子化を考え、
+(L),(CF)に加え有限対角・乗法的characteristic比較(D)を仮定する。
+このとき定理\ref{gdr:thm:generic}の可換模型は、有限拡大上で
+\begin{equation}\label{gdr:eq:mixed}
+\begin{aligned}
+ W^{\mathrm{mix}}_h={}&(x^3+y^3+z^3)/3+v^3+h^2xyz/3\\
+ &+(1+h^6/54)uxy-h^4uz^2/18-h^2u^2z/12\\
+ &+(1+29h^6/648+h^{12}/4374)u^3
+\end{aligned}
+\end{equation}
+の零点に取れる。
+\end{corollary}
+\begin{proof}
+系\ref{gr:cor:formal-polynomial}が形式的$W_h$と
+\eqref{gdr:eq:mixed}の形式線形同型を与える。
+これを$L$へ移してから
+系\ref{rog:cor:mixed}の有限拡大への降下を用い、
+定理\ref{gdr:thm:generic}の飽和を適用する。
+\end{proof}
+
+\begin{remark}[一般次元の量子化族との接続]
+論文Aの多ブロック構成では、$\eta_s=\lambda_sh$と
+直線方向を固定して代数的中心三次対を得る。
+この族に(L),(CF)の入力が適用できるとき、
+定理\ref{gdr:thm:generic}は\emph{各方向}の幾何学的一般点に適用できる。
+独立な多変数全体の同時復元、Poisson moduliへの降下、
+全方向に一つの有限被覆を選ぶことはここからは従わない。
+また特殊ファイバーを含む相対Morita同値や
+$D^b(\operatorname{qgr}B)\simeq D^b(\operatorname{coh}Y)$も結論しない。
+\end{remark}
+
+\subsection{証明の位置と監査境界}
+一般次元で必要な核は局所模型\ref{lp:sec:main}節、
+形式的MF復元\ref{fo:sec:formal-cubic}節、
+Artin window\ref{am:sec:comparison}節、
+三shift生成\ref{rog:sec:generic}節、
+全coherent飽和\ref{crs:sec:saturation}節に分離してある。
+式の抽出は\ref{sec:explicit-jacobian-recovery}節と
+\ref{far:sec:recovery}節、低rotationの底変更は
+\ref{gr:sec:basechange}節に置いた。
+(L)の局所Koszul分解と相対stabilization、
+(CF)の曲率付きformalityと実際の完備functor、
+それらのrotationとの整合、(D)の明示対角比較は
+\emph{原稿に証明があるが全依存の独立監査を終えていない部分}である。
+本節の証明はこれらを飛び越えて新たに無条件性を保証するものではない。
