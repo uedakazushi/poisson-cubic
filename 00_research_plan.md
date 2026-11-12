@@ -1,8 +1,9 @@
 # 研究方針：Poisson cubic論文Aの投稿品質確立と非可換cubicの可換復元
 
-**2026年11月12日 / v46。再開時は最初に読む。GitHub uedakazushi/nc-cubic の main が唯一の正本。**
+**2026年11月12日 / v47。再開時は最初に読む。GitHub uedakazushi/nc-cubic の main が唯一の正本。**
 **現在の最優先課題は論文Aの公表水準への改訂。** 最新原稿は papers/paper_a.tex、
 詳細な監査・未確認点・着手方法は notes/poisson_article_submission_audit.md。
+量子中心三次元の現行成果・公式・再現手順は notes/universal_casimir.md。
 関連文献は papers/support/papers/references_poisson_cubic.tex、独立検算は computations/verify_poisson_article_A.py と computations/verify_cubic_casimir_jet.py。
 論文B/Cの有効な成果と証明を保持するが、当面はその新規拡張を優先しない。
 
@@ -19,17 +20,12 @@
 Bondal joinの外積56成分を厳密計算でPASS。これは主定理の形式証明ではない。
 A全体の組版、非楕円行列証明書全件の再実行、引用理論の全独立監査は未実施。
 
-**新たに確立した低次結果：** 論文Aの lem:pg-center-parity と prop:pg-universal-casimir-jet により、三次中心元はWeyl表示でhの偶数次だけを含む形に選べる。全20係数を持つ任意の三変数以下三次式 f について、sym(f-h² det Hess_x f/12) は mod h⁵ で中心であることを普遍恒等式として確認した。厳密計算証明書は computations/verify_cubic_casimir_jet.py。これは全次数中心元の存在と区別する。Etingof–Ginzburg Prop.8.1.1(i)、Berger–Taillefer Thm.1.1(i) の原PDF該当箇所を確認した。現在の証明監査の残核は、複数中心変数への相対formalityと完成CY双加群分解の適用である。
+**現行の主成果（量子中心）：** 論文Aの`thm:pg-universal-hesse-mixed`で、Hesse三次
+g_t=(x³+y³+z³)/3+txyz の任意のtと全中心混合項について、`h²`の高々二次の係数を持つ**厳密な有限多項式中心三次元**を構成した。六つの中心混合係数A,B,C,D,E,Hとh,tを独立不定元として、Q(h,t)上の次数四自由語339・二次関係倍数162のrank144および三交換子剰余0を正確に検証。h=0でもrank144であり、原点を含む開への降下を証明した。コードは `computations/verify_universal_hesse_mixed_center.py`。Hessianを用いた短縮表示も`cor:pg-hesse-hessian-form`に得た。以前のFermat型公式はt=0として含み、中心変数による平行移動で対角二次混合も処理する。全ての滑らかな三変数三次制限gはHesse標準形に変換できるので、`cor:pg-smooth-ternary-explicit`で**一般のsmooth gの形式的中心存在補題なしの明示中心元**を得る。この範囲では`cor:pg-smooth-block-algebraic-quant`により代数的量子化もformalityなしで得られる。`thm:pg-universal-determinant`のCramer表示も今は無条件である。詳細は現行ノート `notes/universal_casimir.md`。
 
-**普遍中心三次元の現行成果：** 論文C関連資料にあったFermat型の全混合15方向の多項式中心元を、今回`computations/verify_universal_fermat_mixed_center.py`で全係数の普遍恒等式として証明した。六つの中心係数A,B,C,D,E,Hとhを独立不定元とした次数四の自由語339・関係倍数162のQ(h)上の階数144、全三交換子剰余0を厳密検証。h=0でも階数144なので次数四商はh-flat、原点を含む開上の正しい中心元と結論できる。中心平行移動で任意の対角二次混合を包含し、中心変数の個数も制限しない。これは形式的中心元の存在を入力としない**普遍的な短い多項式公式**である。論文A `thm:pg-fermat-mixed-universal` と `cor:pg-fermat-all-mixed` に証明を収録。さらにg=F(x,y,z,0)が滑らかな任意の三次曲線の場合は、古典Casimirの次数三核がCF+C[u]_3と証明でき、形式中心元の存在を入力とすればr×rの普遍Cramer公式（m=2でr=30）が得られる。m=0の9×9小行列式は-72、m=2の30×30は4608と有理数計算で再検算済み。こちらは**形式中心元存在補題の独立監査待ち**であり、特異gや短い一般Hesse閉式は未解決。現在の研究ノート `notes/universal_casimir.md` を参照。
+**仮定・未解決：** 既存の普遍Hessian二次ジェットは全三変数三次に適用可能だが、それだけで全次数中心元は構成できない。一般の滑らかなgではHesse座標の選択を要し、元の座標に対する単一GL₃同変な低次数多項式表示は未構成。節点型・尖点型・零の制限など全特異gを一つの公式で覆うことも未解決。全Poisson構造の量子化定理の特異ブロック部分は、形式的中心元`lem:pg-formal-center`の相対formality・絶対Calabi–Yau論証の独立監査が残る。高次元正規形`lem:pg-quadratic-lie`とBondal帰結の全独立監査、一次文献の網羅比較、論文A全体の組版も未完了。
 
-**次に行う数学的作業：** Fermat型の普遍中心式は確定したので、一般Hesse型の短い閉公式を模索しつつ、まず lem:pg-formal-center の相対Kontsevich formality、
-完備双加群分解からの絶対Calabi–Yau性、Dolgushev入力、prop:pg-PBWを
-一次文献と逐語照合する。次に lem:pg-quadratic-lie（Bertini、可解根基、最高根）、
-prop:pg-represent、lem:pg-linearizeの未監査部分を解消する。最後に全定理・検算・組版を査読可能に整理する。
-滑らかなcubic threefoldのGrassmann記述は既知、Fano四・五次元のBondal予想も既知。
-高次元cubicへの帰結や非楕円Poisson成分の新規性の網羅調査は未完了。
-全Poisson係数で一様な量子化や中心商のqgr smoothnessは主張しない。
+**次の優先課題：** (1) 今回の普遍Hesse計算証明書を独立再実行し、査読しやすい手計算または小さい証明書へ簡約する。(2) 特異ブロックの中心元存在・明示公式と相対formality/absolute CYの必要箇所を監査する。(3) 正規形Lie補題・Bondal論証を独立再検証する。(4) 原稿AのIntroductionと引用を整え、LuaLaTeX全体組版・PDF目視・全再現テストを経て投稿可否を判定する。これらを満たすまでは投稿可能と断定しない。
 
 ## 論文Aに統合したambient周期性の帰結
 
