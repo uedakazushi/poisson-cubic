@@ -1,7 +1,7 @@
 # 研究方針：Poisson三次超曲面の量子化と一般点可換復元
 
-**2026-11-12 / v61。再開時は最初に読む。GitHub uedakazushi/nc-cubic のmainが正本。**
-現行主原稿はA `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v45）。
+**2026-11-12 / v62。再開時は最初に読む。GitHub uedakazushi/nc-cubic のmainが正本。**
+現行主原稿はA `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v46）。
 
 ## 目標・到達点・達成基準
 
@@ -30,6 +30,12 @@ Aはsmooth cubicのPoisson正規形、退化、Bondal予想、代数的量子化
 `first_order_poisson_kernel.tex` に、可換中心三次対(S,F)の一次変形（恒等剰余の次数付き同型を法とする）が `Λ³V ⊕ Jac(F)_3` と表せる命題を加えた。N=5で前者10、後者10、合計20次元。一次変形の積を二次まで延長するHochschild障害は `[π_Ξ,π_Ξ]/2` であり、滑らかなFではその係数二次式のイデアルが五つのPlücker関係式にスキーム論的に一致することを直接証明。非分解可能なΞを標準形 e012+e034 に移し、Jacobi条件を `F_{0i}F_j−F_{0j}F_i=0` と計算、Eulerから `3F F_{0i}=2F_0F_i` を得て滑らかさと矛盾させる。五つのPfaffianの二次写像が五次元の四形式空間へ全射なことからJacobi係数の生成イデアルも同一と示す。
 
 これは既知Poisson構造のGrassmannian記述と整合する独立の二次障害の証明。新規性は未確認。二次の`結合積`障害がPlückerで切り出されることと、中心元も含めた全高次形式局所環の同定を区別する。nc-cubic2では局所次元17とZariski接空間20が別だが、一般非零Poisson点でのcategorical忘却微分とその7次元核は未確認。実例検算は `computations/verify_second_order_plucker.py`。
+
+## 可換点における圏論的接空間の完全列
+
+`first_order_poisson_kernel.tex` の `fpk:thm:categorical-tangent` において、Artin基底のenhanced windowと一次曲率付き比較で得た残余圏の一次変形をJLLZ Theorem 4.4(2)と照合。滑らかなcubic threefoldの `η:H¹(T_X)→HH²(Ku(X))` は同型であり、`T_pair^1 ≅ Λ³ C⁵ ⊕ Jac(F)_3` から基礎dg圏のKS類は `(Ξ,[G])↦η([G])`。よって正確な完全列 `0→Λ³ C⁵→T_pair^1→HH²(Ku(X))→0` を得る。可換点では20→10、核10。これは二次Plücker障害の次元7、一般非零Poisson点で期待される17→10の核7とは異なる。rotation付きmoduli stack全体の接空間をHH²と同一視する主張ではない。
+
+一次資料：Jacovskis–Lin–Liu–Zhang, *Infinitesimal categorical Torelli theorems for Fano threefolds*, Theorem 4.4(2), arXiv:2203.08187（著者PDFの印刷p.15でη同型を確認）。本研究の組合せの新規性は未確認。
 
 ## 未解決の核心と次の具体的着手
 

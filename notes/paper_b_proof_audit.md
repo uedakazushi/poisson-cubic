@@ -1,6 +1,6 @@
 # 論文B：完備曲率付き比較と一般点可換復元
 
-**2026-11-12 / B-v45。** 再開は `00_research_plan.md`。主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、形式比較の証明は `complete_curved_transport.tex`、局所比較は `three_object_window.tex`、基礎体降下は `generic_cubic_descent.tex`（同じディレクトリ）。
+**2026-11-12 / B-v46。** 再開は `00_research_plan.md`。主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、形式比較の証明は `complete_curved_transport.tex`、局所比較は `three_object_window.tex`、基礎体降下は `generic_cubic_descent.tex`（同じディレクトリ）。
 
 ## 現在の結論と適用範囲
 
@@ -41,6 +41,12 @@ nc-cubic2の17次元の非可換族から可換moduliへの微分を定義・計
 `first_order_poisson_kernel.tex` の `fpk:prop:tangent-pair` は、全次数formalityを用いず、HKRの一次正規形・中心性・次数付き導分のgaugeにより `T^1_pair ≅ Λ³V ⊕ Jac(F)_3` を示す。N=5で10+10=20。続く `fpk:thm:plucker-obstruction` は、滑らかなFなら `[ι_dF Ξ,ι_dF Ξ]=0` iff Ξ decomposable を直接示し、さらにJacobiatorの全係数が生成する二次イデアルが、Gr(3,5)の五つのPlücker二次式のイデアルに一致することを証明する。非分解可能ΞのGL5標準形e012+e034のJacobi方程式が `F_0i F_j−F_0j F_i=0` に一致する。Eulerの式から `3F F_0i=2F_0 F_i` を導き、Fの滑らかさ・既約性に矛盾。Grassmannianの二次イデアルとPfaffian写像の全射性でスキーム論的な同一性を得る。
 
 二次`結合積`の延長障害はHH³で `[π,π]/2`、従ってPlücker錐を切り出す。これは二次障害の計算であり、全中心対の高次形式変形関手をこの錐と同一視したわけではない。Poisson構造のGrassmannian記述は既知（Mayanskiy）であり、直接の障害表示の初出は未確認。計算確認はFermat F=Σx_i³/3 と混合F=Σx_i³/3+x0x1x2/7の二例でJacobi係数がそれぞれ20本と56本、二次式空間の階数はいずれも5、Plückerの五式を合わせても階数5。これは一般Fの証明の代用ではない。
+
+## 可換点の圏論的Kodaira--Spencer写像の正確な核
+
+`fpk:thm:categorical-tangent` は、双対数上の中心三次対をMFへ送る一次比較を、既存のArtin基底上のenhanced Orlov/windowと合成する。滑らかなcubic threefoldでは `H¹(T_X)=Jac(F)_3`。JLLZ Theorem 4.4(2) は `η:H¹(T_X)→HH²(Ku(X))` の同型を与えるため、中心三次対の20次元一次接空間から基礎dg圏へのKS写像は `(Ξ,[G])↦η([G])`、核は `Λ³C⁵` の10次元、像はHH²の10次元全体。Artin windowのenhancementと第一次数MF比較を使うため、単なる次元差の推測ではない。これはrotation付きのmoduli stackの全構造や非零Poisson一般点の核7を証明しない。
+
+一次資料のJLLZ `https://ajacovskis.github.io/hochschild_only_2.pdf` Theorem 4.4(2)（印刷p.15、web PDF画像確認）でηが同型、HH² Ku(Y₃)=k¹⁰を確認。刊行誌は *J. Pure Appl. Algebra* 227 (2023), 107418、doi 10.1016/j.jpaa.2023.107418。元の定理は既知で、本研究の接空間列への組合せの新規性は未確認。
 
 ## 一次文献と新規性
 

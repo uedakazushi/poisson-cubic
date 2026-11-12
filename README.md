@@ -1,11 +1,11 @@
 # nc-cubic — Poisson cubicの量子化と一般点可換復元
 
-**2026-11-12 / v61。** GitHub mainが正本。最初に [研究方針](00_research_plan.md) を読む。
+**2026-11-12 / v62。** GitHub mainが正本。最初に [研究方針](00_research_plan.md) を読む。
 
 | 原稿 | 主題 |
 |---|---|
 | [論文A](papers/paper_a.tex)（A-v51） | smooth cubicのPoisson正規形・退化・Bondal・代数的量子化・Poisson moduli |
-| [論文B](papers/paper_b.tex)（B-v45） | 代数的中心三次変形の一般点可換復元、完備曲率移送、基礎体上の模型 |
+| [論文B](papers/paper_b.tex)（B-v46） | 代数的中心三次変形の一般点可換復元、完備曲率移送、基礎体上の模型 |
 
 ## Bの現在の結論
 
@@ -17,7 +17,7 @@
 
 ## 一次方向と可換moduli
 
-[双対数上の一次消滅](papers/support/papers/reconstruction/first_order_poisson_kernel.tex) は全次数formalityに依存せず、中心三次対の非可換積の一次項がMF変形として消えることを直接証明する。残る可換三次式の一次係数はJacobian環の次数3に値を持つ。次元はcubic threefoldで10、cubic fourfoldで20。さらに五変数では二次Hochschild障害の係数イデアルが五本のPlücker二次式に一致する（[証明](papers/support/papers/reconstruction/first_order_poisson_kernel.tex)）。局所次元17と一次接空間20を区別する。ただしnc-cubic2の一般17次元族からのcategorical忘却核を7次元と同定したわけではない。
+[双対数上の一次消滅](papers/support/papers/reconstruction/first_order_poisson_kernel.tex) は全次数formalityに依存せず、中心三次対の非可換積の一次項がMF変形として消えることを直接証明する。残る可換三次式の一次係数はJacobian環の次数3に値を持つ。次元はcubic threefoldで10、cubic fourfoldで20。さらに五変数では二次Hochschild障害の係数イデアルが五本のPlücker二次式に一致する（[証明](papers/support/papers/reconstruction/first_order_poisson_kernel.tex)）。さらにJLLZのinfinitesimal categorical Torelliと組み合わせると、可換点の接空間20から$HH^2(\mathrm{Ku}(X))$（次元10）への写像は全射で、核はPoisson一次方向10次元と一致する。局所次元17と一次接空間20を区別する。ただしnc-cubic2の一般17次元族からのcategorical忘却核を7次元と同定したわけではない。
 
 ## 再現
 

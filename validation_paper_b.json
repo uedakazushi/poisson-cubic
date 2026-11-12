@@ -1,7 +1,7 @@
 {
   "date": "2026-11-12",
-  "paper_version": "B-v45",
-  "repository_version": "v61",
+  "paper_version": "B-v46",
+  "repository_version": "v62",
   "canonical_entry": "papers/paper_b.tex",
   "mathematics": {
     "input": "Actual degreewise finite-free central cubic deformation of a polynomial algebra with smooth commutative cubic special fiber. The generic theorem uses a regular local algebraic base; the complete formal comparison allows a general complete noetherian local C-algebra with residue C.",
@@ -31,7 +31,10 @@
     "first_order_plucker_cone": "At zero Poisson vertex of the affine Plucker cone over Gr(2,5), Zariski tangent dimension is 10 while cone dimension is 7. Combined with 10 cubic moduli directions: local 17-dimensional space has tangent dimension 20. First-order curved cancellation concerns the 10 infinitesimal Poisson directions at the commutative vertex, not a proved 7-dimensional categorical kernel at generic nonzero Poisson.",
     "second_order_plucker": "For N=5 and any smooth cubic F, coefficient quadrics of Jacobi [ι_dF ξ,ι_dF ξ] generate exactly the five quadratic Plucker ideal generators of Gr(3,5). Independent proof via nondecomposable normal form, Euler irreducibility, and surjective wedge-square Pfaffian map. This is second-order ASSOCIATIVE obstruction, not complete central-pair formal moduli identification.",
     "tangent_pair": "First-order marked central cubic pair tangent under identity-mod-epsilon graded equivalence: Λ^3 V ⊕ Jac(F)_3, dimensions 10+10=20 for N=5.",
-    "second_order_location": "papers/support/papers/reconstruction/first_order_poisson_kernel.tex"
+    "second_order_location": "papers/support/papers/reconstruction/first_order_poisson_kernel.tex",
+    "categorical_tangent_at_commutative": "Using dual-number graded MF comparison, relative Artin window, and JLLZ Theorem 4.4(2), differential from marked central cubic pairs to underlying dg Kuznetsov category HH^2 at a smooth cubic threefold is projection Λ^3 C^5 ⊕ Jac(F)_3 -> Jac(F)_3 followed by η iso. Hence exact 0 -> Λ^3 C^5 -> T_pair^1 -> HH^2(Ku(X)) -> 0, dimensions 10->20->10; does not compute generic nonzero Poisson kernel 7.",
+    "categorical_tangent_proof_location": "papers/support/papers/reconstruction/first_order_poisson_kernel.tex (fpk:thm:categorical-tangent)",
+    "corrected_latex": "Repaired malformed TeX backslashes and control characters in fpk:rem:moduli, and corrected scope of 7-dimensional fixed-F obstruction vs 17-dimensional total pair locus."
   },
   "executed_calculation": {
     "script": "computations/verify_complete_curved_transport.py",
@@ -106,12 +109,15 @@
     "new_environments_balanced": true,
     "new_python_syntax_checked": true,
     "full_paper_B_source_audit_rerun": false,
-    "first_order_source_included": true
+    "first_order_source_included": true,
+    "first_order_tex_control_characters_none": true,
+    "first_order_tex_mangled_macros_corrected": true
   },
   "primary_sources_checked": [
     "Kontsevich author final PDF DefQuant_final.pdf: Theorem 4.6 (PDF p.17), Lemma 4.11 and Section 4.6.2 (p.22), affine equivariance and Theorem 6.3 (p.30): text and page images checked. Graph arity formula and Sections 6.2-6.4 also read.",
     "Caldararu-Tu NYJM19 (2013), Section2, Remark2.8, Theorem2.12: parsed text checked; web page-image requests failed, so no visual-source verification claimed.",
-    "HKR first-order deformation correspondence cross-checked against Kontsevich's affine formality and classical Hochschild deformation theory; specific first-order cancellation is proved directly in current paper."
+    "HKR first-order deformation correspondence cross-checked against Kontsevich's affine formality and classical Hochschild deformation theory; specific first-order cancellation is proved directly in current paper.",
+    "JLLZ Infinitesimal categorical Torelli theorems for Fano threefolds arXiv:2203.08187 Theorem 4.4(2) (printed p.15, web PDF screenshot inspected): η:H1(T_X) -> HH2(Ku(X)) is an isomorphism for smooth cubic threefolds."
   ],
   "environment": {
     "python": "3.13.5",
