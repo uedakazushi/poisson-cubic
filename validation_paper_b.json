@@ -111,7 +111,10 @@
     "full_paper_B_source_audit_rerun": false,
     "first_order_source_included": true,
     "first_order_tex_control_characters_none": true,
-    "first_order_tex_mangled_macros_corrected": true
+    "first_order_tex_mangled_macros_corrected": true,
+    "paper_B_direct_and_bibliography_input_paths": "PASS: 42 direct main-article inputs and 26 bibliography inputs; all 68 unique TeX source targets present in GitHub main; no build was executed.",
+    "new_introduction_citation_keys": "PASS: all 6 cited keys Orlov, LZ, JLLZ, PKontsevich, CT, GCDBFK found in current reference input sources.",
+    "paper_B_full_recursive_labels_and_citations": "NOT RUN: static path check and new introduction key check only."
   },
   "primary_sources_checked": [
     "Kontsevich author final PDF DefQuant_final.pdf: Theorem 4.6 (PDF p.17), Lemma 4.11 and Section 4.6.2 (p.22), affine equivariance and Theorem 6.3 (p.30): text and page images checked. Graph arity formula and Sections 6.2-6.4 also read.",
@@ -130,6 +133,7 @@
     "introduction": "Added structured overview: problem, results, 4-step strategy, related literature and limits",
     "ordering": "Moved first-order/Plucker/categorical tangent section after core local window and complete curved MF transport",
     "main_proof": "Inserted non-numbered prose stage headings; no changes to logical dependencies",
-    "typesetting": "NOT RUN in this revision; full manuscript remains unverified after editing"
+    "typesetting": "NOT RUN in this revision; full manuscript remains unverified after editing",
+    "static_source_validation": "Direct TeX input closure and new introduction citation keys checked after refactoring; full recursive TeX/LaTeX integration and PDF inspection outstanding."
   }
 }
