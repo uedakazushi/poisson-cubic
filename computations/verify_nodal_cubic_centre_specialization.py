@@ -44,7 +44,8 @@ def scale(p,a):
 def sym2(p,q): return scale(add(mul(p,q),mul(q,p)),Q(1,2))
 def cube(p): return mul(mul(p,p),p)
 
-X,Y,Z,U=(word(v) for v in "xyz")+ (word("",1),)
+X,Y,Z=(word(v) for v in "xyz")
+U=word("",1)
 relations=[
   add(mul(X,Y),scale(mul(Y,X),-1),
       scale(add(sym2(X,Y),scale(mul(U,Z),2)),-h)),
@@ -78,18 +79,29 @@ pivots={}
 def reduce_coeff(poly, insert=False):
     row={pos[key]:sp.Rational(v.numerator,v.denominator)
          for key,v in poly.items() if v}
-    for k in sorted(pivots):
-        if k not in row: continue
+    while row:
+        k=min(row)
+        if k not in pivots:
+            if insert:
+                c=row[k]
+                pivots[k]={j:v/c for j,v in row.items()}
+                return {}
+            # For non-insertion, the row has a genuine free leading
+            # position; reduce any higher pivot positions once as well.
+            break
         coefficient=row[k]
         for j,a in pivots[k].items():
             val=row.get(j,0)-coefficient*a
             if val:row[j]=val
             else:row.pop(j,None)
-    if insert:
-        if row:
-            k=min(row);c=row[k]
-            pivots[k]={j:v/c for j,v in row.items()}
-        return {}
+    if insert:return {}
+    for k in sorted(pivots):
+        if k not in row:continue
+        coefficient=row[k]
+        for j,a in pivots[k].items():
+            val=row.get(j,0)-coefficient*a
+            if val:row[j]=val
+            else:row.pop(j,None)
     return row
 
 
