@@ -27,7 +27,8 @@
     ],
     "first_order_kernel": "Direct dual-number curved Hochschild cancellation, independent of full Kontsevich formality; tangent cubic term lies in Jac(F)_3, dimension C(N+2,3)-N^2 (10 for N=5). The 17-to-10 moduli kernel is NOT established.",
     "first_order_jacobi": "Jacobi is unnecessary for first-order curved cancellation; all-orders second-action vanishing uses Jacobi.",
-    "first_order_proof_location": "papers/support/papers/reconstruction/first_order_poisson_kernel.tex"
+    "first_order_proof_location": "papers/support/papers/reconstruction/first_order_poisson_kernel.tex",
+    "first_order_plucker_cone": "At zero Poisson vertex of the affine Plucker cone over Gr(2,5), Zariski tangent dimension is 10 while cone dimension is 7. Combined with 10 cubic moduli directions: local 17-dimensional space has tangent dimension 20. First-order curved cancellation concerns the 10 infinitesimal Poisson directions at the commutative vertex, not a proved 7-dimensional categorical kernel at generic nonzero Poisson."
   },
   "executed_calculation": {
     "script": "computations/verify_complete_curved_transport.py",

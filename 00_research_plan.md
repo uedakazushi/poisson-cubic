@@ -23,7 +23,7 @@ Aはsmooth cubicのPoisson正規形、退化、Bondal予想、代数的量子化
 
 ## 一次非可換方向の消滅と接空間
 
-`papers/support/papers/reconstruction/first_order_poisson_kernel.tex` で、双対数環上の中心三次対に対する一次変形を全次数formalityを使わず直接比較する。HKRで積の一次項を二次係数bivector πへ正規化し、中心性から[π,F]=0、滑らかさ・Koszulからπ=[Ξ,F]となる。曲率 -tF のHochschild複体で η=ε HKR(Ξ)/t の境界がHKR(π)を消す。双対数なのでbar写像はarity1と3のみで実際に逆があり、graded MFの内部shift・中心元由来周期性も保つ。Jacobi条件は一次消滅には不要だが、全次数へ延長する際に必要。一次の可換式は標識によって導分(F)だけ変わり、(S/J(F))_3に値を持つ。次元は binom(N+2,3)-N²、cubic threefoldで10。17次元非可換族の残り7方向が実際のforgetful kernelかはKodaira--Spencer照合が未完であり、推論しない。これは全次数比較の独立検算として価値がある。
+`papers/support/papers/reconstruction/first_order_poisson_kernel.tex` で、双対数環上の中心三次対に対する一次変形を全次数formalityを使わず直接比較する。HKRで積の一次項を二次係数bivector πへ正規化し、中心性から[π,F]=0、滑らかさ・Koszulからπ=[Ξ,F]となる。曲率 -tF のHochschild複体で η=ε HKR(Ξ)/t の境界がHKR(π)を消す。双対数なのでbar写像はarity1と3のみで実際に逆があり、graded MFの内部shift・中心元由来周期性も保つ。Jacobi条件は一次消滅には不要だが、全次数へ延長する際に必要。一次の可換式は標識によって導分(F)だけ変わり、(S/J(F))_3に値を持つ。次元は binom(N+2,3)-N²、cubic threefoldで10。PoissonのPlücker錐は一般非零点で7次元だが可換零点のZariski接空間は10次元で、cubicの変形10次元と合わせて局所次元17／接空間20という差がある。今回の一次消去は可換点の10方向を対象とし、一般非零点での7次元kernelと同一視しない。17次元非可換族の実際のcategorical forgetful微分はKodaira--Spencer照合が未完である。これは全次数比較の独立検算として価値がある。
 
 ## 未解決の核心と次の具体的着手
 
