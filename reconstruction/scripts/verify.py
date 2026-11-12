@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the paper-C export and exact certificates; not a categorical proof assistant."""
+"""Validate the paper-B auxiliary export and exact certificates; not a categorical proof assistant."""
 from pathlib import Path
 import hashlib
 import json
@@ -27,7 +27,10 @@ def expanded(path, seen):
     body = path.read_text(encoding="utf-8")
     def include(m):
         rel = m.group(1)
-        return expanded(REPO/(rel if rel.endswith(".tex") else rel+".tex"), seen)
+        candidate = Path(rel if rel.endswith(".tex") else rel + ".tex")
+        direct = REPO / candidate
+        support = REPO / "papers/support" / candidate
+        return expanded(direct if direct.is_file() else support, seen)
     return re.sub(r"\\input\{([^}]+)\}", include, body)
 
 def main():
@@ -36,7 +39,7 @@ def main():
               REPO/"build/rotation_saturation_reduction.pdf"):
         require(p.is_file(), "Missing: "+str(p))
     seen = set()
-    body = expanded(REPO/"papers/reconstruction/rotation_saturation_reduction.tex", seen)
+    body = expanded(REPO/"papers/support/papers/reconstruction/rotation_saturation_reduction.tex", seen)
     labels = re.findall(r"\\label\{([^}]+)\}", body)
     refs = re.findall(r"\\(?:eqref|ref|pageref)\{([^}]+)\}", body)
     require(len(labels)==len(set(labels)), "Duplicate labels")

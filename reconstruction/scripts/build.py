@@ -10,10 +10,10 @@ import subprocess
 
 REPO = Path(__file__).resolve().parents[2]
 SCOPE = REPO / "reconstruction"
-SOURCE = REPO / "papers/reconstruction/rotation_saturation_reduction.tex"
-INPUTS = [SOURCE, REPO/"papers/reconstruction/etale_realization.tex",
-          REPO/"papers/reconstruction/hochschild_obstructions.tex",
-          REPO/"papers/reconstruction/etale_references.tex"]
+SOURCE = REPO / "papers/support/papers/reconstruction/rotation_saturation_reduction.tex"
+INPUTS = [SOURCE, REPO/"papers/support/papers/reconstruction/etale_realization.tex",
+          REPO/"papers/support/papers/reconstruction/hochschild_obstructions.tex",
+          REPO/"papers/support/papers/reconstruction/etale_references.tex"]
 PDF = REPO / "build/rotation_saturation_reduction.pdf"
 
 def sha(p):

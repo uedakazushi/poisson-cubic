@@ -15,7 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
-    "componentwise_reconstruction": ("papers/exports/componentwise_reconstruction.tex", "build/sections/componentwise_reconstruction.pdf"),
+    "componentwise_reconstruction": ("papers/support/papers/exports/componentwise_reconstruction.tex", "build/sections/componentwise_reconstruction.pdf"),
     "research_plan": ("00_research_plan.md", "build/research_plan.pdf"),
     "research_notes": ("notes/research_notes.md", "build/research_notes.pdf"),
 }
@@ -42,8 +42,14 @@ def closure(path: Path, seen: set[Path] | None = None) -> set[Path]:
     seen.add(path)
     if path.suffix == ".tex":
         for inc in re.findall(r"\\(?:input|include)\{([^}]+)\}", path.read_text(encoding="utf-8")):
-            child = ROOT / inc
-            closure(child if child.suffix else child.with_suffix(".tex"), seen)
+            candidate = Path(inc if inc.endswith(".tex") else inc + ".tex")
+            for base in (ROOT, ROOT / "papers/support"):
+                child = base / candidate
+                if child.is_file():
+                    closure(child, seen)
+                    break
+            else:
+                raise FileNotFoundError("Missing TeX input: " + inc)
     return seen
 
 def build(name: str, work: Path) -> dict:
@@ -90,7 +96,8 @@ def main() -> None:
     for program in ("lualatex", "pandoc"):
         if not shutil.which(program):
             raise SystemExit(f"Required program missing: {program}")
-    receipt = ROOT / "build_receipt_components.json"
+    receipt = ROOT / "build" / "build_receipt_components.json"
+    receipt.parent.mkdir(parents=True, exist_ok=True)
     state = json.loads(receipt.read_text()) if receipt.exists() else {}
     with tempfile.TemporaryDirectory(prefix="nc-cubic-components-") as temporary:
         for name in selected:

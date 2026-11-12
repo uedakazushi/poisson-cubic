@@ -20,7 +20,7 @@ def sha(path: Path) -> str:
 
 def inventory() -> str:
     paths = sorted(p for p in ROOT.rglob("*") if p.is_file() and p.name != "SHA256SUMS"
-                   and not any(part in (".git", "__pycache__") for part in p.relative_to(ROOT).parts))
+                   and not any(part in (".git", "__pycache__", "build", ".venv") for part in p.relative_to(ROOT).parts))
     return "".join(f"{sha(p)}  {p.relative_to(ROOT).as_posix()}\n" for p in paths)
 
 def main() -> None:
@@ -29,7 +29,7 @@ def main() -> None:
     parser.add_argument("--check-hashes", action="store_true")
     parser.add_argument("--source-only", action="store_true")
     args = parser.parse_args()
-    paths = closure(ROOT / "papers/exports/componentwise_reconstruction.tex")
+    paths = closure(ROOT / "papers/support/papers/exports/componentwise_reconstruction.tex")
     body = "\n".join(p.read_text(encoding="utf-8") for p in sorted(paths))
     labels = re.findall(r"\\label\{([^}]+)\}", body)
     refs = re.findall(r"\\(?:eqref|ref|pageref)\{([^}]+)\}", body)
@@ -47,7 +47,7 @@ def main() -> None:
     assert actual == expected, "Computation certificate mismatch"
     print("PASS exact computations and universal free-algebra certificate")
     if not args.source_only:
-        receipt = json.loads((ROOT / "build_receipt_components.json").read_text())
+        receipt = json.loads((ROOT / "build/build_receipt_components.json").read_text())
         assert set(receipt) == {"componentwise_reconstruction", "research_plan", "research_notes"}
         for name, item in receipt.items():
             assert sha(ROOT / item["pdf"]) == item["pdf_sha256"], (name, "PDF changed")
