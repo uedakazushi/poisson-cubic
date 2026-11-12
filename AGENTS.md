@@ -1,24 +1,38 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-12 / v47。GitHub mainが唯一の正本。** 最初に 00_research_plan.md を読む。
+**2026-11-12 / v48。GitHub mainが唯一の正本。** 最初に 00_research_plan.md を読む。
 
-## 最優先指示：論文Aを投稿可能な水準へ
+## 最優先指示：任意次元の同時量子化を論文Aの完成結果へ
 
-現在は論文Aの証明・文献・構成の独立監査と改訂を最優先する。
-入口は papers/paper_a.tex、専用文献は papers/support/papers/references_poisson_cubic.tex、
-現在有効な研究ノートは notes/poisson_article_submission_audit.md。
-まず prop:pg-PBW、lem:pg-formal-center の相対/絶対Calabi–Yau・formality・代数化を
-Mori–Smith、Berger–Taillefer、Kontsevich、Dolgushev、Etingof–Ginzburgの一次資料と照合する。
-次に prop:pg-represent、lem:pg-linearize、lem:pg-quadratic-lie、thm:pg-bondalを独立監査する。
-既知のcubic threefold Grassmann分類、Fano四・五次元Bondal予想、
-Sklyanin中心公式と本論文の貢献をIntroductionで区別する。
-全原稿AのLuaLaTeX組版と必要な整数行列証明書の再実行を経て投稿判定する。
-局所的な厳密検算を全定理の形式証明と取り違えない。
-論文B/Cの証明・コードを保持し、研究対象の新たな拡張よりAの完成を優先する。
+まず `papers/support/papers/sections/general_dimension_universal_quantization.tex`
+（`thm:pg-all-dimensions` と `cor:pg-ad-whole-pencil`、
+`prop:pg-ad-relative-chart`、`cor:pg-ad-hessian`）を読む。
+任意 n≥3、N=n+2=3k+m、F=Σf_s(x_s,u)、各純active三次g_s滑らかの下で、
+k個のJacobian Poisson構造の線形族全体に独立η_sを与える。
+Ω_{η}=Σ_sΩ_{f_s,η_s} は各ブロックのHesse普遍中心元の和で、
+ブロック間の量子混合補正なしに厳密に中心。
+共通u上のテンソルPBW、Koszul AS正則、中心正則性、
+中心商AS-Gorenstein、各内部次数の多変数平坦性を原稿で証明している。
+これは全Poisson pairモジュライの普遍量子化を主張しない。
+
+数学的な次の優先は、表示係数も動く相対Hesseチャートの同変性、
+ブロック入替え、Hesse座標変更、中心三次の分配に伴う
+中心元・商の同型とモジュライ降下を検証すること。
+次に既存PBW/正則性補題の全独立監査、正規形のLie補題、
+Bondal予想、一次文献比較と全原稿のLuaLaTeX組版を進める。
+滑らかでない三変数制限への拡張は、現在の優先課題ではない。
+`notes/universal_casimir.md` を再開の現行ノートとする。
+`computations/verify_general_dimension_multiblock.py` は
+n=3,4,6,7,10の6具体例についてJacobi610成分とCasimir52成分を
+厳密検算するが、一般次元定理の形式証明そのものではない。
+`computations/build_general_dimension_center.py` は共有中心を持つ
+2ブロックのWeyl中心symbolを構成する。
+GitHub main正本、GitHub Actionsなし、PDFはGit追跡せず、
+論文B/Cの数学的証明を保持する。
 
 ## 量子中心の現在の最重要到達点と残課題
 
-論文A thm:pg-universal-hesse-mixed は一般Hesse t と全混合係数A,B,C,D,E,Hの**独立記号を保った普遍多項式の厳密中心性**を証明。検証コード`computations/verify_universal_hesse_mixed_center.py` はQ(h,t)上で自由語339、関係162、rank144、三交換子余り0とh=0でのrank144を計算する。Fermatはt=0、対角二次混合は中心平行移動で包含。任意のsmooth ternary cubicはHesse標準形経由で扱えるので、thm:pg-universal-determinant の形式中心存在仮定は不要になった。詳細は notes/universal_casimir.md。次は普遍証明書の査読可能性向上、特異gの全般式と形式的中心存在証明の監査、Poisson正規形とBondal証明の独立監査。全論文AのLuaLaTeX組版は未確認。
+論文A thm:pg-universal-hesse-mixed は一般Hesse t と全混合係数A,B,C,D,E,Hの**独立記号を保った普遍多項式の厳密中心性**を証明。検証コード`computations/verify_universal_hesse_mixed_center.py` はQ(h,t)上で自由語339、関係162、rank144、三交換子余り0とh=0でのrank144を計算する。Fermatはt=0、対角二次混合は中心平行移動で包含。任意のsmooth ternary cubicはHesse標準形経由で扱えるので、thm:pg-universal-determinant の形式中心存在仮定は不要になった。詳細は notes/universal_casimir.md。次は一般次元の正規形表示族の同変性と降下・PBW全仮定の監査、Poisson正規形とBondal証明の独立監査。全論文AのLuaLaTeX組版は未確認。
 
 ## 論文A：Bondal予想の帰結
 
