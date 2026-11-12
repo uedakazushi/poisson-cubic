@@ -286,6 +286,59 @@ $(\boldsymbol\lambda,\hbar)\mapsto
 $\pi_{\boldsymbol\lambda}$の量子化となる。
 \end{proof}
 
+\begin{proposition}[正規形の係数も動く相対普遍公式]
+\label{prop:pg-ad-relative-chart}
+$k,m$とブロック座標を固定する。
+各$f_s$の純active三次式をHesse形
+$g_{t_s}(x_s)$に正規化した上で、
+中心変数を含む全ての斉次三次混合係数と
+$t_1,\ldots,t_k$を独立に動かす
+\emph{正規形の表示パラメータ空間}$\mathcal T_{k,m}$を考える。
+このとき\eqref{eq:pg-ad-universal-center}は
+\[
+ \Omega\in
+ \CC[\mathcal T_{k,m}][\boldsymbol\eta,u,x_1,\ldots,x_k]_3
+\]
+の\emph{非可換Weyl対称化として読める有限多項式}であり、
+$\eta_s$の次数は高々四である。
+この表示パラメータ空間上の、$X$と全$g_{t_s}$が滑らかな開部分
+$\mathcal T_{k,m}^{\mathrm{sm}}$について、
+その零切断を含むZariski開近傍では
+$\Omega$は中心となり、
+定理\ref{thm:pg-all-dimensions}の
+PBW/AS正則性と中心商の平坦性を同時に満たす。
+
+これは固定した$F$に対する量子化を超え、
+正規形の係数$F$と独立量子化方向$\boldsymbol\eta$を
+\emph{同時に動かす相対的な代数的構成}である。
+ただし$\mathcal T_{k,m}$は
+座標とブロック分解を指定した\emph{表示空間}であり、
+一般の非可換三次超曲面のモジュライ商ではない。
+またHesse座標の全係数空間上の正準選択や
+異なる表示チャートの大域的な中心元の接着は主張しない。
+\end{proposition}
+\begin{proof}
+定理\ref{thm:pg-universal-hesse-mixed}の中心元は
+$t_s$、混合係数、$\eta_s$についての
+普遍的な多項式恒等式である。
+中心平行移動による混合二次項の消去も
+式\eqref{eq:pg-hm-translation}の多項式演算なので、
+全係数を変数としたまま
+$\Omega=\sum_s\Omega_{s,\eta_s}$を作れる。
+中心性の多項式恒等式は
+各表示チャートの$\boldsymbol\eta=0$近傍で成立する。
+
+AS正則性は、定理\ref{thm:pg-all-dimensions}の
+各係数値に対して$\boldsymbol\eta=0$を含む
+開条件として得られる。
+その開条件を表示係数との積空間で課せば、
+$\mathcal T_{k,m}^{\mathrm{sm}}$の零切断を含む開近傍を得る。
+共通中心変数上のPBW基底と
+中心正則性のfiltration証明は係数の底変更と両立し、
+各内部次数の商の有限定階数条件から
+相対的な局所自由性・平坦性が従う。
+\end{proof}
+
 \begin{corollary}[一般次元での全方向の有限Hessian公式]
 \label{cor:pg-ad-hessian}
 各ブロックのHesse正規化と中心平行移動を済ませ、
