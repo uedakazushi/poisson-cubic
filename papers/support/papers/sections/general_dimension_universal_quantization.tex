@@ -246,6 +246,93 @@ $\eta_s=\lambda_s\hbar$による底変更が
 全ての方向を同時に実現する。
 \end{proof}
 
+\begin{theorem}[全てのPoissonブロックの多変数同時量子化]
+\label{thm:pg-ad-all-poisson}
+$n\ge3$、$X=V(F)\subset\PP^{n+1}$を
+\emph{滑らかな}三次超曲面とし、
+定理\ref{thm:pg-normal}の正規形
+$F=\sum_{s=1}^k f_s(x_s,u)$を取る。
+ここでは$f_s(x_s,0)$の滑らかさを\emph{仮定しない}。
+純中心三次の配分を
+補題\ref{lem:pg-central-splitting-smooth}により選び直し、
+各$V(f_s)\subset\PP(x_s,u)$を滑らかにする。
+定理\ref{thm:pg-universal-determinant}のCramer式により
+\begin{equation}
+ \Omega_{s,\eta_s}\in
+ Z(A_{f_s,\eta_s})_3,\qquad
+ \Omega_{s,0}=f_s
+ \label{eq:pg-ad-general-block-center}
+\end{equation}
+を、それぞれ$\eta_s=0$を含む適切な開集合上に構成できる。
+
+従って$\eta_1,\ldots,\eta_k$を独立に動かして
+\begin{equation}
+ \boxed{\qquad
+ \Omega_{\boldsymbol\eta}=\sum_{s=1}^k\Omega_{s,\eta_s},
+ \qquad
+ \Omega_{\boldsymbol0}=F
+ \qquad}
+ \label{eq:pg-ad-general-center}
+\end{equation}
+を厳密な代数的中心三次元とする
+$k$パラメータの次数付き量子化が得られる。
+原点を含むZariski開集合上で、
+周囲の各ファイバーは次元$N=n+2$のKoszul AS-regular、
+中心三次商はAS-Gorensteinかつflatで、
+Hilbert級数はそれぞれ
+\begin{equation}
+ \operatorname{Hilb}_{A_{\boldsymbol\eta}}(z)=(1-z)^{-N},
+ \qquad
+ \operatorname{Hilb}_{B_{\boldsymbol\eta}}(z)
+ =(1-z^3)(1-z)^{-N}
+ \label{eq:pg-ad-general-hilbert}
+\end{equation}
+となる。
+$\eta_s=\lambda_s\hbar$とする底変更によって、
+固定した$X$の当該$k$次元Poisson線形族の
+\emph{全方向}を零切断の近傍で同時に量子化できる。
+
+一般の特異三変数制限に対する中心元は、
+$\eta_s^2$の\emph{有理式}である。
+Hesse型の滑らかな制限の場合のように、
+すべての係数が$\eta_s^4$で打ち切られる
+多項式表示を主張するものではない。
+この定理の証明に形式的量子化は必要ない。
+\end{theorem}
+\begin{proof}
+各ブロックの全三次式を滑らかにする
+中心三次項の配分が存在することは
+補題\ref{lem:pg-central-splitting-smooth}により証明済み。
+配分はactive偏微分を変えないので、
+対応する三つの二次関係式もPoisson一次括弧も変化しない。
+各$f_s$について定理
+\ref{thm:pg-universal-determinant}を適用し、
+原点で正則な有限行列式の比で中心三次元を得る。
+異なるブロックのactive生成元は互いに可換、
+中心変数$u$は共通であるので、和は厳密に中心である。
+
+命題\ref{prop:pg-PBW}は三変数制限の滑らかさを
+仮定せずに原点近傍で成立する。
+各ブロックのPBW自由性を共通中心環上でテンソルし、
+中央一次正則列を使えば、
+全体のKoszul AS正則性と次元$N$を得る。
+中心三次元の左右正則性は、
+定理\ref{thm:pg-quantization}の証明と同様、
+active次数のfiltrationの最高記号における
+三次元AS-regular domainの乗法単射性による。
+各ブロックの$f_s$はactive変数に依存するから
+その最高active記号は原点で非零で、
+必要に応じて開を縮めても非零である。
+中心元による完全列と中央超曲面の
+change of ringsからAS-Gorenstein性を得る。
+
+各内部次数に関するPBW基底と、
+中心元による乗法行列のfiberwise rank一定性から
+多変数底上の局所自由性・flatnessも得られる。
+最後の主張は$\boldsymbol\eta=\hbar\boldsymbol\lambda$
+での底変更と一次交換子の計算による。
+\end{proof}
+
 \begin{corollary}[Poisson線形族の零切断近傍での一様量子化]
 \label{cor:pg-ad-whole-pencil}
 定理\ref{thm:pg-all-dimensions}の$k$次元Poisson線形族
