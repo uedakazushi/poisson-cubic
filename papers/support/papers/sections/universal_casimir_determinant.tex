@@ -13,12 +13,12 @@
 $S=\CC[x,y,z,u_1,\ldots,u_m]$、$F\in S_3$とする。
 $g(x,y,z)=F(x,y,z,0)$とし、
 $A_{F,\hbar}$は
-\[
+\begin{equation}
 [y,z]=\hbar\sym(F_x),\quad
 [z,x]=\hbar\sym(F_y),\quad
 [x,y]=\hbar\sym(F_z),\quad [u_\alpha,-]=0
-\tag{DQ}\label{eq:pg-det-quantum}
-\]
+\label{eq:pg-det-quantum}
+\end{equation}
 で定まる次数付き代数とする。
 $\sym$は全変数のWeyl対称化であり、
 中心変数の移動には何も作用しない。
@@ -26,12 +26,12 @@ $\sym$は全変数のWeyl対称化であり、
 \begin{lemma}[滑らかな三次制限の古典的Casimir]\label{lem:pg-det-classical-kernel}
 $g=F(x,y,z,0)$が滑らかな平面三次曲線を定めるとする。
 $S$の$F$に付随する三変数Jacobian Poisson括弧に対し
-\[
+\begin{equation}
  \ker\left(S_3\xrightarrow{p\mapsto(\{p,x\},\{p,y\},\{p,z\})}
  S_4^{\oplus3}\right)
  =\CC F\oplus \CC[u_1,\ldots,u_m]_3.
- \tag{CK}\label{eq:pg-det-classical-kernel}
-\]
+ \label{eq:pg-det-classical-kernel}
+\end{equation}
 ここで$\CC[u]_3=0$は$m=0$の場合を含む。
 \end{lemma}
 \begin{proof}
@@ -65,12 +65,12 @@ $(F,\hbar)$の適切なZariski開近傍で
 $\{\sym(q):q\in\mathcal B_d\}$は$(A_{F,\hbar})_d$の基底となる。
 以下、$d=3,4$だけを用いる。
 $\hbar=0$で交換子は消えるので、平坦性により
-\[
+\begin{equation}
  \mathcal D_{F,\hbar}:S_3\longrightarrow S_4^{\oplus3},\qquad
  p\longmapsto\frac1\hbar
   \bigl([\sym(p),x],[\sym(p),y],[\sym(p),z]\bigr)
- \tag{CM}\label{eq:pg-det-commutator-matrix}
-\]
+ \label{eq:pg-det-commutator-matrix}
+\end{equation}
 をWeyl基底で表した行列は原点で正則な有理関数の成分を持つ。
 右辺は$A_{F,\hbar}$で計算した後、Weyl基底へ戻す。
 $\hbar=0$で$\mathcal D_{F,0}$は古典Jacobian括弧である。
@@ -81,10 +81,10 @@ $g=F(x,y,z,0)$が滑らかな平面三次曲線を定めるとする。
 必要ならactive線形座標変換を施し、
 $F$の$x^3$係数$a$を非零とする。
 $F_{\mathrm{cent}}=F(0,0,0,u)$、および
-\[
+\begin{equation}
  d=\binom{m+2}{3},\qquad
  r=N_3-d-1=\binom{m+5}{3}-\binom{m+2}{3}-1
-\]
+\end{equation}
 と置く（$m=0$なら$d=0$）。
 $S_3$の単項式基底から$x^3$と純中心三次単項式を除いた
 $r$個を$w_1,\dots,w_r$とする。
@@ -92,13 +92,13 @@ $r$個を$w_1,\dots,w_r$とする。
 $\mathcal D_{F,0}$の$w_j$への制限は単射なので、
 そのWeyl座標表示から$r$個の行を選び、
 $r\times r$の小行列
-\[
+\begin{equation}
  M(F,\hbar)=
  \bigl(\ell_i(\mathcal D_{F,\hbar}(w_j))\bigr)_{i,j=1}^r,\quad
  b(F,\hbar)=
  \bigl(\ell_i(\mathcal D_{F,\hbar}(x^3))\bigr)_{i=1}^r
- \tag{MP}\label{eq:pg-det-minor}
-\]
+ \label{eq:pg-det-minor}
+\end{equation}
 が$\det M(F,0)\ne0$を満たすようにできる。
 $\ell_i$は$S_4^{\oplus3}$の所定の座標射影である。
 $M_j$を$M$の第$j$列を$b$に置き換えた行列とすると、
@@ -174,13 +174,13 @@ $\mathcal D_{F_0,0}$の行を先に$x$、次に$y,z$の交換子の順で並べ�
 $w_j$は$x^3$と純中心三次単項式を除いた辞書式順とする。
 $\mathcal D_{F_0,0}|_W$の転置行列をRREFにして
 最初の主元行を選ぶと、次の厳密整数値を得る。
-\[
+\begin{equation}
  \begin{array}{c|ccc}
  \text{中心変数数 }m&N_3&r&\det M(F_0,0)\\\hline
  0&10&9&-72\\
  2&35&30&4608
  \end{array}
-\]
+\end{equation}
 再現コードは
 \texttt{computations/verify\_universal\_casimir\_minor.py}。
 これは$\hbar=0$の階数と開条件の\emph{厳密な計算}であり、
