@@ -33,9 +33,9 @@ $\mathcal B$ は二次Koszul AS正則 $\mathbb Z$-代数で，
 有限の最小線型解消を持つとする。
 そのAS次元とGorenstein parameterが同じ $N$ であり，
 次数 $d$ の正則正規族が存在するならば，最小正周期 $p$ は
-\[
+\begin{equation}
  p\mid\gcd(N,d)
-\]
+\end{equation}
 を満たす。特に $\gcd(N,d)=1$ なら
 $\mathcal B\simeq\mathcal B(1)$ である。
 \end{theorem}
@@ -44,17 +44,17 @@ $\mathcal B\simeq\mathcal B(1)$ である。
 まず正規族から $d$ 周期性を構成する。
 各 $a\in\mathcal B_{ij}$ に対して
 \eqref{eq:pg-ambient-normal-family}と左右正則性から，
-\[
+\begin{equation}
  ag_j=g_i\sigma_{ij}(a),\qquad
  \sigma_{ij}(a)\in\mathcal B_{i+d,j+d}
-\]
+\end{equation}
 を満たす元が一意に存在し，$\sigma_{ij}$ は線型同型となる。
 $a\in\mathcal B_{ij}$，$b\in\mathcal B_{j\ell}$ について
-\[
+\begin{equation}
  (ab)g_\ell
  =a(g_j\sigma_{j\ell}(b))
  =g_i\sigma_{ij}(a)\sigma_{j\ell}(b)
-\]
+\end{equation}
 だから，$g_i$ を消去して
 $\sigma_{i\ell}(ab)=\sigma_{ij}(a)\sigma_{j\ell}(b)$ を得る。
 従って
@@ -69,23 +69,23 @@ $\sigma_{i\ell}(ab)=\sigma_{ij}(a)\sigma_{j\ell}(b)$ を得る。
 （Bondal--Polishchuk~\cite[Proposition~4.1, \S5]{PBondalPolishchukHelices}）。
 具体的には，最高次数の同定
 $\lambda_i:E_{i,i+N}\xrightarrow{\sim}\CC$ を選ぶと，
-\[
+\begin{equation}
  E_{ij}\otimes E_{j,i+N}\longrightarrow E_{i,i+N}
  \xrightarrow{\lambda_i}\CC
-\]
+\end{equation}
 が各相補次数で完全対合である。
 この対合から，任意の $a\in E_{ij}$ に対して
-\[
+\begin{equation}
  \lambda_i(ab)=\lambda_j(b\nu_{ij}(a))
  \quad(b\in E_{j,i+N})
-\]
+\end{equation}
 となる線型同型 $\nu_{ij}:E_{ij}\to E_{i+N,j+N}$ が定まる。
 $a\in E_{ij},c\in E_{j\ell},b\in E_{\ell,i+N}$ に対して
-\[
+\begin{equation}
  \lambda_i((ac)b)
  =\lambda_j((cb)\nu(a))
  =\lambda_\ell(b\nu(a)\nu(c))
-\]
+\end{equation}
 であるから，対合の完全性により
 $\nu(ac)=\nu(a)\nu(c)$ となる。
 従って $\nu:E\xrightarrow{\sim}E(N)$ は $\mathbb Z$-代数同型である。
@@ -110,9 +110,9 @@ $\mathcal B$ を標準 $(1,5,10,10,5,1)$ 型の
 5次元Koszul AS正則 $\mathbb Z$-代数とし，
 次数3の正則正規族 $g_i\in\mathcal B_{i,i+3}$ を持つとする。
 このとき
-\[
+\begin{equation}
  \mathcal B\simeq\mathcal B(1).
-\]
+\end{equation}
 従って通常の connected graded 5次元AS正則代数 $D$ により
 $\mathcal B\simeq\check D$ と書ける。
 特に $\dim\mathcal B_{i,i+n}=\binom{n+4}{4}$ ならば
@@ -122,12 +122,12 @@ $H_D(t)=(1-t)^{-5}$ である。
 定理\ref{thm:pg-ambient-gcd}を $N=5,d=3$ に適用する。
 実際，\eqref{eq:pg-ambient-sigma}の $\sigma$ と
 \eqref{eq:pg-ambient-rho}の $\rho$ から
-\[
+\begin{equation}
  \theta_{ij}=
  \rho^{-1}_{i+1,j+1}\circ
  \sigma_{i+3,j+3}\circ\sigma_{ij}:
  \mathcal B_{ij}\longrightarrow\mathcal B_{i+1,j+1}
-\]
+\end{equation}
 が1周期同型となる（$2\cdot3-5=1$）。
 $\mathcal B_{0n}$ 上の積を
 $a*b=a\,\theta^m(b)$（$a\in\mathcal B_{0m}$）と定めれば，
@@ -138,17 +138,17 @@ $a*b=a\,\theta^m(b)$（$a\in\mathcal B_{0m}$）と定めれば，
 $\mathcal B$ は次数一生成で
 $\dim\mathcal B_{i,i+1}=5$ とする。
 斉次両側イデアル $I\subset\mathcal B$ が
-\[
+\begin{equation}
  I_{i,i+3}=\CC g_i,\qquad \dim I_{i,i+4}=5
-\]
+\end{equation}
 を満たし，各 $g_i$ が左右正則なら，$(g_i)$ は次数3の正則正規族である。
 \end{proposition}
 \begin{proof}
 $I_{i,i+4}$ の二つの部分空間
-\[
+\begin{equation}
  g_i\mathcal B_{i+3,i+4},
  \qquad \mathcal B_{i,i+1}g_{i+1}
-\]
+\end{equation}
 は，正則性によってともに5次元であり，よって一致する。
 これは長さ一の正規関係である。
 次数一生成と結合律による帰納法で任意の $j\geq i$ に対する
