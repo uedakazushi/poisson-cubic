@@ -65,8 +65,12 @@ paper Aの全input節で角括弧表示、align*、manual tagを使わず、
 equation/align等を使う。
 scripts/verify_article_a_numbering.pyの静的検証に加え、
 必ずLuaLaTeX組版とPDF目視を別途行う。
-papers直下はpaper_a.tex、paper_b.tex、paper_c.texのみを維持する。
+papers直下はpaper_a.texとpaper_c.texのみを維持する。
 今後も証明/検算/組版/保存を区別し、main正本、GitHub Actionsなし。
+
+## 一般次元ambient復元とnc-cubic2への分離
+
+旧Bのambient復元は一般次元化し `papers/support/papers/sections/ambient_recovery_general.tex` に証明を収録してAから入力する。17次元族と変形モジュライ・分離型・Picard障害はnc-cubic2の `papers/nc_cubic_threefold_moduli.tex` に移管済み。三次商の一般次元復元は証明済み、Serre関手だけによる全次元復元は未証明。17次元族がnc cubic moduliの既約成分かも未証明。
 
 ## 論文のスコープとnc-cubic2への分離
 
@@ -123,9 +127,9 @@ Poisson正規形とBondal証明の独立監査。全論文AのLuaLaTeX組版は�
 
 ## 保持・検証
 
-論文A/B/Cの有効な証明・コード・必要証明書・反例を保持する。一般KFは未解決だが現行経路の前提でない。項別自由性だけの生成子持上げは偽のまま。smoothness・perfect性・通常導来底変更を区別する。既知の飽和原理を新規成果としない。
+論文A/Cの有効な証明・コード・必要証明書・反例と、nc-cubic2へ移管した旧Bのモジュライ成果を保持する。一般KFは未解決だが現行経路の前提でない。項別自由性だけの生成子持上げは偽のまま。smoothness・perfect性・通常導来底変更を区別する。既知の飽和原理を新規成果としない。
 
-`python3 scripts/verify_coherent_residual_assets.py --rerun-orbit` と `latexmk papers/paper_c.tex`。前者はsource参照と旧64 Euler/41 MF恒等式の再現確認であり新定理の形式検証でない。今回新単独稿5頁を組版・表示確認、A/B/C全体は未組版。検証状況はvalidation.jsonに分離する。
+`python3 scripts/verify_coherent_residual_assets.py --rerun-orbit` と `latexmk papers/paper_c.tex`。前者はsource参照と旧64 Euler/41 MF恒等式の再現確認であり新定理の形式検証でない。今回新単独稿5頁を組版・表示確認、A/Cとnc-cubic2の移管原稿全体は未組版。検証状況はvalidation.jsonに分離する。
 
 ## 保存
 
@@ -134,7 +138,7 @@ Poisson正規形とBondal証明の独立監査。全論文AのLuaLaTeX組版は�
 成功時はLibraryへ二重保存せず、実際のGitHub失敗時のみ緊急退避する。既存Libraryファイルを無断削除しない。日本語LuaLaTeX、PDFはGit追跡せずbuild/へ生成。旧版ZIP・ログ・cache・重複は追加せず、数学的内容と再現性を容量制限のため削らない。
 
 ## papers/の配置規則
-papers/直下に置くファイルはpaper_a.tex、paper_b.tex、paper_c.texのみ。補助TeX・参考文献・短い独立原稿はpapers/support/papers/以下に配置する。主原稿はpapers/support/をinput探索先として使用する。新たなpapers/直下のファイルを作らない。
+papers/直下に置くファイルはpaper_a.texとpaper_c.texのみ。補助TeX・参考文献・短い独立原稿はpapers/support/papers/以下に配置する。主原稿はpapers/support/をinput探索先として使用する。新たなpapers/直下のファイルを作らない。
 
 ## 量子中心三次元の現行結果と作業順
 論文A thm:pg-fermat-mixed-universal（六つの独立中心係数のFermat混合中心元）は、computations/verify_universal_fermat_mixed_center.pyによりQ(h)上の339列・162関係・階数144・三交換子剰余0とh=0の同階数を厳密検証済み。形式的中心存在を仮定しない。中心平行移動で対角二次混合を含む。論文A thm:pg-universal-determinantは任意の滑らかな三変数制限gに対するCramer決定式で、形式中心存在補題に依存する。検算はcomputations/verify_universal_casimir_minor.py。研究ノート notes/universal_casimir.md をまず参照し、Hesse一般tの短い普遍式探索と形式中心補題の完全監査を続ける。数学的に価値のある既存のFermat式を単に有限特殊化候補と呼び直さない。一般の特異gまで一つの式で覆うとは主張しない。
