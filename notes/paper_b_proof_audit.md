@@ -1,6 +1,6 @@
 # 論文B：完備曲率付き比較と一般点可換復元
 
-**2026-11-12 / B-v44。** 再開は `00_research_plan.md`。主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、形式比較の証明は `complete_curved_transport.tex`、局所比較は `three_object_window.tex`、基礎体降下は `generic_cubic_descent.tex`（同じディレクトリ）。
+**2026-11-12 / B-v45。** 再開は `00_research_plan.md`。主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、形式比較の証明は `complete_curved_transport.tex`、局所比較は `three_object_window.tex`、基礎体降下は `generic_cubic_descent.tex`（同じディレクトリ）。
 
 ## 現在の結論と適用範囲
 
@@ -35,6 +35,12 @@
 `first_order_poisson_kernel.tex` の `fpk:thm:infinitesimal` は全次数の完備曲率移送とは独立の双対数環での証明。一般の次数付き連結flat一次変形をHKRで多重微分の二次係数bivector πに正規化できる。中心性は[π,F]=0を与え、滑らかなcubicの勾配Koszul複体が唯一の定数trivector Ξを与える。η=ε HKR(Ξ)/t はarity3のunital curved gaugeで、実際のbar写像にはF1=Id,F3=ηのみが現れ、逆はF3=-η。Qがεの倍数でなくてもtwistingの評価は有限。HKR正規化の違いは線形導分T(F)なので、可換変形の一次係数は(S/J(F))_3に落ちる。Jacobianのdegree3次元はbinom(N+2,3)-N²：N=5で10、N=6で20。一般のPoisson一次変形はJacobiを満たす必要がなく、この一次消滅にはJacobi条件を使わない。二次以降の延長には[Ξ,π]を消すためのJacobi条件が必要。
 
 nc-cubic2の17次元の非可換族から可換moduliへの微分を定義・計算していないので、7次元kernelと結論してはならない。特に可換Poisson零点の局所環はPlücker錐の頂点を含み、その錐自体の次元は7（Gr(2,5)の6次元に錐の1次元）だが、頂点のZariski接空間は全10次元。元の可換cubicの変形10次元と合わせると、局所モジュライの次元17に対し接空間20となる。従って可換点で「7次元だけ一次方向が見えなくなる」と言うのは不正確であり、今回直接消去した一次Poisson方向は10次元である。非零Poisson一般点の幾何学的7次元方向とは区別し、その接空間での圏論的微分の同定は未実施。現在言えるのは一次のMF変形が可換三次式のJacobian接空間へ因子化することのみ。これが既知の一般原理のどこまでの帰結かという初出調査も未完了。数値と可積分性だけで実際の変形functorの単射／全射を結論しない。
+
+## 二次のPlücker障害の独立証明
+
+`first_order_poisson_kernel.tex` の `fpk:prop:tangent-pair` は、全次数formalityを用いず、HKRの一次正規形・中心性・次数付き導分のgaugeにより `T^1_pair ≅ Λ³V ⊕ Jac(F)_3` を示す。N=5で10+10=20。続く `fpk:thm:plucker-obstruction` は、滑らかなFなら `[ι_dF Ξ,ι_dF Ξ]=0` iff Ξ decomposable を直接示し、さらにJacobiatorの全係数が生成する二次イデアルが、Gr(3,5)の五つのPlücker二次式のイデアルに一致することを証明する。非分解可能ΞのGL5標準形e012+e034のJacobi方程式が `F_0i F_j−F_0j F_i=0` に一致する。Eulerの式から `3F F_0i=2F_0 F_i` を導き、Fの滑らかさ・既約性に矛盾。Grassmannianの二次イデアルとPfaffian写像の全射性でスキーム論的な同一性を得る。
+
+二次`結合積`の延長障害はHH³で `[π,π]/2`、従ってPlücker錐を切り出す。これは二次障害の計算であり、全中心対の高次形式変形関手をこの錐と同一視したわけではない。Poisson構造のGrassmannian記述は既知（Mayanskiy）であり、直接の障害表示の初出は未確認。計算確認はFermat F=Σx_i³/3 と混合F=Σx_i³/3+x0x1x2/7の二例でJacobi係数がそれぞれ20本と56本、二次式空間の階数はいずれも5、Plückerの五式を合わせても階数5。これは一般Fの証明の代用ではない。
 
 ## 一次文献と新規性
 

@@ -1,7 +1,7 @@
 # 研究方針：Poisson三次超曲面の量子化と一般点可換復元
 
-**2026-11-12 / v60。再開時は最初に読む。GitHub uedakazushi/nc-cubic のmainが正本。**
-現行主原稿はA `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v44）。
+**2026-11-12 / v61。再開時は最初に読む。GitHub uedakazushi/nc-cubic のmainが正本。**
+現行主原稿はA `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v45）。
 
 ## 目標・到達点・達成基準
 
@@ -25,9 +25,15 @@ Aはsmooth cubicのPoisson正規形、退化、Bondal予想、代数的量子化
 
 `papers/support/papers/reconstruction/first_order_poisson_kernel.tex` で、双対数環上の中心三次対に対する一次変形を全次数formalityを使わず直接比較する。HKRで積の一次項を二次係数bivector πへ正規化し、中心性から[π,F]=0、滑らかさ・Koszulからπ=[Ξ,F]となる。曲率 -tF のHochschild複体で η=ε HKR(Ξ)/t の境界がHKR(π)を消す。双対数なのでbar写像はarity1と3のみで実際に逆があり、graded MFの内部shift・中心元由来周期性も保つ。Jacobi条件は一次消滅には不要だが、全次数へ延長する際に必要。一次の可換式は標識によって導分(F)だけ変わり、(S/J(F))_3に値を持つ。次元は binom(N+2,3)-N²、cubic threefoldで10。PoissonのPlücker錐は一般非零点で7次元だが可換零点のZariski接空間は10次元で、cubicの変形10次元と合わせて局所次元17／接空間20という差がある。今回の一次消去は可換点の10方向を対象とし、一般非零点での7次元kernelと同一視しない。17次元非可換族の実際のcategorical forgetful微分はKodaira--Spencer照合が未完である。これは全次数比較の独立検算として価値がある。
 
+## 五変数の二次Hochschild障害の完全なPlücker表示
+
+`first_order_poisson_kernel.tex` に、可換中心三次対(S,F)の一次変形（恒等剰余の次数付き同型を法とする）が `Λ³V ⊕ Jac(F)_3` と表せる命題を加えた。N=5で前者10、後者10、合計20次元。一次変形の積を二次まで延長するHochschild障害は `[π_Ξ,π_Ξ]/2` であり、滑らかなFではその係数二次式のイデアルが五つのPlücker関係式にスキーム論的に一致することを直接証明。非分解可能なΞを標準形 e012+e034 に移し、Jacobi条件を `F_{0i}F_j−F_{0j}F_i=0` と計算、Eulerから `3F F_{0i}=2F_0F_i` を得て滑らかさと矛盾させる。五つのPfaffianの二次写像が五次元の四形式空間へ全射なことからJacobi係数の生成イデアルも同一と示す。
+
+これは既知Poisson構造のGrassmannian記述と整合する独立の二次障害の証明。新規性は未確認。二次の`結合積`障害がPlückerで切り出されることと、中心元も含めた全高次形式局所環の同定を区別する。nc-cubic2では局所次元17とZariski接空間20が別だが、一般非零Poisson点でのcategorical忘却微分とその7次元核は未確認。実例検算は `computations/verify_second_order_plucker.py`。
+
 ## 未解決の核心と次の具体的着手
 
-1. **公表可能性の独立監査。** 一次消滅の独立証明を出発点に、新しい完備移送のnormalized全cochain、非小曲率の評価、matrix延長、periodicityと、既存window・有限降下・coherent飽和を別の観点から再点検する。B全文の参照・引用・組版を実行し、原稿全体を一貫した論理順へ再編する。主定理の証明を構成したことを、全支持節の再監査完了と同一視しない。
+1. **公表可能性の独立監査。** 一次消滅と二次Plücker障害の証明を出発点に、新しい完備移送のnormalized全cochain、非小曲率の評価、matrix延長、periodicityと、既存window・有限降下・coherent飽和を別の観点から再点検する。B全文の参照・引用・組版を実行し、原稿全体を一貫した論理順へ再編する。主定理の証明を構成したことを、全支持節の再監査完了と同一視しない。
 2. **有効化。** 非可換入力のV=H^0 dgNat(Id,ρ)、U=H^0 dgNat(Id,ρ²)、積μを有限行列で構成し、G/Kを具体計算する。既知λ=1多項式の特定には(D)を検証する。
 3. **降下と相対化。** 同値核のKへの降下障害、h=0で正則な模型、特殊点込み相対同値、有限拡大次数と核の明示、モジュライ上の接着を調べる。幾何学的一意性とK上のformを混同しない。
 4. **Aの独立監査。** Lie正規形、普遍Hesse中心、PBW/AS、Cramer特殊化、Bondal・stack成分と一次資料比較を継続する。Aの代数的量子化存在証明にformalityを必須入力として戻さない。

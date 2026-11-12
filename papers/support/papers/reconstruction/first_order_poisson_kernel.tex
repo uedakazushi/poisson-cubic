@@ -156,6 +156,153 @@ $[\Xi,\pi]=0$が必要になる。
 従って一次消滅と全次数の比較は異なる論理的強さを持つ。
 \end{remark}
 
+
+\subsection{一次対変形の接空間と二次のPl\"ucker障害}
+
+\begin{proposition}[次数付き中心三次対の一次接空間]
+\label{fpk:prop:tangent-pair}
+$N\ge5$とし、可換対$(S,F)$における次数別flatな中心三次対の
+双対数変形を、剰余で恒等となる単位付き次数付き同型で割る。
+中心元は次数三の実際の元として標識する。
+この一次変形集合には自然なベクトル空間構造があり、
+HKR正規形を選べば
+\begin{equation}\label{fpk:eq:tangent-pair}
+ T^1_{\mathrm{pair},(S,F)}
+ \simeq
+ \bigwedge^3\mathbb C^N\oplus\operatorname{Jac}(F)_3
+\end{equation}
+と表される。第一成分は$\pi=\iota_{dF}\Xi$、第二成分は
+$\Omega=F+\varepsilon G$の$[G]$である。
+特に$N=5$ではこの接空間は$20$次元である。
+\end{proposition}
+\begin{proof}
+定理\ref{fpk:thm:infinitesimal}で用いたnormalized HKRにより、
+積の一次項の同型類は二次係数bivector$\pi$で記述される。
+中心性の一次条件は$[\pi,F]=0$であり、勾配Koszulの完全性と
+係数次数から唯一の定数三重vector$\Xi$が存在して$\pi=[\Xi,F]$となる。
+逆に任意の$\Xi$はこの中心性条件を満たし、
+$\Theta_\pi$を一次積とする双対数上の結合代数を与える。
+任意の三次式$G$は中心元の一次項に取れる。
+一方、積のHKR正規形を保つ剰余恒等の次数付き標識変更は
+一次の導分$T$であり、$G$を$G+T(F)$へ移す。
+内部次数零の導分は一次形式の線形変換だから、
+$T(F)$の張る空間は$J(F)_3$である。
+よって表示を得る。
+\end{proof}
+
+以下では$N=5$とする。固定体積形式を使い、
+$\bigwedge^3V\simeq\bigwedge^2V^*\otimes\det V$
+で$\Xi$に対応する二形式を$\alpha_\Xi$と書く。
+その五つのPfaffianを$q_0,\ldots,q_4$とし、
+\[
+ q(\Xi)=\alpha_\Xi\wedge\alpha_\Xi
+ \in\bigwedge^4V^*
+\]
+で表す。$q(\Xi)=0$は$\Xi$の分解可能性と同値で、
+$q_i$は$\operatorname{Gr}(3,V)$のPl\"uckerイデアルを生成する。
+
+\begin{theorem}[二次Jacobi障害のスキーム論的Pl\"ucker表示]
+\label{fpk:thm:plucker-obstruction}
+$V=\mathbb C^5$、$F\in\operatorname{Sym}^3V^*$を
+滑らかな射影三次超曲面の方程式とする。
+定数三重vector$\Xi$について$\pi_\Xi=\iota_{dF}\Xi$と置くと
+\[
+ [\pi_\Xi,\pi_\Xi]=0
+ \quad\Longleftrightarrow\quad
+ \Xi\text{は分解可能（零を含む）}.
+\]
+さらに$[\pi_\Xi,\pi_\Xi]$の全係数を$\Xi$の座標の二次式と見て
+生成されるイデアルは、五つのPl\"ucker二次式のイデアル
+$(q_0,\ldots,q_4)$に\emph{スキームとして}一致する。
+\end{theorem}
+\begin{proof}
+まず$\Xi$が分解可能なら、座標変換により
+$\Xi=\partial_0\wedge\partial_1\wedge\partial_2$とできる。
+$\pi_\Xi$は三つのactive変数のJacobian bracketであり、
+任意の$F$についてJacobi恒等式を満たす。
+
+逆に$\Xi$が分解不可能なら、五次元における二形式の交代標準形より、
+座標変換と非零スカラー倍で
+\[
+ \Xi=\partial_0\wedge\partial_1\wedge\partial_2+
+       \partial_0\wedge\partial_3\wedge\partial_4
+\]
+とできる。$F_i=\partial_iF$、$F_{0i}=\partial_0\partial_iF$
+と書く。$\pi_{ij}=\sum_k\Xi_{ijk}F_k$を用いてJacobiatorを直接展開すると、
+$[\pi_\Xi,\pi_\Xi]=0$はちょうど
+\begin{equation}\label{fpk:eq:jacobi-normal}
+ F_{0i}F_j-F_{0j}F_i=0
+ \qquad(0\le i<j\le4)
+\end{equation}
+に等しい（成分の順序による符号と共通非零係数は無関係）。
+式\eqref{fpk:eq:jacobi-normal}に$x_j$を掛けて$j$について加え、
+Euler等式$\sum_jx_jF_j=3F$および
+$\sum_jx_jF_{0j}=2F_0$を使えば
+\begin{equation}\label{fpk:eq:euler-obstruction}
+ 3F F_{0i}=2F_0F_i
+ \qquad(0\le i\le4)
+\end{equation}
+を得る。もし$F_0=0$なら$F$は$x_0$に依らず、
+$[1:0:\cdots:0]$が特異点となる。
+$F_0\ne0$なら、滑らかな射影三次式$F$は既約なので
+$\gcd(F,F_0)=1$である。式\eqref{fpk:eq:euler-obstruction}から
+$F\mid F_i$が全$i$について従うが、$\deg F_i=2<3$なので
+全$F_i=0$となり矛盾する。従って$\Xi$は分解可能である。
+
+次に二次式の\emph{イデアル}の一致を示す。
+$[\pi_\Xi,\pi_\Xi]$の係数は$\Xi$について斉次二次式であり、
+分解可能な$\Xi$で零になる。Grassmannianの斉次イデアルは
+五つのPl\"ucker二次式で生成されるので、
+係数全体は$q_0,\ldots,q_4$の線形結合である。
+従ってある線形写像$L_F$について、Jacobiatorの全係数ベクトルは
+$L_F(q(\Xi))$と表される。
+
+ここで二次写像$q:\bigwedge^3V\to\bigwedge^4V^*$は全射である。
+実際、五次元では任意の非零四形式は分解可能であり、
+適当な基底で$c\,e^1\wedge e^2\wedge e^3\wedge e^4$と書ける。
+$\alpha=e^1\wedge e^2+(c/2)e^3\wedge e^4$とすれば
+$\alpha\wedge\alpha$はその四形式である。
+もし$L_F$に非零の核があれば、$q(\Xi)$がその非零元となる$\Xi$を選べる。
+すると$[\pi_\Xi,\pi_\Xi]=0$なのに$q(\Xi)\ne0$であり、
+前半の結論と矛盾する。よって$L_F$は単射である。
+その双対写像の全射性から、Jacobiatorの係数二次式は
+Pl\"ucker二次式の五次元空間全体を張り、生成イデアルも一致する。
+\end{proof}
+
+\begin{corollary}[二次まで延長できる非可換一次方向]
+\label{fpk:cor:second-order}
+$N=5$の中心三次対の一次変形の非可換方向
+$\Xi\in\bigwedge^3V$が、次数付き\emph{結合積}の二次変形
+$\mathbb C[\varepsilon]/(\varepsilon^3)$へ延長可能であるためには、
+五つのPl\"ucker二次式が零でなければならない。
+結合積に関する二次障害の零スキームはPl\"ucker錐と一致する。
+その錐の局所次元は$7$で、頂点のZariski接空間は$10$次元である。
+これは中心元を含めた対の高次延長障害がすべて消えるという主張ではない。
+\end{corollary}
+\begin{proof}
+結合積$\mu+\varepsilon\beta_1+\varepsilon^2\beta_2$の結合律の
+二次項は
+$d_{\rm Hoch}\beta_2+\frac12[\beta_1,\beta_1]=0$である。
+HKR同型で二次障害の$HH^3$類は
+$\frac12[\pi_\Xi,\pi_\Xi]$に対応し、
+この類が零であることが結合積の二次延長の必要十分条件である。
+前定理からその係数イデアルは五つのPl\"ucker関係式になる。
+$\operatorname{Gr}(3,5)$の次元は$3(5-3)=6$なので
+錐の次元は$7$、零点では全五式の一次微分が零で接空間は$10$次元である。
+\end{proof}
+
+\begin{remark}[既知結果と本研究への意味]
+\label{fpk:rem:plucker-scope}
+滑らかなcubic threefoldのPoisson構造のGrassmannian表示は
+既知の研究\cite{PMayanskiy}と整合する。
+ここで新たに整理したのは、一次中心三次対の変形から二次Hochschild障害へ
+進む際に、この五つの二次式が\emph{イデアルとして過不足なく}現れる
+直接的な証明である。この説明自体の初出は未確認である。
+一次接空間の次元$20$と、二次障害零スキームの局所次元$17$を混同しない。
+後者の全高次の形式局所環との一致や、非零Poisson点での
+categoricalな忘却射の核の同定は、別途検証する必要がある。
+\end{remark}
+
 \begin{remark}[17次元族と可換moduliの関係]
 \label{fpk:rem:moduli}
 $cubic\ threefold$の次数三Jacobian空間の次元は$10$である。

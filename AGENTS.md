@@ -1,7 +1,7 @@
 # AGENTS.md — nc-cubic 現行研究・開発指針
 
-**2026-11-12 / v60。** mainが正本。最初に `00_research_plan.md` を読む。
-A `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v44）が現行主原稿。
+**2026-11-12 / v61。** mainが正本。最初に `00_research_plan.md` を読む。
+A `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v45）が現行主原稿。
 
 ## 現在の主定理と次の作業
 
@@ -9,7 +9,7 @@ A `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v44）が現行�
 
 完備曲率移送は、通常のgraded unital formality、有限三次式空間のC_pi逆写像、勾配Koszul、arity1,3のflow、F_(2r+1)∈m^r、固定次数内のtwistingの収束、相互逆性とt多重線形な周期比較の順序。曲率はm小とは仮定せず、関数入力高々一個というグラフ次数で処理する。普通のcurved Hochschild cohomologyをJacobian環と同一視しない。
 
-一次消滅の独立証明は `first_order_poisson_kernel.tex`。Jacobiを使わず曲率付きHKRのarity3境界で一次の非可換変形を消す。残る一次可換変形はJac(F)_3に値を持ち、cubic threefoldでは10次元。nc-cubic2の17次元族への接空間対応は未照合。次は完備移送と既存window・降下・飽和の独立再点検、全文静的検査・組版・公表構成、非可換低Natの有効計算を優先する。原稿の証明を構成したことと全支持節・全計算の再監査完了は別。一般点の存在の前に(D)や低積の実計算を要求しない。(D)は特定の明示式の照合として残す。K上の方程式と同値核の定義体を混同しない。
+一次消滅の独立証明は `first_order_poisson_kernel.tex`。Jacobiを使わず曲率付きHKRのarity3境界で一次の非可換変形を消す。五変数では二次Hochschild障害のJacobi係数イデアルが五本のPlücker二次式と一致することを直接証明。残る一次可換変形はJac(F)_3に値を持ち、cubic threefoldでは10次元。nc-cubic2の17次元族への接空間対応は未照合。次は完備移送と既存window・降下・飽和の独立再点検、全文静的検査・組版・公表構成、非可換低Natの有効計算を優先する。原稿の証明を構成したことと全支持節・全計算の再監査完了は別。一般点の存在の前に(D)や低積の実計算を要求しない。(D)は特定の明示式の照合として残す。K上の方程式と同値核の定義体を混同しない。
 
 Aの代数的量子中心にformalityを必須入力として戻さず、Lie正規形・PBW/AS・Hesse・Bondal・成分の監査を継続。17次元モジュライとambient周期性はnc-cubic2に保持する。
 

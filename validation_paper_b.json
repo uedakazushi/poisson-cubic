@@ -1,7 +1,7 @@
 {
   "date": "2026-11-12",
-  "paper_version": "B-v44",
-  "repository_version": "v60",
+  "paper_version": "B-v45",
+  "repository_version": "v61",
   "canonical_entry": "papers/paper_b.tex",
   "mathematics": {
     "input": "Actual degreewise finite-free central cubic deformation of a polynomial algebra with smooth commutative cubic special fiber. The generic theorem uses a regular local algebraic base; the complete formal comparison allows a general complete noetherian local C-algebra with residue C.",
@@ -28,7 +28,10 @@
     "first_order_kernel": "Direct dual-number curved Hochschild cancellation, independent of full Kontsevich formality; tangent cubic term lies in Jac(F)_3, dimension C(N+2,3)-N^2 (10 for N=5). The 17-to-10 moduli kernel is NOT established.",
     "first_order_jacobi": "Jacobi is unnecessary for first-order curved cancellation; all-orders second-action vanishing uses Jacobi.",
     "first_order_proof_location": "papers/support/papers/reconstruction/first_order_poisson_kernel.tex",
-    "first_order_plucker_cone": "At zero Poisson vertex of the affine Plucker cone over Gr(2,5), Zariski tangent dimension is 10 while cone dimension is 7. Combined with 10 cubic moduli directions: local 17-dimensional space has tangent dimension 20. First-order curved cancellation concerns the 10 infinitesimal Poisson directions at the commutative vertex, not a proved 7-dimensional categorical kernel at generic nonzero Poisson."
+    "first_order_plucker_cone": "At zero Poisson vertex of the affine Plucker cone over Gr(2,5), Zariski tangent dimension is 10 while cone dimension is 7. Combined with 10 cubic moduli directions: local 17-dimensional space has tangent dimension 20. First-order curved cancellation concerns the 10 infinitesimal Poisson directions at the commutative vertex, not a proved 7-dimensional categorical kernel at generic nonzero Poisson.",
+    "second_order_plucker": "For N=5 and any smooth cubic F, coefficient quadrics of Jacobi [ι_dF ξ,ι_dF ξ] generate exactly the five quadratic Plucker ideal generators of Gr(3,5). Independent proof via nondecomposable normal form, Euler irreducibility, and surjective wedge-square Pfaffian map. This is second-order ASSOCIATIVE obstruction, not complete central-pair formal moduli identification.",
+    "tangent_pair": "First-order marked central cubic pair tangent under identity-mod-epsilon graded equivalence: Λ^3 V ⊕ Jac(F)_3, dimensions 10+10=20 for N=5.",
+    "second_order_location": "papers/support/papers/reconstruction/first_order_poisson_kernel.tex"
   },
   "executed_calculation": {
     "script": "computations/verify_complete_curved_transport.py",
@@ -54,7 +57,29 @@
     "scope": "Finite algebra/combinatorics only; not graph integrals, actual nc MF Hom computations or categorical formal verification.",
     "all_existing_certificates_rerun": false,
     "first_order_checker": "computations/verify_first_order_curved_kernel.py",
-    "first_order_status": "checker source added; exact run must be separately confirmed"
+    "first_order_status": "checker source added; exact run must be separately confirmed",
+    "second_order_plucker_external_run": {
+      "scope": "Exact independent SymPy linear algebra in working container, not the uploaded code nor higher categorical proof",
+      "examples": [
+        "Fermat cubic five variables",
+        "mixed smooth cubic with coefficient 1/7"
+      ],
+      "quadratic_jacobi_coefficient_counts": [
+        20,
+        56
+      ],
+      "jacobi_quad_space_rank": [
+        5,
+        5
+      ],
+      "plucker_quad_space_rank": 5,
+      "joined_rank": [
+        5,
+        5
+      ],
+      "status": "PASS"
+    },
+    "second_order_git_script": "computations/verify_second_order_plucker.py; added to GitHub; not yet run from an actual git checkout"
   },
   "typesetting": {
     "entry": "papers/support/papers/complete_curved_transport.tex",
