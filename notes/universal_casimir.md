@@ -1,6 +1,6 @@
 # 一般次元の普遍Jacobian量子化と中心三次元：現行研究ノート
 
-**2026-11-12 / v4。再開時はまず 00_research_plan.md を読む。**
+**2026-11-12 / v5。再開時はまず 00_research_plan.md を読む。**
 公表用原稿は `papers/paper_a.tex`、中心三次元の詳細証明は
 `papers/support/papers/sections/hesse_mixed_universal_center.tex`、
 `papers/support/papers/sections/fermat_mixed_universal_center.tex`、
@@ -56,7 +56,7 @@ Hilbert (1-z³)/(1-z)^N）。
 (k,m)=(1,2),(2,0),(2,2),(3,0),(3,3),(4,0)
 すなわち n=3,4,6,7,10 の滑らかな三次式（中心平行移動で
 Hesse直和に戻る）に対して、610個のJacobiator、
-52個のF-Casimir成分、全ブロック間Hessian交差成分を
+52個のF-Casimir成分、全ブロック間Hessian交差成分、内在的Hessian縮約を
 独立記号 λ_s のまま厳密に確認した。
 この有限な実行は任意次元定理の証明ではなく、符号・混合変数の検算。
 `computations/build_general_dimension_center.py` を局所実行し、
@@ -88,6 +88,45 @@ qgrのsmoothnessを現定理の帰結とはしない。
 普遍Hesse計算証明書の査読しやすい短縮、
 一次文献の網羅比較とLuaLaTeX全体組版を行う。
 特異制限の短い公式の追求は当面の優先課題ではない。
+
+## 内在的な任意次元Hessian補正
+
+**証明を追加（論文A prop:pg-ad-intrinsic-hessian）：**
+任意次元 N のV、定数三重ベクトルP∈Λ³V、斉次三次式Fについて
+[
+ \mathscr H(P,F)=\frac16\sum_{i,j,k,a,b,c}
+ P^{ijk}P^{abc}\,F_{ia}F_{jb}F_{kc}\in\operatorname{Sym}^3V^*
+]
+を定義する。これは座標不変なHessianと三重ベクトルの縮約であり、
+正規形 P=Σ_sλ_sP_s、F=Σ_s f_s(x_s,u) では
+[
+ \mathscr H(P,F)=\sum_s\lambda_s^2
+ \det\operatorname{Hess}_{x_s}(f_s)
+]
+となる。交叉項は異なるactiveブロック間のHessianが零なので消える。
+smooth ternary g_s の範囲では、純中心三次の調整を行って
+[
+ \widetilde\Omega_{P,h}
+ =\operatorname{sym}\left(
+ F-\frac{h^2}{12}\mathscr H(P,F)+h^4K_{P,F}\right)
+]
+という**全次数で厳密な中心元**を取れる。
+二次補正はブロック座標に依存せず、
+四次補正Kは選択したHesse座標におけるΣ_sλ_s⁴Ψ_{t_s}(f_s)
+の変換で明示可能。四次項まで座標に依存しない唯一の式が
+得られたという主張ではない。
+この定理は一般次元の主結果であり、特殊な一変数例の
+計算的観察とは区別する。
+
+**検算**：
+`computations/verify_general_dimension_multiblock.py` に
+六指数のHessian縮約とブロックHessian行列式の和との
+厳密な照合を追加した。
+(k,m)=(1,2),(2,0),(2,2),(3,0),(3,3),(4,0)
+の6例について、独立パラメータλ_sと共有中心を保持したまま
+同一式をSymPyで再計算し全件PASS。
+これは任意次元の証明を数値試験で置き換えたものではない。
+一般証明は論文Aのテンソル恒等式と全Hesse中心公式にある。
 
 ## 1. 解決した核心：全Hesse型・全中心混合の短い普遍多項式
 
