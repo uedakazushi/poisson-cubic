@@ -59,23 +59,12 @@
   引き続き必要。Hesse座標の選択なしの単一GL3同変低次数式も未構成。
   今回の式の先行研究上の完全な新規性は未確認。
 
-## 三次中心元：検証した新しい有効結果
+## 全般的Hessianジェット・形式存在補題の残る役割
 
-- **反自己同型による偶数次正規化**（補題 lem:pg-center-parity、本文 papers/support/papers/sections/poisson_geometry.tex）：Jacobian量子化の関係式は、語の反転と h→-h による反自己同型で符号が逆転する。中心元をこの反自己同型で平均し、Weyl対称化で表せば、任意の既存の中心三次元を法hでの剰余を変えずにhの偶数次係数だけの形へ規格化できる。これは**中心元の存在を仮定した結論**であり、その存在自体には lem:pg-formal-center が必要。
-- **普遍Hessian二次補正**（命題 prop:pg-universal-casimir-jet）：active三変数に関して次数3以下の任意の f （係数は任意の可換中心環）について、
-  \[
-  \Theta_f=\operatorname{sym}\left(f-\frac{h^2}{12}\det\operatorname{Hess}_{x,y,z}f\right)
-  \]
-  はJacobain交換子の代数で3生成元と **mod h^4** で可換。証明は20個の独立係数 a_{ijk}（i+j+k≤3）の多項式を自由語の隣接転置規則で有界h次数に還元し、全係数がQ[a]で恒等的に零となる厳密記号計算に基づく。計算では20係数を特殊化していない。反自己同型とh-torsion-free PBW性から、**mod h^5** の中心性が従う。これは実際の厳密な有限証明書を持つ低次結果であり、全次数の中心元をこの式で与えるとは主張しない。
-- **二次係数の必要条件**：偶数次正規化した形式的中心元 sym(f+h² f₂+...) については f₂ + (det Hess f)/12 が古典Jacobian括弧のCasimirである。したがって二次補正は、Casimirの不定性を除いてHessian式により決定する。所定の二次係数が全高次で実現されるという主張とは区別する。
-- **検証コード**：computations/verify_cubic_casimir_jet.py（SymPy）。別個の実行環境で同じ20係数普遍式の3生成元に対する零恒等式を確認し、さらにHesse明示中心公式のh²係数と一致することを検算した。GitHubに登録したスクリプトそのもののクローン環境での再実行は未確認。
-- **先行研究**：Berger–Taillefer, *PBW deformations of Calabi–Yau algebras*, J. Noncommut. Geom. 1 (2007), p.242 Theorem 1.1(i), p.246以降 Theorem 3.1、Theorem 3.6を原PDFで確認。正規ポテンシャルに低次ポテンシャルを加えるPBW変形と3-CYを与え、AのPBW性の**各u特殊化**には適用できる。全係数環上の自由性は別途確認する必要がある。
-- **Mori–Smith一次資料（2026-11-12追加監査）**：arXiv:1502.07403v2のPDF p.5 Theorem 1.4（Artin–Tate–Van den Berghのstandard性＋行列Mの全P²でのrank≥2判定）、p.12 Corollary 2.9（3生成元のJacobian algebraは3-CY⇔三次元AS-regular、さらにdomain）をページ画像で確認。論文Aの prop:pg-PBW はまずstandard性を Corollary 2.7 から示し、M_0がrank2であることからP²への射影のproper性を使いλ=0を含む開集合を得るという適用なので、これらの一次資料上の入力条件は一致する。残りの共通中心変数に関するPBW自由性は論文A自身の議論であり、原論文の定理が自動的に多変数へ延長すると主張しない。
-- Etingof–Ginzburg, *Noncommutative del Pezzo surfaces and Calabi-Yau algebras*, arXiv:0709.3593v4、PDF pp.29–30, Proposition 8.1.1(i)とその証明を原PDFページ画像で確認。同命題の証明自身が R=C[u] 上の相対微分・formality・CYから中心元を作り、中心元の存在に **isolated singularity仮定を課さない**。複数中心変数のR=C[u_1,...,u_m]への適用は原文にそのまま書かれた定理ではないため、論文Aの相対完備双加群論証がなお重要。
-
-**相対/絶対Kontsevichの接続で検証した点：** 論文Aの lem:pg-formal-center の証明に、相対C[u]-線型多微分作用素が絶対多微分作用素へ埋め込まれ、Gerstenhaber括弧・Hochschild微分を保つことを明記した。相対Poisson tensor Π に ∂u 成分がないため、Kontsevichグラフ公式は絶対空間上でもu微分を使わず、相対星積が絶対Πの星積と一致する。よってDolgushevのTheorem 3を適用する絶対classの代表はΠである。またunimodularityで得たρの次数零成分はh進単元であり、C*重みから標準体積形式そのものが不変であることを詳述した。これは原稿内の論理接続を明確化した段階で、必要な完備CY双加群分解とrelative formality準同型の全ての関数解析・代数幾何条件を独立に再証明したという意味ではない。
-
-**投稿のための残課題：** universal finite h-jetの計算証明書は論文中の還元規則を読めば再実行できるが、査読で計算なしの短い恒等式証明が必要と判断される場合は導出を補う。主定理 thm:pg-quantization 全次数の中心元については、絶対CY双加群分解・相対Kontsevich対応・Dolgushevの全適用条件の逐語監査が未完成。低次の証明を中心元の存在証明と混同しない。
+- **反自己同型による偶数次正規化**（lem:pg-center-parity）：語の反転とh→-hで中心元を平均すると、Weyl表示はhの偶数次だけを含む。これは形式的中心元を仮定したときの正規化だが、smooth ternary gでは一般Hesse明示式が独立に存在を保証する。
+- **任意の三変数以下三次式の二次ジェット**（prop:pg-universal-casimir-jet）：20独立係数の有界非可換語の厳密恒等式によりsym(f-h² det Hess_x f/12)はmod h⁵で中心。これ自体は特異ブロックを含む全次数中心公式ではない。再現コードは computations/verify_cubic_casimir_jet.py。
+- **特異ブロックの形式的中心元**（lem:pg-formal-center）：既存原稿はrelative PBWと完成絶対Calabi–Yau分解からDolgushevを適用し、中心元を構成する。Etingof–Ginzburg Prop.8.1.1(i)、Mori–Smith Thm.1.4, Cor.2.9、Berger–Taillefer Thm.1.1(i)、Dolgushev Thm.3/Prop.1の原資料を以前点検済みだが、相対形式変形・完備双加群の全仮定を通した完全独立監査は未完成。
+- **一般Hesseの新公式との関係**：thm:pg-universal-hesse-mixed は形式存在補題に依存せず、Hessianの二次補正にh⁴の明示項を加えた厳密中心元を与える。したがってsmooth gの形式存在補題の独立監査は量子化の主結果の証明に不要となった。ただし一般特異gの全量子化定理ではその入力を引き続き必要とする。
 
 ## Lie代数補題の検査点
 
@@ -99,7 +88,7 @@ F=(x^3+y^3+z^3+a^3+b^3+c^3+u^3+v^3)/3+uxy+vab
 現行のGitHub版はgradient理想の零次元性によるsmoothnessチェックを追加したため、GitHub版そのものの再実行は未確認。
 これは一具体例の厳密計算であり、一般次元の証明を形式検証するものではない。
 
-2026-11-12の静的検査では、論文A入力閉包の20 bibliography keys、49 citation uses、119 labelsに、未解決引用・重複bibitem・未解決ref・重複labelがなかった。
+2026-11-12の最新静的検査では、論文A入力閉包の22 bibliography keys、56 citation uses、175 labels、184 ref/eqrefに、未解決引用・重複bibitem・未解決ref・重複labelがない（コンパイル検証ではない）。
 A全体のLuaLaTeXコンパイル・PDF表示確認・非楕円成分の全行列証明書の再計算は未実施。
 
 ## 一次文献の位置づけ
