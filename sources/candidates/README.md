@@ -8,4 +8,4 @@
 
 追跡中9本のPDFとの詳細対応と今後のチェック項目は [TODO_PDF_SOURCES.md](../../TODO_PDF_SOURCES.md) を参照する。
 
-独立大部原稿の現行TeXは [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) に移した。候補版の歴史的差分は、まだ現行成果を全て照合していないため現時点では破棄しない。目標3のSMに直接必要な未収録の補題が判明した場合に限り主論文・ノートへ統合する。
+独立大部原稿の現行TeXは [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) に移した。候補群は現行の主論文からは読み込まない。現行成果との数学的内容照合が未完成のlongform原稿は削除しない。elliptic_v5では、独立入力main.texが使用する単一のTeXコピーを保ち、Git blobが完全一致する未使用の重複2ファイルだけ除外した。目標3のSMに直接必要な未収録の補題が判明した場合に限り主論文・ノートへ統合する。
