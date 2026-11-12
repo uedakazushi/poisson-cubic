@@ -1,6 +1,6 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-12 / v46。GitHub mainが唯一の正本。** 最初に 00_research_plan.md を読む。
+**2026-11-12 / v47。GitHub mainが唯一の正本。** 最初に 00_research_plan.md を読む。
 
 ## 最優先指示：論文Aを投稿可能な水準へ
 
@@ -15,6 +15,10 @@ Sklyanin中心公式と本論文の貢献をIntroductionで区別する。
 全原稿AのLuaLaTeX組版と必要な整数行列証明書の再実行を経て投稿判定する。
 局所的な厳密検算を全定理の形式証明と取り違えない。
 論文B/Cの証明・コードを保持し、研究対象の新たな拡張よりAの完成を優先する。
+
+## 量子中心の現在の最重要到達点と残課題
+
+論文A thm:pg-universal-hesse-mixed は一般Hesse t と全混合係数A,B,C,D,E,Hの**独立記号を保った普遍多項式の厳密中心性**を証明。検証コード`computations/verify_universal_hesse_mixed_center.py` はQ(h,t)上で自由語339、関係162、rank144、三交換子余り0とh=0でのrank144を計算する。Fermatはt=0、対角二次混合は中心平行移動で包含。任意のsmooth ternary cubicはHesse標準形経由で扱えるので、thm:pg-universal-determinant の形式中心存在仮定は不要になった。詳細は notes/universal_casimir.md。次は普遍証明書の査読可能性向上、特異gの全般式と形式的中心存在証明の監査、Poisson正規形とBondal証明の独立監査。全論文AのLuaLaTeX組版は未確認。
 
 ## 論文A：Bondal予想の帰結
 
@@ -56,9 +60,6 @@ Sklyanin中心公式と本論文の貢献をIntroductionで区別する。
 
 ## papers/の配置規則
 papers/直下に置くファイルはpaper_a.tex、paper_b.tex、paper_c.texのみ。補助TeX・参考文献・短い独立原稿はpapers/support/papers/以下に配置する。主原稿はpapers/support/をinput探索先として使用する。新たなpapers/直下のファイルを作らない。
-
-## 確認済みのCasimir低次公式
-論文Aの lem:pg-center-parity と prop:pg-universal-casimir-jet を維持する。任意の中心係数上の三変数以下三次fに対し sym(f-h² det Hess_x f/12) は mod h⁵ で中心。20独立係数の厳密記号計算コード computations/verify_cubic_casimir_jet.py は値代入試験ではない。ただしこれは全次数中心元の存在を証明しない。次に絶対CYと相対Kontsevich/Dolgushev適用を検証する。
 
 ## 量子中心三次元の現行結果と作業順
 論文A thm:pg-fermat-mixed-universal（六つの独立中心係数のFermat混合中心元）は、computations/verify_universal_fermat_mixed_center.pyによりQ(h)上の339列・162関係・階数144・三交換子剰余0とh=0の同階数を厳密検証済み。形式的中心存在を仮定しない。中心平行移動で対角二次混合を含む。論文A thm:pg-universal-determinantは任意の滑らかな三変数制限gに対するCramer決定式で、形式中心存在補題に依存する。検算はcomputations/verify_universal_casimir_minor.py。研究ノート notes/universal_casimir.md をまず参照し、Hesse一般tの短い普遍式探索と形式中心補題の完全監査を続ける。数学的に価値のある既存のFermat式を単に有限特殊化候補と呼び直さない。一般の特異gまで一つの式で覆うとは主張しない。
