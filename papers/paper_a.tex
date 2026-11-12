@@ -8,9 +8,9 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月12日・論文A（投稿準備稿 v46）}
+\date{2026年11月12日・論文A（投稿準備稿 v47）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-12 / A-v46}
+\fancyhead[R]{\small 2026-11-12 / A-v47}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -53,20 +53,141 @@ Sklyanin中心公式との関係を区別する。
 
 \section{序論}\label{sec:paperA-introduction}
 
-\subsection*{問題設定と先行研究}
+\subsection*{問題設定と三種類のモジュライ}
 $\mathbb C$上の滑らかな三次超曲面
 $X=V(F)\subset\mathbb P(V)$、$\dim V=N=n+2\geq5$を固定する。
-本稿の対象は
-\[
+本稿では、以下の三つの対象を明確に区別する。
+固定した$X$上の全正則Poisson構造のJacobi零スキームを
+\emph{space of Poisson structures}と呼び、
+\begin{equation}
  \operatorname{Pois}(X)=
- \{\pi\in H^0(X,\wedge^2T_X):[\pi,\pi]=0\}
-\]
-と、そこから得られる非可換な次数付き量子化である。
-Poisson構造の分類、特定の$\pi$の量子化の存在、
-全ての$\pi$を同時に動かす相対モジュライの分類は異なる問題である。
-本稿では初めの二つについて定理を与えるが、
-相対Poissonスキームの全既約成分の分類は主張しない。
+ \{\pi\in H^0(X,\bigwedge\nolimits^2T_X):[\pi,\pi]=0\}
+ \label{eq:intro-poisson-space}
+\end{equation}
+と書く。その同型類を、Poisson構造を保つ$X$の自己同型を
+射として分類する商スタックは
+\emph{moduli stack of Poisson structures}であり、
+\begin{equation}
+ \mathfrak{Pois}(X)=
+ [\operatorname{Pois}(X)/\operatorname{Aut}(X)],
+ \qquad
+ \operatorname{Aut}(X,\pi)=
+ \{\phi\in\operatorname{Aut}(X):\phi_*\pi=\pi\}
+ \label{eq:intro-poisson-fixed-stack}
+\end{equation}
+と定義する。ここで$\operatorname{Aut}(X)$は$X$の全自己同型群、
+$\operatorname{Aut}(X,\pi)$は各点の安定化子
+（Poisson automorphism群）である。
+$\pi$のスカラーは割らず、零構造も含める。
 
+さらに$X$自身も動かし、滑らかなcubic $n$-foldと
+Poisson bivectorの組$(X,\pi)$を同型によって分類する
+\emph{relative moduli stack of Poisson structures}を
+\begin{equation}
+ \mathfrak{Pois}^{\mathrm{rel}}_n
+ =[\mathscr P_n/\mathrm{PGL}_{n+2}]
+ \label{eq:intro-poisson-relative-stack}
+\end{equation}
+と定義する。$\mathscr P_n$は全滑らかな三次式の
+パラメータ空間上にある相対Jacobi零スキームである。
+$X$を固定した商と、$X$を動かす商を混同しない。
+
+命題\ref{prop:pg-fixed-stack-algebraic}と
+定理\ref{thm:pg-relative-stack-algebraic}において、
+$\operatorname{Aut}(X)$が有限エタールであること、
+$\mathscr P_n$が有限型スキームであることを証明し、
+$\mathfrak{Pois}(X)$と$\mathfrak{Pois}^{\mathrm{rel}}_n$が
+ともに$\CC$上有限型のDeligne--Mumford代数的スタックである
+ことを示す。特に、stackの既約成分とspaceの既約成分を
+区別する必要がある。
+
+\subsection*{複素構造に依存する固定スタックと相対成分数}
+定理\ref{thm:pg-fermat-relative-count}は、
+一般の滑らかなcubicでは
+$\operatorname{Pois}(X)$も$\mathfrak{Pois}(X)$も既約である一方、
+特殊な$X$では既約成分が増えることを示す。
+$N=n+2$、Fermat cubic
+\begin{equation}
+ X_N=V(F_N)\subset\PP^{N-1},\qquad
+ F_N=\sum_{i=1}^N z_i^3
+ \label{eq:intro-fermat-equation}
+\end{equation}
+を取る。$V_B=\langle e_i:i\in B\rangle$、
+$\widehat{\operatorname{Gr}}(3,V_B)$を
+$\operatorname{Gr}(3,V_B)$のPl\"ucker錐（原点を含む）と書く。
+$\mathcal B=\{B_1,\ldots,B_k\}$が
+$\{1,\ldots,N\}$の\emph{非順序分割}で、
+全ての$|B_s|\ge3$ならば
+\begin{equation}
+ Z_{\mathcal B}=
+ \sum_{B\in\mathcal B}
+ \widehat{\operatorname{Gr}}(3,V_B)
+ \ \subset\ \bigwedge\nolimits^3\CC^N,
+ \qquad
+ \operatorname{Pois}(X_N)_{\mathrm{red}}
+ =\bigcup_{\mathcal B}Z_{\mathcal B}.
+ \label{eq:intro-fermat-components}
+\end{equation}
+これらの$Z_{\mathcal B}$がspaceの相異なる既約成分であり、
+$k$個のブロックを持つものは一般Poisson階数$2k$を与える。
+そのspaceにおける成分数は、
+各部分の大きさが$3$以上である集合分割の個数
+$\left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}$
+によって
+\begin{equation}
+ \#\operatorname{Irr}(\operatorname{Pois}(X_N))
+ =\sum_{k=1}^{\lfloor N/3\rfloor}
+ \left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3},
+ \quad
+ \sum_{N\ge0}\frac{t^N}{N!}
+ \left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}
+ =\frac{(e^t-1-t-t^2/2)^k}{k!}
+ \label{eq:intro-fermat-space-count}
+\end{equation}
+と明示的に表せる。
+
+一方、$X_N$の自己同型群は
+$(\mu_3^N/\mu_3)\rtimes\mathfrak S_N$であり、
+座標置換は同じブロックの大きさを持つ集合分割を
+同一視する。従って\emph{固定したmoduli stack}の成分数は、
+各部分が$3$以上の\emph{整数分割}の個数
+$p_{\ge3}(N)$となる。さらに
+\emph{relative moduli stack}の成分数は
+Poisson一般階数を固定するごとに一つの成分となり、
+\begin{equation}
+ \boxed{
+ \begin{aligned}
+ \#\operatorname{Irr}(\mathfrak{Pois}(X_N))
+ &=p_{\ge3}(N)=[q^N]\prod_{b\ge3}(1-q^b)^{-1},\\
+ \#\operatorname{Irr}(\mathfrak{Pois}^{\mathrm{rel}}_n)
+ &=\left\lfloor\frac{n+2}{3}\right\rfloor .
+ \end{aligned}}
+ \label{eq:intro-poisson-stack-counts}
+\end{equation}
+この違いは、固定特殊ファイバーでは複素構造に応じて
+多数のPoisson成分が現れるものの、
+$X$も動かせばそれらが少数の相対成分の特殊化に
+まとまることを表す。例えば
+\begin{equation}
+ \begin{array}{c|rrrrr}
+ n&3&4&6&7&10\\\hline
+ \#\operatorname{Irr}(\operatorname{Pois}(X_N))
+ &1&11&92&491&60105\\
+ \#\operatorname{Irr}(\mathfrak{Pois}(X_N))
+ &1&2&3&4&9\\
+ \#\operatorname{Irr}(\mathfrak{Pois}^{\mathrm{rel}}_n)
+ &1&2&2&3&4
+ \end{array}
+ \label{eq:intro-poisson-count-table}
+\end{equation}
+となる。固定Fermatのstackの成分数は
+$n$とともに増大し、relative stackの線形成長とは対照的である。
+固定Fermatのspaceの分割数はさらに速く増大する。
+Fermatが固定cubicの成分数を常に最大化するとは
+主張しない。また固定stackの成分数を
+集合分割数そのものと取り違えない。
+
+\subsection*{先行研究と主要結果の位置づけ}
 三次元の滑らかなcubicについては、
 Loray--Pereira--Touzet~\cite{LPTPoissonCubic}および
 Mayanskiy~\cite[Theorem~1]{PMayanskiy}による分類があり、
@@ -305,6 +426,10 @@ Fermat型の普遍混合中心元は
 元の座標で計算する有限行列式の中心元公式は
 第\ref{sec:pg-universal-determinant}節で扱う。
 そのambientの周期性は第\ref{sec:pg-ambient-periodicity}節で扱う。
+spaceおよびmoduli stackの定義・代数性は
+第\ref{sec:pg-poisson-stacks}節で、
+Fermat特殊ファイバーと相対成分数は
+第\ref{sec:pg-fermat-relative-components}節で扱う。
 Bondal予想の帰結は第\ref{sec:pg-bondal}節、
 非楕円型成分とその量子化は第\ref{ne:examples}節以下、
 明示Hesse公式は第\ref{sec:explicit-hesse-center}節に置く。
@@ -316,6 +441,7 @@ Bondal予想の帰結は第\ref{sec:pg-bondal}節、
 \input{papers/sections/general_dimension_universal_quantization}
 \input{papers/sections/universal_casimir_determinant}
 \input{papers/sections/ambient_periodicity}
+\input{papers/sections/poisson_moduli_stacks}
 \input{papers/sections/fermat_relative_poisson_components}
 \input{papers/sections/bondal_cubic}
 \input{papers/sections/nonelliptic_poisson_components}
