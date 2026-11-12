@@ -1,6 +1,6 @@
 # 研究方針：滑らかなcubicのPoisson moduli stacksと量子化
 
-**2026年11月12日 / v54。再開時は必ず最初に読む。GitHub uedakazushi/nc-cubic のmainが唯一の正本。**
+**2026年11月12日 / v55。再開時は必ず最初に読む。GitHub uedakazushi/nc-cubic のmainが唯一の正本。**
 最上位目標は論文A（papers/paper_a.tex）を投稿可能な水準へ仕上げること。
 現在の数学的最優先課題は、**全次元のsmooth cubicの全Poisson構造に対する
 代数的中心三次元と量子化定理を、形式的中心元の存在定理に依存せず完成させること**。
@@ -8,15 +8,15 @@
 その成分数も論文Aの主要成果として維持する。
 三変数制限が特異な場合まで**代数的存在は解決**したが、
 短い単一多項式閉公式・モジュライ上の同変な接着は未解決。
-旧論文Bのambient復元は一般次元化して論文Aに統合し、モジュライ部分はnc-cubic2へ移管する。論文Cの結果と証明は保持する。
+nc-cubic2へ分離したambient復元は一般次元化して論文Aに統合し、モジュライ部分はnc-cubic2へ移管する。論文Bの結果と証明は保持する。
 
-## 一般次元ambient復元とBの再編
+## 一般次元ambient復元とnc-cubic2との分担
 
-`papers/support/papers/sections/ambient_recovery_general.tex` を論文Aに統合。二次ambientの次数$d\ge3$の超曲面商から、低次数の乗法によりambientと方程式直線を復元する。noetherian AS Gorenstein条件で偏極付き圏からの復元も証明。Serre関手のみでの復元は三次三様体の追加条件付きで、一般次元については未証明。旧Bの41次元中心三次対、17係数正規形、分離型余次元15、忘却核7と関連証明・計算コードはnc-cubic2の `papers/nc_cubic_threefold_moduli.tex` および研究ノートに統合した。構成した17次元族のnc cubic moduli内の既約成分性は未証明。標準5次元AS正則$\mathbb Z$-代数の正則正規三次族からの1周期性は`nc-cubic2/papers/sections/ambient_periodicity.tex`に証明を保持し、非可換三次三様体のモジュライ原稿に統合する。論文AはPoisson構造と量子化を中心とし、一般次元のquadratic envelope復元は引き続き論文Aに保持する。主リポジトリの公表原稿はAとCの二つ。
+`papers/support/papers/sections/ambient_recovery_general.tex` を論文Aに統合。二次ambientの次数$d\ge3$の超曲面商から、低次数の乗法によりambientと方程式直線を復元する。noetherian AS Gorenstein条件で偏極付き圏からの復元も証明。Serre関手のみでの復元は三次三様体の追加条件付きで、一般次元については未証明。nc-cubic2の41次元中心三次対、17係数正規形、分離型余次元15、忘却核7と関連証明・計算コードはnc-cubic2の `papers/nc_cubic_threefold_moduli.tex` および研究ノートに統合した。構成した17次元族のnc cubic moduli内の既約成分性は未証明。標準5次元AS正則$\mathbb Z$-代数の正則正規三次族からの1周期性は`nc-cubic2/papers/sections/ambient_periodicity.tex`に証明を保持し、非可換三次三様体のモジュライ原稿に統合する。論文AはPoisson構造と量子化を中心とし、一般次元のquadratic envelope復元は引き続き論文Aに保持する。主リポジトリの公表原稿はAとBの二つ。
 
 ## 現行の研究入口と主なファイル
 
-- 公表原稿：papers/paper_a.tex（A-v50、日本語LuaLaTeX）
+- 公表原稿：papers/paper_a.tex（A-v51、日本語LuaLaTeX）
 - 二つのスタックの定義と代数性：papers/support/papers/sections/poisson_moduli_stacks.tex
 - Fermat／relative成分公式：papers/support/papers/sections/fermat_relative_poisson_components.tex
 - 現行知識ノート：notes/fermat_relative_poisson_components.md
@@ -29,9 +29,9 @@
 - 特異三次制限の独立検算：computations/verify_singular_cubic_classical_kernel.py
 - 式番号・引用の静的検査：scripts/verify_article_a_numbering.py
 
-## 論文C：一般次元の中心三次非可換超曲面の可換復元
+## 論文B：一般次元の中心三次非可換超曲面の可換復元
 
-現行稿は `papers/paper_c.tex` (C-v40)、主定理と証明依存は
+現行稿は `papers/paper_b.tex` (B-v40)、主定理と証明依存は
 `papers/support/papers/reconstruction/general_dimension_recovery.tex`。
 $n\ge3$、$N=n+2$ とし、一変数代数的flat中心三次対で局所window/proper (L) と
 実際の完備graded MF同値 (CF)、一般点のnoetherian Koszul AS-regular条件が
@@ -226,13 +226,13 @@ Hesse/行列式チャートの同型とmoduli stackへの降下、
    厳密計算証明書の必要な範囲の再現を確認する。
    全てが済むまで投稿可能と断定しない。
 
-## 保持する論文A/Cとnc-cubic2の研究到達点
+## 保持する論文A/Bとnc-cubic2の研究到達点
 
 ## Poisson構造定理の新たな帰結：Bondal予想（論文A）
 
 **証明を追加。** n>=3の滑らかなcubic n-foldの任意のPoisson構造に対して、全j（2j<n）のD_{2j}は次元2j+1以上の既約成分を持つ。非零Poissonの正規形F=Σ f_s(x_s,u)、一般rank2kを使い、j<kならr=j+1個のブロック内の平面曲線C_s⊂{f_s(x_s,0)=0}のjoin J_rを構成する。J_r⊂X、dim J_r=2r−1。全ブロックのJacobian rank2ならEulerベクトルが像に入り射影化でrankが2下がり、いずれかrank0ならもとからrank≤2r−2。従ってJ_r⊂D_{2j}。π=0またはj>=kはD=X。全文 `papers/support/papers/sections/bondal_cubic.tex`、ノート `notes/bondal_cubic.md`。**正規形定理thm:pg-normalに依存し、その既存証明全体の独立再監査は未完了。** 2013年Fano4、2026年Fano5の既知定理との重複に注意し、新規性は未確定。正規形のLie代数補題を次に優先監査する。
 
-## Point schemeの二パラメータ族とPoisson零点（論文C、証明あり）
+## Point schemeの二パラメータ族とPoisson零点（論文B、証明あり）
 
 **混合係数λの全滑らかな値へ拡張。** F_λ=(x³+y³+z³)/3+u³+v³+λuxy、λ³+3≠0、h⁶+27≠0。h≠0のB_{h,λ}のpoint module初期点の表現スキームは、λに依らないSklyanin Hesse楕円曲線 E_h: u=v=0, x³+y³+z³+h²xyz=0 と、u=1上の有限スキームS_{h,λ}の非交和。有限部分の可換商は x²+λy=y²+λx=z²=0, 1+v³+λxy/3+h²z(λ²/6−2xy/3)=0。基底 x^a y^b z^c v^d (a,b,c=0,1; d=0,1,2)によりλ,h同時に自由rank24。λ³+3≠0ならvは単元で、v'=v+h²z(λ²/6−2xy/3)/(3v²)によりS_{h,λ}はh方向に抽象的に自明。
 
@@ -242,7 +242,7 @@ Hesse/行列式チャートの同型とmoduli stackへの降下、
 
 証明全文は `papers/support/papers/reconstruction/point_scheme_lambda_family.tex`、再生成可能な単独LuaLaTeX入口は `papers/support/papers/point_scheme_lambda_family.tex`、現行研究ノートは `notes/point_scheme_poisson_zero.md`、厳密検算は `computations/verify_lambda_point_scheme.py`。前段のλ=1非被約・平坦極限の証明は `point_scheme_thickening.tex` に保持。3D Sklyanin point-scheme定理は既知入力。一般のnc cubicに対する同一結果や全先行研究上の新規性は未確認。
 
-## 特異な混合係数境界でのpoint scheme（論文C）
+## 特異な混合係数境界でのpoint scheme（論文B）
 
 **証明済みの有限平坦モデル。** 特殊値 λ³=-3 では元の可換cubicが特異となりPoisson多様体の零点定理の適用外だが、既存の中心座標u=1における有限point-module可換化環は C[λ,h] 上で自由rank24（基底 x^a y^b z^c v^d、a,b,c=0,1; d=0,1,2）。これは λ,h の分母を使わず、判別式境界やh=0にも代数的に延長する。**h=0のこの環はB_0自身のpoint schemeではない。**
 
@@ -260,7 +260,7 @@ Hesse/行列式チャートの同型とmoduli stackへの降下、
 
 全Db(qgr B)と可換Db(coh Y)の同値は主張しない。残余同値でも例外成分との貼合せは異なり得る。Bそのものの有限global dimensionも主張しない。特殊点を含む相対同値、有限拡大次数・同値行列、多変数の全モジュライ方向は未完成。
 
-## 論文Cにおける現行の最短証明経路（保持）
+## 論文Bにおける現行の最短証明経路（保持）
 
 1. (L)によりK_R=stab(R)、T_R=K_R⊕K_R(1)⊕K_R(2)が線束生成残余圏を表すproper生成代数Gamma_Rを与える。
 2. (CF)を固定三対象に制限し、各固定Hom次数の通常の完備係数写像としてからhを反転する。任意のLaurent対象へ無限Taylor和を新しく評価しない。
@@ -279,9 +279,9 @@ Hesse/行列式チャートの同型とmoduli stackへの降下、
 
 論文Aの一般Poisson正規形・固定方向の代数的量子化、一般次元ambient復元は論文Aに統合し、41次元中心三次対・17係数slice・分離型余次元15・忘却核7はnc-cubic2のモジュライ原稿に保持する。全nc cubic分類や全係数の一様量子化と混同しない。
 
-論文Cの形式MF、相対window、有限積分、全16積、bar/cup/characteristic比較、幾何学的BC、片側Morita/Popescu、相対sector、対角unit、中心対称性、純Poisson一次消滅、分離Hessian、非楕円fivefold、35係数slice、A∞arity、SM/ERおよび反例を保持する。有効な証明を容量削減のため要約・削除しない。
+論文Bの形式MF、相対window、有限積分、全16積、bar/cup/characteristic比較、幾何学的BC、片側Morita/Popescu、相対sector、対角unit、中心対称性、純Poisson一次消滅、分離Hessian、非楕円fivefold、35係数slice、A∞arity、SM/ERおよび反例を保持する。有効な証明を容量削減のため要約・削除しない。
 
-## 論文Cの残る課題（一般次元稿の独立監査と適用）
+## 論文Bの残る課題（一般次元稿の独立監査と適用）
 
 1. **残る依存の独立監査。** 今回はStevensonの適用範囲、次数再付与、固定HomのLaurent局所化を点検した。次に(CF)の曲率formality・coherent inverseの全構成と、(L)の通常導来stabilization/window、明示式への(D)を順に監査する。証明の記載と独立監査を区別する。
 2. **有効化。** 三shift生成の有限cell、同値核の行列、有限拡大次数を明示する。今回、線束生成代数の対角のq段表示があれば全coherent対象もq段で生成されることを示したが、qは未計算。
@@ -294,7 +294,7 @@ Hesse/行列式チャートの同型とmoduli stackへの降下、
 
 `python3 scripts/verify_coherent_residual_assets.py --rerun-orbit` は新原稿の参照とCへの統合を点検し、既存64 Eulerベクトルと32×32行列41恒等式を再実行する。今回、既存コードおよび生成証明書のGit blob SHAが正本と完全一致した。新しい飽和定理の形式証明やnc全行列の再計算ではない。
 
-`latexmk papers/paper_c.tex` で新単独稿を生成する。単独稿5頁の組版と表示を確認。現行A/Cとnc-cubic2の移管原稿全体の組版、CF全構成と全既存計算の再検証は未実施。正確な状態をvalidation.jsonに記す。
+`latexmk papers/paper_b.tex` で新単独稿を生成する。単独稿5頁の組版と表示を確認。現行A/Bとnc-cubic2の移管原稿全体の組版、CF全構成と全既存計算の再検証は未実施。正確な状態をvalidation.jsonに記す。
 
 ## 研究一般の原則と保存許可
 

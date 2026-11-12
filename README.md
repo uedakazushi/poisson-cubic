@@ -1,170 +1,43 @@
-# nc-cubic：論文Aの投稿準備と一般点可換復元
+# nc-cubic — Poisson cubic の量子化とrotation付き可換復元
 
-**2026-11-12 / v54。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
+**2026-11-12 / v55。** 正本は GitHub `main`。研究再開は[現行研究方針](00_research_plan.md)から。
 
-## 論文Cの一般次元化（2026-11-12）
+## 現行の二論文
 
-論文Cは [papers/paper_c.tex](papers/paper_c.tex) を
-**任意の n>=3 の中心三次非可換超曲面のrotation付き可換復元**を主題に再構成した。
-主定理は [general_dimension_recovery.tex](papers/support/papers/reconstruction/general_dimension_recovery.tex)。
-局所proper/window (L)、実際の完備graded MF同値 (CF)、一般ファイバーの
-AS-regular/noetherian仮定の下で、有限拡大後の全coherent残余pairと
-滑らかなcubic n-foldのKuznetsov pairが同値になる。
-高次元でのEuler非零性、三shift生成、有限降下、coherent飽和は既存証明をまとめた。
-五変数の明示式は追加で(D)を使う応用として保持。
-完全な独立証明監査および全CのLuaLaTeX組版は未実施。
-監査入口 [研究ノート](notes/general_dimension_categorical_reconstruction.md)。
-一般Poisson moduliの研究と定理Aは引き続き論文Aに置く。
+| 論文 | 現行LuaLaTeX原稿 | 主題 |
+|---|---|---|
+| **A** | [papers/paper_a.tex](papers/paper_a.tex) | 滑らかな三次超曲面のPoisson正規形、退化スキーム、Bondal予想、代数的量子化、Poisson moduli stacks |
+| **B** | [papers/paper_b.tex](papers/paper_b.tex) | 一般次元の中心三次非可換超曲面に関するrotation付き全coherent残余圏の可換復元 |
 
-## 現在の最優先課題：論文Aの公表準備
+論文A（A-v51）は、各smooth cubic $n$-fold（$n\ge3$）の全Poisson構造をJacobian三変数ブロックに分解し、形式的中心元存在に依存しない普遍Cramer中心元・AS正則ambientによる代数量子化を主張する。定理の証明を記載済みだが、正規形Lie補題、普遍Hesseの全係数恒等式、PBW/AS条件、Bondal予想・stack成分数の独立監査と包括的な新規性調査は未完了。監査は[notes/poisson_article_submission_audit.md](notes/poisson_article_submission_audit.md)。
 
-滑らかなcubic hypersurfaceのPoisson正規形・退化軌跡・Bondal予想・代数的量子化を独立論文として推敲する。
-原稿 papers/paper_a.tex、専用文献 papers/support/papers/references_poisson_cubic.tex、
-現在有効な証明監査と課題 notes/poisson_article_submission_audit.md、独立有限検算 computations/verify_poisson_article_A.py。
-IntroductionとAbstractを改訂し、文献・label静的整合性を点検済み。
-主定理の全独立監査、全A組版、全旧証明書再実行は未完成。投稿可能判定は行っていない。
-旧論文Bのambient復元は一般次元化してAへ統合し、17次元モジュライ論はnc-cubic2へ移した。Cの成果は維持する。
+論文B（旧Cの内容をそのまま継承する B-v40）は、局所proper/window模型(L)、実際の完備graded MF同値(CF)、一般ファイバーのnoetherian Koszul AS正則性を仮定し、有限拡大後に非可換中心三次商の全coherent残余pairとsmooth cubicのKuznetsov pairのrotation付きMorita同値を得る。(L),(CF)は原稿に証明があるが、全依存の独立監査は未完了。特定の混合族には追加で(D)が必要。主定理は[general_dimension_recovery.tex](papers/support/papers/reconstruction/general_dimension_recovery.tex)、監査は[notes/general_dimension_categorical_reconstruction.md](notes/general_dimension_categorical_reconstruction.md)。
 
-## 論文Aから独立させた六・七次元の詳細幾何
+17次元非可換三次三様体モジュライ、ambientの1周期性、六・七次元Poisson退化schemeと独立境界研究は [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) を正本とする。一般次元のquadratic-envelopeによるambient復元定理は論文Aに残す。
 
-論文Aは**任意次元の構造定理と量子化・モジュライ**に集中する。
-六・七次元固有の退化スキームのprimary分解、embedded components
-（横断長8・64、被約化との差の長さ49）、
-Calabi--Yau四次元完全交叉のHodge数などは
-[独立草稿](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/poisson_cubic_six_seven_geometry.tex)
-にまとめた。一般の退化スキームの式と証明は論文Aに残し、
-移管先でも必要な背景・証明を本文に収録する。
-移管元の6/7次元専用節と数値計算節は論文Aから除外したが、
-数学的内容は移管先に保持した。
-先行研究上の新規性とprimary分解の独立監査は未完了であり、
-副次的研究として継続する。
+## 現行ディレクトリ
 
-## Poisson構造のspaceと二つのmoduli stacks
+- `00_research_plan.md`：最初に読む研究方針、証明状態、研究の優先順位。
+- `papers/paper_a.tex`・`papers/paper_b.tex`：二つの主論文入口。入力節と文献は `papers/support/papers/sections/`・`papers/support/papers/reconstruction/`・`papers/support/papers/references*.tex`。
+- `notes/`：現在有効な計算・反例・独立監査上の課題。
+- `computations/`：再生成可能な有限計算と、必要な証明書。
+- `reconstruction/`：論文Bの局所・étale比較の再現スクリプト。
+- `sources/candidates/`：まだ現行原稿との内容照合が必要な候補TeX。新しい主論文の入口ではなく、照合なしに削除しない。
 
-論文Aでは、固定XのJacobi零スキームPois(X)を
-**space of Poisson structures**、
-その自己同型商[Pois(X)/Aut(X)]を
-**moduli stack of Poisson structures**、
-Xも変形した組(X,pi)の商[P_n/PGL(V)]を
-**relative moduli stack of Poisson structures**
-と定義する。n>=3の滑らかなcubicではAut(X)が有限エタールで、
-二つのstackは有限型Deligne--Mumford代数的スタック。
-証明はpapers/support/papers/sections/poisson_moduli_stacks.tex。
+## 組版と静的検査
 
-**Fermatでの成分数は三種類を区別する。**
-N=n+2、F_N=Σz_i³なら、spaceの成分は
-各ブロックのサイズ>=3の集合分割Bごとの
-Z_B=Σ_{B_s∈B}cone(Gr(3,C^{B_s}))で与えられる。
-固定stackでは座標置換のためサイズの整数分割によって
-同一視され、成分数は
-p_>=3(N)=[q^N]∏_{b>=3}(1-q^b)^(-1)。
-relative stackの成分数はfloor((n+2)/3)。
-例えばn=10ではspace=60105、固定stack=9、relative stack=4。
-一般cubicでは固定space・stackとも既約。
-定理の証明は
-papers/support/papers/sections/fermat_relative_poisson_components.tex、
-現行研究ノートはnotes/fermat_relative_poisson_components.md。
-
-**論文Aの全表示数学式は自動の数値式番号へ統一した。**
-原稿入口はpapers/paper_a.tex、全TeX入力・式番号・参照・引用の
-静的検査はscripts/verify_article_a_numbering.py。
-最新原稿全体のLuaLaTeX組版とPDF目視は未実施であり、
-静的検査だけで組版が成功したとはしない。
-
-## 全Poisson構造の代数的中心元・量子化・一般次元ambient復元（論文A v50）
-
-**滑らかな三次超曲面の全Poisson構造について、形式的存在定理を使わず
-代数的な中心三次元を構成できることを証明した。**
-三変数制限g=f(x,y,z,0)が特異・零でも、
-全体fが滑らかならactive偏微分の最大公約因子は1。
-古典Casimir核はC f⊕C[u]_3で一定次元となる。
-普遍Hesse公式の成立する係数空間の稠密開上から
-量子交換子行列の高次小行列式の恒等的消滅を得て、
-**全ての滑らかな全体f**へrank上界を特殊化する。
-原点で可逆な小行列のCramer比から
-厳密な中心三次元をh²の有理関数係数で得る。
-この証明は形式的中心元、Kontsevich formality、
-Dolgushevのunimodularityを使用しない。
-
-一般次元の正規形F=Σ f_s(x_s,u)では、
-純中心三次c(u)を一般的に各blockへ配分することで
-全f_sを滑らかな三次超曲面に選べる（Bertini）。
-Poisson構造は変化せず、各blockでCramer中心を構成できる。
-中心元Ω=ΣΩ_sは厳密に中心、ambientはKoszul AS-regular、
-中心三次商はAS-Gorenstein。
-独立パラメータη_sにより固定Fのk次元Poisson線形族を
-**全方向について同時に代数的量子化**できる。
-
-Hesse型に対しては以前得たη_s⁴までの短い**多項式**公式があり、
-任意の特異gに対しては原点で正則な**有理式**Cramer表示がある。
-特異gに短い多項式公式まで得たとは主張しない。
-
-- [全体三次のCramer中心元の証明](papers/support/papers/sections/universal_casimir_determinant.tex)
-- [全Poisson構造の量子化定理](papers/support/papers/sections/poisson_geometry.tex)
-- [全次元・独立k変数同時量子化](papers/support/papers/sections/general_dimension_universal_quantization.tex)
-- [現行研究ノート](notes/universal_casimir.md)
-- [三変数制限g=0の厳密検算](computations/verify_singular_cubic_classical_kernel.py)
-
-数学的に残るのは、普遍Hesseの記号計算証明書・正規形Lie補題・
-PBW/AS条件の全独立監査、モジュライ上の量子化族の接着、
-先行研究の初出・新規性比較および全LuaLaTeX組版。
-**代数的中心元の存在そのものはこれらと区別して証明済み**とする。
-
-## 量子中心三次元：全Hesse型の普遍多項式公式
-
-論文Aで、`g_t=(x³+y³+z³)/3+txyz`の**任意のtと全中心混合係数**に対する、`h²`の高々二次の係数を持つ**厳密な普遍中心三次元**を構成した。独立係数A,B,C,D,E,Hとh,tを不定元のまま扱い、Q(h,t)上の339自由語・162関係の階数144と三交換子の剰余0を厳密計算した。h=0の階数も144なので原点近傍で成立する。Hessianと四次補正を使ったコンパクト公式あり。
-
-中央平行移動とArtebani–DolgachevのHesse標準形により、**任意の滑らかな三変数三次制限と全混合項**に適用できる。したがってこの範囲では形式的中心元存在補題を使わず代数的量子化を構成でき、元座標のCramer決定式表示も無条件となった。非滑らかな制限を含む全Poisson構造の代数的中心元は上記のCramer法で証明済み。
-形式的存在証明の監査はもはや主定理の依存ではない。公式・状態・再現手順は[現行研究ノート](notes/universal_casimir.md)、証明は`papers/paper_a.tex`、検証コードは`computations/verify_universal_hesse_mixed_center.py`。
-
-## Bondal予想（論文Aの新しい帰結）
-
-滑らかなcubic n-fold（n>=3）の全Poisson構造についてBondal予想を証明した。一般rank2kの正規形から、j<kではj+1個のJacobian三変数ブロックの平面曲線join（次元2j+1）をD_{2j}に構成する。既存の正規形定理に依存し、その全証明の独立監査・高次元での新規性確認は未完了。本文 `papers/support/papers/sections/bondal_cubic.tex`、ノート `notes/bondal_cubic.md`。2013年Fano4、2026年Fano5の既存結果を参照。
-
-## Point schemeとPoisson零点（二パラメータでの新定理）
-
-F_λ=(x³+y³+z³)/3+u³+v³+λuxy の混合量子化について、λ³+3≠0、h⁶+27≠0 の範囲で、h非零のpoint schemeはSklyanin楕円曲線 E_h と長さ24の有限平坦成分S_{h,λ}の非交和。h=0のスキーム論的平坦閉包はPoisson零点スキームD0と一致。λ≠0では12個の二重点、λ=0では3個の八重点へ衝突（各局所環 C[x,y,z]/(x²,y²,z²)）。全文 `papers/support/papers/reconstruction/point_scheme_lambda_family.tex`、単独組版 `papers/support/papers/point_scheme_lambda_family.tex`、計算 `computations/verify_lambda_point_scheme.py`。一般nc cubicへ無条件に適用しない。
-
-## 特異境界の局所代数
-
-λ³=-3で元の可換cubicは特異でも、point-moduleの孤立部分を記述する可換化環はC[λ,h]上自由rank24。h≠0の境界では3二重点と3六重点（局所環C[t]/t^6）。h=0では六重点はC[t,z]/(t^3,z²)になり局所型が変わる。λ境界の局所模型はhλ≠0で(v³+(λ³+3)/3)²=0。証明 `papers/support/papers/reconstruction/point_scheme_discriminant_boundary.tex`、単独原稿 `papers/support/papers/point_scheme_discriminant_boundary.tex`、検証 `computations/verify_lambda_discriminant.py`。Poisson零点との一致はsmooth cubic領域以外には主張しない。
-
-## 現在の結論
-
-一変数量子化について、既存の(L)局所proper/window模型と(CF)完備MF同値を入力すると、有限拡大K'/C(h)上で**全coherent残余pair**を滑らかな可換cubicのKuから復元できる。lambda=1の明示式にはさらに(D)有限対角比較を用いる。全依存証明の独立監査は未完了。
-
-一般点の三shift生成により線束生成残余のsmoothnessを得た後、Gorenstein環のsection有限性とsmooth対角を用いて線束生成部分=Db(qgr B)を示した。これで一般点におけるK^linと全coherent残余の差を解消した。**射影化全体と可換cubic全体の導来同値は主張しない。**
-
-同値核の具体行列、有限拡大次数、特殊点を含む相対同値、多変数全係数への適用は未完成。
-
-## 一般次元ambient復元
-
-Aに `papers/support/papers/sections/ambient_recovery_general.tex` を組み込んだ。次数$d\ge3$の二次ambient超曲面商では商の次数1・2からambientと方程式直線を復元する。AS-Gorenstein仮定下で偏極付き圏からも復元できる。Serre関手のみを使う強化は五生成元の追加中心仮定付きであり、全次元での無条件復元ではない。詳細な17次元nc cubicモジュライはnc-cubic2が正本。
-
-## 原稿と再現
-
-| 内容 | 入口 |
-|---|---|
-| A：Poisson正規形・量子化 | `papers/paper_a.tex` |
-| 17次元モジュライ（nc-cubic2） | [`nc_cubic_threefold_moduli.tex`](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/nc_cubic_threefold_moduli.tex) |
-| C：統合原稿 | `papers/paper_c.tex` |
-| 今回：全coherentへの飽和 | `papers/support/papers/coherent_residual_saturation.tex` |
-| 一般点の三shift生成 | `papers/support/papers/rotation_orbit_generic_reconstruction.tex` |
-
-[今回の研究ノート](notes/coherent_residual_saturation.md)に証明の依存、監査範囲、再開点を整理した。証明本文は単独稿と論文Cが同じTeXをinputする。既存の証明と計算資産は保持する。
+リポジトリルートから実行する。
 
 ```sh
-python3 scripts/verify_coherent_residual_assets.py --rerun-orbit
-latexmk papers/coherent_residual_saturation.tex
+python3 scripts/check_layout.py
+python3 scripts/verify_bundle.py
+python3 scripts/verify_article_a_numbering.py
+latexmk papers/paper_a.tex
+latexmk papers/paper_b.tex
+# 領収記録付きで二論文をまとめて組版する場合
+python3 scripts/build.py
 ```
 
-今回、64 Eulerベクトルと32×32行列41恒等式を再実行し、保存証明書と完全一致を確認。新しい飽和定理は数学的証明であって、これらの有限計算で形式検証したものではない。新単独稿5頁を組版・表示確認、現行A/C全体と全旧計算の再実行は未実施。詳細はvalidation.json。
+必要なものはLuaLaTeX（LuaTeX-jaを含む）とlatexmk。VS Code の LaTeX Workshop はルートの `.latexmkrc` を使用し、PDF・aux・log・syncTeXは `build/` に作る。**ソースの静的整合性が通ったことは組版成功や数学的証明の独立検証を意味しない。** 実際の検証は [validation.json](validation.json) に記録する。
 
-## 運用
-
-GitHub mainのみを正本とし、通常のfast-forwardで保存する。PDFは追跡せずbuild/へ生成。GitHub Actions・force pushは禁止。Libraryは実際のGitHub保存失敗時の緊急退避のみ。旧ZIP・会話を再開条件にしない。独立境界/未照合PDFはnc-cubic2、Reyeはreyeに保全されている。
-
-**新しい証明付き低次結果：** 論文AではWeyl中心元の偶性と、普遍Hessian二次補正による mod h⁵ 中心性を追加した。計算証明書は computations/verify_cubic_casimir_jet.py。全次数の形式的中心元の相対CY/formality監査はなお優先課題。
-
-## papers/の構成
-papers/直下にはpaper_a.texとpaper_c.texのみを置く。その他の既存原稿・参考文献・分割節はpapers/support/papers/以下に保存。リポジトリrootからlatexmk papers/paper_a.tex等で組版する。
+GitHub main にfast-forward pushし、GitHub Actions・force pushは使わない。PDFと中間ファイルはGitで追跡しない。LibraryはGitHub push失敗時のみ緊急退避する。

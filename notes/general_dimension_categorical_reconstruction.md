@@ -1,9 +1,9 @@
-# 論文C：一般次元のrotation付き可換復元（2026-11-12 / C-v40）
+# 論文B：一般次元のrotation付き可換復元（2026-11-12 / B-v40）
 
 ## 主定理と再開入口
 
 最初に `00_research_plan.md`、続いて
-`papers/paper_c.tex` の主定理 `gdr:thm:generic` を読む。
+`papers/paper_b.tex` の主定理 `gdr:thm:generic` を読む。
 主定理の全文は `papers/support/papers/reconstruction/general_dimension_recovery.tex`。
 次元は `n>=3`、生成変数の個数 `N=n+2`。
 `R=C[h]_(h)` 上の次数別有限自由な中心三次対
@@ -62,7 +62,7 @@ point scheme、対角行列。一般次元の閉公式を意味しない。
 
 ## 再現・新規性の点検
 
-`latexmk papers/paper_c.tex`（ルートから）で日本語LuaLaTeX稿を生成。
+`latexmk papers/paper_b.tex`（ルートから）で日本語LuaLaTeX稿を生成。
 入力の保存・全件参照確認・式番号のLuaLaTeX実行はそれぞれ別。
 現段階ではGitHubソースの整合性検査のみを予定し、
 コンパイルや数学的完全検証を実施したと報告しない。

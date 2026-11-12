@@ -2,11 +2,11 @@
 
 **2026-11-10・v22。研究全体の正本はGitHub main。最初にルートの00_research_plan.mdを読む。**
 
-このディレクトリは論文Cの現行証明を独立組版する入口であり、第四の主論文ではない。旧bundleやLibraryを取得せず再開できる。既存の局所rotation・Serre関手・full coherent比較・spreadの全証明を保持した。
+このディレクトリは論文Bの補助証明を独立組版する入口であり、第四の主論文ではない。旧bundleやLibraryを取得せず再開できる。既存の局所rotation・Serre関手・full coherent比較・spreadの全証明を保持した。
 
 ## 数学的状態
 
-`papers/reconstruction/rotation_saturation_reduction.tex` は局所模型と還元を記し、`papers/reconstruction/etale_realization.tex` と `papers/reconstruction/hochschild_obstructions.tex` を直接inputする。後者は親論文Cからも同じファイルを読む。
+`papers/reconstruction/rotation_saturation_reduction.tex` は局所模型と還元を記し、`papers/reconstruction/etale_realization.tex` と `papers/reconstruction/hochschild_obstructions.tex` を直接inputする。後者は親論文Bからも同じファイルを読む。
 
 実在するsmooth proper dg族と可逆perfect双加群が、一点でsmooth cubicのKuとrotationに一致すれば、étale局所的に可換cubic族となることを、実際の同値双加群の障害消去で証明した。負HH消滅、HH¹=0、幾何的KSのrotation不変HH²への全射を使う。原稿に証明を記載して点検したが、外部査読・Lean形式検証ではない。新規性の包括的確認は未了。
 
@@ -29,7 +29,7 @@ PDFは `build/rotation_saturation_reduction.pdf` に生成される。buildは�
 
 中心検算はQ(r,u)上のDiamond重なりと中心交換子を、変形slice検算は整数・有理数上の84×49行列と35次元補空間を扱う。BFK sector整数検算は既知の公式から導かれた次数・次元・非自明固有値の算術を検証する。これらを圏同値や残余smoothnessの計算機形式化と呼ばない。
 
-親三論文全体の組版は独立SM/ER入口とは別の検証である。v22の組版の実際の状態はルートvalidation.jsonを参照する。生成・検証・GitHub登録・遠隔確認の実際の状態を区別する。Libraryはpush実失敗時だけの緊急避難である。
+親二論文全体の組版は独立SM/ER入口とは別の検証である。各補助原稿の組版の実際の状態はルートvalidation.jsonを参照する。生成・検証・GitHub登録・遠隔確認の実際の状態を区別する。Libraryはpush実失敗時だけの緊急避難である。
 
 ## パス移動後の実行方法
 
@@ -44,9 +44,9 @@ python3 reconstruction/scripts/verify.py
 SMの有限bar対角・generic spreadingの証明は `notes/sm_bar_and_spreading.tex`（根拠原本：[nc-cubic2のfinite_smoothness_notes.pdf](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/pdf-only/finite_smoothness_notes.pdf) 第18--21節）。今回の補題はSM自体を証明しない。
 
 
-## 具体的な方程式の抽出と二次比較（親論文C）
+## 具体的な方程式の抽出と二次比較（親論文B）
 
-親Cは従来の有限積分・一次消滅・分離型Hessian式・混合中心とPBWに加え、curved_gauge_comparison.tex、kontsevich_second_jet.tex、formal_cubic_mf_reconstruction.tex、artin_residual_mf_comparison.tex、artin_smoothness_obstruction.texを読む。全次数の形式MF復元、全Artinの線束残余比較、混合二次係数1/3+lambda³/36、低rotation積、およびgenericへの移行を妨げる一般dg反例を記載する。これらはSM/ERの独立入口とは別のinput閉包に属する。
+親Bは従来の有限積分・一次消滅・分離型Hessian式・混合中心とPBWに加え、curved_gauge_comparison.tex、kontsevich_second_jet.tex、formal_cubic_mf_reconstruction.tex、artin_residual_mf_comparison.tex、artin_smoothness_obstruction.texを読む。全次数の形式MF復元、全Artinの線束残余比較、混合二次係数1/3+lambda³/36、低rotation積、およびgenericへの移行を妨げる一般dg反例を記載する。これらはSM/ERの独立入口とは別のinput閉包に属する。
 
 ```sh
 python3 computations/verify_explicit_jacobian_recovery.py --output /tmp/nc-cubic-jacobian.json
@@ -66,4 +66,4 @@ python3 scripts/verify_bundle.py
 
 ## v22の検証と再開
 
-公開コードの二次検算はPASSした。論文Cは133頁で組版・表示確認を行い、独立SM/ERも組版・receipt・検算がPASSした。各原稿の詳細はルートvalidation.jsonを参照する。共通bibliographyも更新したため、古いA/B/Cのreceiptが残る環境では三論文を再組版してからverify_bundleを実行する。コードはgraph積分、formality、圏同値を形式証明するものではない。詳しい状態はルートvalidation.jsonを読む。
+公開コードの二次検算はPASSした。旧版の原稿について133頁の組版・表示確認を記録しているが、現在の論文Bの新入口については未組版であり、独立SM/ERも組版・receipt・検算がPASSした。各原稿の詳細はルートvalidation.jsonを参照する。共通bibliographyも更新したため、古い原稿名のreceiptが残る環境では現行A/Bを再組版してからverify_bundleを実行する。コードはgraph積分、formality、圏同値を形式証明するものではない。詳しい状態はルートvalidation.jsonを読む。
