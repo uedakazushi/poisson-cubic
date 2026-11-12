@@ -1,6 +1,6 @@
 # 論文Bの集中化と独立成果の現行分担
 
-**2026-11-13 / v4。現在の所在と残件を記す。**
+**2026-11-13 / v5。現在の所在と残件を記す。**
 
 ## nc-cubicに保持する論文
 
@@ -22,24 +22,26 @@
 
 元の計算証明書blob `84f51d6c288c7c2c202e01173ee7c4363a8e3c41` を正確に再生成した。可積分性rank20,24,25、核5,1,0、反例minor15872、非対称入力の棄却を検算。専用本文・コード・再生成可能証明書の3ファイルは除外済み。主定理に必要な低次数同定・一意性の証明は `papers/generic_recovery/gradient_recovery.tex` に残す。共有の文献断片は未移管の支持節が使うため保持する。
 
-## 完了単位：一次変形・Plücker障害
+## 完了単位：一次変形・Plücker障害とTodd補正付きHKR
 
-現行稿は **nc-cubic2/papers/cubic_first_order_deformations.tex**。研究再開は `notes/cubic_first_order_deformations.md`、検証は `validation_cubic_first_order.json`。保存確認済みの内容コミットは `880b648df35fe4a52e80c03eec3d5e811bc20a66`。
+現行稿は **nc-cubic2/papers/cubic_first_order_deformations.tex**（v2、13頁）。研究再開は `notes/cubic_first_order_deformations.md`、検証は `validation_cubic_first_order.json`。現在の統合内容を保存したコミットは `c98c57a511ad550954ae47ba776e57dff89f08bd`。
 
-元の `first_order_poisson_kernel.tex` の一次曲率付き消去、Jacobian接空間、五変数Plücker障害、可換点でのcategorical KS完全列を保持する。全22ラベルと、定理3・命題1・系2・証明6・注意4の環境を保持した。全次数比較への導入参照を除き、Koszul原像の小議論を既存注意に記し、HKRとtwistingの引用を加えた。基礎dg圏とrotationの忘却を述べる一語句を訂正したため、本文全体のバイト一致ではない。
+直接的な一次MF比較、Jacobian接空間、五変数Plücker障害、可換点のcategorical KS完全列について、元の22ラベル、定理3・命題1・系2・証明6・注意4を保持する。全次数比較への導入参照を除き、Koszul原像の短い議論を既存注意に入れ、HKRとtwistingの引用を加えた。既存の主本文blob `9b63fcd60612d504461eb9ee39babfcc8bf69b1d` は今回変更しない。
 
-圏論的結論に必要な比較は、元の一般Artin比較の証明から双対数基底に必要な部分を `dual_number_window.tex` に自立的に構成した。相対Koszul、中心元正則性、exact圏とdg商による余核、線束Homと底変更、MF Homの有限摂動、Ind圏の生成性、rotationと周期性を付録に収録する。これは一般Artin理論全体の移管完了ではなく、元の `artin_residual_mf_comparison.tex` は保持する。
+必要なenhanced比較は `dual_number_window.tex` に自立して収録する。相対Koszul、中心元正則性、exact圏とdg商の余核比較、線束Homと底変更、MF Homの有限摂動、Ind圏の生成性、rotationと周期性を扱う。この付録blob `67d0728503eded03d70d25d4ccc88964ddd00343` も変更しない。一般Artin理論全体の移管ではなく、元の `artin_residual_mf_comparison.tex` は残す。
 
-全文10頁を移管先と同一の.latexmkrcで組版し全頁表示確認した。5TeX入力・28ラベル・24参照・13引用・8文献、未解決・重複・overfull・文字欠落0。元と完全一致の2コードで、8挿入恒等式、Jacobian次数3のrank25/36・商次元10/20、Fermatと混合例のJacobi係数二次式20本/56本のspan rank5、Plücker式を加えてもrank5、非分解可能Xiの負例を確認した。これは一般のMF関手や全証明の形式検証ではない。
+Todd別証明 `poisson_first_order.tex` は、全9数学的環境（補題2、命題1、系1、証明4、注意1）と8ラベルを保持して統合した。Jacobian商環をJac(F)、共通マクロを標準表記、JLLZERをJLLZへ統一し、引用する著者版の図式番号をTheorem 3.10へ訂正した。これらの記法・引用と空白の変更以外、命題と証明は保持する。通常HKRの純bivectorのHH²(Ku)への制限が零であることと、rotation付き全データの自明化を区別する。可換模型の一次係数に関する系は、純Poisson KSと残余制限の両立、可換復元族の存在を仮定し、二次係数や全次数自明性を結論しない。
 
-保存確認後、元の専用本文と2検算コードの計3ファイルを除外する。Todd補正による別証明 `poisson_first_order.tex` の導入に残っていたfpk節番号だけを記述的説明に置き換え、証明本文は保持する。旧ノート中のfpkラベル・2コードのパスは、移管先の同名現行ファイルを指すものとして読む。A・Bはこれらを入力しない。
+現行の6TeX入力、36ラベル、32参照、20引用、9文献項目について未解決・重複0。移管先と同じ.latexmkrcで全文13頁を組版し、全頁表示確認、overfull・文字欠落0。今回算術コードは変更・再実行していない。既存の2コードによる8挿入恒等式、Jacobian次数3 rank25/36・商次元10/20、二例のJacobi係数20本/56本のspan rank5、Plückerを合わせたrank5、非分解可能Xiの負例は以前の実行結果として保持する。全MF関手・幾何学的証明の形式検証ではない。
+
+専用の直接比較本文と2コードの3ファイルは既に除外済み。今回、移管先の保存確認後にTodd別証明の本文1ファイルも除外する。`poisson_first_order_references.tex` は残る共有文献入口が読むため保持する。既存ノート内の旧 `poisson_first_order.tex` という略記は、移管先の現行同名本文を指すものとして読む。A・現在のBはこのファイルを入力しない。独立成果の保存を旧コミットへのリンクだけで代用しない。
 
 ## 残件と着手順序
 
 1. Artin形式復元・étale実現：`relative_formal_models.tex`、`relative_etale_models.tex`、`artin_residual_mf_comparison.tex`、rotation障害、相対saturation、全Poisson成分の条件付き結果。双対数の付録に収めていない一般基底・底変更の成果を保持する。
 2. Sklyanin/多ブロック模型：`sklyanin_model_theorems.tex`、`sklyanin_block_models.tex`、`multiblock_generation.tex`、`relative_parameter_boundary.tex`。
-3. 相対対角・bar・Artin sector・Moritaの独立構成：`finite_algebraic_recovery.tex`、`curved_diagonal_recovery.tex`、`regular_diagonal_recovery.tex`、`multiplicative_bar_comparison.tex`、`diagonal_kernel_identity.tex`、`relative_artin_sector.tex`、`artin_rotation_obstructions.tex`、`central_symmetry_lifting.tex`、`one_sided_morita_algebraization.tex`、`geometric_rotation_basechange.tex` 等。
-4. 混合量子化・有限jet・同変正規形と一次消滅の別証明：`mixed_test_family.tex`、`explicit_model_comparison.tex`、`curved_gauge_comparison.tex`、`kontsevich_second_jet.tex`、`mixed_equivariant_normal_form.tex`、`poisson_first_order.tex` 等。
-5. 元の支持節に残る独立一般化・別証明・反例と関連ノート・文献・計算資産。Bに必要な証明と重複する部分を二重の独立成果として扱わない。
+3. 相対対角・bar・Artin sector・Morita：`finite_algebraic_recovery.tex`、`curved_diagonal_recovery.tex`、`regular_diagonal_recovery.tex`、`multiplicative_bar_comparison.tex`、`diagonal_kernel_identity.tex`、`relative_artin_sector.tex`、`artin_rotation_obstructions.tex`、`central_symmetry_lifting.tex`、`one_sided_morita_algebraization.tex`、`geometric_rotation_basechange.tex` 等。
+4. 混合量子化・有限jet・同変正規形：`mixed_test_family.tex`、`explicit_model_comparison.tex`、`curved_gauge_comparison.tex`、`kontsevich_second_jet.tex`、`mixed_equivariant_normal_form.tex` 等。移管先で進行中の混合族原稿とも重複を照合する。
+5. 支持節に残る独立一般化・別証明・反例とノート・文献・計算資産。Bに必要な証明と重複する部分を二重の独立成果として扱わない。
 
-各単位で必要な本文・補題・文献・入力を揃え、組版と計算の必要範囲、移管先main保存を確認してから元を整理する。旧ZIPや過去コミットだけを再開の前提にしない。移管全体は未完了であり、三単位の完了と区別する。
+各単位で本文・補題・文献・入力を揃え、組版と必要計算、移管先main保存を確認してから元を整理する。旧ZIPや過去コミットだけを再開の前提にしない。移管全体は未完了であり、現在完了した単位と区別する。

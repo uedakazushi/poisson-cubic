@@ -1,12 +1,12 @@
 # 研究方針：論文Aの保持と一般次元の可換復元論文B
 
-**2026-11-13 / v74。最初に読む。GitHub mainが正本。**
+**2026-11-13 / v75。最初に読む。GitHub mainが正本。**
 
 ## 現在の目的と編集方針
 
 論文Aはnc-cubicに残す。論文Bは任意のn>=3の代数的中心三次変形の一般点可換復元と、その証明に必要な結果に集中させる。新結果の追加ではなく、完全な証明を備えた現行原稿への整理と独立成果の移管を優先する。
 
-現行入口は `papers/paper_a.tex`（A-v51）と `papers/paper_b.tex`（B-v55）。今回A・Bの本文・入力ソース・共通設定は変更していない。移管先はuedakazushi/nc-cubic2。点スキーム、有限Jacobian復元、一次変形・Plücker障害の三単位を統合したが、全移管は未完了。残る数学的内容は現行ソースに保持する。
+現行入口は `papers/paper_a.tex`（A-v51）と `papers/paper_b.tex`（B-v55）。A・Bの本文・入力ソース・共通設定は変更しない。移管先はuedakazushi/nc-cubic2。点スキーム、有限Jacobian復元、一次変形・Plücker障害とそのTodd補正による別証明を独立稿に統合した。全移管は未完了で、残る数学的内容は現行ソースに保持する。
 
 ## 論文Bの主結果と証明
 
@@ -26,13 +26,15 @@ Aは一般次元のPoisson正規形、退化スキーム、Bondal予想、代数
 
 **有限Jacobian復元**は `papers/cubic_jacobian_recovery.tex`（6頁）。全14数学的環境を保持し、低積・可積分性・一意性・Fermat例・非可積分な完全交差と有理数上の検算を収録。元の専用3ファイルを除外済み。Bの必要証明は `gradient_recovery.tex` に残す。現行ノートは `notes/cubic_jacobian_recovery.md`。
 
-**一次変形・Plücker障害**は `papers/cubic_first_order_deformations.tex`（10頁）。元の22ラベルと全数学的環境を保持し、必要な双対数windowの証明を付録に収めた。全次数MF比較は入力にせず、既知JLLZ定理との関係を明示する。一次消去はN>=5、Plücker二次障害・categorical KS完全列はN=5。元と完全一致の2検算コードを実行済み。内容コミット `880b648df35fe4a52e80c03eec3d5e811bc20a66` の保存確認後、元の専用本文・2コードを整理する。現行ノートは `notes/cubic_first_order_deformations.md`、検証は `validation_cubic_first_order.json`。一般Artin原稿全体の移管ではないため、`artin_residual_mf_comparison.tex` は保持する。
+**一次変形・Plücker障害とTodd補正付きHKR**は `papers/cubic_first_order_deformations.tex`（v2、13頁）。元の直接的な一次MF比較とPlücker障害の22ラベル・全数学的環境を保持し、必要な双対数windowを付録に収める。一次消去はN>=5、Plücker二次障害・categorical KSはN=5。Todd補正による別証明は三次三様体の基礎dg圏の一次類を扱い、可換復元の存在やrotation付き全データの自明化を示すものではない。既に存在する可換模型の一次係数に関する系では、純Poisson KSと残余制限の両立を明示的に仮定する。
 
-相対理論、Sklyanin/多ブロック、対角/bar/Morita、混合族の二次jet等はなお残る。`mixed_test_family.tex` とそのコードも保持する。現在の全所在と旧ノートのパスの解釈は `notes/paper_b_scope_and_transfer.md` にまとめる。会話や旧コミットだけを再開の前提にしない。
+この別証明は既存の9個の数学的環境・8ラベルを保持して移管し、Jacobian商環をJac(F)に統一、JLLZ著者版の図式の参照番号をTheorem 3.10へ訂正した。移管先の保存確認済み内容コミットは `c98c57a511ad550954ae47ba776e57dff89f08bd`。現行ノートは `notes/cubic_first_order_deformations.md`、検証は `validation_cubic_first_order.json`。元の直接比較本文・2コードに続き、Todd別証明の本文も除外する。共有文献断片は未移管支持節の文献入力のため保持する。一般Artin原稿全体の移管ではなく、`artin_residual_mf_comparison.tex` は保持する。
+
+相対理論、Sklyanin/多ブロック、対角/bar/Morita、混合族の二次jet等はなお残る。`mixed_test_family.tex` とそのコードも保持する。全所在と旧ノートのパスの解釈は `notes/paper_b_scope_and_transfer.md` にまとめる。会話や旧コミットだけを再開の前提にしない。
 
 ## 次の作業と達成基準
 
-次は一般Artin・étale相対理論を、双対数の付録では扱わない底変更・形式復元・実現の成果も含めて自立させる。その後Sklyanin/多ブロック、対角/bar/Morita、混合jetを、既存原稿のまとまりと重複を見て整理する。各単位で本文・必要補題・文献・計算を揃え、組版・参照・必要検算・移管先main保存を確認してから元を整理する。Aが読むファイルは移管・削除しない。
+次は一般Artin・étale相対理論を、双対数の付録では扱わない底変更・形式復元・実現の成果も含めて自立させる。その後Sklyanin/多ブロック、対角/bar/Morita、混合jetを、移管先で同時に進む原稿との重複も照合して整理する。各単位で本文・必要補題・文献・計算を揃え、組版・参照・必要検算・移管先main保存を確認してから元を整理する。Aが読むファイルは移管・削除しない。
 
 短くしたBの全証明の通読と一次資料の仮定照合は別の課題。組版成功を数学的正しさと混同せず、必要証明の省略や未確認文献の引用済み扱いによって短くしない。
 
@@ -40,7 +42,7 @@ Aは一般次元のPoisson正規形、退化スキーム、Bondal予想、代数
 
 B-v55は既存.latexmkrcで全文27頁を生成し、11TeX入力・102ラベル・94参照・37引用・13文献を検査済み。全頁表示確認、未解決・重複・overfull・文字欠落0。今回本文は変更せず再組版しない。状態は `validation_paper_b.json`、依存は `notes/generic_recovery.md`。
 
-一次変形稿は移管先で `latexmk -g -r .latexmkrc papers/cubic_first_order_deformations.tex` と `python scripts/check_cubic_first_order.py --calculations` を実行した。5TeX入力・28ラベル・24参照・13引用・8文献、未解決・重複・overfull・文字欠落0、全10頁表示確認。8挿入恒等式、Jacobian次数3 rank25/36、二例のJacobiとPlücker span rank5を検算した。微小な具体例の計算であり、一般のMF関手・全幾何学的証明の形式検証ではない。
+一次変形統合稿は移管先で `latexmk -g -r .latexmkrc papers/cubic_first_order_deformations.tex` と `python scripts/check_cubic_first_order.py` を実行した。6TeX入力・36ラベル・32参照・20引用・9文献、未解決・重複・overfull・文字欠落0、全13頁表示確認。既存2コードの8挿入恒等式、Jacobian次数3 rank25/36、JacobiとPlücker span rank5等は既実行の結果として保持し、この更新ではコードを変更・再実行していない。Toddの証明はコホモロジーの議論で、新しい有限計算を証明の代用にしない。
 
 Aの再組版、全既存計算、全数学的証明の独立監査は今回行っていない。PDF・中間物はbuild/で非追跡。
 
