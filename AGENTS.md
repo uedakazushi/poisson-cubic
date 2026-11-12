@@ -1,6 +1,6 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-12 / v49。GitHub mainが唯一の正本。** 最初に 00_research_plan.md を読む。
+**2026-11-12 / v50。GitHub mainが唯一の正本。** 最初に 00_research_plan.md を読む。
 
 ## 最優先指示：任意次元の同時量子化を論文Aの完成結果へ
 
@@ -29,6 +29,41 @@ n=3,4,6,7,10の6具体例についてJacobi610成分とCasimir52成分を
 2ブロックのWeyl中心symbolを構成する。
 GitHub main正本、GitHub Actionsなし、PDFはGit追跡せず、
 論文B/Cの数学的証明を保持する。
+
+## 現在の最優先：Poissonのspaceと代数的moduli stacks
+
+論文Aを投稿可能にする上で、最初に
+papers/support/papers/sections/poisson_moduli_stacks.tex、
+次にpapers/support/papers/sections/fermat_relative_poisson_components.tex
+を点検する。
+用語は次の3種類に固定する。
+(1) Pois(X)=Jacobi零スキーム：space of Poisson structures。
+(2) [Pois(X)/Aut(X)]：moduli stack of Poisson structures。
+(3) [P_n/PGL(V)]：relative moduli stack of Poisson structures。
+固定stackの幾何学的stabilizerはAut(X,pi)。
+n>=3の滑らかなcubicについてPic(X)=Zとgradient syzygyから
+Aut(X)有限エタール、両stack有限型Deligne--Mumfordと証明済み。
+Jacobi零スキームP_nはΛ³V⊗O(-1)の全空間における閉スキーム。
+Stacks Project Theorem 97.17.2 (tag 06FI)を用いる。
+
+Fermat F_N=Σz_i³でのspaceの既約成分は
+各ブロックサイズ>=3の添字集合分割で数える。
+固定stackではAut(X_N)=(μ_3^N/μ_3)⋊S_Nが
+集合分割を置換するため、成分数は
+p_>=3(N)=[q^N]∏_{b>=3}(1-q^b)^(-1)（整数分割）。
+relative stackの成分数はfloor((n+2)/3)。
+**固定spaceの大きな集合分割数を固定stackの成分数と混同しない。**
+既約成分の計数は正規形Lie補題に依存し、全依存の独立監査は未完。
+再現コードはcomputations/verify_poisson_stack_component_counts.py。
+
+**論文Aの全display数式は自動数値式番号とする。**
+papers/paper_a.texでnumberwithin(equation)(section)を指定。
+paper Aの全input節で角括弧表示、align*、manual tagを使わず、
+equation/align等を使う。
+scripts/verify_article_a_numbering.pyの静的検証に加え、
+必ずLuaLaTeX組版とPDF目視を別途行う。
+papers直下はpaper_a.tex、paper_b.tex、paper_c.texのみを維持する。
+今後も証明/検算/組版/保存を区別し、main正本、GitHub Actionsなし。
 
 ## 内在的な高次元Hessian補正
 論文A prop:pg-ad-intrinsic-hessian はH(P,F)=Σ P^{ijk}P^{abc}F_{ia}F_{jb}F_{kc}/6 を座標不変に定義。正規形ではΣ λ_s² det Hess_{x_s}(f_s)となる。純中心三次の調整後、Ω= sym(F-h²H(P,F)/12+h⁴ K) という厳密中心元を取れる。h⁴ Kは各Hesseブロックの明示補正を合成し、まだ座標不変な短い式とは主張しない。一般次元の6具体例でHessian縮約の恒等式をSymPy厳密計算で確認。次はk変数Poisson pencilに沿う正規形表示の座標変換、Hesse chartの接着と相対モジュライへの降下を優先し、特異g拡張へ戻らない。
