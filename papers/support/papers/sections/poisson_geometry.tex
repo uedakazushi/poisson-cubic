@@ -603,8 +603,13 @@ $X$ の滑らかさも非空開条件である。
 \end{proof}
 
 \section{代数的な次数付き量子化}\label{sec:pg-quantization}
-本節は形式的完備化だけでなく、原点を含む代数的な開集合上の量子化を構成する。
-中心元の形式的存在には formality と Calabi--Yau 双対性を用い、有限次数の線形代数で代数化する。
+本節では、原点を含む\emph{代数的な}開集合上の量子化を構成する。
+三変数制限が特異・零の場合も含めた中心三次元の存在は、
+定理\ref{thm:pg-universal-determinant}の\emph{普遍行列式の階数一定性}と
+補題\ref{lem:pg-central-splitting-smooth}の中心三次項配分によって
+代数的に証明する。形式的中心元・Kontsevich formality・
+Dolgushevのunimodularity判定は本稿の量子化定理の
+\emph{証明には不要}である。
 
 \subsection{定義と主張}
 \begin{definition}
@@ -732,157 +737,18 @@ $A_{\mathrm{reg}}=A_{f_1}\otimes_{R_{\mathrm{reg}}}\cdots\otimes_{R_{\mathrm{reg
 とする。異なるブロックは可換で、各全次数部分は底上有限自由であり、
 $A_{\mathrm{reg}}/(\hbar)\simeq S$。関係式の一次項は\eqref{eq:pg-bracket}である。
 
-\subsection{形式的な中心元}
-この小節では $\widehat A_f$、$\widehat R=R[[\hbar]]$ という $\hbar$ 進完備化を用い、
-$\widehat\otimes$、双加群分解および $\RHom$ も完備化の意味で解釈する。
-内部次数を忘れた $d$-Calabi--Yau 性とは、包絡代数上 perfect で、包絡代数への導来双対が代数自身の $[-d]$ であることをいう。
-以下では内部 shift も記録する。
-\begin{lemma}\label{lem:pg-formal-center}
-任意のブロックに対して、三次の中心元
-$\widehat\Omega_f\in Z(\widehat A_f)$ で
-$\widehat\Omega_f\bmod\hbar=f$ を満たすものが存在する。
-$f(x,0)$ の滑らかさや孤立特異点は仮定しない。
-\end{lemma}
-\begin{proof}
-\cite[Proposition 8.1.1(i)の証明]{EG}の方法を相対係数へ適用するため、
-まず絶対 CY 性を確認する。
-$A=\widehat A_f$、$r_i=\partial_i^{\mathrm{cyc}}W$ と書く。
-相対完備自由双加群複体
-\begin{equation}
-0\longrightarrow P_3\xrightarrow{d_3}P_2\xrightarrow{d_2}P_1
-\xrightarrow{d_1}P_0\xrightarrow\mu A\longrightarrow0\label{eq:pg-potential-resolution}
-\end{equation}
-を、
-\begin{equation}
-P_0=A\widehat\otimes_{\widehat R}A,\quad
-P_1=\bigoplus_{i=1}^3Ae_iA,\quad
-P_2=\bigoplus_{i=1}^3Av_iA,\quad P_3=AwA
-\end{equation}
-で定める。$\deg e_i=1$、$\deg v_i=2$、$\deg w=3$ であり、
-\begin{equation}
-d_1(e_i)=x_i\otimes1-1\otimes x_i,\quad
- d_3(w)=\sum_i(x_iv_i-v_ix_i),\quad
- d_2(v_i)=\sum_j\sum_{r_i\ni ax_jb}ae_jb.
-\end{equation}
-最後の和は語の各出現を係数付きで数える。
-cyclic derivative の恒等式 $\sum_i[x_i,r_i]=0$ を非可換微分すると $d_2d_3=0$。
-また $d_1d_2(v_i)=r_i\otimes1-1\otimes r_i=0$。
-$\hbar=0$ では対角の相対 Koszul 分解である。
-cycle を法 $\hbar$ で boundary として持ち上げ、差を $\hbar$ で割る操作を反復すると、
-平坦性と完備性により完全性が従う。左端の核も全 $\hbar^rP_3$ に入り零である。
-
-$\partial_j^{\mathrm{nc}}r_i=\sum_{r_i\ni ax_jb}a\otimes b$ とし
-$\tau(a\otimes b)=b\otimes a$ と書く。
-cyclic word の二切断位置を交換すれば
-$\tau(\partial_j^{\mathrm{nc}}r_i)=\partial_i^{\mathrm{nc}}r_j$。
-これが中央微分の自己双対性を与え、両端も符号を除き双対である。
-逆順の双対微分は $(-d_1,d_2,-d_3)$ となり、各項に $(1,-1,-1,1)$ を掛けると元の複体に一致する。
-従って $D_{\mathrm{rel}}=A\widehat\otimes_{\widehat R}A^{\mathrm{op}}$ に対し
-\begin{equation}
-\Ext_{D_{\mathrm{rel}}}^q(A,D_{\mathrm{rel}})=
-\begin{cases}A(3)&q=3,\\0&q\neq3.\end{cases}
-\end{equation}
-automorphism による twist はない。
-絶対包絡代数 $D_{\mathrm{abs}}=A\widehat\otimes_{\CC[[\hbar]]}A^{\mathrm{op}}$ は、PBW 基底により
-中心係数 $\CC[u^L,u^R][[\hbar]]$ 上平坦である。
-従って $u_\alpha^L-u_\alpha^R$ は中心正則列で、その商は $D_{\mathrm{rel}}$。
-その Koszul 分解と change of rings により
-\begin{equation}
-\Ext_{D_{\mathrm{abs}}}^q(A,D_{\mathrm{abs}})=
-\begin{cases}A(m+3)&q=m+3,\\0&q\neq m+3.\end{cases}
-\end{equation}
-相対分解の各項は $D_{\mathrm{abs}}$ 上 perfect なので、絶対的にも $(m+3)$-CY である。
-
-対称化は完備化後に次数を保つ $\widehat R$-加群同型
-$R[x_1,x_2,x_3][[\hbar]]\simeq A$ を与える。
-積を移せば相対 Hochschild cochain による形式変形となる。
-相対 polydifferential cochain の包含は、対角の Koszul 分解による HKR 計算から quasi-isomorphism である。
-Kontsevich の affine formality のグラフ公式\cite[\S4.6, \S6]{PKontsevich}で active 変数の微分だけを用いれば、$R$ 上の formality を得る。
-全変数の同時スケーリングの重み零の部分に制限する。
-bar--Koszul 比較を次数付きで取れるので HKR 同型と包含はこの部分でも quasi-isomorphism であり、
-Kontsevich 写像の各 Taylor 成分も重みを保つ。
-$\hbar$ 倍して完備化した pronilpotent dg Lie 代数の Maurer--Cartan 同値を使えば、
-形式 Poisson 構造と gauge transformation をともに重み零で選べる。
-従って
-\begin{equation}
-\Pi=\hbar\pi_f+O(\hbar^2),\qquad
-\pi_f=\sum_{\mathrm{cyc}}f_{x_1}\partial_{x_2}\wedge\partial_{x_3}
-\end{equation}
-という相対形式 Poisson 構造の star product が $A$ と次数付き $R$-線形同型をもつ。
-$\Pi$ は $\partial_{u_\alpha}$ 成分をもたない。
-ここで相対形式変形と絶対形式変形の対応を明確にする。
-$\CC[u]$ 上の多微分作用素は、$x_i$ に関する微分だけを使い、
-係数は $\CC[x,u]$ に属する。
-これらを全変数 $(x,u)$ 上の多微分作用素とみなしても
-その定義式は変わらず、Gerstenhaber括弧、Hochschild微分、
-および$\hbar$進Maurer--Cartan方程式を保つ。
-また、$\Pi$から作るKontsevichの各グラフでは内部の微分を
-$\Pi$のベクトル添字に沿って行うので、$\partial_u$は一度も現れない。
-従って\emph{相対Kontsevich積を絶対係数に忘れた積}は、
-同じ$\Pi$を全変数の多ベクトルとみなしたときの
-\emph{絶対Kontsevich積そのもの}である。
-相対gauge同型も絶対Hochschild gaugeとして使えるため、
-$\widehat A_f$の絶対Kontsevich classも$\Pi$で代表される。
-この結論は「相対同値を忘れれば必ず同じ絶対Poisson classになる」
-という一般論の無証明な利用ではなく、今回の\emph{中心係数で微分しない}
-グラフ公式に依存する。
-
-\cite[Theorem 3, Proposition 1]{PDolgushev}を適用する。
-台は滑らかな複素アフィン空間$\mathbb A^{m+3}$で、
-標準束が自明である。
-上の絶対双加群分解は有限完備自由分解と中心差$u^L-u^R$のKoszul分解
-から構成され、内部次数のshiftを忘れたVan den Bergh双対化双加群は
-twistなしで$\widehat A_f$自身に同型である。
-従ってDolgushevのunimodularity判定を
-いま構成した\emph{絶対}差分積へ適用する条件が揃う。
-よって標準体積形式
-$\omega_0=dx_1\wedge dx_2\wedge dx_3\wedge du_1\wedge\cdots\wedge du_m$ に対し、
-単元 $\rho\in R[x][[\hbar]]^\times$ で $L_\Pi(\rho\omega_0)=0$ となるものが存在する。
-標準体積形式$\omega_0$の全次数は$m+3$で、
-$\Pi$の全重みは零である。
-$\rho=\rho_0(\hbar)+\rho_{>0}$を
-多項式変数の全次数零成分と正次数成分に分けると、
-$\rho_0(0)\ne0$である。
-実際$\rho\bmod\hbar$は多項式環の単元、従って非零定数だからである。
-$L_\Pi(\rho\omega_0)$の全次数$m+3$の成分は
-$\rho_0(\hbar)L_\Pi\omega_0$に等しい。
-したがって$L_\Pi(\rho\omega_0)=0$と
-$\rho_0(\hbar)\in\CC[[\hbar]]^\times$から
-$L_\Pi\omega_0=0$を得る。
-
-$\nu=dx_1\wedge dx_2\wedge dx_3$ とすると相対一形式
-$\alpha=\iota_\Pi\nu$ は $d_R\alpha=0$ を満たす。
-相対 polynomial de Rham 複体の active Euler homotopy によって
-$\alpha=d_R\psi$、$\psi=\hbar f+O(\hbar^2)$、$\deg\psi=3$ を得る。
-積分定数を $R[[\hbar]]$ で調整して最初の係数を $f$ にする。
-$\Pi$ は $\psi$ の相対 Jacobian 場なので $\psi/\hbar$ は Casimir である。
-twisted formality の第一 Taylor 成分はこの零次 Poisson cocycle を零次 Hochschild cocycle、すなわち中心元に送る。
-gauge 同型で $A$ に戻したものが $\widehat\Omega_f$。
-全写像が次数を保ち、法 $\hbar$ で関数上の HKR 写像は恒等なので、その次数は三、residue は $f$ である。
-\end{proof}
-\begin{remark}
-\cite[Proposition 8.1.1]{EG}の孤立特異点の追加仮定は中心全体・cohomologyを扱う (ii),(iii) に課される。
-上の証明は中心元一つの存在を扱い、中心全体が一つの potential で生成されるとは主張しない。
-相対 formality および絶対 CY 双対性という外部入力を明示しており、計算実験だけから中心元を推測する議論ではない。
-\end{remark}
-
-\subsection{中心元の代数化と正則中心拡大}
-\begin{lemma}\label{lem:pg-algebraize-center}
-$0\in U_0\subset\mathbb A^1_\hbar$ 上の次数付き代数 $D$ の各次数部分が有限自由であり、
-$D$ が次数一の元 $y_1,\ldots,y_r$ と中心元で生成されるとする。
-完備化に次数 $d$ の中心元 $\widehat\eta$ があれば、
-ある $0\in U\subset U_0$ 上で中心元 $\eta\in D_d$ を
-$\eta\bmod\hbar=\widehat\eta\bmod\hbar$ となるように選べる。
-\end{lemma}
-\begin{proof}
-$O=\CC[\hbar]_{(\hbar)}$ として有限自由加群間の写像
-$(D_O)_d\to(D_O)_{d+1}^{\oplus r}$、$a\mapsto([a,y_i])_i$ の核を $L$ とする。
-完備化の平坦性から完備化後の核は $L\otimes_O\CC[[\hbar]]$。
-$L$ の有限個の生成元 $l_j$ を用いて
-$\widehat\eta=\sum_ja_j(\hbar)l_j$ と書けば
-$\eta_O=\sum_ja_j(0)l_j$ は同じ residue をもつ。
-係数の分母は原点で消えないので、それらの零点を除けばよい。
-\end{proof}
+\subsection{代数的中心元の規格化と正則中心拡大}
+任意の滑らかな三次ブロックにおける中心元の存在と
+Cramer表示は
+定理\ref{thm:pg-universal-determinant}で証明した。
+同定理が使う古典的Casimir核の計算は、
+三変数制限が特異・零の場合も成立する。
+さらに複数ブロックを持つ滑らかな$F$では
+補題\ref{lem:pg-central-splitting-smooth}によって
+中心変数だけの三次項を配分し、各ブロックを
+\emph{全変数に関して滑らかな三次式}に選べる。
+これらを合わせれば全Poisson構造に対して
+有限次数の行列式演算で代数的中心三次元を得る。
 
 \begin{lemma}[中心三次元の偶性]\label{lem:pg-center-parity}
 命題\ref{prop:pg-PBW}の代数的族$A_f$について、
@@ -1069,8 +935,17 @@ A_\lambda/(u_1,\ldots,u_m)\simeq\bigotimes_{s=1}^kS_{s,\lambda}.
 補題\ref{lem:pg-central-linear}を $m$ 回適用して $A_\lambda$ の次元 $N=3k+m$ と AS parameter $N$ を得る。
 Hilbert 級数は PBW 基底から $(1-t)^{-N}$ である。
 
-補題\ref{lem:pg-formal-center}と\ref{lem:pg-algebraize-center}を各ブロックに適用し、開集合を共通に縮めると
-$\Omega_s\in Z(A_{f_s}|_U)_3$、$\Omega_s\bmod\hbar=f_s$ を得る。
+最初に$F$の純中心三次部分を
+補題\ref{lem:pg-central-splitting-smooth}に従って各ブロックへ分配する。
+これにより各$V(f_s)\subset\PP(x_s,u)$は滑らかになり、
+active偏微分とPoisson構造は変化しない。
+定理\ref{thm:pg-universal-determinant}を各$f_s$に適用すると、
+\emph{三変数制限$f_s(x_s,0)$が特異または恒等的零でも}、
+ある原点を含むZariski開集合上に
+有限Cramer式で表せる厳密中心三次元
+$\Omega_s\in Z(A_{f_s}|_U)_3$、
+$\Omega_s\bmod\hbar=f_s$を得る。
+有限個のブロックについて開集合を共通に縮める。
 異なるブロックは可換なので $\Omega=\sum_s\Omega_s$ は $A$ の中心元で、residue は $F$。
 さらに$U$を$\hbar\mapsto-\hbar$で不変な開集合へ縮め、
 補題\ref{lem:pg-center-parity}の反自己同型で各$\Omega_s$を平均する。
