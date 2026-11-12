@@ -39,9 +39,9 @@ $u\ne0$では$u=1$に規格化する。
 $a,b,c$はそれぞれ$0$または$-2/3$であり、その非零個数を$r$とすると
 $a^2+b^2+c^2=4r/9$（$0\le r\le3$）。
 節点型の残る三式は
-\[
+\begin{equation}
  yz+2x=0,\qquad xz+3y^2=0,\qquad xy+3z^2=0.
-\]
+\end{equation}
 $yz=0$なら$x=y=z=0$。
 $yz\ne0$なら後二式を掛けて$x^2=9yz=-18x$、従って$x=-18$。
 よって$F_u=0$は、$3+4r/9=0$または$327+4r/9=0$を要求し、いずれも不可能である。
@@ -69,10 +69,10 @@ Jacobi条件を$P_0$で線形化した整数行列$M_\epsilon$は
 \begin{lemma}[接空間の整数証明書]\label{ne:rank}
 両行列の階数は33、核は$L$である。
 列$(012)$と$(345)$を除き、JSON証明書に指定した33行（独立組版では付録にも掲載）を取ると
-\[
+\begin{equation}
  \det M_{\mathrm N}'=2^{24}3^{12}=8916100448256,\qquad
  \det M_{\mathrm C}'=-2^{33}3^{12}=-4565043429507072.
-\]
+\end{equation}
 \end{lemma}
 \begin{proof}
 $\lambda P_1+\mu P_2$は、中心変数$u$を共有する二つの三変数Jacobian括弧を与える。
@@ -107,9 +107,9 @@ Eulerベクトル$e_1-e_3$はその像に含まれないため、射影化して
 $W=\bigoplus_{s=1}^k W_s$、$\dim W_s=3$、
 $P=\sum_s P_s$、$0\ne P_s\in\Lambda^3 W_s$とする。
 $W^*$内のスキーム
-\[
+\begin{equation}
  D_P=\{\alpha:(\iota_\alpha P)\wedge(\iota_\alpha P)=0\}
-\]
+\end{equation}
 は$k$個の三次元線形部分空間$W_s^*$の被約な和である。
 従って$P$は順序を除き$\{W_1,\ldots,W_k\}$を決定する。
 \end{lemma}
@@ -134,21 +134,21 @@ $f_{\mathrm C}$は$z^2+y^3$となり尖点を持つ。
 \subsection{同次量子ブロックの行列式曲線}
 $u=0$の三変数ブロックを、$[y,z]=h\operatorname{sym}(f_x)$とその巡回置換で量子化する。
 多重線形化した二次関係式の行列は
-\[
+\begin{equation}
  M_{\mathrm N}(h)=\begin{pmatrix}
  0&-(1+h/2)z&(1-h/2)y\\
  (1-h/2)z&-3hy&-(1+h/2)x\\
  -(1+h/2)y&(1-h/2)x&-3hz
  \end{pmatrix},
-\]
-\[
+\end{equation}
+\begin{equation}
  M_{\mathrm C}(h)=\begin{pmatrix}0&-z&y-hz\\z&-3hy&-x\\-y-hz&x&-hx\end{pmatrix}.
-\]
+\end{equation}
 \begin{proposition}\label{ne:quantum}
-\begin{align*}
+\begin{equation}\begin{aligned}
  \det M_{\mathrm N}(h)&=-\frac h4\bigl((h^2+12)xyz+(12-3h^2)(y^3+z^3)\bigr),\\
  \det M_{\mathrm C}(h)&=-3h\bigl(xz^2+y^3-h^2yz^2\bigr).
-\end{align*}
+\end{aligned}\end{equation}
 前者は$h\ne0$、$h^2\notin\{4,-12\}$で節点三次曲線、
 後者は全ての$h\ne0$で尖点三次曲線である。
 \end{proposition}
