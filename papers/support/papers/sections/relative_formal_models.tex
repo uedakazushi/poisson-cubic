@@ -1,4 +1,4 @@
-\section{Artin形式復元・étale局所化と具体模型の概要}\label{sec:intro}
+\section{Artin形式復元の定式化と結果の概要}\label{sec:intro}
 
 滑らかなcubicのKuznetsov成分を
 \[
@@ -90,7 +90,7 @@ rotationを忘れた形式的復元も成立する（定理\ref{thm:unpolarized-
 étale局所モデルを作れる（系\ref{cor:etale-unpolarized}）。
 これらは局所的な実現の結果であり、rotationなしの大域的な一意性とは分けて扱う。
 
-\subsection{比較に用いる既知結果と本稿の構成}
+\subsection{形式的残余圏の比較に用いる既知結果}
 
 Orlov \cite{Orlov} とCassidy--Conner--Kirkman--Moore \cite{CCKM} は、
 中心正則元による商、特異圏、matrix factorization、残余成分の比較を与える。
@@ -109,52 +109,12 @@ actual dg変形をHochschild形式変形と同一視する際のcurvature問題
 \cite{KL}は、Lurie \cite{Lurie} とBlanc--Katzarkov--Pandit
 \cite{BKP} の比較写像の単射性で処理する。
 
-明示的族の楕円ブロックはEtingof--Ginzburg \cite{EG} と
-Sklyaninの点曲線の公式 \cite{Walton} に依拠する。
-本稿では次数シフトの共役、中心変数を加える際の生成性、
-有限群による通常次数への降下を証明する。
-可換な係数環についてのThom--Sebastiani定理を、
-非可換な係数環に対して仮定を確認せず引用することはしない。
-
-有限中心代数の外部積生成については、Elagin--Lunts--Schn\"urer
-\cite[Theorem 4.18]{ELS} が、perfect field上のnoetherian J-2 schemesに載る
-coherentな代数に対し、ungradedな有界導来圏の生成定理を証明している。
-本稿では、\(\ZZ^r\) の任意の粗化次数を保ち、さらに一方の係数代数には
-有限中心性を仮定しない形を証明する（定理\ref{thm:one-sided-boxes}）。
-\cite[Theorem 4.18]{ELS} は双方の因子をcoherentな構造代数とするため、
-任意のnoetherian係数代数を許すここでの主張は、その定理の直接の適用ではない。
-新たな入力はBeilinsonの対角分解 \cite{Beilinson} を非可換係数付きで用いる
-多項式拡大の補題である。中心のNoether正規化と分離冪等元によるretractを組み合わせ、
-斉次中心局所化の核を次元について帰納する。
-対象の細分次数へのliftや、係数代数の有限global dimensionは仮定しない。
-有限位数THCRの有限中心性 \cite[Corollary 2.3]{SmithTate} をこの片側のみに適用し、
-一つの任意位数ブロックを含む多ブロックのMF比較を得る。
-He--Ma--Ye \cite{HMY} のtensor productに対する一般化Kn\"orrer周期性は、
-中心元の次数が二である非可換quadricとClifford変形を扱う。
-本稿の三次中心元への直接の適用ではない。
-周囲のnoetherian性については、Chan \cite{ChanMulti} の多重Serre同値と
-面・帯による議論を任意個の楕円因子へ展開し、有限位数の仮定なしで証明する。
-Keeler \cite{KeelerMulti} のTheorem 2.7は任意個の可換な可逆bimoduleの
-NC-amplenessを判定するが、同論文のTheorem 3.3とCorollary 3.5のnoetherian性は
-二因子についての主張である。本稿では任意個の積に必要な帰納法を記す。
-基礎となる対角分解と有限中心のungraded生成定理は既知である。
-一方有限中心の次数付き定式化および本適用の先行研究上の新規性は確認継続中である。
-
-étale局所復元では、Toën--Vaquié \cite{TV} のperfect objectのmoduliと
-smoothnessの無限小判定 \cite{Stacks} を用いる。
-新たに示すのは、同値bimoduleとrotation intertwinerを同時にパラメータ化したスタックが、
-形式的復元定理によって底上smoothになることである。
-Pirozhkov \cite{Pirozhkov} およびLin--Zhang \cite{LZ} のTorelliは
-二つの可換モデルの一意性に関する結果であり、この局所的な存在の証明とは役割が異なる。
-Huybrechts \cite[Section 9]{HuyUpdate} の四次元における一般的な非可換変形の問題と、
-ここで扱うrotation付き変形問題とは、比較する構造の水準が異なる。
-
-\paragraph{定理の適用範囲.}
-以下ではArtin形式基底、smooth properな相対dg圏、および
-有限係数の楕円ブロック族について、異なる仮定の下で結論を証明する。
+\paragraph{形式的結果の射程.}
+以下ではArtin形式基底における残余dg圏と標識付き同値を構成する。
 これらの組合せの先行研究上の初出は未確認であり、
 基礎となる既知定理の新規性は主張しない。
-可換点からの量子化族のすべての有限パラメータで同じ復元が成立するとは結論しない。
+有限係数の可換模型については、第\ref{sec:explicit-block-results}節で
+別の仮定の下に述べる。
 
 \section{次数付き変形から相対残余圏を構成する}\label{sec:relative}
 

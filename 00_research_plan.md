@@ -1,7 +1,7 @@
 # 研究方針：Poisson三次超曲面の量子化と一般点可換復元
 
-**2026-11-12 / v68。再開時は最初に読む。GitHub uedakazushi/nc-cubic のmainが正本。**
-現行主原稿はA `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v52）。
+**2026-11-12 / v69。再開時は最初に読む。GitHub uedakazushi/nc-cubic のmainが正本。**
+現行主原稿はA `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v53）。
 
 ## 目標・到達点・達成基準
 
@@ -41,7 +41,7 @@ Aはsmooth cubicのPoisson正規形、退化、Bondal予想、代数的量子化
 
 論文Bは五部からなる。Iは一般点復元のwindow・完備MF比較・生成と飽和、IIは可換点の一次・二次変形と有限復元、IIIはArtin形式・étale復元と相対smoothnessの条件、IVは楕円・混合量子化の明示模型・多ブロック生成・例外係数と二次jet、Vはpoint schemeの台・非被約構造・平坦極限を扱う。各部の導入で主定理と条件付き相対定理を区別する。
 
-相対復元の長編節は、Artin形式・étale実現・楕円ブロック・多ブロック生成・境界例の五ファイルと、具体模型の主定理文を収めた一ファイルに整理した。論文Bでは部をまたいでこれらを直接読み込み、互換入口 `papers/support/papers/sections/rotation_models.tex` は六節の読込のみを担う。定理・証明・全ラベルを保持し、同内容の別証明の役割を区別して用語を統一する。公表本文に作業過程は蓄積しない。優先課題は全文組版と参照監査、一次文献の仮定との照合、大きな支持節に残る重複した説明の整理である。
+相対復元の長編節は、Artin形式・étale実現・楕円ブロック・多ブロック生成・境界例の五ファイルと、具体模型の主定理文を収めた一ファイルに整理した。論文Bでは部をまたいでこれらを直接読み込み、互換入口 `papers/support/papers/sections/rotation_models.tex` は六節の読込のみを担う。定理・証明・全ラベルを保持し、同内容の別証明の役割を区別して用語を統一する。公表本文に作業過程は蓄積しない。相対形式節に残っていた楕円・外部積生成の先行研究比較を明示模型の節へ移し、étale局所復元の先行研究比較も該当する構成定理の直前に移した。すべての文献引用・定理・証明・ラベルは保持する。優先課題は全文組版と参照監査、一次文献の仮定との照合、大きな支持節に残る重複した説明の整理である。
 
 ## 未解決の核心と次の具体的着手
 
@@ -58,7 +58,7 @@ Bの混合族、point schemeとPoisson零点の平坦極限、λ³=−3の局所
 
 ## 再現と実施状態
 
-`latexmk papers/paper_a.tex` / `latexmk papers/paper_b.tex`。静的検査は `python3 scripts/check_layout.py` と `python3 scripts/verify_bundle.py`。B-v52の実施状態は `validation_paper_b.json`、Aなどは `validation.json`。
+`latexmk papers/paper_a.tex` / `latexmk papers/paper_b.tex`。静的検査は `python3 scripts/check_layout.py` と `python3 scripts/verify_bundle.py`。B-v53の実施状態は `validation_paper_b.json`、Aなどは `validation.json`。
 
 新しい `computations/verify_complete_curved_transport.py` はSchouten恒等式、CasimirだけではJacobiが従わない負例、非自律・非可換なbar flow模型の10逆行列恒等式と2750余積係数恒等式、arity位数、twisting代入の相互逆性を厳密検算した。実際の非可換MF HomやKontsevich重みの計算ではない。5頁の証明抜粋をLuaLaTeXで組版し表示確認した。B全文・全既存証明書の再実行は未実施。以前の検算コードは保持し、今回再実行したとは記載しない。
 
