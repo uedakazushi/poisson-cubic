@@ -6,5 +6,5 @@ $out_dir = 'build';
 $aux_dir = 'build';
 $max_repeat = 6;
 
-# Main manuscripts: papers/paper_a.tex, papers/paper_b.tex, papers/paper_c.tex.
+# Main manuscripts: papers/paper_a.tex and papers/paper_c.tex.
 # Shared sources remain under papers/support/papers/.
