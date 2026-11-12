@@ -1,9 +1,9 @@
 {
-  "version": "nc-cubic-v51",
+  "version": "nc-cubic-v52",
   "date": "2026-11-12",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only following actual GitHub publication failure.",
-  "scope": "Article A-v49 remains focused on all-dimensional Poisson normal forms, degeneracy generators, Bondal, algebraic quantization, moduli stacks; the self-contained six/seven-dimensional primary decomposition and numerical geometry has been moved, without loss, to uedakazushi/nc-cubic2.",
+  "scope": "Paper A-v50: algebraic central cubic and AS-regular quantization proved for ALL Poisson structures on every smooth cubic n-fold n>=3, including singular or zero ternary block restrictions, using universal commutator rank identities, Cramer determinants and Bertini central-cubic splitting. Formal existence, Kontsevich and Dolgushev no longer used in the proof. Existing Poisson stack, normal form, Bondal, explicit Hesse and other paper B/C results retained.",
   "proofs_written_and_checked": [
     {
       "source": "papers/support/papers/reconstruction/point_scheme_discriminant_boundary.tex",
@@ -108,7 +108,8 @@
     "article_A_general_dimension": "PASS independent local SymPy for 6 cases n=3,4,6,7,10; 610 Poisson Jacobi components, 52 Casimir components, cross Hessian and invariant six-index Hessian identity exactly zero.",
     "article_A_general_dimension_symbol_constructor": "PASS local SymPy demo (n=6,k=2,m=2 shared center u,v): Weyl center Omega_00=F and no mixed eta_s eta_t terms; 30 F and 142 Omega monomials. Not a free-algebra centrality certificate.",
     "article_A_fermat_stack_component_counts": "PASS exact Python integer recurrence for n=3,...,10: Pois space=1,11,36,92,491,2557,11353,60105; fixed moduli stack=1,2,2,3,4,5,6,9; relative stack=1,2,2,2,3,3,3,4.",
-    "article_A_six_seven_migration": "PASS exact text comparison before removal: original general-degeneracy, dimension-specific six/seven geometry, numeric section all preserved at nc-cubic2; target paper static checks PASS and local equivalent SymPy numerical suite PASS."
+    "article_A_six_seven_migration": "PASS exact text comparison before removal: original general-degeneracy, dimension-specific six/seven geometry, numeric section all preserved at nc-cubic2; target paper static checks PASS and local equivalent SymPy numerical suite PASS.",
+    "article_A_singular_ternary_classical_kernel": "PASS in independent local SymPy rational arithmetic: for f=u*x^2+v*y^2+w*z^2+u^3+v^3+w^3, g=f(x,y,z,0)=0 but total f is smooth. Classical Jacobian Casimir matrix size 378x56 has exact rank45, kernel 11-dimensional equal to C f+C[u,v,w]_3. A corresponding standalone script is committed to computations/verify_singular_cubic_classical_kernel.py; exact GitHub-hosted script was not rerun after upload."
   },
   "primary_sources_checked": [
     "Burke-Stevenson arXiv1507.00830v1, Prop4.18/Lemmas6.1,6.2/Thm6.4: PDF pp12-14,17-19 inspected including screenshots.",
@@ -135,18 +136,19 @@
     "General point-scheme flat-limit theorem for arbitrary noncommutative cubic threefolds; degeneration at lambda^3=-3 or h^6=-27; independent verification of all Sklyanin deformation theorems; first publication novelty.",
     "Full point scheme at h^6=-27 or Poisson zero degeneracy on singular cubic lambda^3=-3; these are outside the smooth limit theorem.",
     "Article A full independent proof audit, complete novelty review and submission-ready typeset final PDF.",
-    "Relative formality/absolute CY input of lem:pg-formal-center still pending complete independent mathematical audit.",
-    "Singular active cubic block extension of the fixed-size determinant formula remains open.",
     "A single coordinate-free GL3-equivariant low-degree polynomial formula in the ORIGINAL ternary coefficients, without choosing Hesse coordinates: not established (explicit formula exists after Hesse normalization).",
     "A short exact universal closed central cubic formula for ALL singular/zero ternary restrictions: not established; nodal and cuspidal special formulas exist.",
-    "Independent full audit of the completed absolute CY and relative formality proof of formal central elements in singular cubic blocks: pending.",
     "Actual LuaLaTeX build and visual inspection of the complete article A-v44: not run in the current turn.",
     "Coordinate-independent explicit quartic h^4 correction K(P,F) without choosing a Hesse chart: not established.",
     "Global descent of arbitrary-dimensional k-parameter quantizations from Hesse presentation charts to the full Poisson pair moduli: not established.",
     "Full independent validation of normal-form and AS-regularity dependencies and complete paper A compilation: pending.",
     "A fully independently audited proof of Poisson normal form and relative irreducible component count: not completed; current manuscript contains detailed proofs using the normal-form lemma.",
     "A full LuaLaTeX compilation and page-by-page rendered PDF inspection of article A-v48 after renumbering: not executed.",
-    "Fermat maximizing fixed Poisson stack component counts among all smooth cubic hypersurfaces: not established."
+    "Fermat maximizing fixed Poisson stack component counts among all smooth cubic hypersurfaces: not established.",
+    "Full independent rerun of universal Hesse all-coefficient centre certificate and exhaustive normal-form, PBW/AS regularity, centre regularity, Bondal and stack component dependency audit: pending.",
+    "A short GLOBAL polynomial centre for every singular/zero ternary restriction, as opposed to an exact local rational Cramer formula, is not established.",
+    "An algebraic centre/quantization family canonically descended to the entire relative moduli stack of Poisson pairs: not established.",
+    "Whole article A-v50 LuaLaTeX build and PDF visual check: not performed in this turn."
   ],
   "typesetting": {
     "standalone_coherent_residual": {
@@ -236,11 +238,11 @@
         "Berger and Taillefer, JNCG (2007) original PDF p242 Theorem 1.1(i): arbitrary lower-degree potential on 3-CY potential is PBW and 3-CY; checked original page image.",
         "Etingof and Ginzburg arXiv:0709.3593v4 original PDF pp29-30 Proposition 8.1.1(i), proof uses polynomial relative base R=C[u], no isolated singularity hypothesis in part (i); original pages checked."
       ],
-      "relative_absolute_kontsevich_bridge": "Clarified in paper A: differential cochains in active x are included in absolute polydifferentials; graph formula for active-only Pi differentiates only x, hence same absolute Kontsevich star product. Standard formality/absolute completed CY assumptions still not independently fully established."
+      "relative_absolute_kontsevich_bridge": "Clarified in paper A: differential cochains in active x are included in absolute polydifferentials; graph formula for active-only Pi differentiates only x, hence same absolute Kontsevich star product. Standard formality/absolute completed CY assumptions still not independently fully established.",
+      "formal_center_route": "Removed from the proof and source body of article A. Earlier Dolgushev/Kontsevich/relative absolute completed CY approach was an unaudited alternative, not required for the now purely algebraic centre existence theorem. Do not restore it as a needed dependency."
     },
     "typesetting": {
-      "whole_article_A": "NOT RUN: TeX static checks only, LuaLaTeX and rendered PDF inspection not performed.",
-      "reason": "Private GitHub source accessed through connector, not cloned into local TeX runtime."
+      "whole_article_A": "NOT RUN after this revision: no full LuaLaTeX build/PDF visual inspection performed. TeX sources available via connected private GitHub only."
     },
     "universal_casimir_jet": {
       "theorem_labels": [
@@ -259,7 +261,7 @@
       ],
       "theorem_integration": "Quantization theorem thm:pg-quantization now explicitly asserts parity-invariant choice of algebraic central cubic; proof averages over a symmetric Zariski open. Source has explicit universal Hessian commutator identity mod h^4."
     },
-    "version": "A-v49",
+    "version": "A-v50",
     "exact_universal_fermat_mixed_center": {
       "source": "papers/support/papers/sections/fermat_mixed_universal_center.tex",
       "theorem_labels": [
@@ -291,8 +293,8 @@
         "lem:pg-det-classical-kernel",
         "thm:pg-universal-determinant"
       ],
-      "status": "PROVED UNCONDITIONALLY for smooth ternary g using new explicit Hesse mixed polynomial center; no need to assume formal-center lemma.",
-      "proof": "Classical degree-three Jacobian Casimir kernel equals C*F+C[u]_3. New Hesse theorem and GL3 change give an explicit actual center lifting F, hence rank≤r over C(h). A nonzero r×r classical minor gives rank≥r, so Cramer solution solves all commutators.",
+      "status": "PROVED UNCONDITIONALLY for EVERY smooth TOTAL cubic f(x,y,z,u), including singular/zero ternary restriction g. Formal centre existence is NOT an input.",
+      "proof": "Classical cubic Casimir kernel constant C f+C[u]_3 by gcd(f_x,f_y,f_z)=1 for smooth total f. The generic smooth-g Hesse polynomial centre forces all higher universal commutator minors identically zero in the irreducible smooth f coefficient family, hence rank bound persists for all smooth f. A nonvanishing classical rank-r minor gives an exact Cramer rational-in-h^2 centre with special fibre f. Pure-center cubic splitting via Bertini makes all blocks of a smooth global F smooth without modifying Poisson partials.",
       "exact_classical_minors": [
         {
           "m": 0,
@@ -307,7 +309,7 @@
       ],
       "certificate": "computations/verify_universal_casimir_minor.py",
       "verification": "Exact SymPy classical Poisson matrix generated and determinants verified locally (-72, 4608). This is not a quantum center check.",
-      "limits": "No one single determinant chart valid for all coefficients without coordinate/minor changes; the universal short Hesse mixed polynomial is now established for all smooth ternary g after Hesse linear normalization; singular/zero ternary restrictions remain separate."
+      "limits": "No single short polynomial centre for all singular g is claimed. The Cramer centre is local in the h-Zariski neighborhood of 0 and rational in h^2; varying f can require different nonzero minors and choices of central cubic allocation. Global descent on Poisson moduli is unproved."
     },
     "exact_universal_hesse_mixed_center": {
       "source": "papers/support/papers/sections/hesse_mixed_universal_center.tex",
@@ -362,7 +364,8 @@
         "Descent to Poisson moduli; no global full-moduli quantization asserted",
         "Independent re-audit of PBW, all AS-regular/domain, normal-form and Bondal dependencies",
         "Full paper A LuaLaTeX build, PDF visual check and primary literature novelty survey"
-      ]
+      ],
+      "all_poisson_extension": "thm:pg-ad-all-poisson proves independent block-parameter simultaneous quantization for arbitrary smooth X, WITHOUT assuming smooth g_s; Cramer rational central elements replace short Hesse polynomial formula. All family AS/PBW and flatness assertions use prior results and need comprehensive independent audit."
     },
     "poisson_moduli_stacks": {
       "source": "papers/support/papers/sections/poisson_moduli_stacks.tex",
@@ -465,6 +468,28 @@
       "numerical_check": "PASS: equivalent locally executed SymPy Chern/Hodge/genus/length calculations; remote committed script has NOT been rerun. Does not verify nonreduced primary ideal decomposition.",
       "source_static_check": "PASS: 16 article A source files, 239 equation environments and 6 align environments, zero unnumbered math/tags, 210 labels/225 references and 25 bibitems/61 citation uses; missing/duplicate references NONE.",
       "operations": "Destination repository files were created and exact original sections verified before the source-specific portions of the original article-A file were removed. Separate files in user's Library were not deleted."
+    },
+    "algebraic_centre_all_poisson": {
+      "theorem": "thm:pg-universal-determinant",
+      "source": "papers/support/papers/sections/universal_casimir_determinant.tex",
+      "quantum_theorems": [
+        "thm:pg-quantization",
+        "thm:pg-ad-all-poisson"
+      ],
+      "scope": "Every smooth total cubic f(x,y,z,u) and every smooth cubic X with any normal-form Poisson structure; ternary restriction g=f(x,y,z,0) need not be smooth, irreducible or nonzero.",
+      "proof_steps": [
+        "lem:pg-det-gradient-coprime: Smooth total f implies gcd(f_x,f_y,f_z)=1. If common homogeneous factor h existed, h=f_{u1}=...=f_{um}=0 would have a nonzero projective solution by Krull height, giving gradient zero.",
+        "lem:pg-det-classical-kernel: For cubic p with d_x p wedge d_x f=0, fraction field factor a is in S by gcd1, and homogeneous degrees force a constant. Thus classical cubic Casimirs C f + C[u]_3 and classical D matrix rank r=binom(m+5,3)-binom(m+2,3)-1 for all smooth total f.",
+        "lem:pg-det-universal-rank: Smooth total cubic coefficient space T is reduced irreducible. A dense open has smooth g, for which exact Hesse central cubic is known. Universal degree3/4 Weyl commutator matrix D(f,h) is algebraic near T x {0} by PBW. All (r+1)-minors vanish on the dense generic-g open and hence identically on T near h=0. Thus rank D(f,h)<=r for every smooth total f, even with singular/zero g.",
+        "thm:pg-universal-determinant: A nonzero r x r classical minor at each f remains invertible around h=0. Cramer column replacement gives Omega_h=f_cent+a(sym(w0)-sum(det M_j/det M) sym(w_j)), an EXACT algebraic central cubic with Omega_0=f. Reversal + h->-h forces coefficients rational in h^2 and the denominator is nonzero at h=0.",
+        "lem:pg-central-splitting-smooth: For a smooth X with normal form F=sum f_s(x_s,u), redistribute the pure-central cubic c(u)=sum c_s(u). Each block is already smooth at u=0 by smoothness of X, and is generically smooth off u=0 by Bertini applied to the base-point-free system of pure-center cubics. All blocks can simultaneously be made smooth on an irreducible affine distribution space, without changing active partials or Poisson structure.",
+        "thm:pg-quantization: Apply exact algebraic centre to each smooth block after pure-center splitting; sum them. Existing PBW, tensor Koszul, central regularity via active-degree leading symbols, change of rings and finite-rank flatness complete the AS-regular ambient and AS-Gorenstein central quotient.",
+        "thm:pg-ad-all-poisson: Independent block parameters give a simultaneous k-variable algebraic quantum pencil for ALL ternary restrictions; centres are rational in each eta_s^2 and have no cross-block eta products."
+      ],
+      "current_status": "Complete paper-level mathematical proof written with all dependencies identified; new elementary gcd/rank/Cramer and Bertini arguments independently checked conceptually. Existing universal Hesse symbolic certificate, normal-form theorem and PBW/AS inputs have not all been independently re-executed/audited in this turn; full publication-ready verification still needed.",
+      "formal_deformation_required": false,
+      "primary_comparison": "Etingof-Ginzburg arXiv:0709.3593v4, Proposition 8.1.1(i), Section 8.3, exact PDF image page 32 (zero-index 31) checked; uses related rank/properness specialization for a general CY potential. Current approach specifies classical cubic kernel and reconstructs normalized algebraic Cramer centre, including singular/zero ternary restrictions.",
+      "novelty": "Comprehensive priority/novelty determination not completed."
     }
   },
   "papers_layout": {
