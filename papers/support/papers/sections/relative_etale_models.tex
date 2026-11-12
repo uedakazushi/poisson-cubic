@@ -1,0 +1,190 @@
+\section{飽和な代数的族に対するétale局所復元}\label{sec:algebraization}
+
+形式的な復元を有限パラメータへ移す際には、圏の族そのものの代数性が必要である。
+本節ではそれを明示的に仮定し、可換モデルと圏同値の両方をétale近傍上で構成する。
+各次数がflatであることだけから、この仮定が自動的に従うとは主張しない。
+
+\begin{definition}\label{def:algebraic-family}
+ \(S\) を有限型複素スキームとする。
+ 本節で\emph{smooth properな代数的dg圏の族}とは、
+ étale局所的に \(\Perf(A)\) と書け、\(A\) が底環上のdg代数で、
+ \(A\) 自身が底上perfect、対角 \(A\) が \(A^{\mathrm{op}}\otL A\) 上perfectである族をいう。
+ 圏は小さく、pretriangulatedかつ冪等完備とし、すべての底変更を導来的に取る。
+ 自己同値 \(\rho\) の代数的族は、可逆なperfect bimoduleによって与える。
+\end{definition}
+
+\begin{theorem}[étale局所的な可換復元]\label{thm:etale}
+ \(S\) を有限型複素スキーム、\(s\in S(\CC)\) とし、
+ \((\cK_S,\rho_S)\) を定義\ref{def:algebraic-family}の組とする。
+ 滑らかなcubic \(X^n\subset\PP^{n+1}\)、\(n\ge3\)、およびenhanced pair同値
+ \[
+ \phi_s:(\cK_s,\rho_s)\xrightarrow{\sim}(\Ku(X),\rho_X)
+ \]
+ が与えられたとする。このとき、あるpointed étale近傍
+ \((T,t)\to(S,s)\)、滑らかな相対cubic \(Y\subset\PP^{n+1}_T\)、および
+ \[
+ \Phi_T:(\cK_T,\rho_T)\xrightarrow{\sim}(\Ku(Y/T),\rho_{Y/T})
+ \]
+ が存在し、\(t\) 上で \(Y_t=X\)、\(\Phi_t\simeq\phi_s\) とできる。
+ この同値はperfect bimoduleとrotationを結ぶ同型によって与えられる。
+
+ 従って、可換cubicのpairで実現できる複素点は \(S\) のZariski開部分をなす。
+ その各複素点で、実現する滑らかなcubicの射影同型類は一意である。
+\end{theorem}
+
+この定理は、底 \(S\) 全体上のcubicの一意な降下や、同値の一意性を述べない。
+また、\(S\) が連結であることだけでは、上の開部分が \(S\) 全体であるとはいえない。
+\(n\ne4\) ではrotationを最初から与えなくても、同じ方法でétale局所的な
+可換モデルが存在する（系\ref{cor:etale-unpolarized}）。
+
+\subsection{指定された還元同値を保つ持ち上げ}
+
+\begin{lemma}\label{lem:relative-realization}
+ \(R'\twoheadrightarrow R\) を剰余体 \(\CC\) の局所Artin代数のsmall extensionとする。
+ \((\cK_{R'},\rho_{R'})\) をsmooth proper pairとし、滑らかなcubic \(Y_R\) と同値
+ \[
+ \phi_R:(\cK_R,\rho_R)\simeq(\Ku(Y_R),\rho_{Y_R})
+ \]
+ を固定する。このとき \(Y_R\) を延長する \(Y_{R'}\) と、
+ 還元後に \(\phi_R\) と同型になるpair同値 \(\phi_{R'}\) が存在する。
+ \(Y_R\) の射影空間への埋込みも指定してよい。
+\end{lemma}
+\begin{proof}
+ 特殊ファイバーでの \(\phi_R\) をmarkingとして固定する。
+ まずcubicの係数を持ち上げ、幾何側に一つのlift \(Y^0_{R'}\) を取る。
+ \(P\) を第\ref{sec:formal}節のpairのformal moduli problemとし、
+ \(I=\ker(R'\to R)\) と置く。
+ 与えられた圏とこの幾何学的liftを、\(\phi_R\) によって
+ \(P(R')\to P(R)\) の同じhomotopy fibre内で比較する。
+ 存在するliftの差は \(H^0(T_P)\otimes I\) のtorsorで測られる。
+ 幾何学的Kodaira--Spencer写像
+ \(H^1(T_{Y_0})\simeq H^0(T_P)\) により \(Y^0_{R'}\) を修正し、その差を消す。
+ 補題\ref{lem:theta}の完全忠実性で、指定した還元同値を保つactual同値へ戻る。
+ 途中で還元上の自己同型が現れる表示を用いた場合には、
+ 補題\ref{lem:automorphisms}でそれを持ち上げて補正できる。
+
+ 抽象的な偏極cubicのliftに対しても、\(\OO(1)\) の延長と
+ \(H^0(\OO(1))\) の自由な基底の持ち上げにより、指定された埋込みを延長できる。
+ これは \(\operatorname{PGL}_{n+2}\) のsmoothnessを用いることと同じである。
+\end{proof}
+
+\subsection{同値とrotationの同型を表す代数的スタック}
+
+\(U\subset\PP(\CC[x_1,\ldots,x_{n+2}]_3)\) を滑らかなcubicの方程式空間とし、
+ \(\mathcal X\to U\) を普遍cubicとする。
+ 相対的な例外列とmutationにより
+ \((\Ku(\mathcal X/U),\rho_U)\) はsmooth properな代数的pairの族となる。
+ 相対生成子として \(\bigoplus_{i=0}^{n+1}\OO_{\mathcal X}(i)\) の残余射影を使える。
+ この生成性は、射影空間の相対Beilinson生成子の引戻しと、
+ 閉埋込みの押出しが保守的であることから従う。
+
+\begin{proposition}\label{prop:equivalence-stack}
+ \(S\)-スキーム \(T\) に対し、
+ \[
+ (f:T\to U,\ P,\ \alpha:P\circ\rho_T\xrightarrow{\sim}\rho_f\circ P)
+ \]
+ を対象とするスタック \(\mathcal E\) を考える。
+ ここで \(P:\cK_T\simeq\Ku(\mathcal X_f/T)\) はperfect bimoduleで表される同値、
+ 射は \(\alpha\) と両立するbimoduleの同型である。
+ このスタックは \(S\times U\) 上、従って \(S\) 上で局所有限表示のArtin 1-stackである。
+\end{proposition}
+\begin{proof}
+ すべての構成はétale降下と両立するため、底をaffineにして生成子を選んでよい。
+ \(\cD=\cK_S^{\mathrm{op}}\otL\Ku(\mathcal X/U)\) は \(S\times U\) 上smooth properである。
+ Toën--VaquiéのTheorem 3.6とCorollary 3.15 \cite{TV}により、
+ そのperfect bimoduleのmoduliは局所幾何的で局所有限表示である。
+ 同論文は一般の可換底環上で定式化されているので、定数族だけに限定されない。
+
+ \(P\) が同値を与える条件は開である。
+ 実際、右随伴を表すperfect bimoduleを \(P^R\) とすると、
+ 単位と余単位
+ \[
+ \Delta_{\cK}\longrightarrow P^R P,
+ \qquad PP^R\longrightarrow\Delta_{\Ku}
+ \]
+ のconeがともに零となることが必要十分である。
+ 生成子でdg代数を選んだ模型で、これらのconeを評価する。
+ smooth proper性によりその底上の複体はperfectであり、消滅はそこで検出される。
+ 従って消滅座は開である。
+ これは \cite[Lemma 3.25とCorollary 3.24の証明]{TV} の二つの圏に対する同じ議論である。
+
+ 同値 \(P\) の幾何ファイバーで
+ \[
+ \Ext^i(P,P)=\HH^i(\Ku(X_f)),\qquad i\in\ZZ.
+ \]
+ 補題\ref{lem:HH}から負次数は消える。
+ perfectな自己Hom複体のTor振幅の開性により、これは任意の底変更後にも負次数が
+ 消える開部分として扱える。\cite[Corollary 3.21]{TV}により、
+ 同値を表す部分は通常のArtin 1-stackとなる。
+
+ 最後に \(P\rho_T\) と \(\rho_fP\) の間の同型を付加する。
+ 射のmoduliの局所有限表示性は \cite[Corollary 3.19]{TV} による。
+ その中でconeが零となる部分を取れば同型のmoduliを得る。
+ 同型が存在する点では両側は可逆bimoduleであり、
+ 負次数のHomは再び \(\HH^{<0}\) の消滅によって零である。
+ 従ってこの同型の選択は代数的空間で表され、
+ \(\mathcal E\) はArtin 1-stackのままである。
+ この構成には \(\rho^3\simeq[2]\) の選択や、そのcoherenceは課していない。
+\end{proof}
+
+\subsection{smoothnessとétale局所section}
+
+\begin{proof}[定理\ref{thm:etale}の証明]
+ \(\phi_s\) と \(X\) の方程式を選んで \(e\in\mathcal E(\CC)\) を得る。
+ \(V\to\mathcal E\) をsmooth atlasとし、\(e\) の上に複素点 \(v\) を選ぶ。
+ \(v\) における \(V\to S\) のsmall extensionの持ち上げ問題を考える。
+ 補題\ref{lem:relative-realization}により、対応する \(\mathcal E\) の対象を
+ 指定された還元を保って持ち上げられる。
+ さらに \(V\to\mathcal E\) のsmoothnessにより、それを \(V\) へ持ち上げる。
+ 底が局所Artin環で剰余体が \(\CC\) なので、atlasへのétale局所持ち上げはsectionを持ち、
+ この持ち上げを同じ底上で取れる。
+
+ \(V\to S\) は局所有限型であるから、Noetherian底上の無限小判定
+ \cite[Tag 02HX]{Stacks}により \(v\) でsmoothである。
+ \(v\) の近傍を縮め、smooth morphismのétale局所section
+ \cite[Tag 055Uとその証明中のLemma 37.38.5]{Stacks}を使うと、
+ \(\kappa(v)=\kappa(s)=\CC\) であることから、指定した \(v\) を通る
+ \((T,t)\to(S,s)\) と \(T\to V\to\mathcal E\) が得られる。
+ これが求める \(Y\)、\(P\)、\(\alpha\) を同時に与える。
+
+ \(T\to S\) の像はZariski開であり、その各複素点の上には複素点を取れる。
+ 従って可換モデルが存在する複素点の集合は開部分の複素点集合である。
+ 各点でのモデルの一意性は \cite[Theorem 1.7]{LZ} による。
+\end{proof}
+
+\begin{corollary}\label{cor:generic-realization}
+ 定理\ref{thm:etale}の仮定で \(S\) が既約なら、\(s\) を含む空でないZariski開部分
+ \(S^\circ\) の全複素ファイバーに可換cubicモデルが存在する。
+ 幾何学的generic fibreにも、有限型étale底変更を通じてモデルが存在する。
+\end{corollary}
+\begin{proof}
+ 上のétale近傍の像を \(S^\circ\) とする。既約性からこれはdenseである。
+ \(S\) を必要なら被約化してgeneric pointを考えると、
+ \(T\) の支配的な成分のgeneric residue fieldは \(\CC(S)\) の有限分離拡大である。
+ その上のcubicと同値を代数閉包へ底変更すればよい。
+\end{proof}
+
+\begin{remark}\label{rem:algebraization-boundary}
+ 本節では形式的なpower seriesの収束を証明していない。
+ 指定された代数的圏の族に対し、代数的な同値のmoduliのsmoothnessから
+ 別途、実際の代数的近傍と同値を作っている。
+ その完備化は形式的復元定理のモデルとmarked同型類で一致する。
+ しかし、任意に選ばれた形式的座標表示や形式的bimoduleそのものが
+ 元の底上へ一意に降下する、という結論ではない。
+\end{remark}
+
+
+\begin{corollary}[rotationを指定しない局所的存在]\label{cor:etale-unpolarized}
+ 定理\ref{thm:etale}で \(n\ne4\) とする。
+ \(\rho_S\) は仮定せず、\(\cK_s\simeq\Ku(X)\) というenhanced同値だけを与えても、
+ pointed étale近傍 \(T\) 上にcubic \(Y/T\) と、指定された特殊ファイバーの同値を
+ 延長する \(\cK_T\simeq\Ku(Y/T)\) が存在する。
+\end{corollary}
+\begin{proof}
+ 命題\ref{prop:equivalence-stack}から \(\alpha\) の指定を除いた同値のスタックを用いる。
+ 定理\ref{thm:unpolarized-formal}の証明を、還元同値を指定したhomotopy fibre内で行えば、
+ 補題\ref{lem:relative-realization}のrotationなしの版が得られる。
+ 後は定理\ref{thm:etale}と同じsmooth atlasとétale局所sectionの議論を適用する。
+ 得られたモデルからrotationを移せるが、その \(T\) 全体上での一意性は主張しない。
+\end{proof}
+

@@ -1,0 +1,1125 @@
+\section{複数ブロックの比較と生成性の帰着}\label{sec:multiblock}
+
+\subsection{生成性を仮定しない外部積}
+
+\(A_1,\ldots,A_s\) を、\((A_i)_0=\CC\) を満たす局所有限な
+非負次数付き代数、\(f_i\in Z(A_i)_3\) を中心的な三次斉次元とする。
+この小節の \(\MF\) は、有限自由次数付きmatrix factorizationのdg圏の
+pretriangulated hullを取り、さらに冪等完備化したものを表す。
+この定義にはtensor product algebraのnoetherian性を仮定しない。
+\[
+ \Gamma_s=\ZZ^s/\langle3e_i-3e_1:2\le i\le s\rangle,
+ \qquad w=3e_1,
+ \qquad A=\bigotimes_{i=1}^s A_i,
+ \qquad W=\sum_{i=1}^s f_i
+\]
+とする。\(A_i\) の次数 \(d\) の斉次元には \(de_i\) を割り当てる。
+
+\begin{lemma}[外部積の完全忠実性]\label{lem:multiblock-ff}
+ 外部積はdg完全忠実関手
+ \[
+ \Phi:\Perf\!\left(\bigotimes_{i=1}^s\MF^{\ZZ}(A_i,f_i)\right)
+ \longrightarrow\MF^{\Gamma_s}(A,W)
+ \]
+ を定める。\(i\) 番目の因子のdegree shiftは右辺の \((e_i)\) に対応し、
+ \((3e_i)=[2]\) の標準同型とも両立する。
+\end{lemma}
+\begin{proof}
+ まず有限自由factorization \(P_i,Q_i\) を取る。
+ tensor productの奇微分はKoszul符号付きの外部和であり、
+ その二乗は \(W\) となる。
+ 各因子のHom複体を \(C_i^\bullet\) と書くと、
+ 自由加群のHomを行列係数ごとに分解することにより
+ \[
+ \Hom_{\MF^{\Gamma_s}(A,W)}^\bullet
+       (\boxtimes_iP_i,\boxtimes_iQ_i)
+ \cong
+ \operatorname{Tot}\!\left(\bigotimes_i C_i^\bullet\right)
+ \tag{\(\dagger\)}\label{eq:multiblock-hom}
+ \]
+ を得る。ここでは次数群の関係 \(3e_i=3e_1\) が、
+ 各因子の二つのcohomological shiftを他の因子へ移す操作に正確に対応する。
+ 従って右辺の次数 \(q\) の和は
+ \(q_1+\cdots+q_s=q\) にわたる通常のtensor product複体の和であり、
+ 追加の完備化や直積を取らない。
+
+ この和の有限性を確認する。各 \(P_i,Q_i\) は有限個の内部次数shiftからなり、
+ \(A_i\) は非負次数なので、\(C_i^q=0\) は十分小さい \(q\) で成り立つ。
+ したがって固定した全次数 \(q\) に寄与する \((q_1,\ldots,q_s)\) は有限個である。
+ 同様に、行列係数を元の \(\ZZ^s\)-次数へ分解したときも、
+ 固定した \(\Gamma_s\)-次数と非負次数の条件の下では有限個の成分しか現れない。
+ これにより \eqref{eq:multiblock-hom} は実際のHom複体の同型である。
+ differentialとcompositionの一致はtensor productのKoszul符号から従う。
+ 完全忠実性は有限個のcone、shift、直和因子を取っても保たれるので、主張を得る。
+ 内部次数shiftとperiodicityとの両立はこの構成自体に含まれる。
+\end{proof}
+
+\subsection{任意個の楕円THCRの積と周囲の正則性}
+
+Chanの多重Serre同値 \cite[Theorem 3.4]{ChanMulti} は、代数のnoetherian性を
+仮定せず、right ampleな可逆bimoduleの組に適用できる。
+同論文のCorollaries 5.8--5.9は二因子のTHCRと三次元AS-regular代数の積を扱う。
+以下では、その証明で用いる面と帯の議論をfactor数について帰納し、任意個の楕円因子を扱う。
+Keeler \cite[Theorem 2.7, Corollary 2.8]{KeelerMulti} によっても、
+この積のbimoduleの組の左右NC-amplenessを確認できる。
+各translationはnumerical Picard groupに自明に作用し、全ての座標が正の外部積はampleだからである。
+ただし多重amplenessだけではnoetherian性は自動的に従わず、以下で帯の有限性を別に扱う。
+
+\begin{lemma}[楕円THCRの有限テンソル積]
+\label{lem:elliptic-thcr-tensor-noeth}
+ \(E_1,\ldots,E_r\) を滑らかな複素射影楕円曲線、\(L_i\) を正次数の可逆層、
+ \(\sigma_i\) をtranslationとする。このとき
+ \[
+ C=\bigotimes_{i=1}^r C_i,\qquad C_i=B(E_i,L_i,\sigma_i)
+ \]
+ は左右noetherianである。
+\end{lemma}
+\begin{proof}
+ \(X=\prod_iE_i\) とし、各factorから引き戻した可逆bimoduleを
+ \(\mathcal L_i\) と書く。異なるfactorの作用は可換であり、
+ \(\mathcal L^{\mathbf d}=\mathcal L_1^{d_1}\cdots\mathcal L_r^{d_r}\) と置けば
+ \[
+ C_{\mathbf d}=H^0(X,\mathcal L^{\mathbf d})\qquad(\mathbf d\in\mathbb N^r)
+ \]
+ は \(C\) のテンソル積多重次数と乗法を与える。
+ 可逆bimoduleの逆を用いて \(\mathcal L^{\mathbf d}\) は
+ \(\mathbf d\in\mathbb Z^r\) に対しても定義する。
+
+ \emph{Ampleness.}
+ 外部積のvery ample可逆層 \(H=\boxtimes_iH_i\) を固定する。
+ 任意のcoherent層 \(\mathcal F\) を、有限個の \(H\) の負冪の直和からの全射で
+ \(\dim X\) 段まで近似する。
+ 各 \(\mathcal L_i^{d_i}\) の台となる可逆層の次数は \(d_i\deg L_i\) なので、
+ その各近似項を \(\mathcal L^{\mathbf d}\) でtwistした高次cohomologyは、
+ \(d_i\) が全て十分大きいと消える。
+ ここでは楕円曲線上の正次数の可逆層の \(H^1\) の消滅とK\"unneth公式を用いる。
+ 最後の核にはGrothendieck消滅を適用し、dimension shiftingによって
+ \[
+ H^q(X,\mathcal F\mathcal L^{\mathbf d})=0
+ \quad(q>0,\ \mathbf d\gg0)
+ \]
+ を得る。従ってこの組はright ampleである。
+ \(\mathcal F\otimes H^{-q}\) にもこの消滅を適用すると、
+ Castelnuovo--Mumford regularityにより
+ \(\mathcal F\mathcal L^{\mathbf d}\) の大域生成も \(\mathbf d\gg0\) で従う。
+ 自動同型によるpushforwardはcohomologyと大域生成を変えないので、
+ この議論は可逆bimoduleの左右の規約に依存しない。
+
+ \emph{面と有限幅の帯.}
+ 代数 \(C\) の右noetherian性と、全てのcoherent \(\mathcal F\)、\(q\ge0\) に対する
+ \[
+ Q^q(\mathcal F)=\bigoplus_{\mathbf d\in\mathbb N^r}
+ H^q(X,\mathcal F\mathcal L^{\mathbf d})
+ \]
+ の有限生成性を、\(r\) について同時に示す。
+ \(r=0\) の場合は有限次元ベクトル空間の主張である。
+ \(r-1\) 個の因子まで成立すると仮定し、
+ \(C_{\widehat i}=\bigotimes_{j\ne i}C_j\)、\(X_{\widehat i}=\prod_{j\ne i}E_j\) と置く。
+ 座標 \(d_i=a\) を固定した \(Q^q(\mathcal F)\) の面は、\(C_{\widehat i}\)-加群である。
+ 射影 \(\pi_i:X\to X_{\widehat i}\) と
+ \(\mathcal F_i=\mathcal F\mathcal L_i^a\) に対するLerayスペクトル系列の
+ 全多重次数の和は
+ \[
+ E_2^{p,b}=Q^p_{X_{\widehat i}}
+       (R^b\pi_{i*}\mathcal F_i)
+ \ \Longrightarrow\
+ \bigoplus_{\mathbf d_{\widehat i}\ge0}
+ H^{p+b}(X,\mathcal F_i\mathcal L_{\widehat i}^{\mathbf d_{\widehat i}})
+ \]
+ となる。射影公式と残るtranslationに関する自然性により、これは
+ \(C_{\widehat i}\)-加群のスペクトル系列である。
+ 帰納法で各 \(E_2\) 項はnoetherianな \(C_{\widehat i}\) 上有限生成である。
+ 従って、有限個の核・商・拡張で得られる各面もnoetherianである。
+
+ 次の帯に関する観察を使う。
+ \(\mathbb N^r\)-次数付き \(C\)-加群 \(M\) の各面 \(M_{d_i=a}\) が
+ \(C_{\widehat i}\) 上noetherianであり、\(M_{\ge\mathbf b}=0\) とする。
+ \[
+ M^{(i)}=\bigoplus_{d_1\ge b_1,\ldots,d_i\ge b_i}M_{\mathbf d}
+ \quad(0\le i\le r)
+ \]
+ は \(M=M^{(0)}\supset\cdots\supset M^{(r)}=0\) という \(C\)-部分加群のfiltrationである。
+ 各 \(M^{(i-1)}/M^{(i)}\) をさらに \(d_i\ge a\) でfiltrationすると、
+ 有限個の商は固定面の \(C_{\widehat i}\)-部分加群になる。
+ その商では \((C_i)_{>0}\) の作用は零なので、これらは \(C\)-加群としてもnoetherianである。
+ よって \(M\) はnoetherianである。この観察は \(C\) 自身のnoetherian性を使わない。
+ 各面がnoetherianな加群の部分商についても、同じ観察を適用できる。
+
+ \emph{切断加群.}
+ \(q>0\) のとき、amplenessにより \(Q^q(\mathcal F)_{\ge\mathbf b}=0\) となる
+ \(\mathbf b\) がある。従って前段階から
+ \(Q^q(\mathcal F)\) は\emph{noetherian}である。
+ 特に、後で用いる \(Q^1\) の任意の部分加群も有限生成である。
+
+ \(q=0\) について、\(\mathcal F\mathcal L^{\mathbf a}\) を大域生成する
+ \(\mathbf a\ge0\) を選び、逆bimoduleをtensorして
+ \[
+ 0\longrightarrow\mathcal K\longrightarrow
+       (\mathcal L^{-\mathbf a})^{\oplus t}
+       \longrightarrow\mathcal F\longrightarrow0
+ \]
+ を得る。\(\mathcal K\) はcoherentである。
+ この積の場合、\(\mathbf v\) の一つでも成分が負なら
+ \(H^0(X,\mathcal L^{\mathbf v})=0\) である。
+ 実際、外部積のそのfactorの次数が負であり、K\"unneth公式を適用できる。
+ 従って切断を全非負多重次数で取った列は
+ \[
+ C(-\mathbf a)^{\oplus t}\longrightarrow Q^0(\mathcal F)
+       \longrightarrow Q^1(\mathcal K)
+ \]
+ と正確である。最初の写像の像は有限生成であり、余核は既にnoetherianと示した
+ \(Q^1(\mathcal K)\) の部分加群なので、\(Q^0(\mathcal F)\) は有限生成である。
+ また任意の \(\mathbf a\ge0\) について
+ \[
+ Q^0(\mathcal F)_{\ge\mathbf a}(\mathbf a)
+ \cong Q^0(\mathcal F\mathcal L^{\mathbf a})
+ \]
+ であるから、第一象限によるtruncationも有限生成である。
+
+ \emph{イデアルの有限生成.}
+ 多重斉次右イデアル \(I\subset C\) を取る。
+ \cite[Theorem 3.4]{ChanMulti} により、sheafificationはexactであり、
+ \(\widetilde I\subset\widetilde C=\OO_X\) となる。
+ \(X\) はnoetherianなので、このquasi-coherent部分層はcoherentである。
+ 随伴のunit \(\eta_I:I\to Q^0(\widetilde I)\) の自然性と
+ \(\eta_C:C\xrightarrow{\sim}Q^0(\OO_X)=C\) により、\(\eta_I\) は単射である。
+ その余核は多重tailsに関するtorsionであり、\(Q^0(\widetilde I)\) の商だから有限生成である。
+ 有限生成torsion加群は一つの第一象限上で零となるため、ある \(\mathbf a\ge0\) に対して
+ \[
+ I_{\ge\mathbf a}=Q^0(\widetilde I)_{\ge\mathbf a}
+ \]
+ となる。右辺の有限生成性は前段階で証明した。
+ 一方、\(I/I_{\ge\mathbf a}\) は \(C/C_{\ge\mathbf a}\) の部分加群である。
+ \(C\) の固定面は有限次元空間 \((C_i)_a\) と \(C_{\widehat i}\) のtensor productなので
+ \(C_{\widehat i}\)-noetherianである。
+ 従って帯の観察により \(C/C_{\ge\mathbf a}\) はnoetherianであり、
+ \(I/I_{\ge\mathbf a}\) も有限生成となる。これで \(I\) の有限生成性を得た。
+
+ 加法と両立する \(\mathbb N^r\) の整列順序、例えば全次数付き辞書式順序で
+ 任意の右イデアルの先頭多重斉次項を取る。
+ その斉次イデアルの有限生成元を元のイデアルへ持ち上げ、
+ 先頭次数を下げる帰納法を行えば、任意の右イデアルも有限生成である。
+ これで通常の右noetherian性と帰納法が完了する。
+ opposite algebraには逆translationを伴う正次数の可逆bimoduleが対応するので、
+ 同じ証明により左noetherian性も得る。
+\end{proof}
+
+\begin{lemma}[正次数中心正則元からのnoetherian性の持ち上げ]
+ \label{lem:central-noetherian-lift}
+ \(D\) を連結局所有限な非負次数付き代数、
+ \(g\in Z(D)\) を正次数の斉次正則元とする。
+ \(D/(g)\) がnoetherianなら \(D\) もnoetherianである。
+\end{lemma}
+\begin{proof}
+ \(g\)-adic associated gradedは \((D/(g))[t]\) でありnoetherianである。
+ 任意の斉次右イデアル \(J\) に誘導された \(g\)-adic filtrationの
+ associated gradedはこの環の右イデアルなので有限生成である。
+ その二重斉次生成元を \(J\) に持ち上げる。
+ 内部次数 \(d\) の元のinitial termをこれらの持ち上げで消すと、
+ \(g\)-adic orderが真に増える。
+ しかし \(g^nD\) の内部次数は少なくとも \(n\deg(g)\) なので、
+ 固定した \(d\) ではこの操作は有限回で終わる。
+ よって全ての斉次右イデアルが有限生成である。
+ 任意の右イデアルについては通常の内部次数の最高次項を取り、
+ 生成元を持ち上げて次数に関する帰納法を行えば有限生成性を得る。
+ 左側も同じである。
+\end{proof}
+
+\begin{proposition}[周囲のテンソル積]
+\label{prop:tensor-sklyanin-ambient}
+ \(h_i^6\ne-27\)、\(S_i=S_{h_i}\)、\(g_i=G_{h_i}\) とし、
+ \[
+ A=(\bigotimes_{i=1}^rS_i)[u_1,\ldots,u_m],\qquad
+ N=3r+m,\qquad W=\sum_i g_i+P(u),\qquad R=A/(W)
+ \]
+ と置く。ここで \(P\) は任意の中心斉次三次式であり、\(m=0\) なら \(P=0\) とする。
+ \(A\) は左右noetherianなKoszul AS-regular代数で、
+ \[
+ \operatorname{gldim}A=N,\qquad H_A(t)=(1-t)^{-N},\qquad
+ \operatorname{Ext}^j_A(\CC,A)=
+ \begin{cases}\CC(N)&j=N,\\0&j\ne N\end{cases}
+ \]
+ を満たす。\(W\) は中心正則元であり、\(R\) はinjective dimension \(N-1\)、
+ Gorenstein parameter \(N-3\) のAS-Gorenstein代数である。
+ この主張に \(\sigma_i\) の有限位数や \(P\) の孤立性は必要ない。
+\end{proposition}
+\begin{proof}
+ \(S_i/(g_i)\) の斉次基底の持ち上げ \(V_i\subset S_i\) を選ぶと、
+ \(g_i\) の正則性と次数に関する帰納法により
+ \(S_i\cong V_i\otimes\CC[g_i]\) は中心 \(\CC[g_i]\)-加群として自由である。
+ \(g_1,\ldots,g_r\) は \(\bigotimes_iS_i\) 上の中心正則列をなし、その商は
+ 補題\ref{lem:elliptic-thcr-tensor-noeth}の \(C\) である。
+ 補題\ref{lem:central-noetherian-lift}により、正次数中心正則元について
+ 商のnoetherian性を元の連結次数付き代数へ持ち上げられる。
+ これを反復し、中心変数についてのHilbert基底定理を用いると \(A\) は左右noetherianとなる。
+
+ 各 \(S_i\) の長さ三のKoszul双加群分解と、多項式環のKoszul双加群分解をtensorすると、
+ \(A\) の対角双加群の長さ \(N\) の有限射影分解を得る。
+ よって \(\operatorname{gldim}A\le N\) である。
+ 各factorの \(\CC\) のKoszul分解とそのdualのK\"unneth公式は、
+ 表示したExt公式と左側の同じ式を与える。
+ 従ってglobal dimensionはちょうど \(N\) であり、AS-Gorenstein条件も成立する。
+ Koszul性とHilbert seriesはtensor分解から従い、GK dimensionは \(N\) である。
+
+ \(A\) は \(\CC[g_1,\ldots,g_r,u_1,\ldots,u_m]\) 上自由である。
+ この中心多項式環で \(W\) は \(g_1\) に関してmonic一次式なので、\(A\) 上でも左右正則である。
+ 中心正則元によるchange of ringsにより、商のinjective dimensionは一つ減り、
+ Gorenstein parameterは三減る。
+\end{proof}
+
+\subsection{多ブロックHesse模型からの埋込み}
+
+\(r\ge1\)、\(m\ge0\) とし、独立した変数 \(x_j,y_j,z_j\) に対して
+\[
+ S_{h_j}=\CC\langle x_j,y_j,z_j\rangle/
+ ([x_j,y_j]-h_jz_j^2,[y_j,z_j]-h_jx_j^2,[z_j,x_j]-h_jy_j^2),
+\]
+\[
+ G_j=x_j^3+y_j^3+z_j^3-2h_j^2\sym(x_jy_jz_j),\qquad
+ F_j=x_j^3+y_j^3+z_j^3+h_j^2x_jy_jz_j
+\]
+と置く。異なるブロックの元は可換とし、
+\[
+ A_{\mathbf h,m}=(S_{h_1}\otimes\cdots\otimes S_{h_r})[u_1,\ldots,u_m],
+ \qquad W_{\mathbf h,m}=\sum_{j=1}^rG_j+\sum_{a=1}^m u_a^3,
+\]
+\[
+ F_{\mathbf h,m}=\sum_{j=1}^rF_j+\sum_{a=1}^m u_a^3,
+ \qquad Y_{\mathbf h,m}=V(F_{\mathbf h,m})\subset\PP^{3r+m-1}
+\]
+とする。
+
+\begin{proposition}[多ブロックの完全忠実比較]\label{prop:multiblock-embedding}
+ 全ての \(j\) について \(h_j^6\ne-27\) と仮定する。
+ degree shiftと三次periodicityを保つdg完全忠実関手
+ \[
+ \MF^{\ZZ}(\CC[x_j,y_j,z_j,u_a],F_{\mathbf h,m})
+ \longrightarrow
+ \MF^{\ZZ}(A_{\mathbf h,m},W_{\mathbf h,m})
+ \]
+ が存在する。\(n=3r+m-2\ge3\) なら、左辺は
+ \((\Ku(Y_{\mathbf h,m}),\rho_{Y_{\mathbf h,m}})\) である。
+ この命題は、右辺の全対象が像に属するとは主張しない。
+\end{proposition}
+\begin{proof}
+ \(s=r+m\) とし、各非可換ブロックと各一変数ブロックに別の \(e_i\) を割り当てる。
+ 系\ref{cor:block}は各 \(j\) について
+ \[
+ \MF^{\ZZ}(\CC[x_j,y_j,z_j],F_j)
+ \simeq\MF^{\ZZ}(S_{h_j},G_j)
+ \]
+ をdegree shiftとperiodicityを保って与える。
+ これらをtensorし、\(\MF^{\ZZ}(\CC[u_a],u_a^3)\) には恒等を用いる。
+ 非可換側へは補題\ref{lem:multiblock-ff}の完全忠実関手を用いる。
+
+ 可換側の外部積は本質的全射でもある。
+ これは可換なsmooth affine ambientに対するequivariant Thom--Sebastiani定理
+ \cite[Theorem 5.15, Corollary 5.18]{BFK}を適用したものである。
+ 二因子の場合は \(G=H=\mathbb G_m\)、potentialのcharacterを双方 \(t\mapsto t^3\)
+ と取る。異なる二因子上でのcharacterの差 \((-3,3)\) は非torsionであり、
+ \(G\times_{\mathbb G_m}H\) のcharacter groupは
+ \(\ZZ^2/\langle3e_2-3e_1\rangle\) となる。
+ 各potentialは斉次なので、Euler公式により和のcritical locusは
+ 個々の零点の積に含まれる。従って同定理の支持条件を除くことができる。
+ 反復して \(\Gamma_s\) を得る。
+ ここで引用している定理のambientは全て可換であり、非可換ambientへ拡張して引用してはいない。
+
+ これで \(\Gamma_s\)-次数付きの完全忠実関手を得た。
+ \(\Gamma_s\to\ZZ\)、\(e_i\mapsto1\) の核は
+ \(T_s\cong(\ZZ/3)^{s-1}\) である。
+ 細分次数の圏から通常次数の圏へ戻す双対同変化では、
+ \(T_s\) の生成元は因子のdegree shiftの差
+ \(\rho_i\rho_1^{-1}\) として作用する。
+ 全ての比較はこれらと三次periodicityを保つので、
+ 有限群関係とそのcoherenceを保つ同変関手となる。
+ 同変対象間のHomは元のHomの有限群不変部分であり、標数零では不変部分を取る操作は完全である。
+ 従って完全忠実性は同変化で保たれる。
+ \cite[Theorem 4.2 and Section 8]{Elagin}の双対同変化を用いて通常次数へ降ろせば、
+ 求める関手を得る。\((e_1)\) との両立は降下後の \((1)\) との両立になる。
+
+ 最後に \(Y_{\mathbf h,m}\) のsmoothnessを確認する。
+ 特異点では全ての \(u_a=0\) であり、各三変数ブロックの偏微分が同時に零となる。
+ \(F_j\) の射影零点がsmoothなので、そのaffine critical locusは原点だけである。
+ 従って全座標が零となり、射影特異点は存在しない。
+ Orlov同値により最後の主張を得る。
+\end{proof}
+
+\begin{remark}
+ 命題\ref{prop:tensor-sklyanin-ambient}により、この独立ブロック族の周囲は
+ 平行移動の位数によらずnoetherian AS-regularである。
+ 中心正則元の商についてのMF--特異圏比較とOrlov windowにより、
+ 右辺は \(A_{\mathbf h,m}/(W_{\mathbf h,m})\) の残余成分と同一視できる。
+ この周囲の正則性は、残余圏そのもののpropernessや比較の本質的全射性とは別である。
+\end{remark}
+
+\subsection{Euler導分と中心支持への帰着}
+
+\begin{lemma}[ブロックpotentialの零ホモトピー]\label{lem:block-euler}
+ 任意の有限自由factorization \(P\) of \(W_{\mathbf h,m}\) 上で、
+ 各 \(G_j:P\to P(w)\) と各 \(u_a^2:P\to P(2e_{r+a})\) は零ホモトピックである。
+ この主張は \(\Gamma_s\)-次数付きでも通常の整数次数付きでも成り立つ。
+\end{lemma}
+\begin{proof}
+ \(j\) 番目のブロックの次数を数え、他のブロックと \(u_a\) では零となるEuler導分を
+ \(\delta_j\) と書く。Sklyanin関係式はそのブロックについて斉次なので、
+ \(\delta_j\) は自由代数から商代数へ降りる。
+ \(\delta_j(W_{\mathbf h,m})=3G_j\) である。
+ factorizationの有限自由加群に斉次基底を選び、その微分行列 \(d\) の係数に
+ \(\delta_j\) を作用させる。積のLeibniz則から
+ \[
+ d\,\delta_j(d)+\delta_j(d)\,d
+ =\delta_j(d^2)
+ =3G_j\,\Id_P.
+ \]
+ 従って \(\frac13\delta_j(d)\) が所要のホモトピーである。
+ \(\delta_j\) は代数の元の \(\Gamma_s\)-次数を変えない。
+ \(3e_j=w\) という次数群の関係があっても、
+ 元のtensor factorsから定義した導分の存在は失われない。
+ 同じ計算を中心変数の導分 \(\partial_{u_a}\) に対して行えば
+ \[
+ d\,\partial_{u_a}(d)+\partial_{u_a}(d)\,d=3u_a^2\Id_P
+ \]
+ を得る。基底に依存するのはホモトピーの選択であり、零ホモトピックという結論ではない。
+\end{proof}
+
+\begin{proposition}[生成性の中心商への帰着]\label{prop:block-support}
+ 全ての \(h_j^6\ne-27\) とし、\(A=A_{\mathbf h,m}\) と置く。
+ 命題\ref{prop:tensor-sklyanin-ambient}により、この \(A\) はnoetherian AS-regularである。さらに
+ \[
+ R=A/(W_{\mathbf h,m}),\qquad
+ C_j=S_{h_j}/(G_j),\qquad C=\bigotimes_{j=1}^r C_j
+ \]
+ と置く。\(C\) は \(R\) の商とみなす。
+ 次の等式が、冪等完備化した \(\Gamma_s\)-次数付き特異圏で成り立つ。
+ \[
+ \Dsg^{\Gamma_s}(R)
+ =\thick\!\left(
+ \operatorname{Res}\bigl(D^b(\operatorname{gr}^{\Gamma_s}C)\bigr)
+ \right).
+ \tag{\(\ddagger\)}\label{eq:block-support}
+ \]
+ また、\(C\) は \(R\)-perfectなので、restrictionは特異圏の間の関手にも降りる。
+\end{proposition}
+\begin{proof}
+ 各 \(G_j\) は中心正則元である。\(S_{h_j}/G_jS_{h_j}\) の斉次基底を持ち上げた
+ ベクトル部分空間を \(V_j\subset S_{h_j}\) とすると、次数に関する帰納法と正則性から
+ \[
+ V_j\otimes_\CC\CC[t_j]\xrightarrow{\sim}S_{h_j},\qquad
+ v\otimes t_j^b\longmapsto vG_j^b
+ \]
+ は中心 \(\CC[t_j]\)-加群の同型である。
+ 従って \(A\) は中心多項式環
+ \(\CC[t_1,\ldots,t_r,u_1,\ldots,u_m]\) 上自由である。
+ \(W\) はこの環の \(\sum_jt_j+\sum_au_a^3\) に対応するので正則であり、
+ \(R\) は \(\CC[t_1,\ldots,t_{r-1},u_1,\ldots,u_m]\) 上自由となる。
+ よって
+ \[
+ u_1,\ldots,u_m,G_1,\ldots,G_{r-1}
+ \]
+ は \(R\) の中心正則列で、その商は \(C\) である。
+ Koszul分解は \(C\) の有限自由 \(R\)-分解を与える。
+ これでrestrictionがperfect対象をperfect対象へ送ることも従う。
+
+ まず冪等完備化前の \(\Dsg^{\Gamma_s}(R)\) の対象 \(N\) を取る。
+ 中心正則元によるAS-regular代数の商に対するMF比較
+ \cite[Theorem 5.8]{CCKM}を使えば、\(N\) はfinite-free factorizationのcokernelのshiftで表せる。
+ この比較は通常の整数次数で記述されているが、
+ \(\Gamma_s\simeq\ZZ\oplus\Gamma_{s,\mathrm{tors}}\) と標数零を用い、
+ 各有限自由分解とホモトピーを斉次成分ごとに取る同じ構成で
+ \(\Gamma_s\)-次数を保った比較を得る。
+ 補題\ref{lem:block-euler}より、\(N\) は
+ \[
+ K(G_1,\ldots,G_{r-1},u_1^2,\ldots,u_m^2;N)
+ \]
+ のshiftと内部twistの直和因子となる。
+ ここで \(K\) は通常の中心Koszul複体である。
+ この複体の各cohomologyは \(G_1,\ldots,G_{r-1},u_1^2,\ldots,u_m^2\) に殺される。
+ さらに \((u_1,\ldots,u_m)^{m+1}\subset(u_1^2,\ldots,u_m^2)\) なので、
+ 各cohomologyの有限filtrationの商は全 \(u_a\) と全 \(G_j\) に殺される \(C\)-加群である。
+ \(G_r\) の消滅は \(W=0\) から従う。
+ noetherian性によりこれらは有限生成であり、有限個のtruncation triangleとfiltrationから
+ 未完備の特異圏の各対象が右辺に入る。
+ 最後に直和因子閉包を取れば、\eqref{eq:block-support} を得る。
+\end{proof}
+
+\subsection{必要な生成性の正確な内容}
+
+命題\ref{prop:block-support}は、全ての \(C\)-加群のrestrictionが
+\(C_1,\ldots,C_r\) の外部積から生成されることまでは述べていない。
+十分条件の一つは
+\[
+ D^b(\operatorname{gr}^{\Gamma_s}C)
+ =\thick\left\{
+ \operatorname{coarsen}(M_1\boxtimes\cdots\boxtimes M_r)(\gamma)
+ :M_j\in D^b(\operatorname{gr}^{\ZZ}C_j),\ \gamma\in\Gamma_s
+ \right\}
+ \tag{G}\label{eq:block-generation}
+\]
+である。\(\gamma\) の全shiftは、中心変数が零となった後にも残る次数類を含めるために必要である。
+以下で用いるsyzygyへの置換を正当化するため、
+\(A_{\ne i}=(\bigotimes_{j\ne i}S_{h_j})[u_1,\ldots,u_m]\) とし、
+他因子の外部積に全ての \(u_a\) が零で作用する \(A_{\ne i}\)-加群を \(M_{\ne i}\) とする。
+\(S_{h_i}\) の \(\CC[G_i]\) 上の自由性と \(W=0\) による \(G_i\) の消去から、
+\(R\) は \(A_{\ne i}\) 上自由であり、
+\[
+ \operatorname{Res}(C_i\boxtimes M_{\ne i})
+ \simeq M_{\ne i}\otL_{A_{\ne i}}R.
+\]
+各 \(S_{h_j}\) 上の有限自由分解と \(u_a\) のKoszul分解を外部tensorすると、
+\(M_{\ne i}\) は \(A_{\ne i}\)-perfectであり、上のrestrictionは \(R\)-perfectである。
+従って一因子が \(C_i\)-perfectである項はrestriction後に零となり、
+各因子を有限syzygyへ置き換えてよい。有界複体の場合もtruncation triangleから従う。
+各因子の有限syzygyを取りMFで表した後、外部tensor productの有限ambient分解を
+\(W\) の零ホモトピーで周期化すると、そのrestrictionの安定化は外部積factorizationになる
+（全体のcohomological shiftは生成性に影響しない）。
+したがって (G) が成立すれば、命題\ref{prop:block-support}と
+補題\ref{lem:multiblock-ff}により非可換側の外部積もMorita同値となり、
+命題\ref{prop:multiblock-embedding}を圏同値へ強められる。
+より弱く、(G)の等式をrestriction後の \(\Dsg^{\Gamma_s}(R)\) だけで示しても十分である。
+
+しかし (G) を、multigraded tailsの可換な積の幾何だけから推論することはできない。
+\(C\) は元来 \(\ZZ^r\)-次数を持つが、ここで必要なのは
+\(\Gamma_s\)-次数付き加群である。\(\ZZ^r\to\Gamma_s\) の核は
+\(3(e_i-e_1)\) からなる無限格子を含み、有限群降下ではない。
+\(\Gamma_s\)-次数付き加群は一般には \(\ZZ^r\)-次数へ持ち上がらない。
+最も単純には、\(\CC[a,b]\) に \(\deg a=e_1\)、\(\deg b=e_2\)、
+\(3e_1=3e_2\) を入れると、\(\CC[a,b]/(a^3-b^3)\) は \(\Gamma_2\)-次数付きだが
+\(\ZZ^2\)-次数へ持ち上がらない。そのannihilatorが \(\ZZ^2\)-斉次でないためである。
+この例は (G) 自体を反証するものではなく、個々の対象を細分次数へ持ち上げる証明法を反証する。
+
+さらにmultigraded tailsでは各座標軸上のtorsionが消える。
+生成性を完成させるには、これらのtorsionと上記の非liftable加群を、
+restriction後も含めて制御する必要がある。
+第\ref{sec:finite-center}節では、高々一つを除く因子の有限中心性でこの両方を扱い、
+一つの任意位数ブロックを許して本質的全射性を証明する。
+二つ以上の無限位数因子の一般の場合は未解決として保持する。
+
+\begin{remark}[別の十分条件]
+ \(\mathcal A\to\cD\) をsmooth proper圏からのdg完全忠実関手とする。
+ \(\cD\) がproperでSerre関手を持ち、埋込みがSerre関手と両立すれば、
+ \(\mathcal A\) のsaturated性から左右随伴が存在し、その直交成分は左右一致する。
+ したがって \(\cD\) に非自明な直交直和分解がなければ埋込みは同値である。
+ これは上の生成性とは別の完成条件となる。
+ ただし複数ブロックの全MFについて、必要なpropernessと直交分解不能性を
+ ここで証明したわけではない。
+\end{remark}
+
+\section{一方有限中心の外部積生成性と多ブロックの可換モデル}\label{sec:finite-center}
+
+この節では生成条件 \eqref{eq:block-generation} を、高々一つを除くブロックが
+有限位数である場合に証明する。任意位数の一因子は係数代数として残し、
+有限中心の因子を一つずつ追加する。
+非可換係数付きBeilinson分解、中心のNoether正規化、分離的な稠密開集合と
+その補集合の帰納法を用いる。
+\(\ZZ^r\)-次数へ持ち上がらない対象と軸上のtorsionも初めから含む。
+有限中心の場合の基礎的な局所化・生成法については \cite{ELS} と比較されたい。
+
+\subsection{斉次中心局所化と稠密開集合}
+
+\(\operatorname{gr}^{\Lambda}D\) は有限生成の \(\Lambda\)-次数付き右 \(D\)-加群の圏とする。
+ここで \(\Lambda\) は有限生成アーベル群であり、torsionを持っていてよい。
+全てのthick閉包は、有限直和、shift、cone、直和因子に関する閉包を表す。
+
+\begin{lemma}[斉次中心局所化]\label{lem:graded-localization}
+ \(D\) をnoetherianな \(\Lambda\)-次数付き代数、
+ \(f\in Z(D)\) を斉次元とする。
+ 有界導来圏の局所化は
+ \[
+ D^b(\operatorname{gr}^{\Lambda}D)\big/
+ D^b_{f\text{-tor}}(\operatorname{gr}^{\Lambda}D)
+ \simeq D^b(\operatorname{gr}^{\Lambda}D_f)
+ \]
+ を与える。左辺の核は、各cohomologyが \(f\) の冪に殺される対象からなる。
+ この核は \(D/(f)\) 上の有限生成 \(\Lambda\)-次数付き加群のrestrictionで生成される。
+\end{lemma}
+\begin{proof}
+ 局所化は中心元についての平坦な局所化であるからcohomologyと可換である。
+ 有限生成加群が局所化後に零なら、その有限個の生成元を同時に殺す \(f\) の冪がある。
+ \(f\)-adic filtrationと有界truncation triangleにより核についての主張を得る。
+
+ 局所化後の有限生成次数付き加群は、有限個の斉次生成元の
+ \(D\)-spanを取ることによって、局所化前の有限生成次数付き加群から得られる。
+ 射については有限生成加群の有限生成自由分解の必要な有限部分を使う。
+ 中心局所化と \(\operatorname{Ext}^q\) は可換であり、
+ 次数零の射は \(f\) の冪を分母としてclearできる。
+ 同じことは有界複体にも有限個のtruncationによって成立する。
+ 次数を保つ分母の射は \(f^N:M(-N\deg f)\to M\) と書く。
+ そのconeは \(f\)-torsionである。
+ 従って上記Verdier商は局所化後の圏へ完全忠実に写り、
+ 加群とその有限個のconeを全て含むので本質的全射である。
+ この議論で次数を細分する必要はない。
+\end{proof}
+
+\begin{lemma}[有限中心代数の良い稠密開集合]\label{lem:generic-separable}
+ \(k\) を標数零の体とする。
+ \(D\) を連結非負次数付き \(k\)-代数で、有限生成の可換次数付き中心部分代数
+ \(Z\subset Z(D)\) 上有限なものとする。
+ \(Z\) がreducedであると仮定する。
+ ある斉次元 \(f\in Z\) と斉次両側イデアル \(I\subset D\) が存在し、次を満たす。
+ \begin{enumerate}
+ \item \(f\) は \(Z\) の全てのminimal primeを避ける。
+       特に \(Z/(f)\ne0\) なら \(\dim Z/(f)<\dim Z\) である。
+ \item \(Z_f\) は \(k\) 上smoothな有限型可換環である。
+ \item \(I_f\) は冪零であり、\(Q_f=(D/I)_f\) は
+       \(Z_f\) 上有限射影かつ分離的な代数である。
+ \end{enumerate}
+ \(\dim Z=0\) の場合には \(Z=k\)、\(f=1\) と取れる。
+\end{lemma}
+\begin{proof}
+ \(K\) を \(Z\) の全商環とする。
+ \(Z\) はreduced noetherianなので、\(K\) はminimal primeの分数体の有限積である。
+ \(D_K\) は \(K\) 上有限次元であり、そのJacobson radical \(J\) は冪零である。
+ \(I\) を \(D\to D_K\) による \(J\) の逆像とする。
+ 次数を与える \(\mathbb G_m\)-作用はminimal primeの集合と \(J\) を保つので、
+ \(I\) は斉次である。
+ \(I^N\) は十分大きい \(N\) で \(K\) 上零となり、
+ 有限生成性から、ある全商環の分母を反転すれば \(I^N=0\) となる。
+
+ \(Q_K=D_K/J\) は半単純である。
+ 標数零なので、各simple factorの中心は対応する成分体の有限分離拡大であり、
+ \(Q_K\) は \(K\) 上分離的である。
+ generic freenessを用いて、ある稠密開集合上で \(Q\) を有限射影とする。
+ 分離性は、積の写像 \(Q\otimes_ZQ^{\mathrm{op}}\to Q\) の
+ \(Q\)-双加群としてのsection、すなわち分離冪等元の存在で表せる。
+ generic fiberにある分離冪等元と、それが満たす有限個の等式の分母を払えば、
+ さらに小さい稠密開集合上でこの分離冪等元が存在する。
+ また \(Z\) のsmooth locusは全てのgeneric pointを含む。
+
+ 以上の良い開集合は \(\mathbb G_m\)-作用で不変に取れる。
+ 実際、\(I^N\) の消滅、局所自由性、分離性、smoothnessは全て
+ 次数作用によって保たれる開条件である。
+ 補集合のイデアルは斉次で、どのminimal primeにも含まれない。
+ \(Z_0=k\) と \(k\) の無限性により、そのイデアル内から
+ 全てのminimal primeを避ける一つの斉次元 \(f\) を選べる。
+ 必要なら候補を冪にして次数を揃え、一般の線型結合を取ればよい。
+ \(\dim Z>0\) のとき零次元の既約成分はない
+ （全ての既約成分は連結な錐の頂点を含む）ので、この操作に例外はない。
+ \(Z=k\) の場合は有限次元代数のradicalと半単純商を用いればよい。
+\end{proof}
+
+\begin{lemma}[分離代数と射影分解]\label{lem:separable-perfect}
+ \(Z\) をsmooth affineな有限型 \(k\)-代数、
+ \(Q\) を \(Z\) 上有限射影かつ分離的な代数とする。
+ このとき \(Q\) は有限global dimensionを持つ。
+ 特に \(Q\) に任意のアーベル群次数を与えたとき、
+ \(D^b(\operatorname{gr}^{\Lambda}Q)\) は \(Q(\lambda)\)
+ \((\lambda\in\Lambda)\) で生成される。
+\end{lemma}
+\begin{proof}
+ 任意の右 \(Q\)-加群 \(M\) は、分離冪等元により
+ \(M\otimes_ZQ\to M\) の \(Q\)-線型sectionを持つ。
+ \(Z\) は有限global dimensionを持ち、\(Q\) は \(Z\)-flatなので、
+ \(M\) の \(Z\)-射影分解を \(-\otimes_ZQ\) で送ると
+ \(M\otimes_ZQ\) の有限 \(Q\)-射影分解を得る。
+ 従ってその直和因子 \(M\) も有限射影次元を持つ。
+
+ 次数付き有限生成加群に有限生成斉次自由分解を作ると、十分高いsyzygyは
+ ungradedには射影的である。
+ 自由加群からこのsyzygyへの次数零の全射のungraded sectionを取り、
+ sectionの次数零成分を抜き出すと次数付きsectionになる。
+ よってsyzygyは次数付き有限自由加群の直和因子であり、
+ 元の加群は有限個の \(Q(\lambda)\) から生成される。
+\end{proof}
+
+\subsection{非可換係数の多項式拡大と一方有限中心の生成定理}
+
+ここでは係数代数の有限中心性を仮定しない。
+これが一つの無限位数ブロックを許すための要点である。
+以下、\(k\) は標数零の体、\(\Lambda\) は有限生成アーベル群とする。
+
+\begin{lemma}[非可換係数を持つ多項式拡大]\label{lem:polynomial-coefficient}
+ \(A\) を左右noetherianな \(\Lambda\)-次数付き \(k\)-代数とする。
+ \(P=k[t_1,\ldots,t_d]\) の各変数に任意の \(\Lambda\)-次数を与え、
+ \(A\otimes_kP\) には和の次数を与える。このとき
+ \[
+ D^b(\operatorname{gr}^{\Lambda}(A\otimes_kP))
+ =\thick\{M\otimes_kP:\ M\in\operatorname{gr}^{\Lambda}A\}.
+ \]
+ \(P\) の斉次元 \(f\) を反転した \(P_f\) についても同じ結論が成立する。
+ \(A\) が有限global dimensionを持つという仮定はない。
+\end{lemma}
+\begin{proof}
+ 中心多項式拡大のHilbert基底定理により \(A\otimes P\) は左右noetherianである。
+ \(d=0\) は自明なので \(d>0\) とする。
+ 有限生成 \(\Lambda\)-次数付き \(A\otimes P\)-加群 \(T\) の有限斉次表示を取る。
+ 射影用の独立な整数次数を導入し、\(t_0,t_1,\ldots,t_d\) の射影次数を全て1、
+ \(A\) の射影次数を0とする。\(\Lambda\)-次数は
+ \(\deg_\Lambda(t_0)=0\)、\(\deg_\Lambda(t_i)=\deg_\Lambda(t_i\in P)\) とする。
+ 表示の各関係を \(t_0\) で斉次化すると、\(\PP^d_k\) 上の
+ \(\mathcal A=A\otimes_k\OO_{\PP^d}\)-加群 \(\cF\) が得られる。
+ これは \(\mathcal A\) 上有限表示で、\(t_0\ne0\) への制限が \(T\) である。
+ 各関係の斉次化では \(\Lambda\)-次数を変えていない。
+ 以後の \(\Lambda\)-次数は対角化可能群 \(D(\Lambda)\) による線型化としても解釈できる。
+
+ 必要なcohomologyの有限性を確認する。
+ \(\mathcal A\) 上のcoherent加群には有限個の
+ \(\mathcal A(-a)(\lambda)\) からの全射があり、核もcoherentである。
+ これは中心変数による有限斉次表示とnoetherian性から従う。
+ 標準affine被覆の\v Cech複体は長さ \(d\) なので、cohomologyは次数 \(0,\ldots,d\)
+ に限られる。一方、\(H^q(\PP^d,\mathcal A(a))
+ =A\otimes_kH^q(\PP^d,\OO(a))\) は有限生成 \(A\)-加群である。
+ 上記全射とその核の長完全列を用い、\(q=d,d-1,\ldots,0\) の順に帰納すれば、
+ 全てのcoherent \(\mathcal A\)-加群の \(H^q\) が有限生成 \(A\)-加群と分かる。
+ この議論は線型化と両立するので、\(\cF\) に有限階数線束をテンソルしたものの
+ 導来大域切断は \(D^b(\operatorname{gr}^{\Lambda}A)\) に属する。
+ ここでcoherentは \(\mathcal A\) 上の意味であり、\(\OO\) 上有限とは仮定しない。
+
+ Beilinsonの対角分解 \cite{Beilinson} を、因子の順序を適切に選んで
+ \[
+ 0\longrightarrow\Omega^d(d)\boxtimes\OO(-d)
+ \longrightarrow\cdots\longrightarrow
+ \Omega^1(1)\boxtimes\OO(-1)
+ \longrightarrow\OO\boxtimes\OO
+ \longrightarrow\OO_\Delta\longrightarrow0
+ \]
+ と書く。これは \(D(\Lambda)\)-線型化を保つ分解である。
+ \(\mathcal A\) の係数を保ったまま \(\cF\) に作用させると、\(\cF\) は
+ \[
+ R\Gamma(\PP^d,\cF\otimes_{\OO}\Omega^i(i))\otimes_k\OO(-i),
+ \qquad 0\le i\le d,
+ \]
+ の有限個のconeから作られる。
+ 対角のKoszul分解は各射影に関してflatであるから、\(\cF\) の
+ \(\OO\)-flatnessは必要ない。非可換な \(A\)-作用も全ての操作と可換である。
+ 係数複体は前段落により \(D^b(\operatorname{gr}^{\Lambda}A)\) に属する。
+ \(t_0\ne0\) に制限すると、\(t_0\) の \(\Lambda\)-次数が0であるため
+ \(\OO(-i)\) は次数を保って自明化される。
+ よって \(T\) は \(M\otimes P\) から生成される。
+ 係数複体を有限個のcohomology加群に分けるには通常のtruncationを用いればよい。
+ 有界複体全体についても同じtruncationから結論する。
+
+ \(P_f\) の場合は補題\ref{lem:graded-localization}による局所化を適用する。
+ 有限生成次数付き加群の有限表示は局所化前に持ち上がるので、
+ 局所化後の生成対象はちょうど \(M\otimes P_f\) である。
+\end{proof}
+
+\begin{lemma}[多項式中心上の分離的な稠密開集合]\label{lem:polynomial-separable}
+ \(D\) を連結局所有限な非負次数付き \(k\)-代数で、有限型可換斉次中心部分代数
+ \(Z\) 上有限なものとする。\(d=\dim Z\) と置く。
+ 正次数の斉次変数を持つ多項式部分代数 \(P=k[t_1,\ldots,t_d]\subset Z\)、
+ 非零斉次元 \(f\in P\)、斉次両側イデアル \(J\subset D\) を選んで、
+ \(D\) が \(P\) 上有限、\(J_f\) が冪零、\(Q=(D/J)_f\) が
+ \(P_f\) 上有限射影かつ分離的となるようにできる。
+ 分離冪等元は元の整数次数で次数0に取れる。
+\end{lemma}
+\begin{proof}
+ 斉次Noether正規化によって \(Z\) は正次数変数の多項式部分代数 \(P\) 上有限となる。
+ \(Z\) のreducednessは必要ない。\(K=\operatorname{Frac}P\) とすると、
+ \(D_K\) は有限次元 \(K\)-代数である。
+ そのradicalの \(D\) への逆像を \(J\) とする。
+ 次数のスカラー作用は \(P\)、\(K\) とradicalを保つので \(J\) は斉次である。
+ 十分大きい \(a\) で \((J^a)_K=0\) だから、有限生成性によって
+ ある非零元を反転すると \(J^a=0\) となる。
+ 半単純商 \(D_K/\operatorname{rad}(D_K)\) は標数零の体上分離的である。
+ generic freenessと分離冪等元の有限個の等式の分母払いにより、
+ ある稠密開集合上で \(D/J\) は有限射影かつ分離的となる。
+
+ これらの条件の成立する開集合は次数作用に関して不変である。
+ その補集合のイデアルは斉次であり、\(P\) は整域なので、そこから
+ 非零斉次元 \(f\) を一つ選べる。
+ \(d=0\) の場合は \(P=k\)、\(f=1\) とし、有限次元代数のradicalを使う。
+ 最後に、分離冪等元を元の整数次数で分解し、次数0の成分を取る。
+ \(\mu(e)=1\) と \((q\otimes1)e=e(1\otimes q)\) は斉次 \(q\) ごとに次数に分解されるから、
+ 次数0成分も同じ条件を満たす。これが必要な次数付き分離冪等元である。
+\end{proof}
+
+\begin{theorem}[一方だけが有限中心である外部積生成]\label{thm:one-sided-boxes}
+ \(A\) を左右noetherianな \(\Lambda\)-次数付き \(k\)-代数とする。
+ \(D\) を連結局所有限な非負次数付き \(k\)-代数で、
+ 有限型可換斉次中心部分代数 \(Z\) 上有限なものとする。
+ 任意の準同型 \(\beta:\ZZ\to\Lambda\) により \(D\) の次数を粗化し、
+ \(A\otimes_kD\) には和の次数を与える。このとき
+ \begin{equation}\label{eq:one-sided-boxes}
+ \begin{split}
+ D^b(\operatorname{gr}^{\Lambda}(A\otimes_kD))
+ =\thick\{\,M\boxtimes\operatorname{coarsen}_\beta N:\qquad\qquad\qquad\quad\\
+ M\in\operatorname{gr}^{\Lambda}A,\quad
+ N\in\operatorname{gr}^{\ZZ}D\,\}.
+ \end{split}
+ \end{equation}
+ 特に \(A\) の有限中心性、有限global dimension、あるいは
+ 左辺の対象の細分次数へのliftは仮定しない。
+\end{theorem}
+\begin{proof}
+ 補題\ref{lem:polynomial-separable}の \(P\subset Z\) に対して
+ \(A\otimes D\) は \(A\otimes P\) 上左右有限である。
+ 後者はnoetherianなので前者もnoetherianである。
+ 右辺のthick部分圏を \(\mathcal B\) とし、\(d=\dim Z\) に関して帰納する。
+ \(d=0\) では \(D\) は有限次元であり、連結性から \(D_{>0}\) は冪零で商は \(k\) である。
+ \(D_{>0}\)-adic filtrationの各層は有限生成 \(\Lambda\)-次数付き \(A\)-加群であるから、
+ \(M\boxtimes k\) からの生成を得る。
+
+ \(d>0\) とし、同補題の \(f,J,Q\) を取る。
+ \(f=1\) と取れる場合も以下の開集合の議論はそのまま適用でき、閉集合側は空になる。
+ \(J_f\)-adic filtrationにより、\(A\otimes D_f\) 上の全加群は
+ \(A\otimes Q\) 上の有限生成加群から生成される。
+ そのような加群 \(T\) は \(A\otimes P_f\) 上も有限生成である。
+ 次数0の分離冪等元 \(e=\sum_\nu x_\nu\otimes y_\nu\) により、乗法写像
+ \[
+ \operatorname{Res}T\otimes_{P_f}Q\longrightarrow T
+ \]
+ は \(A\otimes Q\)-線型かつ \(\Lambda\)-次数0のsection
+ \(t\mapsto\sum_\nu tx_\nu\otimes y_\nu\) を持つ。
+ \(A\) の作用は \(Q\) と可換なので、このsectionは \(A\)-線型でもある。
+
+ 補題\ref{lem:polynomial-coefficient}により \(\operatorname{Res}T\) は
+ \(M\otimes P_f\) から生成される。
+ \(Q\) は \(P_f\) 上射影なので \(-\otimes_{P_f}Q\) はexactであり、
+ 上のsectionと合わせて \(T\) は \(M\otimes Q\) から生成される。
+ \(M\otimes Q\) は \(M\boxtimes(D/J)\) の局所化であるから、
+ 開集合上の全圏は \(\mathcal B\) の像で生成される。
+ ここで \(A\otimes Q\) が有限global dimensionを持つとは主張していない。
+
+ 局所化の核は補題\ref{lem:graded-localization}により、
+ \(A\otimes(D/(f))\) 上の有限生成次数付き加群から生成される。
+ \(D/(f)\) は \(P/(f)\) の像という有限型可換斉次中心上有限である。
+ \(f\) が非単元ならこの中心の次元は \(d-1\) 以下であるから、帰納法を適用できる。
+ 得られる外部積の第二因子は \(D/(f)\)-加群であり、元の \(D\)-加群としても
+ 元の整数次数を保っている。従って局所化の核は \(\mathcal B\) に含まれる。
+ 開集合と核の生成をVerdier局所化によって合わせれば \eqref{eq:one-sided-boxes} を得る。
+ 全てのconeと直和因子は粗化後の圏で取っており、対象の次数のliftは用いない。
+\end{proof}
+
+\subsection{任意の粗化次数と有限中心因子の反復}
+
+\begin{theorem}[有限中心代数の外部積生成]\label{thm:finite-center-boxes}
+ \(D_1,\ldots,D_r\) を連結局所有限な非負次数付き \(k\)-代数で、
+ 各 \(D_i\) は有限型可換斉次中心部分代数上有限とする。
+ 任意の準同型 \(\alpha:\ZZ^r\to\Lambda\) に対し、
+ \(D=\bigotimes_iD_i\) に粗化次数を与えると
+ \[
+ D^b(\operatorname{gr}^{\Lambda}D)
+ =\thick\{\operatorname{coarsen}_{\alpha}
+ (M_1\boxtimes\cdots\boxtimes M_r)(\lambda):
+ M_i\in\operatorname{gr}^{\ZZ}D_i,\ \lambda\in\Lambda\}.
+ \tag{\(G_{\mathrm{fin}}\)}\label{eq:finite-center-generation}
+ \]
+ \(\alpha\) は単射・全射である必要はなく、無限の核を持っていてもよい。
+\end{theorem}
+\begin{proof}
+ \(A=k\) から出発し、\(\beta_i(1)=\alpha(e_i)\) として
+ 定理\ref{thm:one-sided-boxes}を順に適用する。
+ 各段階の係数代数は有限型可換中心上有限なので左右noetherianである。
+ \(k\) の有限生成 \(\Lambda\)-次数付き加群は有限個の \(k(\lambda)\) の和であり、
+ 反復によって表示の外部積を得る。
+ 複体の外部積は体 \(k\) 上exactなので、前段階のthick生成を次段階へ送れる。
+\end{proof}
+
+\begin{remark}[nonliftable対象と軸torsion]
+ 外部積のconeには粗化後の全ての次数零の射を用いる。
+ 例えば \(k[a,b]/(a^3-b^3)\) は \(3e_1=3e_2\) の次数では
+ \(a^3-b^3\) による二つのfree shiftの間のconeで生成される。
+ 同じ加群が \(\ZZ^2\)-次数へ持ち上がる必要はない。
+ また \(f\)-adic filtrationは正次数の中心元に殺される軸上の加群も保持する。
+ multigraded tailsへの移行によってこれらを捨てる操作は用いない。
+\end{remark}
+
+\subsection{高々一つの無限位数ブロックへの帰結}
+
+次の有限中心性は \cite[Corollary 2.3]{SmithTate} に含まれる既知の結果である。
+必要な斉次中心を明示するため、証明を記す。
+
+\begin{lemma}[有限位数THCRの有限中心性]\label{lem:finite-order-thcr}
+ \(E\) をsmooth elliptic curve、\(L\) を正次数の線束とし、
+ \(\sigma\in\operatorname{Aut}(E)\) が有限位数 \(q\) を持つとする。
+ このとき \(B=B(E,L,\sigma)\) は有限型可換斉次中心部分代数上有限である。
+\end{lemma}
+\begin{proof}
+ \(L=\mathcal O_E(D)\) となるdivisor \(D\) を選び、
+ \(D_d=D+\sigma^*D+\cdots+(\sigma^{d-1})^*D\) と置く。
+ 通常のskew Laurent表示により、\(B\) を
+ \[
+ B_d=H^0(E,\mathcal O_E(D_d))t^d
+ \subset k(E)[t,t^{-1};\sigma^*]
+ \]
+ と書ける。\(\sigma^q=1\) なので \(D_q\) は \(\sigma\)-不変であり、
+ \(q\)-Veroneseは可換なsection ring
+ \[
+ R=B^{(q)}=\bigoplus_{n\ge0}H^0(E,\mathcal O_E(nD_q))t^{qn}
+ \]
+ になる。\(R\) 上では \(\sigma\) を係数に作用させ、\(t^q\) を固定する。
+ \(Z=R^{\langle\sigma\rangle}\) は \(B\) の中心に含まれる。
+ 実際、\(a\in H^0(E,\mathcal O_E(nD_q))\) が \(\sigma\)-不変なら、
+ 任意の \(bt^d\in B_d\) に対して
+ \[
+ (at^{qn})(bt^d)=ab\,t^{qn+d}
+ =b\sigma^{d*}(a)t^{qn+d}=(bt^d)(at^{qn})
+ \]
+ である。
+
+ \(D_q\) は正次数なのでampleである。従って \(R\) は有限型可換代数であり、
+ 各 \(0\le d<q\) について
+ \[
+ \bigoplus_{n\ge0}H^0(E,\mathcal O_E(nD_q+D_d))t^{qn+d}
+ \]
+ は \(R\) 上有限なsection moduleである。
+ これらの有限直和が \(B\) なので \(B\) は \(R\) 上有限である。
+ 有限群の不変式環について \(R\) は有限型環 \(Z\) 上有限であり、
+ 従って \(B\) も \(Z\) 上有限である。
+\end{proof}
+
+
+
+
+\begin{corollary}[一つの任意位数因子を含む生成条件]\label{cor:PI-generation}
+ 全ての \(j\) で \(h_j^6\ne-27\) とし、並べ替えた後の
+ \(\sigma_j=t_{p_j}\ (j\ge2)\) のみ有限位数と仮定する。
+ このとき \(C_j=S_{h_j}/(G_j)\)、\(C=\bigotimes_jC_j\) に対して、
+ 条件 \eqref{eq:block-generation} は成立する。
+ 中心変数を零とした後に残る \(\Gamma_s\) の全shiftも含む。
+\end{corollary}
+\begin{proof}
+ \(C_1\) はnoetherianであり、その \(\Gamma_s\)-次数は
+ 単射 \(\ZZ e_1\hookrightarrow\Gamma_s\) によって与えられる。
+ 任意の有限生成 \(\Gamma_s\)-次数付き \(C_1\)-加群は
+ \(\Gamma_s/\ZZ e_1\) の剰余類ごとの部分加群に分解する。
+ 有限個の生成元の次数が関わる剰余類は有限個だけであるから、
+ 各剰余類の代表によるshiftを戻せば、元の整数次数を持つ \(C_1\)-加群の有限和となる。
+ ここで細分しているのは一因子上の加群だけであり、積の一般の加群ではない。
+
+ \(j\ge2\) では補題\ref{lem:finite-order-thcr}によって \(C_j\) は有限中心上有限である。
+ 定理\ref{thm:one-sided-boxes}を
+ \(A=C_1\)、\(D=C_2\)、\(\beta(1)=e_2\) に適用し、次に係数代数を
+ \(C_1\otimes C_2\) として反復する。
+ 各段階で左右noetherian性は同定理の有限中心多項式拡大によって保証される。
+ 外部積は体上exactなので、前段階で得たthick生成をそのまま次段階へ送れる。
+ これで全ての \(C_j\) について条件 \eqref{eq:block-generation} が得られる。
+\end{proof}
+
+以下では定理\ref{thm:multiblock-model}の仮定の下で
+\[
+ \begin{gathered}
+ N=3r+m,\qquad A=\left(\bigotimes_{j=1}^rS_{h_j}\right)[u_1,\ldots,u_m],\\
+ W=\sum_jG_{h_j}+P(u),\qquad R=A/(W)=B_{\mathbf h,P}.
+ \end{gathered}
+\]
+と置く。\(m=0\) の場合は \(P=0\) とし、中心変数の因子を省く。
+
+\begin{proof}[定理\ref{thm:multiblock-model}の証明]
+
+ \emph{周囲の代数と中心元の正則性.}
+ 命題\ref{prop:tensor-sklyanin-ambient}により、\(A\) は左右noetherianな
+ Koszul AS-regular代数で、global dimensionとGorenstein parameterは \(N\) である。
+ \(W\) は中心正則元である。以下の支持帰着のために、中心上の自由性も具体的に用いる。
+
+ \(C_j\) の斉次基底の持ち上げを \(V_j\subset S_{h_j}\) とすると、
+ 正則性と次数に関する帰納法により
+ \[
+ V_j\otimes\CC[t_j]\xrightarrow{\sim}S_{h_j},\qquad
+ v\otimes t_j^a\longmapsto vG_j^a
+ \]
+ は中心 \(\CC[t_j]\)-加群としての同型である。
+ 従って \(A\) は中心多項式環
+ \(Z_0=\CC[t_1,\ldots,t_r,u_1,\ldots,u_m]\) 上自由である。
+ \(W\) は \(\sum_jt_j+P(u)\in Z_0\) の作用なので、左右正則である。
+ その商 \(R\) は
+ \(\CC[t_1,\ldots,t_{r-1},u_1,\ldots,u_m]\) 上自由であり、
+ \[
+ u_1,\ldots,u_m,G_1,\ldots,G_{r-1}
+ \]
+ は \(R\) の中心正則列で、商は \(C\) である。
+
+ \emph{全生成性.}
+ \(m>0\) では中心多項式環全体 \((T,P)=(\CC[u],P)\) を一つの因子とし、
+ \[
+ \Gamma=\ZZ^{r+1}/\langle3e_j-3e_0:1\le j\le r\rangle
+ \]
+ を用いる。\(\deg(u_a)=e_0\)、Sklyanin因子の次数は \(e_j\) である。
+ \(m=0\) では \(e_0\) を省き、\(\Gamma=\Gamma_r\) とする。
+ finite-free factorizationの微分を \(d\)、第 \(j\) ブロックのEuler導分を
+ \(\delta_j\) とすれば、補題\ref{lem:block-euler}と同じ計算により
+ \[
+ d\delta_j(d)+\delta_j(d)d=3G_j\operatorname{id}.
+ \]
+ 中心変数についても行列係数を微分することで
+ \[
+ d\,\partial_{u_a}(d)+\partial_{u_a}(d)\,d
+ =\partial_{u_a}P\operatorname{id}
+ \]
+ を得る。これらは斉次のnull-homotopyである。
+
+ \(J_P=(\partial_{u_1}P,\ldots,\partial_{u_m}P)\) とする。
+ 孤立性より、ある \(b\) について \((u_1,\ldots,u_m)^b\subset J_P\) である。
+ 命題\ref{prop:block-support}の証明で \(u_a^2\) を \(\partial_{u_a}P\) に置き換えると、
+ 各対象は \(G_1,\ldots,G_{r-1},\partial_{u_1}P,\ldots,\partial_{u_m}P\)
+ に関するKoszul複体のshift・内部twistの直和因子になる。
+ 各cohomologyの \((u)\)-adic有限filtrationの商は全ての \(u_a\) に殺される。
+ それらは \(G_1,\ldots,G_{r-1}\) にも殺され、\(W=0\) と \(P(0)=0\) から
+ \(G_r\) にも殺される。従って
+ \[
+ \Dsg^\Gamma(R)
+ =\thick\operatorname{Res}D^b(\operatorname{gr}^\Gamma C).
+ \]
+ \(m=0\) では中心変数についてのKoszul複体とfiltrationを省けばよい。
+ 全ての \(\Gamma\)-次数付き \(C\)-加群が
+ 系\ref{cor:PI-generation}により外部積で生成される。
+
+ この外部積のrestrictionのstabilizationを説明する。
+ 各 \(C_j=S_{h_j}/(G_j)\) の加群を十分高いsyzygyに置き換えて二項ambient自由分解で表し、
+ \(m>0\) では \(T/(P)\) 上の残余体 \(k\) についても同じ操作をする。
+ 一つのhypersurface因子においてperfectな項は、restriction後に \(R\)-perfectとなる。
+ この点を右加群の規約で明示する。選んだambientを \(A_i\)、potentialを \(f_i\)、
+ その商を \(D_i\)、他のambientの積を \(A'\)、potentialの和を \(g'\) と書く。
+ \(A_i\cong V_i\otimes\CC[f_i]\) と \(f_i=-g'\) の消去により、
+ \(R=(A_i\otimes A')/(f_i+g')\) は \(A'\) 上左右とも自由である。
+ 他因子の外部積 \(M'\) は \(M'g'=0\) を満たし、各ambient上の有限自由分解の
+ tensor productによって \(A'\)-perfectである。従って
+ \[
+ \begin{aligned}
+ M'\otL_{A'}R&\simeq M'\otimes_{A'}R
+       \xrightarrow{\sim}\operatorname{Res}(D_i\boxtimes M'),\\
+ m'\otimes[a\otimes b]&\longmapsto\bar a\otimes m'b
+ \end{aligned}
+ \]
+ は次数を保つ同型であり、右辺は \(R\)-perfectである。
+ 有限cone、shift、直和因子を取ることで、\(D_i\) を任意の \(D_i\)-perfect複体に
+ 置き換えても成立する。
+ 中心因子についても \(m>0\) では孤立性から \(P\ne0\) であり、
+ \(T\cong V_0\otimes\CC[P]\) となるので同じ議論を適用できる。
+ 従ってsyzygyへの置換で失う項は特異圏で零である。
+
+ 二項ambient分解の微分を \(d_i\)、potential倍のnull-homotopyを \(s_i\) とする。
+ 外部tensor積上のKoszul符号付きの和 \(d=\sum d_i\)、\(s=\sum s_i\) は
+ \(ds+sd=W\)、\(s^2=0\) を満たす。
+ そのShamash周期化のtailはfactorizationの外部積に一致する。
+ よって各boxのrestrictionのstabilizationは外部積関手のthick imageに入る。
+ 全 \(\Gamma\)-shiftも各因子のdegree shiftで実現されるので、
+ 補題\ref{lem:multiblock-ff}の完全忠実関手はMorita同値である。
+
+ \emph{可換側との比較と整数次数への降下.}
+ 各Sklyanin因子に系\ref{cor:block}を用い、中心因子には恒等を用いる。
+ 可換側の外部積には \cite[Theorem 5.15, Corollary 5.18]{BFK} を適用する。
+ 命題\ref{prop:multiblock-embedding}と同様に、\(\Gamma\to\ZZ\) の有限核の双対による
+ 同変化と双対同変化を用いる。因子ごとのdegree shiftと \((3)=[2]\) のcoherenceは
+ 各比較で保存されるので、通常の整数次数へ降下すると
+ \[
+ \MF^{\ZZ}(A,W)\simeq
+ \MF^{\ZZ}\!\left(\CC[x_j,y_j,z_j,u_a],
+ \sum_j(x_j^3+y_j^3+z_j^3+h_j^2x_jy_jz_j)+P(u)\right)
+ \tag{\(*\)}\label{eq:PI-model}
+ \]
+ を得る。
+
+ \emph{射影模型と一意性.}
+ 中心正則元の商 \(R\) はnoetherian AS-Gorensteinで、injective dimensionは \(N-1\)、
+ Gorenstein parameterは \(N-3\) である。
+ \cite[Theorem 5.8]{CCKM} のMF--特異圏比較と
+ \cite[Theorem 2.5]{Orlov} の残余windowを適用できる。
+ \(N>3\) ならそのwindowは
+ \[
+ D^b(\qgr R)=\langle\mathcal K_R,\OO,\OO(1),\ldots,\OO(N-4)\rangle
+ \]
+ を与え、\(N=3\) なら例外対象はなく \(\mathcal K_R=D^b(\qgr R)\) である。
+ degree shiftはwindowを通してrotationに対応する。
+ 可換potentialの勾配は各変数群に分離しており、各 \(F_{h_j}\) と \(P\) の
+ アフィン臨界点は原点だけであるから、その和も原点以外に臨界点を持たない。
+ 従って \(Y_{\mathbf h,P}\) は滑らかで、同じOrlov比較は可換側を
+ \((\Ku(Y_{\mathbf h,P}),\rho_{Y_{\mathbf h,P}})\) と同定する。
+ \(N-2\ge3\) における射影同型類の一意性は
+ \cite[Theorem 1.7]{LZ} による。
+\end{proof}
+
+\begin{lemma}[位数五の明示的パラメータ]\label{lem:order-five}
+ \(h^6=5\) とする。原点 \(o=[1:-1:0]\) を持つ
+ \(E_h=V(x^3+y^3+z^3+h^2xyz)\) 上で、\(p=[1:-1:-h]\) はちょうど位数五である。
+ 従って対応するSklyaninの平行移動 \(\sigma=t_p\) も位数五である。
+\end{lemma}
+\begin{proof}
+ \(o\) における接線は \(3x+3y-h^2z=0\) であり、
+ この直線上で \(F_h=(1+h^6/27)z^3\) となるので、\(o\) はinflection pointである。
+ 逆元は \([x:y:z]\mapsto[y:x:z]\) である。実際、この二点と \(o\) は一直線上にある。
+ \(a=h^3\) とし、\(q=[a+1:a-1:-2h]\) と置く。
+ \(F_h(q)=0\) であり、\(p\) における接線
+ \[
+ (3+a)x+(3-a)y+2h^2z=0
+ \]
+ は \(-q=[a-1:a+1:-2h]\) を通る。
+ \(h\ne0\) では \(-q\ne p\) であるから、接線の加法則により \(q=2p\) である。
+ \(q\) における接線の係数は
+ \[
+ [a^2+8a+3:a^2-8a+3:h^2(a^2+11)]
+ \]
+ であり、これを \(p\) で評価すると \(a(5-a^2)=h^3(5-h^6)\) となる。
+ \(p\ne q\) は \(q=2p\) と \(p\ne o\) から従う。
+ \(h^6=5\) では \(p\) がこの接線上にあるので \(2q+p=0\)、従って \(5p=0\) である。
+ \(p\ne o\) かつ五は素数なので、位数はちょうど五である。
+\end{proof}
+
+\begin{remark}[二・三ブロックのsixfold・sevenfold]
+ 全ての \(h_j^6=5\) とする。
+ \(r=2,m=2,P=u_1^3+u_2^3\) は二つの非可換ブロックを持つcubic sixfoldの
+ rotation付き残余圏の完全な可換模型を与える。
+ \(r=3,m=0\) は三つの非可換ブロックを持つcubic sevenfoldの完全な可換模型を与える。
+ 両者の方程式は定理\ref{thm:multiblock-model}の \(Y_{\mathbf h,P}\) であり、
+ 元の対象の一部分ではなく全残余圏を実現する。
+\end{remark}
+
+\begin{lemma}[無限位数の明示的パラメータ]\label{lem:order-infinite}
+ \(h=2\) とする。楕円曲線
+ \[
+ E_2=V(x^3+y^3+z^3+4xyz),\qquad o=[1:-1:0]
+ \]
+ 上の点 \(p_2=[1:-1:-2]\) は無限位数である。
+\end{lemma}
+\begin{proof}
+ 曲線と点は \(\mathbb Q\) 上定義されている。
+ \(2^6+27=91\) は5,11のどちらでも割れないので、Hesseの勾配による判定から
+ 5と11で良い還元を持つ。
+ \(z=1\)、\(z=0,y=1\)、\([1:0:0]\) の三つのchartに分けて列挙すると
+ \[
+ \#E_2(\mathbb F_5)=9,\qquad \#E_2(\mathbb F_{11})=12.
+ \]
+ 実際、\(z=1\) の点数はそれぞれ8と11、\(z=0\) にはどちらも一点だけ存在する。
+ この列挙は整数の合同計算で再現でき、\texttt{verify\_algebra.py} に全座標を記録する。
+ 良い還元では剰余標数と素なtorsionの還元写像は単射である
+ \cite[Reduction of torsion points]{SnowdenDVR}。
+ 従って \(p_2\) の位数 \(N\) が有限なら、\(N\) の5と素な部分は9を割り、
+ 11と素な部分は12を割る。後者により5-primary部分はなく、前者により11-primary部分もなく、
+ 残りの素数について両方を比較すれば \(N\mid3\) となる。
+
+ \(p_2\ne o\) である。一方、接線による倍点公式から
+ \[
+ 2p_2=[9:7:-4],\qquad -p_2=[1:-1:2]
+ \]
+ であり、これらは異なる射影点である。
+ 従って \(3p_2\ne0\) であり、\(N\mid3\) は不可能である。
+ \(p_2\) は無限位数である。
+\end{proof}
+
+\begin{remark}[真に無限位数を含むsixfoldとsevenfold]
+ \(h_1=2\)、\(h_j=5^{1/6}\ (j\ge2)\) と取る。
+ 第一ブロックの平行移動は無限位数、他のブロックは位数5である。
+ \((r,m)=(2,2)\)、\(P=u_1^3+u_2^3\) では可換sixfoldは
+ \[
+ V\bigl(x_1^3+y_1^3+z_1^3+4x_1y_1z_1
+       +x_2^3+y_2^3+z_2^3+5^{1/3}x_2y_2z_2+u_1^3+u_2^3\bigr)
+ \subset\PP^7
+ \]
+ となる。\((r,m)=(3,0)\) では第二・第三ブロックの係数を \(5^{1/3}\) とした
+ cubic sevenfoldを得る。いずれも全残余圏とrotationの同値である。
+ さらに他の有限位数パラメータを固定すれば、\(h_1^6\ne-27\) を満たす
+ 全ての \(h_1\in\CC\) について同じ結論が成り立つ。
+ これは各ファイバーでの主張であり、同値の族をこのパラメータ直線全体に
+ 代数的に降下させたという主張ではない。
+\end{remark}
+
+\subsection{外部積生成の十分条件とその限界}
+
+有限位数条件は \(j\ge2\) のみに用いる。
+従ってより一般に、\(C_1\) がnoetherian、\(j\ge2\) の各 \(C_j\) が
+有限型可換斉次中心上有限で、周囲が命題\ref{prop:block-support}の仮定を満たせば、
+同じ生成と安定化の議論を適用できる。
+定理\ref{thm:one-sided-boxes}では任意のnoetherianな係数代数を保てる一方、
+新たに加える因子の有限中心性は必要である。
+従って二つ以上の独立な無限位数THCRを持つ場合は、この証明だけでは解けない。
+これはその場合の非存在を意味せず、条件 (G) が未解決であるという意味である。
+
+二つ以上の無限位数因子を含む場合に、ここでの生成法を拡張するには
+条件 (G) が必要である。その十分な条件として、
+THCRに対して任意のnoetherian係数を許す外部積生成、
+または粗化次数を保った対角の有限構成が考えられる。
+条件 (G) が得られれば、残りの有限中心因子を
+定理\ref{thm:one-sided-boxes}で追加できる。
+可換ambientのThom--Sebastiani定理を非可換ambientへ無条件に適用したわけではない。
+先行研究上の新規性は未確認である。
+

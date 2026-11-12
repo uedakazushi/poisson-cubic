@@ -1,0 +1,123 @@
+\section{適用範囲と残る問題}\label{sec:scope}
+
+\subsection{例外パラメータでpropernessが失われる}
+
+\begin{proof}[命題\ref{prop:bad-intro}の証明]
+ \(h_0^6=-27\) とする。\(E_{h_0}\) は三本の直線からなる三角形である。
+ まず
+ \[
+ S_{h_0}/(G_{h_0})\simeq B(E_{h_0},L,\sigma_{h_0})                 \tag{6}\label{eq:triangle}
+ \]
+ を確認する。楕円曲線の場合だけの公式を、この特殊値へ無条件に適用しない。
+ \(h_0\) の近傍で、関係式を多重線形化した行列
+ \[
+ M_h(x,y,z)=
+ \begin{pmatrix}-y&x&-hz\\-hx&-z&y\\z&-hy&-x\end{pmatrix}
+ \]
+ は \(E_h\) 上でrank二である。実際その行列式は
+ \(-h(x^3+y^3+z^3+h^2xyz)\) であり、rank一なら小行列式から
+ \(yz+hx^2=yz-hx^2=0\) と巡回的な式を得て、\(x=y=z=0\) となる。
+ 核は相対的な射 \(\sigma_h\) を与える。グラフを転置すると \(h\) を \(-h\) に
+ 変える同じ関係式になるので、この射は相対自己同型である。
+
+ \(\mathcal L_d=\bigotimes_{j=0}^{d-1}(\sigma^j)^*\OO_E(1)\) は、
+ 滑らかなファイバーでは次数 \(3d\)、三角形では各成分次数 \(d\) を持つ。
+ \(d>0\) なら \(H^1(E_h,\mathcal L_d)=0\)、\(h^0=3d\) であり、
+ 相対切断加群はlocally freeで底変更と両立する。
+ 自然な次数付き写像 \(S_h\to\bigoplus_dH^0(E_h,\mathcal L_d)\) の下で、
+ \(G_h\) は一般の滑らかなファイバーで零なので、局所自由性から恒等的に零となる。
+ 三角形のtwisted homogeneous coordinate ringが次数一で生成されることを確認する。
+ \(L\) のbasepoint-free pencilに対するpencil trickを使うと、
+ 多次数 \((d,d,d)\) の \(M\) について
+ \(H^0(L)\otimes H^0(M)\to H^0(LM)\) は
+ \(H^1(ML^{-1})=0\) なら全射である。
+ \(d\ge2\) では各成分上の正値性からこの消滅が従う。
+ \(d=1\) で \(ML^{-1}\) が非自明なら、多次数零の直線束の切断は
+ 三角形の三成分の接合条件により零で、Euler数も零なので同じ消滅が成り立つ。
+ \(M\simeq L\) なら、平面三次曲線の斉次イデアルに二次式がないことから全射である。
+ 従って \(S_{h_0}/(G_{h_0})\to B(E_{h_0},L,\sigma_{h_0})\) は全射である。
+ 補題\ref{lem:center}の正則性から左辺のHilbert係数は \(1,3d\) であり、
+ 右辺の係数と一致する。よってこの全射は同型で、\eqref{eq:triangle}が従う。
+ \(\mathcal L_d\) の各成分上の次数が \(d\) とともに増大するので
+ \(\sigma\)-amplenessも成り立ち、tailsは \(\operatorname{coh}E_{h_0}\) と同値になる。
+
+ Gorenstein parameter零のOrlov同値と \cite[Theorem 5.8]{CCKM}から
+ \[
+ \MF^\ZZ(S_{h_0},G_{h_0})\simeq D^b(\operatorname{coh}E_{h_0}).
+ \]
+ 三角形の節点 \(p\) のskyscraper sheafは、任意に高い次数で非零の自己Extを持つ。
+ 節点の完備局所環 \(\CC[[s,t]]/(st)\) の剰余体の最小自由分解は無限であり、
+ 局所大域Extスペクトル系列では高次Extの支持が \(p\) だけなので、
+ この非零性は大域自己Extにも残る。従ってこのdg圏はproperでない。
+
+ \(m=0\) の場合の非propernessはこれで示された。以下では \(m\ge1\) とする。
+ \(P=\sum_i u_i^3\) とし、第\ref{sec:TS}節の二ブロック次数 \(\Gamma\) と
+ Koszul factorization \(K_P\) を使う。
+ \(K_P\) の全微分行列は \((u_1,\ldots,u_m)\) に属する。
+ もし恒等写像が零ホモトピーなら、係数を原点で評価して非零自由加群上の恒等写像が
+ 零となるので矛盾する。従って \(H^0\REnd(K_P)\ne0\) である。
+ 節点の対象を \(N\) とすると、外部積の完全忠実性と体上のKünneth公式により
+ \[
+ H^r\REnd(N)\otimes H^0\REnd(K_P)
+ \subset H^r\REnd(N\boxtimes K_P)
+ \]
+ が直和因子として残る。よって \(\Gamma\)-次数の全体圏はnonproperである。
+ もし通常の整数次数付き圏がproperなら、その有限群 \(H_\Gamma\simeq\mu_3\) による
+ 同変圏も、Hom複体の不変部分が直和因子となることからproperとなる。
+ これは式\eqref{eq:eq}に反する。
+
+ さらに、この議論は単なるHom総次元の非有限性より強い。
+ \(\Gamma\)-次数の一つの対象に、任意に高い正次数の自己Homが残っている。
+ 有限群同変化から忘却すると、同変Homは通常のHomの直和因子なので、
+ 通常次数でも同じ正次数非消滅を持つ一つの対象が得られる。
+ \(m>0\) ではOrlovの完全忠実windowによりこれを \(D^b(\qgr B_{h_0,m})\) へ送れ、
+ \(m=0\) では上の三角形との同値を用いる。
+ もし \(\qgr B_{h_0,m}\) のhomological dimensionが有限なら、
+ その有界導来圏の任意の固定された二対象の間の正次数Homは十分高次で消える。
+ これは有界複体のcohomologyとExtからなる有限スペクトル系列で分かる。
+ 今得た対象はこれに反するから、homological dimensionは無限である。
+
+ 一方、周囲の \(S_{h_0}[u]\) はAS-regularであり、三次の中心元の正則性は
+ \(m>0\) なら最後の中心変数についてmonicであること、\(m=0\) なら
+ 補題\ref{lem:center}から従う。従ってHilbert seriesは依然として
+ \((1-t^3)/(1-t)^{m+3}\) であり、degree shiftの三乗も \([2]\) である。
+ 滑らかな射影多様体のadmissible成分はproperなので、求める非存在が従う。
+\end{proof}
+
+この例は、量子化を構成する開集合をさらに縮めて例外値を除くことを妨げない。
+従って、零を含む十分小さな開集合での存在問題に対する反例ではない。
+
+\subsection{量子化原稿への適用}
+
+三次の中心元によるAS-regularな周囲の商
+\[
+ B_\hbar=A_\hbar/(\Omega_\hbar),\qquad B_0=\CC[x]/(F)
+\]
+を、次数ごとにflatな族として構成できていれば、
+その形式完備化には定理\ref{thm:main}が適用できる。
+この適用にはPoisson構造の分類を再度用いず、各Artin次数でのgraded flatnessだけを使う。
+従って、量子化の構成自体の証明と、本稿の相対残余圏・復元の証明は独立に検証できる。
+論文Aの代数的量子化定理への適用では、そこで構成する次数ごとのflatnessを用いる。
+代数の量子化と圏の復元は異なる段階であり、それぞれの仮定を区別する。
+
+形式的な可換モデルは、半古典極限の固定された \(X\) と同じとは限らない。
+定理\ref{thm:global}の代表式では \(h^2xyz\) が現れる。
+このモデルを初期の \(F\) と取り違えない。
+
+\subsection{一般の有限パラメータへの適用範囲}
+
+定理\ref{thm:etale}により、smooth properな代数的pairの族が与えられれば、
+可換cubic点のétale近傍で存在問題は解ける。
+一般の量子化族へこのétale局所定理を適用するには、
+必要な相対saturationを別途確立する必要がある。
+各Artin切断のsmooth proper性だけから、有限表示の代数的模型の存在を結論しない。
+
+独立な複数ブロックでは、命題\ref{prop:multiblock-embedding}で得た完全忠実な像が
+全MF圏を生成するかが、二つ以上の無限位数因子の場合の核心である。
+命題\ref{prop:block-support}と条件\eqref{eq:block-generation}は、その具体的な帰着を与える。
+高々一つの無限位数因子を持つ場合は定理\ref{thm:multiblock-model}で解決した。
+中心三次式内の混合項は定理\ref{thm:global}と定理\ref{thm:multiblock-model}に含まれるが、
+非可換ブロックと中心変数の混合項は含まれない。
+また、étale局所モデルの元の底への降下と、実現開部分の外のファイバーの分類は
+別の大域問題として残る。
+
