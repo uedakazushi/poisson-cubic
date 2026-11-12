@@ -3,10 +3,10 @@
 \label{sec:pg-bondal}
 
 Bondal予想はFano多様体の退化軌跡
-\[
+\begin{equation}
  D_{2j}(\pi)=\{p:\operatorname{rank}(\pi_p)\le2j\}
  =V(\pi^{j+1})
-\]
+\end{equation}
 が、$0\le 2j<\dim X$ の各$j$に対して次元$2j+1$以上の
 既約成分を持つと主張する
 \cite{BondalGualtieriPym,BondalDruelPereiraPymTouzet}。
@@ -17,9 +17,9 @@ Bondal予想はFano多様体の退化軌跡
 \label{thm:pg-bondal}
 $X=V(F)\subset\mathbb P^{n+1}_{\mathbb C}$を$n\ge3$の滑らかな三次超曲面、
 $\pi$を任意の正則Poisson構造とする。このとき$0\le 2j<n$の各$j$について
-\[
+\begin{equation}
  \boxed{\quad \dim D_{2j}(\pi)\ge 2j+1.\quad}
-\]
+\end{equation}
 より強く、$\pi\ne0$の一般階数を$2k$とすると、任意の$0\le j<k$に対して
 次元がちょうど$2j+1$の既約なjoin部分多様体
 $J_{j+1}\subset D_{2j}(\pi)$を構成できる。
@@ -31,13 +31,13 @@ $\pi=0$なら$D_{2j}(\pi)=X$なので結論する。
 非零の場合、定理\ref{thm:pg-normal}を使い、
 $N=n+2=3k+m$、$V=\bigoplus_{s=1}^kW_s\oplus U$、
 $\dim W_s=3$とし、
-\[
+\begin{equation}
  F=\sum_{s=1}^kf_s(x_s,u),\qquad
  q=\sum_{s=1}^k
  \iota_{dF}
  (\partial_{x_{s1}}\wedge\partial_{x_{s2}}
   \wedge\partial_{x_{s3}})
-\]
+\end{equation}
 を取る。一般階数は$2k$である。
 $j\ge k$なら$D_{2j}(\pi)=X$、また$2j<n$から
 $\dim X=n\ge2j+1$なのでよい。
@@ -48,23 +48,23 @@ $\mathbb P(W_s)\cong\mathbb P^2$の零軌跡$V(g_s)$は、
 $g_s\ne0$なら少なくとも一つの既約な射影曲線$C_s$を含む。
 $g_s=0$の場合も任意の直線$C_s\subset\mathbb P(W_s)$を選べる。
 従って両場合に
-\[
+\begin{equation}
  C_s\subset V(g_s)\subset\mathbb P(W_s),\qquad
  \dim C_s=1
-\]
+\end{equation}
 となる既約曲線を選べる。
 それらの射影joinを
-\[
+\begin{equation}
  J_r=\operatorname{Join}(C_1,\ldots,C_r)
        \subset\mathbb P\Bigl(\bigoplus_{s=1}^r W_s\Bigr)
        \subset\mathbb P(V)
-\]
+\end{equation}
 と定める。
 各$C_s$のアフィン錐は既約で次元2、また座標空間$W_s$は直和をなす。
 従って錐の直積から得る$J_r$は既約かつ
-\[
+\begin{equation}
  \dim J_r=\sum_{s=1}^r(\dim C_s+1)-1=2r-1=2j+1.
-\]
+\end{equation}
 $J_r$の点では、選んだブロック上で各$g_s=0$、
 他のブロックおよび$u$は零なので$F=0$である。
 よって$J_r\subset X$。
@@ -88,9 +88,9 @@ $q(z)$は$F$をCasimirに持ち、接空間$T_z(F=0)$上の双ベクトルであ
 射影接空間$T_{[z]}X=T_z(F=0)/\mathbb CE(z)$への射影により、
 像の中の非零一次元$\mathbb CE(z)$を割ると、交代形式の階数は2減少する。
 よって再び
-\[
+\begin{equation}
  \operatorname{rank}\pi_{[z]}\le2r-2=2j.
-\]
+\end{equation}
 以上から$J_r\subset D_{2j}(\pi)$を得る。
 $D_{2j}(\pi)$はNoether閉集合なので、既約な$J_r$はある既約成分に含まれ、
 その次元は少なくとも$2j+1$である。
