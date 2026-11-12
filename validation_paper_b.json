@@ -119,7 +119,20 @@
     "direct_main_inputs_expected": 47,
     "original_relative_support_exact_reconcat": true,
     "relative_support_math_labels_preserved": true,
-    "relative_support_math_environments_preserved": true
+    "relative_support_math_environments_preserved": true,
+    "main_root_direct_inputs_checked": 47,
+    "bibliography_inputs_checked": 26,
+    "wrapper_inputs_checked": 6,
+    "source_paths_present": true,
+    "root_does_not_include_wrapper": true,
+    "six_relative_chapter_labels_checked": 78,
+    "six_relative_chapter_duplicate_labels": 0,
+    "finite_model_statement_labels_present": [
+      "thm:global",
+      "thm:multiblock-model",
+      "prop:bad-intro"
+    ],
+    "relative_chapter_source_commentary": "All current chapter files checked for label uniqueness, and all direct main, bibliography, compatibility-wrapper input paths exist in remote main."
   },
   "primary_sources_checked": [
     "Kontsevich author final PDF DefQuant_final.pdf: Theorem 4.6 (PDF p.17), Lemma 4.11 and Section 4.6.2 (p.22), affine equivariance and Theorem 6.3 (p.30): text and page images checked. Graph arity formula and Sections 6.2-6.4 also read.",
@@ -176,6 +189,10 @@
     },
     "math_claims_added": false,
     "proofs_removed": false,
-    "latex_build": "NOT RUN; no PDF generated"
+    "latex_build": "NOT RUN; no PDF generated",
+    "final_partition": "Artin/etale statements and proofs in Part III; finite Sklyanin/multiblock theorem statements and proofs in Part IV. Compatibility wrapper live but not used in paper B.",
+    "full_recursive_tex_reference_and_citation_check": "NOT RUN",
+    "full_paper_lualatex": "NOT RUN",
+    "PDF_generation": "NOT RUN"
   }
 }
