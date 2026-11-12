@@ -8,10 +8,10 @@
 \subsection{滑らかな射影完全交叉の存在判定}
 \begin{theorem}\label{thm:ci-poisson-existence}
 複素数体上の滑らかな通常の射影完全交叉
-\[
+\begin{equation}
  X=X_{d_1,\ldots,d_c}\subset\PP^{n+c},
  \qquad n\ge3,\quad d_j\ge2
-\]
+\end{equation}
 について、以下は同値である。
 \begin{enumerate}[label=(\arabic*)]
 \item $H^0(X,\bigwedge^2T_X)\ne0$。
@@ -22,17 +22,17 @@
 \end{theorem}
 \begin{proof}
 $s=\sum_{j=1}^c(d_j-1)$とおく。随伴公式から
-\[
+\begin{equation}
  \omega_X\simeq\OO_X(-(n+1-s)),\qquad
  \bigwedge^2T_X\simeq\Omega_X^{n-2}(n+1-s)
- \tag{2.1}\label{eq:ci-forms}
-\]
+ \label{eq:ci-forms}
+\end{equation}
 である。Br\"uckmannの消滅\cite[Lemma 4.1]{FuHwangCI}は
-\[
+\begin{equation}
  H^0(X,\Omega_X^p(k))=0
  \qquad(1\le p\le n-1,\ k\le p)
- \tag{2.2}\label{eq:ci-vanishing}
-\]
+ \label{eq:ci-vanishing}
+\end{equation}
 を与える。$n\ge3$なので$p=n-2\ge1$を取り、
 $s\ge3$なら$n+1-s\le n-2$ゆえ
 $H^0(X,\bigwedge^2T_X)=0$となる。
@@ -41,16 +41,16 @@ $H^0(X,\bigwedge^2T_X)=0$となる。
 逆に$s\le2$の場合、一般の独立な一次形式
 $L_0,\ldots,L_{n-2}$を選び、射影空間のEuler場
 $E=\sum_i z_i\partial_{z_i}$を用いて
-\[
+\begin{equation}
  \alpha=\iota_E(dL_0\wedge\cdots\wedge dL_{n-2})
        \in H^0(X,\Omega_X^{n-2}(n-1))
-\]
+\end{equation}
 を定める。一般の選択では$\alpha|_X$は非零である。
 $L_0\ne0$上では
-\[
+\begin{equation}
  \alpha=L_0^{n-1}\,
  d(L_1/L_0)\wedge\cdots\wedge d(L_{n-2}/L_0)
-\]
+\end{equation}
 となり、一般点でその核は有理写像
 $X\dashrightarrow\PP^{n-2}$のファイバーに接する
 階数二の可積分分布である。
@@ -129,7 +129,7 @@ $[D_1\wedge D_2,D_1\wedge D_2]=0$を満たす。
 本論文のPoisson正規形
 $F=\sum_{s=1}^k f_s(x_s,u)$に対し、
 量子化を定める二次関係式は明示的に
-\[
+\begin{equation}
  [x_{s2},x_{s3}]
  =\hbar\,\operatorname{sym}_R(\partial_{x_{s1}}f_s),
  \quad
@@ -138,7 +138,7 @@ $F=\sum_{s=1}^k f_s(x_s,u)$に対し、
  \quad
  [x_{s1},x_{s2}]
  =\hbar\,\operatorname{sym}_R(\partial_{x_{s3}}f_s)
-\]
+\end{equation}
 と書ける。異なるブロックと中心変数の間の交換子は零である。
 三次中心元$\Omega_\hbar$は零のZariski近傍で存在し、
 有限自由加群間の中心性方程式
@@ -155,10 +155,10 @@ $W_s=x_{s1}x_{s2}x_{s3}-x_{s2}x_{s1}x_{s3}
 \begin{example}[Fermat型]
 $[x,y]=\hbar z^2$、$[y,z]=\hbar x^2$、
 $[z,x]=\hbar y^2$なら
-\[
+\begin{equation}
  \Omega=x^3+y^3+z^3
       -2\hbar^2\operatorname{sym}(xyz)
-\]
+\end{equation}
 は実際に中心元となる。直接の交換子計算は
 本論文のFermat型の補題にある。
 \end{example}
