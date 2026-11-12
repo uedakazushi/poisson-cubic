@@ -1,10 +1,10 @@
 # 普遍Jacobian量子中心三次元：現行研究ノート
 
 **2026-11-12 / v3。再開時はまず 00_research_plan.md を読む。**
-公表用原稿は \`papers/paper_a.tex\`、中心三次元の詳細証明は
-\`papers/support/papers/sections/hesse_mixed_universal_center.tex\`、
-\`papers/support/papers/sections/fermat_mixed_universal_center.tex\`、
-\`papers/support/papers/sections/universal_casimir_determinant.tex\`。
+公表用原稿は `papers/paper_a.tex`、中心三次元の詳細証明は
+`papers/support/papers/sections/hesse_mixed_universal_center.tex`、
+`papers/support/papers/sections/fermat_mixed_universal_center.tex`、
+`papers/support/papers/sections/universal_casimir_determinant.tex`。
 本ノートは証明全文を重複させず、現行の確実性、計算再現、残る核心を整理する。
 
 ## 1. 解決した核心：全Hesse型・全中心混合の短い普遍多項式
@@ -52,7 +52,7 @@ h=0では可換多項式環の同次数部分が195次元なので同じrank144�
 したがってh=0直線を含む近傍で次数4商は局所自由・h-flatとなり、
 分数体上の恒等式が原点を含む開上へ降下する。
 **今回独立Python実行で Q(h,t) 上のrank144と3交換子剰余0を確認。**
-保存コード \`computations/verify_universal_hesse_mixed_center.py\` は
+保存コード `computations/verify_universal_hesse_mixed_center.py` は
 全自由語と行を再生成する（必要ライブラリ SymPy）。
 保存後のGitHub実行環境でコードそのものを走らせたわけではない。
 有限有理標本から得た候補係数の補間は探索方法であり、
@@ -133,26 +133,26 @@ Hesse明示中心元の存在から量子次数3の中心が
 以前必要とされた形式的中心元の存在という仮定は**不要**になった。
 中心変数m=0ではr=9、m=2ではr=30。
 Fermat基準点の小行列式はm=0で-72、
-m=2で4608（\`computations/verify_universal_casimir_minor.py\` により
+m=2で4608（`computations/verify_universal_casimir_minor.py` により
 有理数計算で確認済み）。
 これは決定式表示であり短い座標不変式ではない。
 
 ## 5. 先行成果との関係・今後の核心
 
 - Fermat型の短い式は論文C関連の
-  \`papers/support/papers/sections/mixed_center_picard.tex\` に既に存在した。
+  `papers/support/papers/sections/mixed_center_picard.tex` に既に存在した。
   全係数不定元による厳密中心性を証明したのは
-  \`papers/support/papers/sections/fermat_mixed_universal_center.tex\`；
+  `papers/support/papers/sections/fermat_mixed_universal_center.tex`；
   現在は一般Hesse型の定理のt=0特殊化となる。
 - 混合を除くHesse型Sklyanin中心元は既知の結果に依存し、
-  \`papers/support/papers/sections/explicit_hesse_center.tex\` に
+  `papers/support/papers/sections/explicit_hesse_center.tex` に
   Poisson規約の式がある。新しい定理は**全中心混合項**への拡張と
   独立な普遍恒等式による検証に価値がある。完全な先行研究調査・
   数学的新規性の確定は未実施。
 - **未解決：** 節点型・尖点型・零の三変数制限など
   全ての特異gを単一の短い普遍式で覆うこと。
   既存の二つの特異ブロックの閉式は
-  \`papers/support/papers/sections/nonelliptic_quantization.tex\`。
+  `papers/support/papers/sections/nonelliptic_quantization.tex`。
   全Poisson構造の代数的量子化 thm:pg-quantization の
   **特異ブロック部分**には、なお形式的中心元存在
   lem:pg-formal-center とその相対formality/絶対CYの
