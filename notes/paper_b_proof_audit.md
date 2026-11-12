@@ -1,6 +1,6 @@
 # 論文B：完備曲率付き比較と一般点可換復元
 
-**2026-11-12 / B-v50。** 再開は `00_research_plan.md`。主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、形式比較の証明は `complete_curved_transport.tex`、局所比較は `three_object_window.tex`、基礎体降下は `generic_cubic_descent.tex`（同じディレクトリ）。
+**2026-11-12 / B-v52。** 再開は `00_research_plan.md`。主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、形式比較の証明は `complete_curved_transport.tex`、局所比較は `three_object_window.tex`、基礎体降下は `generic_cubic_descent.tex`（同じディレクトリ）。
 
 ## 現在の結論と適用範囲
 
@@ -12,7 +12,7 @@
 
 ## 五部構成と後半の読者向け導線
 
-前半のI・IIは一般点復元の比較構成と可換点の変形接空間を扱う。Abstractと序論は主結果・適用範囲・証明の四段階を簡潔に述べ、検証の実施状態は本ノートと検証記録で区別する。IIIはArtin形式復元・étale局所実現と相対smoothnessの条件・反例、IVは楕円/混合量子化と有限二次jetの明示式、Vはpoint schemeの台・非被約構造・平坦極限である。大きな `rotation_models.tex` は旧独立長編からの形式復元・楕円ブロックの定理と証明を保持し、一般点の主定理とは基底と追加条件が異なることを部・節の導入で説明する。一次Poisson消滅の二つの証明は、`poisson_first_order.tex` をTodd補正付きHKRによる幾何側の別証明、`first_order_poisson_kernel.tex` を曲率付きMFの直接比較として分ける。一般Poisson成分のchartについては相対PBW代数・圏論比較の追加条件が残る。各部の定理・証明・反例を削らない。
+前半のI・IIは一般点復元の比較構成と可換点の変形接空間を扱う。Abstractと序論は主結果・適用範囲・証明の四段階を簡潔に述べ、検証の実施状態は本ノートと検証記録で区別する。IIIはArtin形式復元・étale局所実現と相対smoothnessの条件・反例、IVは楕円/混合量子化と有限二次jetの明示式、Vはpoint schemeの台・非被約構造・平坦極限である。`rotation_models.tex` は6本の現行ソースを順に読み込むだけの互換入口とし、数学的内容は `relative_formal_models.tex`（Artin形式）、`relative_etale_models.tex`（étale）、`sklyanin_model_theorems.tex`（有限係数主定理）、`sklyanin_block_models.tex`（一ブロック）、`multiblock_generation.tex`（多ブロック）、`relative_parameter_boundary.tex`（例外係数）に保持する。論文BではIIIとIVに分けて直接読み込む。一般点の主定理とは基底と追加条件が異なることを部・節の導入で説明する。一次Poisson消滅の二つの証明は、`poisson_first_order.tex` をTodd補正付きHKRによる幾何側の別証明、`first_order_poisson_kernel.tex` を曲率付きMFの直接比較として分ける。一般Poisson成分のchartについては相対PBW代数・圏論比較の追加条件が残る。各部の定理・証明・反例を削らない。
 
 ## 支持節の現行位置付け
 

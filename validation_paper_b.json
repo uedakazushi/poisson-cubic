@@ -1,7 +1,7 @@
 {
   "date": "2026-11-12",
-  "paper_version": "B-v50",
-  "repository_version": "v67",
+  "paper_version": "B-v52",
+  "repository_version": "v68",
   "canonical_entry": "papers/paper_b.tex",
   "mathematics": {
     "input": "Actual degreewise finite-free central cubic deformation of a polynomial algebra with smooth commutative cubic special fiber. The generic theorem uses a regular local algebraic base; the complete formal comparison allows a general complete noetherian local C-algebra with residue C.",
@@ -115,7 +115,11 @@
     "paper_B_direct_and_bibliography_input_paths": "PASS: 42 main inputs and 26 bibliography inputs, all 68 paths exist on GitHub main.",
     "new_introduction_citation_keys": "PASS: all 6 cited keys Orlov, LZ, JLLZ, PKontsevich, CT, GCDBFK found in current reference input sources.",
     "paper_B_full_recursive_labels_and_citations": "NOT RUN: static path check and new introduction key check only.",
-    "edited_support_sections": "PASS: eight checked support files with no within-file duplicate labels or control bytes."
+    "edited_support_sections": "PASS: eight checked support files with no within-file duplicate labels or control bytes.",
+    "direct_main_inputs_expected": 47,
+    "original_relative_support_exact_reconcat": true,
+    "relative_support_math_labels_preserved": true,
+    "relative_support_math_environments_preserved": true
   },
   "primary_sources_checked": [
     "Kontsevich author final PDF DefQuant_final.pdf: Theorem 4.6 (PDF p.17), Lemma 4.11 and Section 4.6.2 (p.22), affine equivariance and Theorem 6.3 (p.30): text and page images checked. Graph arity formula and Sections 6.2-6.4 also read.",
@@ -157,6 +161,21 @@
     "full_manuscript_lualatex": "NOT RUN",
     "full_recursive_reference_audit": "NOT RUN",
     "metadata_deduplication": "Combined repeated editorial-guide sections in README and research plan; audit note still contains current five-part orientation; no mathematical text removed.",
-    "source_check_status": "Confirmed direct TeX path closure and 8 edited support files. No full LuaLaTeX build or all-reference audit in this turn."
+    "source_check_status": "Confirmed direct TeX path closure and 8 edited support files. No full LuaLaTeX build or all-reference audit in this turn.",
+    "relative_support_split": {
+      "compatibility_entry": "papers/support/papers/sections/rotation_models.tex",
+      "main_direct_sources": [
+        "relative_formal_models.tex",
+        "relative_etale_models.tex",
+        "sklyanin_model_theorems.tex",
+        "sklyanin_block_models.tex",
+        "multiblock_generation.tex",
+        "relative_parameter_boundary.tex"
+      ],
+      "rationale": "Split formerly 2,658-line TeX source at five exact section boundaries; moved the exact finite-coefficient theorem block into explicit-model part; theorem statements/proofs and labels preserved. Paper B now includes six chapters directly across parts III-IV and never includes wrapper."
+    },
+    "math_claims_added": false,
+    "proofs_removed": false,
+    "latex_build": "NOT RUN; no PDF generated"
   }
 }

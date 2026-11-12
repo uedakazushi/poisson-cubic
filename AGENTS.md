@@ -1,7 +1,7 @@
 # AGENTS.md — nc-cubic 現行研究・開発指針
 
-**2026-11-12 / v67。** mainが正本。最初に `00_research_plan.md` を読む。
-A `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v50）が現行主原稿。
+**2026-11-12 / v68。** mainが正本。最初に `00_research_plan.md` を読む。
+A `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v52）が現行主原稿。
 
 ## 現在の主定理と次の作業
 
@@ -13,7 +13,7 @@ A `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v50）が現行�
 
 Aの代数的量子中心にformalityを必須入力として戻さず、Lie正規形・PBW/AS・Hesse・Bondal・成分の監査を継続。17次元モジュライとambient周期性はnc-cubic2に保持する。
 
-論文BはI:主定理を支える比較、II:可換点の変形、III:相対形式・étale、IV:明示量子化、V:point schemeの五部構成。数学的主張・証明・反例を削らず、各部の追加条件と一般点定理の結論を混同しない。今後は新しい研究結果を増やすより、公表本文の推敲と全文引用・組版検証を優先する。
+論文BはI:主定理を支える比較、II:可換点の変形、III:Artin形式・étale、IV:楕円/混合量子化と有限係数模型、V:point schemeの五部構成。Part IIIには `relative_formal_models.tex` と `relative_etale_models.tex`、Part IVには `sklyanin_model_theorems.tex`、`sklyanin_block_models.tex`、`multiblock_generation.tex`、`relative_parameter_boundary.tex` を直接入力する。`rotation_models.tex` はこれらを順に読み込む互換入口のため、個別節との同時入力は禁止。数学的主張・証明・反例を削らず、各部の追加条件と一般点定理の結論を混同しない。今後は新しい研究結果を増やすより、公表本文の推敲と全文引用・組版検証を優先する。
 
 ## 保存・再現
 
