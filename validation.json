@@ -514,6 +514,8 @@
     ],
     "static_checks": "Merged moduli TeX source and mixed_center_picard: zero unresolved refs, zero duplicate labels and zero unresolved citation keys",
     "not_executed": "Full LuaLaTeX build/PDF inspection of modified article A and moved moduli manuscript, and rerun of moved verification scripts not performed in this change",
-    "known_open_problem": "17-dimensional constructed nc cubic family not proved to be a moduli irreducible component; general Serre-Veronese lifting not proved"
+    "known_open_problem": "17-dimensional constructed nc cubic family not proved to be a moduli irreducible component; general Serre-Veronese lifting not proved",
+    "independent_determinant_check": "PASS: an independent local SymPy reproduction of the transferred 31x31 integer tangent matrix at F0 yielded -5538243375000. This was an equivalent reimplementation, not execution of the exact GitHub script.",
+    "paper_B_removed": "papers/paper_b.tex deleted from nc-cubic main after destination files were verified; current direct paper entrypoints are A/C."
   }
 }
