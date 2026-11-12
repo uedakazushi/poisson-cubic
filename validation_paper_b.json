@@ -133,7 +133,24 @@
       "prop:bad-intro"
     ],
     "relative_chapter_source_commentary": "All current chapter files checked for label uniqueness, and all direct main, bibliography, compatibility-wrapper input paths exist in remote main.",
-    "global_source_scan": "B-v53 74-file source scan complete; B-v54 additive refs to be rescanned."
+    "global_source_scan": "B-v54 full main input closure PASS; no duplicates/undefined refs/undefined citations by source regex; see global_paper_b_tex_audit.",
+    "global_paper_b_tex_audit": {
+      "status": "PASS",
+      "audited_git_main": "8f78671496e232dc2b2eb9bacf420426cf058458",
+      "root": "papers/paper_b.tex",
+      "total_tex_files": 74,
+      "label_occurrences": 654,
+      "duplicate_label_keys": 0,
+      "reference_occurrences": 662,
+      "unresolved_reference_keys": 0,
+      "citation_occurrences": 255,
+      "unresolved_citation_keys": 0,
+      "bibliography_entries": 127,
+      "duplicate_bibliography_keys": 0,
+      "missing_nested_inputs": 0,
+      "method": "GitHub connector fetched the main TeX input closure; comments stripped by unescaped-percent line split; source regex for label/ref/cite/bibitem/input; not LuaLaTeX, not PDF inspection.",
+      "limitations": "Does not test arbitrary macros, runtime TeX expansion, internal environment correctness or mathematical proof validity."
+    }
   },
   "primary_sources_checked": [
     "Kontsevich author final PDF DefQuant_final.pdf: Theorem 4.6 (PDF p.17), Lemma 4.11 and Section 4.6.2 (p.22), affine equivariance and Theorem 6.3 (p.30): text and page images checked. Graph arity formula and Sections 6.2-6.4 also read.",
@@ -201,6 +218,7 @@
     "cross_file_references": "NOT RUN in this revision",
     "proof_navigation": "Added proof-location maps for Artin formal theorem and three Sklyanin/multiblock results; updated support source guide.",
     "math_changes": "none",
-    "full_build": "NOT RUN"
+    "full_build": "NOT RUN",
+    "audit": "B-v54 full 74-file source label/ref/citation audit completed; all labels and cites resolve; PDF and complete LuaLaTeX build still not run."
   }
 }
