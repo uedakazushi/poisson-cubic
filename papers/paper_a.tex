@@ -8,9 +8,9 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月12日・論文A（投稿準備稿 v45）}
+\date{2026年11月12日・論文A（投稿準備稿 v46）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-12 / A-v45}
+\fancyhead[R]{\small 2026-11-12 / A-v46}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -39,6 +39,8 @@ $k$個のブロックの量子化パラメータを独立に動かし、
 同時に量子化する。
 中心三次元は各ブロックの明示式の和であり、
 ブロック間の追加補正は必要ない。
+さらに定数三重ベクトルと$F$のHessianの内在的縮約により、
+任意次元の量子中心三次元の二次補正項を座標に依らず記述する。
 さらに，標準5次元Koszul AS正則$\mathbb Z$-代数が
 正則正規三次超曲面を持てば，ambient自体が1周期的であることを示す。
 固定した滑らかなcubic fivefoldに現れる節点型・尖点型の
@@ -246,6 +248,19 @@ Poisson線形族を\emph{一つの相対的な代数族として同時に量子�
 多変数底の平坦性まで証明するものである。
 有限の全次数Hessian公式も
 系\ref{cor:pg-ad-hessian}に記載する。
+さらに任意次元の$V$における定数三重ベクトル
+$P\in\bigwedge^3V$について
+\[
+ \mathscr H(P,F)=\frac16
+ P^{ijk}P^{abc}F_{ia}F_{jb}F_{kc}
+\]
+という\emph{座標不変}の三次式を定義すると、
+一般次元の中心三次元の$\hbar^2$補正は
+中心三次元の加減を除いて
+$-\hbar^2\mathscr H(P,F)/12$となる
+（命題\ref{prop:pg-ad-intrinsic-hessian}）。
+高次補正は各Hesseブロックの四次補正の和で明示でき、
+$\hbar^2$の不変項と区別される。
 
 適用範囲を明確にするため、
 滑らかな三変数三次制限に対する
