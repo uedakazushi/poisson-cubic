@@ -1,7 +1,7 @@
 {
   "date": "2026-11-12",
-  "paper_version": "B-v49",
-  "repository_version": "v65",
+  "paper_version": "B-v50",
+  "repository_version": "v66",
   "canonical_entry": "papers/paper_b.tex",
   "mathematics": {
     "input": "Actual degreewise finite-free central cubic deformation of a polynomial algebra with smooth commutative cubic special fiber. The generic theorem uses a regular local algebraic base; the complete formal comparison allows a general complete noetherian local C-algebra with residue C.",
@@ -149,6 +149,11 @@
     "fullRecursiveRefs": "NOT RUN",
     "thirdPass": "Distinguished full formal MF construction vs its one-parameter variant and explicit second-order formula; removed repeated moduli/tangent-scope remarks without deleting their labels or mathematical statements; replaced stale proof-audit phrases in the manuscript.",
     "modifiedMathResults": false,
-    "fullRecursiveAudit": "NOT RUN"
+    "fullRecursiveAudit": "NOT RUN",
+    "five_parts": "I generic recovery proof, II point deformation and finite reconstruction, III Artin/etale/relative and obstructions, IV elliptic/mixed explicit models, V point schemes and flat limits",
+    "part_structure": "Same 42 TeX inputs, reordered and grouped in 5 parts. No mathematical theorem/proof, labels, inputs removed.",
+    "later_section_polish": "Separate alternate Todd-corrected HKR proof from direct first-order curved Hochschild; clarify conditional Poisson component charts and relative formal model scope; remove manuscript diary wording.",
+    "full_manuscript_lualatex": "NOT RUN",
+    "full_recursive_reference_audit": "NOT RUN"
   }
 }
