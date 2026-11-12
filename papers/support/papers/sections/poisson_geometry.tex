@@ -6,11 +6,11 @@ $\PP(V)$ は $V$ の一次元部分空間をパラメータ化する。
 座標を $z_1,\ldots,z_N$、Euler 場を $E=\sum_i z_i\partial_{z_i}$ と書き、
 $F_i=\partial_iF$、$F_{ij}=\partial_i\partial_jF$ と略記する。
 縮約の符号は
-\[
+\begin{equation}
 \iota_\eta(v_1\wedge\cdots\wedge v_r)
  =\sum_{a=1}^r(-1)^{a-1}\eta(v_a)
  v_1\wedge\cdots\wedge\widehat v_a\wedge\cdots\wedge v_r
-\]
+\end{equation}
 とする。Schouten 括弧に関して $[\pi,\pi]=0$ を満たす
 $\pi\in H^0(X,\bigwedge^2T_X)$ を Poisson 構造と呼ぶ。
 射影空間の場 $\pi$、その制限 $\pi_X$、アフィン錐上の代表 $q$ を区別する。
@@ -31,32 +31,32 @@ $S$ は Cohen--Macaulay なので、$N$ 個の生成元は正則列となる。
 \end{proof}
 \begin{lemma}\label{lem:pg-euler}
 $\mathbb P=\PP(V)$ とすると
-\[
+\begin{equation}
 H^0(\mathbb P,\textstyle\bigwedge^2 T_{\mathbb P}(-3))
 =H^1(\mathbb P,\textstyle\bigwedge^2 T_{\mathbb P}(-3))=0,
 \qquad
 H^0(\mathbb P,\textstyle\bigwedge^3 T_{\mathbb P}(-3))\simeq\bigwedge^3V.
-\]
+\end{equation}
 \end{lemma}
 \begin{proof}
 $\dim\mathbb P\geq4$ における線束の中間コホモロジーの消滅\cite[Chapter III]{PHartshorne}を使う。
 Euler 列とその外積は
-\begin{align*}
+\begin{equation}\begin{aligned}
 0&\longrightarrow\OO(-3)\longrightarrow V\otimes\OO(-2)
  \longrightarrow T_{\mathbb P}(-3)\longrightarrow0,\\
 0&\longrightarrow T_{\mathbb P}(-3)\longrightarrow\bigwedge^2V\otimes\OO(-1)
  \longrightarrow\bigwedge^2T_{\mathbb P}(-3)\longrightarrow0,\\
 0&\longrightarrow\bigwedge^2T_{\mathbb P}(-3)\longrightarrow\bigwedge^3V\otimes\OO
  \longrightarrow\bigwedge^3T_{\mathbb P}(-3)\longrightarrow0.
-\end{align*}
+\end{aligned}\end{equation}
 初めの二列が消滅を与え、最後の列の大域切断が同型を与える。
 \end{proof}
 \begin{proposition}\label{prop:pg-represent}
 $F$ を固定すると線形同型
-\[
+\begin{equation}
 \bigwedge^3V\xrightarrow{\sim} H^0(X,\bigwedge^2T_X),
 \qquad P\longmapsto(\iota_{dF}P)|_X
-\]
+\end{equation}
 がある。右辺は二次係数の場を射影化して定める。
 任意の双ベクトル場は $\PP(V)$ 上に一意に延長される。
 \end{proposition}
@@ -68,16 +68,16 @@ H^0(X,(\bigwedge^2T_{\mathbb P})|_X)$ である。
 $B\in S_2\otimes\bigwedge^2V$ で代表できる。
 接性により、$\iota_{dF}B$ の射影接束への像は $X$ 上零である。
 Euler 列の核と $H^0(X,\OO_X(3))$ の多項式への持上げを用いると
-\[
+\begin{equation}
 \iota_{dF}B=FA+hE,\qquad A\in S_1\otimes V,\quad h\in S_3.
-\]
+\end{equation}
 再び $dF$ で縮約すれば $0=FA(F)+3Fh$、従って $h=-A(F)/3$ である。
 そこで $q=B-\frac13E\wedge A$ とおくと $\iota_{dF}q=0$ となる。
 補題\ref{lem:pg-gradient}の Koszul 複体の次数部分
-\[
+\begin{equation}
 S_0\otimes\bigwedge^3V\xrightarrow{\iota_{dF}}
 S_2\otimes\bigwedge^2V\xrightarrow{\iota_{dF}}S_4\otimes V
-\]
+\end{equation}
 は完全で、左からの寄与は負次数なので零である。
 よって $q=\iota_{dF}P$ を満たす定数 $P$ が一意に存在する。
 
@@ -96,28 +96,28 @@ $q=\iota_{dF}P$ の $X$ 上の射影化が Poisson ならば $[q,q]=0$ である
 \end{proposition}
 \begin{proof}
 標準体積形式の divergence を
-\[
+\begin{equation}
 \delta(a\partial_{i_1}\wedge\cdots\wedge\partial_{i_r})
 =\sum_{b=1}^r(-1)^{b-1}\partial_{i_b}a\,
 \partial_{i_1}\wedge\cdots\wedge\widehat{\partial_{i_b}}\wedge\cdots\wedge\partial_{i_r}
-\]
+\end{equation}
 と定める。交代テンソルと Hessian の縮約なので $\delta q=0$。
 積の微分則から $\delta$ は Schouten 括弧の導分であり、
 $J=[q,q]$ は $\delta J=0$ を満たす。
 $F$ が Casimir であることから $\iota_{dF}J=0$ でもある。
 $J$ の射影化は $X$ 上零なので、補題\ref{lem:pg-euler}より
-\[
+\begin{equation}
 J=FT+E\wedge B_2,\qquad T\in\bigwedge^3V,
 \quad B_2\in S_2\otimes\bigwedge^2V.
-\]
+\end{equation}
 定義から $\delta(FT)=\iota_{dF}T$、
 $\delta(E\wedge B_2)=NB_2-E\wedge\delta B_2$。
 $\delta J=0$ に $E$ を外積すると
 $E\wedge B_2=-N^{-1}E\wedge\iota_{dF}T$ となる。
 これを代入して $dF$ で縮約すると
-\[
+\begin{equation}
 0=(1-3/N)F\,\iota_{dF}T.
-\]
+\end{equation}
 $N\geq5$ より $\iota_{dF}T=0$。
 gradient の定数係数での独立性から $T=0$、従って $J=0$ である。
 \end{proof}
@@ -142,10 +142,10 @@ $\operatorname{Hess}_F(p)\in K(P)$ であることは同値である。
 \begin{proof}
 $P^{ija}=P(dz_i,dz_j,dz_a)$ とすれば $q^{ij}=\sum_aP^{ija}F_a$ である。
 Jacobiator の係数は非零定数倍を除き
-\[
+\begin{equation}
 \sum_aF_aL_a^{ijk},\qquad
 L_a^{ijk}=\sum_{r,b}(P^{ira}P^{jkb}+P^{jra}P^{kib}+P^{kra}P^{ijb})F_{br}.
-\]
+\end{equation}
 $L_a^{ijk}$ は一次式なので、補題\ref{lem:pg-gradient}より
 Jacobi 条件は全 $L_a^{ijk}=0$ と同値である。
 これは\eqref{eq:pg-K}への座標共変ベクトルの代入と符号を除いて一致する。
@@ -176,9 +176,9 @@ $B([x,y],z)=P(B^\flat x,B^\flat y,B^\flat z)$ は交代的なので $B$ は不�
 Jacobiator を $B$ で任意の $t$ と対にすると、\eqref{eq:pg-K}の $H=B$ が得られる。
 よってこれは Lie 代数 $\mathfrak g$ である。
 $[\mathfrak g,\mathfrak g]=W$、$Z(\mathfrak g)=W^\perp$ であり、$B|_W$ の非退化性から
-\[
+\begin{equation}
 \mathfrak g=W\oplus Z(\mathfrak g),\qquad [W,W]=W,\qquad Z(W)=0.
-\]
+\end{equation}
 さらに任意の $H\in K(P)$ について
 \begin{equation}
 H([a,b],[c,d])+H([b,c],[a,d])+H([c,a],[b,d])=0.\label{eq:pg-lie-H}
@@ -195,10 +195,10 @@ $W=[W,W]$ のため全作用素の trace は零であり、$\mathfrak r$ は $I$
 $\lambda(h_\alpha)>0$ となるように選び、
 $e_\alpha,f_\alpha,h_\alpha$ を $W$ に持ち上げる。
 $w=\lambda(h_\alpha)^{-1}[f_\alpha,v]\in I$ とおくと
-\[
+\begin{equation}
 [e_\alpha,w]=v,\quad [e_\alpha,v]=0,\quad
 [h_\alpha,v]=\lambda(h_\alpha)v,\quad[v,w]=0.
-\]
+\end{equation}
 商の $\mathfrak{sl}_2$ 関係が作用するのは、根基の作用が零だからである。
 \eqref{eq:pg-lie-H}に $(a,b,c,d)=(h_\alpha,v,e_\alpha,w)$ を代入すると
 $\lambda(h_\alpha)H(v,v)=0$ が全 $H$ に対して成立する。
@@ -285,9 +285,9 @@ $k=1$ と非零 $P$ の分解可能性が同値なので第一の主張を得る
 直和をなす順序付き $W_1,\ldots,W_k$ の空間は
 $\operatorname{Gr}(3,V)^k$ の開部分で、次元 $3k(N-3)$。
 この組を固定したときの三次式の空間の次元は
-\[
+\begin{equation}
 \binom{m+2}{3}+k\left(10+6m+3\binom{m+1}{2}\right).
-\]
+\end{equation}
 従って全三次式の空間における余次元は少なくとも
 \begin{equation}
 \binom{N+2}{3}-\binom{m+2}{3}
@@ -319,9 +319,9 @@ $G$ がアフィン錐上の Casimir であることは同値である。
 Casimir なら $(G)$ は括弧で保たれる。
 逆向きは $G$ が $F$ の定数倍の場合は既知なので、$\gcd(F,G)=1$ とする。
 $d=\deg G$ とおくと、射影的接性と Euler 列より
-\[
+\begin{equation}
 \iota_{dG}q=GA+hE,\qquad A\in S_1\otimes V,\quad h\in S_d.
-\]
+\end{equation}
 $dG$ で縮約すれば $h=-A(G)/d$。
 $dF$ で縮約し $\iota_{dF}q=0$ を使うと
 $GA(F)-(3/d)FA(G)=0$ である。
@@ -343,16 +343,16 @@ $\ell$ が全 active 変数に依存しないことと同値である。
 \in H^0(\PP^{N-1},\Omega^{m+k-1}(N)).\label{eq:pg-log-main}
 \end{equation}
 $m>0$ では
-\[
+\begin{equation}
 \beta=\left(\prod_{\alpha=1}^m u_\alpha\prod_{s=1}^kf_s\right)
 \bigwedge_{\alpha=2}^m d\log(u_\alpha/u_1)
 \wedge\bigwedge_{s=1}^k d\log(f_s/u_1^3),
-\]
+\end{equation}
 $m=0$ では
-\[
+\begin{equation}
 \beta=3\left(\prod_{s=1}^kf_s\right)
 \bigwedge_{s=2}^k d\log(f_s/f_1).
-\]
+\end{equation}
 $X$ 上の $\pi_X^k$ に対応する形式は
 \begin{equation}
 \alpha=\iota_E(du_1\wedge\cdots\wedge du_m\wedge df_1\wedge\cdots\wedge df_{k-1})|_X
@@ -384,10 +384,10 @@ $V(u_1\cdots u_mf_1\cdots f_{k-1}F)$ を反標準因子にできる。
 \subsection{葉とその閉包}
 \begin{proposition}\label{prop:pg-first-integrals}
 有理写像
-\[
+\begin{equation}
 \Phi:\PP^{N-1}\dashrightarrow\PP(1^m,3^k),\qquad
 [x,u]\longmapsto[u_1:\cdots:u_m:f_1:\cdots:f_k]
-\]
+\end{equation}
 は一般点で独立な第一積分を与える。
 一般 fiber の滑らかな最大階数部分の連結成分は symplectic leaf である。
 $X$ 上の底は $m>0$ なら $\PP(1^m,3^{k-1})$、$m=0$ なら $\PP^{k-2}$ であり、次元は $n-2k$ である。
@@ -446,10 +446,10 @@ Bertini により一般の $\sum_\alpha c_\alpha Q_\alpha$ は滑らかな平面
 \section{全退化スキームの方程式}\label{sec:pg-degeneracy}
 \subsection{任意のブロック表示に対する生成元}
 $q_s=\iota_{df_s}(\partial_{x_{s1}}\wedge\partial_{x_{s2}}\wedge\partial_{x_{s3}})$ とし、
-\[
+\begin{equation}
 A_{s,i}=\frac{\partial f_s}{\partial x_{si}},\qquad
 p_s=\sum_i x_{si}A_{s,i}=3f_s-\sum_\alpha u_\alpha\frac{\partial f_s}{\partial u_\alpha}
-\]
+\end{equation}
 とおく。$D_{2j-2}(\pi)=Z(\pi^j)$ をスキームとして考える。
 \begin{proposition}\label{prop:pg-deg-ideal}
 $1\leq j\leq k$ に対し、$D_{2j-2}(\pi)$ のイデアル層は、全ての
@@ -485,19 +485,19 @@ f_{s,0}=f_s(x_s,0)\text{ が滑らかな平面三次曲線 }E_s\text{ を定め�
 と仮定する。$E_s$ は $u=0$、$x_t=0$（$t\neq s$）により $X$ 内に入り、互いに交わらない。
 \begin{lemma}\label{lem:pg-critical-cover}
 $m>0$ なら
-\[
+\begin{equation}
 K_s=V(A_{s,1},A_{s,2},A_{s,3})\subset\PP(x_s,u)=\PP^{m+2},
 \qquad\Delta=V(A_{s,i}\mid s,i)
-\]
+\end{equation}
 は $u=0$ と交わらない。
 中心座標への射影は $K_s\to\PP_u^{m-1}$ を有限平坦八次被覆、
 $\Delta\to\PP_u^{m-1}$ を有限平坦 $8^k$ 次被覆とし、
 $\Delta\simeq K_1\times_{\PP_u^{m-1}}\cdots\times_{\PP_u^{m-1}}K_k$。
 $m\geq0$ の場合を含め、$\Gamma_I=V(A_{s,i}\mid s\in I,1\leq i\leq3)$ は
 非空なら型 $(2^{3|I|})$ の完全交叉で、
-\[
+\begin{equation}
 \dim\Gamma_I=N-1-3|I|,\qquad\deg\Gamma_I=8^{|I|}.
-\]
+\end{equation}
 特に $m>0$ では
 $\dim\Delta=m-1$、$\deg\Delta=8^k$、$\omega_\Delta\simeq\OO_\Delta(3k-m)$。
 $m=0$ では $\Delta=\varnothing$ とする。
@@ -510,9 +510,9 @@ $Q_s/(u)$ は滑らかな三次式の Jacobian 環で、Hilbert 級数 $(1+t)^3$
 従って方程式は正則列で $Q_s$ は Cohen--Macaulay である。
 $u_1,\ldots,u_m$ は斉次パラメータ系なので $Q_s$-正則列である。
 持上げからの全射
-\[
+\begin{equation}
 R\oplus R(-1)^{\oplus3}\oplus R(-2)^{\oplus3}\oplus R(-3)\longrightarrow Q_s
-\]
+\end{equation}
 は同型である。実際、$u$ の Koszul 完全性により
 $\operatorname{Tor}_1^R(Q_s,R/(u))=0$ であり、全射の核を $(u)$ で割ると零となる。
 次数付き Nakayama が核を零にする。
@@ -527,23 +527,23 @@ $u_\alpha\neq0$ で全ブロックを同時に $u_\alpha=1$ と正規化すれ�
 
 \subsection{退化集合と零点スキーム}
 空でない $L\subset\{1,\ldots,k\}$ に対し
-\[
+\begin{equation}
 J_L=V(u,x_t\ (t\notin L),f_{s,0}\ (s\in L))
-\]
+\end{equation}
 を $E_s$（$s\in L$）の射影的 join とする。
 独立な錐の積の射影化なので、被約既約で次元 $2|L|-1$ である。
 \begin{proposition}\label{prop:pg-deg-support}
 $0\leq r<k$ について
-\[
+\begin{equation}
 |D_{2r}(\pi)|=\bigcup_{|I|=k-r}|\Gamma_I|\ \cup\ \bigcup_{|L|=r+1}J_L.
-\]
+\end{equation}
 $X$ 上では右辺を $X$ と交わらせる。
 零点についてはスキームとして
-\[
+\begin{equation}
 D_0(\pi)=\left(\coprod_sE_s\right)\sqcup\Delta,
 \qquad D_0(\pi_X)=\left(\coprod_sE_s\right)\sqcup Z,
 \qquad Z=\Delta\cap X.
-\]
+\end{equation}
 \end{proposition}
 \begin{proof}
 非零 active gradient をもつブロック数を $\ell$ とするとアフィン階数は $2\ell$。
@@ -568,10 +568,10 @@ $E_s$ の点ではある $A_{s,i}$ が単元となり、生成元は局所的に
 \begin{proposition}\label{prop:pg-zero-ci}
 $m=1$ なら $Z=\varnothing$。
 $m\geq2$ なら一般性を仮定せず $Z$ は型 $(2^{3k},3)$ の完全交叉で、
-\[
+\begin{equation}
 \dim Z=m-2,\qquad \deg Z=3\cdot8^k,\qquad
 \omega_Z\simeq\OO_Z(3k+3-m).
-\]
+\end{equation}
 滑らかな $f_{s,0}$ を固定して他の係数を一般に選ぶと、$K_s,\Delta$ および $m\geq2$ の場合の $Z$ は滑らかである。
 これらが正次元ならば、滑らかな場合には既約である。
 \end{proposition}
@@ -626,11 +626,11 @@ $C=X\cap\{u=0\}$、$\Gamma=V(F_x,F_y,F_z)$、$Y=\Gamma\cap X$ とする。
 $C,\Gamma,Y$ は全て滑らかで、スキームとして
 $D_0(\pi)=C\sqcup\Gamma$、$D_0(\pi_X)=C\sqcup Y$ である。
 さらに
-\[
+\begin{equation}
 \Gamma:(2,2,2),\quad\deg\Gamma=8,\quad K_\Gamma=(4-n)H,
 \qquad
 Y:(2,2,2,3),\quad\deg Y=24,\quad K_Y=(7-n)H.
-\]
+\end{equation}
 \end{proposition}
 \begin{proof}
 全偏微分の張る二次式の線形系は射影空間上基点をもたない。
@@ -647,30 +647,30 @@ $Y$ は次数二十四の Calabi--Yau 四次元多様体である。
 ここで Calabi--Yau とは $K_Y\simeq\OO_Y$ および $H^i(Y,\OO_Y)=0$（$0<i<4$）を意味し、
 Lefschetz 定理から単連結性も従う。
 $h^{p,q}=\dim H^q(\Omega^p)$、$p_g=h^0(\omega)$、$e$ を位相的 Euler 数と書くと
-\begin{align*}
+\begin{equation}\begin{aligned}
 n=6:&\quad p_g(Y)=8,\quad h^{1,1}(Y)=1,\quad h^{2,1}(Y)=246,\quad e(Y)=-504,\\
 n=7:&\quad h^{1,1}(Y)=1,\quad h^{2,1}(Y)=0,\quad h^{3,1}(Y)=183,\quad h^{2,2}(Y)=780,\quad e(Y)=1152.
-\end{align*}
+\end{aligned}\end{equation}
 計算は\S\ref{sec:pg-numerical}で与える。
 
 \subsection{階数四と中心変数}
 $F=f(a,u)+g(b,u)$、$a,b\in\CC^3$ とし、
 $A_i=f_{a_i}$、$B_j=g_{b_j}$、$\rho_f=\sum_i a_iA_i$、$\rho_g=\sum_jb_jB_j$ とおく。
 命題\ref{prop:pg-deg-ideal}は
-\begin{align*}
+\begin{equation}\begin{aligned}
 I_{D_2(\pi)}&=(u_\alpha A_iB_j,\rho_gA_i,\rho_fB_j),\\
 I_{D_0(\pi)}&=(u_\alpha A_i,u_\alpha B_j,\rho_f,\rho_g,b_jA_i,a_iB_j)
-\end{align*}
+\end{aligned}\end{equation}
 を与える。
 $f_0,g_0$ が滑らかな平面三次曲線 $E_f,E_g$ を定めるとし、
 $\Gamma_f=V(A_1,A_2,A_3)$、$\Gamma_g=V(B_1,B_2,B_3)$、
 $J=V(u,f_0,g_0)$ とおく。
 $J$ は二曲線の三次元 join であり、
-\[
+\begin{equation}
 |D_2(\pi)|=|\Gamma_f|\cup|\Gamma_g|\cup J,
 \qquad |D_2(\pi_X)|=|\Sigma_f|\cup|\Sigma_g|\cup J,
 \quad\Sigma_f=\Gamma_f\cap X,
-\]
+\end{equation}
 および同様の $\Sigma_g$ を得る。
 \begin{proposition}\label{prop:pg-cubic-surface-family}
 $\Sigma_f,\Sigma_g$ は型 $(2,2,2,3)$、次元 $m+1$、次数二十四の完全交叉であり、
@@ -733,21 +733,21 @@ $X$ の滑らかさは各 $f,g,h$ が滑らかな平面三次曲線を定める�
 それぞれの次元は三、五である。
 一次 Casimir と Poisson 超平面は存在しないが、$f,g,h$ の線形結合は Casimir である。
 最高外積は
-\begin{align*}
+\begin{equation}\begin{aligned}
 \pi^3&\longleftrightarrow\iota_E(df\wedge dg\wedge dh)\\
 &=3(f\,dg\wedge dh-g\,df\wedge dh+h\,df\wedge dg)\\
 &=3fgh\,d\log(g/f)\wedge d\log(h/f)\in H^0(\PP^8,\Omega^2(9)).
-\end{align*}
+\end{aligned}\end{equation}
 $[f:g:h]:\PP^8\dashrightarrow\PP^2$ は $X$ 上で直線 $f+g+h=0$ に値を取る。
 $f/g$ は有理 Casimir で、一般六次元葉の閉包は $\PP^8$ 内の型 $(3,3)$ の完全交叉。
 $X$ 上の最高外積に対応する一形式は
 $f\,dg-g\,df\in H^0(X,\Omega_X^1(6))$ である。
 退化の台は
-\begin{align*}
+\begin{equation}\begin{aligned}
 |D_4(\pi)|&=J_3\cup V(a)\cup V(b)\cup V(c),\\
 |D_2(\pi)|&=J_{fg}\cup J_{fh}\cup J_{gh}\cup\PP_a^2\cup\PP_b^2\cup\PP_c^2,\\
 D_0(\pi)&=E_f\sqcup E_g\sqcup E_h.
-\end{align*}
+\end{aligned}\end{equation}
 $X$ 上では第一行の三つの $\PP^5$ が滑らかな三次四次元多様体となり、
 第二行の三つの平面はそれぞれ曲線に制限され、既に join に含まれる。
 従って $|D_2(\pi_X)|=J_{fg}\cup J_{fh}\cup J_{gh}$。
@@ -770,9 +770,9 @@ punctured affine cone の $A_i\neq0$ の開集合で $f=-g-h$ とおけば
 $I_{D_4}=(g\mathfrak c,h\mathfrak b)$。
 この開集合から $b,c$ 空間への写像は $a_i$ 方向の偏微分が単元なので滑らか、従って平坦である。
 独立変数環 $\CC[b,c]$ では
-\[
+\begin{equation}
 (g\mathfrak c,h\mathfrak b)=(g,h)\cap\mathfrak b\cap\mathfrak c.
-\]
+\end{equation}
 Euler 等式から $g\in\mathfrak b$、$h\in\mathfrak c$ なので一方の包含は明らか。
 逆に $gr+hs$ が右辺に属せば、$\mathfrak b$ を法として非零多項式 $h(c)$ の乗法は単射だから $s\in\mathfrak b$。
 同様に $r\in\mathfrak c$ となる。
@@ -788,10 +788,10 @@ $J_3$ は独立な三曲線の錐の積の射影化なので被約既約であ�
 \end{proof}
 \begin{proposition}\label{prop:pg-D2-primary}
 周囲では
-\[
+\begin{equation}
 I_{D_2(\pi)}=(fB_j,gA_i,fC_l,hA_i,gC_l,hB_j,
  c_lA_iB_j,b_jA_iC_l,a_iB_jC_l).
-\]
+\end{equation}
 $X$ 上では
 \begin{equation}
 I_{D_2(\pi_X)}=I_{J_{fg}}\cap I_{J_{fh}}\cap I_{J_{gh}}
@@ -845,17 +845,17 @@ $\mathfrak n_g,\mathfrak n_h$ とすると、\eqref{eq:pg-D2-reduced}、\eqref{e
 $0\in U\subset\mathbb A^1_\hbar$、$K=\OO(U)$ 上の次数付き量子化とは、
 $\deg\hbar=0$、$\mathcal C_0=K$、各 $\mathcal C_d$ が有限自由な
 次数付き代数 $\mathcal C$ と $\mathcal C/(\hbar)\simeq C$ であって、
-\[
+\begin{equation}
 \frac{[\widetilde a,\widetilde b]}\hbar\bmod\hbar=\{a,b\}
-\]
+\end{equation}
 を満たすものをいう。特殊 fiber の可換性と平坦性により持上げの選択に依存しない。
 \end{definition}
 連結次数付き代数 $A$ が Koszul であるとは、自明加群 $\CC=A/A_{\geq1}$ が線形自由分解をもつことをいう。
 左右の injective dimension が $d$ で、左右それぞれ
-\[
+\begin{equation}
 \Ext_A^i(\CC,A)=
 \begin{cases}\CC(\ell)&i=d,\\0&i\neq d\end{cases}
-\]
+\end{equation}
 ならば、次元 $d$、AS parameter $\ell$ の AS-Gorenstein 代数という。
 さらに大域次元 $d$ と有限 GK 次元をもてば AS-regular という。
 次数移動は $M(\ell)_j=M_{j+\ell}$ とする。
@@ -870,11 +870,11 @@ $A_\lambda$ は Koszul AS-regular、
 $\operatorname{gldim}A_\lambda=N$、$\operatorname{Hilb}_{A_\lambda}(t)=(1-t)^{-N}$、AS parameter $N$ である。
 \item $\Omega\bmod\hbar=F$ で、各 $\Omega_\lambda$ は左右正則元である。
 \item $B=A/(\Omega)$ は $S/(F)$ の量子化であり、各 $B_\lambda$ は AS-Gorenstein で、
-\[
+\begin{equation}
 \operatorname{Hilb}_{B_\lambda}(t)=\frac{1-t^3}{(1-t)^N},\qquad
 \operatorname{injdim}B_\lambda=N-1,\qquad
 \text{AS parameter}=N-3=n-1.
-\]
+\end{equation}
 \item $U$ を$\hbar\mapsto-\hbar$で不変に取れ、
 語の反転と$\hbar$の符号反転による反自己同型に関して
 $\Omega^\dagger=\Omega$と選べる。
@@ -902,29 +902,29 @@ $\partial_i^{\mathrm{cyc}}(a_1\cdots a_r)
 \begin{proposition}\label{prop:pg-PBW}
 有限個のブロックに共通な $0\in U_{\mathrm{reg}}\subset\mathbb A^1$ を選び、以下を満たせる。
 $g_s(x_s)=f_s(x_s,0)$ とおくと、全 $\lambda\in U_{\mathrm{reg}}$ で
-\[
+\begin{equation}
 S_{s,\lambda}=\CC\langle x_{s1},x_{s2},x_{s3}\rangle/
 ([x_{s2},x_{s3}]-\lambda\sym((g_s)_{x_{s1}}),\text{循環置換})
-\]
+\end{equation}
 は三次元 Koszul AS-regular domain であり、3-Calabi--Yau である。
 その Hilbert 級数は $(1-t)^{-3}$。
 active 次数で filter し、$u_\alpha$ の filtration degree を零にすると
-\[
+\begin{equation}
 \operatorname{gr}_xA_{f_s,\lambda}\simeq S_{s,\lambda}\otimes_\CC R.
-\]
+\end{equation}
 族全体にも対応する同型があり、$A_{f_s}|_{U_{\mathrm{reg}}}$ は
 $R_{\mathrm{reg}}=\OO(U_{\mathrm{reg}})[u]$ 上自由である。
 \end{proposition}
 \begin{proof}
 一つの $g$ について関係式の列は $M_\lambda x$ で表される。ただし
-\[
+\begin{equation}
 M_\lambda=
 \begin{pmatrix}
 -\frac\lambda2g_{11}&-x_3-\frac\lambda2g_{12}&x_2-\frac\lambda2g_{13}\\
 x_3-\frac\lambda2g_{21}&-\frac\lambda2g_{22}&-x_1-\frac\lambda2g_{23}\\
 -x_2-\frac\lambda2g_{31}&x_1-\frac\lambda2g_{32}&-\frac\lambda2g_{33}
 \end{pmatrix}.
-\]
+\end{equation}
 反対称成分が三つの交換子を与えるので関係式は独立である。
 potential 由来の表示は\cite[Corollary 2.7]{PMoriSmith}の意味で standard であり、
 同論文 Theorem 1.4 によって AS-regular 性は全 $\PP^2$ 上で $\rank M_\lambda\geq2$ と同値である。
@@ -933,11 +933,11 @@ $M_0$ は全 $\PP^2$ 上で階数二の交代行列なので、像を除けば�
 有限個のブロックについて交わりを取る。
 3-CY 性と domain 性は\cite[Corollary 2.9]{PMoriSmith}による。
 三生成元三二次関係式の三次元 AS-regular 代数では、最小分解を双対化すると最後の shift は三となり、
-\[
+\begin{equation}
 0\longrightarrow S_{s,\lambda}(-3)\longrightarrow S_{s,\lambda}(-2)^3
 \longrightarrow S_{s,\lambda}(-1)^3\longrightarrow S_{s,\lambda}
 \longrightarrow\CC\longrightarrow0.
-\]
+\end{equation}
 これが Koszul 性と Hilbert 級数を与える。
 
 $\lambda$ を固定する。$u=a$ への特殊化では、\eqref{eq:pg-potential}は
@@ -986,17 +986,17 @@ $A=\widehat A_f$、$r_i=\partial_i^{\mathrm{cyc}}W$ と書く。
 \xrightarrow{d_1}P_0\xrightarrow\mu A\longrightarrow0\label{eq:pg-potential-resolution}
 \end{equation}
 を、
-\[
+\begin{equation}
 P_0=A\widehat\otimes_{\widehat R}A,\quad
 P_1=\bigoplus_{i=1}^3Ae_iA,\quad
 P_2=\bigoplus_{i=1}^3Av_iA,\quad P_3=AwA
-\]
+\end{equation}
 で定める。$\deg e_i=1$、$\deg v_i=2$、$\deg w=3$ であり、
-\[
+\begin{equation}
 d_1(e_i)=x_i\otimes1-1\otimes x_i,\quad
  d_3(w)=\sum_i(x_iv_i-v_ix_i),\quad
  d_2(v_i)=\sum_j\sum_{r_i\ni ax_jb}ae_jb.
-\]
+\end{equation}
 最後の和は語の各出現を係数付きで数える。
 cyclic derivative の恒等式 $\sum_i[x_i,r_i]=0$ を非可換微分すると $d_2d_3=0$。
 また $d_1d_2(v_i)=r_i\otimes1-1\otimes r_i=0$。
@@ -1011,19 +1011,19 @@ $\tau(\partial_j^{\mathrm{nc}}r_i)=\partial_i^{\mathrm{nc}}r_j$。
 これが中央微分の自己双対性を与え、両端も符号を除き双対である。
 逆順の双対微分は $(-d_1,d_2,-d_3)$ となり、各項に $(1,-1,-1,1)$ を掛けると元の複体に一致する。
 従って $D_{\mathrm{rel}}=A\widehat\otimes_{\widehat R}A^{\mathrm{op}}$ に対し
-\[
+\begin{equation}
 \Ext_{D_{\mathrm{rel}}}^q(A,D_{\mathrm{rel}})=
 \begin{cases}A(3)&q=3,\\0&q\neq3.\end{cases}
-\]
+\end{equation}
 automorphism による twist はない。
 絶対包絡代数 $D_{\mathrm{abs}}=A\widehat\otimes_{\CC[[\hbar]]}A^{\mathrm{op}}$ は、PBW 基底により
 中心係数 $\CC[u^L,u^R][[\hbar]]$ 上平坦である。
 従って $u_\alpha^L-u_\alpha^R$ は中心正則列で、その商は $D_{\mathrm{rel}}$。
 その Koszul 分解と change of rings により
-\[
+\begin{equation}
 \Ext_{D_{\mathrm{abs}}}^q(A,D_{\mathrm{abs}})=
 \begin{cases}A(m+3)&q=m+3,\\0&q\neq m+3.\end{cases}
-\]
+\end{equation}
 相対分解の各項は $D_{\mathrm{abs}}$ 上 perfect なので、絶対的にも $(m+3)$-CY である。
 
 対称化は完備化後に次数を保つ $\widehat R$-加群同型
@@ -1037,10 +1037,10 @@ Kontsevich 写像の各 Taylor 成分も重みを保つ。
 $\hbar$ 倍して完備化した pronilpotent dg Lie 代数の Maurer--Cartan 同値を使えば、
 形式 Poisson 構造と gauge transformation をともに重み零で選べる。
 従って
-\[
+\begin{equation}
 \Pi=\hbar\pi_f+O(\hbar^2),\qquad
 \pi_f=\sum_{\mathrm{cyc}}f_{x_1}\partial_{x_2}\wedge\partial_{x_3}
-\]
+\end{equation}
 という相対形式 Poisson 構造の star product が $A$ と次数付き $R$-線形同型をもつ。
 $\Pi$ は $\partial_{u_\alpha}$ 成分をもたない。
 ここで相対形式変形と絶対形式変形の対応を明確にする。
@@ -1121,19 +1121,19 @@ $\eta_O=\sum_ja_j(0)l_j$ は同じ residue をもつ。
 命題\ref{prop:pg-PBW}の代数的族$A_f$について、
 $\hbar\mapsto-\hbar$で不変な$0$を含む開集合へ必要なら縮める。
 生成元に
-\[
+\begin{equation}
  x_i^\dagger=x_i,\qquad u_\alpha^\dagger=u_\alpha,\qquad
  \hbar^\dagger=-\hbar,\qquad(ab)^\dagger=b^\dagger a^\dagger
-\]
+\end{equation}
 を指定すると、$\CC$-線形の反自己同型$\dagger$が定まる。
 中心元$\Omega\in Z(A_f)_3$、$\Omega\bmod\hbar=f$があれば、
 同じ剰余をもつ中心元を$\Omega^\dagger=\Omega$となるように選べる。
 特に形式的中心元も同様に選べ、Weyl対称化表示では
-\[
+\begin{equation}
  \widehat\Omega
  =\sym_R\bigl(f+\hbar^2 f_2+\hbar^4 f_4+\cdots\bigr),
  \qquad f_{2r}\in R[x_1,x_2,x_3]_3
-\]
+\end{equation}
 である。ここで添字$3$は中心変数$u_\alpha$も次数一と
 数えた全次数を意味する。
 \end{lemma}
@@ -1158,25 +1158,25 @@ $\dagger$はその係数の$\hbar\mapsto-\hbar$に対応する。
 
 \begin{proposition}[普遍的なCasimirの二次補正]\label{prop:pg-universal-casimir-jet}
 $f\in R[x_1,x_2,x_3]$を全次数三の任意の多項式とし、
-\[
+\begin{equation}
  H_f=\det\left(\frac{\partial^2f}
  {\partial x_i\partial x_j}\right)_{i,j=1}^3,\qquad
  \Theta_f=\sym_R\left(f-\frac{\hbar^2}{12}H_f\right)\in A_f
-\]
+\end{equation}
 とおく。命題\ref{prop:pg-PBW}の開集合上で
-\[
+\begin{equation}
  [\Theta_f,x_i]\in\hbar^5 A_f\qquad(i=1,2,3),
  \qquad [\Theta_f,u_\alpha]=0.
- \tag{CJ}\label{eq:pg-casimir-jet}
-\]
+ \label{eq:pg-casimir-jet}
+\end{equation}
 従って$\Theta_f$は$\hbar^5$を法として中心元であり、
 法$\hbar$で$f$となる。
 さらに補題\ref{lem:pg-center-parity}で正規化した
 任意の形式的中心元について、$\hbar^2$係数$f_2$は
-\[
+\begin{equation}
  \left\{f_2+\frac1{12}H_f,x_i\right\}_f=0\quad(i=1,2,3)
- \tag{JC}\label{eq:pg-jet-casimir-condition}
-\]
+ \label{eq:pg-jet-casimir-condition}
+\end{equation}
 を満たす。
 最後の条件は$f_2=-H_f/12$が
 \emph{全次数で厳密な中心元に延長する}ことを主張しない。
@@ -1184,18 +1184,18 @@ $f\in R[x_1,x_2,x_3]$を全次数三の任意の多項式とし、
 \begin{proof}
 まず$\hbar^4$を法とした恒等式を示す。
 係数が代数的に独立な二十個の不定元である
-\[
+\begin{equation}
  f_{\mathrm{univ}}=\sum_{a+b+c\le3}
  t_{abc}x_1^a x_2^b x_3^c
-\]
+\end{equation}
 を考える。これは中心係数環を任意に特殊化できる普遍式である。
 自由語では、隣り合った逆順の文字を
-\[
+\begin{equation}
  x_2x_1\rightsquigarrow x_1x_2-\hbar\sym(f_{x_3}),\quad
  x_3x_1\rightsquigarrow x_1x_3+\hbar\sym(f_{x_2}),\quad
  x_3x_2\rightsquigarrow x_2x_3-\hbar\sym(f_{x_1})
- \tag{CR}\label{eq:pg-jet-reductions}
-\]
+ \label{eq:pg-jet-reductions}
+\end{equation}
 で置き換える。各置換は代数の定義関係式そのものである。
 $\hbar$次数が三以下の範囲では、
 逆転数が減るか$\hbar$次数が増えるため、還元は必ず停止する。
@@ -1204,12 +1204,12 @@ $\sym(f_{\mathrm{univ}}-\hbar^2H_{f_{\mathrm{univ}}}/12)$と
 次数三以下の各係数が$\mathbb Q[t_{abc}]$内で零になる。
 これを古典Jacobian括弧$\{-,-\}_f$で書き直すと、
 より明示的な普遍恒等式
-\[
+\begin{equation}
  [\sym_R(f),x_i]\equiv
  \frac{\hbar^3}{12}\sym_R(\{H_f,x_i\}_f)
  \pmod{\hbar^4 A_f}
- \tag{JH}\label{eq:pg-jet-hessian-identity}
-\]
+ \label{eq:pg-jet-hessian-identity}
+\end{equation}
 を得る。実際、$\sym_R(H_f)$の$x_i$との交換子の一次項は
 $\hbar\sym_R(\{H_f,x_i\}_f)$なので、
 この恒等式は$\Theta_f$の可換性の計算と同値である。
@@ -1238,9 +1238,9 @@ $\hbar^3\{f_2+H_f/12,x_i\}_f=0\bmod\hbar^4$
 \end{proof}
 \begin{remark}[Hesse公式との照合]
 $f=(x_1^3+x_2^3+x_3^3)/3+t x_1x_2x_3$なら
-\[
+\begin{equation}
  H_f=2(t^3+4)x_1x_2x_3-2t^2(x_1^3+x_2^3+x_3^3).
-\]
+\end{equation}
 したがって$-\hbar^2H_f/12$は
 定理\ref{thm:explicit-hesse-center}の
 中心式の$\hbar^2$係数と一致する。
@@ -1257,10 +1257,10 @@ $D$ は次元 $d+1$、AS parameter $d+1$ の Koszul AS-regular である。
 $0\to D(-1)\xrightarrow{z}D\to C\to0$ より、
 $\operatorname{Tor}^D_q(C,\CC)$ は $q=0,1$ でそれぞれ $\CC,\CC(-1)$、他は零である。
 change-of-rings spectral sequence
-\[
+\begin{equation}
 E^2_{p,q}=\operatorname{Tor}^C_p(\operatorname{Tor}^D_q(C,\CC),\CC)
 \Longrightarrow\operatorname{Tor}^D_{p+q}(\CC,\CC)
-\]
+\end{equation}
 の各項は内部次数 $p+q$ に集中する。
 微分は内部次数を保ち全ホモロジー次数を一減らすため全て零であり、
 $D$ は Koszul、$j>d+1$ で $\operatorname{Tor}^D_j(\CC,\CC)=0$、$j=d+1$ では非零である。
@@ -1270,9 +1270,9 @@ $D^!$ を二次双対とすると、Koszul 双加群複体の項は $D\otimes(D_
 よって増大双加群複体は長さ $d+1$ の完全列であり、右加群として分裂完全なので
 任意の左加群とテンソルしても完全である。従って通常の大域次元も $d+1$。
 さらに $\RHom_D(C,D)\simeq C(1)[-1]$ と導来随伴から
-\[
+\begin{equation}
 \Ext_D^{i+1}(\CC,D)\simeq\Ext_C^i(\CC,C)(1).
-\]
+\end{equation}
 右加群でも同様で、左右 AS 条件と parameter を得る。
 $\operatorname{Hilb}_D=\operatorname{Hilb}_C/(1-t)$ なので GK 次元も有限である。
 \end{proof}
@@ -1294,9 +1294,9 @@ $\Ext_B^i(M,B)\simeq\Ext_A^{i+1}(M,A)(-3)$。
 零構造は $A=S[\hbar]$、$\Omega=F$ でよい。
 非零構造に対して $A_{\mathrm{reg}}$ を構成する。
 PBW 基底により各 fiber で $u_1,\ldots,u_m$ は中心正則列で、
-\[
+\begin{equation}
 A_\lambda/(u_1,\ldots,u_m)\simeq\bigotimes_{s=1}^kS_{s,\lambda}.
-\]
+\end{equation}
 右辺の自明加群の分解、双加群分解およびその双対は各因子のもののテンソル積で得られる。
 従って次元 $3k$、AS parameter $3k$ の Koszul AS-regular 代数である。
 補題\ref{lem:pg-central-linear}を $m$ 回適用して $A_\lambda$ の次元 $N=3k+m$ と AS parameter $N$ を得る。
@@ -1317,11 +1317,11 @@ $\Omega_s\in Z(A_{f_s}|_U)_3$、$\Omega_s\bmod\hbar=f_s$ を得る。
 各 $\lambda$ で $\Omega_{s,\lambda}$ の active 次数は正となる。
 最高次数が $\lambda$ によらず一定である必要はない。
 $\lambda$ を固定し $x_s$ 次数だけで filter すると
-\[
+\begin{equation}
 \operatorname{gr}_sA_\lambda\simeq
 (S_{s,\lambda}\otimes_\CC R)\otimes_R A_{\mathrm{rest},\lambda},
 \qquad A_{\mathrm{rest},\lambda}=\bigotimes_{t\neq s,R}A_{f_t,\lambda}.
-\]
+\end{equation}
 他の $\Omega_t$ は filtration degree 零なので、$\Omega_\lambda$ の最高記号は
 $\Omega_{s,\lambda}$ の非零最高記号 $a_s\in S_{s,\lambda}\otimes R$ である。
 $S_{s,\lambda}$ は domain だから多項式拡大も domain で、$a_s$ の左右乗法は単射。
@@ -1372,17 +1372,17 @@ $a_i=u_i=0$、さらに $3b_i^2=0$ から $b_i=0$ となる。従って射影超
 \subsection{Fermat 型の中心元}
 \begin{lemma}\label{lem:pg-fermat-center}
 結合代数において
-\[
+\begin{equation}
 [x,y]=\hbar z^2,\qquad [y,z]=\hbar x^2,\qquad [z,x]=\hbar y^2
-\]
+\end{equation}
 が成り立つとする。$S=x^3+y^3+z^3$、$T=\sym(xyz)$ とおくと $S-2\hbar^2T$ は中心元である。
 ここで $\sym(xyz)$ は六個の語の平均である。
 \end{lemma}
 \begin{proof}
 関係式と積の交換子を展開すると
-\[
+\begin{equation}
 [S,x]=\hbar(zy^2z-yz^2y)=\hbar[zy,yz]=\hbar^2[zy,x^2]
-\]
+\end{equation}
 を得る。一方、$6T$ の六個の語を関係式で並べ替えると
 $2T=xzy+zyx+\hbar x^3$ となる。従って $2[T,x]=[zy,x^2]$ であり、
 $[S-2\hbar^2T,x]=0$ を得る。循環置換により $y,z$ との交換子も零である。
@@ -1411,10 +1411,10 @@ $m=0$ の場合には $\Delta=\varnothing$ である。
 \end{proposition}
 \begin{proof}
 active 偏微分は $A_{s,i}=x_{si}^2$ なので、その商環は
-\[
+\begin{equation}
 \CC[u]\otimes_\CC\bigotimes_{s=1}^k
 \CC[x_{s1},x_{s2},x_{s3}]/(x_{s1}^2,x_{s2}^2,x_{s3}^2)
-\]
+\end{equation}
 である。各 Artin 因子の長さは八であり、この商では全 $x_{si}^3$ が零なので、
 $F$ の像は $\frac13\sum_\alpha u_\alpha^3$ となる。これが厚化の記述を与える。
 $m=0$ では偏微分の共通零点はアフィン原点だけであり、射影化は空である。
@@ -1440,41 +1440,41 @@ $H^i(W,\OO_W(t))=0$（$0<i<\dim W$、$t\in\ZZ$）を得る。
 
 \subsection{階数二の零点成分}
 $n=6$ で $Y=(2,2,2,3)\subset\PP^7$ の場合、
-\[
+\begin{equation}
 K_Y=H,\qquad c(T_Y)=\frac{(1+H)^8}{(1+2H)^3(1+3H)}
 =1-H+7H^2-21H^3.
-\]
+\end{equation}
 従って $K_Y^3=24$、$e(Y)=-21\cdot24=-504$ である。
 全方程式が二次以上なので $p_g(Y)=h^0(\OO_Y(1))=8$。
 Lefschetz 定理と Hodge 分解により
 $h^{1,1}=1$、$h^{1,0}=h^{2,0}=0$ であり、
-\[
+\begin{equation}
 -504=e(Y)=4-2p_g(Y)-2h^{2,1}(Y)
-\]
+\end{equation}
 から $h^{2,1}(Y)=246$ を得る。
 
 $n=7$ で $Y=(2,2,2,3)\subset\PP^8$ の場合は
-\[
+\begin{equation}
 K_Y=0,\qquad c(T_Y)=\frac{(1+H)^9}{(1+2H)^3(1+3H)}
 =1+6H^2-14H^3+48H^4,
-\]
+\end{equation}
 従って $e(Y)=48\cdot24=1152$ である。
 Koszul 分解は $H^i(\OO_Y)=0$（$0<i<4$）を、
 Lefschetz 定理は $h^{1,1}=1$、$h^{2,1}=0$ を与える。
 $h^{3,1}$ を求めるため normal sequence を使う。
 次数二の方程式は三個、次数三の方程式はそれらの一次式倍と独立な三次式一個だから
-\[
+\begin{equation}
 h^0(\OO_Y(2))=\binom{10}{2}-3=42,\qquad
 h^0(\OO_Y(3))=\binom{11}{3}-3\cdot9-1=137.
-\]
+\end{equation}
 Euler 列を $Y$ に制限し上記の消滅を使うと
 $h^0(T_{\PP^8}|_Y)=9\cdot9-1=80$、$H^1(T_{\PP^8}|_Y)=0$ である。
 $K_Y\simeq\OO_Y$ による $T_Y\simeq\Omega_Y^3$、$H^3(\OO_Y)=0$ と Hodge 対称性から
 $H^0(T_Y)=0$ である。従って
-\[
+\begin{equation}
 0\longrightarrow T_Y\longrightarrow T_{\PP^8}|_Y
 \longrightarrow\OO_Y(2)^{\oplus3}\oplus\OO_Y(3)\longrightarrow0
-\]
+\end{equation}
 は $h^{3,1}(Y)=h^1(T_Y)=3\cdot42+137-80=183$ を与える。
 最後に Hodge 対称性と Poincar\'e 双対性により
 $1152=e(Y)=6+2h^{3,1}(Y)+h^{2,2}(Y)$、従って $h^{2,2}(Y)=780$ である。
@@ -1489,18 +1489,18 @@ $n=6,k=2,m=2$ の場合、$\Delta=(2^6)\subset\PP^7$ は次数六十四の曲線
 $Z=(2^6,3)$ は長さ $3\cdot64=192$ の完全交叉で、一般のデータでは滑らか、すなわち百九十二個の被約点となる。
 
 $n=7,k=2,m=3$ の場合、$\Delta=(2^6)\subset\PP^8$ は次数六十四の曲面で、
-\[
+\begin{equation}
 c(T_\Delta)=\frac{(1+H)^9}{(1+2H)^6}=1-3H+12H^2.
-\]
+\end{equation}
 よって
-\[
+\begin{equation}
 K_\Delta^2=9\cdot64=576,\qquad c_2(\Delta)=12\cdot64=768,\qquad
 \chi(\OO_\Delta)=\frac{576+768}{12}=112.
-\]
+\end{equation}
 $H^1(\OO_\Delta)=0$ なので $p_g(\Delta)=111$ であり、これは
 $h^0(\OO_\Delta(3))=\binom{11}{3}-6\cdot9=111$ からも確認できる。
 最後に $Z=(2^6,3)\subset\PP^8$ は次数百九十二の曲線で $K_Z=6H$ だから
-\[
+\begin{equation}
 2g(Z)-2=6\cdot192=1152,\qquad g(Z)=577.
-\]
+\end{equation}
 この式は特殊な非被約完全交叉でも算術種数の公式として保たれる。
