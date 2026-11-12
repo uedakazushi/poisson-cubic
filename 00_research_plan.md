@@ -1,83 +1,108 @@
-# 研究方針：Poisson cubic論文Aの投稿品質確立と非可換cubicの可換復元
+# 研究方針：滑らかなcubicのPoisson moduli stacksと量子化
 
-**2026年11月12日 / v49。再開時は最初に読む。GitHub uedakazushi/nc-cubic の main が唯一の正本。**
-**現在の数学的最優先課題：任意次元のsmooth cubicの正規形Poisson構造について、独立ブロックパラメータを持つ代数的量子化を完成稿として整え、その正規形表示空間とモジュライとの関係を調べる。**
-これは論文Aを公表可能にするという上位目標の一部である。
-主論文は `papers/paper_a.tex`、研究ノートは `notes/universal_casimir.md`、
-投稿用監査は `notes/poisson_article_submission_audit.md`。
-検証コードは `computations/verify_general_dimension_multiblock.py`、
-`computations/build_general_dimension_center.py`、
-`computations/verify_universal_hesse_mixed_center.py`。
-GitHub mainが正本であり、既存の論文B/Cの全ての有効成果は保持する。
+**2026年11月12日 / v50。再開時は必ず最初に読む。GitHub uedakazushi/nc-cubic のmainが唯一の正本。**
+最上位目標は論文A（papers/paper_a.tex）を投稿可能な水準へ仕上げること。
+現在の数学的最優先課題は、全次元のsmooth cubicにおける
+Poisson構造のspace、固定moduli stack、relative moduli stackの
+区別と代数性・既約成分分類を正確にすること。
+三変数制限が特異な場合の普遍的閉公式は当面優先しない。
+論文B/Cの有効な数学的結果と証明は保持する。
 
-## 最優先課題：論文Aを公表可能にする
+## 現行の研究入口と主なファイル
 
-**達成基準：** (i) Poisson正規形とBondal予想を含む主要定理の証明と仮定が独立に監査され、
-(ii) 量子化の形式的中心元・PBW・代数化について一次資料と比較してギャップが解消され、
-(iii) 新規性と既知結果の境界がIntroductionに明記され、
-(iv) 全LuaLaTeX入力・引用・計算証明書を必要な範囲で再生成し目視検証できること。
-これらを満たすまでは投稿準備段階と記し、投稿可能とは断定しない。
+- 公表原稿：papers/paper_a.tex（A-v48、日本語LuaLaTeX）
+- 二つのスタックの定義と代数性：papers/support/papers/sections/poisson_moduli_stacks.tex
+- Fermat／relative成分公式：papers/support/papers/sections/fermat_relative_poisson_components.tex
+- 現行知識ノート：notes/fermat_relative_poisson_components.md
+- 中心三次元と全次元量子化：notes/universal_casimir.md と papers/support/papers/sections/general_dimension_universal_quantization.tex
+- 投稿監査：notes/poisson_article_submission_audit.md、validation.json
+- 厳密計数再現：computations/verify_poisson_stack_component_counts.py
+- 式番号・引用の静的検査：scripts/verify_article_a_numbering.py
 
-**一般次元の新定理（論文A v45）：** 任意の n≥3 と N=n+2=3k+m、
-F=Σ_{s=1}^k f_s(x_s,u)（各active三次制限g_s=f_s(x_s,0)が滑らか）に対し、
-`prop:pg-ad-compatible`は互いにSchouten可換なk個のPoisson構造q_sを与え、
-π_λ=Σ λ_s q_s の一般rankは2#{s:λ_s≠0}。
-各ブロックに独立パラメータη_sを置き、全Hesse中心元の和
-Ω_η=Σ_s Ω_{f_s,η_s}を**全次数で厳密な中心三次元**として構成した
-（`thm:pg-all-dimensions`）。異なるη_s,η_tの交叉補正は不要。
-原点近傍のk変数代数的族でambientはKoszul AS-regular（gldim N、
-Hilbert (1-z)^(-N)）、Ωは左右正則、中心商はAS-Gorenstein
-（injdim N-1、Hilbert (1-z³)/(1-z)^N）であり、各内部次数は底上局所自由。
-(λ,h)↦(hλ_1,...,hλ_k)の逆像は**全λにわたる零切断を含む開集合**なので、
-固定FのPoisson線形族全体を一つの相対的な代数族として同時に量子化できる
-（`cor:pg-ad-whole-pencil`）。
-Hesse表示の係数F自体も動かす多項式族
-（`prop:pg-ad-relative-chart`）と、
-任意次元の有限Hessian和
-（`cor:pg-ad-hessian`）を構成した。
-証明全文は
-`papers/support/papers/sections/general_dimension_universal_quantization.tex`。
-この成果は単一ブロックHesse普遍公式、PBW定理、中心正則元の既存補題、
-Poisson正規形定理への依存を明示した**数学的証明が原稿にある結果**であり、
-全依存の独立監査済みを意味しない。
+## Poissonのspace・固定stack・relative stack
 
-**再現・実行済み確認：** 滑らかな正規形の具体例 (k,m)=(1,2),(2,0),(2,2),(3,0),(3,3),(4,0)
-すなわち n=3,4,6,7,10 について、独立λ_sを保持した
-計610個のJacobiator、52個のF-Casimir成分とブロック間Hessian交叉成分を
-SymPyの厳密有理数演算で実行・確認した。
-別の共有中心u,vを持つn=6,k=2の構成コードはΩ_0=F、
-η_1η_2の補正なし、中心三次のWeyl symbol 142単項式を確認。
-これらの具体的計算は一般次元の量子中心性の形式証明ではなく、
-その証明は三変数Hesse普遍恒等式と中心係数上のテンソル積論法にある。
-全13入力ファイルの引用・ラベル静的検査は従来合格だが、
-本改訂後に再検査が必要。LuaLaTeX全体組版とPDF目視は未実施。
+（1）space of Poisson structuresは、Jacobi二次式の閉アフィン零スキーム
+Pois(X)=Z([pi,pi]) in H^0(X,Λ²T_X)である。
+Poisson双ベクトルのスカラーを割らず、零構造とnilpotentスキーム構造を含む。
 
-**任意次元の座標不変な二次量子補正（論文A v46）：**
-`prop:pg-ad-intrinsic-hessian` において、定数三重ベクトルP∈Λ³Vと
-三次式FのHessianの六指数縮約
-`H(P,F)=(1/6)Σ P^{ijk}P^{abc}F_{ia}F_{jb}F_{kc}`
-を定義した。正規形ではH(P_λ,F)=Σ_sλ_s²det Hess_{x_s}(f_s)。
-各g_s滑らかな場合、純中心三次の調整により
-`Ω_{P,h}=sym(F-h²H(P,F)/12+h⁴K_{P,F})`
-という厳密な中心元を取れる。**h²補正は任意次元で座標不変**、
-h⁴の明示式はHesse座標の選択に依存する。
-`computations/verify_general_dimension_multiblock.py` の6具体例すべてで
-六指数縮約=ブロックHessian行列式の和を厳密再計算してPASS。
-これは一般証明の形式検証ではない。全依存証明の独立監査は継続する。
+（2）moduli stack of Poisson structuresは
+PoisStack(X)=[Pois(X)/Aut(X)]。
+各点の安定化子はPoisson automorphism群Aut(X,pi)。
+n>=3の滑らかなcubicではSGA2のPicard定理とgradientの
+一次syzygy消滅からAut(X)は有限エタール。
+従ってPoisStack(X)は有限型Deligne--Mumford代数的スタック。
+既約成分はPois(X)の成分のAut(X)軌道と対応し、spaceと個数が違い得る。
 
-**優先順位を変更する理由と残る問題：** 一般Hesse型の全混合中心三次式を短い
-有限多項式で与える研究が解決したため、個々の特異三変数制限への拡張より、
-任意の次元・任意の許容Poisson rankで同じ構成を有効にする方が
-数学的重要性と公表価値が高い。現在の構成が量子化するのは
-固定ブロック分解のPoisson線形族と、その正規形表示チャートであり、
-全Poisson pairモジュライの各成分の大域的量子化や
-異なるHesse正規化チャートでの同型・降下は未解決。
-次は (1) Hesse座標の変更・ブロック入替え・中心三次の分配への
-同変性とモジュライ降下を調べる、
-(2) PBW/中心正則性の相対全係数証明を監査する、
-(3) 正規形のLie代数補題とBondal予想の依存証明を独立監査する、
-(4) 数値証明書・一次文献・LuaLaTeX全組版を点検して投稿判定する。
-一般特異ブロックの短い公式は保留とし、既存の有効結果を消さない。
+（3）relative moduli stack of Poisson structuresは
+PoisRel_n=[P_n/PGL(V)]、N=dim V=n+2。
+滑らかな三次式の開U_N in P(Sym³V*)上で
+P_n in Tot(Λ³V⊗O_U(-1))はrelative Jacobi二次式の閉零スキーム。
+FをaFに替えると三重ベクトルPをP/aに替える。
+PGL(V)は滑らかであるから、Stacks Project Theorem 97.17.2
+（Tag 06FI）によって代数的有限型。
+幾何学的安定化子Aut(X,pi)は有限エタールなのでDM。
+cubicのmoduli stackへの忘却射を持つ。
+Xを枠付けた2-fiberはPois(X)、同型類のresidual gerbe上ではPoisStack(X)。
+
+## 全次元の既約成分数：Fermatとrelative
+
+Fermat X_N=V(Σ_i z_i³)、N=n+2について、
+添字集合{1,...,N}の各大きさ>=3の非順序ブロック分割Bごとに
+Z_B=Σ_{B_s in B} cone(Gr(3,C^{B_s})) in Λ³C^N
+がspace Pois(X_N)の被約既約成分である。
+従ってspace成分数は、各部分が3以上の集合分割数
+Σ_{k=1}^{floor(N/3)} S_>=3(N,k)である。
+Hessian判別式∏_i z_iによりFermatの自己同型は
+(μ_3^N/μ_3)⋊S_Nというmonomial群。
+座標置換で同じサイズ多重集合のブロック分割が同一視されるため、
+固定stackの成分数は整数分割数
+p_>=3(N)=[q^N]∏_{b>=3}(1-q^b)^(-1)である。
+relative stackは一般階数2kごとに一成分で
+floor((n+2)/3)個。
+
+n=3,4,5,6,7,8,9,10について
+spaceの個数は1,11,36,92,491,2557,11353,60105、
+固定stackは1,2,2,3,4,5,6,9、
+relative stackは1,2,2,2,3,3,3,4。
+一般の滑らかなcubicではspaceと固定stackは既約。
+よって固定stackの成分数は複素構造に依存する。
+Fermatが最大になることは未証明。
+各成分公式の証明は論文Aに掲載しているが、
+正規形のLie代数補題を含む全依存の独立監査は未完了。
+
+## 全次元量子化の有効な成果
+
+任意n>=3、N=n+2=3k+mについて
+F=Σ_s f_s(x_s,u)、各純三変数制限g_s=f_s(x_s,0)滑らかなら
+k個のSchouten可換なJacobian Poisson構造を持つ。
+独立な量子化パラメータeta_sで
+Omega_eta=Σ_s Omega_{f_s,eta_s}は厳密な中心三次元。
+共通中心u上のPBW/AS正則・中心正則性・
+中心商AS-Gorenstein・多変数基底の各内部次数の局所自由性を
+論文Aに証明した。eta_s=lambda_s hによって固定Fの全k次元
+Poisson線形族を零切断の近傍で同時に量子化する。
+任意次元の内在的Hessian縮約
+H(P,F)=ΣP^{ijk}P^{abc}F_{ia}F_{jb}F_{kc}/6
+によるh²補正も得た。
+ただし相対Poisson moduli全体へ量子化族が降下すること、
+元座標での単一GL3同変なh⁴式、
+qgrのsmoothnessは未証明。
+検算はcomputations/verify_general_dimension_multiblock.py。
+数学的証明の記載と有限例での計算確認は区別する。
+
+## 投稿の達成基準と次の研究課題
+
+1. 定義・代数性と成分数の式を維持し、
+   特にthm:pg-normal、lem:pg-quadratic-lie、Fermat component theorem、
+   relative rank層・Bondal予想の依存を独立に精査する。
+2. Poisson pair moduliの境界・scheme構造と、
+   高次元量子化族の表示チャート間の同変性・降下を調べる。
+3. Stacks Project、SGA2、Matsumura--Monsky等の一次資料を照合し、
+   既知と本研究の貢献の関係をIntroductionで明確にする。
+4. 論文Aの全表示式を自動的な数字の式番号に統一済み。
+   数学的検算とは別にLuaLaTeX全組版・PDF目視・引用・
+   厳密計算証明書の必要な範囲の再現を確認する。
+   全てが済むまで投稿可能と断定しない。
 
 ## 論文Aに統合したambient周期性の帰結
 
@@ -151,7 +176,7 @@ h⁴の明示式はHesse座標の選択に依存する。
 
 `python3 scripts/verify_coherent_residual_assets.py --rerun-orbit` は新原稿の参照とCへの統合を点検し、既存64 Eulerベクトルと32×32行列41恒等式を再実行する。今回、既存コードおよび生成証明書のGit blob SHAが正本と完全一致した。新しい飽和定理の形式証明やnc全行列の再計算ではない。
 
-`latexmk papers/coherent_residual_saturation.tex` で新単独稿を生成する。単独稿5頁の組版と表示を確認。現行A/B/C全体の組版、CF全構成と全既存計算の再検証は未実施。正確な状態をvalidation.jsonに記す。
+`latexmk papers/paper_c.tex` で新単独稿を生成する。単独稿5頁の組版と表示を確認。現行A/B/C全体の組版、CF全構成と全既存計算の再検証は未実施。正確な状態をvalidation.jsonに記す。
 
 ## 研究一般の原則と保存許可
 
