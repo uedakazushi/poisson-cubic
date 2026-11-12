@@ -1,6 +1,6 @@
 # nc-cubic：論文Aの投稿準備と一般点可換復元
 
-**2026-11-12 / v51。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
+**2026-11-12 / v52。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
 
 ## 現在の最優先課題：論文Aの公表準備
 
@@ -57,44 +57,51 @@ papers/support/papers/sections/fermat_relative_poisson_components.tex、
 最新原稿全体のLuaLaTeX組版とPDF目視は未実施であり、
 静的検査だけで組版が成功したとはしない。
 
-## 新しい主定理：任意次元・任意階数の同時量子化
+## 全Poisson構造の代数的中心元・量子化（論文A v50）
 
-任意の n≥3、N=n+2=3k+m と、滑らかな三次式
-F=Σ_{s=1}^k f_s(x_s,u)（各純三変数制限g_sは滑らか）に対して、
-k個の相互にSchouten可換なPoisson構造q_sがある。
-独立な量子化パラメータη_sのもとで
-**Ω_{η}=Σ_s Ω_{f_s,η_s} が厳密な中心三次元**となり、
-原点近傍でN次元Koszul AS-regular ambientと
-AS-Gorenstein中心商の各内部次数が平坦に変動する。
-(λ,h)↦η_s=λ_s hによって、全k次元Poisson線形族を
-零切断近傍で**一つの代数的族として同時に量子化**できる。
-任意次元の有限Hessian補正式、Hesse表示の係数を動かす相対構成、
-共有中心変数を持つ滑らかな6次元cubicの2変数量子化例も収録。
+**滑らかな三次超曲面の全Poisson構造について、形式的存在定理を使わず
+代数的な中心三次元を構成できることを証明した。**
+三変数制限g=f(x,y,z,0)が特異・零でも、
+全体fが滑らかならactive偏微分の最大公約因子は1。
+古典Casimir核はC f⊕C[u]_3で一定次元となる。
+普遍Hesse公式の成立する係数空間の稠密開上から
+量子交換子行列の高次小行列式の恒等的消滅を得て、
+**全ての滑らかな全体f**へrank上界を特殊化する。
+原点で可逆な小行列のCramer比から
+厳密な中心三次元をh²の有理関数係数で得る。
+この証明は形式的中心元、Kontsevich formality、
+Dolgushevのunimodularityを使用しない。
 
-- 詳細証明：`papers/support/papers/sections/general_dimension_universal_quantization.tex`
-- 原稿入口：`papers/paper_a.tex`
-- 現行研究ノート：`notes/universal_casimir.md`
-- 厳密なPoisson互換性検算：`computations/verify_general_dimension_multiblock.py`
-- 明示的Weyl中心symbolの構成：`computations/build_general_dimension_center.py`
+一般次元の正規形F=Σ f_s(x_s,u)では、
+純中心三次c(u)を一般的に各blockへ配分することで
+全f_sを滑らかな三次超曲面に選べる（Bertini）。
+Poisson構造は変化せず、各blockでCramer中心を構成できる。
+中心元Ω=ΣΩ_sは厳密に中心、ambientはKoszul AS-regular、
+中心三次商はAS-Gorenstein。
+独立パラメータη_sにより固定Fのk次元Poisson線形族を
+**全方向について同時に代数的量子化**できる。
 
-本結果は一般の各ブロック純三次が滑らかな正規形表示に関するもので、
-全Poisson moduliの大域的量子化やqgrのsmoothnessを主張しない。
-完全な独立証明監査・一次文献調査・LuaLaTeX全組版は未完了。
-次は高次元の表示チャートの同変性・モジュライ降下を優先する。
+Hesse型に対しては以前得たη_s⁴までの短い**多項式**公式があり、
+任意の特異gに対しては原点で正則な**有理式**Cramer表示がある。
+特異gに短い多項式公式まで得たとは主張しない。
 
-**座標不変な高次元補正：** 定数三重ベクトルPと三次式FのHessianの縮約
-H(P,F)=ΣP^{ijk}P^{abc}F_{ia}F_{jb}F_{kc}/6を導入し、
-任意次元の中心三次元を（中心項の正規化の下で）
-sym(F-h²H(P,F)/12+h⁴K)と表せる。h²項はブロック分解に依存せず、
-h⁴補正はHesseブロックから有限式として得られる。
-証明は`papers/support/papers/sections/general_dimension_universal_quantization.tex`。
-6例でHessian縮約恒等式を厳密検算した。
+- [全体三次のCramer中心元の証明](papers/support/papers/sections/universal_casimir_determinant.tex)
+- [全Poisson構造の量子化定理](papers/support/papers/sections/poisson_geometry.tex)
+- [全次元・独立k変数同時量子化](papers/support/papers/sections/general_dimension_universal_quantization.tex)
+- [現行研究ノート](notes/universal_casimir.md)
+- [三変数制限g=0の厳密検算](computations/verify_singular_cubic_classical_kernel.py)
+
+数学的に残るのは、普遍Hesseの記号計算証明書・正規形Lie補題・
+PBW/AS条件の全独立監査、モジュライ上の量子化族の接着、
+先行研究の初出・新規性比較および全LuaLaTeX組版。
+**代数的中心元の存在そのものはこれらと区別して証明済み**とする。
 
 ## 量子中心三次元：全Hesse型の普遍多項式公式
 
 論文Aで、`g_t=(x³+y³+z³)/3+txyz`の**任意のtと全中心混合係数**に対する、`h²`の高々二次の係数を持つ**厳密な普遍中心三次元**を構成した。独立係数A,B,C,D,E,Hとh,tを不定元のまま扱い、Q(h,t)上の339自由語・162関係の階数144と三交換子の剰余0を厳密計算した。h=0の階数も144なので原点近傍で成立する。Hessianと四次補正を使ったコンパクト公式あり。
 
-中央平行移動とArtebani–DolgachevのHesse標準形により、**任意の滑らかな三変数三次制限と全混合項**に適用できる。したがってこの範囲では形式的中心元存在補題を使わず代数的量子化を構成でき、元座標のCramer決定式表示も無条件となった。非滑らかな制限に対する全般公式と形式的中心存在証明の残る独立監査は未解決。公式・状態・再現手順は[現行研究ノート](notes/universal_casimir.md)、証明は`papers/paper_a.tex`、検証コードは`computations/verify_universal_hesse_mixed_center.py`。
+中央平行移動とArtebani–DolgachevのHesse標準形により、**任意の滑らかな三変数三次制限と全混合項**に適用できる。したがってこの範囲では形式的中心元存在補題を使わず代数的量子化を構成でき、元座標のCramer決定式表示も無条件となった。非滑らかな制限を含む全Poisson構造の代数的中心元は上記のCramer法で証明済み。
+形式的存在証明の監査はもはや主定理の依存ではない。公式・状態・再現手順は[現行研究ノート](notes/universal_casimir.md)、証明は`papers/paper_a.tex`、検証コードは`computations/verify_universal_hesse_mixed_center.py`。
 
 ## 正則三次超曲面のambientは1周期的
 
