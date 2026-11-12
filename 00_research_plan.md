@@ -1,11 +1,14 @@
 # 研究方針：Poisson cubic論文Aの投稿品質確立と非可換cubicの可換復元
 
-**2026年11月12日 / v47。再開時は最初に読む。GitHub uedakazushi/nc-cubic の main が唯一の正本。**
-**現在の最優先課題は論文Aの公表水準への改訂。** 最新原稿は papers/paper_a.tex、
-詳細な監査・未確認点・着手方法は notes/poisson_article_submission_audit.md。
-量子中心三次元の現行成果・公式・再現手順は notes/universal_casimir.md。
-関連文献は papers/support/papers/references_poisson_cubic.tex、独立検算は computations/verify_poisson_article_A.py と computations/verify_cubic_casimir_jet.py。
-論文B/Cの有効な成果と証明を保持するが、当面はその新規拡張を優先しない。
+**2026年11月12日 / v48。再開時は最初に読む。GitHub uedakazushi/nc-cubic の main が唯一の正本。**
+**現在の数学的最優先課題：任意次元のsmooth cubicの正規形Poisson構造について、独立ブロックパラメータを持つ代数的量子化を完成稿として整え、その正規形表示空間とモジュライとの関係を調べる。**
+これは論文Aを公表可能にするという上位目標の一部である。
+主論文は `papers/paper_a.tex`、研究ノートは `notes/universal_casimir.md`、
+投稿用監査は `notes/poisson_article_submission_audit.md`。
+検証コードは `computations/verify_general_dimension_multiblock.py`、
+`computations/build_general_dimension_center.py`、
+`computations/verify_universal_hesse_mixed_center.py`。
+GitHub mainが正本であり、既存の論文B/Cの全ての有効成果は保持する。
 
 ## 最優先課題：論文Aを公表可能にする
 
@@ -15,17 +18,53 @@
 (iv) 全LuaLaTeX入力・引用・計算証明書を必要な範囲で再生成し目視検証できること。
 これらを満たすまでは投稿準備段階と記し、投稿可能とは断定しない。
 
-**すでに行った整備：** Abstract/Introductionを大幅改訂し、20件の専用bibliographyに分離。
-文献キー・文書内label/refの静的整合性はPASS。二ブロックcubicのJacobi56成分と
-Bondal joinの外積56成分を厳密計算でPASS。これは主定理の形式証明ではない。
-A全体の組版、非楕円行列証明書全件の再実行、引用理論の全独立監査は未実施。
+**一般次元の新定理（論文A v45）：** 任意の n≥3 と N=n+2=3k+m、
+F=Σ_{s=1}^k f_s(x_s,u)（各active三次制限g_s=f_s(x_s,0)が滑らか）に対し、
+`prop:pg-ad-compatible`は互いにSchouten可換なk個のPoisson構造q_sを与え、
+π_λ=Σ λ_s q_s の一般rankは2#{s:λ_s≠0}。
+各ブロックに独立パラメータη_sを置き、全Hesse中心元の和
+Ω_η=Σ_s Ω_{f_s,η_s}を**全次数で厳密な中心三次元**として構成した
+（`thm:pg-all-dimensions`）。異なるη_s,η_tの交叉補正は不要。
+原点近傍のk変数代数的族でambientはKoszul AS-regular（gldim N、
+Hilbert (1-z)^(-N)）、Ωは左右正則、中心商はAS-Gorenstein
+（injdim N-1、Hilbert (1-z³)/(1-z)^N）であり、各内部次数は底上局所自由。
+(λ,h)↦(hλ_1,...,hλ_k)の逆像は**全λにわたる零切断を含む開集合**なので、
+固定FのPoisson線形族全体を一つの相対的な代数族として同時に量子化できる
+（`cor:pg-ad-whole-pencil`）。
+Hesse表示の係数F自体も動かす多項式族
+（`prop:pg-ad-relative-chart`）と、
+任意次元の有限Hessian和
+（`cor:pg-ad-hessian`）を構成した。
+証明全文は
+`papers/support/papers/sections/general_dimension_universal_quantization.tex`。
+この成果は単一ブロックHesse普遍公式、PBW定理、中心正則元の既存補題、
+Poisson正規形定理への依存を明示した**数学的証明が原稿にある結果**であり、
+全依存の独立監査済みを意味しない。
 
-**現行の主成果（量子中心）：** 論文Aの`thm:pg-universal-hesse-mixed`で、Hesse三次
-g_t=(x³+y³+z³)/3+txyz の任意のtと全中心混合項について、`h²`の高々二次の係数を持つ**厳密な有限多項式中心三次元**を構成した。六つの中心混合係数A,B,C,D,E,Hとh,tを独立不定元として、Q(h,t)上の次数四自由語339・二次関係倍数162のrank144および三交換子剰余0を正確に検証。h=0でもrank144であり、原点を含む開への降下を証明した。コードは `computations/verify_universal_hesse_mixed_center.py`。Hessianを用いた短縮表示も`cor:pg-hesse-hessian-form`に得た。以前のFermat型公式はt=0として含み、中心変数による平行移動で対角二次混合も処理する。全ての滑らかな三変数三次制限gはHesse標準形に変換できるので、`cor:pg-smooth-ternary-explicit`で**一般のsmooth gの形式的中心存在補題なしの明示中心元**を得る。この範囲では`cor:pg-smooth-block-algebraic-quant`により代数的量子化もformalityなしで得られる。`thm:pg-universal-determinant`のCramer表示も今は無条件である。詳細は現行ノート `notes/universal_casimir.md`。
+**再現・実行済み確認：** 滑らかな正規形の具体例 (k,m)=(1,2),(2,0),(2,2),(3,0),(3,3),(4,0)
+すなわち n=3,4,6,7,10 について、独立λ_sを保持した
+計610個のJacobiator、52個のF-Casimir成分とブロック間Hessian交叉成分を
+SymPyの厳密有理数演算で実行・確認した。
+別の共有中心u,vを持つn=6,k=2の構成コードはΩ_0=F、
+η_1η_2の補正なし、中心三次のWeyl symbol 142単項式を確認。
+これらの具体的計算は一般次元の量子中心性の形式証明ではなく、
+その証明は三変数Hesse普遍恒等式と中心係数上のテンソル積論法にある。
+全13入力ファイルの引用・ラベル静的検査は従来合格だが、
+本改訂後に再検査が必要。LuaLaTeX全体組版とPDF目視は未実施。
 
-**仮定・未解決：** 既存の普遍Hessian二次ジェットは全三変数三次に適用可能だが、それだけで全次数中心元は構成できない。一般の滑らかなgではHesse座標の選択を要し、元の座標に対する単一GL₃同変な低次数多項式表示は未構成。節点型・尖点型・零の制限など全特異gを一つの公式で覆うことも未解決。全Poisson構造の量子化定理の特異ブロック部分は、形式的中心元`lem:pg-formal-center`の相対formality・絶対Calabi–Yau論証の独立監査が残る。高次元正規形`lem:pg-quadratic-lie`とBondal帰結の全独立監査、一次文献の網羅比較、論文A全体の組版も未完了。
-
-**次の優先課題：** (1) 今回の普遍Hesse計算証明書を独立再実行し、査読しやすい手計算または小さい証明書へ簡約する。(2) 特異ブロックの中心元存在・明示公式と相対formality/absolute CYの必要箇所を監査する。(3) 正規形Lie補題・Bondal論証を独立再検証する。(4) 原稿AのIntroductionと引用を整え、LuaLaTeX全体組版・PDF目視・全再現テストを経て投稿可否を判定する。これらを満たすまでは投稿可能と断定しない。
+**優先順位を変更する理由と残る問題：** 一般Hesse型の全混合中心三次式を短い
+有限多項式で与える研究が解決したため、個々の特異三変数制限への拡張より、
+任意の次元・任意の許容Poisson rankで同じ構成を有効にする方が
+数学的重要性と公表価値が高い。現在の構成が量子化するのは
+固定ブロック分解のPoisson線形族と、その正規形表示チャートであり、
+全Poisson pairモジュライの各成分の大域的量子化や
+異なるHesse正規化チャートでの同型・降下は未解決。
+次は (1) Hesse座標の変更・ブロック入替え・中心三次の分配への
+同変性とモジュライ降下を調べる、
+(2) PBW/中心正則性の相対全係数証明を監査する、
+(3) 正規形のLie代数補題とBondal予想の依存証明を独立監査する、
+(4) 数値証明書・一次文献・LuaLaTeX全組版を点検して投稿判定する。
+一般特異ブロックの短い公式は保留とし、既存の有効結果を消さない。
 
 ## 論文Aに統合したambient周期性の帰結
 
