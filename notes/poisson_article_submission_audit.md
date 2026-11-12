@@ -1,8 +1,43 @@
 # 論文Aの投稿準備：現行の監査と再開点
 
-**2026-11-12 / A-v44。** 最初に 00_research_plan.md を読む。
+**2026-11-12 / A-v45。** 最初に 00_research_plan.md を読む。
 論文本文は papers/paper_a.tex、専用文献は papers/support/papers/references_poisson_cubic.tex。
 本ノートは現在有効な知識・依存・課題を整理し、証明全文を重複させない。
+
+## 任意次元の新しい主定理と検証の状態
+
+論文Aに `general_dimension_universal_quantization.tex` を収録した。
+`prop:pg-ad-compatible` は k個のJacobianブロックが相互Schouten可換で、
+一般Poisson rankが2#{s:λ_s≠0}と示す。
+`thm:pg-all-dimensions` は任意のN=3k+mで、
+各純active三次g_s滑らかの下、独立なk変数η_sの
+**中心元Ω_η=ΣΩ_{f_s,η_s}、ambient AS正則・中心商AS-Gorenstein、
+内部次数ごとの多変数底平坦性**を証明する。
+`cor:pg-ad-whole-pencil` は全λ線形族を
+(λ,h)↦η_s=λ_s hによる一つの相対代数族で量子化。
+`prop:pg-ad-relative-chart` はFのHesse表示係数も動かす。
+`cor:pg-ad-hessian` は一般次元のHessian二次補正と四次補正の和。
+これらの証明は以前に普遍恒等式を計算検証した
+三変数Hesse中心元、相対PBW、Koszul tensor、中心正則性の
+filtrationに依存。**本改訂で数学的証明を原稿に追加したが、
+依存補題の全てを今回新たに独立再監査したとは限らない。**
+適用範囲は固定正規形の一般smooth block locusと
+その表示チャートであり、全Poissonモジュライの大域構成ではない。
+
+`computations/verify_general_dimension_multiblock.py` と同じSymPyコードを
+ローカルで実行し、滑らかな例
+(k,m)=(1,2),(2,0),(2,2),(3,0),(3,3),(4,0)
+（n=3,4,6,7,10）についてJacobiator計610成分、
+F-Casimir計52成分、異なるブロック間のHessian交差成分を
+独立なλ_sを保持した厳密計算で確認した。
+`computations/build_general_dimension_center.py` と同等のコードを
+ローカルで実行し、共通中心u,vを持つn=6,k=2の明示的な
+Weyl中心symbolについてΩ_0=F、η_1η_2の補正なしを確認。
+**いずれも全次元の中心性の計算証明ではない。**
+GitHubへ保存したスクリプト自体をremoteで再実行したとは言わない。
+今後は表示変換による相対族の降下、PBW/AS証明の独立監査、
+LuaLaTeX全体組版と一次資料照合を優先し、
+特異三次制限への拡張は保留する。
 
 ## 主張の確実性と所在
 
