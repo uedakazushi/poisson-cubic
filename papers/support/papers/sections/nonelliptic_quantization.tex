@@ -18,10 +18,10 @@
 中心三次元の表示の初出は未確定である。
 
 $r,s$を次数零、$x,y,z,a,b,c,u$を次数一とし、
-\[
+\begin{equation}
  R_{\mathrm C}=\CC[r,s],\qquad
  R_{\mathrm N}=\CC[r,s,(4-r^2)^{-1}]
-\]
+\end{equation}
 と置く。第一ブロックの代数$D_\epsilon$は$u$を中心として
 \begin{align}
  \epsilon=\mathrm C:\quad
@@ -40,9 +40,9 @@ $r,s$を次数零、$x,y,z,a,b,c,u$を次数一とし、
  [c,a]=s(3b^2+2ub)
 \end{equation}
 で定める。異なるブロックの生成元は可換とする。したがって
-\[
+\begin{equation}
  \mathcal A_\epsilon=D_\epsilon\otimes_{R_\epsilon[u]}E_s
-\]
+\end{equation}
 は七生成元の次数付き代数である。
 
 \begin{theorem}[二つの非楕円成分の代数的量子化]
@@ -55,10 +55,10 @@ noetherianなKoszul AS-regular domain、global dimension七、AS parameter七で
 \item $\Omega_\epsilon$は各幾何学的ファイバーで非零の中心正則元であり、
 $\mathcal B_\epsilon$は次数ごとに有限局所自由で、形成は任意の底変更と両立する。
 各ファイバーのHilbert級数とAS-Gorenstein型は
-\[
+\begin{equation}
  H_{\mathcal B}(t)=\frac{1-t^3}{(1-t)^7},\qquad
  \operatorname{injdim}\mathcal B=6,\qquad \text{AS parameter}=4.
-\]
+\end{equation}
 \item $(r,s)=(0,0)$で$\mathcal B_\epsilon$は前節の$X_\epsilon$の斉次座標環となる。
 任意の$(\lambda,\mu)$に沿う$r=h\lambda,s=h\mu$への引戻しは、
 $\lambda\pi_{P_1}+\mu\pi_{P_2}$を半古典極限に持つ。
@@ -97,15 +97,15 @@ $\{z^iy^jx^k:i,j,k\ge0\}$は$D_\epsilon$の$Q_\epsilon[u]$-基底である。
 \end{lemma}
 \begin{proof}
 節点型で二つの還元経路から得る共通の正規形は
-\[
+\begin{equation}
  qzyx+\frac{4h}{2-h}ux^2+\frac{6h}{2-h}(z^3-y^3).
-\]
+\end{equation}
 尖点型では両経路が
-\begin{align*}
+\begin{equation}\begin{aligned}
  zyx+3hz^2x+2hux^2-3hy^3-9h^2zy^2-6h^3z^2y
  -6h^4z^3\\
  {}-12h^3uyx-24h^4uzx+36h^5uy^2
-\end{align*}
+\end{aligned}\end{equation}
 となる。よってDiamond lemma \cite[Theorem 1.2]{BergNE12}を適用できる。
 係数は表示した環に属し、還元の先頭係数は全て一である。
 同じ有限恒等式が任意の底変更後にも成り立つため、基底の主張も保存される。
@@ -119,17 +119,17 @@ $u=0$の三変数代数は、尖点型では全$h$、節点型では$h\ne\pm2$�
 三次元Calabi--Yau AS-regularである\cite[Lemma 4.1, Theorem 4.2]{MSNE12}。
 域性とnoetherian性は、次のOre表示からも確認できる。
 節点型では量子平面$yz=qzy$上に
-\[
+\begin{equation}
  \sigma(y)=qy,\quad\sigma(z)=q^{-1}z,\quad
  \delta(y)=\frac{6h}{2-h}z^2,\quad
  \delta(z)=-\frac{6h}{2+h}y^2
-\]
+\end{equation}
 による$x$のOre拡大を取る。
 尖点型ではJordan平面$yz-zy=hz^2$上に
-\[
+\begin{equation}
  \sigma(y)=y+2hz,\quad\sigma(z)=z,\quad
  \delta(y)=-3h^2y^2,\quad\delta(z)=-3hy^2
-\]
+\end{equation}
 を使う。いずれも$\sigma$は可逆、$\delta$は表示した関係を保つ$\sigma$-導分である。
 補題\ref{nq:lem:pbw}より$u$は中心正則元である。
 中央次数一拡大の定理\cite[Theorem 2.6, Corollary 2.7 and Remark 2.8]{LBSVNE12}
@@ -174,13 +174,13 @@ $\alpha=a+u/3$、$\beta=b+u/3$、$\gamma=c+u/3$、$t=3s$と置く。
 関係式\eqref{nq:eq:fermat}は
 $[\alpha,\beta]=t(\gamma^2-u^2/9)$とその巡回置換になる。
 \begin{lemma}[Fermat側の混合中心元]\label{nq:lem:fermat-center}
-\[
+\begin{equation}
  \Gamma_{\mathrm F}(s)=
  \alpha^3+\beta^3+\gamma^3
  -3s^2\!\sum_{w\in\mathfrak S_3(\alpha\beta\gamma)}w
  -\frac{u^2}{3}(\alpha+\beta+\gamma)+\frac{2u^3}{9}
- \tag{F}\label{nq:eq:centerF}
-\]
+ \label{nq:eq:centerF}
+\end{equation}
 は$E_s$の中心元であり、$s=0$で$a^3+b^3+c^3+u(a^2+b^2+c^2)$となる。
 \end{lemma}
 \begin{proof}
@@ -189,14 +189,14 @@ $r_1=xy-yx-t(z^2-\eta)$、$r_2=yz-zy-t(x^2-\eta)$、
 $r_3=zx-xz-t(y^2-\eta)$とする。
 $D=x^3+y^3+z^3$、$T=xyz+xzy+yxz+yzx+zxy+zyx$に対し、
 自由代数$\mathbb Z[t,\eta]\langle x,y,z\rangle$で
-\begin{align*}
+\begin{equation}\begin{aligned}
  [3D-t^2T-9\eta(x+y+z),x]={}&
  -3r_1y^2+t^2r_1zx-t^2xr_1z-3yr_1y-t^2zr_1x\\
  &+t^2xzr_1-3y^2r_1+2t^2r_2x^2-3tr_2yz\\
  &-t^2xr_2x-t^2x^2r_2+3tyzr_2
  +3r_3z^2+3zr_3z+3z^2r_3\\
  &+9\eta r_1-9\eta r_3
-\end{align*}
+\end{aligned}\end{equation}
 が成立する。語ごとの展開と巡回置換により三交換子を処理できる。
 $t=3s,\eta=u^2/9$を代入し、$x,y,z$を$\alpha,\beta,\gamma$に置き換える。
 中心スカラー$2u^3/9$を加えると表示式を得る。
@@ -205,35 +205,35 @@ $t=3s,\eta=u^2/9$を代入し、$x,y,z$を$\alpha,\beta,\gamma$に置き換え�
 \subsection{相対ポテンシャル複体の実際の完全性}
 $Q=Q_\epsilon$、$S=Q[u]$とし、$D=D_\epsilon$を$S$-代数とみる。
 自由$S$-代数のcyclic potentialを
-\[
+\begin{equation}
  W=xyz-yxz-h\operatorname{sym}(f_\epsilon+ux^2),
  \qquad r_i=\partial^{\mathrm{cyc}}_{x_i}W,\quad(x_1,x_2,x_3)=(x,y,z)
-\]
+\end{equation}
 とする。定義関係式は$r_1=r_2=r_3=0$である。
 
 $\partial^{\mathrm{nc}}_j$は語の各$x_j$を取り除き、その左右の部分を分ける演算とする：
-\[
+\begin{equation}
  \partial^{\mathrm{nc}}_j(a_1\cdots a_d)
  =\sum_{a_\ell=x_j} a_1\cdots a_{\ell-1}\otimes a_{\ell+1}\cdots a_d.
-\]
+\end{equation}
 係数環$S$は微分しない。
 \begin{proposition}[底変更と両立する第一ブロックの相対対角]
 \label{nq:prop:relative-diagonal}
 $D^e_S=D\otimes_S D^{\mathrm{op}}$とする。有限自由双加群の複体
-\[
+\begin{equation}
  0\longrightarrow D^e_S
  \xrightarrow{d_3}(D^e_S)^3
  \xrightarrow{d_2}(D^e_S)^3
  \xrightarrow{d_1}D^e_S
  \xrightarrow{m}D\longrightarrow0
- \tag{K}\label{nq:eq:potential-resolution}
-\]
+ \label{nq:eq:potential-resolution}
+\end{equation}
 を、基底$e_i$（生成元）、$\varepsilon_i$（関係式）について
-\begin{align*}
+\begin{equation}\begin{aligned}
  d_1(e_i)&=x_i\otimes1-1\otimes x_i,\\
  d_2(\varepsilon_i)&=\sum_j\sum_w\ \sum_{w=p x_j q} c_{iw}p e_j q,\\
  d_3(1)&=\sum_i(x_i\varepsilon_i-\varepsilon_i x_i)
-\end{align*}
+\end{aligned}\end{equation}
 で定める。ここで$r_i=\sum_w c_{iw}w$と展開している。
 この複体は完全で、任意の可換$S$-代数への底変更後も完全である。
 \end{proposition}
@@ -289,10 +289,10 @@ active filtrationの随伴次数付き環は同次Fermat代数の係数拡大と
 
 \begin{proof}[定理\ref{nq:thm:family}の証明]
 中心三次元を
-\[
+\begin{equation}
  \Omega_\epsilon=\Gamma_\epsilon(r)+\Gamma_{\mathrm F}(s)+u^3
- \tag{Q}\label{nq:eq:total-center}
-\]
+ \label{nq:eq:total-center}
+\end{equation}
 と定める。中心性と原点への特殊化は既に示した。
 両ブロックが$R_\epsilon[u]$上自由なので、そのテンソル積も自由である。
 全体の$u=0$での商は、二つの三次元Koszul AS-regular代数のテンソル積であり、
@@ -307,11 +307,11 @@ $u$は全体でも中心正則元である。
 \cite[Theorem 2.6, Remark 2.8]{LBSVNE12}と、
 $H_{\mathcal A}(t)=(1-t)^{-7}$から、Koszul双対の級数は$(1+t)^7$となりglobal dimensionは七である。
 AS-Gorenstein型は中心正則元に対するchange-of-ringsの
-\[
+\begin{equation}
  \operatorname{Ext}_{\mathcal A}^{i}(k,\mathcal A)
  \simeq\operatorname{Ext}_{\mathcal A/(u)}^{i-1}
              (k,\mathcal A/(u))(1)
-\]
+\end{equation}
 および左側の同じ式から$(7,7)$となる。
 noetherian性と域性は$u$-進次数に関する随伴環
 $(\mathcal A/(u))[u]$から従う。正次数の$u$を用いるので、固定した全次数における
