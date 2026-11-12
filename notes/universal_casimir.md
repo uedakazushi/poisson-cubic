@@ -1,126 +1,167 @@
 # 普遍Jacobian量子中心三次元：現行研究ノート
 
-**2026-11-12 / v2。** 最初に \`00_research_plan.md\` を読む。
-公表用原稿は \`papers/paper_a.tex\`、主要証明は
-\`papers/support/papers/sections/fermat_mixed_universal_center.tex\` と
+**2026-11-12 / v3。再開時はまず 00_research_plan.md を読む。**
+公表用原稿は \`papers/paper_a.tex\`、中心三次元の詳細証明は
+\`papers/support/papers/sections/hesse_mixed_universal_center.tex\`、
+\`papers/support/papers/sections/fermat_mixed_universal_center.tex\`、
 \`papers/support/papers/sections/universal_casimir_determinant.tex\`。
-このノートは現行の適用範囲・障害・再現手順を整理し、論文中の証明全文を複製しない。
+本ノートは証明全文を重複させず、現行の確実性、計算再現、残る核心を整理する。
 
-## 1. 完全に明示した普遍多項式中心元（新たな厳密計算証明）
+## 1. 解決した核心：全Hesse型・全中心混合の短い普遍多項式
 
-任意の標数0可換次数付き中心係数環 R について
-A,B,C∈R_1、D,E,H∈R_2、G∈R_3 とおく。
-F=(x³+y³+z³)/3 +Axy+Byz+Czx+Dx+Ey+Hz+G。
-関係式は
-[x,y]=h(z²+By+Cx+H),
-[y,z]=h(x²+Ay+Cz+D),
-[z,x]=h(y²+Ax+Bz+E)。
-T=xyz+xzy+yxz+yzx+zxy+zyxとして
+**証明済み（記号計算証明書付き）**：標数0可換次数付き中心係数環 R で
+A,B,C∈R_1、D,E,H∈R_2、G∈R_3、t∈C任意について
+F=g_t+Axy+Byz+Czx+Dx+Ey+Hz+G、
+g_t=(x³+y³+z³)/3+txyz とおく。
+Jacobian交換子 [x,y]=h sym(F_z) 等の量子代数では、
+以下の略記（Tは6語の平均）で厳密な中心元が得られる：
+\[
+S=x³+y³+z³,\quad T=\operatorname{sym}(xyz),\quad
+Q=A\operatorname{sym}(xy)+B\operatorname{sym}(yz)+C\operatorname{sym}(zx),
+\quad Z_2=Az²+Bx²+Cy²,
+\]
+\[
+ L=Dx+Ey+Hz,\quad R_2=B²x+C²y+A²z,\quad R_{11}=ACx+ABy+BCz.
+\]
+q=h²に対し
 \[
 \begin{aligned}
-\Omega={}&(x^3+y^3+z^3)/3-h^2T/9
-+A\operatorname{sym}(xy)+B\operatorname{sym}(yz)+C\operatorname{sym}(zx)\\
-&+(D+h^2B^2/6-h^4AC/18)x
- +(E+h^2C^2/6-h^4AB/18)y\\
-&+(H+h^2A^2/6-h^4BC/18)z
- +h^4(Az^2+Bx^2+Cy^2)/18+G .
+ U&=1+qt²/2+q²t/6-q²t^4/48,&
+ W&=(4-qt²)(12t+q(t³-8))/48,\\
+ c&=(4-qt²)(12+qt²)/48,&
+ d&=q(12t+q(2-t³))/36,\\
+ e&=1+q²t(8-t³)/144,&
+ f&=q(4-qt²)/24,\\
+ g&=-q(12t+q(t³+4))/72.
 \end{aligned}
 \]
-**状態：原点h=0を含むPBW開集合上で中心であることを厳密に証明。**
-「形式的中心元存在補題」を使わず、次数4の自由語の関係式への普遍的所属を証明した。
-係数A,B,C,D,E,Hとhを**一切特殊化せず**、
-339個の全自由語、162個の関係ベクトルをQ(h)上で行簡約し、
-関係ベクトル階数144、[Ω,x],[Ω,y],[Ω,z]の剰余0を厳密に確認。
-h=0の関係ベクトル階数も144であり、Q[h]_(h)上の
-次数4商がh-torsion-free（行列のSmith標準形）であることから、
-分数体上の恒等式を原点を含む開集合へ降ろせる。
-**従来の有限体特殊化15件とは異なり、全係数恒等式の計算証明**である。
-今後の査読で必要なら、Q(h)の行簡約を人手で追える
-短い関係式分解証明書に落とし込む。
-
-系：任意の対角二次混合 p x²+q y²+r z² も、
-中心平行移動 X=x+p,Y=y+q,Z=z+r と明示的なD',E',H',G'の代入で処理できる。
-従ってFermat三次制限に対して、中心変数の**全混合項**を網羅する。
-中央変数の個数には制限がない。
-GL3変換・Poissonパラメータの行列式スケールで、
-GL3(Fermat)軌道の全例にも適用できる。
-証明所在は論文A thm:pg-fermat-mixed-universal、
-cor:pg-fermat-all-mixed。
-
-再現：
-\`python3 computations/verify_universal_fermat_mixed_center.py\`
-（要SymPy）。
-ローカルで同じ有理関数行簡約を実行して
-「列339、関係162、h=0およびQ(h)階数144、交換子剰余0」を確認。
-GitHubへpush後のファイル内容は確認するが、
-pushしたスクリプト自体をGitHub実行環境で走らせたとは主張しない。
-
-古典的なHessianジェットとの関係：
-H_F=det Hess_{x,y,z}(F)=2(4xyz-A²z-B²x-C²y+ABC)。
-上のh²係数は -h²H_F/12 と純中心項 h²ABC/6 の違いしかない。
-これは普遍Hessian二次補正と矛盾しない。
-
-## 2. 全滑らかな三変数三次制限：普遍決定式表示
-
-g=F(x,y,z,0)が滑らかな平面三次なら
-\`ker D_{F,0}|_{S_3} = C F ⊕ C[u]_3\`。
-証明はgの既約性、Euler公式、
-uの最小次数の比較。これは量子中心存在の入力不要な数学的補題で、
-論文A lem:pg-det-classical-kernel に証明を記載。
-r=binom(m+5,3)-binom(m+2,3)-1。
-x³の係数a≠0の線形座標チャートで純中心三次とx³を除いた
-r個の三次単項式w_jを選び、
-\`D_h(p)=([sym p,x],[sym p,y],[sym p,z])/h\`
-のr×r非零小行列Mと列bを取る。
-第j列をbへ置き換えたM_jを用いると
 \[
- \Omega=F(0,0,0,u)+a\operatorname{sym}
- (x^3-\sum_j (\det M_j/\det M)w_j)
+ \boxed{\Omega=US/3+WT+cQ+dZ_2+eL+fR_2+gR_{11}+G.}
 \]
-が厳密な中心三次元、Ω_0=F、係数はh²とFの係数の有理関数。
-**状態：既存の形式的中心三次元存在補題 lem:pg-formal-center を入力とする条件付き厳密定理**。
-この補題の相対formality/絶対CY適用を独立完全監査したわけではない。
-Fermat基準点の非零小行列は m=0 で9×9 det=-72、
-m=2 で30×30 det=4608。
-\`python3 computations/verify_universal_casimir_minor.py\`
-をローカルで有理数厳密実行し両者PASS。
-この計算は古典的な小行列に関するものだけで量子中心性の直接検算ではない。
-gが特異・零の場合には古典的Casimir核の次元が変わる可能性があり、
-同じ固定行列式を無条件に適用しない。
+Omega_0=F、原点h=0を含む適切な開集合で **全次数で厳密に中心**。
+**形式的中心存在補題 lem:pg-formal-center に依存しない。**
+定理ラベル thm:pg-universal-hesse-mixed。
 
-## 3. 先行研究との関係
+### 証明・検算の正確な意味
 
-論文C周辺の
-\`papers/support/papers/sections/mixed_center_picard.tex\` と
-\`computations/verify_mixed_center.py\`には
-全15混合方向のFermat式が既に存在した。
-新たな貢献は、六つの中央係数を**独立不定元**として扱う
-全係数に対する厳密な恒等式証明と、任意中心次数・対角混合への明示的拡張。
-有限体検算は現在、追加確認であって証明ではない。
-従来の式自体を本研究独自の新発見と扱わない。
+独立中心係数A,B,C,D,E,H（重み1,1,1,2,2,2）とh,tを
+**不定元のまま保持**する自由語の全次数4のベクトル空間は339次元。
+全二次関係式の左右からの次数2倍数162個の張る空間は、
+Q(h,t)上でrank 144。各 [Omega,x], [Omega,y], [Omega,z] はその空間へ属する。
+h=0では可換多項式環の同次数部分が195次元なので同じrank144。
+したがってh=0直線を含む近傍で次数4商は局所自由・h-flatとなり、
+分数体上の恒等式が原点を含む開上へ降下する。
+**今回独立Python実行で Q(h,t) 上のrank144と3交換子剰余0を確認。**
+保存コード \`computations/verify_universal_hesse_mixed_center.py\` は
+全自由語と行を再生成する（必要ライブラリ SymPy）。
+保存後のGitHub実行環境でコードそのものを走らせたわけではない。
+有限有理標本から得た候補係数の補間は探索方法であり、
+**最終証明は全不定元を持つ普遍恒等式の検証**である。
+また独立したSymPy計算でHessianによるコンパクト式の差が恒等的に0と確認済み。
 
-既知のHesse型Sklyanin中心式と座標変換は
-\`papers/support/papers/sections/explicit_hesse_center.tex\`。
-節点・尖点型の中心公式は
-\`papers/support/papers/sections/nonelliptic_quantization.tex\`。
-Etingof--Ginzburg,
-*Noncommutative del Pezzo surfaces and Calabi--Yau algebras*,
-J. Eur. Math. Soc. 12 (2010), 1371--1416,
-doi:10.4171/JEMS/235, Proposition 8.1.1(i)は
-形式的中心元存在に関係。
-新しい決定式の先行研究上の新規性・他の短い普遍公式の存在は
-十分な文献調査をしていないため未確定。
+## 2. コンパクトなHessian公式
 
-## 4. 優先する未解決問題
+Fのactive Hessianの行列式をH_Fとすると、
+\[
+ \Omega=\operatorname{sym}\bigl(F-qH_F/12+qABC/6+q²\Psi_t(F)\bigr)
+\]
+と等価である。ただし
+\[
+\begin{aligned}
+ \Psi_t(F)={}&t(8-t³)g_t/48-t^4Q/48
+ +(2-t³)Z_2/36\\
+ &+t(8-t³)L/144-t²R_2/24
+ -(t³+4)R_{11}/72.
+\end{aligned}
+\]
+これは前回の一般的二次ジェット
+sym(F-h²det Hess(F)/12) が mod h⁵ 中心となることを含み、
+**h⁴補正までで中心性が全次数で成立する**という強い結果。
+純中心補正qABC/6は規格化の自由度である。
+論文A cor:pg-hesse-hessian-form を参照。
 
-1. **Hesse一般値 t と全混合項：** Fermatだけでなく
-   g=(x³+y³+z³)/3+txyz について、
-   近似Hessian公式・Hesse中心式・有限行列式を統合した
-   短いGL3同変な多項式または有理式を求める。
-   機械的な30×30決定式は既にあるが、短い一般式は未構成。
-2. **全滑らかなgに対する決定式の無条件化：**
-   lem:pg-formal-centerの相対formalityと絶対CY分解を独立監査。
-3. **特異gへの延長：** Casimir核が跳ぶ場合は階数別に
-   新しいminorsが必要。既存の節点・尖点公式と接続する。
-4. 投稿用に「確定」「条件付き」「計算証明」「既知」に主張を分け、
-   論文A全体のLuaLaTeX組版・一次文献調査を終える。
+## 3. 任意の混合項・任意の滑らかな三変数三次式
+
+Fに対角二次混合
+\(\ell_x x²+\ell_y y²+\ell_z z²\) があっても
+\(X=x+\ell_x,Y=y+\ell_y,Z=z+\ell_z\) の中心平行移動で消去できる。
+このとき
+\[
+ A'=A-t\ell_z,\quad B'=B-t\ell_x,\quad C'=C-t\ell_y,
+\]
+\[
+\begin{aligned}
+ D'&=D-\ell_x²-A\ell_y-C\ell_z+t\ell_y\ell_z,\\
+ E'&=E-\ell_y²-A\ell_x-B\ell_z+t\ell_x\ell_z,\\
+ H'&=H-\ell_z²-B\ell_y-C\ell_x+t\ell_x\ell_y
+\end{aligned}
+\]
+とし、純中心三次G'も論文A式 (HT) で変換する。
+これで **中心変数の任意の個数・全混合次数**を扱える。
+論文A cor:pg-universal-hesse-all-mixed。
+
+さらに任意の滑らかな平面三次
+g=F(x,y,z,0) は、あるM∈GL3(C)、λ≠0、
+t³≠-1によりg(x)=λg_t(Mx) と書ける
+（Artebani–Dolgachev, *The Hesse pencil of plane cubic curves*,
+Enseign. Math. 55 (2009), Lemma 1, DOI 10.4171/LEM/55-3-3）。
+\(F'(X,u)=λ^{-1}F(M^{-1}X,u)\)、\(h'=λ\det(M)h\)とすれば
+\[
+ \boxed{\Omega_{F,h}(x,u)=λ\Omega_{F',h'}(Mx,u)}
+\]
+が明示的な厳密中心元。これにより **任意の滑らかな三変数制限**
+に形式中心存在補題なしで中心元を構成できる
+（cor:pg-smooth-ternary-explicit）。
+滑らかな全ブロックの量子化では、PBW正則性と既存の
+中心正則性の証明を組み合わせ、
+形式的なKontsevich–Dolgushev中心元議論を使わず
+AS-regular ambient / AS-Gorenstein商を構成できる
+（cor:pg-smooth-block-algebraic-quant）。
+
+Hesse標準形とMの選択は一般にはFの係数の単一有理関数として
+正準的には定まらない。これは**座標選択後の普遍多項式公式**であり、
+元の座標で単一のGL3同変な低次数不変式を与えたとは言わない。
+
+## 4. 同時に無条件になったCramer決定式
+
+滑らかなgで古典次数3 Casimirは厳密に C F ⊕ C[u]_3
+（論文A lem:pg-det-classical-kernel、形式中心に依存しない）。
+Hesse明示中心元の存在から量子次数3の中心が
+最低その次元あると分かり、r×r小行列の逆から
+**元の座標で**普遍Cramer式を導ける
+（thm:pg-universal-determinant）。
+以前必要とされた形式的中心元の存在という仮定は**不要**になった。
+中心変数m=0ではr=9、m=2ではr=30。
+Fermat基準点の小行列式はm=0で-72、
+m=2で4608（\`computations/verify_universal_casimir_minor.py\` により
+有理数計算で確認済み）。
+これは決定式表示であり短い座標不変式ではない。
+
+## 5. 先行成果との関係・今後の核心
+
+- Fermat型の短い式は論文C関連の
+  \`papers/support/papers/sections/mixed_center_picard.tex\` に既に存在した。
+  全係数不定元による厳密中心性を証明したのは
+  \`papers/support/papers/sections/fermat_mixed_universal_center.tex\`；
+  現在は一般Hesse型の定理のt=0特殊化となる。
+- 混合を除くHesse型Sklyanin中心元は既知の結果に依存し、
+  \`papers/support/papers/sections/explicit_hesse_center.tex\` に
+  Poisson規約の式がある。新しい定理は**全中心混合項**への拡張と
+  独立な普遍恒等式による検証に価値がある。完全な先行研究調査・
+  数学的新規性の確定は未実施。
+- **未解決：** 節点型・尖点型・零の三変数制限など
+  全ての特異gを単一の短い普遍式で覆うこと。
+  既存の二つの特異ブロックの閉式は
+  \`papers/support/papers/sections/nonelliptic_quantization.tex\`。
+  全Poisson構造の代数的量子化 thm:pg-quantization の
+  **特異ブロック部分**には、なお形式的中心元存在
+  lem:pg-formal-center とその相対formality/絶対CYの
+  独立監査が必要。
+- **次の優先：** Hesse中心公式の普遍証明書を独立再実行し、
+  投稿用に短い手計算恒等式証明を整理する。
+  次に特異ブロック全体へ閉式を広げる可能性と
+  元座標でのGL3同変な式の存在を検討する。
+  論文Aの正規形・Bondal主張の全監査とLuaLaTeX全体組版も残る。
+
+GitHub mainが正本。PDFはgit追跡せずlatexmkで生成。
+Libraryへの保存はGitHub main反映失敗時に限る。
