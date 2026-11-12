@@ -1,6 +1,6 @@
 # 研究方針：滑らかなcubicのPoisson moduli stacksと量子化
 
-**2026年11月12日 / v52。再開時は必ず最初に読む。GitHub uedakazushi/nc-cubic のmainが唯一の正本。**
+**2026年11月12日 / v53。再開時は必ず最初に読む。GitHub uedakazushi/nc-cubic のmainが唯一の正本。**
 最上位目標は論文A（papers/paper_a.tex）を投稿可能な水準へ仕上げること。
 現在の数学的最優先課題は、**全次元のsmooth cubicの全Poisson構造に対する
 代数的中心三次元と量子化定理を、形式的中心元の存在定理に依存せず完成させること**。
@@ -8,7 +8,11 @@
 その成分数も論文Aの主要成果として維持する。
 三変数制限が特異な場合まで**代数的存在は解決**したが、
 短い単一多項式閉公式・モジュライ上の同変な接着は未解決。
-論文B/Cの有効な数学的結果と証明は保持する。
+旧論文Bのambient復元は一般次元化して論文Aに統合し、モジュライ部分はnc-cubic2へ移管する。論文Cの結果と証明は保持する。
+
+## 一般次元ambient復元とBの再編
+
+`papers/support/papers/sections/ambient_recovery_general.tex` を論文Aに統合。二次ambientの次数$d\ge3$の超曲面商から、低次数の乗法によりambientと方程式直線を復元する。noetherian AS Gorenstein条件で偏極付き圏からの復元も証明。Serre関手のみでの復元は三次三様体の追加条件付きで、一般次元については未証明。旧Bの41次元中心三次対、17係数正規形、分離型余次元15、忘却核7と関連証明・計算コードはnc-cubic2の `papers/nc_cubic_threefold_moduli.tex` および研究ノートに統合した。構成した17次元族のnc cubic moduli内の既約成分性は未証明。主リポジトリの公表原稿はAとCの二つ。
 
 ## 現行の研究入口と主なファイル
 
@@ -226,7 +230,7 @@ Hesse/行列式チャートの同型とmoduli stackへの降下、
 
 標準5次元Koszul AS正則Z代数に正則正規な三次超曲面があれば、正規族由来の3周期とAS双対性由来の5周期を合成してambientは1周期的。一般定理は最小周期がgcd(N,d)を割ること。証明は `papers/support/papers/sections/ambient_periodicity.tex` を `papers/paper_a.tex` から入力し、必要な一次文献を論文Aのbibliographyに追加した。これは既知一般論からの帰結で、新規性は未確認。三次イデアルを保つ1周期同型や抽象的な全nc cubicの超曲面表示は未証明として明記している。現行のPoisson正規形・量子化の独立監査を最優先する方針は変更しない。
 
-## 保持する論文A/B/Cの研究到達点
+## 保持する論文A/Cとnc-cubic2の研究到達点
 
 ## Poisson構造定理の新たな帰結：Bondal予想（論文A）
 
@@ -277,7 +281,7 @@ Hesse/行列式チャートの同型とmoduli stackへの降下、
 `G_h+v^3=(x^3+y^3+z^3)/3+v^3+h^2xyz/3+(1+h^6/54)uxy-h^4uz^2/18-h^2u^2z/12+(1+29h^6/648+h^12/4374)u^3`。
 (D)と可換projected kernelによる全Artin低Nat底変更からW_hと形式GL5同型になる。この変換はLaurent体上では通常の変換となり、Gを固定して降下できる。勾配変換det=1+h^6/27、正則行列分母(h^3-1)(h^6+162)、q=h^6の正規形L=1+127q/5184+O(q^2)、C=13/36+1613q/1679616+O(q^2)を保持する。行列分母をsmoothness判別式と呼ばない。
 
-論文Aの一般Poisson正規形・固定方向の代数的量子化、論文Bの41次元中心対・17係数slice・ambient復元・分離型余次元15・忘却核7を保持する。全nc cubic分類や全係数の一様量子化と混同しない。
+論文Aの一般Poisson正規形・固定方向の代数的量子化、一般次元ambient復元は論文Aに統合し、41次元中心三次対・17係数slice・分離型余次元15・忘却核7はnc-cubic2のモジュライ原稿に保持する。全nc cubic分類や全係数の一様量子化と混同しない。
 
 論文Cの形式MF、相対window、有限積分、全16積、bar/cup/characteristic比較、幾何学的BC、片側Morita/Popescu、相対sector、対角unit、中心対称性、純Poisson一次消滅、分離Hessian、非楕円fivefold、35係数slice、A∞arity、SM/ERおよび反例を保持する。有効な証明を容量削減のため要約・削除しない。
 
@@ -294,7 +298,7 @@ Hesse/行列式チャートの同型とmoduli stackへの降下、
 
 `python3 scripts/verify_coherent_residual_assets.py --rerun-orbit` は新原稿の参照とCへの統合を点検し、既存64 Eulerベクトルと32×32行列41恒等式を再実行する。今回、既存コードおよび生成証明書のGit blob SHAが正本と完全一致した。新しい飽和定理の形式証明やnc全行列の再計算ではない。
 
-`latexmk papers/paper_c.tex` で新単独稿を生成する。単独稿5頁の組版と表示を確認。現行A/B/C全体の組版、CF全構成と全既存計算の再検証は未実施。正確な状態をvalidation.jsonに記す。
+`latexmk papers/paper_c.tex` で新単独稿を生成する。単独稿5頁の組版と表示を確認。現行A/Cとnc-cubic2の移管原稿全体の組版、CF全構成と全既存計算の再検証は未実施。正確な状態をvalidation.jsonに記す。
 
 ## 研究一般の原則と保存許可
 
