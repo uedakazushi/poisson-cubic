@@ -286,6 +286,40 @@ $\hbar'=\lambda\det(M)\hbar$になる。
 $\lambda$倍によって零ファイバーの剰余が$F$となる。
 \end{proof}
 
+\begin{corollary}[滑らかな制限を持つ全Poissonブロックの明示的代数的量子化]
+\label{cor:pg-smooth-block-algebraic-quant}
+定理\ref{thm:pg-normal}の正規形
+$F=\sum_{s=1}^k f_s(x_s,u)$について、
+各$g_s=f_s(x_s,0)$が滑らかな平面三次曲線を定めるとする。
+各ブロックで系\ref{cor:pg-smooth-ternary-explicit}の
+有限多項式中心元$\Omega_{s,\hbar}$を構成すれば
+\[
+ \Omega_\hbar=\sum_{s=1}^k\Omega_{s,\hbar},
+ \qquad \Omega_0=F
+\]
+は代数的な厳密中心三次元となる。
+命題\ref{prop:pg-PBW}の開集合を必要に応じて縮めると
+$\Omega_\hbar$は各ファイバーで左右正則であり、
+周囲の量子化代数はKoszul AS-regular、
+中心商は定理\ref{thm:pg-quantization}の
+Hilbert級数とAS-Gorenstein条件を満たす。
+この部分族に対する量子化の構成は
+形式的中心元存在補題を全く使用しない。
+\end{corollary}
+\begin{proof}
+各ブロックに中心変数を共有させ、
+異なるブロックのactive生成元を可換と取る。
+個別の中心元は他ブロックと可換なので、その和は中心である。
+各$g_s$が滑らかであるから、命題\ref{prop:pg-PBW}は
+各ブロックのPBW自由性と$u=0$でのAS正則性を与える。
+定理\ref{thm:pg-quantization}の証明のうち
+中心元存在の補題の利用を
+系\ref{cor:pg-smooth-ternary-explicit}に置き換える。
+残る中央正則拡大、active次数filtrationによる
+$\Omega_\hbar$の左右正則性、
+中心三次商のAS-Gorenstein性の証明はそのまま適用できる。
+\end{proof}
+
 \begin{remark}[範囲と新規性]
 本定理は、非可換量子化の中心性を\emph{全係数の恒等式}として
 証明するものであって、各閉ファイバーのAS正則性・domain性や
