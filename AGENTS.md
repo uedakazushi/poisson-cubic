@@ -1,6 +1,6 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-12 / v50。GitHub mainが唯一の正本。** 最初に 00_research_plan.md を読む。
+**2026-11-12 / v51。GitHub mainが唯一の正本。** 最初に 00_research_plan.md を読む。
 
 ## 最優先指示：任意次元の同時量子化を論文Aの完成結果へ
 
@@ -64,6 +64,24 @@ scripts/verify_article_a_numbering.pyの静的検証に加え、
 必ずLuaLaTeX組版とPDF目視を別途行う。
 papers直下はpaper_a.tex、paper_b.tex、paper_c.texのみを維持する。
 今後も証明/検算/組版/保存を区別し、main正本、GitHub Actionsなし。
+
+## 論文のスコープとnc-cubic2への分離
+
+papers/paper_a.tex の主題は全次元のPoisson正規形・
+退化イデアル一般公式・Bondal予想・代数量子化・
+固定/相対代数的Poisson stacks。
+もともとの6/7次元専用節（primary分解・数値計算）は
+nc-cubic2/papers/poisson_cubic_six_seven_geometry.texへ移管済み。
+nc-cubic2には一般退化イデアル・critical cover・
+零点完全交叉の必要な補題と証明全文も収録。
+論文Aには一般のそれらの補題と証明を**残し**、
+n=6/7について一般定理からの特化の説明を追加し直さない。
+独立論文化候補は7次元rank6のprimary thickeningであり、
+Chern/Hodge数だけでは独立した新規性は弱い。
+主論文Aの正規形・量子化・stack成分定理の独立監査を優先し、
+移管先の副次研究への分散を避ける。
+GitHub mainのみを正本とし、双方のREADME/plan/notesは
+現在有効な研究内容だけで整合させる。
 
 ## 内在的な高次元Hessian補正
 論文A prop:pg-ad-intrinsic-hessian はH(P,F)=Σ P^{ijk}P^{abc}F_{ia}F_{jb}F_{kc}/6 を座標不変に定義。正規形ではΣ λ_s² det Hess_{x_s}(f_s)となる。純中心三次の調整後、Ω= sym(F-h²H(P,F)/12+h⁴ K) という厳密中心元を取れる。h⁴ Kは各Hesseブロックの明示補正を合成し、まだ座標不変な短い式とは主張しない。一般次元の6具体例でHessian縮約の恒等式をSymPy厳密計算で確認。次はk変数Poisson pencilに沿う正規形表示の座標変換、Hesse chartの接着と相対モジュライへの降下を優先し、特異g拡張へ戻らない。
