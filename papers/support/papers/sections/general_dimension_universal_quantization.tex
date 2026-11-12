@@ -328,6 +328,61 @@ $\eta_s$の行列式スケール変換を施してから適用する。
 高次の交叉補正を必要としない。
 \end{proof}
 
+\begin{example}[共通中心変数を持つ六次元cubicと独立な二方向]
+\label{ex:pg-ad-sixfold}
+$n=6$、$N=8$、$k=2$、$m=2$とし、
+ブロック座標を$(x,y,z)$、$(a,b,c)$、
+中心座標を$(u,v)$とする。
+\[
+ F=
+ g_{1/2}(x+u,y+v,z+u+v)
+ +g_{-1/3}(a+v,b+u,c)
+ +\frac{u^3+v^3}{3}.
+\]
+$\eta_1,\eta_2$を独立な量子化パラメータとして、
+一ブロックHesse中心元を
+$\Omega_{g_t,\eta}=\frac{U(\eta,t)}3(X^3+Y^3+Z^3)
+ +W(\eta,t)\sym(XYZ)$
+（定理\ref{thm:explicit-hesse-center}）と書く。
+このとき
+\[
+\begin{split}
+\Omega_{\eta_1,\eta_2}={}&
+ \Omega_{g_{1/2},\eta_1}(x+u,y+v,z+u+v)\\
+ &+\Omega_{g_{-1/3},\eta_2}(a+v,b+u,c)
+ +\frac{u^3+v^3}{3}
+\end{split}
+\]
+は厳密な中心元である。
+各$\eta_s$について高々四次の多項式であり、
+$\eta_1^i\eta_2^j$（$i,j>0$）の項は現れない。
+
+$g_{1/2}$と$g_{-1/3}$はともに滑らかなHesse三次である。
+与えた座標の中心平行移動は可逆なので、
+$F$は二つの滑らかなHesse三次と
+$u^3+v^3$の直和に変換できる。
+全偏微分の共通零点がアフィン原点だけなので$X$は滑らか。
+$\eta_s=\lambda_s\hbar$の下で
+$(\lambda_1,\lambda_2)$の全線形族を同時に量子化し、
+両係数が非零なら一般Poisson階数は四である。
+\end{example}
+
+\begin{remark}[次元と独立パラメータ数]
+\label{rem:pg-ad-dimension-table}
+許されるブロック数は$k\le\lfloor(n+2)/3\rfloor$。
+例えば
+\[
+\begin{array}{c|ccccc}
+ n&3&4&6&7&10\\ \hline
+ \max k&1&2&2&3&4
+\end{array}
+\]
+となる。
+同じ$n$でも$k$の値によって異なるPoisson階数が現れ、
+その正規形ごとに独立な$k$個の量子化パラメータを取れる。
+この表はPoissonモジュライの既約成分の個数を表すものではない。
+\end{remark}
+
 \begin{remark}[全次元・全成分についての正確な範囲]
 \label{rem:pg-ad-scope}
 $k$は$1\le k\le\lfloor(n+2)/3\rfloor$を動ける。
