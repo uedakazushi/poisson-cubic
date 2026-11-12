@@ -1,34 +1,33 @@
-# 論文Bの集中化と独立成果の移管状態
+# 論文Bの集中化と独立成果の現行分担
 
-**2026-11-12 / v1。現在の状態だけを記す。**
+**2026-11-13 / v2。過去版の履歴ではなく現在の所在を記す。**
 
-## 完了した原稿編集
+## 主リポジトリに残す論文
 
-`papers/paper_b.tex`（B-v55）は、任意のn>=3に対する一般点可換復元の主定理と、それを支える証明だけを読み込む。独立結果は本文に含めない。主定理に必要な補題を含む節は必要部分だけ抽出し、`papers/generic_recovery/` に証明ごと収録した。論文Aとその支持ソースは変更しない。
+論文A `papers/paper_a.tex`（A-v51）と、その全入力ソースは変更しない。論文B `papers/paper_b.tex`（B-v55）は任意のn>=3に対する一般点可換復元の主定理と必要な証明だけを読む。必要証明は `papers/generic_recovery/` に自立して収録し、独立成果は本文に戻さない。今回A・Bの原稿と組版設定に変更はない。
 
-## nc-cubic2に全文を保存した6節
+## 移管を完了した点スキーム単位
 
-移管先は `uedakazushi/nc-cubic2/papers/reconstruction_extensions/`。次の6ファイルは元の現行本文とGit blobが一致する。
+現行原稿は **uedakazushi/nc-cubic2/papers/mixed_cubic_point_schemes.tex**。同リポジトリの `notes/mixed_cubic_point_schemes.md` が、方針・到達点・未解決・一次文献・再現手順の入口である。現在の本文・ノート・コードだけで再開できる。
 
-| 節 | Git blob |
-|---|---|
-| first_order_poisson_kernel.tex | f2875c5e7ed2312d8139dc4e9ca56960e04018f1 |
-| explicit_jacobian_recovery.tex | a08e2b1279ee265d27dd6231521e8fbae0edd15b |
-| point_scheme_poisson_zero.tex | 75968f92ae40487c3c463f009aa1e0f27e339666 |
-| point_scheme_thickening.tex | 345f768a3799660a87b1b0ad86f6f4b7ea9d1c2d |
-| point_scheme_lambda_family.tex | 6d631fc215bb99fbe397288425a48941d6097ee6 |
-| point_scheme_discriminant_boundary.tex | c4126dd91aeb64f94d3f700aed013491050234ed |
+原稿は混合族の代数と中心三次元の閉公式・自由代数の証明・Artin PBWから始め、点スキームの台、非被約構造、二パラメータ平坦閉包、判別式上の有限環までを一つの論文にまとめた。必要な混合中心式の部分は証明を削らず抽出した。4つのpoint_scheme節の数学的内容を保持し、lambda節のラベル文字列だけを実参照へ修正した。独立の可換復元定理や二次jetを証明の入力にしない。
 
-これは本文保存の確認であり、移管先での独立原稿への統合・組版・全数学的監査を完了したという意味ではない。参照先の `cft:*`、`am:*`、`mt:*` と必要文献・コードを整理する必要がある。現在、元ファイルは削除していない。
+全文12頁をLuaLaTeX/latexmkで組版し、全頁表示確認を行った。8TeXファイル、47ラベル・22参照・6引用・2文献項目について未解決・重複は0。4本の検算コードを実行し、3個の自由代数恒等式、4水準の有限jet、有理数上の3+12個の長さ24の商、標数11の判別式上の3例、長さ6の局所商、せん断の記号計算を確認した。全幾何学的証明の独立監査やpoint functorの形式化ではない。正確なハッシュと範囲は移管先の `validation_mixed_cubic_point_schemes.json`。
 
-## 残る移管対象
+移管先mainの保存確認後、元の4本文・3単独組版入口・文献断片、3個の専用計算スクリプト、3証明書、2ノート、旧配置用検査スクリプトの計17ファイルを本リポジトリから除外した。ノートの固有情報（八重点のHilbert関数、衝突、未解決の境界）は移管先の現行ノートへ統合済み。元の3証明書は移管コードによる再生成とGit blob一致を確認し、再生成可能な出力は移管先build/へ生成する。検算入口は `python scripts/check_mixed_point_schemes.py --calculations`。A・現在のBがこれらのファイルを入力していないことを確認した。
 
-- Artin形式復元とétale実現、Sklyanin一ブロック・多ブロックの有限係数模型、例外係数の非proper性：`papers/support/papers/sections/relative_formal_models.tex`、`relative_etale_models.tex`、`sklyanin_model_theorems.tex`、`sklyanin_block_models.tex`、`multiblock_generation.tex`、`relative_parameter_boundary.tex`。関連するrotation障害・相対saturation・全Poisson成分の条件付き結果も含む。
-- 相対対角・bar・Artin sector・Moritaの比較と実効復元：`papers/support/papers/reconstruction/` 内の `finite_algebraic_recovery.tex`、`curved_diagonal_recovery.tex`、`regular_diagonal_recovery.tex`、`multiplicative_bar_comparison.tex`、`diagonal_kernel_identity.tex`、`relative_artin_sector.tex`、`artin_rotation_obstructions.tex`、`central_symmetry_lifting.tex`、`one_sided_morita_algebraization.tex`、`geometric_rotation_basechange.tex` 等。
-- 明示混合量子化と有限jet：`mixed_test_family.tex`、`explicit_model_comparison.tex`、`curved_gauge_comparison.tex`、`kontsevich_second_jet.tex`、`mixed_equivariant_normal_form.tex` 等。
-- 元の主証明支持節に含まれる一般化・別証明・独立例：一変数形式比較の別構成、Stevensonによる軌道生成、任意正則多変数基底の系、有限復元の反例等。Bへ残した必要部分以外も、公表価値のある内容を保持する。
-- 関連する研究ノート、参考文献断片、計算コード、再生成できない入力・証明書。既存のnc-cubic2のモジュライ・中心商・混合族と重複を整理して統合する。
+元の `mixed_test_family.tex` とその検算コードは、点スキームに必要な中心式以外に二次jet・同変復元の独立成果が残るため、まだ削除しない。
 
-## 安全な残件処理
+## 全文保存済みだが統合未完の2節
 
-各移管単位について、(1) 全ての定理・証明・例・入力を確認、(2) 移管先の現行論文またはノートへ統合、(3) 参照と組版・計算の必要範囲を検証、(4) 元と数学的内容が対応していることを確認、(5) Aが参照していないことを再確認してから元のB専用配置を整理する。現在は移管全体を完了扱いにしない。元の現行ファイルを残しているので、旧コミットや旧ZIPの取得を再開の前提としない。
+nc-cubic2の `papers/reconstruction_extensions/first_order_poisson_kernel.tex` と `explicit_jacobian_recovery.tex` は元の全文を保持している。前者の双対数比較・五変数Plücker障害・categorical接空間、後者の有限積分判定・一意性・反例を、対応する独立原稿へ統合する作業が残る。cft:*、am:*等の依存、引用、検算コードを解決するまで元ソースを保持する。
+
+## 残る移管対象と優先順位
+
+1. 一次変形・Plücker障害と有限復元の2節を、既存17次元モジュライ稿との重複を調べて統合する。計算コードと参考文献を揃え、単独原稿として参照・組版・計算を検査する。
+2. Artin形式復元・étale実現とSklyanin/多ブロック模型：`papers/support/papers/sections/relative_formal_models.tex`、`relative_etale_models.tex`、`sklyanin_model_theorems.tex`、`sklyanin_block_models.tex`、`multiblock_generation.tex`、`relative_parameter_boundary.tex`。rotation障害、相対saturation、全Poisson成分の条件付き結果も照合する。
+3. 相対対角・bar・Artin sector・Moritaと有限復元の別構成：`papers/support/papers/reconstruction/` の `finite_algebraic_recovery.tex`、`curved_diagonal_recovery.tex`、`regular_diagonal_recovery.tex`、`multiplicative_bar_comparison.tex`、`diagonal_kernel_identity.tex`、`relative_artin_sector.tex`、`artin_rotation_obstructions.tex`、`central_symmetry_lifting.tex`、`one_sided_morita_algebraization.tex`、`geometric_rotation_basechange.tex` 等。
+4. 明示混合量子化・有限jet・同変正規形：`mixed_test_family.tex`、`explicit_model_comparison.tex`、`curved_gauge_comparison.tex`、`kontsevich_second_jet.tex`、`mixed_equivariant_normal_form.tex` 等。
+5. 元の主証明支持節の独立一般化・別証明・反例、および関連ノート・文献・計算資産。既存の新しいBに残した必要証明と重複する部分は二重の独立成果として扱わない。
+
+各単位で本文・補題・入力の保存、参照と組版・必要計算、移管先main保存を確認してから元のB専用配置を整理する。旧ZIP・過去コミットを取得しないと再開できない構成にはしない。移管全体は未完了であり、点スキーム単位の完了と区別する。

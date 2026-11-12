@@ -1,16 +1,21 @@
 {
-  "date": "2026-11-12",
+  "date": "2026-11-13",
   "paper_version": "B-v55",
-  "repository_version": "v71",
+  "repository_version": "v72",
   "entry": "papers/paper_b.tex",
-  "scope": "General n>=3 reconstruction theorem and necessary proofs only; independent material removed from main paper input, not yet entirely migrated out of source repository.",
+  "scope": "General n>=3 reconstruction theorem and necessary proofs only. Paper B source unchanged during point-scheme migration; other independent material still pending migration.",
   "paper_A": {
     "modified": false,
     "entry_blob": "ec6ff5fc12a81de53765376cf583645f9dd8971b",
-    "original_support_tree_retained_unchanged": "61f358bbcb4a1c888bd8c78a8197beceaec0916e",
-    "typeset_again": false
+    "input_dependencies_unchanged": true,
+    "shared_common_blob": "e53e7220975a65e301ddc9a38ea87c8449f180ec",
+    "references_poisson_cubic_blob": "f4f9edb056e75af048478a026cc6c176f4affc85",
+    "typeset_again_this_migration": false
   },
   "build": {
+    "executed_for_version": "B-v55",
+    "execution_date": "2026-11-12",
+    "rerun_this_migration": false,
     "command": "latexmk -g -r .latexmkrc papers/paper_b.tex",
     "engine": "LuaLaTeX",
     "complete_paper_build_executed": true,
@@ -19,13 +24,13 @@
     "overfull_boxes": 0,
     "missing_characters": 0,
     "multiply_defined_labels": 0,
-    "visual_review": "All 27 pages rendered and inspected in three contact sheets; no clipped text or overlap observed. Final latexmk run used identical sources and configuration.",
+    "visual_review": "All 27 pages rendered and inspected in three contact sheets; no clipped text or overlap observed. Current paper B sources have not changed since that build.",
     "pdf_sha256": "f3f833aec9f935e53abe3fb93fa28c66910467da722d5e1f435252c7cbc36191",
     "pdf_git_tracked": false,
     "latexmkrc_blob": "ab3ca75d9e516a01e44bcb555e0a8e5801867310"
   },
   "static_source_check": {
-    "executed": true,
+    "executed_for_version": "B-v55",
     "tex_files": 11,
     "labels": 102,
     "references": 94,
@@ -56,12 +61,22 @@
     "scope_limit": "Typesetting and source checks do not establish mathematical correctness, novelty, or publication readiness."
   },
   "migration": {
-    "destination": "uedakazushi/nc-cubic2/papers/reconstruction_extensions/",
-    "fulltext_sections_saved_and_blob_matched": 6,
+    "destination": "uedakazushi/nc-cubic2",
+    "point_scheme_unit": {
+      "destination_commit_verified": "62f50628a3a91f035020f3f774587e976db48ac4",
+      "entry": "papers/mixed_cubic_point_schemes.tex",
+      "validation": "validation_mixed_cubic_point_schemes.json",
+      "companion_integrated": true,
+      "reference_closure_and_lualatex_verified": true,
+      "pages": 12,
+      "four_calculation_scripts_executed": true,
+      "source_deduplicated_files": 17,
+      "removed_certificate_blobs_reproduced": ["ccaf67deb70cbe5beed60a87fffe6af263c468c6", "237beb142eac71879b87efc072b1cff9c8f4b4ea", "52ff1efaf782a31008870124d30b4245f0baf830"],
+      "mixed_family_independent_remainder_retained": true
+    },
+    "first_order_and_finite_recovery_fulltexts_saved": true,
+    "first_order_and_finite_recovery_companion_integration": false,
     "all_independent_material_transferred": false,
-    "companion_manuscript_integrated": false,
-    "companion_references_and_build_verified": false,
-    "source_sections_deleted": false,
     "remaining_work": "notes/paper_b_scope_and_transfer.md"
   },
   "persistence_policy": "GitHub main, expected-SHA fast-forward only; no Actions, no force push, PDF untracked. Library only after actual push failure."
