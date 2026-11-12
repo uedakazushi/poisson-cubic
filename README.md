@@ -1,6 +1,6 @@
 # nc-cubic：論文Aの投稿準備と一般点可換復元
 
-**2026-11-12 / v52。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
+**2026-11-12 / v53。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
 
 ## 論文Cの一般次元化（2026-11-12）
 
@@ -23,7 +23,7 @@ AS-regular/noetherian仮定の下で、有限拡大後の全coherent残余pair�
 現在有効な証明監査と課題 notes/poisson_article_submission_audit.md、独立有限検算 computations/verify_poisson_article_A.py。
 IntroductionとAbstractを改訂し、文献・label静的整合性を点検済み。
 主定理の全独立監査、全A組版、全旧証明書再実行は未完成。投稿可能判定は行っていない。
-論文B/Cの成果は保持し、新規拡張は論文Aの仕上げの後に再開する。
+旧論文Bのambient復元は一般次元化してAへ統合し、17次元モジュライ論はnc-cubic2へ移した。Cの成果は維持する。
 
 ## 論文Aから独立させた六・七次元の詳細幾何
 
@@ -71,7 +71,7 @@ papers/support/papers/sections/fermat_relative_poisson_components.tex、
 最新原稿全体のLuaLaTeX組版とPDF目視は未実施であり、
 静的検査だけで組版が成功したとはしない。
 
-## 全Poisson構造の代数的中心元・量子化（論文A v50）
+## 全Poisson構造の代数的中心元・量子化・一般次元ambient復元（論文A v50）
 
 **滑らかな三次超曲面の全Poisson構造について、形式的存在定理を使わず
 代数的な中心三次元を構成できることを証明した。**
@@ -141,12 +141,16 @@ F_λ=(x³+y³+z³)/3+u³+v³+λuxy の混合量子化について、λ³+3≠0�
 
 同値核の具体行列、有限拡大次数、特殊点を含む相対同値、多変数全係数への適用は未完成。
 
+## 一般次元ambient復元
+
+Aに `papers/support/papers/sections/ambient_recovery_general.tex` を組み込んだ。次数$d\ge3$の二次ambient超曲面商では商の次数1・2からambientと方程式直線を復元する。AS-Gorenstein仮定下で偏極付き圏からも復元できる。Serre関手のみを使う強化は五生成元の追加中心仮定付きであり、全次元での無条件復元ではない。詳細な17次元nc cubicモジュライはnc-cubic2が正本。
+
 ## 原稿と再現
 
 | 内容 | 入口 |
 |---|---|
 | A：Poisson正規形・量子化 | `papers/paper_a.tex` |
-| B：17次元族・ambient復元 | `papers/paper_b.tex` |
+| 17次元モジュライ（nc-cubic2） | [`nc_cubic_threefold_moduli.tex`](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/nc_cubic_threefold_moduli.tex) |
 | C：統合原稿 | `papers/paper_c.tex` |
 | 今回：全coherentへの飽和 | `papers/support/papers/coherent_residual_saturation.tex` |
 | 一般点の三shift生成 | `papers/support/papers/rotation_orbit_generic_reconstruction.tex` |
@@ -158,7 +162,7 @@ python3 scripts/verify_coherent_residual_assets.py --rerun-orbit
 latexmk papers/coherent_residual_saturation.tex
 ```
 
-今回、64 Eulerベクトルと32×32行列41恒等式を再実行し、保存証明書と完全一致を確認。新しい飽和定理は数学的証明であって、これらの有限計算で形式検証したものではない。新単独稿5頁を組版・表示確認、現行A/B/C全体と全旧計算の再実行は未実施。詳細はvalidation.json。
+今回、64 Eulerベクトルと32×32行列41恒等式を再実行し、保存証明書と完全一致を確認。新しい飽和定理は数学的証明であって、これらの有限計算で形式検証したものではない。新単独稿5頁を組版・表示確認、現行A/C全体と全旧計算の再実行は未実施。詳細はvalidation.json。
 
 ## 運用
 
@@ -167,4 +171,4 @@ GitHub mainのみを正本とし、通常のfast-forwardで保存する。PDFは
 **新しい証明付き低次結果：** 論文AではWeyl中心元の偶性と、普遍Hessian二次補正による mod h⁵ 中心性を追加した。計算証明書は computations/verify_cubic_casimir_jet.py。全次数の形式的中心元の相対CY/formality監査はなお優先課題。
 
 ## papers/の構成
-papers/直下にはpaper_a.tex、paper_b.tex、paper_c.texの三つのみを置く。その他の既存原稿・参考文献・分割節はpapers/support/papers/以下に保存。リポジトリrootからlatexmk papers/paper_a.tex等で組版する。
+papers/直下にはpaper_a.texとpaper_c.texのみを置く。その他の既存原稿・参考文献・分割節はpapers/support/papers/以下に保存。リポジトリrootからlatexmk papers/paper_a.tex等で組版する。
