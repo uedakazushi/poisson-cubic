@@ -1,11 +1,11 @@
 # nc-cubic — Poisson cubicの量子化と一般点可換復元
 
-**2026-11-12 / v59。** GitHub mainが正本。最初に [研究方針](00_research_plan.md) を読む。
+**2026-11-12 / v60。** GitHub mainが正本。最初に [研究方針](00_research_plan.md) を読む。
 
 | 原稿 | 主題 |
 |---|---|
 | [論文A](papers/paper_a.tex)（A-v51） | smooth cubicのPoisson正規形・退化・Bondal・代数的量子化・Poisson moduli |
-| [論文B](papers/paper_b.tex)（B-v43） | 代数的中心三次変形の一般点可換復元、完備曲率移送、基礎体上の模型 |
+| [論文B](papers/paper_b.tex)（B-v44） | 代数的中心三次変形の一般点可換復元、完備曲率移送、基礎体上の模型 |
 
 ## Bの現在の結論
 
@@ -15,12 +15,17 @@
 
 [主定理](papers/support/papers/reconstruction/general_dimension_recovery.tex)、[監査ノート](notes/paper_b_proof_audit.md)、[検証状態](validation_paper_b.json)を参照。構成した証明、全支持節の独立監査、外部査読・新規性調査、計算機形式検証を区別する。
 
+## 一次方向と可換moduli
+
+[双対数上の一次消滅](papers/support/papers/reconstruction/first_order_poisson_kernel.tex) は全次数formalityに依存せず、中心三次対の非可換積の一次項がMF変形として消えることを直接証明する。残る可換三次式の一次係数はJacobian環の次数3に値を持つ。次元はcubic threefoldで10、cubic fourfoldで20。ただしnc-cubic2の17次元族からの忘却核を7次元と同定したわけではない。
+
 ## 再現
 
 ```sh
 python3 scripts/check_layout.py
 python3 scripts/verify_bundle.py
 python3 computations/verify_complete_curved_transport.py --output build/complete_curved_transport_checks.json
+python3 computations/verify_first_order_curved_kernel.py
 latexmk papers/support/papers/complete_curved_transport.tex
 latexmk papers/paper_a.tex
 latexmk papers/paper_b.tex

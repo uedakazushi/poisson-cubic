@@ -1,0 +1,168 @@
+% 2026-11-12 / B-v44: first-order cancellation, independently of the all-orders transport.
+\section{一次の非可換変形と可換模型の接空間}
+\label{fpk:sec:first-order}
+
+この節では一般点の全次数形式比較を前提とせず、
+双対数環上で非可換積の一次摂動が曲率付きMFにどう作用するかを直接調べる。
+これは全次数の定理\ref{cft:thm:complete}の一次部分の独立検証でもある。
+曲率の一次変形を固定しなければ、任意の非可換変形が自明という意味ではない。
+
+$S=\mathbb C[x_1,\ldots,x_N]$、$N\ge5$、
+$D=\mathbb C[\varepsilon]/(\varepsilon^2)$ とする。
+$F\in S_3$は滑らかな射影三次超曲面を定めるものとする。
+$A_D$を単位付き・次数別有限自由な$D$-代数で
+$A_D/\varepsilon A_D\simeq S$、
+$\Omega_D\in Z(A_D)_3$の剰余が$F$となるものとする。
+
+\begin{theorem}[一次Poisson方向の曲率付き消滅]
+\label{fpk:thm:infinitesimal}
+上の入力に対し、単位と内部次数を保つ$D$-加群標識を適切に選べば、
+$A_D$の積と中心元は
+\begin{equation}\label{fpk:eq:normal}
+ a*b=ab+\varepsilon\,\Theta_\pi(a,b),\qquad
+ \Omega_D=F+\varepsilon G,\qquad
+ \Theta_\pi(a,b)=\frac12\{a,b\}_\pi
+\end{equation}
+と書ける。ここで$\pi$は二次係数のbivectorで$[\pi,F]=0$である。
+さらに、この標識で有限rank graded MFの
+$D$-線形unital $A_\infty$同値
+\begin{equation}\label{fpk:eq:equivalence}
+ \operatorname{MF}^{\mathbb Z}(A_D,\Omega_D)
+ \simeq
+ \operatorname{MF}^{\mathbb Z}(S\otimes D,F+\varepsilon G)
+\end{equation}
+が存在し、剰余では恒等、内部shiftおよび
+中心元による三次周期同型$(3)\simeq[2]$を保つ。
+
+二つの標識で得た$G$の差は
+$J(F)_3=(\partial_1F,\ldots,\partial_NF)_3$に属する。
+従って、一次の可換模型の座標同値類を定める写像は
+\begin{equation}\label{fpk:eq:tangent}
+ [G]\in(S/J(F))_3
+\end{equation}
+を通る。特に$G=0$と取れる正規化では、一次Poisson変形は
+rotation付きgraded MF圏の一次変形を生じない。
+\end{theorem}
+
+\begin{proof}
+次数別自由な加群標識を選ぶと、積は$\mu+\varepsilon\beta$となる。
+単位を保つよう標識を取り、$\beta$をnormalizedな内部weight零の
+Hochschild二cochainとする。結合律の一次部分は
+$d_{\mathrm{Hoch}}\beta=0$である。
+polynomial algebraのHKR同型により、そのクラスは
+二次係数bivector$\pi$の反対称微分cochain$\Theta_\pi$で表せる。
+差$\beta-\Theta_\pi$は内部weight零のHochschild coboundaryなので、
+$\mathrm{id}+\varepsilon T$という一次の厳密な加群標識変更で
+積を式\eqref{fpk:eq:normal}にできる。
+この変更は元の代数の結合律を保ち、単位も保つ。
+中心元の表示を$F+\varepsilon G$と書く。
+中心性の一次部分は$[\pi,F]=0$である。
+
+$F$が滑らかなので、全偏微分は正則列である。
+$\iota_{dF}$による斉次Koszul複体をrank二・係数次数二で用いると、
+$[\pi,F]=0$から定数係数三重vector
+$\Xi\in\bigwedge^3\langle\partial_1,\ldots,\partial_N\rangle$を得て
+\begin{equation}\label{fpk:eq:primitive}
+ \pi=[\Xi,F]
+\end{equation}
+となる。原像の差を消すにはrank四・係数次数$-2$の原像が必要となり、
+そのような多項式はないので$\Xi$は一意である。
+ここでは$\pi$のJacobi恒等式を使わない。
+
+$\Theta_\Xi=\operatorname{HKR}(\Xi)$を、標準の$1/3!$反対称化で
+正規化した三入力Hochschild cochainとする。
+三つの座標方向の単純三重vectorについては
+\[
+ \Theta_\Xi(a,b,c)
+ =\frac16\det
+ \begin{pmatrix}
+  \partial_i a&\partial_i b&\partial_i c\\
+  \partial_j a&\partial_j b&\partial_j c\\
+  \partial_k a&\partial_k b&\partial_k c
+ \end{pmatrix}.
+\]
+式\eqref{fpk:eq:primitive}と反対称性より
+\begin{equation}\label{fpk:eq:insert}
+ \Theta_\Xi(F,a,b)-\Theta_\Xi(a,F,b)+\Theta_\Xi(a,b,F)
+ =\Theta_\pi(a,b).
+\end{equation}
+$\Theta_\Xi$は多重導分なので
+$d_{\mathrm{Hoch}}\Theta_\Xi=0$である。
+
+周期変数に$\deg_{\mathrm{coh}}t=2$、
+$\deg_{\mathrm{int}}t=-3$を与え、曲率を$-tF$とする。
+\[
+ \eta=\varepsilon\,t^{-1}\Theta_\Xi
+\]
+はcohomological・内部次数ともに零、arity三のnormalized cochainである。
+曲率付きGerstenhaber括弧で式\eqref{fpk:eq:insert}を使うと
+\[
+ [\eta,\mu]=0,\qquad
+ [\eta,-tF]=-\varepsilon\Theta_\pi
+\]
+となる（符号は式\eqref{fpk:eq:insert}を採用する）。
+従って、曲率付き構造
+$\mu-tF+\varepsilon(\Theta_\pi-tG)$は、
+$\eta$による一次ゲージで$\mu-t(F+\varepsilon G)$へ移る。
+$\varepsilon^2=0$だから、そのbar写像は
+$F_0=0,F_1=\mathrm{id},F_3=\varepsilon t^{-1}\Theta_\Xi$のみを持ち、
+逆は$F_3$の符号を反転させればよい。
+
+有限rank MFの行列$Q$は$\varepsilon$の倍数である必要はない。
+しかし対象像$Q'=Q+F_3(Q,Q,Q)$および射のtwisting挿入公式は
+双対数環上では有限和である。
+bar恒等式がMF方程式と関手恒等式を与え、逆bar写像で互いに逆な
+$A_\infty$関手が得られる。写像は内部weight零で
+$t$を微分しないので内部shiftと$(3)\simeq[2]$を保つ。
+これで式\eqref{fpk:eq:equivalence}が従う。
+
+最後に、積を$\mu+\varepsilon\Theta_\pi$へ正規化する
+二つの標識の差を$\mathrm{id}+\varepsilon T$とする。
+同じ正規化された積を保つ条件は
+$d_{\mathrm{Hoch}}T=0$であるから、$T$は内部weight零の導分である。
+従って$T(x_i)=\sum_j a_{ij}x_j$であり、
+中心元の一次係数は$G\mapsto G+T(F)$と変わる。
+この差は$J(F)_3$に属する。
+また、同じ$F$の一次座標変更による変形は
+この形の$T(F)$で尽くされる。
+従って式\eqref{fpk:eq:tangent}を得る。
+\end{proof}
+
+\begin{corollary}[Jacobian接空間の次元]
+\label{fpk:cor:dimension}
+滑らかな三次式$F$に対して
+\begin{equation}\label{fpk:eq:dimension}
+ \dim_{\mathbb C}(S/J(F))_3
+ =\binom{N+2}{3}-N^2.
+\end{equation}
+特にcubic threefoldでは$10$、cubic fourfoldでは$20$である。
+\end{corollary}
+\begin{proof}
+偏微分の二次式は正則列であり、一次係数のsyzygyを持たない。
+従って$J(F)_3$は$N$個の二次偏微分に$N$次元の一次式を掛けた
+$N^2$次元の部分空間である。
+一方$\dim S_3=\binom{N+2}{3}$である。
+\end{proof}
+
+\begin{remark}[Jacobi条件が必要になる位置]
+\label{fpk:rem:jacobi}
+一次の曲率付き同値に必要なのは中心性からの$[\pi,F]=0$であり、
+$[\pi,\pi]=0$は必要ない。
+二次以降で同じゲージを延長するには
+$[\Xi,\pi]=0$が必要になる。
+滑らかな三次式の下では、Jacobi条件$[\pi,\pi]=0$から
+勾配Koszulと係数次数により$[\Xi,\pi]=0$を導ける
+（補題\ref{cft:lem:primitive}）。
+従って一次消滅と全次数の比較は異なる論理的強さを持つ。
+\end{remark}
+
+\begin{remark}[17次元族と可換moduliの関係]
+\label{fpk:rem:moduli}
+$cubic\ threefold$の次数三Jacobian空間の次元は$10$である。
+この事実は、非可換モジュライの余分な一次方向が
+rotation付き残余圏では不可視になり得ることを説明する。
+ただし$nc$側の17次元族について、当該7方向が実際に
+忘却射の核であると結論するには、非可換族のKodaira--Spencer写像と
+本節の標識を照合する必要がある。ここではその同定を行っていない。
+本節の観察の先行研究上の初出も未確認である。
+\end{remark}

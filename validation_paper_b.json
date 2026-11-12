@@ -1,7 +1,7 @@
 {
   "date": "2026-11-12",
-  "paper_version": "B-v43",
-  "repository_version": "v59",
+  "paper_version": "B-v44",
+  "repository_version": "v60",
   "canonical_entry": "papers/paper_b.tex",
   "mathematics": {
     "input": "Actual degreewise finite-free central cubic deformation of a polynomial algebra with smooth commutative cubic special fiber. The generic theorem uses a regular local algebraic base; the complete formal comparison allows a general complete noetherian local C-algebra with residue C.",
@@ -24,7 +24,10 @@
       "algebraic relative equivalence including special fiber",
       "global moduli gluing",
       "explicit extension degree or equivalence kernel matrices"
-    ]
+    ],
+    "first_order_kernel": "Direct dual-number curved Hochschild cancellation, independent of full Kontsevich formality; tangent cubic term lies in Jac(F)_3, dimension C(N+2,3)-N^2 (10 for N=5). The 17-to-10 moduli kernel is NOT established.",
+    "first_order_jacobi": "Jacobi is unnecessary for first-order curved cancellation; all-orders second-action vanishing uses Jacobi.",
+    "first_order_proof_location": "papers/support/papers/reconstruction/first_order_poisson_kernel.tex"
   },
   "executed_calculation": {
     "script": "computations/verify_complete_curved_transport.py",
@@ -38,11 +41,19 @@
     "noncommuting_time_dependent_generator": true,
     "odd_arity_filtration": true,
     "nonnilpotent_object_substitution_inverse": true,
-    "Schouten_examples_N": [5, 7],
-    "constant_trivector_contraction_ranks": [10, 35],
+    "Schouten_examples_N": [
+      5,
+      7
+    ],
+    "constant_trivector_contraction_ranks": [
+      10,
+      35
+    ],
     "negative_control": "Casimir alone does not imply Jacobi or second-action vanishing",
     "scope": "Finite algebra/combinatorics only; not graph integrals, actual nc MF Hom computations or categorical formal verification.",
-    "all_existing_certificates_rerun": false
+    "all_existing_certificates_rerun": false,
+    "first_order_checker": "computations/verify_first_order_curved_kernel.py",
+    "first_order_status": "checker source added; exact run must be separately confirmed"
   },
   "typesetting": {
     "entry": "papers/support/papers/complete_curved_transport.tex",
@@ -68,12 +79,17 @@
     "new_main_and_transport_label_count": 34,
     "new_environments_balanced": true,
     "new_python_syntax_checked": true,
-    "full_paper_B_source_audit_rerun": false
+    "full_paper_B_source_audit_rerun": false,
+    "first_order_source_included": true
   },
   "primary_sources_checked": [
     "Kontsevich author final PDF DefQuant_final.pdf: Theorem 4.6 (PDF p.17), Lemma 4.11 and Section 4.6.2 (p.22), affine equivariance and Theorem 6.3 (p.30): text and page images checked. Graph arity formula and Sections 6.2-6.4 also read.",
-    "Caldararu-Tu NYJM19 (2013), Section2, Remark2.8, Theorem2.12: parsed text checked; web page-image requests failed, so no visual-source verification claimed."
+    "Caldararu-Tu NYJM19 (2013), Section2, Remark2.8, Theorem2.12: parsed text checked; web page-image requests failed, so no visual-source verification claimed.",
+    "HKR first-order deformation correspondence cross-checked against Kontsevich's affine formality and classical Hochschild deformation theory; specific first-order cancellation is proved directly in current paper."
   ],
-  "environment": {"python": "3.13.5", "sympy": "1.14.0"},
+  "environment": {
+    "python": "3.13.5",
+    "sympy": "1.14.0"
+  },
   "persistence_policy": "GitHub main, fast-forward only, no Actions. Library only after actual push failure."
 }

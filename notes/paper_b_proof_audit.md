@@ -1,6 +1,6 @@
 # 論文B：完備曲率付き比較と一般点可換復元
 
-**2026-11-12 / B-v43。** 再開は `00_research_plan.md`。主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、形式比較の証明は `complete_curved_transport.tex`、局所比較は `three_object_window.tex`、基礎体降下は `generic_cubic_descent.tex`（同じディレクトリ）。
+**2026-11-12 / B-v44。** 再開は `00_research_plan.md`。主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、形式比較の証明は `complete_curved_transport.tex`、局所比較は `three_object_window.tex`、基礎体降下は `generic_cubic_descent.tex`（同じディレクトリ）。
 
 ## 現在の結論と適用範囲
 
@@ -30,6 +30,12 @@
 
 模型の方程式を元の体へ戻す際には、smooth proper性を先に得てから低Natの有限性と底変更を使う。低積の具体行列や(D)を一般存在の前提に戻さない。λ=1の明示多項式を復元先に指定するには(D)を別途照合する。従来の全Artin・相対・低jet・point scheme・Stevenson/regradingの有効な支持節は保持する。
 
+## 一次変形の直接証明と接空間の位置付け
+
+`first_order_poisson_kernel.tex` の `fpk:thm:infinitesimal` は全次数の完備曲率移送とは独立の双対数環での証明。一般の次数付き連結flat一次変形をHKRで多重微分の二次係数bivector πに正規化できる。中心性は[π,F]=0を与え、滑らかなcubicの勾配Koszul複体が唯一の定数trivector Ξを与える。η=ε HKR(Ξ)/t はarity3のunital curved gaugeで、実際のbar写像にはF1=Id,F3=ηのみが現れ、逆はF3=-η。Qがεの倍数でなくてもtwistingの評価は有限。HKR正規化の違いは線形導分T(F)なので、可換変形の一次係数は(S/J(F))_3に落ちる。Jacobianのdegree3次元はbinom(N+2,3)-N²：N=5で10、N=6で20。一般のPoisson一次変形はJacobiを満たす必要がなく、この一次消滅にはJacobi条件を使わない。二次以降の延長には[Ξ,π]を消すためのJacobi条件が必要。
+
+nc-cubic2の17次元の非可換族から可換moduliへの微分を定義・計算していないので、7次元kernelと結論してはならない。現在言えるのは一次のMF変形が可換三次式のJacobian接空間へ因子化することのみ。これが既知の一般原理のどこまでの帰結かという初出調査も未完了。数値と可積分性だけで実際の変形functorの単射／全射を結論しない。
+
 ## 一次文献と新規性
 
 Kontsevich, *Deformation quantization of Poisson manifolds*, LMP 66 (2003),157–216, arXiv:q-alg/9709040。著者最終稿 `https://www.ihes.fr/~maxim/TEXTS/DefQuant_final.pdf` のTheorem4.6（PDF p.17）、Section4.6.2とLemma4.11（p.22）、Theorem6.3・affine同変性（p.30）を本文とページ画像で確認した。Sections6.2–6.4のグラフ表示・arityも本文で確認。適用は曲率を入れる前のMC対応と、曲率経路に対する有限Taylor恒等式に分ける。
@@ -55,6 +61,8 @@ Căldăraru–Tu, *Curved A∞ algebras and Landau–Ginzburg models*, NYJM19 (2
 その次に実際の非可換入力でV,U,μの有限表示を作りG/Kを有効化する。有限拡大の必要性・次数、同値核行列、特殊点を含む正則模型、全モジュライでの接着は未解決として分ける。Aの正規形・PBW/AS・全中心恒等式の監査も継続する。
 
 ## 実行した検算と組版
+
+`computations/verify_first_order_curved_kernel.py` は5変数・6変数の明示的三次式と定数trivectorで、曲率挿入の8恒等式およびJacobian次数3の階数を厳密に検査する補助コード。一般のA∞関手やnc圏の計算証明ではない。
 
 `python3 computations/verify_complete_curved_transport.py --output build/complete_curved_transport_checks.json` を実行。5/7変数のSchouten恒等式と定数trivector contractionのrank10/35、上のnegative controlを確認。tensor長9・パラメータ次数4の非自律・非可換coalgebra flowで10本の逆行列係数恒等式、2750本のcoproduct係数恒等式、odd arity/位数評価、冪零でない対象変数への両側逆代入を厳密検証した。
 

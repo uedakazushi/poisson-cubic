@@ -1,7 +1,7 @@
 # 研究方針：Poisson三次超曲面の量子化と一般点可換復元
 
-**2026-11-12 / v59。再開時は最初に読む。GitHub uedakazushi/nc-cubic のmainが正本。**
-現行主原稿はA `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v43）。
+**2026-11-12 / v60。再開時は最初に読む。GitHub uedakazushi/nc-cubic のmainが正本。**
+現行主原稿はA `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v44）。
 
 ## 目標・到達点・達成基準
 
@@ -21,9 +21,13 @@ Aはsmooth cubicのPoisson正規形、退化、Bondal予想、代数的量子化
 
 証明の入口は `papers/support/papers/reconstruction/general_dimension_recovery.tex`。局所比較は `three_object_window.tex`、完備比較は `complete_curved_transport.tex`、定義体・生成上界は `generic_cubic_descent.tex`（同ディレクトリ）。詳細は `notes/paper_b_proof_audit.md`。既存の形式二次jet、相対Artin、別生成証明、明示族、障害・反例は現行支持節に保持する。
 
+## 一次非可換方向の消滅と接空間
+
+`papers/support/papers/reconstruction/first_order_poisson_kernel.tex` で、双対数環上の中心三次対に対する一次変形を全次数formalityを使わず直接比較する。HKRで積の一次項を二次係数bivector πへ正規化し、中心性から[π,F]=0、滑らかさ・Koszulからπ=[Ξ,F]となる。曲率 -tF のHochschild複体で η=ε HKR(Ξ)/t の境界がHKR(π)を消す。双対数なのでbar写像はarity1と3のみで実際に逆があり、graded MFの内部shift・中心元由来周期性も保つ。Jacobi条件は一次消滅には不要だが、全次数へ延長する際に必要。一次の可換式は標識によって導分(F)だけ変わり、(S/J(F))_3に値を持つ。次元は binom(N+2,3)-N²、cubic threefoldで10。17次元非可換族の残り7方向が実際のforgetful kernelかはKodaira--Spencer照合が未完であり、推論しない。これは全次数比較の独立検算として価値がある。
+
 ## 未解決の核心と次の具体的着手
 
-1. **公表可能性の独立監査。** 新しい完備移送のnormalized全cochain、非小曲率の評価、matrix延長、periodicityと、既存window・有限降下・coherent飽和を別の観点から再点検する。B全文の参照・引用・組版を実行し、原稿全体を一貫した論理順へ再編する。主定理の証明を構成したことを、全支持節の再監査完了と同一視しない。
+1. **公表可能性の独立監査。** 一次消滅の独立証明を出発点に、新しい完備移送のnormalized全cochain、非小曲率の評価、matrix延長、periodicityと、既存window・有限降下・coherent飽和を別の観点から再点検する。B全文の参照・引用・組版を実行し、原稿全体を一貫した論理順へ再編する。主定理の証明を構成したことを、全支持節の再監査完了と同一視しない。
 2. **有効化。** 非可換入力のV=H^0 dgNat(Id,ρ)、U=H^0 dgNat(Id,ρ²)、積μを有限行列で構成し、G/Kを具体計算する。既知λ=1多項式の特定には(D)を検証する。
 3. **降下と相対化。** 同値核のKへの降下障害、h=0で正則な模型、特殊点込み相対同値、有限拡大次数と核の明示、モジュライ上の接着を調べる。幾何学的一意性とK上のformを混同しない。
 4. **Aの独立監査。** Lie正規形、普遍Hesse中心、PBW/AS、Cramer特殊化、Bondal・stack成分と一次資料比較を継続する。Aの代数的量子化存在証明にformalityを必須入力として戻さない。
