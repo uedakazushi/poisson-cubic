@@ -4,6 +4,29 @@
 論文本文は papers/paper_a.tex、専用文献は papers/support/papers/references_poisson_cubic.tex。
 本ノートは現在有効な知識・依存・課題を整理し、証明全文を重複させない。
 
+## 論文Aの範囲と切り離した詳細幾何
+
+一般次元のPoisson正規形、退化スキームの生成元と零点完全交叉、
+Bondal予想、量子化、固定・相対moduli stacksを論文Aの中心に据える。
+旧6/7次元専用節`sec:pg-six-seven`と
+完全交叉の数値計算節`sec:pg-numerical`は
+一般定理の証明の入力ではないため、現行論文Aから除外した。
+専用節・数値節は完全なTeX本文として
+`uedakazushi/nc-cubic2/papers/sections/`へ移し、
+必要な一般退化イデアル・critical coverの証明も
+同リポジトリに収録した。
+主原稿Aでは`prop:pg-deg-ideal`、`lem:pg-critical-cover`、
+`prop:pg-deg-support`、`prop:pg-zero-ci`を全文維持。
+旧6/7次元のprimary厚化（長さ8,64,49）と
+n=7のCalabi--Yau四次元のHodge数は
+移管先の新しい独立草稿に保持されている。
+この研究の独立公表価値・主要primary分解の独立監査は未確定。
+Aの数学的な中核に必要な証明を外部の草稿へのリンクで代用していない。
+最新Aの静的検査では全16入力ファイルに
+239個のequation環境、6個のalign環境、210ラベル・225参照、
+25文献項目・61引用があり、未解決参照・重複なし。
+LuaLaTeX実組版・PDF目視は未実施。
+
 ## 任意次元の新しい主定理と検証の状態
 
 論文Aに `general_dimension_universal_quantization.tex` を収録した。
