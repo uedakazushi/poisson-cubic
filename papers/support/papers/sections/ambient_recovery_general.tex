@@ -186,6 +186,59 @@ $A$は$S$上自由であり、$k[u,v]$の高さ二の原点を
 次数の偶奇に関する符号に一致する。
 \end{proof}
 
+
+\begin{lemma}[五生成元Jacobian族の次数二中心]
+\label{lem:pg-ambient-center2-Jacobian}
+$F\in\mathbb C[x,y,z,u,v]_3$とし、
+$u,v$を中心変数として
+\begin{equation}\label{eq:pg-ambient-Jacobian-rel}
+ [x,y]=\operatorname{sym}(F_z),\quad
+ [y,z]=\operatorname{sym}(F_x),\quad
+ [z,x]=\operatorname{sym}(F_y)
+\end{equation}
+で定める二次代数を$B_F$とする。
+$f_3=F(x,y,z,0,0)$は滑らかな平面三次を定め、
+$x,y,z$-次数のPBW濾過について
+\begin{equation}\label{eq:pg-ambient-Jacobian-gr}
+ \operatorname{gr}B_F\simeq S_{f_3}\otimes\mathbb C[u,v],
+ \qquad Z(S_{f_3})_1=Z(S_{f_3})_2=0
+\end{equation}
+と仮定する。さらに$G_F\in Z(B_F)_3$は
+最高$x,y,z$-次数記号が非零な中心正則元とする。
+$A_F=B_F/(G_F)$について
+\begin{equation}\label{eq:pg-ambient-Jacobian-center2}
+ Z(B_F)_2=Z(A_F)_2=\mathbb C[u,v]_2
+\end{equation}
+が成立する。
+\end{lemma}
+\begin{proof}
+PBW濾過で中心元の最高記号を取れば、
+$S_{f_3}$の一次、二次中心の消滅から
+$Z(B_F)_2=\mathbb C[u,v]_2$を得る。
+$A_F$の次数二中心元を$Q\in(B_F)_2$へ持ち上げる。
+中心性と三次の商核が$\mathbb CG_F$であることから
+\begin{equation}\label{eq:pg-ambient-Jacobian-Qcomm}
+ [Q,x]=c_xG_F,\quad[Q,y]=c_yG_F,\quad
+ [Q,z]=c_zG_F
+\end{equation}
+と書ける。$G_F$は中心的なのでJacobi恒等式は
+$[Q,[x,y]]=[Q,[y,z]]=[Q,[z,x]]=0$を与える。
+二次関係へ代入し、中心性と正則性によって
+\begin{equation}\label{eq:pg-ambient-Jacobian-Hessian}
+ \sum_{i=x,y,z}c_i\,\partial_i\partial_jF=0,
+ \qquad j=x,y,z
+\end{equation}
+を得る。$u=v=0$で制限すれば
+$\partial_j(\sum_i c_i\partial_i f_3)=0$となる。
+括弧内は斉次二次式ゆえ零である。
+非零の定数ベクトル$c$についてこの等式が成立すれば、
+$f_3$は一次方向に依存しない錐であり、
+滑らかな平面三次であることに反する。
+従って$c_x=c_y=c_z=0$。
+$Q$は$B_F$の中心元であるから
+$Q\in\mathbb C[u,v]_2$となる。
+\end{proof}
+
 \begin{corollary}[三次三様体の構造対象付き導来復元]
 \label{cor:pg-ambient-derived-threefold}
 $B$を五次元Koszul AS正則Calabi--Yau代数とし、
