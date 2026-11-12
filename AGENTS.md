@@ -1,6 +1,6 @@
 # AGENTS.md — nc-cubic研究継続
 
-**2026-11-12 / v48。GitHub mainが唯一の正本。** 最初に 00_research_plan.md を読む。
+**2026-11-12 / v49。GitHub mainが唯一の正本。** 最初に 00_research_plan.md を読む。
 
 ## 最優先指示：任意次元の同時量子化を論文Aの完成結果へ
 
@@ -29,6 +29,9 @@ n=3,4,6,7,10の6具体例についてJacobi610成分とCasimir52成分を
 2ブロックのWeyl中心symbolを構成する。
 GitHub main正本、GitHub Actionsなし、PDFはGit追跡せず、
 論文B/Cの数学的証明を保持する。
+
+## 内在的な高次元Hessian補正
+論文A prop:pg-ad-intrinsic-hessian はH(P,F)=Σ P^{ijk}P^{abc}F_{ia}F_{jb}F_{kc}/6 を座標不変に定義。正規形ではΣ λ_s² det Hess_{x_s}(f_s)となる。純中心三次の調整後、Ω= sym(F-h²H(P,F)/12+h⁴ K) という厳密中心元を取れる。h⁴ Kは各Hesseブロックの明示補正を合成し、まだ座標不変な短い式とは主張しない。一般次元の6具体例でHessian縮約の恒等式をSymPy厳密計算で確認。次はk変数Poisson pencilに沿う正規形表示の座標変換、Hesse chartの接着と相対モジュライへの降下を優先し、特異g拡張へ戻らない。
 
 ## 量子中心の現在の最重要到達点と残課題
 
