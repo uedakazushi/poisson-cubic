@@ -1,20 +1,20 @@
-# 可換復元：局所rotation・saturation・étale実現
+# 独立の相対rotation・saturation・étale実現
 
-**2026-11-12・v23。研究全体の正本はGitHub main。最初にルートの00_research_plan.mdを読む。**
+**2026-11-13 / v24。最初にルートの00_research_plan.mdを読む。GitHub mainが正本。**
 
-このディレクトリは論文Bの補助証明を独立組版する入口であり、第四の主論文ではない。過去のbundleやLibraryを取得せず再開できる。既存の局所rotation・Serre関手・full coherent比較・spreadの全証明を保持した。
+このディレクトリは、移管が残る相対理論の独立組版・検証の入口である。現在の論文B（B-v55）は `papers/generic_recovery/` に主定理と必要証明を集約しており、この入口を直接入力しない。元の相対rotation・Serre関手・全coherent比較・spreadの有効な証明は、移管が確認されるまで現行ソースに保持する。
 
-## 数学的状態
+## 数学的内容と主定理との区別
 
-`papers/support/papers/reconstruction/rotation_saturation_reduction.tex` は局所模型と還元を記し、`papers/support/papers/reconstruction/etale_realization.tex` と `papers/support/papers/reconstruction/hochschild_obstructions.tex` を直接inputする。後者は親論文Bからも同じファイルを読む。
+`papers/support/papers/reconstruction/rotation_saturation_reduction.tex` は局所模型と還元を記し、`etale_realization.tex` と `hochschild_obstructions.tex` を読む。
 
-実在するsmooth proper dg族と可逆perfect双加群が、一点でsmooth cubicのKuとrotationに一致すれば、étale局所的に可換cubic族となることを、実際の同値双加群の障害消去で証明した。負HH消滅、HH¹=0、幾何的KSのrotation不変HH²への全射を使う。原稿に証明を記載して点検したが、外部査読・Lean形式検証ではない。新規性の包括的確認は未了。
+実際のsmooth proper dg族と可逆perfect双加群が一点でsmooth cubicのKuとrotationに一致する場合、étale局所的な可換族の実現を、同値双加群の障害消去によって扱う。負HH消滅、HH¹=0、幾何的KSのrotation不変HH²への全射が入力である。本文の証明と、外部査読・形式検証・包括的新規性調査を区別する。
 
-この存在証明の経路で、所定の局所量子化がある成分のgeneric復元に残る仮定は残余対角perfect性(SM)である。SM自体、全成分での量子化入力、全点の復元、大域降下は未完成。35係数sliceの計算はSMも復元係数の閉公式も証明しない。
+この相対的経路では残余対角のperfect性(SM)を実際に確認する必要がある。全成分の量子化入力、全パラメータでの相対復元、大域降下を無条件には結論しない。これは指定代数的中心三次対の一般点を扱う論文Bの主定理とは別の問題である。35係数sliceの有限計算はSMや復元係数の閉公式を証明しない。
 
 ## 再現（リポジトリルートから）
 
-Python 3.10以上、SymPy、LuaLaTeX、LuaTeX-ja/ltjsarticle、標準数学パッケージを用いる。
+Python 3.10以上、SymPy、LuaLaTeX、LuaTeX-jaと標準数学パッケージを使う。
 
 ```sh
 python3 -m pip install -r reconstruction/requirements.txt
@@ -25,45 +25,26 @@ python3 reconstruction/scripts/build.py
 python3 reconstruction/scripts/verify.py
 ```
 
-PDFは `build/rotation_saturation_reduction.pdf` に生成される。buildは全TeX inputをハッシュ化し、verifyはinput閉包・ラベル・引用・source/PDFの対応と三つの厳密計算証明書を確認する。日付を固定して組版するが、別バージョンのTeXエンジンでのPDFのバイト同一性は保証しない。PDFや中間生成物はGitで重複管理しない。
+生成先は `build/rotation_saturation_reduction.pdf`。buildはTeX入力、PDF、エンジン、組版警告のreceiptを作り、verifyは参照とsource/PDFの対応および三つの厳密計算を検査する。異なるエンジン版でのPDFのバイト一致は保証しない。今回これらの相対原稿・コードを再実行してはいない。
 
-中心検算はQ(r,u)上のDiamond重なりと中心交換子を、変形slice検算は整数・有理数上の84×49行列と35次元補空間を扱う。BFK sector整数検算は既知の公式から導かれた次数・次元・非自明固有値の算術を検証する。これらを圏同値や残余smoothnessの計算機形式化と呼ばない。
+中心検算はQ(r,u)上のDiamond重なり・中心交換子、変形slice検算は84×49行列と35次元補空間、Hochschild sector検算は既知公式からの次数・次元・固有値を扱う。圏同値やSMの計算機形式化ではない。
 
-親二論文全体の組版は独立SM/ER入口とは別の検証である。各補助原稿の組版の実際の状態はルートvalidation.jsonを参照する。生成・検証・GitHub登録・遠隔確認の実際の状態を区別する。Libraryはpush実失敗時だけの緊急避難である。
+TeXは `papers/support/papers/reconstruction/`、ノートは `notes/reconstruction.md` に置く。SMの有限bar対角・generic spreadingの議論は `notes/sm_bar_and_spreading.tex` と、nc-cubic2の現行 `notes/ambient_finite_smoothness_and_recovery.tex` 第18--21節を参照する。この還元だけでSMを証明するものではない。
 
-## パス移動後の実行方法
+## 有限方程式復元の移管先
 
-TeX原稿は `papers/support/papers/reconstruction/`、ノートは `notes/reconstruction.md`、生成PDFはルート `build/` に統一した。Gitに生成PDFは登録しない。
+有限Jacobian復元は **nc-cubic2/papers/cubic_jacobian_recovery.tex** へ統合した。必要十分条件、射影的一意性、積分不可能な完全交差、有限検査器と全証明を保持する。元の専用コードと証明書は移管先の `computations/verify_explicit_jacobian_recovery.py` で再生成する。移管先での検算入口は `python scripts/check_cubic_jacobian_recovery.py --calculations`。
 
-```sh
-latexmk papers/support/papers/reconstruction/rotation_saturation_reduction.tex
-python3 reconstruction/scripts/build.py
-python3 reconstruction/scripts/verify.py
-```
+## 移管が残る具体模型と有限jet
 
-SMの有限bar対角・generic spreadingの証明は `notes/sm_bar_and_spreading.tex`（根拠原本：[有限正則性の現行TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/ambient_finite_smoothness_and_recovery.tex) 第18--21節）。今回の補題はSM自体を証明しない。
-
-
-## 具体的な方程式の抽出と二次比較（親論文B）
-
-親Bは従来の有限積分・一次消滅・分離型Hessian式・混合中心とPBWに加え、curved_gauge_comparison.tex、kontsevich_second_jet.tex、formal_cubic_mf_reconstruction.tex、artin_residual_mf_comparison.tex、artin_smoothness_obstruction.texを読む。全次数の形式MF復元、全Artinの線束残余比較、混合二次係数1/3+lambda³/36、低rotation積、およびgenericへの移行を妨げる一般dg反例を記載する。これらはSM/ERの独立入口とは別のinput閉包に属する。
+`explicit_model_comparison.tex`、`mixed_test_family.tex`、`curved_gauge_comparison.tex`、`kontsevich_second_jet.tex`、`formal_cubic_mf_reconstruction.tex`、`artin_residual_mf_comparison.tex`、`artin_smoothness_obstruction.tex` に、分離型Hessian式、混合中心とPBW、形式MF比較、相対Artin比較、混合二次係数1/3+lambda³/36、rotation積および一般dg障害例を保持する。現在の主論文Bがこれらを全て直接読むという構成ではない。
 
 ```sh
-python3 computations/verify_explicit_jacobian_recovery.py --output /tmp/nc-cubic-jacobian.json
 python3 computations/verify_explicit_model_comparison.py --output /tmp/nc-cubic-explicit-model.json
 python3 computations/verify_mixed_test_family.py --output /tmp/nc-cubic-mixed.json
 python3 computations/verify_kontsevich_second_jet.py --output build/kontsevich_second_jet_certificate.json
-python3 scripts/build.py
-python3 scripts/verify_bundle.py
 ```
 
-第一計算は有理数上でFermat・混合smooth cubic・積分不可能な二次完全交差を判定し、第二計算は一般十係数三次式のHessian恒等式、Hesse特殊化、二次Jacobian類の相違を検算する。一般nc残余圏の導来自然変換・圏同値・SMの計算機形式化ではない。純Poisson一次消滅は一次文献を用いた本文の証明であり、計算コードで証明したものではない。
+前者は一般十係数三次式のHessian恒等式・Hesse特殊化・二次Jacobian類の相違を検査する。混合族は自由代数の3恒等式と有限h-jetを分けて検査し、全非零hでのAS性や圏同値を結論しない。二次Kontsevich検算もgraph積分やformalityの形式検証ではない。純Poisson一次消滅は文献と本文の証明に基づく。
 
-混合族の証明書は `python3 computations/verify_mixed_test_family.py` で再生成できる。自由代数の三つの多項式恒等式を有理数演算で検算し、中心性を全パラメータで証明する。有限h-jetによる独立検算と、非零hのAS性・圏同値とは区別する。
-
-主論文のbuildはbuild/<paper>.receipt.jsonへ全inputのハッシュ、PDFハッシュ、エンジン、組版警告を記録する。verify_bundleはreceiptがある原稿についてsource/PDF対応を検査し、既存三つの具体計算証明書を再生成して照合する。二次Kontsevich計算は一時JSONへ再生成して恒等式・行列を検算し、未確認のJSONを手で復元したものとは照合しない。A/Bを再組版しない場合は、そのPDFが現行だと報告しない。
-
-
-## 検証の射程と再開
-
-公開コードの二次検算はPASSした。旧版の原稿について133頁の組版・表示確認を記録しているが、現在の論文Bの新入口については未組版であり、独立SM/ERも組版・receipt・検算がPASSした。各原稿の詳細はルートvalidation.jsonを参照する。共通bibliographyも更新したため、古い原稿名のreceiptが残る環境では現行A/Bを再組版してからverify_bundleを実行する。コードはgraph積分、formality、圏同値を形式証明するものではない。詳しい状態はルートvalidation.jsonを読む。
+全体の現在の分担は `notes/paper_b_scope_and_transfer.md`、主論文Bの組版状態は `validation_paper_b.json`。相対原稿の過去の実行記録を現在の主論文の検証と混同しない。生成物はbuild/に置きGit追跡しない。GitHub Actions・force pushは使用せず、Libraryは実際のpush失敗時だけの緊急退避とする。
