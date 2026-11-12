@@ -1,6 +1,6 @@
 # nc-cubic：論文Aの投稿準備と一般点可換復元
 
-**2026-11-12 / v50。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
+**2026-11-12 / v51。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
 
 ## 現在の最優先課題：論文Aの公表準備
 
@@ -10,6 +10,20 @@
 IntroductionとAbstractを改訂し、文献・label静的整合性を点検済み。
 主定理の全独立監査、全A組版、全旧証明書再実行は未完成。投稿可能判定は行っていない。
 論文B/Cの成果は保持し、新規拡張は論文Aの仕上げの後に再開する。
+
+## 論文Aから独立させた六・七次元の詳細幾何
+
+論文Aは**任意次元の構造定理と量子化・モジュライ**に集中する。
+六・七次元固有の退化スキームのprimary分解、embedded components
+（横断長8・64、被約化との差の長さ49）、
+Calabi--Yau四次元完全交叉のHodge数などは
+[独立草稿](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/poisson_cubic_six_seven_geometry.tex)
+にまとめた。一般の退化スキームの式と証明は論文Aに残し、
+移管先でも必要な背景・証明を本文に収録する。
+移管元の6/7次元専用節と数値計算節は論文Aから除外したが、
+数学的内容は移管先に保持した。
+先行研究上の新規性とprimary分解の独立監査は未完了であり、
+副次的研究として継続する。
 
 ## Poisson構造のspaceと二つのmoduli stacks
 
