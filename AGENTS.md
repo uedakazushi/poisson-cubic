@@ -1,15 +1,17 @@
 # nc-cubic 現行編集・再現指示
 
-**2026-11-13 / v74。mainが正本。最初に00_research_plan.mdを読む。**
+**2026-11-13 / v76。mainが正本。最初に00_research_plan.mdを読む。**
 
-論文A `papers/paper_a.tex`（A-v51）とその入力はnc-cubicに保持し、変更・移管しない。論文B `papers/paper_b.tex`（B-v55）は任意のn>=3の一般点復元主定理と必要証明だけを読む。証明は `papers/generic_recovery/`、共有設定は `papers/support/papers/common.tex`。新しい研究より編集・独立成果の移管を優先する。
+論文A `papers/paper_a.tex`（A-v51）と入力はnc-cubicに保持し、変更・移管しない。論文B `papers/paper_b.tex`（B-v55）は任意のn>=3の一般点復元主定理と必要証明だけを読む。証明は `papers/generic_recovery/`、共有設定は `papers/support/papers/common.tex`。新しい研究結果の追加より編集・独立成果の移管を優先する。
 
-点スキーム、有限Jacobian復元、一次変形・Plücker障害はnc-cubic2の独立稿へ統合した。現行原稿はそれぞれ `papers/mixed_cubic_point_schemes.tex`、`papers/cubic_jacobian_recovery.tex`、`papers/cubic_first_order_deformations.tex`。詳しい状態と残件は `notes/paper_b_scope_and_transfer.md`。移管先で本文・文献・検算・組版・保存を確認した専用重複だけを整理し、全移管完了と混同しない。
+点スキーム、有限Jacobian復元、一次変形・Plücker障害とTodd-HKR別証明はnc-cubic2の現行原稿に統合し、専用重複を整理した。本文入口は `papers/mixed_cubic_point_schemes.tex`、`papers/cubic_jacobian_recovery.tex`、`papers/cubic_first_order_deformations.tex`（v2、13頁）。元の移管済み本文・専用コードを復活させない。共有文献断片は未移管支持節のため保持する。
 
-一次変形稿に必要な双対数windowの証明を添えたことは、一般Artin理論全体の移管完了ではない。`artin_residual_mf_comparison.tex`、相対Artin/étale、Sklyanin/多ブロック、対角/bar/Morita、混合jetなどの未移管成果は保持する。Todd補正による別証明も保持する。元のfirst_order本文・2検算コードは移管先の同名現行ファイルが正本であり復活させない。
+有限Artin比較と完備化の障害を `nc-cubic2/papers/cubic_artin_windows.tex`（v1、13頁）に独立原稿化し、必要な正則局所の証明、反例全文、文献・検算を保存した。ただし元の `artin_residual_mf_comparison.tex` と反例は削除しない。元の末尾の `am:cor:formal-residual` とそのMF存在入力、他のmixed/formal/window原稿のam:*依存がまだ未整理である。新稿の `ar:cor:conditional` はMF同値を入力する系であり、元の存在を含む結果の置換・弱化ではない。
 
-原稿に証明があること、独立監査、有限検算、組版、保存を区別する。方程式の基礎体と同値核の有限拡大を混同しない。特殊点込み相対同値、全射影化の導来同値、任意抽象nc cubicの表示を追加しない。
+現在の所在は `notes/paper_b_scope_and_transfer.md`。次はrelative_formal_models・relative_etale_modelsの存在理論と、その入力・am参照を統合する。Sklyanin/多ブロック、対角/bar/Morita、混合jet等も現行ソースに保持する。各単位の自足性・必要な検証・移管先保存・他原稿の依存解消を確認してから元の重複を削除する。部分の抽出を全移管完了としない。
 
-B-v55は27頁組版・全頁表示確認済みで今回未変更。検証はvalidation_paper_b.json。新しい独立一次変形稿は10頁、移管先のvalidation_cubic_first_order.jsonに実施範囲を記録した。全数学的証明の形式検証ではない。
+証明の記載、独立監査、有限検算、組版、保存を区別する。方程式の基礎体と同値核の有限拡大を混同せず、特殊点込み同値、全射影化の可換導来同値、任意の抽象的nc cubicの表示を追加しない。
 
-日本語LuaLaTeX。PDF・中間物はbuild/で非追跡。Actions・force pushなし。main保存後に遠隔確認。Libraryは実際のpush失敗時のみ緊急退避し、既存Libraryを無断削除しない。
+B-v55は27頁で既存の組版・全頁表示確認を維持し、今回原稿未変更。新しい有限Artin稿は7TeX入力・31ラベル・36参照・11引用・5文献で組版・全頁表示とdg模型の有限検算を実行した。詳細は各リポジトリの対応validationファイル。有限検算を圏同値やsmoothnessの形式証明としない。
+
+日本語LuaLaTeX。PDF・中間物はbuild/で非追跡。Actions・force pushなし。main保存後に遠隔HEADとblobを確認し、同時更新を保持する。Libraryは実際のpush失敗時のみ緊急退避し、既存Libraryを無断削除しない。
