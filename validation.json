@@ -206,9 +206,10 @@
     "exact_test": "computations/verify_poisson_article_A.py",
     "editorial": {
       "status": "Abstract, Introduction and prior-work comparison rewritten; manuscript A now uses dedicated bibliography",
-      "static_citation_check": "PENDING refreshed A-v51 source-closure citation check following removal of periodicity.",
-      "static_label_check": "PENDING refreshed A-v51 source-closure reference check following removal of periodicity.",
-      "caveat": "Static regex checks, not a full TeX parse or document build"
+      "static_citation_check": "PASS A-v51: 24 bibitems and 58 citations; no unresolved or duplicate keys across 16 source files.",
+      "static_label_check": "PASS A-v51: 249 labels and 235 refs; no unresolved or duplicate labels across 16 source files.",
+      "caveat": "Static regex checks, not a full TeX parse or document build",
+      "display_math_check": "PASS A-v51 static check: 256 numbered equation environments, 6 align environments, 0 unnumbered displays, equation/end pairs balanced; full LuaLaTeX build not executed."
     },
     "mathematical_check": {
       "status": "PASS on local independently constructed test for 56 Jacobi components and 56 join Euler-wedge components over exact rational coefficients",
@@ -512,7 +513,7 @@
       "nc-cubic2/computations/independent/verify_generic17_center.py",
       "nc-cubic2/computations/verify_split_codimension.py"
     ],
-    "static_checks": "Merged moduli TeX source and mixed_center_picard: zero unresolved refs, zero duplicate labels and zero unresolved citation keys",
+    "static_checks": "Article A-v51 source closure: all 16 files have 249 labels, 235 refs, 24 bibliography keys, 58 citations, no missing or duplicate keys, no unnumbered displays. nc-cubic2 moduli manuscript and new periodicity section previously checked for 67 labels, 60 refs, 19 bibliography keys, 31 citations.",
     "not_executed": "Full LuaLaTeX build/PDF inspection of modified article A and moved moduli manuscript, and rerun of moved verification scripts not performed in this change",
     "known_open_problem": "17-dimensional constructed nc cubic family not proved to be a moduli irreducible component; general Serre-Veronese lifting not proved",
     "independent_determinant_check": "PASS: an independent local SymPy reproduction of the transferred 31x31 integer tangent matrix at F0 yielded -5538243375000. This was an equivalent reimplementation, not execution of the exact GitHub script.",
