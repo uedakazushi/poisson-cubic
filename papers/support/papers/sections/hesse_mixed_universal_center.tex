@@ -1,9 +1,9 @@
 \section{一般Hesse型の全混合方向に対する普遍中心三次式}
 \label{sec:pg-hesse-mixed-universal}
 本節ではFermat型に限らず、Hesse三次形式
-\[
+\begin{equation}
  g_t(x,y,z)=\frac{x^3+y^3+z^3}{3}+txyz
-\]
+\end{equation}
 の任意のパラメータ$t$に対して、中心変数を含む全ての三次混合項を
 \emph{有限個の多項式係数}で量子化した中心三次元を与える。
 この構成は形式的中心元の存在補題
@@ -30,11 +30,11 @@ $\mathcal A_{F,\hbar}$を
  [y,z]&=\hbar\bigl(x^2+t\sym(yz)+Ay+Cz+D\bigr),\\
  [z,x]&=\hbar\bigl(y^2+t\sym(zx)+Ax+Bz+E\bigr)
 \end{aligned}
-\tag{HR}\label{eq:pg-hm-rel}
+\label{eq:pg-hm-rel}
 \end{equation}
 で定める。$\deg\hbar=0$であり、全ての$R$の元は中心とする。
 記法
-\[
+\begin{equation}
 \begin{aligned}
  S={}&x^3+y^3+z^3,&
  T={}&\sym(xyz),\\
@@ -44,7 +44,7 @@ $\mathcal A_{F,\hbar}$を
  R_2={}&B^2x+C^2y+A^2z,\\
  R_{11}={}&ACx+ABy+BCz
 \end{aligned}
-\]
+\end{equation}
 を用いる。ここで$\sym(xyz)$は六語の平均である。
 
 \begin{theorem}[Hesse型の普遍混合中心三次式]
@@ -60,7 +60,7 @@ $q=\hbar^2$とし、次の七つの多項式を定義する。
  f={}&\frac{q(4-qt^2)}{24},\\
  g={}&-\frac{q(12t+q(t^3+4))}{72}.
 \end{aligned}
-\tag{HC}\label{eq:pg-hm-coefficients}
+\label{eq:pg-hm-coefficients}
 \end{equation}
 このとき
 \begin{equation}
@@ -95,10 +95,10 @@ $x,y,z$の順序付き語をそのまま保持する。
 中央係数の重み$0,1,2,3,4$の単項式の個数は
 順に$1,3,9,19,39$である。各重み$c$について
 $x,y,z$からなる長さ$4-c$の語を列挙すると
-\[
+\begin{equation}
  \dim_{\mathbb Q(\hbar,t)}V_4
  =1\cdot81+3\cdot27+9\cdot9+19\cdot3+39=339.
-\]
+\end{equation}
 全次数二の左右の倍数を列挙すると
 162個の関係ベクトルが得られる。
 \emph{これらは全次数四の二次関係式のイデアル成分を生成する。}
@@ -109,13 +109,13 @@ $[\Omega_{F,\hbar},x]$、$[\Omega_{F,\hbar},y]$、
 $[\Omega_{F,\hbar},z]$を自由語で展開する。
 162関係ベクトルの行列を$\mathbb Q(\hbar,t)$上で
 厳密に行簡約すると
-\[
+\begin{equation}
  \operatorname{rank}I_4=144,\qquad
  [\Omega_{F,\hbar},x],\
  [\Omega_{F,\hbar},y],\
  [\Omega_{F,\hbar},z]\in I_4
- \tag{UC}\label{eq:pg-hm-certificate}
-\]
+ \label{eq:pg-hm-certificate}
+\end{equation}
 となる。この恒等式は六つの中心係数を独立不定元として扱い、
 $\hbar,t$を特殊化せずに得られた。
 検証コード
@@ -126,10 +126,10 @@ $\hbar,t$を特殊化せずに得られた。
 
 分数体上での関係式所属を$\hbar=0$まで降下させるには
 階数を比較する。$\hbar=0$で二次関係は通常の可換化関係なので
-\[
+\begin{equation}
  \dim(V_4/I_4)|_{\hbar=0}
  =15+3\cdot10+9\cdot6+19\cdot3+39=195.
-\]
+\end{equation}
 従って$\operatorname{rank}I_4|_{\hbar=0}=339-195=144$であり、
 上の一般階数と一致する。
 ここで最後の等式は任意の$t$について成立する。
@@ -149,11 +149,11 @@ $d=f=g=0$なので$\Omega_{F,0}=F$。
 \begin{corollary}[Hessianによるコンパクトな普遍式]
 \label{cor:pg-hesse-hessian-form}
 定理\ref{thm:pg-universal-hesse-mixed}の$F$に対し
-\[
+\begin{equation}
  H_F=\det\operatorname{Hess}_{x,y,z}(F)
-\]
+\end{equation}
 とおく。また上記の$Q,Z_2,L,R_2,R_{11}$を使い
-\[
+\begin{equation}
 \begin{aligned}
  \Psi_t(F)={}&
  \frac{t(8-t^3)}{48}g_t
@@ -163,7 +163,7 @@ $d=f=g=0$なので$\Omega_{F,0}=F$。
  -\frac{t^2}{24}R_2
  -\frac{t^3+4}{72}R_{11}.
 \end{aligned}
-\]
+\end{equation}
 すると普遍中心三次元は
 \begin{equation}
  \boxed{\quad
@@ -184,10 +184,10 @@ $d=f=g=0$なので$\Omega_{F,0}=F$。
 \end{corollary}
 \begin{proof}
 $H_F$をactive変数だけで微分して展開すると
-\[
+\begin{equation}
  H_F=-2t^2S+2(t^3+4)xyz+
  2t^2Q-4tZ_2-2R_2+2tR_{11}+2ABC
-\]
+\end{equation}
 である。
 これを右辺に代入して$\hbar^2$と$\hbar^4$の係数を比較すると、
 式\eqref{eq:pg-hm-center}と恒等的に一致する。
@@ -212,11 +212,11 @@ Sklyanin中心元を回復する。
 \begin{corollary}[全ての中心混合項を含むHesse型]
 \label{cor:pg-universal-hesse-all-mixed}
 中心次数一の$\ell_x,\ell_y,\ell_z$に対し
-\[
+\begin{equation}
  \widetilde F=g_t(x,y,z)
  +\ell_xx^2+\ell_yy^2+\ell_zz^2
  +Axy+Byz+Czx+Dx+Ey+Hz+G
-\]
+\end{equation}
 を考える。$X=x+\ell_x$、$Y=y+\ell_y$、
 $Z=z+\ell_z$と置く。係数を
 \begin{equation}
@@ -230,13 +230,13 @@ $Z=z+\ell_z$と置く。係数を
  &\qquad-D\ell_x-E\ell_y-H\ell_z
  -t\ell_x\ell_y\ell_z
 \end{aligned}
-\tag{HT}\label{eq:pg-hm-translation}
+\label{eq:pg-hm-translation}
 \end{equation}
 と定めると
-\[
+\begin{equation}
  \widetilde F
  =g_t(X,Y,Z)+A'XY+B'YZ+C'ZX+D'X+E'Y+H'Z+G'.
-\]
+\end{equation}
 したがって定理\ref{thm:pg-universal-hesse-mixed}の公式に
 $A',B',C',D',E',H',G'$を代入して
 $X=x+\ell_x$などへ引き戻すと、
@@ -258,20 +258,20 @@ Hesse標準形\cite[Lemma~1]{ArtebaniDolgachev}により、
 $M\in\mathrm{GL}_3(\CC)$、$\lambda\ne0$、
 $t^3\ne-1$を選んで
 $g(x)=\lambda\,g_t(Mx)$と書ける。
-\[
+\begin{equation}
  F'(X,u)=\lambda^{-1}F(M^{-1}X,u),
  \qquad \hbar'=\lambda\det(M)\,\hbar
-\]
+\end{equation}
 とおく。$F'$はその混合係数を
 系\ref{cor:pg-universal-hesse-all-mixed}の形に一意に書ける。
 同系によって構成した中心元$\Omega_{F',\hbar'}$から
-\[
+\begin{equation}
  \boxed{\quad
  \Omega_{F,\hbar}(x,u)
  =\lambda\Omega_{F',\hbar'}(Mx,u)
  \quad}
- \tag{HG}\label{eq:pg-hm-arbitrary-ternary}
-\]
+ \label{eq:pg-hm-arbitrary-ternary}
+\end{equation}
 を得る。これは$F$のJacobian量子化において
 $\hbar=0$近傍の\emph{厳密な}中心三次元であり、
 $\Omega_{F,0}=F$である。
@@ -293,10 +293,10 @@ $F=\sum_{s=1}^k f_s(x_s,u)$について、
 各$g_s=f_s(x_s,0)$が滑らかな平面三次曲線を定めるとする。
 各ブロックで系\ref{cor:pg-smooth-ternary-explicit}の
 有限多項式中心元$\Omega_{s,\hbar}$を構成すれば
-\[
+\begin{equation}
  \Omega_\hbar=\sum_{s=1}^k\Omega_{s,\hbar},
  \qquad \Omega_0=F
-\]
+\end{equation}
 は代数的な厳密中心三次元となる。
 命題\ref{prop:pg-PBW}の開集合を必要に応じて縮めると
 $\Omega_\hbar$は各ファイバーで左右正則であり、
