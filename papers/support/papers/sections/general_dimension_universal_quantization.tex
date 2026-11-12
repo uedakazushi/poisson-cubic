@@ -11,18 +11,18 @@
 
 \subsection{Jacobianブロックの可換Poisson線形族}
 $n\ge3$、$N=n+2=3k+m$（$k\ge1,m\ge0$）とし、
-\[
+\begin{equation}
  V=\bigoplus_{s=1}^{k}W_s\oplus U,\quad
  \dim W_s=3,\quad\dim U=m,\quad
  F=\sum_{s=1}^k f_s(x_s,u)\in\CC[V]_3.
- \tag{AD}\label{eq:pg-ad-normal}
-\]
+ \label{eq:pg-ad-normal}
+\end{equation}
 ここで$F$は滑らかな射影三次超曲面
 $X=V(F)\subset\PP^{n+1}$を定め、
-\[
+\begin{equation}
  g_s(x_s)=f_s(x_s,0)
- \tag{SM}\label{eq:pg-ad-smooth}
-\]
+ \label{eq:pg-ad-smooth}
+\end{equation}
 は各$s$について滑らかな平面三次曲線を定めると仮定する。
 中心三次部分の$f_s$間での分配は任意に固定する。
 
@@ -35,14 +35,14 @@ $q_s$は$x_s$方向のみにベクトル添字を持ち、
 \begin{proposition}[一般次元の可換Poisson pencil]
 \label{prop:pg-ad-compatible}
 各$q_s$は$F$をCasimirとするPoisson双ベクトルであり、
-\[
+\begin{equation}
  [q_s,q_t]_{\mathrm{Sch}}=0\qquad(s,t=1,\dots,k).
-\]
+\end{equation}
 よって任意の$\boldsymbol\lambda=(\lambda_1,\ldots,\lambda_k)$に対し
-\[
+\begin{equation}
  q_{\boldsymbol\lambda}=\sum_s\lambda_s q_s,\qquad
  \pi_{\boldsymbol\lambda}=q_{\boldsymbol\lambda}|_X
-\]
+\end{equation}
 はPoisson構造である。
 各$q_s|_X$は一次独立であり、
 $\pi_{\boldsymbol\lambda}$の一般Poisson階数は
@@ -90,16 +90,16 @@ $R[\boldsymbol\eta]$上の代数$\mathcal A_{\boldsymbol\eta}$を
  &=\eta_s\operatorname{sym}_R\bigl((f_s)_{x_{s3}}\bigr),\\
  [x_{si},x_{tj}]&=0\ (s\ne t),\qquad [u_\alpha,x_{si}]=0
 \end{aligned}
-\tag{AQ}\label{eq:pg-ad-relations}
+\label{eq:pg-ad-relations}
 \end{equation}
 で定める。すなわち
-\[
+\begin{equation}
  \mathcal A_{\boldsymbol\eta}
  =\mathcal A_{f_1,\eta_1}
  \otimes_{R[\boldsymbol\eta]}\cdots
  \otimes_{R[\boldsymbol\eta]}\mathcal A_{f_k,\eta_k}.
- \tag{TP}\label{eq:pg-ad-tensor}
-\]
+ \label{eq:pg-ad-tensor}
+\end{equation}
 ここでは各ブロックの係数に\emph{同じ中心変数$u$}を使う。
 積のテンソルは中心係数環上で取り、
 中心変数をブロックごとに複製しない。
@@ -117,7 +117,7 @@ $R[\boldsymbol\eta]$上の代数$\mathcal A_{\boldsymbol\eta}$を
  \qquad
  \Omega_{\boldsymbol0}=F
  \qquad}
- \tag{AC}\label{eq:pg-ad-universal-center}
+ \label{eq:pg-ad-universal-center}
 \end{equation}
 は$\mathcal A_{\boldsymbol\eta}$の\emph{厳密な中心元}である。
 また原点を含むZariski開集合
@@ -129,22 +129,22 @@ $A_{\boldsymbol a}=\mathcal A_{\boldsymbol\eta}
  \otimes_{\CC[\boldsymbol\eta]}\CC_{\boldsymbol a}$
 は$N$生成元、$\binom N2$個の二次関係式による
 Koszul AS-regular代数であり、
-\[
+\begin{equation}
  \operatorname{gldim}A_{\boldsymbol a}=N,\quad
  \operatorname{Hilb}_{A_{\boldsymbol a}}(z)=(1-z)^{-N},
  \quad\text{AS parameter}=N.
-\]
+\end{equation}
 各内部次数成分は$\OO(\mathcal U)$上局所自由である。
 \item $\Omega_{\boldsymbol a}$は全てのファイバーで
 左右正則元となる。中心三次商
 $B_{\boldsymbol a}=A_{\boldsymbol a}/(\Omega_{\boldsymbol a})$
 はAS-Gorensteinで
-\[
+\begin{equation}
  \operatorname{injdim}B_{\boldsymbol a}=N-1,\quad
  \text{AS parameter}=N-3=n-1,\quad
  \operatorname{Hilb}_{B_{\boldsymbol a}}(z)
  =\frac{1-z^3}{(1-z)^N}.
-\]
+\end{equation}
 $\mathcal B=\mathcal A/(\Omega)$の各内部次数成分も
 $\OO(\mathcal U)$上局所自由であり、
 $\mathcal B_{\boldsymbol0}=\CC[V]/(F)$である。
@@ -187,12 +187,12 @@ $R[\boldsymbol\eta]$-自由なPBW基底を各因子で選び、
 全体の各内部次数は底上局所自由で、
 $u_1,\ldots,u_m$は各ファイバーで中心正則列である。
 その商は
-\[
+\begin{equation}
  A_{\boldsymbol a}/(u_1,\ldots,u_m)
  \simeq\bigotimes_{s=1}^k
   S_{s,a_s},\qquad
  S_{s,a_s}=\mathcal A_{f_s,a_s}/(u).
-\]
+\end{equation}
 各$S_{s,a_s}$は三次元Koszul AS-regular domain。
 それらのKoszul分解と双対のテンソル積から、
 右辺は次元$3k$、AS parameter $3k$の
@@ -228,13 +228,13 @@ $A_{\mathrm{rest},\boldsymbol a}$は$R$-自由なので、
 
 各内部次数の$\mathcal A$は底上有限局所自由で、
 $\Omega_{\boldsymbol a}$の正則性により
-\[
+\begin{equation}
  0\longrightarrow(A_{\boldsymbol a})_{d-3}
  \xrightarrow{\cdot\Omega_{\boldsymbol a}}
  (A_{\boldsymbol a})_d
  \longrightarrow(B_{\boldsymbol a})_d
  \longrightarrow0
-\]
+\end{equation}
 のrankは全$\boldsymbol a\in\mathcal U$で一定である。
 有限表示行列の定階数条件より、
 $\mathcal B_d$も$\OO(\mathcal U)$上局所自由である。
@@ -251,12 +251,12 @@ $\eta_s=\lambda_s\hbar$による底変更が
 \label{cor:pg-ad-whole-pencil}
 定理\ref{thm:pg-all-dimensions}の$k$次元Poisson線形族
 $L=\langle\pi_1,\ldots,\pi_k\rangle$に対して、
-\[
+\begin{equation}
  \mathscr U=
  \{(\boldsymbol\lambda,\hbar)\in
  \mathbb A^k_{\boldsymbol\lambda}\times\mathbb A^1_\hbar:
  (\lambda_1\hbar,\ldots,\lambda_k\hbar)\in\mathcal U\}
-\]
+\end{equation}
 とおく。
 $\mathscr U$は\emph{全ての}
 $(\boldsymbol\lambda,0)$を含むZariski開集合であり、
@@ -265,10 +265,10 @@ $\mathcal A_{\boldsymbol\eta},\Omega_{\boldsymbol\eta}$
 全線形空間$L$の各Poisson構造に対する
 一変数量子化を一つの代数的族として与える。
 量子化の中心三次元は
-\[
+\begin{equation}
  \Omega_{\boldsymbol\lambda,\hbar}
  =\sum_{s=1}^k\Omega_{f_s,\lambda_s\hbar}
-\]
+\end{equation}
 であり、全$\boldsymbol\lambda$について
 $\hbar=0$で$F$となる。
 $\lambda_s=0$を含む全ての部分線形空間にも
@@ -295,10 +295,10 @@ $g_{t_s}(x_s)$に正規化した上で、
 $t_1,\ldots,t_k$を独立に動かす
 \emph{正規形の表示パラメータ空間}$\mathcal T_{k,m}$を考える。
 このとき\eqref{eq:pg-ad-universal-center}は
-\[
+\begin{equation}
  \Omega\in
  \CC[\mathcal T_{k,m}][\boldsymbol\eta,u,x_1,\ldots,x_k]_3
-\]
+\end{equation}
 の\emph{非可換Weyl対称化として読める有限多項式}であり、
 $\eta_s$の次数は高々四である。
 この表示パラメータ空間上の、$X$と全$g_{t_s}$が滑らかな開部分
@@ -345,14 +345,14 @@ $\mathcal T_{k,m}^{\mathrm{sm}}$の零切断を含む開近傍を得る。
 その際の量子化変数を$\eta_s$と書く。
 $f_s$の混合係数を$A_s,B_s,C_s,D_s,E_s,H_s,G_s$、
 Hesse係数を$t_s$とする。
-\[
+\begin{equation}
  {\mathscr H}_s=
  \det\left(\frac{\partial^2 f_s}
  {\partial x_{si}\partial x_{sj}}\right)_{i,j=1}^3.
-\]
+\end{equation}
 系\ref{cor:pg-hesse-hessian-form}の
 有限多項式$\Psi_{t_s}(f_s)$を用いると、
-\[
+\begin{equation}
  \boxed{\quad
  \Omega_{\boldsymbol\eta}=
  \operatorname{sym}\left(
@@ -361,8 +361,8 @@ Hesse係数を$t_s$とする。
  +\sum_{s=1}^k\eta_s^4\Psi_{t_s}(f_s)
  \right).
  \quad}
- \tag{AH}\label{eq:pg-ad-hessian-center}
-\]
+ \label{eq:pg-ad-hessian-center}
+\end{equation}
 これは$\boldsymbol\eta$の多項式であり、
 全次数で厳密な中心元である。
 特に$\eta_s=\lambda_s\hbar$としたとき
@@ -392,17 +392,17 @@ $\eta_s$の行列式スケール変換を施してから適用する。
  \frac16\sum_{i,j,k,a,b,c}
  P^{ijk}P^{abc}\,
  F_{ia}F_{jb}F_{kc}\in\operatorname{Sym}^3V^*
- \tag{IH}\label{eq:pg-ad-intrinsic-hessian}
+ \label{eq:pg-ad-intrinsic-hessian}
 \end{equation}
 と定義する。これは座標に依存しない多項式である。
 \eqref{eq:pg-ad-normal}の正規形と
 $P_{\boldsymbol\lambda}=\sum_s\lambda_sP_s$については
-\[
+\begin{equation}
  \mathscr H(P_{\boldsymbol\lambda},F)
  =\sum_{s=1}^k\lambda_s^2
   \det\operatorname{Hess}_{x_s}(f_s).
- \tag{IB}\label{eq:pg-ad-intrinsic-blocks}
-\]
+ \label{eq:pg-ad-intrinsic-blocks}
+\end{equation}
 各$g_s=f_s(x_s,0)$が滑らかなら、
 定理\ref{thm:pg-all-dimensions}の
 $\eta_s=\lambda_s\hbar$による厳密な中心三次元を
@@ -416,7 +416,7 @@ $\eta_s=\lambda_s\hbar$による厳密な中心三次元を
  +\hbar^4K_{\boldsymbol\lambda,F}
  \right)
  \quad}
- \tag{IC}\label{eq:pg-ad-intrinsic-center}
+ \label{eq:pg-ad-intrinsic-center}
 \end{equation}
 と書ける。$K_{\boldsymbol\lambda,F}$は
 全次数三の明示可能な多項式であり、
@@ -459,26 +459,26 @@ $\CC[u]$は量子化代数の中心にあるので、この調整は
 $n=6$、$N=8$、$k=2$、$m=2$とし、
 ブロック座標を$(x,y,z)$、$(a,b,c)$、
 中心座標を$(u,v)$とする。
-\[
+\begin{equation}
  F=
  g_{1/2}(x+u,y+v,z+u+v)
  +g_{-1/3}(a+v,b+u,c)
  +\frac{u^3+v^3}{3}.
-\]
+\end{equation}
 $\eta_1,\eta_2$を独立な量子化パラメータとして、
 一ブロックHesse中心元を
 $\Omega_{g_t,\eta}=\frac{U(\eta,t)}3(X^3+Y^3+Z^3)
  +W(\eta,t)\sym(XYZ)$
 （定理\ref{thm:explicit-hesse-center}）と書く。
 このとき
-\[
+\begin{equation}
 \begin{split}
 \Omega_{\eta_1,\eta_2}={}&
  \Omega_{g_{1/2},\eta_1}(x+u,y+v,z+u+v)\\
  &+\Omega_{g_{-1/3},\eta_2}(a+v,b+u,c)
  +\frac{u^3+v^3}{3}
 \end{split}
-\]
+\end{equation}
 は厳密な中心元である。
 各$\eta_s$について高々四次の多項式であり、
 $\eta_1^i\eta_2^j$（$i,j>0$）の項は現れない。
@@ -497,12 +497,12 @@ $(\lambda_1,\lambda_2)$の全線形族を同時に量子化し、
 \label{rem:pg-ad-dimension-table}
 許されるブロック数は$k\le\lfloor(n+2)/3\rfloor$。
 例えば
-\[
+\begin{equation}
 \begin{array}{c|ccccc}
  n&3&4&6&7&10\\ \hline
  \max k&1&2&2&3&4
 \end{array}
-\]
+\end{equation}
 となる。
 同じ$n$でも$k$の値によって異なるPoisson階数が現れ、
 その正規形ごとに独立な$k$個の量子化パラメータを取れる。
