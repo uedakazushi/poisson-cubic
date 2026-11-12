@@ -1,5 +1,5 @@
 % !TEX root = paper_b.tex
-% 2026-11-12 / paper B v49. Supporting sources: papers/support/papers/.
+% 2026-11-12 / paper B v50. Supporting sources: papers/support/papers/.
 \makeatletter
 \def\input@path{{papers/support/}}
 \makeatother
@@ -8,9 +8,9 @@
 \title{中心三次非可換変形の一般点における可換復元\\
 \large Matrix factorizationとrotation付き残余圏}
 \author{}
-\date{2026年11月12日・論文B（研究草稿 v49）}
+\date{2026年11月12日・論文B（研究草稿 v50）}
 \fancyhead[L]{\small 中心三次非可換変形の可換復元}
-\fancyhead[R]{\small 2026-11-12 / B-v49}
+\fancyhead[R]{\small 2026-11-12 / B-v50}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -95,8 +95,9 @@ $A_\infty$関手と逆関手を作り、内部シフトと三次周期性を照�
 第\ref{cft:sec:transport}節が比較の構成を担う。
 可換点での一次・二次変形の結果は
 第\ref{fpk:sec:first-order}節にまとめる。
-後半には明示族、有限対角比較、相対的な障害と境界例を置き、
-これらを一般存在定理の追加仮定と混同しない。
+後半では相対形式復元・étale実現とその障害、具体的な楕円・混合族、
+point schemeとPoisson零点を順に扱う。これらの個別の結果には
+それぞれの仮定があり、一般点復元の主定理とは適用範囲を区別する。
 
 \subsection{既知結果と適用範囲}
 本稿は、Orlov型の残余圏とmatrix factorizationの比較、
@@ -136,26 +137,53 @@ MFの生成定理およびrotation付きTorelliを入力とする
 \input{papers/reconstruction/central_symmetry_lifting}
 \input{papers/reconstruction/one_sided_morita_algebraization}
 
-\part{明示族・相対比較・境界例}
-\input{papers/reconstruction/poisson_first_order}
+\part{相対形式復元と代数的実現の適用範囲}
+
+この部では、Artin基底における形式的復元、smooth properな相対dg圏の
+étale局所実現、およびその適用を妨げる条件を整理する。
+これらは主定理\ref{gdr:thm:generic}の代数的一般点の議論と補完的である。
+とくに、各Artin切断の比較、完備局所基底上の相対smoothness、
+有限型底上のétale局所同値を同一視しない。
+明示された追加仮定の下での結果と、適用条件を調べる反例を区別する。
+
 \input{papers/sections/rotation_models}
 \input{papers/sections/rotation_obstruction}
 \input{papers/sections/relative_saturation}
-\input{papers/sections/elliptic_reconstruction}
-\input{papers/reconstruction/explicit_model_comparison}
-\input{papers/reconstruction/mixed_test_family}
-\input{papers/reconstruction/point_scheme_poisson_zero}
-\input{papers/reconstruction/point_scheme_thickening}
-\input{papers/reconstruction/point_scheme_lambda_family}
-\input{papers/reconstruction/point_scheme_discriminant_boundary}
-\input{papers/reconstruction/curved_gauge_comparison}
-\input{papers/reconstruction/kontsevich_second_jet}
-\input{papers/reconstruction/mixed_equivariant_normal_form}
 \input{papers/reconstruction/artin_smoothness_obstruction}
 \input{papers/reconstruction/etale_realization}
 \input{papers/reconstruction/hochschild_obstructions}
 \input{papers/sections/all_poisson_components}
 \input{papers/sections/minimal_ainfty_arity}
+
+\part{明示的量子化と可換模型の計算}
+
+この部では、一般の存在定理だけでは指定されない具体的な可換三次式と、
+それを得るために必要な規格化・対角比較・有限計算を扱う。
+楕円一ブロックの式と複数ブロックの条件付き結果、
+非可換中心式の単純な可換化が復元式と異なる現象、
+混合量子化族の閉公式と二次jetを、それぞれの仮定の下で述べる。
+明示式の特定に用いる比較(D)は、主定理の存在部分の仮定ではない。
+
+\input{papers/reconstruction/poisson_first_order}
+\input{papers/sections/elliptic_reconstruction}
+\input{papers/reconstruction/explicit_model_comparison}
+\input{papers/reconstruction/mixed_test_family}
+\input{papers/reconstruction/curved_gauge_comparison}
+\input{papers/reconstruction/kontsevich_second_jet}
+\input{papers/reconstruction/mixed_equivariant_normal_form}
+
+\part{Point schemeとPoisson零点のスキーム論的比較}
+
+ここでは混合中心三次商のpoint moduleの台と非被約構造を調べ、
+半古典Poisson構造の零点スキームと比較する。
+結果は指定された混合族とそのパラメータ範囲で成立し、
+一般の非可換三次超曲面全体のpoint schemeを分類するものではない。
+特に、平坦極限についての主張と各非零ファイバーでの同型を区別する。
+
+\input{papers/reconstruction/point_scheme_poisson_zero}
+\input{papers/reconstruction/point_scheme_thickening}
+\input{papers/reconstruction/point_scheme_lambda_family}
+\input{papers/reconstruction/point_scheme_discriminant_boundary}
 
 \input{papers/references}
 \end{document}
