@@ -1,54 +1,65 @@
-# 論文B：三対象windowと一般点可換復元
+# 論文B：完備曲率付き比較と一般点可換復元
 
-**2026-11-12 / B-v42。** 再開時は `00_research_plan.md` を読む。主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、局所比較の証明は同ディレクトリの `three_object_window.tex`、基礎体降下・定量的生成は `generic_cubic_descent.tex`。
+**2026-11-12 / B-v43。** 再開は `00_research_plan.md`。主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、形式比較の証明は `complete_curved_transport.tex`、局所比較は `three_object_window.tex`、基礎体降下は `generic_cubic_descent.tex`（同じディレクトリ）。
 
-## 現在の結論と条件
+## 現在の結論と適用範囲
 
-次数別有限自由な代数的中心三次対で、特殊ファイバーが多項式環と滑らかな三次式であることを仮定する。局所proper/window比較(L)と一般点AS正則性は、この代数的入力から導く。残る主定理の比較条件は **(CF_3)**：完備底上の三つのstabilizationを、滑らかな形式三次式のMFに属する E,E(1),E(2) と、全Hom複体・高次積・rotation・中心元からの三次周期性を含めて比較する実際のunital A∞ quasi-equivalence。全MF比較(CF)は十分条件だが必須ではない。
+次数別有限自由な代数的中心三次対で、特殊ファイバーが多項式環と滑らかな三次式であるという入力から、局所比較(L)と完備形式比較(CF)を構成する。固定三対象への制限(CF_3)も結論となる。主定理にこれらを独立の追加仮定としては課さない。
 
-この条件の下で、元の体 K=C(h) 上のsmooth cubic模型、有限拡大後のrotation付き全coherent残余圏同値、全n>=3での幾何学的一意性、BFKによる生成時間2(n+2)(n+3)-1の上界を得る。方程式と同値核の定義体を区別する。特殊点込み相対同値、全nc cubicの表示、同値核のKへの降下は未証明。
+この入力の一般点において、元の体K=C(h)上の滑らかな三次模型、有限拡大後のrotation・中心元由来周期付き全coherent残余圏同値、全n>=3での幾何学的一意性、BFKの生成段数上界2(n+2)(n+3)-1を得る。正則多変数局所基底の分数体にも同じ議論が通る。任意の抽象的nc cubic圏にこの表示があること、同値核のKへの降下、特殊点を含む代数的相対同値、全モジュライ上の接着は未証明。
 
-## 局所比較(L)を導く論理
+本文の証明を構成し主要段階を点検したことと、原稿全体の全支持補題の独立再監査、計算機形式検証、外部査読、包括的新規性調査を区別する。今回の結論は指定された変形族の範囲でのものであり、「すべての非可換cubicの無条件分類」と呼ばない。
 
-1. **完備Homの有限縮約**（`tw:lem:contraction`）。各cohomological degreeが有限自由で、剰余の全cohomologyが有限次元なら、完備底上で有界有限自由複体へ縮約する。体上で ds+sd=1-ip と s²=ps=si=0 を満たすcontractionを選び、δを極大イデアル内の微分の補正とすると J=(1+sδ)^{-1}, L=(1+δs)^{-1}, i'=Ji, p'=pL, s'=sL, d_H=pδJi。固定次数ごとの有限行列で収束する。Crainicの既知摂動公式を本規約へ翻訳したもの。
-2. **代数的基底への降下**（`tw:lem:proper-hom`）。有限MFの固定次数Homは有限自由R加群。完備化後に上の縮約を適用し、忠実平坦性から元のHomのcohomologyが有界と分かる。noetherian性から各cohomologyは有限、Rの有限大域次元からperfect。さらに完全な射影複体のcycleはdimension shiftingで射影となるので、通常のHom複体自体が有限自由有界複体とhomotopy同値である。これで剰余への通常tensorも導来tensorを計算する。
-3. **実際のdg関手**（`tw:lem:stabilization`）。Chenの余核定理は三角圏の結果として使用し、finite MFとGorenstein-projective加群のexact圏・dg商・有限totalizationを通じてenhancementを構成する。中心曲率でのtotalizationの縮約では残差sws=0を確認。右加群にはA^opを使う。余核の次数別自由性が、ここで必要な剰余・完備化底変更を保証する。
-4. **section--window**（`tw:thm:window`）。a=N−3、i=1−a、Ψ=stab((Rω−)_{≥i})。生成線束O(j)上でsectionはB(j)_{≥i}。この対象がambient上perfectであることは有限長商のfiltrationと相対Koszul分解から従う。sourceとtargetのproper Homを用い、剰余の古典Orlov同値のHom比較coneに導来Nakayamaを適用してenhanced完全忠実性を得る。
-5. **生成性は有限filtrationから証明**。T_j=B(j)_{<i} は j<a で零、j=a,a+1,a+2 で gr(T_j)=⊕_{r=0}^{j−a}B_r⊗R(j−r)。B_0=Rから三角的にK(a),K(a+1),K(a+2)を得る。(3)=[2]によりK,K(1),K(2)のthick閉包に一致する。特殊点の生成性の一般点への持上げは使わない。
-6. **rotation**。Mが残余対象なら (RωM)_i=RHom(O(a−1),M)=0。切断三角とΨ(O)=0からΨρ≃(1)Ψ。像が正負の内部shiftで安定なのでρは自己同値。周期は指定中心元ΩのMF周期から移す。この構成と必要な底変更は自然。任意の別のスカラー倍の周期同型を保存するという主張ではない。
+## 形式比較の論理と確認点
 
-これらは既存のlocal_projective_modelのnoetherian/Koszul/Gorenstein/線束Homの補題を入力する。本文の依存と証明を今回点検して統合したが、Lean等で全証明を形式検証したものでも、外部査読を受けたものでもない。
+1. **曲率を入れる前に通常のformalityを使う**（`cft:lem:model`）。normalizedな全Hochschild cochainとpolydifferential cochainのHKR比較を、内部weightを保つbar/Koszul比較で行う。affine同変なKontsevich写像のweight零部分を使い、各Artin切断で既指定jetを保ってPoisson係数と一入力gaugeを持ち上げる。元の積がbidifferentialであることは不要。各斉次成分で極限を取ると、厳密なunital代数同型φ:A→(S⊗R,*π)を得る。
+2. **中心元の逆像は有限行列で求める**（`cft:lem:center`）。C_π(f)=ΣU_(r+1)(f,π^r)/r! は三次式の有限自由加群上の1+O(m)であり、逆がある。W=C_π^{-1}φ(Ω)と置く。中心性と接写像のchain恒等式、vector場に対する最低次HKRの単射性から[π,W]=0をm進帰納で示す。ordinary curved Hochschild cohomologyとJacobian環を同一視する議論は使わない。
+3. **三次の次数がPoisson項を消せる理由**（`cft:lem:primitive`）。勾配Koszulの係数次数ごとの完全性により、二次係数bivector πの原像は定数trivector Ξに一意に取れる。差の原像は次数−2を要求する。JacobiからD=[Ξ,π]もKoszul cycleとなり、その原像は次数−1を要求するためD=0。Casimir条件だけではこの最後の消滅は従わない。
+4. **大きい曲率を冪零MC定理へ無断で入れない**（`cft:lem:arity`）。tの二重次数は(2,−3)、η=Ξ/t、α_s=−tW+(1−s)π。関数k個とbivectorの出力arityは2−2k、trivector一個を足すと3−2k。関数入力は高々一個、他の入力はmの倍数なので、mod m^(q+1)で全Taylor和が有限。L∞恒等式を有限和として適用し、∂_s b_s=[γ_s,b_s]を得る。γ_sのarityは1,3のみで単位入力に関してnormalized。
+5. **実際のbar写像と逆写像**（`cft:lem:flow`）。非可換でs依存するγ_sの順序付き積分を用いる。mod m^(q+1)ではq因子で止まり、coalgebra性とF b_0=b_1 Fを微分方程式で確認する。逆も有限幾何級数。三入力をr回使うには少なくともm^rが掛かるため、F_(2r+1),H_(2r+1)∈m^r、偶数arityと零項は零。出力長ℓに対し入力長はℓ+2q以下なので、tensor長完備barにも各剰余で連続に作用する。
+6. **冪零でないMF行列への代入**（`cft:thm:complete`）。Qがmの倍数または上三角であるとは仮定しない。各Artin商では対象像ΣF_r(Q,...,Q)と射の挿入公式がarity上界で有限。行列化したbar恒等式がMF方程式と全functor恒等式を与える。逆bar写像のtwistが実際の逆関手となる。固定cohomological/内部次数はtの冪とx次数を固定し、出力は有限自由加群内にあるので、m進極限が存在する。
+7. **単位・shift・周期**。normalized flowはstrict unitを固定する。内部shiftは行列の次数ラベルを変えるだけで、R[t,t^{-1}]-多重線形性がtによる(3)≃[2]との整合を与える。任意の別のスカラー倍周期同型を保存するという主張ではない。三対象への制限は `cft:cor:CF3`。
 
-## 一般点への最短経路
+「Artin同値が両立するから実際の完備関手がある」という宣言ではなく、同じ基礎行列上に関手・逆関手の収束する公式を構成した。一般点へは固定三対象のHomと高次積を先に構成してから局所化する。任意Laurent対象への無限Taylor和の評価は必要ない。
 
-代数的な三対象window → (CF_3)を固定対象へ適用 → 固定HomをLaurent体へ局所化 → Eulerノルム2·3^(N−1)で像の非零性 → 代数閉包上のBFK生成 → perfect核と周期比較の有限降下 → smoothnessと線束検出によるcoherent飽和 → smooth proper性から低Natの体拡大 → 可積分勾配空間からG/Kを抽出する。
+## 局所windowと一般点への接続
 
-低積を最初に実計算すること、完備底全体のcompact逆核を先に構成することは一般点存在の前提にしない。(D)は特定の明示多項式を復元先に指定する別の条件。一般の全MF比較やStevenson/regradingの別証明も現行支持節に保持する。
+(L)の証明は `three_object_window.tex` に保持する。完備Homの摂動縮約から正則局所基底へproper性を降ろし、実際のdg section--windowのHom比較coneに導来Nakayamaを適用する。a=N−3、i=1−a、T_j=B(j)_{<i}の有限filtrationは、j=a,a+1,a+2に対してgr(T_j)=⊕_(r=0)^(j−a)B_r⊗R(j−r)。B_0=Rから三角的にK(a),K(a+1),K(a+2)を取り出し、三次周期性でK,K(1),K(2)へ移す。生成性を特殊ファイバーだけから持ち上げていない。
 
-## 残る核心と具体的着手
+証明順序は、三対象window→完備曲率付き移送→固定Homの局所化→Eulerノルム2·3^(N−1)による非零性→代数閉包上のBFK生成→有限降下→coherent飽和→低Natの体拡大→勾配空間の積分によるG/K、である。
 
-最優先は **(CF_3)の曲率付き比較の監査**。`formal_cubic_mf_reconstruction.tex` と `curved_gauge_comparison.tex` の構成を、実際の有限rank K,K(1),K(2)へ制限する。π=[Ξ,W]、[Ξ,π]=0、F_(2r+1)∈m^r の代数的入力と、unital bar写像・逆写像・t多重線形性・周期の自然比較を分けて点検する。固定次数内で収束することと、任意のLaurent対象へ形式級数を評価できることは別である。三対象の高次積を有限次数のEuler表だけで代用しない。
-
-次にV=H^0 dgNat(Id,ρ)、U=H^0 dgNat(Id,ρ²)、積μを非可換入力から具体化する。これはG/Kの有効化であり、一般点存在の必要条件へ戻さない。正則多変数基底の(L)は同じ証明で成立するが、(CF_3)、チャートの接着、特殊点を含む同値は別に検証する。
-
-## 保持する障害・反例
-
-- **生成子の無条件の持上げは偽**。P¹上のcone(O(−1) --hs--> O)の例は有効。ここでは有限filtrationで三対象の像を同定し、その後に一般点の非零性と全rotation軌道を用いる。
-- **幾何学的一意性とK上のformは異なる**。C(h)上のΣx_i³とh x_1³+Σ_{i>1}x_i³は同じ勾配空間を持つがK上では射影非同型。Hessian超平面配置とh進付値で判定する。`gcd:ex:forms`。これは同値核の降下障害が非零であることを示す例ではない。
-- **積分可能な候補は圏同値を証明しない**。低積が正しい次元・対称性・可積分性を持っても模型候補が得られるだけである。基礎体降下では先に幾何学的同値の存在を用いる。
-- **完備化の使い方を限定する**。完備Homの有限縮約は証明したが、Artin同値の列の逆極限が無条件に実際の関手・compact逆核を与えるとは扱わない。
+模型の方程式を元の体へ戻す際には、smooth proper性を先に得てから低Natの有限性と底変更を使う。低積の具体行列や(D)を一般存在の前提に戻さない。λ=1の明示多項式を復元先に指定するには(D)を別途照合する。従来の全Artin・相対・低jet・point scheme・Stevenson/regradingの有効な支持節は保持する。
 
 ## 一次文献と新規性
 
-Burke--Stevenson, arXiv:1507.00830v1, Proposition 4.18, Lemmas 6.1--6.2, Theorem 6.4（PDF pp.14,18,21の関連箇所）。今回Theorem 6.4とその証明を本文・ページ画像で照合し、windowの向きとVerdier商の関係を確認した。
-Chen, *Module factorizations*, arXiv:2402.11613、2025年8月28日付著者版、Theorem 7.2（印刷p.25）を本文・ページ画像で確認した。graded dg自然性は引用元の三角同値だけから宣言せず、本稿のexact圏/dg商の議論で補う。
-Crainic, *On the perturbation lemma, and deformations*, arXiv:math/0403266、著者公開PDF `https://www.staff.science.uu.nl/~crain101/pert2.pdf` のTheorem 2.3/Remark 2.4を本文で確認した。同版ip=1+bh+hbと本稿の符号の差をs=−hで調整する（同PDFのweb画像取得は失敗しており、画像確認とは記録しない）。
-BFK arXiv:1012.0864v3 Theorem 5.15とLin--Zhang arXiv:2310.09927v2 Theorem 3.5/Remark 3.6/Theorem 5.1は既存の一般点生成・低積・一意性の入力で、今回は再調査していない。包括的新規性調査は未完。既知のperturbation、MF、Orlov原理自体の新規性は主張しない。
+Kontsevich, *Deformation quantization of Poisson manifolds*, LMP 66 (2003),157–216, arXiv:q-alg/9709040。著者最終稿 `https://www.ihes.fr/~maxim/TEXTS/DefQuant_final.pdf` のTheorem4.6（PDF p.17）、Section4.6.2とLemma4.11（p.22）、Theorem6.3・affine同変性（p.30）を本文とページ画像で確認した。Sections6.2–6.4のグラフ表示・arityも本文で確認。適用は曲率を入れる前のMC対応と、曲率経路に対する有限Taylor恒等式に分ける。
 
-## 検証・再現
+Căldăraru–Tu, *Curved A∞ algebras and Landau–Ginzburg models*, NYJM19 (2013),305–342、`https://nyjm.albany.edu/j/2013/19-16v.pdf`。Section2、Remark2.8、Theorem2.12の本文を確認した。webのPDFページ画像取得は失敗しており、画像確認とは記録しない。同文献のtwisted complex/MF記述は、今回必要な無限arity関手の完備収束まで自動的に保証する引用ではない。その部分は本稿で証明する。
 
-`python3 computations/verify_three_object_window.py --output build/three_object_window_checks.json` を今回実行し、Q(h,u)上の二つの有限複体について16本の縮約恒等式、二つのSchur complement、原点で単元の分母を厳密検証した。N=5,...,16の12通りのwindow cutoff・三角的filtration・三次周期の添字もPASS。これは有限行列の符号・添字の検査であり、非可換MFの実際のHom模型、(CF_3)、圏同値の計算証明ではない。
+局所windowのBurke–Stevenson、Chen、Crainicと、生成/TorelliのBFK、Lin–Zhangについては既存の文献位置を支持節に保持するが、今回は全てを再調査していない。一般理論そのものの新規性は主張せず、この組合せの初出・公表価値の包括的調査は未完了。
 
-以前の `verify_generic_cubic_descent.py` の3例・16勾配恒等式はコードを保持するが、今回は再実行していない。今回の抜粋は `latexmk papers/support/papers/three_object_window.tex` で再生成する。本文外の参照はラベル名で表示する。最新の実施状態は `validation_paper_b.json`。論文B全文と全既存証明書の再実行は未実施。
+## 有効な障害・反例
 
-GitHub mainを正本とし、Actions・force pushなし。Libraryは実際のpush失敗時だけの緊急退避。
+**CasimirとJacobiは別。** F=Σ_(i=0)^4 x_i³/3、Ξ=∂_0∧∂_1∧∂_2+∂_0∧∂_3∧∂_4としπ=[Ξ,F]と置くと[π,F]=0だが、[Ξ,π]=4x_0∂_1∧∂_2∧∂_3∧∂_4≠0、[π,π]≠0。二回目のゲージ作用の消滅にはPoisson条件を必ず使う。
+
+**特殊生成性だけの持上げは偽。** P¹上のcone(O(−1) --hs--> O)の例は有効。ここでは有限filtrationと、一般点の非零性・rotation軌道という追加構造を使う。
+
+**基礎体上のformと幾何学的一意性は異なる。** C(h)上のΣx_i³とh x_1³+Σ_(i>1)x_i³は同じ勾配空間だがK上では射影非同型。Hessian超平面配置とh進付値による `gcd:ex:forms` を保持する。これは同値核の降下障害が非零である例とは主張しない。
+
+**有限可積分性は圏同値を証明しない。** 低積からの模型抽出には先に幾何学的な圏同値の存在を使う。pure Poissonとcanonical中心元の場合、形式模型をFに取れるが、一般の中心元の選択や高次Poisson補正を一次項だけから決めてはならない。
+
+## 次の課題
+
+最優先は現在の定理の証明を別の経路から独立に監査すること。特にnormalized全Hochschild比較のweight零への制限、曲率入りグラフ恒等式の符号、三次周期比較、generic有限降下の同値核とcoherent飽和の接続を対象とする。新しい一般化を先に積み増さず、指定仮定の範囲での信頼性を高める。
+
+その次に実際の非可換入力でV,U,μの有限表示を作りG/Kを有効化する。有限拡大の必要性・次数、同値核行列、特殊点を含む正則模型、全モジュライでの接着は未解決として分ける。Aの正規形・PBW/AS・全中心恒等式の監査も継続する。
+
+## 実行した検算と組版
+
+`python3 computations/verify_complete_curved_transport.py --output build/complete_curved_transport_checks.json` を実行。5/7変数のSchouten恒等式と定数trivector contractionのrank10/35、上のnegative controlを確認。tensor長9・パラメータ次数4の非自律・非可換coalgebra flowで10本の逆行列係数恒等式、2750本のcoproduct係数恒等式、odd arity/位数評価、冪零でない対象変数への両側逆代入を厳密検証した。
+
+これらは有限代数・組合せの検算であり、Kontsevichグラフ積分、非可換MFの実際のHom、高次積、全圏同値の計算機検証ではない。以前のwindow・勾配積分コードは保持するが今回は再実行していない。
+
+`latexmk papers/support/papers/complete_curved_transport.tex` で5頁の日本語証明抜粋を再生成する。本文外参照はラベル名で表示する。今回の抜粋はLuaLaTeXで組版・表示確認した。論文B全文の再組版、全入力の静的再監査、全既存計算の再実行は未実施。正確な状態とハッシュは `validation_paper_b.json`。
+
+GitHub main正本、Actions・force pushなし。Libraryは実際のGitHub保存失敗時のみ緊急退避する。

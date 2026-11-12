@@ -1,35 +1,33 @@
-# nc-cubic — Poisson cubicの量子化とrotation付き可換復元
+# nc-cubic — Poisson cubicの量子化と一般点可換復元
 
-**2026-11-12 / v58。** GitHub mainが正本。再開は [研究方針](00_research_plan.md) から。
+**2026-11-12 / v59。** GitHub mainが正本。最初に [研究方針](00_research_plan.md) を読む。
 
 | 原稿 | 主題 |
 |---|---|
 | [論文A](papers/paper_a.tex)（A-v51） | smooth cubicのPoisson正規形・退化・Bondal・代数的量子化・Poisson moduli |
-| [論文B](papers/paper_b.tex)（B-v42） | 三対象window、一般点のrotation付き全coherent可換復元、基礎体上の模型 |
+| [論文B](papers/paper_b.tex)（B-v43） | 代数的中心三次変形の一般点可換復元、完備曲率移送、基礎体上の模型 |
 
-## 論文Bの現在の結論
+## Bの現在の結論
 
-代数的・次数別有限自由な中心三次対と滑らかな可換特殊ファイバーから、**局所proper/window比較(L)を構成した**。[三対象windowの証明](papers/support/papers/reconstruction/three_object_window.tex)は、完備Homの縮約、正則局所基底への降下、実際のdg section--window、有限長filtration、rotation・周期比較を扱う。生成性を特殊点だけから持ち上げる議論ではない。
+次数別有限自由な代数的中心三次対で、特殊ファイバーが多項式環とsmooth cubicであることを仮定する。[三対象window](papers/support/papers/reconstruction/three_object_window.tex)が(L)を、[完備曲率移送](papers/support/papers/reconstruction/complete_curved_transport.tex)が(CF)と(CF_3)を構成するため、これらを追加仮定とせず一般点復元を得る。
 
-主定理の残る条件は **(CF_3)**：固定三対象の実際の形式的A∞比較。全MF比較(CF)は十分条件である。この条件下で、元の体K=C(h)上のsmooth cubic模型、有限拡大上の全coherent残余pair同値、全n>=3の幾何学的一意性、BFKの生成段数上界を得る。方程式と同値核の定義体を区別する。(CF_3)の曲率付き関手・逆・周期図式の全独立監査は未完了で、全nc cubicの無条件復元は主張しない。
+元の体K=C(h)上のsmooth cubic模型と有限拡大後のrotation付き全coherent残余圏同値を構成する。全n>=3の幾何学的一意性とBFKの既知の生成上界を保持し、正則多変数局所基底にも適用する。任意の抽象的nc cubicの表示、同値核のKへの降下、特殊点込み相対同値、全モジュライへの接着は主張しない。
 
-[主定理](papers/support/papers/reconstruction/general_dimension_recovery.tex)、[基礎体降下](papers/support/papers/reconstruction/generic_cubic_descent.tex)、[証明監査・次の作業](notes/paper_b_proof_audit.md)、[実際の検証状態](validation_paper_b.json)を参照。正則多変数基底の(L)にも同じ証明が通るが、形式比較と全モジュライへの接着は別課題。
-
-## 関連研究と保存
-
-AのCramer量子化、Lie正規形、PBW/AS、Bondal・stack成分数は [投稿監査](notes/poisson_article_submission_audit.md) に従って独立監査を継続する。17次元モジュライ、ambient周期性、6/7次元のscheme詳細は [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) が正本。一般次元quadratic-envelope復元はAに残す。既存の有効な支持節・反例・計算証明書は保持する。
+[主定理](papers/support/papers/reconstruction/general_dimension_recovery.tex)、[監査ノート](notes/paper_b_proof_audit.md)、[検証状態](validation_paper_b.json)を参照。構成した証明、全支持節の独立監査、外部査読・新規性調査、計算機形式検証を区別する。
 
 ## 再現
 
 ```sh
 python3 scripts/check_layout.py
 python3 scripts/verify_bundle.py
-python3 computations/verify_three_object_window.py --output build/three_object_window_checks.json
-latexmk papers/support/papers/three_object_window.tex
+python3 computations/verify_complete_curved_transport.py --output build/complete_curved_transport_checks.json
+latexmk papers/support/papers/complete_curved_transport.tex
 latexmk papers/paper_a.tex
 latexmk papers/paper_b.tex
 ```
 
-新しい計算はQ(h,u)上の有限複体の符号・分母とwindow添字の検算であり、非可換HomやCF_3の計算ではない。新しい5頁の抜粋と、B全文の組版・全証明の独立監査を区別する。Python 3とSymPy、LuaLaTeX・LuaTeX-ja・latexmkを用いる。
+新計算はSchouten恒等式と有限の非自律bar flow・逆・余積・arityの厳密検査であり、非可換MF HomやKontsevich重みの計算ではない。5頁の新抜粋を組版・表示確認したが、B全文と全既存証明書の再実行は未実施。Python 3/SymPy、LuaLaTeX/LuaTeX-ja/latexmkを使う。
 
-PDF・中間物はbuild/へ生成しGit追跡しない。GitHub Actions・force pushなし。区切りでmainへ通常のfast-forward保存と遠隔確認を行い、Libraryは実際のGitHub保存失敗時のみ緊急退避する。
+Aの独立監査は [投稿監査](notes/poisson_article_submission_audit.md) に従う。17次元モジュライ・ambient周期性・独立境界は [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) が正本。既存の有効な証明・反例・計算を削除しない。
+
+PDF・中間物はbuild/で非追跡。mainへfast-forward保存と遠隔確認。GitHub Actions・force pushなし。LibraryはGitHub保存実失敗時のみ緊急退避。

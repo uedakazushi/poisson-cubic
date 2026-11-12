@@ -1,50 +1,43 @@
 % !TEX root = paper_b.tex
-% 2026-11-12 / paper B v42. Supporting sources: papers/support/papers/.
+% 2026-11-12 / paper B v43. Supporting sources: papers/support/papers/.
 \makeatletter
 \def\input@path{{papers/support/}}
 \makeatother
 \input{papers/common}
-\hypersetup{pdftitle={中心三次非可換超曲面の可換復元と三対象window}}
-\title{一般次元の中心三次非可換超曲面の可換復元\\
-\large 三対象window・基礎体上の模型・全coherent残余圏}
+\hypersetup{pdftitle={代数的中心三次変形の一般点可換復元}}
+\title{代数的中心三次変形の一般点可換復元\\
+\large 完備曲率付き移送・三対象window・基礎体上の模型}
 \author{}
-\date{2026年11月12日・論文B（研究草稿 v42）}
-\fancyhead[L]{\small 中心三次非可換超曲面と可換復元}
-\fancyhead[R]{\small 2026-11-12 / B-v42}
+\date{2026年11月12日・論文B（研究草稿 v43）}
+\fancyhead[L]{\small 中心三次変形の一般点可換復元}
+\fancyhead[R]{\small 2026-11-12 / B-v43}
 \begin{document}
 \maketitle
 \begin{abstract}
-$n\ge3$について、滑らかな三次超曲面の代数的・次数別flatな中心三次非可換変形を考える。
-局所proper/window比較(L)を代数的入力から構成し、
-線束生成残余圏を原点のstabilizationの三つのshiftで表示する。
-証明は完備Homの有限縮約、dg section--window、有限長filtrationからなり、
-特殊ファイバーの生成性を一般点へ持ち上げる議論を使わない。
-その固定三対象の実際の形式的比較(CF$_3$)の下で、
-元の体$K=\mathbb C(h)$上に滑らかな可換cubic模型を構成し、有限拡大後に
-そのKuznetsov成分と非可換超曲面の全coherent残余圏とのrotation付きMorita同値を得る。
-全MF比較(CF)は(CF$_3$)の十分条件である。
-一般点のAS正則性は次数別Koszul持上げから従い、独立の仮定ではない。
-存在を先に確立した後、smoothnessに基づく低rotation積の底変更と有限の可積分性を用いて
-方程式だけを基礎体へ降ろす。同値核の基礎体への降下とは区別する。
-模型の幾何学的一意性は$n=3$も含めて成立し、BFKの既知の生成定理から、
-任意の非零対象とその二つのrotationの直和に生成段数$2(n+2)(n+3)-1$の上界を得る。
-(L)の構成は正則多変数局所基底でも成立するが、
-(CF$_3$)の曲率付き関手・逆関手・周期比較の全独立監査は未完了である。
-五変数混合族の明示式には追加の対角比較(D)を使う。
-全nc cubicへの無条件の適用、特殊点を含む相対同値、全射影化の導来同値は主張しない。
+$n\ge3$とし、次数別有限自由な代数的中心三次対で、特殊ファイバーが
+多項式環と滑らかな三次超曲面になるものを考える。
+三対象windowによる局所残余圏の表示と、完備係数上の実際の曲率付き$A_\infty$移送を構成する。
+形式比較では、中心元の逆像を三次式の有限自由加群上の可逆写像で取り出し、
+三次という次数制約からPoisson項を消す定数三重vectorを得る。
+曲率入力の個数とTaylor成分の位数を制御し、有限rank MF上の関手・逆関手・周期比較を構成する。
+これにより局所比較(L)と形式比較(CF$_3$)を追加仮定とせず、元の体$K=\mathbb C(h)$上の
+smooth cubic模型と、有限拡大後のrotation付き全coherent残余圏同値を得る。
+模型の幾何学的一意性は全$n\ge3$で成立し、既知のBFK定理から非零対象の三rotation和に
+生成段数$2(n+2)(n+3)-1$の上界を得る。
+正則多変数局所基底の分数体にも同じ結論が成立する。
+指定した代数的入力を持たない抽象的nc cubic、特殊点込み相対同値、同値核の基礎体への降下、
+全射影化の導来同値は扱わない。先行研究の一般理論と本稿での組合せを区別し、
+包括的新規性調査・外部査読・全証明の形式検証は未実施である。
 \end{abstract}
 \tableofcontents
 
 \section*{主題と結果の射程}
-中心三次商$B=A/(\Omega)$のrotation付き残余pairについて、幾何学的な可換模型の存在、
-その方程式の定義体、同値双加群の定義体を分けて扱う。
-主経路は、代数的な三対象window、固定三対象の形式比較、既知のshift軌道生成、
+対象は明示した代数的中心三次変形であり、一般の非可換三次圏の表示定理ではない。
+主経路は、代数的三対象window、次数別完備曲率移送、Euler非零性、既知のshift軌道生成、
 perfect核の有限降下、coherent飽和、低rotation積からの基礎体上の方程式抽出である。
-完備化はHom複体を有限縮約するために使い、関手をArtin同値の逆極限からは作らない。
-具体的な低積の行列を先に計算することは、一般点での存在証明の前提としない。
-局所模型・形式比較・相対障害・明示族の有効な既存証明は全て保持する。
-後半で(L)を入力とする結果には本稿の三対象window定理を適用できる。
-(CF)の全構成の記載と、その固定三対象での完全な独立監査を区別する。
+支持節で(L)、(CF)、(CF$_3$)を入力とする結果には、本稿の構成定理を適用する。
+それらは追加仮定ではないが、明示多項式を指定する(D)は独立の比較として残る。
+既存の形式的二次jet・相対Artin・障害・明示族・point schemeの有効な結果と証明は保持する。
 
 \input{papers/reconstruction/general_dimension_recovery}
 \input{papers/reconstruction/generic_cubic_descent}
@@ -52,6 +45,7 @@ perfect核の有限降下、coherent飽和、低rotation積からの基礎体上
 \part{一般次元の復元定理を支える構成}
 \input{papers/sections/local_projective_model}
 \input{papers/reconstruction/three_object_window}
+\input{papers/reconstruction/complete_curved_transport}
 \input{papers/reconstruction/formal_cubic_mf_reconstruction}
 \input{papers/reconstruction/artin_residual_mf_comparison}
 \input{papers/reconstruction/rotation_orbit_generic_reconstruction}

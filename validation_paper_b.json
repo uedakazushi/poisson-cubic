@@ -1,71 +1,79 @@
 {
   "date": "2026-11-12",
-  "paper_version": "B-v42",
-  "repository_version": "v58",
+  "paper_version": "B-v43",
+  "repository_version": "v59",
   "canonical_entry": "papers/paper_b.tex",
   "mathematics": {
-    "local_window": "Proof supplied and checked in three_object_window.tex: (L) follows from degreewise finite-free central cubic input over a finite-dimensional regular local base with smooth commutative special fiber. Finite-dimensional means Krull dimension.",
-    "proof_inputs": "Existing local_projective_model noetherian, Koszul, Gorenstein, line-Hom results; Chen cokernel theorem plus explicit exact-category dg enhancement; Burke-Stevenson window; homological perturbation and derived Nakayama.",
-    "main_remaining_hypothesis": "CF_3: actual unital A-infinity comparison on the three stabilization objects, preserving all Hom complexes, higher products, shift and the period from the central element.",
-    "full_formal_comparison": "Full CF is sufficient for CF_3; its actual curved functor/inverse/coherence has not been independently audited in full.",
-    "retained_conclusions": [
-      "base-field cubic model",
-      "finite-extension rotation-preserving equivalence",
-      "full coherent saturation",
+    "input": "Actual degreewise finite-free central cubic deformation of a polynomial algebra with smooth commutative cubic special fiber. The generic theorem uses a regular local algebraic base; the complete formal comparison allows a general complete noetherian local C-algebra with residue C.",
+    "complete_curved_transport": "Proof constructed and key steps checked in complete_curved_transport.tex: uncurved normalized graded formality, finite-matrix inverse for the central cubic, unique constant trivector and Jacobi-dependent second-action vanishing, finite Artin coalgebra flow and inverse, degreewise convergence on finite-rank MF, shift and central-element period compatibility.",
+    "comparison_hypotheses": "L, CF and CF_3 are theorem outputs for this input rather than independent assumptions. Existing conditional support results remain valid as modular lemmas.",
+    "retained_results": [
+      "base-field cubic equation",
+      "finite-extension rotation-preserving equivalence of full coherent residual categories",
+      "smooth proper total coherent category",
       "geometric uniqueness for n>=3",
-      "BFK uniform generation bound"
+      "BFK generation bound",
+      "regular multivariable generic extension"
     ],
+    "explicit_model": "Identification with the previously computed lambda=1 polynomial still uses D for the constructed comparison.",
+    "audit_boundary": "Not a line-by-line independent audit of every pre-existing support lemma. No Lean/formal verification, external review or comprehensive novelty survey.",
     "not_claimed": [
-      "unconditional reconstruction of arbitrary nc cubic categories",
+      "every abstract nc cubic category has the required algebraic presentation",
       "equivalence kernel over C(h)",
-      "relative equivalence including special fiber",
-      "formal verification or external review",
-      "first publication or comprehensive novelty"
+      "model regular at h=0",
+      "algebraic relative equivalence including special fiber",
+      "global moduli gluing",
+      "explicit extension degree or equivalence kernel matrices"
     ]
   },
   "executed_calculation": {
-    "script": "computations/verify_three_object_window.py",
-    "script_sha256": "5b642e79e43e50fc305b9958d3b816409387b0e1138563b31e0415c54ba936e4",
-    "command": "python3 computations/verify_three_object_window.py --output build/three_object_window_checks.json",
+    "script": "computations/verify_complete_curved_transport.py",
+    "script_sha256": "cf95171f6c049d1eff40bea5d68d519922947c78e5a818f9175021707537c9bf",
+    "command": "python3 computations/verify_complete_curved_transport.py --output build/complete_curved_transport_checks.json",
     "result": "PASS",
-    "field": "Q(h,u)",
-    "retract_identities": 16,
-    "Schur_complements": 2,
-    "origin_unit_denominators": true,
-    "window_checks_N": [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    "scope": "Finite two-term complexes and elementary filtration indices, not actual nc MF Hom or a categorical proof.",
+    "parameter_order": 4,
+    "tensor_length": 9,
+    "inverse_matrix_coefficient_identities": 10,
+    "coproduct_coefficient_identities": 2750,
+    "noncommuting_time_dependent_generator": true,
+    "odd_arity_filtration": true,
+    "nonnilpotent_object_substitution_inverse": true,
+    "Schouten_examples_N": [5, 7],
+    "constant_trivector_contraction_ranks": [10, 35],
+    "negative_control": "Casimir alone does not imply Jacobi or second-action vanishing",
+    "scope": "Finite algebra/combinatorics only; not graph integrals, actual nc MF Hom computations or categorical formal verification.",
     "all_existing_certificates_rerun": false
   },
   "typesetting": {
-    "entry": "papers/support/papers/three_object_window.tex",
-    "pdf": "build/three_object_window.pdf",
+    "entry": "papers/support/papers/complete_curved_transport.tex",
+    "pdf": "build/complete_curved_transport.pdf",
     "engine": "LuaLaTeX",
     "pages": 5,
-    "pdf_sha256": "916fae5b204cd905a5b71ced99098213e1b749eea753873b3191098a1f41d383",
+    "pdf_sha256": "081ae27d5f3fa25d255eb957e5bdd0ff1bb07b6eb0812dc2da81197c50f53d08",
     "undefined_references": 0,
     "undefined_citations": 0,
     "overfull_boxes": 0,
     "missing_glyphs": 0,
-    "visual_review": "All five pages rendered and inspected as a contact sheet; no clipping or overlap observed.",
-    "external_references": "References outside the excerpt are deliberately displayed as manuscript label names.",
+    "visual_review": "Final PDF rendered with PyMuPDF; all five pages inspected in a contact sheet, with no clipping or overlap observed.",
+    "external_references": "References outside the excerpt intentionally display manuscript label names.",
+    "other_warnings": "Benign font information/warnings about Japanese italic shape and substituted sizes; no missing characters.",
     "full_paper_B_build": false,
     "sources_sha256": {
-      "papers/support/papers/reconstruction/three_object_window.tex": "6b7cb29ea00fddbe3f7c7d692656226e20ee9dacd9afd8e46eac90824514c423",
-      "papers/support/papers/reconstruction/three_object_window_references.tex": "4be81704e82fd8915ee6d4016fde27d76badff87358c719c677f6fdfb0468379",
-      "papers/support/papers/three_object_window.tex": "c6ec5a07daf0785bab5921c58066c82c0fcd5cf0f979a54cd717b9e9116a760c"
+      "papers/support/papers/reconstruction/complete_curved_transport.tex": "040bfcdf4299bb0b6cc452e9bd980b6b1436f008c17863ae5dfdf025a96ae775",
+      "papers/support/papers/complete_curved_transport.tex": "1c7c076338ca28c1066ee13e3f40d4a44ab0ec9b153db0bd8aae5bb61a780075"
     }
   },
   "static_checks": {
-    "new_main_and_window_labels_unique": true,
+    "new_main_and_transport_labels_unique": true,
+    "new_main_and_transport_label_count": 34,
     "new_environments_balanced": true,
     "new_python_syntax_checked": true,
     "full_paper_B_source_audit_rerun": false
   },
   "primary_sources_checked": [
-    "Burke-Stevenson arXiv:1507.00830v1, Theorem 6.4 and proof; text and PDF page images.",
-    "Chen arXiv:2402.11613v3 (submission 27 August 2025, printed date 28 August 2025), Theorem 7.2 and Remark 7.3; text and PDF page images.",
-    "Crainic author PDF pert2.pdf, Theorem 2.3/Remark 2.4; text checked, PDF web screenshot unavailable (application/x-gzip)."
+    "Kontsevich author final PDF DefQuant_final.pdf: Theorem 4.6 (PDF p.17), Lemma 4.11 and Section 4.6.2 (p.22), affine equivariance and Theorem 6.3 (p.30): text and page images checked. Graph arity formula and Sections 6.2-6.4 also read.",
+    "Caldararu-Tu NYJM19 (2013), Section2, Remark2.8, Theorem2.12: parsed text checked; web page-image requests failed, so no visual-source verification claimed."
   ],
   "environment": {"python": "3.13.5", "sympy": "1.14.0"},
-  "persistence_policy": "GitHub main; fast-forward only; no Actions; Library only after actual push failure."
+  "persistence_policy": "GitHub main, fast-forward only, no Actions. Library only after actual push failure."
 }
