@@ -54,6 +54,11 @@ $k$個のブロックの量子化パラメータを独立に動かし、
 高次元の正規形と量子化の構成を主結果とし、
 既知の三次元分類、一般のFano多様体についてのBondal予想、
 Sklyanin中心公式との関係を区別する。
+さらに中心三次商のambientについて、次元によらず
+次数一、二の積だけから二次包絡を復元し、
+偏極付き三つ組から中心方程式の直線も復元できることを証明する。
+Serre関手のみを使う復元については必要な追加仮定と
+一般次元での未解決部分を明記する。
 \end{abstract}
 \tableofcontents
 
@@ -309,6 +314,17 @@ $2\cdot3-5=1$を用いてambientは1周期的となる。
 ただし三次イデアルを保つ1周期同型や，任意の抽象的cubicの
 超曲面表示の存在まで結論するものではない。
 
+さらに任意次元の二次ambientと次数$d\ge3$の正規超曲面商について、
+低次数の積からambientと方程式直線を復元する
+（定理\ref{thm:pg-ambient-recovery-general}）。
+AS Gorenstein仮定の下では偏極付き圏
+$(\operatorname{qgr}A,\mathcal O_A,(1))$からも復元できる
+（定理\ref{thm:pg-ambient-recovery-polarized}）。
+構造対象のみからSerre関手によって復元する強化は、
+三次三様体での偶数Veroneseと追加中心条件の下で証明する。
+一般次元のSerre関手から得られるVeroneseを
+無条件に元の代数と同一視しない。
+
 さらに中心元の反自己同型に関する偶数次正規化を示し
 （補題\ref{lem:pg-center-parity}）、
 任意の三変数Jacobianブロックについて
@@ -488,7 +504,9 @@ Fermat型の普遍混合中心元は
 第\ref{sec:pg-universal-determinant}節、
 任意次元での$k$変数同時代数量子化は
 第\ref{sec:pg-all-dimensions}節で扱う。
-そのambientの周期性は第\ref{sec:pg-ambient-periodicity}節で扱う。
+そのambientの周期性は第\ref{sec:pg-ambient-periodicity}節、
+二次包絡と偏極付き圏からの内在的復元は
+第\ref{sec:pg-ambient-recovery}節で扱う。
 spaceおよびmoduli stackの定義・代数性は
 第\ref{sec:pg-poisson-stacks}節で、
 Fermat特殊ファイバーと相対成分数は
@@ -504,6 +522,7 @@ Bondal予想の帰結は第\ref{sec:pg-bondal}節、
 \input{papers/sections/universal_casimir_determinant}
 \input{papers/sections/general_dimension_universal_quantization}
 \input{papers/sections/ambient_periodicity}
+\input{papers/sections/ambient_recovery_general}
 \input{papers/sections/poisson_moduli_stacks}
 \input{papers/sections/fermat_relative_poisson_components}
 \input{papers/sections/bondal_cubic}
