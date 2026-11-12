@@ -1,9 +1,9 @@
 {
-  "version": "nc-cubic-v47",
+  "version": "nc-cubic-v49",
   "date": "2026-11-12",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only following actual GitHub publication failure.",
-  "scope": "Article A-v44: unconditional exact polynomial central cubic for arbitrary Hesse parameter t and all graded central cubic mixtures, coordinate-transform extension to every smooth ternary cubic; singular-block case remains to be audited.",
+  "scope": "Article A-v46: general n >=3, k independent Poisson-block quantization directions, universal sum of Hesse central cubics, simultaneous deformation of the full k-dimensional Poisson linear family, coefficient-relative presentation charts and intrinsic coordinate-invariant Hessian correction. Papers B/C retained.",
   "proofs_written_and_checked": [
     {
       "source": "papers/support/papers/reconstruction/point_scheme_discriminant_boundary.tex",
@@ -97,14 +97,16 @@
     "point_scheme_thickening": "SymPy Q(h) commutative chart identities and Groebner standard-monomial lengths24 at h=1,2,3. No automatic verification of Sklyanin theorem or global point functor.",
     "lambda_point_scheme": "Ran SymPy script: 12 Groebner computations over lambda=0,1,2,-1 and h=0,1,2 with local length24, exact polynomial reduction and nilpotent shear checks. Regenerated JSON in local working copy. Not a formal proof of point-module functor.",
     "discriminant_boundary": "Local SymPy exact reductions passed, finite field p=11 boundary lambda=2 with h=0,1,2 all rank24; 3 nonzero-branch local rings length6. Standalone expanded Japanese LuaLaTeX draft compiled to 3 pages and visually checked; concise integrated GitHub TeX not independently compiled.",
-    "article_A_static": "PASS across 13 paper-A input files: 175 labels/184 refs, 22 bibkeys/56 cites; no missing or duplicate refs/citations (static not compile).",
+    "article_A_static": "PASS: 194 labels, 219 refs, 22 bibliography keys, 56 citations, all matches, 14 paper-A inputs; static text check not compilation.",
     "article_A_example": "Independent local SymPy demonstration: 56 Jacobi and 56 Euler-wedge components PASS; latest GitHub script including smoothness check not re-executed",
     "article_A_universal_casimir_jet": "PASS in local SymPy symbolic independent-coefficient expansion (20 coefficients, 3 commutators) modulo h^4, upgraded to h^5 by a proved anti-involution+flatness argument; exact uploaded script not rerun",
     "article_A_fermat_mixed_universal": "PASS locally: 339 weighted free words, 162 quadratic relation multiples, rank 144 both over QQ(h) and at h=0, 3 universal center commutators reduce to 0 over QQ(h); all 6 coefficients algebraically independent.",
     "article_A_classical_casimir_minor": "PASS locally using exact rational SymPy matrices: 9x9 determinant -72 (m=0), 30x30 determinant +4608 (m=2).",
     "article_A_hesse_mixed_universal": "PASS locally over Q(h,t): 339 weighted free words, 162 quadratic relation multiples, rank144, 3 universal center commutators exactly zero; all 6 central symbols algebraically independent; independent explicit special rank144 at h=0.",
     "article_A_hesse_hessian_identity": "PASS exact SymPy coefficient comparison of expanded formula and sym(F-h^2 det Hess F/12+h^2 ABC/6+h^4 Psi_t(F)); the difference is identically zero with symbolic t and all coefficients.",
-    "article_A_hesse_translation": "PASS exact SymPy expansion of the diagonal central shift formula with symbolic t and arbitrary A,B,C,D,E,H and three central linear shifts."
+    "article_A_hesse_translation": "PASS exact SymPy expansion of the diagonal central shift formula with symbolic t and arbitrary A,B,C,D,E,H and three central linear shifts.",
+    "article_A_general_dimension": "PASS independent local SymPy for 6 cases n=3,4,6,7,10; 610 Poisson Jacobi components, 52 Casimir components, cross Hessian and invariant six-index Hessian identity exactly zero.",
+    "article_A_general_dimension_symbol_constructor": "PASS local SymPy demo (n=6,k=2,m=2 shared center u,v): Weyl center Omega_00=F and no mixed eta_s eta_t terms; 30 F and 142 Omega monomials. Not a free-algebra centrality certificate."
   },
   "primary_sources_checked": [
     "Burke-Stevenson arXiv1507.00830v1, Prop4.18/Lemmas6.1,6.2/Thm6.4: PDF pp12-14,17-19 inspected including screenshots.",
@@ -136,7 +138,10 @@
     "A single coordinate-free GL3-equivariant low-degree polynomial formula in the ORIGINAL ternary coefficients, without choosing Hesse coordinates: not established (explicit formula exists after Hesse normalization).",
     "A short exact universal closed central cubic formula for ALL singular/zero ternary restrictions: not established; nodal and cuspidal special formulas exist.",
     "Independent full audit of the completed absolute CY and relative formality proof of formal central elements in singular cubic blocks: pending.",
-    "Actual LuaLaTeX build and visual inspection of the complete article A-v44: not run in the current turn."
+    "Actual LuaLaTeX build and visual inspection of the complete article A-v44: not run in the current turn.",
+    "Coordinate-independent explicit quartic h^4 correction K(P,F) without choosing a Hesse chart: not established.",
+    "Global descent of arbitrary-dimensional k-parameter quantizations from Hesse presentation charts to the full Poisson pair moduli: not established.",
+    "Full independent validation of normal-form and AS-regularity dependencies and complete paper A compilation: pending."
   ],
   "typesetting": {
     "standalone_coherent_residual": {
@@ -194,8 +199,8 @@
     "exact_test": "computations/verify_poisson_article_A.py",
     "editorial": {
       "status": "Abstract, Introduction and prior-work comparison rewritten; manuscript A now uses dedicated bibliography",
-      "static_citation_check": "PASS (post-Hesse paper A-v44): 22 bibliography entries, 56 citation uses; no unresolved or duplicated keys",
-      "static_label_check": "PASS (post-Hesse paper A-v44): 175 labels, 184 ref/eqref uses; no unresolved or duplicated labels",
+      "static_citation_check": "PASS: paper A-v46 22 bibitems, 56 cited keys, no missing/duplicate items across 14 input files.",
+      "static_label_check": "PASS: paper A-v46 has 194 labels, 219 ref/eqref uses, no duplicates/unresolved references across 14 input files.",
       "caveat": "Static regex checks, not a full TeX parse or document build"
     },
     "mathematical_check": {
@@ -229,7 +234,7 @@
       "relative_absolute_kontsevich_bridge": "Clarified in paper A: differential cochains in active x are included in absolute polydifferentials; graph formula for active-only Pi differentiates only x, hence same absolute Kontsevich star product. Standard formality/absolute completed CY assumptions still not independently fully established."
     },
     "typesetting": {
-      "whole_article_A": "NOT RUN in this turn: static reference/source closure confirmed; LuaLaTeX compilation and PDF visual check not performed."
+      "whole_article_A": "NOT RUN: entire LuaLaTeX rebuild and PDF visual inspection not executed; GitHub source is available through connector only."
     },
     "universal_casimir_jet": {
       "theorem_labels": [
@@ -248,7 +253,7 @@
       ],
       "theorem_integration": "Quantization theorem thm:pg-quantization now explicitly asserts parity-invariant choice of algebraic central cubic; proof averages over a symmetric Zariski open. Source has explicit universal Hessian commutator identity mod h^4."
     },
-    "version": "A-v44",
+    "version": "A-v46",
     "exact_universal_fermat_mixed_center": {
       "source": "papers/support/papers/sections/fermat_mixed_universal_center.tex",
       "theorem_labels": [
@@ -315,6 +320,43 @@
       "smooth_ternary_corollary": "By central translation removing diagonal quadratic mixtures, and Artebani-Dolgachev Lemma 1 on Hesse normal forms, all smooth ternary g=F(x,0) have an exact explicit algebraic center after a linear coordinate change. Transformation h'=lambda det(M) h is proved. This does not claim a single GL3 invariant formula in original coordinates.",
       "quantization_scope": "If every active ternary block g_s is smooth, the polynomial centers together with established PBW/domain/AS arguments give explicit algebraic quantization without Kontsevich/Dolgushev formal-center input. Full arbitrary singular g theorem still depends on independently unaudited formal-center lemma.",
       "limitation": "Unresolved: general singular ternary restrictions (nodal, cuspidal, zero, etc.) in one closed formula; primary-source novelty survey; full LuaLaTeX manuscript rebuild."
+    },
+    "arbitrary_dimensional_simultaneous_quantization": {
+      "source": "papers/support/papers/sections/general_dimension_universal_quantization.tex",
+      "mathematical_status": "Mathematical proofs written for arbitrary n, relying on existing and previously established one-block Hesse center, PBW, Koszul tensor, regular cubic and normal-form inputs; independent full audit of all dependencies is not completed.",
+      "statements": [
+        "For n>=3, N=n+2=3k+m, smooth cubic F=sum f_s(x_s,u) and each g_s=f_s(x_s,0) smooth ternary cubic, q_s=i_{d f_s} P_s are pairwise Schouten compatible and span a k-dimensional Poisson linear family; generic rank 2 times support size.",
+        "Independent eta_s on blocks give algebra A_eta tensoring over the SHARED C[u,eta] coefficient ring, with exact central cubic Omega_eta=sum Omega_{f_s,eta_s} and no mixed eta_s eta_t correction.",
+        "On an open neighborhood of eta=0: each fibre Koszul AS regular global dimension N, Hilbert (1-z)^(-N), Omega fibrewise regular, central quotient AS-Gorenstein injdim N-1, Hilbert (1-z^3)/(1-z)^N, graded pieces locally free in the multi-parameter base.",
+        "Via eta_s=lambda_s h, the pullback opens a neighborhood of the ENTIRE h=0 zero section in lambda-space times h, giving one family quantizing the entire k-dimensional linear Poisson pencil.",
+        "The Hesse presentation coefficient space itself can vary and carries a relative polynomial center; this does not construct a quotient of the full Poisson pair moduli.",
+        "Intrinsic all-dimension Hessian contraction H(P,F)=(1/6) sum P^{ijk}P^{abc} F_{ia}F_{jb}F_{kc}, equal to sum lambda_s^2 det Hess_{x_s}(f_s) in normal form; after pure-central normalisation an exact central cubic is sym(F-h^2 H(P,F)/12+h^4 K_{P,F}); K is explicit in a chosen Hesse chart."
+      ],
+      "key_labels": [
+        "prop:pg-ad-compatible",
+        "thm:pg-all-dimensions",
+        "cor:pg-ad-whole-pencil",
+        "prop:pg-ad-relative-chart",
+        "cor:pg-ad-hessian",
+        "prop:pg-ad-intrinsic-hessian",
+        "ex:pg-ad-sixfold"
+      ],
+      "compute_assets": [
+        "computations/verify_general_dimension_multiblock.py",
+        "computations/build_general_dimension_center.py"
+      ],
+      "executed_checks": [
+        "Local independent SymPy symbolic run for (k,m)=(1,2),(2,0),(2,2),(3,0),(3,3),(4,0) i.e. n=3,4,6,7,10: 610 Jacobi triples and 52 Casimir components all zero with independent lambda_s; cross Hessians all zero.",
+        "Same six symbolic tests with intrinsic six-index Hessian tensor contraction: exact agreement with sum of block Hessian determinants.",
+        "Local explicit polynomial Weyl-symbol constructor on shared-center n=6, k=2, m=2 example with two independent eta parameters: Omega_00=F, mixed eta derivative zero, F has 30 polynomial monomials and Omega 142 polynomial monomials."
+      ],
+      "verification_limits": "Finite tests support proof, not formal verification. Symbol constructor checks its substitution and parameter separation, not all noncommutative commutators; those are deduced from one-block universal Hesse exact centrality. GitHub-hosted scripts not executed after upload.",
+      "remaining": [
+        "Coordinate/Hesse chart transition and equivariance of relative families in general n",
+        "Descent to Poisson moduli; no global full-moduli quantization asserted",
+        "Independent re-audit of PBW, all AS-regular/domain, normal-form and Bondal dependencies",
+        "Full paper A LuaLaTeX build, PDF visual check and primary literature novelty survey"
+      ]
     }
   },
   "papers_layout": {
