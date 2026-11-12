@@ -8,9 +8,9 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月12日・論文A（投稿準備稿 v44）}
+\date{2026年11月12日・論文A（投稿準備稿 v45）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-12 / A-v44}
+\fancyhead[R]{\small 2026-11-12 / A-v45}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -33,6 +33,12 @@ Koszul Artin--Schelter正則な周囲の量子化と
 Hesse標準形により任意の滑らかな三変数三次制限へ
 この公式を適用でき、同じ対象に対する有限行列式の
 普遍有理表示も形式的中心元存在定理に依存せずに得る。
+さらに任意の次元$N=3k+m$のJacobian正規形について、
+$k$個のブロックの量子化パラメータを独立に動かし、
+一般階数$2k$のPoisson構造だけでなくその線形族全体を
+同時に量子化する。
+中心三次元は各ブロックの明示式の和であり、
+ブロック間の追加補正は必要ない。
 さらに，標準5次元Koszul AS正則$\mathbb Z$-代数が
 正則正規三次超曲面を持てば，ambient自体が1周期的であることを示す。
 固定した滑らかなcubic fivefoldに現れる節点型・尖点型の
@@ -216,6 +222,31 @@ $F(x,y,z,0)$を持つJacobianブロックについて、
 以前は形式的中心元の存在に依存したが、
 今はHesse型の明示定理によって\emph{この仮定を除けた}。
 
+**任意次元への拡張。**
+正規形のブロック数$k$は
+$1\le k\le\lfloor(n+2)/3\rfloor$の任意の値を取り得る。
+各ブロックの純active三次式が滑らかであれば、
+中心変数を共有したまま独立な量子化パラメータ
+$\eta_1,\ldots,\eta_k$を導入できる。
+各ブロックの普遍中心三次元の和
+\[
+ \Omega_{\boldsymbol\eta}
+ =\sum_{s=1}^k\Omega_{f_s,\eta_s}
+\]
+は厳密な中心元であり、周囲の次数付き代数は
+適切な原点近傍で次元$N=3k+m$のKoszul AS-regular、
+中心商はAS-Gorensteinとなる
+（定理\ref{thm:pg-all-dimensions}）。
+$\eta_s=\lambda_s\hbar$という特殊化で
+$\sum_s\lambda_s\pi_s$という$k$次元の
+Poisson線形族を**一つの相対的な代数族として同時に量子化**できる。
+この高次元への拡張は、単一の三変数公式から形式的に
+存在が言えるだけでなく、共通中心変数の上での
+テンソル積・PBW基底・全ファイバーの中心正則性・
+多変数底の平坦性まで証明するものである。
+有限の全次数Hessian公式も
+系\ref{cor:pg-ad-hessian}に記載する。
+
 適用範囲を明確にするため、
 滑らかな三変数三次制限に対する
 この無条件の明示公式と、
@@ -254,6 +285,8 @@ Fermat型の普遍混合中心元は
 第\ref{sec:pg-fermat-mixed-universal}節、
 全Hesse型の短い普遍多項式中心元と滑らかな三変数制限への帰結は
 第\ref{sec:pg-hesse-mixed-universal}節、
+任意次元での$k$変数同時量子化は
+第\ref{sec:pg-all-dimensions}節、
 元の座標で計算する有限行列式の中心元公式は
 第\ref{sec:pg-universal-determinant}節で扱う。
 そのambientの周期性は第\ref{sec:pg-ambient-periodicity}節で扱う。
@@ -265,6 +298,7 @@ Bondal予想の帰結は第\ref{sec:pg-bondal}節、
 \input{papers/sections/poisson_geometry}
 \input{papers/sections/fermat_mixed_universal_center}
 \input{papers/sections/hesse_mixed_universal_center}
+\input{papers/sections/general_dimension_universal_quantization}
 \input{papers/sections/universal_casimir_determinant}
 \input{papers/sections/ambient_periodicity}
 \input{papers/sections/fermat_relative_poisson_components}
