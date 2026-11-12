@@ -93,23 +93,23 @@ qgrのsmoothnessを現定理の帰結とはしない。
 
 **証明を追加（論文A prop:pg-ad-intrinsic-hessian）：**
 任意次元 N のV、定数三重ベクトルP∈Λ³V、斉次三次式Fについて
-[
+\[
  \mathscr H(P,F)=\frac16\sum_{i,j,k,a,b,c}
  P^{ijk}P^{abc}\,F_{ia}F_{jb}F_{kc}\in\operatorname{Sym}^3V^*
-]
+\]
 を定義する。これは座標不変なHessianと三重ベクトルの縮約であり、
 正規形 P=Σ_sλ_sP_s、F=Σ_s f_s(x_s,u) では
-[
+\[
  \mathscr H(P,F)=\sum_s\lambda_s^2
  \det\operatorname{Hess}_{x_s}(f_s)
-]
+\]
 となる。交叉項は異なるactiveブロック間のHessianが零なので消える。
 smooth ternary g_s の範囲では、純中心三次の調整を行って
-[
+\[
  \widetilde\Omega_{P,h}
  =\operatorname{sym}\left(
  F-\frac{h^2}{12}\mathscr H(P,F)+h^4K_{P,F}\right)
-]
+\]
 という**全次数で厳密な中心元**を取れる。
 二次補正はブロック座標に依存せず、
 四次補正Kは選択したHesse座標におけるΣ_sλ_s⁴Ψ_{t_s}(f_s)
