@@ -1,4 +1,4 @@
-% 2026-11-12 / B-v42. This section proves (L), independently of (CF).
+% Current local-window proof. Compatible with the general comparison in the following section.
 \section{三つのstabilizationによる局所残余圏の表示}
 \label{tw:sec:window}
 
@@ -242,7 +242,7 @@ sourceも有限線束生成とmutationから作った模型の底変更に一致
 剰余底変更は上で確認した。これで必要な三対象とrotationの比較をすべて得る。
 \end{proof}
 
-\subsection{主定理の最小の残余仮定}
+\subsection{固定三対象で十分となる比較原理}
 
 \begin{definition}[固定三対象の形式的比較]\label{tw:def:CF3}
 条件\textup{(CF$_3$)}とは、$W\in\widehat R[x_1,\ldots,x_N]_3$、$W\bmod\mathfrak m=F$と、
@@ -254,11 +254,12 @@ $E\otimes k\simeq K_F$で、$K_{\widehat R}(j)$から$E(j)$へ送る
 これは全Hom複体と高次積の比較であり、cohomologyの次元の一致ではない。
 \end{definition}
 
-\begin{corollary}[一般点可換復元に必要な条件の削減]\label{tw:cor:CF3}
+\begin{corollary}[固定三対象の比較による復元]\label{tw:cor:CF3}
 定理\ref{gdr:thm:generic}の代数的入力に対して、
 局所比較(L)は定理\ref{tw:thm:window}の結論であり、追加仮定ではない。
-同主定理の結論には\textup{(CF$_3$)}だけを追加すれば十分である。
-従来の全MF比較\textup{(CF)}は、三対象へ制限することで\textup{(CF$_3$)}を含意する。
+完備MF圏全体の比較を用いない場合にも、\textup{(CF$_3$)}の比較があれば
+同主定理の結論が成立する。
+全MF比較\textup{(CF)}からは、三対象への制限によって\textup{(CF$_3$)}が従う。
 \end{corollary}
 \begin{proof}
 定理\ref{tw:thm:window}の$\Gamma_R$を使い、\textup{(CF$_3$)}を固定三対象上で
@@ -270,11 +271,14 @@ $L=\operatorname{Frac}(\widehat R)$へ平坦局所化する。
 これらは全MF圏上の形式functorを要求せず、固定三対象の比較だけを使っている。
 \end{proof}
 
-\begin{remark}[確実性と適用範囲]\label{tw:rem:scope}
-本節の(L)の証明は(CF)から独立しており、正則多変数局所基底でも成立する。
-使ったperturbation lemma、非可換MFの余核定理、Gorenstein windowは既知結果である。
-本研究ではそれらの仮定、enhancement、有限filtration、底変更とrotationの接続を明示した。
-この組合せの包括的新規性調査と外部査読・形式検証は未完了である。
-(CF$_3$)の具体的な曲率付き関手、逆関手と周期比較の全監査はなお別課題であり、
-一般の抽象的な非可換三次超曲面の無条件復元はここでは結論しない。
+\begin{remark}[比較原理の適用範囲]\label{tw:rem:scope}
+局所windowの構成は完備MF比較(CF)を入力とせず、
+正則多変数局所基底にも適用できる。
+その証明で使うperturbation lemma、MFの余核定理、
+Gorenstein windowは既知の結果であり、ここでは
+enhancement、有限filtration、底変更およびrotationとの整合を明記した。
+固定三対象の比較(CF$_3$)を与える実際の曲率付き関手と逆関手は
+第\ref{cft:sec:transport}節で構成する。
+抽象的な非可換三次圏に中心三次超曲面表示が存在することは
+本節の仮定にも結論にも含めない。
 \end{remark}

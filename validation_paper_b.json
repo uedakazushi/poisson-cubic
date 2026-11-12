@@ -1,7 +1,7 @@
 {
   "date": "2026-11-12",
-  "paper_version": "B-v47",
-  "repository_version": "v63",
+  "paper_version": "B-v48",
+  "repository_version": "v64",
   "canonical_entry": "papers/paper_b.tex",
   "mathematics": {
     "input": "Actual degreewise finite-free central cubic deformation of a polynomial algebra with smooth commutative cubic special fiber. The generic theorem uses a regular local algebraic base; the complete formal comparison allows a general complete noetherian local C-algebra with residue C.",
@@ -134,6 +134,18 @@
     "ordering": "Moved first-order/Plucker/categorical tangent section after core local window and complete curved MF transport",
     "main_proof": "Inserted non-numbered prose stage headings; no changes to logical dependencies",
     "typesetting": "NOT RUN in this revision; full manuscript remains unverified after editing",
-    "static_source_validation": "Direct TeX input closure and new introduction citation keys checked after refactoring; full recursive TeX/LaTeX integration and PDF inspection outstanding."
+    "static_source_validation": "Direct TeX input closure and new introduction citation keys checked after refactoring; full recursive TeX/LaTeX integration and PDF inspection outstanding.",
+    "supportSections": "Harmonized BFK alternative generation proof, three-object CF3 sufficiency, window scope, completed formal MF comparison, multibase gluing limit, and coherent saturation. Removed obsolete audit-history phrasing from manuscript body, with substantive mathematics retained.",
+    "filesPolished": [
+      "papers/support/papers/reconstruction/generic_cubic_descent.tex",
+      "papers/support/papers/reconstruction/three_object_window.tex",
+      "papers/support/papers/reconstruction/complete_curved_transport.tex",
+      "papers/support/papers/reconstruction/rotation_orbit_generic_reconstruction.tex",
+      "papers/support/papers/reconstruction/coherent_residual_saturation.tex",
+      "papers/support/papers/reconstruction/general_dimension_recovery.tex"
+    ],
+    "mathematicalStatementChanges": "none; only context/terminology/remarks and prose proof organization",
+    "fullPaperBuild": "NOT RUN",
+    "fullRecursiveRefs": "NOT RUN"
   }
 }

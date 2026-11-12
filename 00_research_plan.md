@@ -1,7 +1,7 @@
 # 研究方針：Poisson三次超曲面の量子化と一般点可換復元
 
-**2026-11-12 / v63。再開時は最初に読む。GitHub uedakazushi/nc-cubic のmainが正本。**
-現行主原稿はA `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v47）。
+**2026-11-12 / v64。再開時は最初に読む。GitHub uedakazushi/nc-cubic のmainが正本。**
+現行主原稿はA `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v48）。
 
 ## 目標・到達点・達成基準
 
@@ -39,7 +39,7 @@ Aはsmooth cubicのPoisson正規形、退化、Bondal予想、代数的量子化
 
 ## 現行論文Bの編集方針
 
-B-v47は、数学的主張や証明を追加・削除せず、読みやすさを優先して再構成した。Abstractを主定理と射程に絞り、Introductionに問題設定・主要結論・証明の4段階・先行研究との分担を置く。主定理の証明を段階別に区切り、比較定理の略称(L),(CF),(CF_3)を独立仮定と誤読しないよう明確化。一次・二次障害とcategorical tangentの節は、主定理の存在証明とは独立の結果なので、局所window・完備曲率移送と分け、変形論の部へ移した。記法・証明・ラベル・引用の数学的内容は保持する。既知の生成・Torelliの結果と本稿の構成をIntroductionで区別する。残る作業は論文全体の通読、重複節の本文整理、全組版、文献一次照合であり、編集済みであることと査読可能であることは異なる。
+Abstractは主定理と適用範囲を簡潔に述べ、Introductionを問題設定・主結果・証明の四段階・先行研究の関係で構成する。主定理の証明は一般点への移行、有限降下とcoherent飽和、方程式の定義体の順に提示する。局所window、完備MF比較、可換点での一次・二次変形論、明示族は論理的に独立した役割を持つことを示す。(L),(CF),(CF_3)は既に構成した比較であり、古い支持節の条件付き記述はその定理によって満たされる。証明・反例・有効な計算を省略しない。公表本文には作業監査の経緯を蓄積せず、仮定と証明の射程だけを明確に記載する。残る作業は全文の通読・組版・文献一次照合・証明の独立検証。編集と全監査完了を混同しない。
 
 ## 未解決の核心と次の具体的着手
 
@@ -56,7 +56,7 @@ Bの混合族、point schemeとPoisson零点の平坦極限、λ³=−3の局所
 
 ## 再現と実施状態
 
-`latexmk papers/paper_a.tex` / `latexmk papers/paper_b.tex`。静的検査は `python3 scripts/check_layout.py` と `python3 scripts/verify_bundle.py`。B-v43の実施状態は `validation_paper_b.json`、Aなどは `validation.json`。
+`latexmk papers/paper_a.tex` / `latexmk papers/paper_b.tex`。静的検査は `python3 scripts/check_layout.py` と `python3 scripts/verify_bundle.py`。B-v48の実施状態は `validation_paper_b.json`、Aなどは `validation.json`。
 
 新しい `computations/verify_complete_curved_transport.py` はSchouten恒等式、CasimirだけではJacobiが従わない負例、非自律・非可換なbar flow模型の10逆行列恒等式と2750余積係数恒等式、arity位数、twisting代入の相互逆性を厳密検算した。実際の非可換MF HomやKontsevich重みの計算ではない。5頁の証明抜粋をLuaLaTeXで組版し表示確認した。B全文・全既存証明書の再実行は未実施。以前の検算コードは保持し、今回再実行したとは記載しない。
 

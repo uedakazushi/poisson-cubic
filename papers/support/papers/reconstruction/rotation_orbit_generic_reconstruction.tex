@@ -1,4 +1,4 @@
-% 2026-11-11 / v35
+% Rotation orbit generation and generic descent: alternative proof of the generator statement.
 \section{次数シフト軌道による一般ファイバーの可換復元}
 \label{rog:sec:generic}
 
@@ -14,8 +14,10 @@
 残余体stabilizationのendomorphism計算\cite[\S2.4, \S5.6]{ROGDyckerhoff}、
 compact対象の局所化原理\cite[Proposition~13.37.6]{ROGStacks}、
 perfect双加群の有限表示性\cite[Lemmas~2.8, 2.10]{ROGTV}である。
-これら既知の原理の新規性は主張しない。本稿の非可換入力への適用は、
-後述の\textbf{(L),(CF)}および明示式を使う場合の\textbf{(D)}という既存証明に依存する。
+これらは既知の原理であり、非可換中心三次対への適用に必要な
+局所window比較(L)と形式MF比較(CF)は、
+それぞれ定理\ref{tw:thm:window}と定理\ref{cft:thm:complete}で構成する。
+具体的な可換方程式を指定する場合には、別途(D)を要する。
 
 \subsection{孤立斉次超曲面の次数シフト軌道}
 
@@ -336,17 +338,20 @@ $W_h$と$\widetilde G_h$は$\widehat R$上で形式線形同型である。
 特殊式$\widetilde G_0$は滑らかなので、$\widetilde G_h$の一般点も滑らかである。
 \end{proof}
 
-\subsection{得られたことと未解決の境界}
+\subsection{生成性と有限降下の射程}
 
-以上は、\emph{既存入力\textup{(L),(CF)}（明示式にはさらに\textup{(D)}）の下で}、
-一般点での生成性とcompactな逆核の存在を証明する。
+以上の議論は、局所window比較(L)と完備MF比較(CF)を用いて、
+一般点での生成性とcompactな逆核の存在を示す。
+これらの比較の構成は、それぞれ定理\ref{tw:thm:window}と
+定理\ref{cft:thm:complete}で与えた。
 完備底全体の右$\widehat\Gamma$-perfectな逆核や、$h=0$を含むétale近傍の同値は結論しない。
 体上で得た有限cellの存在は証明したが、そのcell数の明示上界、
 双加群の具体的行列、必要な有限拡大の次数は求めていない。
 
-(L)の局所proper模型、(CF)の全次数形式MF同値、(D)の乗法的比較について、
-現行本文に証明があることと、今回それら全てを独立再監査したことは区別する。
-本節で直接証明・点検したのは、軌道生成、Euler検出、固定対象の局所化、体拡大からの降下である。
-異なるPoisson成分を同時に動かす多変数基底の一般点、任意$\lambda$の明示式、
-線束生成部分と全coherent残余圏の一致は別の課題として残る。
-次の優先課題は、この到達点の依存証明の監査と、同値の有限データの明示化である。
+本節の独立した内容は、次数シフト軌道の生成、Euler形式による非零性の検出、
+固定対象を局所化する順序、および体拡大からの有限降下にある。
+線束生成部分と全coherent残余圏の同定は
+定理\ref{crs:thm:coherent}で行う。
+正則多変数局所基底についても個々の一般点には同じ議論が適用できるが、
+異なるPoisson成分を含む全モジュライ上の接着、任意の$\lambda$の明示式、
+同値核の具体的行列と有限拡大次数の評価はここでは扱わない。

@@ -1,6 +1,6 @@
 # 論文B：完備曲率付き比較と一般点可換復元
 
-**2026-11-12 / B-v47。** 再開は `00_research_plan.md`。主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、形式比較の証明は `complete_curved_transport.tex`、局所比較は `three_object_window.tex`、基礎体降下は `generic_cubic_descent.tex`（同じディレクトリ）。
+**2026-11-12 / B-v48。** 再開は `00_research_plan.md`。主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、形式比較の証明は `complete_curved_transport.tex`、局所比較は `three_object_window.tex`、基礎体降下は `generic_cubic_descent.tex`（同じディレクトリ）。
 
 ## 現在の結論と適用範囲
 
@@ -12,7 +12,11 @@
 
 ## 公表原稿の構成と確認の境界
 
-現行論文BのAbstractは主結果と適用条件だけを簡潔に述べ、検証作業の状況は研究方針・本ノート・検証記録に置く。Introductionは「問題設定」「結果の概要」「証明の方針と構成」「既知結果と適用範囲」に整理。主定理の証明を一般点・有限降下とcoherent飽和・方程式の定義体へ区分。一次・二次障害とcategorical接空間の節は、一般点の証明を中断しない位置（変形・有限方程式の部）へ配置。すべての定理、証明、例、反例、計算・参考文献の内容は保持する。今回の作業は編集であり、新しい数学的主張の独立監査ではない。
+現行論文BのAbstractは主結果と適用条件だけを簡潔に述べ、検証作業の状況は研究方針・本ノート・検証記録に置く。Introductionは「問題設定」「結果の概要」「証明の方針と構成」「既知結果と適用範囲」に整理。主定理の証明を一般点・有限降下とcoherent飽和・方程式の定義体へ区分。一次・二次障害とcategorical接空間の節は、一般点の証明を中断しない位置（変形・有限方程式の部）へ配置。すべての定理、証明、例、反例、計算・参考文献の内容は保持する。原稿に保持するのは現在有効な数学的主張・証明・射程であり、作業監査の詳細は本ノートと検証記録に置く。
+
+## 支持節の現行位置付け
+
+局所windowの`three_object_window.tex`は(L)を構成し、比較のための固定三対象条件を独立の十分条件として記録する。その条件を与える完備MF関手は`complete_curved_transport.tex`に構成済みであり、条件付きの命題と主定理の追加仮定を混同しない。`generic_cubic_descent.tex`の多変数条件付き命題は独立の十分条件として保持するが、現行の正則局所中心三次入力では(L),(CF)が適用できる。`rotation_orbit_generic_reconstruction.tex`のStevensonによる別証明と`coherent_residual_saturation.tex`の有限性の議論は、公表本文で作業経緯ではなく数学的な依存として述べる。全coherentへ進むためのsmoothnessと有限降下の独立監査はなお必要。
 
 ## 形式比較の論理と確認点
 
