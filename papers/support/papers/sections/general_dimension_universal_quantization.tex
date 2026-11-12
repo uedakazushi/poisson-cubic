@@ -381,6 +381,79 @@ $\eta_s$の行列式スケール変換を施してから適用する。
 高次の交叉補正を必要としない。
 \end{proof}
 
+\begin{proposition}[次元に依存しない内在的Hessian二次補正]
+\label{prop:pg-ad-intrinsic-hessian}
+一般の$N=n+2$次元ベクトル空間$V$、
+定数三重ベクトル$P\in\bigwedge^3V$、
+斉次三次式$F\in\operatorname{Sym}^3V^*$に対し、
+座標を一時的に選んで
+\begin{equation}
+ \mathscr H(P,F)=
+ \frac16\sum_{i,j,k,a,b,c}
+ P^{ijk}P^{abc}\,
+ F_{ia}F_{jb}F_{kc}\in\operatorname{Sym}^3V^*
+ \tag{IH}\label{eq:pg-ad-intrinsic-hessian}
+\end{equation}
+と定義する。これは座標に依存しない多項式である。
+\eqref{eq:pg-ad-normal}の正規形と
+$P_{\boldsymbol\lambda}=\sum_s\lambda_sP_s$については
+\[
+ \mathscr H(P_{\boldsymbol\lambda},F)
+ =\sum_{s=1}^k\lambda_s^2
+  \det\operatorname{Hess}_{x_s}(f_s).
+ \tag{IB}\label{eq:pg-ad-intrinsic-blocks}
+\]
+各$g_s=f_s(x_s,0)$が滑らかなら、
+定理\ref{thm:pg-all-dimensions}の
+$\eta_s=\lambda_s\hbar$による厳密な中心三次元を
+純中心三次元$\hbar^2c_{\boldsymbol\lambda}(u)$だけ
+調整して
+\begin{equation}
+ \boxed{\quad
+ \widetilde\Omega_{\boldsymbol\lambda,\hbar}
+ =\operatorname{sym}\left(
+ F-\frac{\hbar^2}{12}\mathscr H(P_{\boldsymbol\lambda},F)
+ +\hbar^4K_{\boldsymbol\lambda,F}
+ \right)
+ \quad}
+ \tag{IC}\label{eq:pg-ad-intrinsic-center}
+\end{equation}
+と書ける。$K_{\boldsymbol\lambda,F}$は
+全次数三の明示可能な多項式であり、
+Hesse座標と中心平行移動の選択後には
+$\sum_s\lambda_s^4\Psi_{t_s}(f_s)$の座標変換で与えられる。
+従って$\hbar^2$補正は任意の次元に対し
+\emph{ブロック分解によらない不変な式}で指定できる。
+高次の$K_{\boldsymbol\lambda,F}$まで
+座標選択に依存しない単一の不変多項式として表したとは主張しない。
+\end{proposition}
+\begin{proof}
+式\eqref{eq:pg-ad-intrinsic-hessian}は
+$P\otimes P$と三つのHessianテンソルの縮約なので
+座標変換に不変である。
+三次元で$P=\partial_x\wedge\partial_y\wedge\partial_z$なら
+Levi--Civita記号の恒等式から
+$\mathscr H(P,F)=\det\operatorname{Hess}_{x,y,z}(F)$。
+正規形では異なるactiveブロック間の
+Hessian成分$F_{x_{si}x_{tj}}$（$s\ne t$）は零なので、
+$P_{\boldsymbol\lambda}\otimes P_{\boldsymbol\lambda}$の交叉項は
+縮約で消え、式\eqref{eq:pg-ad-intrinsic-blocks}を得る。
+
+系\ref{cor:pg-hesse-hessian-form}の一ブロック中心元は
+$\hbar^2$係数が
+$-\det\operatorname{Hess}(f_s)/12$と
+純中心三次$A_sB_sC_s/6$の和であり、
+$\hbar^4$項までで厳密に中心となる。
+中心平行移動および線形Hesse変換では
+Hessian縮約の変換則が
+量子化パラメータの行列式スケール変換と一致する。
+純中心項は変換後も$\CC[u]_3$に属するので、
+全ブロックの和から$\hbar^2$倍の純中心項を引けばよい。
+残る$\hbar^4$項を$K_{\boldsymbol\lambda,F}$とする。
+$\CC[u]$は量子化代数の中心にあるので、この調整は
+厳密な中心性を変えない。
+\end{proof}
+
 \begin{example}[共通中心変数を持つ六次元cubicと独立な二方向]
 \label{ex:pg-ad-sixfold}
 $n=6$、$N=8$、$k=2$、$m=2$とし、
