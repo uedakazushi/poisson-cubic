@@ -10,7 +10,7 @@ Poisson構造のspace、固定moduli stack、relative moduli stackの
 
 ## 現行の研究入口と主なファイル
 
-- 公表原稿：papers/paper_a.tex（A-v48、日本語LuaLaTeX）
+- 公表原稿：papers/paper_a.tex（A-v49、日本語LuaLaTeX）
 - 二つのスタックの定義と代数性：papers/support/papers/sections/poisson_moduli_stacks.tex
 - Fermat／relative成分公式：papers/support/papers/sections/fermat_relative_poisson_components.tex
 - 現行知識ノート：notes/fermat_relative_poisson_components.md
