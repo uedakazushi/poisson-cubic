@@ -1,6 +1,6 @@
 # 研究方針：論文A・Bの保持と独立成果の移管完了
 
-2026-11-13 / v79。GitHub mainが正本。
+2026-11-13 / v80。GitHub mainが正本。
 
 ## 現在の所在
 
@@ -12,7 +12,7 @@
 
 ## 今後の担当と研究課題
 
-Chat側はAのPoisson正規形と量子化、Bの完備MF比較・一般点降下、一次文献と新規性を独立に監査・改善する。移管作業の完了を、全証明の独立監査や未解決比較の解決と数えない。一般研究の監査記録は `notes/poisson_article_submission_audit.md`、`notes/paper_b_proof_audit.md`、`notes/generic_recovery.md` に保持する。
+Chat側はAのPoisson正規形と量子化、Bの完備MF比較・一般点降下、一次文献と新規性を独立に監査・改善する。Codexはnc-cubic2で、現行244頁統合稿の中心定理に応じた論文構成をゼロベースで再検討し、移管時に文脈調整された9数学的環境および共有証明の数学的同等性を監査する。新しい論文分割は重要な定理・証明・反例を全て保持し、同じ本文の重複コピーを作らず、各新稿の自足性・再組版・必要計算を確認した上で整理する。元A/Bの入力は保護する。移管完了を全証明の独立監査や未解決比較の解決と数えない。一般研究の監査記録は `notes/poisson_article_submission_audit.md`、`notes/paper_b_proof_audit.md`、`notes/generic_recovery.md` に保持する。
 
 ## 再現と保存
 

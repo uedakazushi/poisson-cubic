@@ -1,12 +1,12 @@
 # Codex実行指示 — nc-cubic
 
-2026-11-13 / v78。最初に `00_research_plan.md` と `notes/paper_b_scope_and_transfer.md` を読む。GitHub mainが正本。
+2026-11-13 / v79。最初に `00_research_plan.md` と `notes/paper_b_scope_and_transfer.md` を読む。GitHub mainが正本。
 
 ## 完了した移管と担当境界
 
 論文Bから独立した現行成果の移管は完了。nc-cubic2の `papers/relative_reconstruction_models.tex` と既存五稿、専用ノート・validation・manifestが正本。完了した専用ソースを再導入しない。移管先の既存研究や別担当の更新を上書きしない。
 
-Chat側の担当はAのPoisson正規形・量子化、Bの完備MF比較・一般点降下、一次文献・新規性の独立監査と改良。移管完了と全数学的監査の完了を混同しない。
+Chat側の担当はAのPoisson正規形・量子化、Bの完備MF比較・一般点降下、一次文献・新規性の独立監査と改良。Codexの新しい主担当は **nc-cubic2の統合稿の公表向け再構成と、移管で文脈調整された9数学的環境・共有証明の重点監査** である。Codexは本リポジトリのA/B・再帰入力を編集せず、必要な数学的指摘は根拠と参照を付して伝える。ファイル移管のやり直しをしない。移管完了と全数学的監査の完了を混同しない。
 
 ## 厳格な保護
 

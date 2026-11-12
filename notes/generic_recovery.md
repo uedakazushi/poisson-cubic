@@ -1,6 +1,6 @@
 # 一般次元の可換復元：現行論文Bの証明と検証
 
-**2026-11-12 / B-v55。** 最初に `00_research_plan.md` を読む。現行入口は `papers/paper_b.tex`。証明は `papers/generic_recovery/` に置く。
+**2026-11-13 / B-v55（証明本文は不変）。** 最初に `00_research_plan.md` を読む。現行入口は `papers/paper_b.tex`。証明は `papers/generic_recovery/` に置く。
 
 ## 主張の範囲
 
@@ -22,10 +22,10 @@ n>=3、N=n+2。次数別有限自由なR=C[h]_(h)上の中央代数A_Rが特殊�
 
 三次三様体固有の接空間20→10、Plücker二次障害、独立の相対Artin/étale復元、Sklyanin/多ブロック模型、明示混合族・二次jet、point scheme、積分不可能例と有限検査器は主定理の証明に不要なのでBから外した。主証明が使う補題は、その証明だけを抽出して本文内に保持する。
 
-独立成果の移管は未完了であり、証明を削除したわけではない。現在の保存先と残件は `paper_b_scope_and_transfer.md` を参照。旧 `paper_b_proof_audit.md` には独立成果の詳細・障害・計算情報が残るので、現行移管先ノートへの統合が終わるまで削除しない。Bの現在の再開入口は本ノートである。
+独立成果の現行TeX・証明・反例・計算資産の移管は完了し、移管先 `uedakazushi/nc-cubic2` の既存五稿と `papers/relative_reconstruction_models.tex` が正本である。移管元ではA/Bの再帰入力26ファイルを保持し、専用の重複142ファイルを除外した。現在の所在・確認内容と数学的監査の未完了範囲は `paper_b_scope_and_transfer.md` を参照。`paper_b_proof_audit.md` は本稿Bの監査状況の補助資料であり、独立相対模型の詳細は移管先の `notes/relative_reconstruction_models.md` と現行各主題ノートが正本である。Bの証明を再開するときは本ノートから読む。
 
 ## 検証と未実施事項
 
 既存 `.latexmkrc` と同一内容で `latexmk -g -r .latexmkrc papers/paper_b.tex` を実行。全文27頁、11TeXファイル、102ラベル・94参照・37引用・13文献項目、未解決と重複0。全27頁の画像を点検し、切れ・重なりを認めなかった。共通preambleとAは変更していない。
 
-この組版と参照照合は、新しい数学的証明の独立監査ではない。全既存検算、Aの全文再組版、移管側の全引用解決・独立原稿の組版は未実施。包括的新規性調査・外部査読・形式検証も未完。文献の書誌・適用箇所は現行 `papers/generic_recovery/references.tex` および各証明に保持する。
+この組版と参照照合は、数学的証明の独立監査ではない。Bの現在の本文・入力は移管後も変更されておらず、今回Bの再組版や全既存計算の再実行はしていない。移管先の統合稿については244頁の組版・参照検査と29本の有限検算が記録されている（`nc-cubic2/validation_relative_reconstruction_models.json`）。ただしその記録の存在は全証明の独立監査・形式検証・新規性の確定を意味しない。Aの最新版全文組版、Bの全証明の独立監査・包括的新規性調査・外部査読も未完了。文献の書誌・適用箇所は現行 `papers/generic_recovery/references.tex` および各証明に保持する。
