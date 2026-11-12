@@ -1,6 +1,6 @@
 # 研究方針：滑らかなcubicのPoisson moduli stacksと量子化
 
-**2026年11月12日 / v50。再開時は必ず最初に読む。GitHub uedakazushi/nc-cubic のmainが唯一の正本。**
+**2026年11月12日 / v51。再開時は必ず最初に読む。GitHub uedakazushi/nc-cubic のmainが唯一の正本。**
 最上位目標は論文A（papers/paper_a.tex）を投稿可能な水準へ仕上げること。
 現在の数学的最優先課題は、全次元のsmooth cubicにおける
 Poisson構造のspace、固定moduli stack、relative moduli stackの
@@ -18,6 +18,34 @@ Poisson構造のspace、固定moduli stack、relative moduli stackの
 - 投稿監査：notes/poisson_article_submission_audit.md、validation.json
 - 厳密計数再現：computations/verify_poisson_stack_component_counts.py
 - 式番号・引用の静的検査：scripts/verify_article_a_numbering.py
+
+## 論文Aの範囲：一般次元に集中する
+
+論文Aの本体は、任意次元の滑らかな三次超曲面について
+Poisson正規形、退化スキームの一般的生成元とcritical covers、
+Bondal予想、代数的量子化、固定・相対moduli stacksを扱う。
+六・七次元に特化した退化スキームの詳しいprimary分解、
+階数二・四・六の個別表、Hodge/Chern/種数の計算は
+この本体の論理に必要なく、全体の焦点をぼかすので、
+独立草稿として`uedakazushi/nc-cubic2`の
+`papers/poisson_cubic_six_seven_geometry.tex`へまとめた。
+移管先には、主論文の一般退化イデアル・finite flat critical coverと
+零点完全交叉の補題の**証明全文**も持たせてある。
+このため主論文Aの一般定理を移管先参照で代用せずに保持する。
+詳細な現行知識は`nc-cubic2/notes/poisson_cubic_six_seven_geometry.md`。
+七次元rank6のprimary分解・embedded長8,64,49は
+独立研究価値の候補だが、先行研究上の新規性と局所イデアル証明の
+独立監査は未完成。標準的な完全交叉の数値計算だけでは
+論文Aの主定理とは独立に公表価値を主張しない。
+
+本文の移管元を取り除いた後も、一般退化スキームの
+`prop:pg-deg-ideal`、`lem:pg-critical-cover`、
+`prop:pg-deg-support`、`prop:pg-zero-ci`と
+その証明は論文Aに残っている。
+またn=6,7の一般次元量子化への**適用**は
+`general_dimension_universal_quantization.tex`にそのまま残す。
+研究再開ではまず現在の論文Aを読み、
+移管先の副次研究に新しい最優先を勝手に変更しない。
 
 ## Poissonのspace・固定stack・relative stack
 
