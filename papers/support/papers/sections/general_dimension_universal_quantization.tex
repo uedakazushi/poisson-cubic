@@ -208,9 +208,10 @@ $\Omega$の左右正則性には
 第一ブロック$x_1$の次数を数え、
 他のactive変数と$u$のfiltration次数を零とする。
 $\operatorname{gr}_{x_1}A_{\boldsymbol a}
-\simeq S_{1,a_1}\otimes_\CC
- A_{\mathrm{rest},\boldsymbol a}$
-（共通中心変数に関して$R$を介したテンソル）
+\simeq
+ (S_{1,a_1}\otimes_\CC R)
+ \otimes_R A_{\mathrm{rest},\boldsymbol a}
+ \simeq S_{1,a_1}\otimes_\CC A_{\mathrm{rest},\boldsymbol a}$
 が得られる。
 $\Omega_{1,a_1}$のactive次数三の最高記号は、
 $\boldsymbol a=\boldsymbol0$で$g_1\ne0$なので、
@@ -244,6 +245,45 @@ $\Omega_{\boldsymbol\eta}\bmod\boldsymbol\eta=F$から、
 原点での一次Poisson括弧が$q_s$であることが分かる。
 $\eta_s=\lambda_s\hbar$による底変更が
 全ての方向を同時に実現する。
+\end{proof}
+
+\begin{corollary}[Poisson線形族の零切断近傍での一様量子化]
+\label{cor:pg-ad-whole-pencil}
+定理\ref{thm:pg-all-dimensions}の$k$次元Poisson線形族
+$L=\langle\pi_1,\ldots,\pi_k\rangle$に対して、
+\[
+ \mathscr U=
+ \{(\boldsymbol\lambda,\hbar)\in
+ \mathbb A^k_{\boldsymbol\lambda}\times\mathbb A^1_\hbar:
+ (\lambda_1\hbar,\ldots,\lambda_k\hbar)\in\mathcal U\}
+\]
+とおく。
+$\mathscr U$は\emph{全ての}
+$(\boldsymbol\lambda,0)$を含むZariski開集合であり、
+$\mathcal A_{\boldsymbol\eta},\Omega_{\boldsymbol\eta}$
+を$\eta_s=\lambda_s\hbar$で引き戻した族は、
+全線形空間$L$の各Poisson構造に対する
+一変数量子化を一つの代数的族として与える。
+量子化の中心三次元は
+\[
+ \Omega_{\boldsymbol\lambda,\hbar}
+ =\sum_{s=1}^k\Omega_{f_s,\lambda_s\hbar}
+\]
+であり、全$\boldsymbol\lambda$について
+$\hbar=0$で$F$となる。
+$\lambda_s=0$を含む全ての部分線形空間にも
+同じ式が制限される。
+\end{corollary}
+\begin{proof}
+写像
+$(\boldsymbol\lambda,\hbar)\mapsto
+(\lambda_1\hbar,\ldots,\lambda_k\hbar)$は代数的で、
+その$0$切断は全て$\boldsymbol\eta=0$へ写る。
+従って$\mathcal U$の逆像は指定の開集合であり、
+定理\ref{thm:pg-all-dimensions}の局所自由性・正則性・
+中心性を底変更によって保つ。
+原点での一次交換子は$\sum_s\lambda_s q_s$なので
+$\pi_{\boldsymbol\lambda}$の量子化となる。
 \end{proof}
 
 \begin{corollary}[一般次元での全方向の有限Hessian公式]
