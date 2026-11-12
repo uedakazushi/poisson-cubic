@@ -1,7 +1,7 @@
 {
   "date": "2026-11-12",
-  "paper_version": "B-v48",
-  "repository_version": "v64",
+  "paper_version": "B-v49",
+  "repository_version": "v65",
   "canonical_entry": "papers/paper_b.tex",
   "mathematics": {
     "input": "Actual degreewise finite-free central cubic deformation of a polynomial algebra with smooth commutative cubic special fiber. The generic theorem uses a regular local algebraic base; the complete formal comparison allows a general complete noetherian local C-algebra with residue C.",
@@ -146,6 +146,9 @@
     ],
     "mathematicalStatementChanges": "none; only context/terminology/remarks and prose proof organization",
     "fullPaperBuild": "NOT RUN",
-    "fullRecursiveRefs": "NOT RUN"
+    "fullRecursiveRefs": "NOT RUN",
+    "thirdPass": "Distinguished full formal MF construction vs its one-parameter variant and explicit second-order formula; removed repeated moduli/tangent-scope remarks without deleting their labels or mathematical statements; replaced stale proof-audit phrases in the manuscript.",
+    "modifiedMathResults": false,
+    "fullRecursiveAudit": "NOT RUN"
   }
 }

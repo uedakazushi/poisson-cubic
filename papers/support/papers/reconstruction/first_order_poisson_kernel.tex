@@ -1,4 +1,4 @@
-% 2026-11-12 / B-v44: first-order cancellation, independently of the all-orders transport.
+% First-order cancellation, quadratic obstructions, and categorical tangent map.
 \section{一次の非可換変形と可換模型の接空間}
 \label{fpk:sec:first-order}
 
@@ -291,16 +291,15 @@ $\operatorname{Gr}(3,5)$の次元は$3(5-3)=6$なので
 錐の次元は$7$、零点では全五式の一次微分が零で接空間は$10$次元である。
 \end{proof}
 
-\begin{remark}[既知結果と本研究への意味]
+\begin{remark}[Pl\"ucker障害の射程]
 \label{fpk:rem:plucker-scope}
-滑らかなcubic threefoldのPoisson構造のGrassmannian表示は
+滑らかな三次三様体のPoisson構造とGrassmannianの対応は
 既知の研究\cite{PMayanskiy}と整合する。
-ここで新たに整理したのは、一次中心三次対の変形から二次Hochschild障害へ
-進む際に、この五つの二次式が\emph{イデアルとして過不足なく}現れる
-直接的な証明である。この説明自体の初出は未確認である。
-一次接空間の次元$20$、固定$F$における二次障害錐の次元$7$、$F$も動かした局所次元$17$を区別する。
-後者の全高次の形式局所環との一致や、非零Poisson点での
-categoricalな忘却射の核の同定は、別途検証する必要がある。
+上の定理は、その対応を\emph{結合積の二次延長障害の係数イデアル}として
+直接記述するものである。
+この記述の先行研究における初出は未確認である。
+障害の零スキームを同定したことだけから、
+中心元も含む対の全高次形式変形関手を同定したとは結論しない。
 \end{remark}
 
 
@@ -369,23 +368,20 @@ $\eta:H^1(T_X)\to HH^2(\operatorname{Ku}(X))$が同型であることを示す�
 rotationを忘れずに扱うモジュライstack全体の接空間と
 自動的に同一視したものではない。
 \end{proof}
-\begin{remark}[一般の17次元族と区別すべき点]
+\begin{remark}[圏論的微分と相対復元]
 \label{fpk:rem:categorical-scope}
-上の完全列は\emph{可換点における}微分を計算する。
-Poisson錐の頂点では一次Poisson方向は$10$次元で、
-二次障害でPl\"ucker錐の$7$次元に減る。
-非零Poisson一般点での可換模型への相対的な写像が
-$17$次元から$10$次元への優越射を与えるか、
-またその微分の核が$7$次元かを示すには、
-nc-cubic2の17次元族と本稿の曲率付き復元との相対照合が必要である。
-今回の可換点の微分だけからそれを結論しない。
+完全列\eqref{fpk:eq:categorical-exact}は\emph{可換点での}
+基礎dg圏の変形接空間に関するものである。
+非零Poisson一般点に沿う忘却射の微分を記述するには、
+相対的な可換復元、中心元の標識とKodaira--Spencer写像の比較を
+さらに必要とする。これは可換点の計算とは別の問題である。
 \end{remark}
 
-\begin{remark}[17次元族と可換moduliの関係]
+\begin{remark}[モジュライの局所次元と接空間]
 \label{fpk:rem:moduli}
-$cubic\ threefold$の次数三Jacobian空間の次元は$10$である。
-ここでは\emph{非零Poisson一般点の次元}と
-\emph{可換点のZariski接空間}を区別する。
+滑らかな三次三様体では$\dim\operatorname{Jac}(F)_3=10$である。
+これに対し、\emph{非零Poisson一般点の次元}と
+\emph{可換点でのZariski接空間}は異なる。
 固定した滑らかな五変数三次式に対するPoisson錐はPl\"ucker錐であり、
 非零分解可能な一般点では$1+\dim\operatorname{Gr}(2,5)=7$次元である。
 一方、錐の頂点では全てのPl\"ucker方程式が二次式なので、
@@ -396,9 +392,7 @@ Zariski接空間は$\bigwedge^3\mathbb C^5$の全$10$次元となる。
 本節の二次障害計算はその差を直接説明するが、
 対の\emph{全高次}形式局所環の同定をこの計算だけから結論しない。
 
-圏論的変形への一次写像の核は
-定理\ref{fpk:thm:categorical-tangent}で$10$次元と同定する。
-これは可換点の結論であり、一般の非零Poisson点での
-$7$次元核を示すものではない。後者には17次元族の
-Kodaira--Spencer写像と相対的な比較が必要である。
+定理\ref{fpk:thm:categorical-tangent}の完全列は可換点での核が
+$10$次元であることを示すが、非零Poisson一般点での核の次元は与えない。
+後者については注意\ref{fpk:rem:categorical-scope}を参照されたい。
 \end{remark}

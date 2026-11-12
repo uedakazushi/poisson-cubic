@@ -1,6 +1,6 @@
 # 論文B：完備曲率付き比較と一般点可換復元
 
-**2026-11-12 / B-v48。** 再開は `00_research_plan.md`。主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、形式比較の証明は `complete_curved_transport.tex`、局所比較は `three_object_window.tex`、基礎体降下は `generic_cubic_descent.tex`（同じディレクトリ）。
+**2026-11-12 / B-v49。** 再開は `00_research_plan.md`。主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、形式比較の証明は `complete_curved_transport.tex`、局所比較は `three_object_window.tex`、基礎体降下は `generic_cubic_descent.tex`（同じディレクトリ）。
 
 ## 現在の結論と適用範囲
 
@@ -16,7 +16,8 @@
 
 ## 支持節の現行位置付け
 
-局所windowの`three_object_window.tex`は(L)を構成し、比較のための固定三対象条件を独立の十分条件として記録する。その条件を与える完備MF関手は`complete_curved_transport.tex`に構成済みであり、条件付きの命題と主定理の追加仮定を混同しない。`generic_cubic_descent.tex`の多変数条件付き命題は独立の十分条件として保持するが、現行の正則局所中心三次入力では(L),(CF)が適用できる。`rotation_orbit_generic_reconstruction.tex`のStevensonによる別証明と`coherent_residual_saturation.tex`の有限性の議論は、公表本文で作業経緯ではなく数学的な依存として述べる。全coherentへ進むためのsmoothnessと有限降下の独立監査はなお必要。
+局所windowの`three_object_window.tex`は(L)を構成し、比較のための固定三対象条件を独立の十分条件として記録する。その条件を与える完備MF関手は`complete_curved_transport.tex`に構成済みであり、条件付きの命題と主定理の追加仮定を混同しない。`generic_cubic_descent.tex`の多変数条件付き命題は独立の十分条件として保持するが、現行の正則局所中心三次入力では(L),(CF)が適用できる。
+一変数形式比較 `formal_cubic_mf_reconstruction.tex` は、完備MF比較 `complete_curved_transport.tex` と同じ結論への別の構成であり、独自の二次明示式を含む。役割を明確化するため主節にその旨を追記した。Poisson一次方向・Plücker二次障害・categorical KSの結末の注意は、可換点と非零一般点の区別を一箇所に整理している。`rotation_orbit_generic_reconstruction.tex`のStevensonによる別証明と`coherent_residual_saturation.tex`の有限性の議論は、公表本文で作業経緯ではなく数学的な依存として述べる。全coherentへ進むためのsmoothnessと有限降下の独立監査はなお必要。
 
 ## 形式比較の論理と確認点
 
