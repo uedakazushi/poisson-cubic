@@ -1,21 +1,13 @@
 # 論文B：一般次元のrotation付き可換復元
 
-**2026-11-12 / B-v41。** 再開時は `00_research_plan.md`、次に `notes/paper_b_proof_audit.md` を読む。
+**2026-11-12 / B-v42。** 再開は `00_research_plan.md`、続いて `notes/paper_b_proof_audit.md`。
 
-現行主定理 `gdr:thm:generic` は `papers/paper_b.tex` から入力する `papers/support/papers/reconstruction/general_dimension_recovery.tex` にある。方程式の定義体と圏同値の定義体を分ける。新しい一般点の証明と仮定整理は同ディレクトリの `generic_cubic_descent.tex`。
+主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex` の `gdr:thm:generic`。新しい `three_object_window.tex` の `tw:thm:window` が、次数別有限自由・滑らかな可換特殊ファイバー・中心三次元という代数的入力から(L)を構成する。一般点AS正則性も独立仮定ではない。
 
-## 現行の結論
+残る比較条件は `tw:def:CF3` の(CF_3)：完備底上のK,K(1),K(2)から可換側E,E(1),E(2)への実際のunital A∞比較。全Hom複体・高次積・内部shift・中心元由来の周期性を含む。全MF比較(CF)は十分条件として保持する。これらの曲率付き関手と逆関手の全独立監査は未完了。
 
-代数的・次数別有限自由な中心三次対の滑らかな可換特殊ファイバーと、実際の局所window/proper模型(L)、完備graded MF同値(CF)を仮定する。一般点ambientのAS正則性はflat入力から従う。元の体K=C(h)上のsmooth cubic Yと、有限拡大K'/K上の全coherent残余pair同値を得る。模型は全n>=3で幾何学的に一意。幾何学的一般点で任意の非零対象とその二つのrotationの直和の生成時間は2(n+2)(n+3)-1以下（BFKの既知結果）。
+条件の下で、K=C(h)上のsmooth cubic模型、有限拡大上の全coherent残余pair同値、全n>=3での幾何学的一意性、非零対象の三rotation和の生成段数2(n+2)(n+3)-1以下を得る。方程式と同値核の定義体を分ける。全射影化の導来同値、K上の模型の一意性、特殊点込み相対同値、全nc cubicの無条件復元は主張しない。
 
-主経路は固定三対象比較→Euler非零性→BFK生成→有限降下→coherent飽和→低Nat底変更→K上の勾配積分。(CF)全体の代替として `gcd:prop:three-object` のenhanced比較でも十分。単なるcohomology次元や積表の一致は代替にならない。
+最短経路は三対象window→CF_3→Euler非零性→BFK→有限降下→coherent飽和→低Nat体拡大→K上の勾配積分。(D)は既知の混合λ=1の明示式を指定する別の入力。多変数正則局所基底の(L)も同じ証明で得るが、CF_3と接着は別課題。
 
-## 残る核心
-
-(L),(CF)の全enhancement・coherent inverse・底変更・periodicityの独立監査は未完。具体的な既知混合多項式の指定には(D)を使うが、一般存在には不要。有限拡大を同値側から取り除くこと、特殊点で正則な模型、同値核の行列、全モジュライへの接着は未証明。
-
-多変数正則局所基底では同じ(L),(CF)の下で分数体上の結論を得る。多変数のKoszul消去の代数部分は証明したが、その事実だけで全族のMF比較が成立したとは扱わない。
-
-## 再現
-
-`latexmk papers/paper_b.tex`（全文組版）、`python3 computations/verify_generic_cubic_descent.py`（可換入力の有限線形代数）。実施範囲は `validation_paper_b.json`。先行研究と証明監査の詳細は `notes/paper_b_proof_audit.md` に集約する。
+既存の全MF・相対Artin・finite descent・coherent飽和・有限積分・point schemeの有効な証明は主原稿の支持節に保持する。詳細な証明状態・文献位置・反例は監査ノート、実際の計算・組版の状態は `validation_paper_b.json` を参照する。

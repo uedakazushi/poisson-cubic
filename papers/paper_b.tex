@@ -1,31 +1,35 @@
 % !TEX root = paper_b.tex
-% 2026-11-12 / paper B v41. Supporting sources: papers/support/papers/.
+% 2026-11-12 / paper B v42. Supporting sources: papers/support/papers/.
 \makeatletter
 \def\input@path{{papers/support/}}
 \makeatother
 \input{papers/common}
-\hypersetup{pdftitle={中心三次非可換超曲面の可換復元と基礎体上の模型}}
+\hypersetup{pdftitle={中心三次非可換超曲面の可換復元と三対象window}}
 \title{一般次元の中心三次非可換超曲面の可換復元\\
-\large 基礎体上の模型・rotation軌道・全coherent残余圏}
+\large 三対象window・基礎体上の模型・全coherent残余圏}
 \author{}
-\date{2026年11月12日・論文B（研究草稿 v41）}
+\date{2026年11月12日・論文B（研究草稿 v42）}
 \fancyhead[L]{\small 中心三次非可換超曲面と可換復元}
-\fancyhead[R]{\small 2026-11-12 / B-v41}
+\fancyhead[R]{\small 2026-11-12 / B-v42}
 \begin{document}
 \maketitle
 \begin{abstract}
 $n\ge3$について、滑らかな三次超曲面の代数的・次数別flatな中心三次非可換変形を考える。
-局所proper/window模型(L)と実際の完備graded matrix-factorization同値(CF)の下で、
+局所proper/window比較(L)を代数的入力から構成し、
+線束生成残余圏を原点のstabilizationの三つのshiftで表示する。
+証明は完備Homの有限縮約、dg section--window、有限長filtrationからなり、
+特殊ファイバーの生成性を一般点へ持ち上げる議論を使わない。
+その固定三対象の実際の形式的比較(CF$_3$)の下で、
 元の体$K=\mathbb C(h)$上に滑らかな可換cubic模型を構成し、有限拡大後に
 そのKuznetsov成分と非可換超曲面の全coherent残余圏とのrotation付きMorita同値を得る。
+全MF比較(CF)は(CF$_3$)の十分条件である。
 一般点のAS正則性は次数別Koszul持上げから従い、独立の仮定ではない。
 存在を先に確立した後、smoothnessに基づく低rotation積の底変更と有限の可積分性を用いて
 方程式だけを基礎体へ降ろす。同値核の基礎体への降下とは区別する。
-模型の幾何学的一意性は$n=3$も含めて成立する。
-BFKの既知の生成定理により、幾何学的一般点の任意の非零対象とその二つのrotationの直和は、
-生成段数$2(n+2)(n+3)-1$以下のstrong generatorとなる。
-同じ比較条件を課した多変数正則局所基底にも一般点の議論を拡張する。
-(L),(CF)の構成は本文にあるが、全依存の独立再監査は完了していない。
+模型の幾何学的一意性は$n=3$も含めて成立し、BFKの既知の生成定理から、
+任意の非零対象とその二つのrotationの直和に生成段数$2(n+2)(n+3)-1$の上界を得る。
+(L)の構成は正則多変数局所基底でも成立するが、
+(CF$_3$)の曲率付き関手・逆関手・周期比較の全独立監査は未完了である。
 五変数混合族の明示式には追加の対角比較(D)を使う。
 全nc cubicへの無条件の適用、特殊点を含む相対同値、全射影化の導来同値は主張しない。
 \end{abstract}
@@ -34,18 +38,20 @@ BFKの既知の生成定理により、幾何学的一般点の任意の非零�
 \section*{主題と結果の射程}
 中心三次商$B=A/(\Omega)$のrotation付き残余pairについて、幾何学的な可換模型の存在、
 その方程式の定義体、同値双加群の定義体を分けて扱う。
-主経路は、固定三対象の比較、既知のshift軌道生成、perfect核の有限降下、
-coherent飽和、低rotation積からの基礎体上の方程式抽出である。
+主経路は、代数的な三対象window、固定三対象の形式比較、既知のshift軌道生成、
+perfect核の有限降下、coherent飽和、低rotation積からの基礎体上の方程式抽出である。
+完備化はHom複体を有限縮約するために使い、関手をArtin同値の逆極限からは作らない。
 具体的な低積の行列を先に計算することは、一般点での存在証明の前提としない。
 局所模型・形式比較・相対障害・明示族の有効な既存証明は全て保持する。
-後半の各節の結果はその節固有の仮定の下で読み、主定理を無条件に強めるものとしない。
-生成性とTorelliに用いる既知結果、その組合せによる本稿の帰結、新規性未確認の部分を区別する。
+後半で(L)を入力とする結果には本稿の三対象window定理を適用できる。
+(CF)の全構成の記載と、その固定三対象での完全な独立監査を区別する。
 
 \input{papers/reconstruction/general_dimension_recovery}
 \input{papers/reconstruction/generic_cubic_descent}
 
 \part{一般次元の復元定理を支える構成}
 \input{papers/sections/local_projective_model}
+\input{papers/reconstruction/three_object_window}
 \input{papers/reconstruction/formal_cubic_mf_reconstruction}
 \input{papers/reconstruction/artin_residual_mf_comparison}
 \input{papers/reconstruction/rotation_orbit_generic_reconstruction}

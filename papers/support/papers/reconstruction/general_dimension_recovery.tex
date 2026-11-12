@@ -1,4 +1,4 @@
-% 2026-11-12 / B-v41: current generic theorem and precise proof inputs.
+% 2026-11-12 / B-v42: (L) is proved; only the fixed-three-object formal comparison is assumed.
 \section{一般次元の中心三次非可換超曲面と主定理}
 \label{gdr:sec:main}
 
@@ -8,7 +8,7 @@ $R=\mathbb C[h]_{(h)}$、$\widehat R=\mathbb C[[h]]$、
 $K=\mathbb C(h)$、$L=\mathbb C((h))$とする。
 $A_R=\bigoplus_{j\ge0}(A_R)_j$を中央$R$代数で、$(A_R)_0=R$、
 各$(A_R)_j$は有限自由、かつ次数付き代数として
-$A_R/hA_R\simeq \mathbb C[x_1,\ldots,x_N]$とする。
+$A_R/hA_R\simeq\mathbb C[x_1,\ldots,x_N]$とする。
 $\Omega_R\in Z(A_R)_3$の剰余を滑らかな三次式$F$とし、
 $B_R=A_R/(\Omega_R)$と置く。
 この代数的・次数別flat入力は維持する。形式的近傍だけから
@@ -37,34 +37,39 @@ $\mathcal C_B=\operatorname{thick}\{\mathcal O_B(j):j\in\mathbb Z\}
 とする。enhancementと冪等完備化を用いる。
 $\mathcal K^{\rm lin}=\mathcal K^{\rm coh}$は定義ではなく、後に証明する結論である。
 
-\subsection{二つの比較条件}
-\begin{description}
-\item[(L)] 定義\ref{lp:def:input}の局所模型と
-命題\ref{am:prop:Gamma-basechange}のstabilization/window比較が適用できる。
-原点のstabilizationを$K_R$、$T_R=K_R\oplus K_R(1)\oplus K_R(2)$として、
-$\Gamma_R=R\operatorname{End}(T_R)$は$R$-perfectで
-$\mathcal K_{B_R}^{\rm lin}\simeq\operatorname{Perf}(\Gamma_R)$を表す。
-Hom、内部shift、三次周期比較は$\widehat R,L$への底変更と両立する。
-\item[(CF)] 剰余で恒等となり、内部shiftと$(3)\simeq[2]$を保つ
-実際の完備係数上の有限rank graded MFの$A_\infty$同値
+\subsection{確立した局所比較と残る形式条件}
+局所比較(L)は本稿の\emph{追加仮定ではない}。
+定理\ref{tw:thm:window}は上の代数的入力から、
+$K_R=\operatorname{stab}(R)$、$T_R=K_R\oplus K_R(1)\oplus K_R(2)$について
+$\mathcal K^{\rm lin}_{B_R}\simeq\operatorname{Perf}(R\operatorname{End}(T_R))$を構成する。
+生成代数は$R$-perfectであり、Homの底変更、rotation、
+中心元$\Omega$に由来する三次周期比較は整合する。
+この証明はMFのHomの完備縮約、dg section--window、有限長filtrationを使い、
+形式的MF比較を使わない。
+
+残る条件は定義\ref{tw:def:CF3}の\textup{(CF$_3$)}とする。
+これは完備底上で固定した三つの$K_{\widehat R}(j)$を、
+ある滑らかな形式三次式$W_h$の三つの$E(j)$へ送る実際の
+unital $A_\infty$比較であり、全Hom複体、高次積、内部shift、三次周期性を保つ。
+$E\bmod h\simeq K_F$を要求する。
+従来の全MF比較\textup{(CF)}、すなわち剰余で恒等となる
 \begin{equation}\label{gdr:eq:cf}
  \operatorname{MF}^{\mathbb Z}(A_{\widehat R},\Omega_{\widehat R})
- \simeq\operatorname{MF}^{\mathbb Z}(\widehat R[x_1,\ldots,x_N],W_h)
+ \simeq\operatorname{MF}^{\mathbb Z}(\widehat R[x_1,\ldots,x_N],W_h),
+ \qquad W_h\bmod h=F
 \end{equation}
-がある。$W_h\in\widehat R[x]_3$、$W_h\bmod h=F$である。
-両立するArtin同値の列だけを(CF)と呼ばない。
-\end{description}
+は、内部shiftと$(3)\simeq[2]$を保つなら(CF$_3$)の十分条件である。
+両立するArtin同値の列だけを、実際の完備関手と呼ばない。
 
-(L)と(CF)の構成は第\ref{lp:sec:main}節、
-第\ref{am:sec:comparison}節、定理\ref{fo:thm:formal-reconstruction}、
-系\ref{fo:cor:complete-graded}に記載されている。
-ただし全依存の独立監査は未完了であり、本稿の主定理はこれらを明示的な入力とする。
+全MF比較の構成は定理\ref{fo:thm:formal-reconstruction}と
+系\ref{fo:cor:complete-graded}に記載されているが、
+その曲率付き関手、逆関手、周期比較の全依存の独立監査は未完了である。
 一般点のAS正則性は命題\ref{gcd:prop:automatic-as}により
-上の次数別flat入力から従うため、独立の追加仮定にはしない。
+次数別flat入力から従い、独立の追加仮定にはしない。
 
 \begin{theorem}[基礎体上の模型とrotation付き全coherent可換復元]
 \label{gdr:thm:generic}
-上の代数的中心三次対に対し、(L),(CF)を仮定する。
+上の代数的中心三次対に対し、\textup{(CF$_3$)}を仮定する。
 このとき幾何学的に滑らかな三次超曲面
 $Y=V(G)\subset\mathbb P^{n+1}_K$を\emph{元の体$K=\mathbb C(h)$上に}取れて、
 ある有限拡大$K'/K$について
@@ -72,7 +77,7 @@ $Y=V(G)\subset\mathbb P^{n+1}_K$を\emph{元の体$K=\mathbb C(h)$上に}取れ�
  (\mathcal K^{\rm coh}_{B_{K'}},\rho_B)
  \simeq(\operatorname{Ku}(Y_{K'}),\rho_Y)
 \end{equation}
-となる。同値は指定された三次周期比較を保つMorita同値である。
+となる。同値は中心元からの三次周期比較を保つMorita同値である。
 さらに以下が成立する。
 \begin{enumerate}
 \item $D^b(\operatorname{qgr}B_K)$はsmooth properで、
@@ -82,7 +87,7 @@ $\bigoplus_{j=0}^{N-1}\mathcal O_B(j)$が古典的生成対象である。
 \item 代数閉包$\overline K$上で任意の非零$M\in(\mathcal K^{\rm coh}_{B_K})\otimes_K\overline K$に対し、
 \begin{equation}\label{gdr:eq:uniform-bound}
  \operatorname U(M\oplus\rho_BM\oplus\rho_B^2M)
- \le 2(n+2)(n+3)-1
+ \le2(n+2)(n+3)-1
 \end{equation}
 である。段数零は有限直和、shift、直和因子のみを許す規約とする。
 \end{enumerate}
@@ -90,10 +95,11 @@ $\bigoplus_{j=0}^{N-1}\mathcal O_B(j)$が古典的生成対象である。
 \begin{proof}
 命題\ref{gcd:prop:automatic-as}により、$A_K$は左右noetherian Koszul AS正則で
 次元とparameterは$N$、$\Omega$は正則である。
-(L)の三対象に(CF)を制限し、固定されたHom複体を$L$へ局所化する。
-この順序により、任意のLaurent係数対象へ未定義の無限Taylor和を評価しない
-（補題\ref{rog:lem:localization}）。像は
-$E_L,E_L(1),E_L(2)$のthick閉包である。
+定理\ref{tw:thm:window}で得た三対象に(CF$_3$)を適用し、
+固定されたHom複体を$L$へ局所化する。
+この順序により、任意のLaurent係数対象へ未定義の無限Taylor和を評価しない。
+像は$E_L,E_L(1),E_L(2)$のthick閉包である
+（補題\ref{rog:lem:localization}の固定対象の議論）。
 
 命題\ref{rog:prop:euler}は特殊ファイバーで
 \begin{equation}\label{gdr:eq:euler}
@@ -101,8 +107,9 @@ $E_L,E_L(1),E_L(2)$のthick閉包である。
  (-1)^s\binom Ns,\qquad
  \sum_{r=0}^2\chi_r^2=2\cdot3^{N-1}>0
 \end{equation}
-を与える。(L)のproper性によってEuler数が一般点でも保たれるので、$E_L\ne0$である。
-$W_h$は滑らかな特殊ファイバーを持つため、$L$上も滑らかな射影cubicを定める。
+を与える。補題\ref{tw:lem:proper-hom}のproper性によってEuler数は一般点でも保存され、
+$E_L\ne0$である。$W_h$は滑らかな特殊ファイバーを持つため、
+$L$上も滑らかな射影cubicを定める。
 $L$の代数閉包$\overline L$へ底変更すると、
 BFKの既知定理の帰結である命題\ref{gcd:prop:bound}を直接適用できる。
 従って三shiftの像は全可換graded MFを生成し、Orlov比較から
@@ -141,10 +148,9 @@ coherent飽和（定理\ref{crs:thm:coherent}）を適用すると第一項を�
 \end{proof}
 
 \subsection{計算できる模型と適用範囲}
-
 \begin{corollary}[五変数混合族の明示的復元]\label{gdr:cor:mixed}
 $n=3$で既存の$\lambda=1$の混合一変数量子化を考え、
-(L),(CF)に加え有限対角・乗法的characteristic比較(D)を仮定する。
+(CF)と有限対角・乗法的characteristic比較(D)を仮定する。
 このとき主定理の可換模型は
 \begin{equation}\label{gdr:eq:mixed}
 \begin{aligned}
@@ -159,26 +165,28 @@ $n=3$で既存の$\lambda=1$の混合一変数量子化を考え、
 系\ref{gr:cor:formal-polynomial}が形式的$W_h$と
 式\eqref{gdr:eq:mixed}の形式線形同型を与える。
 これを$L$へ移してから系\ref{rog:cor:mixed}の有限拡大への降下と
-coherent飽和を適用する。この式の特定には(D)を使うが、一般模型の存在には使わない。
+coherent飽和を適用する。(L)は定理\ref{tw:thm:window}による。
+この式の特定には(D)を使うが、一般模型の存在には使わない。
 \end{proof}
 
 \begin{remark}[多変数と局所基底]
-論文Aの独立パラメータ量子化に対しても、正則局所基底上で(L),(CF)を確認すれば、
-命題\ref{gcd:prop:multibase}がその分数体上の同じ結論を与える。
-この条件付き一般化は、全Poisson moduli上の比較の接着、
-一つの有限被覆での一様復元、特殊点を含む相対同値を意味しない。
+正則多変数局所基底でも定理\ref{tw:thm:window}が(L)を与える。
+その完備底で(CF$_3$)を確認すれば、命題\ref{gcd:prop:multibase}と同じ
+一般点の議論が適用される。全MF比較(CF)はここでも十分条件である。
+全Poisson moduli上の比較の接着、一つの有限被覆での一様復元、
+特殊点を含む相対同値を意味しない。
 $Y/K$の方程式も$h=0$で正則であることは保証していない。
 また全射影化の導来圏$D^b(\operatorname{qgr}B)$と$D^b(\operatorname{coh}Y)$の同値は主張しない。
 \end{remark}
 
 \subsection{証明の依存と次の監査}
-主経路は、局所proper模型と固定三対象の比較、幾何学的一般点での既知の生成定理、
-perfect核の有限降下、coherent飽和、基礎体上の低積の積分である。
-全てのLaurent対象に形式関手を評価すること、特殊ファイバーの生成性だけから
-一般点生成性を導くこと、完備底全体のcompact逆核を先に作ることは不要である。
+局所proper模型と三対象windowは代数的入力から構成し、
+一般点での既知の生成、有限降下、coherent飽和、基礎体上の積分を順に用いる。
+完備化はHomの縮約に使い、関手の構成をArtin同値の逆極限へ還元しない。
+元の(L)を仮定する支持節は、この確立した結論を入力する補題として読む。
 
-原稿に証明があるが全依存の独立監査が未完の核心は、
-(L)のrelative stabilization/windowの実際のenhancementと底変更、
-(CF)の全Hochschild cochainからの曲率比較および完備functorの相互逆性である。
-低積の計算と一般の有限対角比較(D)は、明示模型を指定する別の課題とする。
-本節の強化は、これらの未監査箇所を無条件に解決したという主張ではない。
+残る主要な比較条件は(CF$_3$)である。
+定理\ref{fo:thm:formal-reconstruction}の全Hochschild cochainからの曲率比較を
+固定三対象へ制限し、実際のunital関手、逆関手、周期比較を監査することを優先する。
+本節はその未監査の全構成を無条件に保証しない。
+低積と(D)の明示計算は、模型を具体的な係数で指定する別の課題である。

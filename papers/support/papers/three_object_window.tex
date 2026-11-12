@@ -1,0 +1,47 @@
+% !TEX root = three_object_window.tex
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage[margin=23mm,headheight=16pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage[unicode,hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{remark}[theorem]{注意}
+\renewcommand{\proofname}{証明}
+\numberwithin{equation}{section}
+\setlength{\emergencystretch}{2em}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small 三対象windowと局所比較}
+\fancyhead[R]{\small 2026-11-12 / B-v42}
+\fancyfoot[C]{\thepage}
+\makeatletter
+\def\input@path{{papers/support/}}
+\AtBeginDocument{\let\originalref\ref
+\renewcommand{\ref}[1]{\ifcsname r@#1\endcsname\originalref{#1}\else\texttt{\detokenize{#1}}\fi}}
+\makeatother
+\title{三つのstabilizationによる局所残余圏の表示\\\large 論文Bの局所比較仮定の除去}
+\author{}
+\date{2026年11月12日 / B-v42・証明抜粋}
+\begin{document}
+\maketitle
+\noindent 本文外の節への参照はラベル名で表示する。原稿全体の正本は
+\texttt{uedakazushi/nc-cubic}の\texttt{papers/paper\_b.tex}である。
+本抜粋の組版と、論文B全文の組版・全証明の独立監査は別の検証である。
+\input{papers/reconstruction/three_object_window}
+\begin{thebibliography}{9}
+\bibitem{LP-BS}
+J. Burke and G. Stevenson,
+\emph{The derived category of a graded Gorenstein ring},
+arXiv:1507.00830v1 (2015).
+Proposition 4.18, Lemmas 6.1--6.2, Theorem 6.4.
+\url{https://arxiv.org/abs/1507.00830}.
+\bibitem{AMChen}
+X.-W. Chen, \emph{Module factorizations},
+arXiv:2402.11613v3 (27 August 2025), Theorem 7.2。
+\url{https://arxiv.org/abs/2402.11613}.
+\input{papers/reconstruction/three_object_window_references}
+\end{thebibliography}
+\end{document}

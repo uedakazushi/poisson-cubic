@@ -1,21 +1,23 @@
 # AGENTS.md — nc-cubic 現行研究・開発指針
 
-**2026-11-12 / v57。** GitHub mainが正本。必ず `00_research_plan.md` を最初に読む。
+**2026-11-12 / v58。** GitHub mainが正本。最初に `00_research_plan.md` を読む。
 
-## 現行原稿と証明の優先順位
+主原稿はA `papers/paper_a.tex` とB `papers/paper_b.tex` の二本。支持節は `papers/support/papers/`。AはPoisson幾何・量子化、Bは一般点のrotation付き全coherent可換復元。17次元モジュライ・ambient周期性はnc-cubic2に保持する。
 
-主原稿はA `papers/paper_a.tex` とB `papers/paper_b.tex` の二本のみ。支持ソースは `papers/support/papers/`。AはPoisson構造・量子化、Bは一般点のrotation付き全coherent可換復元を扱う。17次元モジュライとambient周期性はnc-cubic2に保持する。
+## 論文Bの現在の依存と最優先
 
-論文B-v41の主定理は `general_dimension_recovery.tex`、新しい証明の核は `generic_cubic_descent.tex`（いずれもpapers/support/papers/reconstruction/）。監査は `notes/paper_b_proof_audit.md`。一般点AS正則性はflat入力の帰結。方程式の模型はK=C(h)上、圏同値は有限拡大後。幾何学的一意性は全n>=3。BFK Theorem 5.15の既知の生成上界を使い、一般生成定理の新規性を主張しない。
+B-v42の `three_object_window.tex` が代数的入力から(L)を証明する。完備Homの有限縮約→正則局所基底へのproper性降下→実際のdg section/window→剰余Hom比較への導来Nakayama→有限長filtrationによる三対象の像→rotationと中心元からの三次周期性、という順序である。CFをこの証明の入力に戻さない。
 
-**最短経路**：固定三対象のenhanced比較→Euler非零性→代数閉包上のBFK生成→perfect核の有限降下→coherent飽和→低Nat底変更→K上の可積分勾配空間。全MF同値(CF)の代替となる固定三対象条件 `gcd:prop:three-object` を優先監査する。相対window/stabilizationとrotation・三次周期図式を確認する。
+主定理の残る比較条件は(CF_3)：完備底上のK,K(1),K(2)から可換MFのE,E(1),E(2)へのunital A∞ quasi-equivalenceで、全Hom・高次積・内部shift・周期比較を保つ。全MF同値(CF)は十分条件。次はformal_cubic_mf_reconstructionとcurved_gauge_comparisonの構成を固定三対象に制限し、実際の関手・逆・収束・周期図式を監査する。ここは全独立監査未完であり、一般nc cubicの無条件復元と呼ばない。
 
-(L),(CF)の全独立監査は未完であり、一般の全nc cubicへ無条件に適用しない。(D)は明示式を指定する追加条件。低積の次元や有限可積分性だけで圏同値を主張しない。特殊点の生成性だけからgeneric生成性を持ち上げない。形式Taylor和を任意のLaurent対象へ評価しない。
+一般点の存在→smoothness→低Nat底変更→K上の勾配積分の順序を維持する。方程式はK=C(h)上、同値核は有限拡大後。幾何学的一意性は全n>=3。生成上界はBFKの既知結果で、新しい一般生成定理と呼ばない。(D)は特定の明示式を指定する条件。低積の有限可積分性だけで圏同値を結論しない。特殊点の生成性だけを一般点へ持ち上げず、形式Taylor和を任意Laurent対象へ評価しない。
 
-論文Aの全Poisson代数中心の存在に、形式中心元・Dolgushev/formalityを必須入力として戻さない。正規形Lie補題、Hesse中心恒等式、PBW/AS、Bondal・moduli成分の独立監査を継続する。
+Aの量子中心元存在に形式中心元やformalityを必須入力として戻さない。Lie正規形、普遍Hesse、PBW/AS、Bondal・moduli成分の独立監査を継続する。
 
-## 保存・再現
+## 保存と再現
 
-全有効結果・証明・反例・必要証明書は保持し、旧名や古い状態説明を積み重ねず現行方針へ整理する。新規性未確認を明示する。日本語LuaLaTeX、rootからlatexmk、PDFはbuild/に生成してGit追跡しない。GitHub Actions・force push禁止。区切りでmainへ通常のfast-forwardで保存し、遠隔ref/blobを確認する。Libraryは実際のGitHub保存失敗時だけ緊急避難、既存Libraryファイルを無断削除しない。
+全ての有効な支持節・反例・必要証明書を保持する。主張の仮定・依存・証明所在、記載／独立監査／計算／組版を分ける。数学的内容を整理の名目で削らない。
 
-静的検査は `python3 scripts/check_layout.py` と `python3 scripts/verify_bundle.py`。B-v41の新規有限計算は `computations/verify_generic_cubic_descent.py`。Bの最新検証は `validation_paper_b.json`、Aその他の既存検証は `validation.json`。新しい単独抜粋の組版はB全文の組版成功を意味しない。原稿記載、独立監査、計算、組版、保存を区別する。
+`python3 computations/verify_three_object_window.py --output build/three_object_window_checks.json` は有限線形代数と添字の検算であり、非可換MFやCF_3の形式検証ではない。`latexmk papers/support/papers/three_object_window.tex` は証明抜粋を生成し、本文外の参照はラベルで表示する。B全文の組版成功を意味しない。最新状態は `validation_paper_b.json`、詳細監査は `notes/paper_b_proof_audit.md`。
+
+日本語LuaLaTeX、出力はbuild/、PDF・中間物はGit非追跡。mainへfast-forwardで保存し遠隔確認。GitHub Actions・force push禁止。LibraryはGitHub保存実失敗時のみ緊急退避し、既存Libraryファイルを無断削除しない。
