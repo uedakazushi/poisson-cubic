@@ -40,7 +40,7 @@ def closure(path):
     assert path.is_file(),path
     seen.add(path);s=path.read_text()
     for inc in re.findall(r'\\input\{([^}]+)\}',s):
-        q=ROOT/inc
+        q=ROOT / "papers/support" / inc
         if not q.suffix:q=q.with_suffix('.tex')
         s+='\n'+closure(q)
     return s

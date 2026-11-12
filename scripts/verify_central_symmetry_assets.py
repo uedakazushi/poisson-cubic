@@ -12,7 +12,7 @@ def visit(p):
     seen.add(p)
     s=p.read_text(encoding='utf8')
     for inc in re.findall(r'\\(?:input|include)\{([^}]+)\}',s):
-        q=ROOT/inc
+        q=ROOT / "papers/support" / inc
         if not q.suffix:q=q.with_suffix('.tex')
         s+='\n'+visit(q)
     return s

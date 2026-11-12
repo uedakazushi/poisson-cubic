@@ -20,7 +20,7 @@ def closure(path):
     body=path.read_text(encoding='utf-8')
     result=body
     for name in re.findall(r'\\(?:input|include)\{([^}]+)\}',body):
-        child=ROOT/name
+        child=ROOT / "papers/support" / name
         if not child.suffix:
             child=child.with_suffix('.tex')
         result+='\n'+closure(child)

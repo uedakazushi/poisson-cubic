@@ -16,7 +16,7 @@ def closure(p):
     seen.add(p); text=p.read_text(encoding="utf-8")
     result=text
     for name in re.findall(r"\\(?:input|include)\{([^}]+)\}",text):
-        q=ROOT/name
+        q=ROOT / "papers/support" / name
         if not q.suffix:q=q.with_suffix(".tex")
         result+="\n"+closure(q)
     return result

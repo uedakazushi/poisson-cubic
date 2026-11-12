@@ -11,7 +11,7 @@ def closure(path):
     seen.add(path)
     body=path.read_text(encoding="utf-8")
     for x in re.findall(r"\\(?:input|include)\{([^}]+)\}",body):
-        p=ROOT/x
+        p=ROOT / "papers/support" / x
         if not p.suffix:p=p.with_suffix(".tex")
         body+="\n"+closure(p)
     return body
