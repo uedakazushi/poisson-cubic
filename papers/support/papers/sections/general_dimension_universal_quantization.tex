@@ -1,0 +1,314 @@
+\section{任意次元のJacobianブロックに対する多変数量子化}
+\label{sec:pg-all-dimensions}
+本節は三変数一ブロックの普遍Hesse中心公式を、
+\emph{任意の次元}の滑らかな三次超曲面に対する
+\emph{複数の量子化パラメータを持つ同時量子化}へ拡張する。
+論文全体の正規形定理\ref{thm:pg-normal}を入力とするが、
+本節での各中心三次元の構成には
+形式的中心元の存在補題\ref{lem:pg-formal-center}を使わない。
+以下の滑らかな三変数制限の仮定は、
+元の超曲面$X$の滑らかさとは異なる追加仮定である。
+
+\subsection{Jacobianブロックの可換Poisson線形族}
+$n\ge3$、$N=n+2=3k+m$（$k\ge1,m\ge0$）とし、
+\[
+ V=\bigoplus_{s=1}^{k}W_s\oplus U,\quad
+ \dim W_s=3,\quad\dim U=m,\quad
+ F=\sum_{s=1}^k f_s(x_s,u)\in\CC[V]_3.
+ \tag{AD}\label{eq:pg-ad-normal}
+\]
+ここで$F$は滑らかな射影三次超曲面
+$X=V(F)\subset\PP^{n+1}$を定め、
+\[
+ g_s(x_s)=f_s(x_s,0)
+ \tag{SM}\label{eq:pg-ad-smooth}
+\]
+は各$s$について滑らかな平面三次曲線を定めると仮定する。
+中心三次部分の$f_s$間での分配は任意に固定する。
+
+$P_s=\partial_{x_{s1}}\wedge\partial_{x_{s2}}
+\wedge\partial_{x_{s3}}$、
+$q_s=\iota_{df_s}P_s$とおく。
+$q_s$は$x_s$方向のみにベクトル添字を持ち、
+その係数は$x_s,u$だけに依存する。
+
+\begin{proposition}[一般次元の可換Poisson pencil]
+\label{prop:pg-ad-compatible}
+各$q_s$は$F$をCasimirとするPoisson双ベクトルであり、
+\[
+ [q_s,q_t]_{\mathrm{Sch}}=0\qquad(s,t=1,\dots,k).
+\]
+よって任意の$\boldsymbol\lambda=(\lambda_1,\ldots,\lambda_k)$に対し
+\[
+ q_{\boldsymbol\lambda}=\sum_s\lambda_s q_s,\qquad
+ \pi_{\boldsymbol\lambda}=q_{\boldsymbol\lambda}|_X
+\]
+はPoisson構造である。
+各$q_s|_X$は一次独立であり、
+$\pi_{\boldsymbol\lambda}$の一般Poisson階数は
+$2\,\#\{s:\lambda_s\ne0\}$となる。
+したがって$\boldsymbol\lambda$は$k$次元の線形Poisson族を与える。
+\end{proposition}
+\begin{proof}
+三変数Jacobian括弧のJacobi恒等式は直接成立する。
+$F$の$x_s$偏微分は$f_s$のそれに等しいので
+$q_s(F,-)=0$。
+$s\ne t$なら、$q_s$のベクトル添字は$x_s$方向、
+$q_t$の係数は$x_t,u$だけに依存する。
+したがって$q_s$の導分は$q_t$の係数を消し、
+逆向きも同様なのでSchouten括弧は零である。
+
+$g_s$の滑らかさにより各$q_s$は非零であり、
+異なるブロックの$\bigwedge^2W_s$成分に属するから一次独立である。
+一般点で各非零係数のブロックは階数二を持ち、
+直和なのでアフィン錐上の一般階数は$2r$である
+（$r=\#\{s:\lambda_s\ne0\}$）。
+射影化で階数が落ちるのはEuler方向が像に入るときだけである。
+$m>0$なら$u\ne0$の稠密開集合上でEuler方向は中心成分を持ち、
+像はactive方向のみなので階数は落ちない。
+$m=0$の場合、$r<k$なら非零のinactive座標成分から同様に落ちず、
+$r=k$ならEulerが像に入るためには
+$3g_s(x_s)=\sum_i x_{si}g_{s,x_{si}}=0$が全$s$で必要となる。
+$X$が$\bigcap_sV(g_s)$に含まれることはない
+（$k\ge2$のとき各ブロックは非零三次式である）。
+よって一般点では階数は落ちない。
+\end{proof}
+
+\subsection{任意階数に対する独立パラメータ量子化}
+$\boldsymbol\eta=(\eta_1,\ldots,\eta_k)$を次数零の独立な変数とし、
+$R=\CC[u_1,\ldots,u_m]$とおく。
+$R[\boldsymbol\eta]$上の代数$\mathcal A_{\boldsymbol\eta}$を
+全active生成元$x_{si}$、中心生成元$u_\alpha$、
+および関係式
+\begin{equation}
+\begin{aligned}
+ [x_{s2},x_{s3}]
+ &=\eta_s\operatorname{sym}_R\bigl((f_s)_{x_{s1}}\bigr),\\
+ [x_{s3},x_{s1}]
+ &=\eta_s\operatorname{sym}_R\bigl((f_s)_{x_{s2}}\bigr),\\
+ [x_{s1},x_{s2}]
+ &=\eta_s\operatorname{sym}_R\bigl((f_s)_{x_{s3}}\bigr),\\
+ [x_{si},x_{tj}]&=0\ (s\ne t),\qquad [u_\alpha,x_{si}]=0
+\end{aligned}
+\tag{AQ}\label{eq:pg-ad-relations}
+\end{equation}
+で定める。すなわち
+\[
+ \mathcal A_{\boldsymbol\eta}
+ =\mathcal A_{f_1,\eta_1}
+ \otimes_{R[\boldsymbol\eta]}\cdots
+ \otimes_{R[\boldsymbol\eta]}\mathcal A_{f_k,\eta_k}.
+ \tag{TP}\label{eq:pg-ad-tensor}
+\]
+ここでは各ブロックの係数に\emph{同じ中心変数$u$}を使う。
+積のテンソルは中心係数環上で取り、
+中心変数をブロックごとに複製しない。
+
+\begin{theorem}[任意次元の明示的な同時代数量子化]
+\label{thm:pg-all-dimensions}
+\eqref{eq:pg-ad-normal}--\eqref{eq:pg-ad-smooth}を仮定する。
+各$f_s$に対し、
+系\ref{cor:pg-smooth-ternary-explicit}の
+有限多項式の中心三次元$\Omega_{s,\eta_s}$を構成する。
+すると
+\begin{equation}
+ \boxed{\qquad
+ \Omega_{\boldsymbol\eta}=\sum_{s=1}^k\Omega_{s,\eta_s},
+ \qquad
+ \Omega_{\boldsymbol0}=F
+ \qquad}
+ \tag{AC}\label{eq:pg-ad-universal-center}
+\end{equation}
+は$\mathcal A_{\boldsymbol\eta}$の\emph{厳密な中心元}である。
+また原点を含むZariski開集合
+$\boldsymbol0\in\mathcal U\subset\mathbb A^k_{\boldsymbol\eta}$を選び、
+以下を全て満たせる。
+\begin{enumerate}[label=(\arabic*)]
+\item 各$\boldsymbol a\in\mathcal U$について
+$A_{\boldsymbol a}=\mathcal A_{\boldsymbol\eta}
+ \otimes_{\CC[\boldsymbol\eta]}\CC_{\boldsymbol a}$
+は$N$生成元、$\binom N2$個の二次関係式による
+Koszul AS-regular代数であり、
+\[
+ \operatorname{gldim}A_{\boldsymbol a}=N,\quad
+ \operatorname{Hilb}_{A_{\boldsymbol a}}(z)=(1-z)^{-N},
+ \quad\text{AS parameter}=N.
+\]
+各内部次数成分は$\OO(\mathcal U)$上局所自由である。
+\item $\Omega_{\boldsymbol a}$は全てのファイバーで
+左右正則元となる。中心三次商
+$B_{\boldsymbol a}=A_{\boldsymbol a}/(\Omega_{\boldsymbol a})$
+はAS-Gorensteinで
+\[
+ \operatorname{injdim}B_{\boldsymbol a}=N-1,\quad
+ \text{AS parameter}=N-3=n-1,\quad
+ \operatorname{Hilb}_{B_{\boldsymbol a}}(z)
+ =\frac{1-z^3}{(1-z)^N}.
+\]
+$\mathcal B=\mathcal A/(\Omega)$の各内部次数成分も
+$\OO(\mathcal U)$上局所自由であり、
+$\mathcal B_{\boldsymbol0}=\CC[V]/(F)$である。
+\item 原点での独立な一次変形方向は
+命題\ref{prop:pg-ad-compatible}の
+$k$個のPoisson構造$q_s|_X$に対応する。
+任意の$\boldsymbol\lambda\in\CC^k$について
+$\eta_s=\lambda_s\hbar$と特殊化すれば、
+$\pi_{\boldsymbol\lambda}$の
+\emph{一変数代数的量子化}が得られる。
+その中心三次元も式\eqref{eq:pg-ad-universal-center}で明示される。
+\end{enumerate}
+Hesse座標を各ブロックごとに選ぶと、
+$\Omega_{\boldsymbol\eta}$は各$\eta_s$に関して
+次数高々四の\emph{有限多項式}であり、
+異なるパラメータ$\eta_s,\eta_t$を同時に含む
+新たな補正項は現れない。
+したがって$3k+m=n+2$が任意であっても、
+この構成は形式的中心元存在補題
+\ref{lem:pg-formal-center}を必要としない。
+\end{theorem}
+\begin{proof}
+各$f_s$の純active三次$g_s$が滑らかなので、
+Hesse標準形への線形変換と中心変数の平行移動により、
+系\ref{cor:pg-smooth-ternary-explicit}を適用できる。
+その公式は係数を数値特殊化する必要のない
+$\eta_s^2$の高々二次の多項式であり、
+$\Omega_{s,0}=f_s$、各active生成元との交換子が零である。
+他ブロックの生成元は$x_s$と可換であるから
+$\Omega_{s,\eta_s}$は$\mathcal A_{\boldsymbol\eta}$全体で中心となり、
+和も中心である。
+これで式\eqref{eq:pg-ad-universal-center}を得る。
+特に\emph{異なるブロック間の量子的混合補正は必要ない}。
+
+命題\ref{prop:pg-PBW}を各$s$と各$\eta_s$について適用する。
+独立なパラメータを持つので、原点を含む各ブロックの
+Zariski開集合の積を取ればよい。
+$R[\boldsymbol\eta]$-自由なPBW基底を各因子で選び、
+\eqref{eq:pg-ad-tensor}でテンソルすると、
+全体の各内部次数は底上局所自由で、
+$u_1,\ldots,u_m$は各ファイバーで中心正則列である。
+その商は
+\[
+ A_{\boldsymbol a}/(u_1,\ldots,u_m)
+ \simeq\bigotimes_{s=1}^k
+  S_{s,a_s},\qquad
+ S_{s,a_s}=\mathcal A_{f_s,a_s}/(u).
+\]
+各$S_{s,a_s}$は三次元Koszul AS-regular domain。
+それらのKoszul分解と双対のテンソル積から、
+右辺は次元$3k$、AS parameter $3k$の
+Koszul AS-regular代数となる。
+補題\ref{lem:pg-central-linear}を
+$m$回適用し、$A_{\boldsymbol a}$の
+次元$N=3k+m$のKoszul AS-regular性を得る。
+PBW基底がHilbert級数と二次関係数を与える。
+
+$\Omega$の左右正則性には
+定理\ref{thm:pg-quantization}の証明と同じ
+\emph{一ブロックactive次数}のfiltrationを使う。
+第一ブロック$x_1$の次数を数え、
+他のactive変数と$u$のfiltration次数を零とする。
+$\operatorname{gr}_{x_1}A_{\boldsymbol a}
+\simeq S_{1,a_1}\otimes_\CC
+ A_{\mathrm{rest},\boldsymbol a}$
+（共通中心変数に関して$R$を介したテンソル）
+が得られる。
+$\Omega_{1,a_1}$のactive次数三の最高記号は、
+$\boldsymbol a=\boldsymbol0$で$g_1\ne0$なので、
+必要なら開集合をさらに縮めることにより
+$S_{1,a_1}$の非零元となる。
+他の$\Omega_{s,a_s}$はactive次数零なので、
+$\Omega_{\boldsymbol a}$の最高記号は
+$\Omega_{1,a_1}$の非零active三次記号である。
+$S_{1,a_1}$はdomainであり、
+$A_{\mathrm{rest},\boldsymbol a}$は$R$-自由なので、
+最高記号の左右乗法は単射。
+ゆえに$\Omega_{\boldsymbol a}$は左右正則元である。
+補題\ref{lem:pg-central-cubic}で商のAS-Gorenstein性を得る。
+
+各内部次数の$\mathcal A$は底上有限局所自由で、
+$\Omega_{\boldsymbol a}$の正則性により
+\[
+ 0\longrightarrow(A_{\boldsymbol a})_{d-3}
+ \xrightarrow{\cdot\Omega_{\boldsymbol a}}
+ (A_{\boldsymbol a})_d
+ \longrightarrow(B_{\boldsymbol a})_d
+ \longrightarrow0
+\]
+のrankは全$\boldsymbol a\in\mathcal U$で一定である。
+有限表示行列の定階数条件より、
+$\mathcal B_d$も$\OO(\mathcal U)$上局所自由である。
+よって多変数底上の平坦性を得る。
+
+最後に定義関係式の$\eta_s$線形項と
+$\Omega_{\boldsymbol\eta}\bmod\boldsymbol\eta=F$から、
+原点での一次Poisson括弧が$q_s$であることが分かる。
+$\eta_s=\lambda_s\hbar$による底変更が
+全ての方向を同時に実現する。
+\end{proof}
+
+\begin{corollary}[一般次元での全方向の有限Hessian公式]
+\label{cor:pg-ad-hessian}
+各ブロックのHesse正規化と中心平行移動を済ませ、
+その際の量子化変数を$\eta_s$と書く。
+$f_s$の混合係数を$A_s,B_s,C_s,D_s,E_s,H_s,G_s$、
+Hesse係数を$t_s$とする。
+\[
+ {\mathscr H}_s=
+ \det\left(\frac{\partial^2 f_s}
+ {\partial x_{si}\partial x_{sj}}\right)_{i,j=1}^3.
+\]
+系\ref{cor:pg-hesse-hessian-form}の
+有限多項式$\Psi_{t_s}(f_s)$を用いると、
+\[
+ \boxed{\quad
+ \Omega_{\boldsymbol\eta}=
+ \operatorname{sym}\left(
+ F-\sum_{s=1}^k\frac{\eta_s^2}{12}{\mathscr H}_s
+ +\sum_{s=1}^k\frac{\eta_s^2}{6}A_sB_sC_s
+ +\sum_{s=1}^k\eta_s^4\Psi_{t_s}(f_s)
+ \right).
+ \quad}
+ \tag{AH}\label{eq:pg-ad-hessian-center}
+\]
+これは$\boldsymbol\eta$の多項式であり、
+全次数で厳密な中心元である。
+特に$\eta_s=\lambda_s\hbar$としたとき
+$\hbar^2$のHessian補正は$\lambda_s^2$、
+$\hbar^4$補正は$\lambda_s^4$を係数とする。
+異なるブロックの混合Hessian項
+$\eta_s^2\eta_t^2$は生じない。
+一般の$g_s$へはHesse正規化時の
+$\eta_s$の行列式スケール変換を施してから適用する。
+\end{corollary}
+\begin{proof}
+系\ref{cor:pg-hesse-hessian-form}の式を各ブロックに用いて
+和を取れば得られる。
+各補正は$x_s,u$にのみ依存し、
+他ブロックの生成元と可換なため、
+高次の交叉補正を必要としない。
+\end{proof}
+
+\begin{remark}[全次元・全成分についての正確な範囲]
+\label{rem:pg-ad-scope}
+$k$は$1\le k\le\lfloor(n+2)/3\rfloor$を動ける。
+この上限は正規形における\emph{許される最大ブロック数}であり、
+全Poissonモジュライの成分数や族の次元と同一視しない。
+固定したブロック分解における三次式$F$の線形パラメータ空間では、
+滑らかな$X$と全ての滑らかな$g_s$という条件は
+非空なZariski開条件である。
+実際$\sum_{s,i}x_{si}^3+\sum_\alpha u_\alpha^3$
+はその一例である。
+従って本定理は任意次元の各正規形型の
+\emph{非空な一般部分}に適用される。
+ただし、滑らかな$X$であっても一部の$g_s$が
+特異な場合はあり、その部分への無条件な適用は主張しない。
+
+固定した$F$と固定したブロック分解に対する
+$k$変数量子化を構成したのであり、
+相対Poissonモジュライの\emph{全既約成分}の
+普遍的量子化空間を構成したという意味ではない。
+またこの量子化から$\operatorname{qgr}B$の
+幾何学的smoothnessや可換Kuznetsov復元は従わない。
+Hesse標準形を全係数空間にわたって
+正準的に同時選択できるとも主張しない。
+\end{remark}
