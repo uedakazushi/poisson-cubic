@@ -212,9 +212,18 @@ Druel--Pereira--Pym--Touzet~\cite{BondalDruelPereiraPymTouzet}
 量子化に関しては、三次元Sklyanin代数、
 potentialによるPBW変形および中心元の理論を入力とする
 \cite{PMoriSmith,PBergerTaillefer,EG,SmithTate}。
-Kontsevichのformality~\cite{PKontsevich}と
-DolgushevのCalabi--Yau/Poisson双対性~\cite{PDolgushev}を利用する箇所は、
-既知の一般理論と本稿固有の相対化・代数化の議論を区別して示す。
+一般の形式的量子化とそのCalabi--Yau双対性については
+Kontsevich~\cite{PKontsevich}、
+Dolgushev~\cite{PDolgushev}および
+Etingof--Ginzburg~\cite[\S8.3]{EG}の既知の理論がある。
+本稿の\emph{代数的中心元の存在証明}は
+それらのformality・完備双加群理論を入力とせず、
+Hesse型で証明した全係数の中心恒等式、
+古典的Casimir核の一定次元性、
+普遍交換子行列の小行列式の代数的消滅のみを用いる。
+稠密な滑らかな三変数制限から特異制限への
+rank恒等式の特殊化と、個々の中心元の無条件な
+特殊化とは区別する。
 
 \subsection*{主要結果I：Poisson正規形}
 第一の結果（定理\ref{thm:pg-normal}）は、
@@ -348,8 +357,12 @@ $F(x,y,z,0)$を持つJacobianブロックについて、
 普遍Cramer表示も得られる
 （定理\ref{thm:pg-universal-determinant}）。
 中心変数が二つなら$30\times30$の決定式を使う。
-以前は形式的中心元の存在に依存したが、
-今はHesse型の明示定理によって\emph{この仮定を除けた}。
+さらに\emph{全体の}三次式が滑らかである限り、
+三変数制限が特異または恒等的零であっても
+同じrankの行列式表示が成立する。
+これは稠密なHesse型からの小行列式の
+恒等的消滅を使った代数的な特殊化であり、
+形式的中心元の存在という仮定を要しない。
 
 \subsection*{任意次元への拡張}
 正規形のブロック数$k$は
@@ -373,6 +386,11 @@ Poisson線形族を\emph{一つの相対的な代数族として同時に量子�
 存在が言えるだけでなく、共通中心変数の上での
 テンソル積・PBW基底・全ファイバーの中心正則性・
 多変数底の平坦性まで証明するものである。
+さらに同じ証明は、Cramer式による有理関数中心元を使えば、
+\emph{三変数制限の滑らかさを課さず}全Poisson線形族へ拡張する
+（定理\ref{thm:pg-ad-all-poisson}）。
+この場合、中心元が$\eta_s^4$までの多項式であるとは
+主張せず、原点で正則な有理式として与える。
 有限の全次数Hessian公式も
 系\ref{cor:pg-ad-hessian}に記載する。
 さらに任意次元の$V$における定数三重ベクトル
