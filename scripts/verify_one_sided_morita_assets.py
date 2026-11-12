@@ -11,7 +11,7 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-ENTRY = ROOT / 'papers/one_sided_morita_algebraization.tex'
+ENTRY = ROOT / 'papers/support/papers/one_sided_morita_algebraization.tex'
 seen = set()
 
 
@@ -24,7 +24,7 @@ def closure(path):
     body = path.read_text(encoding='utf-8')
     result = body
     for name in re.findall(r'\\(?:input|include)\{([^}]+)\}', body):
-        child = ROOT / name
+        child = ROOT / "papers/support" / name
         if not child.suffix:
             child = child.with_suffix('.tex')
         result += '\n' + closure(child)
@@ -41,9 +41,9 @@ assert len(labels) == len(set(labels)), 'Duplicate labels'
 assert len(bib) == len(set(bib)), 'Duplicate bibliography keys'
 assert not set(refs) - set(labels), set(refs) - set(labels)
 assert not set(cites) - set(bib), set(cites) - set(bib)
-parent = (ROOT / 'papers/rotation_cubic_reconstruction.tex').read_text(encoding='utf-8')
+parent = (ROOT / 'papers/paper_b.tex').read_text(encoding='utf-8')
 assert r'\input{papers/reconstruction/one_sided_morita_algebraization}' in parent
-shared = (ROOT / 'papers/references.tex').read_text(encoding='utf-8')
+shared = (ROOT / 'papers/support/papers/references.tex').read_text(encoding='utf-8')
 assert r'\input{papers/reconstruction/one_sided_morita_references}' in shared
 with tempfile.TemporaryDirectory(prefix='nc-cubic-one-sided-') as directory:
     dest = Path(directory) / 'certificate.json'

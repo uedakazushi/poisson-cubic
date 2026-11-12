@@ -5,14 +5,14 @@ This script does not prove the Sklyanin point-scheme theorem.
 from pathlib import Path
 import json, re, subprocess, sys, tempfile
 root=Path(__file__).resolve().parents[1]
-for p in ("papers/reconstruction/point_scheme_lambda_family.tex",
-          "papers/point_scheme_lambda_family.tex",
+for p in ("papers/support/papers/reconstruction/point_scheme_lambda_family.tex",
+          "papers/support/papers/point_scheme_lambda_family.tex",
           "computations/verify_lambda_point_scheme.py",
           "computations/lambda_point_scheme_certificate.json"):
     assert (root/p).is_file(),p
-tex=(root/"papers/reconstruction/point_scheme_lambda_family.tex").read_text()
-entry=(root/"papers/point_scheme_lambda_family.tex").read_text()
-parent=(root/"papers/rotation_cubic_reconstruction.tex").read_text()
+tex=(root/"papers/support/papers/reconstruction/point_scheme_lambda_family.tex").read_text()
+entry=(root/"papers/support/papers/point_scheme_lambda_family.tex").read_text()
+parent=(root/"papers/paper_b.tex").read_text()
 assert r"\input{papers/reconstruction/point_scheme_lambda_family}" in entry
 assert r"\input{papers/reconstruction/point_scheme_lambda_family}" in parent
 for label in ("psl:lem:free","psl:thm:universal-flat","psl:cor:collision"):

@@ -24,8 +24,8 @@ cites=[y.strip() for c in re.findall(r"\\cite(?:\[[^]]*\])?\{([^}]+)\}",content)
 assert len(labels)==len(set(labels))
 assert not set(refs)-set(labels),set(refs)-set(labels)
 assert not set(cites)-set(bib),set(cites)-set(bib)
-assert r"\input{papers/reconstruction/artin_rotation_obstructions}" in (ROOT/"papers/rotation_cubic_reconstruction.tex").read_text()
-assert r"\input{papers/reconstruction/artin_rotation_obstructions_references}" in (ROOT/"papers/references.tex").read_text()
+assert r"\input{papers/reconstruction/artin_rotation_obstructions}" in (ROOT/"papers/paper_b.tex").read_text()
+assert r"\input{papers/reconstruction/artin_rotation_obstructions_references}" in (ROOT/"papers/support/papers/references.tex").read_text()
 with tempfile.TemporaryDirectory() as d:
     tmp=Path(d)/"cert.json"
     subprocess.run([sys.executable,str(ROOT/"computations/verify_artin_rotation_obstructions.py"),"--output",str(tmp)],check=True,cwd=ROOT)

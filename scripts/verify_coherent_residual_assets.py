@@ -14,7 +14,7 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-ENTRY = ROOT / "papers/coherent_residual_saturation.tex"
+ENTRY = ROOT / "papers/support/papers/coherent_residual_saturation.tex"
 
 
 def main() -> None:
@@ -32,7 +32,7 @@ def main() -> None:
         text = path.read_text(encoding="utf-8")
         result = text
         for name in re.findall(r"\\(?:input|include)\{([^}]+)\}", text):
-            child = ROOT / name
+            child = ROOT / "papers/support" / name
             if not child.suffix:
                 child = child.with_suffix(".tex")
             result += "\n" + closure(child)
@@ -48,8 +48,8 @@ def main() -> None:
     assert len(bib) == len(set(bib)), "Duplicate bibliography keys"
     assert not set(refs) - set(labels), set(refs) - set(labels)
     assert not set(cites) - set(bib), set(cites) - set(bib)
-    parent = (ROOT / "papers/rotation_cubic_reconstruction.tex").read_text(encoding="utf-8")
-    shared = (ROOT / "papers/references.tex").read_text(encoding="utf-8")
+    parent = (ROOT / "papers/paper_b.tex").read_text(encoding="utf-8")
+    shared = (ROOT / "papers/support/papers/references.tex").read_text(encoding="utf-8")
     assert r"\input{papers/reconstruction/coherent_residual_saturation}" in parent
     assert r"\input{papers/reconstruction/coherent_residual_references}" in shared
     if args.rerun_orbit:
@@ -65,7 +65,7 @@ def main() -> None:
             assert actual == expected, "Existing orbit certificate mismatch"
         print("PASS new source integration and unchanged 64 Euler/41 MF checks; not a categorical proof checker.")
     else:
-        print("PASS new source closure and C integration; numerical and categorical proofs not rerun.")
+        print("PASS new source closure and B integration; numerical and categorical proofs not rerun.")
 
 
 if __name__ == "__main__":

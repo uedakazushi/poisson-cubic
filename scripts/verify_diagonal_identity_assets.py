@@ -10,16 +10,16 @@ import sys
 import tempfile
 ROOT=Path(__file__).resolve().parents[1]
 NEEDED=[
- 'papers/reconstruction/diagonal_kernel_identity.tex',
- 'papers/reconstruction/diagonal_kernel_references.tex',
- 'papers/diagonal_kernel_identity.tex',
+ 'papers/support/papers/reconstruction/diagonal_kernel_identity.tex',
+ 'papers/support/papers/reconstruction/diagonal_kernel_references.tex',
+ 'papers/support/papers/diagonal_kernel_identity.tex',
  'computations/verify_diagonal_identity.py',
  'computations/diagonal_identity_certificate.json',
  'notes/diagonal_kernel_identity.md',
 ]
 assert all((ROOT/p).is_file() for p in NEEDED)
-parent=ROOT/'papers/rotation_cubic_reconstruction.tex'
-refs=ROOT/'papers/references.tex'
+parent=ROOT/'papers/paper_b.tex'
+refs=ROOT/'papers/support/papers/references.tex'
 if parent.exists():
     assert r'\input{papers/reconstruction/diagonal_kernel_identity}' in parent.read_text()
 if refs.exists():

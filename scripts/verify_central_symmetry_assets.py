@@ -3,7 +3,7 @@
 import json,re,subprocess,sys,tempfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-ENTRY=ROOT/'papers/central_symmetry_lifting.tex'
+ENTRY=ROOT/'papers/support/papers/central_symmetry_lifting.tex'
 seen=set()
 def visit(p):
     p=p.resolve()

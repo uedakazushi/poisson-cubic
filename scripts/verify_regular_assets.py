@@ -15,8 +15,8 @@ a=p.parse_args()
 paths=['computations/regular_diagonal.py','computations/verify_regular_diagonal.py',
        'computations/absolute_diagonal.py','computations/curved_diagonal.py',
        'computations/verify_curved_diagonal.py',
-       'papers/reconstruction/regular_diagonal_recovery.tex',
-       'papers/reconstruction/regular_diagonal_references.tex','notes/curved_diagonal.md']
+       'papers/support/papers/reconstruction/regular_diagonal_recovery.tex',
+       'papers/support/papers/reconstruction/regular_diagonal_references.tex','notes/curved_diagonal.md']
 assert all((ROOT/q).is_file() for q in paths)
 c=json.loads((ROOT/'computations/regular_diagonal_certificate.json').read_text())
 assert c['version']=='nc-cubic-v27' and all(c['checks'].values())
@@ -44,7 +44,7 @@ def closure(path):
         if not q.suffix:q=q.with_suffix('.tex')
         s+='\n'+closure(q)
     return s
-text=closure(ROOT/'papers/curved_diagonal_recovery.tex')
+text=closure(ROOT/'papers/support/papers/curved_diagonal_recovery.tex')
 labels=re.findall(r'\\label\{([^}]+)\}',text)
 refs=re.findall(r'\\(?:ref|eqref|pageref)\{([^}]+)\}',text)
 bib=re.findall(r'\\bibitem\{([^}]+)\}',text)

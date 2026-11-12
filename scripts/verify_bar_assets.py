@@ -8,7 +8,7 @@ import subprocess
 import sys
 import tempfile
 ROOT=Path(__file__).resolve().parents[1]
-ENTRY=ROOT/"papers/multiplicative_bar_comparison.tex"
+ENTRY=ROOT/"papers/support/papers/multiplicative_bar_comparison.tex"
 seen=set()
 def closure(p):
     if p in seen:return ""
@@ -29,9 +29,9 @@ assert len(labels)==len(set(labels)), "Duplicate labels"
 assert len(bib)==len(set(bib)), "Duplicate bibliography keys"
 assert not set(refs)-set(labels),set(refs)-set(labels)
 assert not set(cites)-set(bib),set(cites)-set(bib)
-parent=(ROOT/"papers/rotation_cubic_reconstruction.tex").read_text(encoding="utf-8")
+parent=(ROOT/"papers/paper_b.tex").read_text(encoding="utf-8")
 assert r"\input{papers/reconstruction/multiplicative_bar_comparison}" in parent
-assert r"\input{papers/reconstruction/multiplicative_bar_references}" in (ROOT/"papers/references.tex").read_text(encoding="utf-8")
+assert r"\input{papers/reconstruction/multiplicative_bar_references}" in (ROOT/"papers/support/papers/references.tex").read_text(encoding="utf-8")
 with tempfile.TemporaryDirectory(prefix="nc-cubic-bar-") as td:
     dest=Path(td)/"certificate.json"
     run=subprocess.run([sys.executable,str(ROOT/"computations/verify_bar_comparison.py"),"--output",str(dest)],cwd=ROOT,capture_output=True,text=True,timeout=120)
@@ -39,4 +39,4 @@ with tempfile.TemporaryDirectory(prefix="nc-cubic-bar-") as td:
     actual=json.loads(dest.read_text(encoding="utf-8"))
     expected=json.loads((ROOT/"computations/bar_comparison_certificate.json").read_text(encoding="utf-8"))
     assert actual==expected,"Certificate mismatch"
-print("PASS standalone source closure, C integration, and exact v28 certificate; categorical BC NOT checked.")
+print("PASS standalone source closure, B integration, and exact v28 certificate; categorical BC NOT checked.")

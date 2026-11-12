@@ -8,7 +8,7 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-ENTRY = ROOT / "papers/geometric_rotation_basechange.tex"
+ENTRY = ROOT / "papers/support/papers/geometric_rotation_basechange.tex"
 seen = set()
 
 def closure(path):
@@ -20,7 +20,7 @@ def closure(path):
     body = path.read_text(encoding="utf-8")
     expanded = body
     for name in re.findall(r"\\(?:input|include)\{([^}]+)\}", body):
-        child = ROOT / name
+        child = ROOT / "papers/support" / name
         if not child.suffix:
             child = child.with_suffix(".tex")
         expanded += "\n" + closure(child)
@@ -36,9 +36,9 @@ assert len(labels) == len(set(labels)), "Duplicate theorem labels"
 assert len(bib) == len(set(bib)), "Duplicate bibliography keys"
 assert not set(refs) - set(labels), set(refs) - set(labels)
 assert not set(cites) - set(bib), set(cites) - set(bib)
-parent = (ROOT / "papers/rotation_cubic_reconstruction.tex").read_text(encoding="utf-8")
+parent = (ROOT / "papers/paper_b.tex").read_text(encoding="utf-8")
 assert r"\input{papers/reconstruction/geometric_rotation_basechange}" in parent
-shared = (ROOT / "papers/references.tex").read_text(encoding="utf-8")
+shared = (ROOT / "papers/support/papers/references.tex").read_text(encoding="utf-8")
 assert r"\input{papers/reconstruction/geometric_rotation_references}" in shared
 with tempfile.TemporaryDirectory(prefix="nc-cubic-geometric-") as directory:
     dest = Path(directory) / "certificate.json"
@@ -49,4 +49,4 @@ with tempfile.TemporaryDirectory(prefix="nc-cubic-geometric-") as directory:
     actual = json.loads(dest.read_text(encoding="utf-8"))
     expected = json.loads((ROOT / "computations/geometric_rotation_certificate.json").read_text(encoding="utf-8"))
     assert actual == expected, "Geometric certificate mismatch"
-print("PASS new standalone source closure, C integration and finite certificate; not a proof checker.")
+print("PASS new standalone source closure, B integration and finite certificate; not a proof checker.")
