@@ -1,0 +1,228 @@
+\section{中心三次量子化からのambientの内在的復元}
+\label{sec:pg-ambient-recovery}
+本節の二次包絡の主張は三次超曲面に特有でなく、
+任意次元・任意の関係次数$d\ge3$について成立する。
+これまで用いた周囲代数を$B$、その中心正則商を$A$と書く。
+非可換三次三様体の17次元モジュライ族は
+\texttt{uedakazushi/nc-cubic2}の
+\texttt{papers/nc\_cubic\_threefold\_moduli.tex}で扱い、
+本節では同型類の判定に用いる一般原理を証明する。
+
+\begin{theorem}[任意次元のquadratic envelope]\label{thm:pg-ambient-recovery-general}
+$k$を体、$V$を有限次元$k$-ベクトル空間とし、
+次数一生成の二次連結次数付き代数
+\begin{equation}\label{eq:pg-ambient-B}
+ B=T(V)/(R_2)
+\end{equation}
+を考える。$G\in B_d$を非零斉次元、$d\ge3$とし、
+$G$の生成する両側イデアルが$(G)=BG=GB$であると仮定する。
+$A=B/(G)$と置くと、
+\begin{equation}\label{eq:pg-ambient-envelope}
+ B_{\mathrm{can}}(A):=
+ \frac{T(A_1)}{\left\langle
+ \ker(A_1\otimes A_1\longrightarrow A_2)\right\rangle}
+ \simeq B
+\end{equation}
+であり、また
+\begin{equation}\label{eq:pg-ambient-line}
+ \ker\bigl((B_{\mathrm{can}}(A))_d
+ \longrightarrow A_d\bigr)=kG
+\end{equation}
+となる。この復元は次数付き代数同型に関して関手的である。
+$G$の正則性、中心性、$B$のAS正則性は
+二つの復元式自体には必要ない。
+\end{theorem}
+\begin{proof}
+$(G)$は$d$次以上にしか成分を持たず、特に
+\begin{equation}\label{eq:pg-ambient-low}
+ A_1=B_1=V,\qquad A_2=B_2
+\end{equation}
+である。よって$A_1\otimes A_1\to A_2$の核は$R_2$に等しい。
+$B$は二次関係のみで表示されるので最初の同型が従う。
+$(G)_d=B_0G=GB_0=kG$より第二式も従う。
+両構成は積と商写像のみによるから同型に関して自然である。
+\end{proof}
+
+\begin{theorem}[偏極付き圏と$\mathbb Z$-代数からの復元]
+\label{thm:pg-ambient-recovery-polarized}
+上の定理の仮定に加え、$A$は左右noetherianな
+連結次数付きAS Gorenstein代数でinjective dimensionが
+$2$以上であるとする。このとき
+\begin{equation}\label{eq:pg-ambient-section}
+ A\xrightarrow{\sim}
+ \bigoplus_{n\ge0}
+ \operatorname{Hom}_{\operatorname{qgr}A}
+   (\mathcal O_A,\mathcal O_A(n))
+\end{equation}
+は積を保つ同型である。
+従って偏極付き三つ組
+\begin{equation}\label{eq:pg-ambient-triple}
+ (\operatorname{qgr}A,\mathcal O_A,(1))
+\end{equation}
+から$B$と直線$kG$を復元できる。
+具体的には$E_i=\mathcal O_A(-i)$として
+\begin{equation}\label{eq:pg-ambient-Zalg}
+ \mathcal Z_{ij}=
+ \operatorname{Hom}_{\operatorname{qgr}A}(E_j,E_i)
+ \qquad (i\le j)
+\end{equation}
+の次数一合成の二次核のみを課した
+$\mathbb Z$-代数が$B$の付随$\mathbb Z$-代数となる。
+さらに$B$が左右noetherianなら
+$\operatorname{qgr}A\to\operatorname{qgr}B$は
+完全忠実なAbel関手である。
+\end{theorem}
+\begin{proof}
+AS Gorenstein性とinjective dimensionの仮定により
+\begin{equation}\label{eq:pg-ambient-extvan}
+ \operatorname{Ext}_A^i(k,A)=0
+ \qquad (i=0,1)
+\end{equation}
+となる。有限次元次数付き加群$L$は$k$のシフトによる
+有限filtrationを持つので、
+$\operatorname{Hom}_{\operatorname{gr}A}(L,A(n))$と
+$\operatorname{Ext}^1_{\operatorname{gr}A}(L,A(n))$は消滅する。
+$0\to A_{\ge r}\to A\to A/A_{\ge r}\to0$にこれを適用し、
+商圏Homの直極限表示を用いれば
+式\eqref{eq:pg-ambient-section}を得る。
+積の対応は次数シフトを介した合成の定義による。
+このsection algebraの原理はArtin--Zhangの理論
+\cite{PAZAmbient}の本仮定下での直接的帰結である。
+
+従って$\mathcal Z_{ij}=A_{j-i}$であり、
+各$i$での長さ二の合成の核は
+$\ker(A_1\otimes A_1\to A_2)$と一致する。
+定理\ref{thm:pg-ambient-recovery-general}により
+二次包絡は$B$の付随$\mathbb Z$-代数となる。
+最後に$A$-加群を$B$-加群とみなす制限関手は完全忠実で、
+有限次元torsionの条件も一致するため商Abel圏に降りる。
+この最後の完全忠実性は導来圏での完全忠実性を意味しない。
+\end{proof}
+
+\begin{corollary}[一般次元の中心三次量子化への適用]
+\label{cor:pg-ambient-recovery-quantization}
+第\ref{sec:pg-all-dimensions}節の量子化で得られる、
+$N$生成元の二次Koszul AS正則ambient $B_\eta$と
+中心正則三次元$\Omega_\eta$の商
+$A_\eta=B_\eta/(\Omega_\eta)$について、
+定理\ref{thm:pg-ambient-recovery-general}が成立する。
+さらに各ファイバー$A_\eta$が上のnoetherian
+AS Gorenstein仮定を満たす範囲では、
+その偏極付き三つ組からambientと中心三次直線が復元される。
+この結論は各ファイバーの内在的同型類についての主張であり、
+全Poisson moduli stackからnc cubic moduli stackへの
+大域的量子化射を構成したことを意味しない。
+\end{corollary}
+\begin{proof}
+量子化定理のambientは二次で、
+中心三次元は正則であるから最初の定理が適用できる。
+第\ref{sec:pg-all-dimensions}節で示されたAS Gorenstein性と、
+所定のnoetherian条件から第二の定理を適用する。
+\end{proof}
+
+\subsection{Serre関手による復元と一般次元での限界}
+\label{sec:pg-ambient-serre}
+構造対象だけを指定して次数シフトを忘れる復元は、
+上記の一般定理より強い問題である。
+例えば$N$生成元の三次中心商について
+滑らかさとCalabi--Yau型Serre双対性の仮定の下では、
+\begin{equation}\label{eq:pg-ambient-serre-r}
+ \mathsf S\simeq(3-N)[N-2],\qquad
+ \mathsf S^{-1}[N-2]\simeq(N-3)
+\end{equation}
+となる。この式だけで内在的に得られるのは
+$(N-3)$-Veroneseであり、次数一シフトそのものとは限らない。
+一般$N$についてVeroneseから元の代数を復元できるとは
+ここでは主張しない。またNakayama自己同型が非自明なら
+Serre関手にその捻りが加わるため、式
+\eqref{eq:pg-ambient-serre-r}の使用には追加仮定が必要である。
+
+\begin{proposition}[二変数中心による偶数Veronese復元]
+\label{prop:pg-ambient-even}
+$k=\mathbb C$とする。$A$を連結次数付き代数とし、
+$S=k[u,v]\subset Z(A)$は次数一の中心多項式環、
+$A$は$S$上自由、$Z(A)_2=S_2$と仮定する。
+このとき偶数Veronese $R=A^{(2)}$の次数付き同型類から
+$A$の次数付き同型類を復元できる。
+$S$の平方根に関する二つの持上げは
+奇数次数への符号作用で異なる。
+\end{proposition}
+\begin{proof}
+$z\in Z(R)$とし、$a\in A$を奇数次数の元とする。
+$ua$は偶数次数であるため、
+\begin{equation}\label{eq:pg-ambient-even-center-comm}
+ u[z,a]=[z,ua]=0
+\end{equation}
+である。$A$は$S$上自由なので$u$は正則であり、
+$z$は全ての$a$と可換である。従って
+\begin{equation}\label{eq:pg-ambient-even-center}
+ Z(R)=Z(A)^{(2)},\qquad
+ Z(R)_1=S_2
+\end{equation}
+を得る。$Z(R)_1$の生成する中心部分代数は
+\begin{equation}\label{eq:pg-ambient-conic}
+ D=k[u^2,uv,v^2]
+ \simeq k[a,b,c]/(ac-b^2)
+\end{equation}
+である。このconicの次数一パラメータを二重に取ることで、
+$S=k[u,v]$は共通符号を除いて復元される。
+$D$の$S$への中心的拡大を使い、
+\begin{equation}\label{eq:pg-ambient-even-localizations}
+ T_u=R[(u^2)^{-1}]
+       \otimes_{D[(u^2)^{-1}]}S[u^{-1}],
+ \quad
+ T_v=R[(v^2)^{-1}]
+       \otimes_{D[(v^2)^{-1}]}S[v^{-1}]
+\end{equation}
+と置く。偶奇の次数を分けた積写像により
+$T_u\simeq A[u^{-1}]$、$T_v\simeq A[v^{-1}]$となる。
+$A$は$S$上自由であり、$k[u,v]$の高さ二の原点を
+除いた正則関数は多項式なので、
+\begin{equation}\label{eq:pg-ambient-even-intersection}
+ A[u^{-1}]\cap A[v^{-1}]=A
+\end{equation}
+が共通局所化内で成り立つ。従って$A$を復元する。
+二つの平方根の差は$u,v\mapsto-u,-v$であり、
+次数の偶奇に関する符号に一致する。
+\end{proof}
+
+\begin{corollary}[三次三様体の構造対象付き導来復元]
+\label{cor:pg-ambient-derived-threefold}
+$B$を五次元Koszul AS正則Calabi--Yau代数とし、
+$G\in Z(B)_3$を正則中心元、$A=B/(G)$とする。
+$\operatorname{qgr}A$は有限大域次元を持ち、そのSerre関手が
+$\mathsf S\simeq(-2)[3]$であると仮定する。
+さらに$S=k[u,v]\subset Z(A)$が次数一中心多項式環で、
+$A$は$S$上自由、$Z(A)_2=S_2$であるとする。
+すると
+\begin{equation}\label{eq:pg-ambient-derived-input}
+ (D^b(\operatorname{qgr}A),\mathcal O_A)
+\end{equation}
+だけから$A$の次数付き同型類、ambient $B$、
+中心三次直線$kG$を復元できる。
+次数シフト$(1)$は入力として指定しなくてよい。
+\end{corollary}
+\begin{proof}
+Serre関手は内在的なので、
+$\mathsf S^{-1}[3]\simeq(2)$から
+\begin{equation}\label{eq:pg-ambient-derived-Veronese}
+ \bigoplus_{n\ge0}
+ \operatorname{Hom}(\mathcal O_A,\mathsf S^{-n}[3n]\mathcal O_A)
+ \simeq A^{(2)}
+\end{equation}
+が得られる。命題\ref{prop:pg-ambient-even}で$A$を復元し、
+定理\ref{thm:pg-ambient-recovery-general}を適用する。
+\end{proof}
+
+\begin{remark}[既存の三次三様体族と未解決部分]
+Jacobian型五生成元族については、
+純三変数の滑らかな三次式の低次数中心の消滅と
+Hessianの非退化性を用い、一般点で
+$Z(A)_2=k[u,v]_2$を示す補題がある。
+$A$が$k[u,v]$上自由であることも相対PBWの議論から得られる。
+ただしこの事実だけで$\operatorname{qgr}A$の
+有限大域次元が全閉点で保証されるとはいわない。
+これらの追加条件なしに一般次元でSerre復元を主張しない。
+また構造対象を忘れた任意の導来同値、
+Kuznetsov成分のみからのambient復元は結論しない。
+\end{remark}
