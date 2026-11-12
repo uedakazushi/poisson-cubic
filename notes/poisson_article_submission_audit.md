@@ -1,6 +1,6 @@
 # 論文Aの投稿準備：現行の監査と再開点
 
-**2026-11-12 / A-v43。** 最初に 00_research_plan.md を読む。
+**2026-11-12 / A-v44。** 最初に 00_research_plan.md を読む。
 論文本文は papers/paper_a.tex、専用文献は papers/support/papers/references_poisson_cubic.tex。
 本ノートは現在有効な知識・依存・課題を整理し、証明全文を重複させない。
 
@@ -21,16 +21,43 @@
 - **文献**：Bondal--Polishchuk, *Homological properties of associative algebras: the method of helices*, Russian Acad. Sci. Izv. Math. 42 (1994), 219--260, Proposition 4.1 と §5, DOI 10.1070/IM1994v042n02ABEH001536。Chan--Nyman, *Noncommutative linear systems and noncommutative elliptic curves*, arXiv:2211.12465, Definition 8.6。引用キーは `PBondalPolishchukHelices`、`PChanNymanNormalFamily`。
 - **検証状態**：数学的証明を論文Aに書き、今回一次資料の文献情報と定義を照合。本文の全独立監査、形式検証、外部査読、論文A全体の組版とは区別する。既存の論文A公表準備優先順位は維持。
 
-## 普遍的・厳密な代数的中心三次公式
+## 普遍的・厳密な代数的中心三次公式（主結果）
 
-現在の主成果と再現手順は \`notes/universal_casimir.md\` に統合した。
-証明は
-\`papers/support/papers/sections/fermat_mixed_universal_center.tex\` と
-\`papers/support/papers/sections/universal_casimir_determinant.tex\`。
+現在有効な主張・公式・再現手順は `notes/universal_casimir.md` に整理した。
+公表用証明は`papers/support/papers/sections/hesse_mixed_universal_center.tex`、
+`fermat_mixed_universal_center.tex`、`universal_casimir_determinant.tex`。
 
-- **Fermat型の全混合項**：既存の論文C関連式について、中心係数A,B,C,D,E,Hを独立記号、hを不定元として、全次数四の自由語339個、三二次関係の倍数162個を Q(h) 上で正確に還元し、行列階数144、三交換子の剰余零を得た。さらにh=0でも階数144を別計算で確認したので、次数四商が原点でh-torsion-free、したがって原点を含むZariski開上で厳密に中心である。**これは形式的中心元存在補題に依存しない厳密な計算証明。** \`computations/verify_universal_fermat_mixed_center.py\` が現在の検証コード。中心平行移動で対角二次混合を含む。
-- **任意の滑らかな三変数三次制限**：古典Jacobian括弧の次数三Casimirが C F⊕C[u]_3 となることを直接証明。これと形式的中心元の存在補題を組み合わせ、次数三交換子のr×r小行列を用いたCramer式で厳密な中心元を与える（m=2ならr=30）。Fermat基準点でm=0の小行列式 -72、m=2の小行列式 4608を有理数計算で確認。**形式的中心元の一般的存在補題とその相対Calabi–Yau/formality監査が依然として必要な条件付き結果。**
-- **未解決**：Hesseパラメータ一般値と全混合の短い多項式/GL3同変閉公式、特異制限の包括公式、一般形式中心元存在証明の全独立監査、新規性の網羅調査。
+- **一般Hesse型の全混合（無条件・厳密）：**
+  任意のtと独立な中心係数A,B,C,D,E,Hに対し
+  f=(x³+y³+z³)/3+txyz+Axy+Byz+Czx+Dx+Ey+Hz+G の
+  Jacobian量子化は、h²の高々二次の短い係数多項式で表せる
+  厳密な中心三次元を持つ（thm:pg-universal-hesse-mixed）。
+  Q(h,t)上で自由語339列、全関係倍数162行の階数144、三交換子剰余0を
+  独立変数のまま厳密に計算確認。h=0で階数144なので原点を含む開集合上でも成立する。
+  これは値の補間で得た候補ではなく、**普遍恒等式の全係数計算証明**による主張。
+  再現コード：`computations/verify_universal_hesse_mixed_center.py`。
+- **Hessianによる簡潔な式：**
+  `cor:pg-hesse-hessian-form` に
+  sym(F-h² det Hess_x F/12 +h² ABC/6+h⁴ Ψ_t(F))
+  を示し、具体的な Ψ_t を本文に明示した。
+  h²のHessian補正は既存の普遍二次ジェットと整合し、
+  **h⁴補正込みで全次数で中心**となる。
+- **任意のsmooth ternary g（無条件・明示）：**
+  対角二次混合は中心平行移動で消去でき、平面三次曲線の
+  Hesse標準形（Artebani–Dolgachev Lemma 1）とGL3のJacobian括弧の
+  変換則から、全ての滑らかなg=f(x,y,z,0)へ有限公式を適用できる。
+  `cor:pg-smooth-ternary-explicit`、`cor:pg-smooth-block-algebraic-quant`。
+  この滑らかな部分では形式的中心元存在を入力とせず代数的量子化できる。
+- **Cramer決定式も無条件化：**
+  古典次数三Casimir核=CF+C[u]_3 の補題と、上の明示代数中心元から
+  `thm:pg-universal-determinant` を無条件に証明。
+  中心変数m=2で30×30、Fermat基準点det4608等の古典検算は従来どおり。
+- **残るギャップ：**
+  三変数制限が節点・尖点・零など一般に特異の場合の短い包括公式は未解決。
+  それらを含む定理`thm:pg-quantization`の形式中心存在補題
+  `lem:pg-formal-center`の相対formalityと完備絶対CYの独立監査は
+  引き続き必要。Hesse座標の選択なしの単一GL3同変低次数式も未構成。
+  今回の式の先行研究上の完全な新規性は未確認。
 
 ## 三次中心元：検証した新しい有効結果
 
@@ -88,9 +115,9 @@ A全体のLuaLaTeXコンパイル・PDF表示確認・非楕円成分の全行�
 
 ## 次の具体的な着手順
 
-1. Fermat型全混合の普遍的な短い公式は今回厳密証明に到達した。次にHesse一般値の短い閉公式を探索し、同時に lem:pg-formal-center と prop:pg-PBW の相対formality、完備双加群分解、絶対CY、代数化の妥当性を徹底検査する。中心元の偶性と普遍Hessian二次補正は検証済みだが、全次数の存在証明の代わりにはならない。
-2. prop:pg-represent、lem:pg-linearize、lem:pg-quadratic-lie の証明の独立再検証。Etingofの主要一次資料は確認済みなので、Jacobi線形化・Bertini・Lie構成の接続を重点監査する。
-3. 論文A全体のlatexmk組版・視覚確認、整数証明書の再実行、網羅的文献比較。主張の仮定と証明の所在を確認して投稿判定する。
-4. 数学的まとまりを保ちつつ非楕円量子化をAに収めるか独立論文へ分けるか再評価する。価値ある証明を削除しない。
+1. `computations/verify_universal_hesse_mixed_center.py` の独立再実行と、339×162普遍恒等式の短い証明書・手計算式への整理。今回ローカルで等価なQ(h,t)計算を実行してrank144・三交換子余り0を確認したが、保存したスクリプトそのものの実行は未実施。
+2. 特異三変数制限について、既存の節点型・尖点型の公式を体系化し、一般特異gへの拡張を検討。相対formality・absolute CYによる形式的中心元存在補題も必要な範囲で監査する。
+3. `prop:pg-represent`、`lem:pg-linearize`、`lem:pg-quadratic-lie`、`thm:pg-bondal`の独立再検証と先行研究の一次資料比較。
+4. 論文A全体のLuaLaTeX組版・PDF目視、整数行列証明書、引用・ラベル整合性の再検査を経て投稿可否を判定する。投稿可能とはまだ断定しない。
 
-GitHub mainを正本とし、Libraryは実際のGitHub反映失敗時に限り緊急退避。
+GitHub mainが正本。Libraryは実際のpush失敗時だけ緊急退避。
