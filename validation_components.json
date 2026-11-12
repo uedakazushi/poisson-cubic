@@ -1,7 +1,7 @@
 {
-  "version": "nc-cubic-v11-componentwise",
+  "version": "nc-cubic-v11-componentwise-paperB",
   "date_jst": "2026-11-09",
-  "scope": "Current section of paper C; arbitrary dimension n>=3 and every reduced irreducible Poisson component. Not a replacement for all results in the parent repository.",
+  "scope": "Current section of paper B; arbitrary dimension n>=3 and every reduced irreducible Poisson component. Not a replacement for all results in the parent repository.",
   "mathematics": {
     "proved_and_reviewed": [
       "Smooth birational scalar chart T times A1 for every nonzero reduced irreducible cone",

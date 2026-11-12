@@ -1,7 +1,7 @@
 # 全coherent残余pairへの拡張と依存監査
 
 **2026-11-11 / v36。最初に00_research_plan.mdを読む。GitHub mainが正本。**
-証明全文は `papers/reconstruction/coherent_residual_saturation.tex`、単独入口は `papers/coherent_residual_saturation.tex`。
+証明全文は `papers/support/papers/reconstruction/coherent_residual_saturation.tex`、単独入口は `papers/support/papers/coherent_residual_saturation.tex`。
 
 ## 今回証明したこと
 
@@ -36,4 +36,4 @@ Burke–Stevenson arXiv1507.00830v1 Prop4.18/Lemmas6.1–6.2/Thm6.4、Toën–Va
 ## 再現
 
 `python3 scripts/verify_coherent_residual_assets.py --rerun-orbit` は新原稿の参照、Cへの統合、既存Euler/MF証明書の再生成を点検する。新しい飽和定理は一般の数学的証明であり、このスクリプトで形式検証されるものではない。
-`latexmk papers/coherent_residual_saturation.tex` で単独稿を生成する。
+`latexmk papers/support/papers/coherent_residual_saturation.tex` で単独稿を生成する。

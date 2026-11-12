@@ -6,6 +6,7 @@ Requires LuaLaTeX/LuaTeX-ja, Pandoc, pypdf. No network or Git writes.
 from __future__ import annotations
 import argparse
 import hashlib
+import os
 import json
 import re
 import shutil
@@ -66,7 +67,8 @@ def build(name: str, work: Path) -> dict:
     for attempt in range(1, 6):
         run = subprocess.run(["lualatex", "-interaction=nonstopmode", "-halt-on-error", "-file-line-error",
                               f"-output-directory={work}", str(source)], cwd=ROOT,
-                             text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+                             text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                              env=dict(os.environ, TEXINPUTS="./papers/support//:" + os.environ.get("TEXINPUTS", "")))
         if run.returncode:
             raise RuntimeError(run.stdout[-16000:])
         log = (work / f"{name}.log").read_text(errors="replace")

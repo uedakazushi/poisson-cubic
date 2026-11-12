@@ -1,7 +1,7 @@
 {
-  "version": "v21",
+  "version": "v23",
   "date_jst": "2026-11-10",
-  "scope": "Standalone SM/ER input of current parent paper C; current research direction and explicit-reconstruction validation are in ../validation.json.",
+  "scope": "Standalone SM/ER input of current parent paper B; current research direction and explicit-reconstruction validation are in ../validation.json.",
   "mathematics": {
     "proofs_written_and_argument_reviewed": [
       "Local rotation inverse without residual smoothness (retained)",
@@ -55,7 +55,7 @@
     "sympy": "1.14.0"
   },
   "layout": {
-    "paper_source": "papers/reconstruction/rotation_saturation_reduction.tex",
+    "paper_source": "papers/support/papers/reconstruction/rotation_saturation_reduction.tex",
     "notes": "notes/reconstruction.md",
     "build_output": "build/rotation_saturation_reduction.pdf",
     "ignore_generated_pdfs": true

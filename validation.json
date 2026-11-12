@@ -1,9 +1,9 @@
 {
-  "version": "nc-cubic-v54",
+  "version": "nc-cubic-v56",
   "date": "2026-11-12",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only following actual GitHub publication failure.",
-  "scope": "Paper A-v51: algebraic central cubic and AS-regular quantization proved for ALL Poisson structures on every smooth cubic n-fold n>=3, including singular or zero ternary block restrictions, using universal commutator rank identities, Cramer determinants and Bertini central-cubic splitting. Formal existence, Kontsevich and Dolgushev no longer used in the proof. Existing Poisson stack, normal form, Bondal, explicit Hesse and paper C results retained; 17-dimensional nc cubic moduli is moved to nc-cubic2 and ambient recovery is integrated into A.. Ambient Z-algebra periodicity is included in the nc-cubic2 moduli paper rather than article A.",
+  "scope": "Paper A-v51: algebraic central cubic and AS-regular quantization proved for ALL Poisson structures on every smooth cubic n-fold n>=3, including singular or zero ternary block restrictions, using universal commutator rank identities, Cramer determinants and Bertini central-cubic splitting. Formal existence, Kontsevich and Dolgushev no longer used in the proof. Existing Poisson stack, normal form, Bondal, explicit Hesse and paper B results retained; 17-dimensional nc cubic moduli is moved to nc-cubic2 and ambient recovery is integrated into A. Ambient Z-algebra periodicity is included in the nc-cubic2 moduli paper rather than article A. The canonical main manuscript entrypoints are papers/paper_a.tex and papers/paper_b.tex; updated build scripts have not yet been run in a clean checkout.",
   "proofs_written_and_checked": [
     {
       "source": "papers/support/papers/reconstruction/point_scheme_discriminant_boundary.tex",
@@ -151,47 +151,13 @@
     "Whole article A-v50 LuaLaTeX build and PDF visual check: not performed in this turn."
   ],
   "typesetting": {
-    "standalone_coherent_residual": {
-      "source": "papers/coherent_residual_saturation.tex",
-      "pages": 5,
-      "build_completed": true,
-      "visual_review": "All five pages inspected in a contact sheet; no clipping, overlap or unintended blank pages.",
-      "tex_inputs": {
-        "papers/coherent_residual_saturation.tex": "b54ad30d2b934401b01811f4e0f4ba449bb45ca4e4f192ac03cfd675f847b6a2",
-        "papers/support/papers/reconstruction/coherent_residual_saturation.tex": "da45ccdd1e59af6a2a8fab7c528038e82646173dc1cf298fe52ae9e9494dd308",
-        "papers/support/papers/reconstruction/coherent_residual_references.tex": "74da29f303bd5e1bc1b975819801113869328023ce814d5ce6a2c61389db52b1"
-      },
-      "pdf_sha256": "1749d0084be6704cd9ff9fd40a3a94f162b41768eb86c7eb69f17a6caef7de04",
-      "undefined_references": false,
-      "undefined_citations": false,
-      "missing_glyphs": false,
-      "overfull_boxes": false,
-      "warnings": "Deprecated old font command in a legacy notation; no missing glyphs."
-    },
     "A": {
       "build_completed": false,
-      "reason": "Article A-v51 updated after periodicity transfer; LuaLaTeX build and visual PDF inspection not performed."
+      "reason": "The current A-v51 source has not been recompiled and visually reviewed following repository organization."
     },
     "B": {
       "build_completed": false,
-      "reason": "Full current manuscript not rebuilt."
-    },
-    "C": {
-      "build_completed": false,
-      "reason": "Point scheme section appended; complete C not recompiled."
-    },
-    "standalone_point_scheme_thickening": {
-      "source": "papers/point_scheme_thickening.tex",
-      "pages": 4,
-      "build_completed": true,
-      "visual_review": "Four pages rendered in local standalone variant; full GitHub integration source not independently recompiled."
-    },
-    "standalone_lambda_point_scheme": {
-      "source": "papers/point_scheme_lambda_family.tex",
-      "pages": 3,
-      "build_completed": true,
-      "visual_review": "Three pages rendered and contact sheet inspected; no clipping or missing glyphs detected.",
-      "pdf_git_tracked": false
+      "reason": "The former paper C was renamed paper B (B-v40) without changing mathematical inputs; complete LuaLaTeX build and visual inspection of this entrypoint have not been executed."
     }
   },
   "environment": {
@@ -496,12 +462,12 @@
   "papers_layout": {
     "entrypoints": [
       "papers/paper_a.tex",
-      "papers/paper_c.tex"
+      "papers/paper_b.tex"
     ],
     "support": "papers/support/papers/",
     "verified_direct_files_only": true,
     "build_verified": false,
-    "comment": "Main repo has two direct papers A/C; former B moduli manuscript is incorporated into nc-cubic2. LuaLaTeX build of the edited manuscripts has not been run in this change."
+    "comment": "Two main manuscripts A/B; former moduli paper is maintained in nc-cubic2. Full current LuaLaTeX builds and visual PDF checks are outstanding."
   },
   "post_reorganization_validation": {
     "date": "2026-11-12",
@@ -519,5 +485,21 @@
     "independent_determinant_check": "PASS: an independent local SymPy reproduction of the transferred 31x31 integer tangent matrix at F0 yielded -5538243375000. This was an equivalent reimplementation, not execution of the exact GitHub script.",
     "paper_B_removed": "papers/paper_b.tex deleted from nc-cubic main after destination files were verified; current direct paper entrypoints are A/C.",
     "ambient_periodicity": "The complete Z-algebra periodicity proof, normal-family criterion and bibliography are present in nc-cubic2/papers/sections/ambient_periodicity.tex and included in its nc_cubic_threefold_moduli.tex (destination main 0689e7d). Theorems are no longer part of article A; general quadratic-envelope recovery stays in A."
+  },
+  "artifact_organization": {
+    "date": "2026-11-12",
+    "canonical_entrypoints": [
+      "papers/paper_a.tex",
+      "papers/paper_b.tex"
+    ],
+    "support_tree": "papers/support/papers/",
+    "build_utility": "scripts/build.py",
+    "source_verification": "scripts/verify_bundle.py",
+    "layout_check": "scripts/check_layout.py",
+    "auxiliary_reconstruction": "reconstruction/",
+    "candidate_sources": "sources/candidates/ (unreconciled; retained for mathematical safety)",
+    "pdf_tracking": "No tracked PDFs; generated files belong in ignored build/.",
+    "build_executed": false,
+    "proof_audit_executed": false
   }
 }

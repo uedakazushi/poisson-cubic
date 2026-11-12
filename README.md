@@ -1,6 +1,6 @@
 # nc-cubic — Poisson cubic の量子化とrotation付き可換復元
 
-**2026-11-12 / v55。** 正本は GitHub `main`。研究再開は[現行研究方針](00_research_plan.md)から。
+**2026-11-12 / v56。** 正本は GitHub `main`。研究再開は[現行研究方針](00_research_plan.md)から。
 
 ## 現行の二論文
 

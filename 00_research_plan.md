@@ -1,6 +1,6 @@
 # 研究方針：滑らかなcubicのPoisson moduli stacksと量子化
 
-**2026年11月12日 / v55。再開時は必ず最初に読む。GitHub uedakazushi/nc-cubic のmainが唯一の正本。**
+**2026年11月12日 / v56。再開時は必ず最初に読む。GitHub uedakazushi/nc-cubic のmainが唯一の正本。**
 最上位目標は論文A（papers/paper_a.tex）を投稿可能な水準へ仕上げること。
 現在の数学的最優先課題は、**全次元のsmooth cubicの全Poisson構造に対する
 代数的中心三次元と量子化定理を、形式的中心元の存在定理に依存せず完成させること**。

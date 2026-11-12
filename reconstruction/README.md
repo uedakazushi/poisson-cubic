@@ -1,12 +1,12 @@
 # 可換復元：局所rotation・saturation・étale実現
 
-**2026-11-10・v22。研究全体の正本はGitHub main。最初にルートの00_research_plan.mdを読む。**
+**2026-11-12・v23。研究全体の正本はGitHub main。最初にルートの00_research_plan.mdを読む。**
 
-このディレクトリは論文Bの補助証明を独立組版する入口であり、第四の主論文ではない。旧bundleやLibraryを取得せず再開できる。既存の局所rotation・Serre関手・full coherent比較・spreadの全証明を保持した。
+このディレクトリは論文Bの補助証明を独立組版する入口であり、第四の主論文ではない。過去のbundleやLibraryを取得せず再開できる。既存の局所rotation・Serre関手・full coherent比較・spreadの全証明を保持した。
 
 ## 数学的状態
 
-`papers/reconstruction/rotation_saturation_reduction.tex` は局所模型と還元を記し、`papers/reconstruction/etale_realization.tex` と `papers/reconstruction/hochschild_obstructions.tex` を直接inputする。後者は親論文Bからも同じファイルを読む。
+`papers/support/papers/reconstruction/rotation_saturation_reduction.tex` は局所模型と還元を記し、`papers/support/papers/reconstruction/etale_realization.tex` と `papers/support/papers/reconstruction/hochschild_obstructions.tex` を直接inputする。後者は親論文Bからも同じファイルを読む。
 
 実在するsmooth proper dg族と可逆perfect双加群が、一点でsmooth cubicのKuとrotationに一致すれば、étale局所的に可換cubic族となることを、実際の同値双加群の障害消去で証明した。負HH消滅、HH¹=0、幾何的KSのrotation不変HH²への全射を使う。原稿に証明を記載して点検したが、外部査読・Lean形式検証ではない。新規性の包括的確認は未了。
 
@@ -33,10 +33,10 @@ PDFは `build/rotation_saturation_reduction.pdf` に生成される。buildは�
 
 ## パス移動後の実行方法
 
-TeX原稿は `papers/reconstruction/`、ノートは `notes/reconstruction.md`、生成PDFはルート `build/` に統一した。Gitに生成PDFは登録しない。
+TeX原稿は `papers/support/papers/reconstruction/`、ノートは `notes/reconstruction.md`、生成PDFはルート `build/` に統一した。Gitに生成PDFは登録しない。
 
 ```sh
-latexmk papers/reconstruction/rotation_saturation_reduction.tex
+latexmk papers/support/papers/reconstruction/rotation_saturation_reduction.tex
 python3 reconstruction/scripts/build.py
 python3 reconstruction/scripts/verify.py
 ```
@@ -64,6 +64,6 @@ python3 scripts/verify_bundle.py
 主論文のbuildはbuild/<paper>.receipt.jsonへ全inputのハッシュ、PDFハッシュ、エンジン、組版警告を記録する。verify_bundleはreceiptがある原稿についてsource/PDF対応を検査し、既存三つの具体計算証明書を再生成して照合する。二次Kontsevich計算は一時JSONへ再生成して恒等式・行列を検算し、未確認のJSONを手で復元したものとは照合しない。A/Bを再組版しない場合は、そのPDFが現行だと報告しない。
 
 
-## v22の検証と再開
+## 検証の射程と再開
 
 公開コードの二次検算はPASSした。旧版の原稿について133頁の組版・表示確認を記録しているが、現在の論文Bの新入口については未組版であり、独立SM/ERも組版・receipt・検算がPASSした。各原稿の詳細はルートvalidation.jsonを参照する。共通bibliographyも更新したため、古い原稿名のreceiptが残る環境では現行A/Bを再組版してからverify_bundleを実行する。コードはgraph積分、formality、圏同値を形式証明するものではない。詳しい状態はルートvalidation.jsonを読む。
