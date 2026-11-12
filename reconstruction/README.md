@@ -41,7 +41,7 @@ python3 reconstruction/scripts/build.py
 python3 reconstruction/scripts/verify.py
 ```
 
-SMの有限bar対角・generic spreadingの証明は `notes/sm_bar_and_spreading.tex`（根拠原本：[nc-cubic2のfinite_smoothness_notes.pdf](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/pdf-only/finite_smoothness_notes.pdf) 第18--21節）。今回の補題はSM自体を証明しない。
+SMの有限bar対角・generic spreadingの証明は `notes/sm_bar_and_spreading.tex`（根拠原本：[有限正則性の現行TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/ambient_finite_smoothness_and_recovery.tex) 第18--21節）。今回の補題はSM自体を証明しない。
 
 
 ## 具体的な方程式の抽出と二次比較（親論文B）

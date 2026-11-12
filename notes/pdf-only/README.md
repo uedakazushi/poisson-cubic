@@ -1,8 +1,8 @@
-# 研究ノート原PDFの移転先（TeX照合未了）
+# 旧PDFノートの現行TeX移管先（2026-11-12）
 
-原PDF2件はnc-cubic2へGit blob一致で移転済み。本リポジトリはPDFを追跡しない。
+nc-cubicはPDFを追跡しない。かつてnc-cubic2に移転したノート2件は、現行nc-cubic2のmainではGit追跡を解除した。
 
-- [`notes/pdf-only/categorical_boundary_notes.pdf`](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/pdf-only/categorical_boundary_notes.pdf)
-- [`notes/pdf-only/finite_smoothness_notes.pdf`](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/pdf-only/finite_smoothness_notes.pdf)
+- 有限パラメータ正則性・偏極付き復元：https://github.com/uedakazushi/nc-cubic2/blob/main/notes/ambient_finite_smoothness_and_recovery.tex。一般PBWはnc-cubic論文A、有限bar/Artin対角は`notes/sm_bar_and_spreading.tex`、dg反例は`notes/source_recovery/dg_perfectness_counterexamples.tex`が正本。
+- 圏論的境界・gluingの概要：nc-cubic2の [独立境界TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pfaffian_brill_noether_technical.tex) と現行 `notes/reconstruction.md` を参照。
 
-TeXとの完全照合は未了。原本を移転先から削除しない。
+論文の原資料PDFはnc-cubic2の`papers/pdf-only/`に5件残っている。旧版の原PDF件数やリンクを現行の保存状態と混同しない。

@@ -4,7 +4,7 @@
 
 - [`papers/pdf-only/ambient/central_cubic_technical.pdf`](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pdf-only/ambient/central_cubic_technical.pdf)
 - [`papers/pdf-only/ambient/central_pair_formal_moduli.pdf`](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pdf-only/ambient/central_pair_formal_moduli.pdf)
-- [`papers/pdf-only/boundary/brill_noether.pdf`](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pdf-only/boundary/brill_noether.pdf)
+- 旧Brill–Noether論文PDFの追跡は解除済み。研究成果の現行TeXは [Pfaffian・Brill–Noether大部稿](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pfaffian_brill_noether_technical.tex)。
 - [`papers/pdf-only/boundary/central_quotient_singularities.pdf`](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pdf-only/boundary/central_quotient_singularities.pdf)
 - [`papers/pdf-only/boundary/pfaffian_contact.pdf`](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pdf-only/boundary/pfaffian_contact.pdf)
 - [`papers/pdf-only/quantization/sklyanin_mixed_quantization.pdf`](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pdf-only/quantization/sklyanin_mixed_quantization.pdf)
