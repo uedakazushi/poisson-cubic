@@ -370,8 +370,23 @@ $V(f)\subset\PP^5$は滑らか。
 \ref{lem:pg-det-classical-kernel}の帰結であり、
 \texttt{computations/verify\_singular\_cubic\_classical\_kernel.py}
 でも有理数演算で厳密検算できる。
-このような例でも定理\ref{thm:pg-universal-determinant}から
-$\hbar$の有理関数による\emph{厳密な代数的中心元}が得られる。
+しかもこの例ではCramer式を計算するまでもなく、
+\begin{equation}
+ [y,z]=2\hbar ux,\quad
+ [z,x]=2\hbar vy,\quad
+ [x,y]=2\hbar wz,
+ \qquad
+ \Omega_{f,\hbar}=f
+ \label{eq:pg-det-zero-ternary-explicit}
+\end{equation}
+が\emph{全ての$\hbar$で厳密に中心}である。
+実際
+$[vy^2+wz^2,x]
+=-2\hbar vw(yz+zy)+2\hbar vw(zy+yz)=0$で、
+他の生成元との可換性も循環置換で従う。
+これは$f(x,y,z,0)=0$であっても
+代数的中心元が実際に存在することの直接的な例であり、
+一般の場合の存在は定理\ref{thm:pg-universal-determinant}による。
 \end{example}
 
 \begin{remark}[先行研究と確実性]
