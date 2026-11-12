@@ -1,7 +1,7 @@
 # 低rotation次数のArtin障害と生成性の訂正
 
 **2026-11-11 / v32。再開時は00_research_plan.mdを最初に読む。**
-論文Cに統合する全文はpapers/reconstruction/artin_rotation_obstructions.tex。
+論文Bに統合する全文はpapers/reconstruction/artin_rotation_obstructions.tex。
 
 体上の五変数三次のgraded MFの導来自然変換
 H^{-1},H^0,H^1の次元は内部shift r=1で(0,5,2)、r=2で(0,10,0)。

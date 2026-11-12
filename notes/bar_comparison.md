@@ -52,4 +52,4 @@ Negron arXiv:1304.0527v4 Theorem5.3（受け手は非曲率dg代数）、Tu arXi
 
 `python3 computations/verify_bar_comparison.py --output build/bar_comparison_certificate.json` は有限テスト代数で曲率144件、cap微分288件、cap積360件、有限SDRの乗法性ホモトピー30件を厳密検算する。うち25件では乗法性の差が非零であり、ホモトピー原像まで一致する。候補への直接座標代入、Jacobian9、最初の係数も再計算する。無限barの一般証明・categorical Nat・v27全行列の検証ではない。
 
-`latexmk papers/multiplicative_bar_comparison.tex` で単独稿を再生成する。主論文Cへ同じ本文をinputし、重複した証明を保守しない。既存の正則対角コードと証明は保持する。
+`latexmk papers/multiplicative_bar_comparison.tex` で単独稿を再生成する。主論文Bへ同じ本文をinputし、重複した証明を保守しない。既存の正則対角コードと証明は保持する。
