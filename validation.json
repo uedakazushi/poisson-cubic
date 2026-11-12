@@ -1,9 +1,9 @@
 {
-  "version": "nc-cubic-v52",
+  "version": "nc-cubic-v53",
   "date": "2026-11-12",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; Library only following actual GitHub publication failure.",
-  "scope": "Paper A-v50: algebraic central cubic and AS-regular quantization proved for ALL Poisson structures on every smooth cubic n-fold n>=3, including singular or zero ternary block restrictions, using universal commutator rank identities, Cramer determinants and Bertini central-cubic splitting. Formal existence, Kontsevich and Dolgushev no longer used in the proof. Existing Poisson stack, normal form, Bondal, explicit Hesse and other paper B/C results retained.",
+  "scope": "Paper A-v50: algebraic central cubic and AS-regular quantization proved for ALL Poisson structures on every smooth cubic n-fold n>=3, including singular or zero ternary block restrictions, using universal commutator rank identities, Cramer determinants and Bertini central-cubic splitting. Formal existence, Kontsevich and Dolgushev no longer used in the proof. Existing Poisson stack, normal form, Bondal, explicit Hesse and paper C results retained; 17-dimensional nc cubic moduli is moved to nc-cubic2 and ambient recovery is integrated into A.",
   "proofs_written_and_checked": [
     {
       "source": "papers/support/papers/reconstruction/point_scheme_discriminant_boundary.tex",
@@ -495,12 +495,25 @@
   "papers_layout": {
     "entrypoints": [
       "papers/paper_a.tex",
-      "papers/paper_b.tex",
       "papers/paper_c.tex"
     ],
     "support": "papers/support/papers/",
     "verified_direct_files_only": true,
     "build_verified": false,
-    "comment": "GitHub tree verified: only three direct files, 92 support files; compilation not executed."
+    "comment": "Main repo has two direct papers A/C; former B moduli manuscript is incorporated into nc-cubic2. LuaLaTeX build of the edited manuscripts has not been run in this change."
+  },
+  "post_reorganization_validation": {
+    "date": "2026-11-12",
+    "status": "GitHub transfer and source-level checks; complete compilation not yet executed",
+    "ambient_recovery": "papers/support/papers/sections/ambient_recovery_general.tex included in papers/paper_a.tex; all-dimension quadratic envelope and polarized-category theorems proved in source; Serre-only general-dimensional uniqueness not asserted",
+    "moduli_transfer": "nc-cubic2/papers/nc_cubic_threefold_moduli.tex includes moduli proofs and a self-contained threefold envelope lemma; nc-cubic2/papers/sections/mixed_center_picard.tex is a byte-identical transfer of original source",
+    "moduli_code": [
+      "nc-cubic2/computations/independent/verify_generic17_slice.py",
+      "nc-cubic2/computations/independent/verify_generic17_center.py",
+      "nc-cubic2/computations/verify_split_codimension.py"
+    ],
+    "static_checks": "Merged moduli TeX source and mixed_center_picard: zero unresolved refs, zero duplicate labels and zero unresolved citation keys",
+    "not_executed": "Full LuaLaTeX build/PDF inspection of modified article A and moved moduli manuscript, and rerun of moved verification scripts not performed in this change",
+    "known_open_problem": "17-dimensional constructed nc cubic family not proved to be a moduli irreducible component; general Serre-Veronese lifting not proved"
   }
 }
