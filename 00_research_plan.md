@@ -1,22 +1,28 @@
 # 研究方針：滑らかなcubicのPoisson moduli stacksと量子化
 
-**2026年11月12日 / v51。再開時は必ず最初に読む。GitHub uedakazushi/nc-cubic のmainが唯一の正本。**
+**2026年11月12日 / v52。再開時は必ず最初に読む。GitHub uedakazushi/nc-cubic のmainが唯一の正本。**
 最上位目標は論文A（papers/paper_a.tex）を投稿可能な水準へ仕上げること。
-現在の数学的最優先課題は、全次元のsmooth cubicにおける
-Poisson構造のspace、固定moduli stack、relative moduli stackの
-区別と代数性・既約成分分類を正確にすること。
-三変数制限が特異な場合の普遍的閉公式は当面優先しない。
+現在の数学的最優先課題は、**全次元のsmooth cubicの全Poisson構造に対する
+代数的中心三次元と量子化定理を、形式的中心元の存在定理に依存せず完成させること**。
+一般のPoisson space・固定stack・relative stackの構造定理と
+その成分数も論文Aの主要成果として維持する。
+三変数制限が特異な場合まで**代数的存在は解決**したが、
+短い単一多項式閉公式・モジュライ上の同変な接着は未解決。
 論文B/Cの有効な数学的結果と証明は保持する。
 
 ## 現行の研究入口と主なファイル
 
-- 公表原稿：papers/paper_a.tex（A-v49、日本語LuaLaTeX）
+- 公表原稿：papers/paper_a.tex（A-v50、日本語LuaLaTeX）
 - 二つのスタックの定義と代数性：papers/support/papers/sections/poisson_moduli_stacks.tex
 - Fermat／relative成分公式：papers/support/papers/sections/fermat_relative_poisson_components.tex
 - 現行知識ノート：notes/fermat_relative_poisson_components.md
-- 中心三次元と全次元量子化：notes/universal_casimir.md と papers/support/papers/sections/general_dimension_universal_quantization.tex
+- 全Poisson量子化の核心証明：papers/support/papers/sections/universal_casimir_determinant.tex、
+  papers/support/papers/sections/poisson_geometry.tex、
+  papers/support/papers/sections/general_dimension_universal_quantization.tex
+- 現行の中心元研究ノート：notes/universal_casimir.md
 - 投稿監査：notes/poisson_article_submission_audit.md、validation.json
 - 厳密計数再現：computations/verify_poisson_stack_component_counts.py
+- 特異三次制限の独立検算：computations/verify_singular_cubic_classical_kernel.py
 - 式番号・引用の静的検査：scripts/verify_article_a_numbering.py
 
 ## 論文Aの範囲：一般次元に集中する
@@ -98,25 +104,87 @@ Fermatが最大になることは未証明。
 各成分公式の証明は論文Aに掲載しているが、
 正規形のLie代数補題を含む全依存の独立監査は未完了。
 
-## 全次元量子化の有効な成果
+## 解決した最優先の中心三次元定理（全Poisson構造）
 
-任意n>=3、N=n+2=3k+mについて
-F=Σ_s f_s(x_s,u)、各純三変数制限g_s=f_s(x_s,0)滑らかなら
-k個のSchouten可換なJacobian Poisson構造を持つ。
-独立な量子化パラメータeta_sで
-Omega_eta=Σ_s Omega_{f_s,eta_s}は厳密な中心三次元。
-共通中心u上のPBW/AS正則・中心正則性・
-中心商AS-Gorenstein・多変数基底の各内部次数の局所自由性を
-論文Aに証明した。eta_s=lambda_s hによって固定Fの全k次元
-Poisson線形族を零切断の近傍で同時に量子化する。
-任意次元の内在的Hessian縮約
-H(P,F)=ΣP^{ijk}P^{abc}F_{ia}F_{jb}F_{kc}/6
-によるh²補正も得た。
-ただし相対Poisson moduli全体へ量子化族が降下すること、
-元座標での単一GL3同変なh⁴式、
-qgrのsmoothnessは未証明。
-検算はcomputations/verify_general_dimension_multiblock.py。
-数学的証明の記載と有限例での計算確認は区別する。
+**確立した数学的構造と証明の所在：**
+任意の滑らかな全体三次式
+\`f(x,y,z,u)\` に対して、三変数制限
+\`g=f(x,y,z,0)\`の滑らかさを課さず、
+Jacobian量子化代数\`A_{f,h}\`に
+\`Omega_h in Z(A_{f,h})_3\`、\`Omega_0=f\`となる
+**代数的な中心三次元**がある
+（\`thm:pg-universal-determinant\`）。
+係数は有限個の次数三Weyl単項式に掛かるh²の有理式で、
+原点で分母は非零。Hesse型の\`g\`がsmoothなら
+既存のh⁴までの短い多項式公式が使える。
+
+**新しい証明の4点（形式的中心元は一切使わない）：**
+1. 全体fの滑らかさから\`gcd(f_x,f_y,f_z)=1\`。
+   共通因子hがあれば\`h=f_{u_1}=...=f_{u_m}=0\`の
+   非零射影解がKrull高さ定理により生じ、
+   全偏微分の共通零点になって矛盾。
+2. UFDと同次数性から、古典次数三Casimir核は
+   \`C*f + C[u]_3\`（\`lem:pg-det-classical-kernel\`）。
+   すなわち古典交換子行列のrankは
+   \`r=binom(m+5,3)-binom(m+2,3)-1\`で**滑らかな全体fなら一定**。
+3. 滑らかな全体fの係数空間は既約で、
+   gが滑らかな稠密開では普遍Hesse式から量子中心元がある。
+   PBW/Weyl基底の普遍交換子行列\`D_{f,h}\`の
+   全(r+1) minorはこの開上で零、よって
+   **係数空間上恒等的に零**。gが特異・零でもrank≤r。
+4. 原点でrank=rのため非零r×r minorを取り、
+   Cramerのdet比から量子中心元を構成。
+   順序反転+\`h→-h\`で係数はh²の有理式。
+   古典Casimir核から特殊化が正確にfとなる。
+   **中心元そのものを特異gへ無条件に特殊化するのではなく、
+   minor恒等式を特殊化する**ことが論理の要点。
+
+**任意次元の全Poisson構造：**
+正規形\`F=Σ_s tilde f_s(x_s,u)+c(u)\`において
+純中心三次c(u)を\`c_1+...+c_k\`へ配分し、
+全ての\`f_s=tilde f_s+c_s\`を
+滑らかな全体三次式へできる
+（\`lem:pg-central-splitting-smooth\`）。
+u=0ではXの滑らかさ、u≠0では基点自由な中心三次系へのBertini、
+配分パラメータ空間の既約性を使用。
+配分はactive偏微分を変えないのでPoisson構造も同じ。
+各f_sにCramer中心を構成し和\`Omega=Σ_sOmega_s\`を取れば
+**全ての滑らかなcubic上の全Poisson構造**の代数的量子化を得る
+（\`thm:pg-quantization\`）。
+各fiberのambientはKoszul AS-regular（gldim N=n+2、
+Hilbert \`(1-z)^(-N)\`）、中心元は左右正則、
+中心商はAS-Gorenstein（injdim N−1、
+Hilbert \`(1-z³)/(1-z)^N\`）。
+さらに独立パラメータeta_sで
+一般の**k次元Poisson線形族の全方向**を
+同時に代数的量子化（\`thm:pg-ad-all-poisson\`）。
+形式的量子化・Kontsevich・Dolgushevはこの証明の入力から除外した。
+これは**全モジュライにわたる大域的同変量子化**という意味ではない。
+
+**独立に計算した特異制限の具体例：**
+\`f=u x²+v y²+w z²+u³+v³+w³\`は
+\`g=f(x,y,z,0,0,0)=0\`だが全体三次は滑らか。
+古典交換子行列は378×56、rank45、
+核は\`C f + C[u,v,w]_3\`（次元11）。
+SymPyによる有理数行列の厳密rank計算を実際に実行してPASS。
+\`computations/verify_singular_cubic_classical_kernel.py\`を登録。
+さらにこの具体例ではf自身が量子代数の厳密中心元。
+一般の特異gについての新しい定理はこの有限計算に依存せず、
+普遍minor恒等式とCramer証明による。
+
+**保留する問題：**
+正規形\`thm:pg-normal\`のLie代数補題・普遍Hesse計算証明書・
+PBW/AS正則性の全依存を独立再監査する。
+全係数上の短いGL3同変多項式中心元、
+Hesse/行列式チャートの同型とmoduli stackへの降下、
+全Poisson moduliの大域的量子化、qgrのsmoothness、
+非可換Kuznetsov復元は未解決。
+一般次元の内在的Hessian二次補正
+\`H(P,F)=ΣP^{ijk}P^{abc}F_{ia}F_{jb}F_{kc}/6\`
+は引き続き有効。
+既知のEtingof--Ginzburg §8.3のrank・特殊化法と
+今回の固定次数の独立したminor証明を一次資料と照合したが、
+全研究の初出・新規性調査は未完了。
 
 ## 投稿の達成基準と次の研究課題
 
