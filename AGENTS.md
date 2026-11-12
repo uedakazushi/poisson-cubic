@@ -1,6 +1,6 @@
 # AGENTS.md — nc-cubic 現行研究・開発指針
 
-**2026-11-12 / v55。GitHub main が正本。** 最初に `00_research_plan.md` を読み、次に現行論文と対応ノートを読む。
+**2026-11-12 / v56。GitHub main が正本。** 最初に `00_research_plan.md` を読み、次に現行論文と対応ノートを読む。
 
 ## 研究の対象と原稿入口
 

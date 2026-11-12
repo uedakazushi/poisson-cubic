@@ -1,4 +1,4 @@
-# 移転済みPDFの数学的内容保全監査（2026-11-10）
+# 外部に保全したPDFの数学的内容と未照合箇所（2026-11-12 / v1）
 
 **状況：８本・計574ページ。原PDFの完全なTeX置換が確認できたものはまだ0本。**
 PDF原本8件はnc-cubic2のmainへGit blob一致で移転済み。nc-cubicでの追跡PDFは0件。
@@ -20,7 +20,7 @@ PDF原本8件はnc-cubic2のmainへGit blob一致で移転済み。nc-cubicで�
 
 
 - `notes/source_recovery/dg_perfectness_counterexamples.tex`：特殊・Artin perfect性は相対perfectnessを含意しないこと、非開性、Hom有限性。原本p.26–31。
-- `papers/source_recovery/central_cubic_generic_smoothness.tex`：二つの中心チャートの貼合せによるperfectnessとvery-general中心三次商の正則性。比較原稿p.43–44。
+- `papers/support/papers/source_recovery/central_cubic_generic_smoothness.tex`：二つの中心チャートの貼合せによるperfectnessとvery-general中心三次商の正則性。比較原稿p.43–44。
 - [nc-cubic2の中心曲面判別式TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/central_fiber_discriminant.tex)：中心曲面の完全判別式、特異点の全列挙、混合因子への帰結。原論文VI p.25–27。有限恒等式は [nc-cubic2の記号検算コード](https://github.com/uedakazushi/nc-cubic2/blob/main/computations/verify_central_fiber_discriminant.py) でも検査する。
 
 ## この比較で特に失ってはならない成果
@@ -35,7 +35,7 @@ PDF原本8件はnc-cubic2のmainへGit blob一致で移転済み。nc-cubicで�
 そのPDFのすべての定理・仮定・証明・反例・計算資産が現行TeXから再現可能であること、
 LuaLaTeXと再現計算を確認すること、関連原稿が自立していることを確認した上で
 nc-cubic2で原本を保全する。見出し類似や断片的なTeX化だけでは解除しない。
-参照 TODO：[`TODO_PDF_SOURCES.md`](TODO_PDF_SOURCES.md)。
+参照 TODO：[照合一覧](pdf_source_checklist.md)。
 
 
 **Reye原論文77ページ・専用ソース・検証コードの移行先：** https://github.com/uedakazushi/reye （移行先の同一PDF blob SHA検証済み）。

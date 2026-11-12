@@ -9,4 +9,4 @@
 - [`papers/pdf-only/boundary/pfaffian_contact.pdf`](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pdf-only/boundary/pfaffian_contact.pdf)
 - [`papers/pdf-only/quantization/sklyanin_mixed_quantization.pdf`](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pdf-only/quantization/sklyanin_mixed_quantization.pdf)
 
-TeXとの完全照合は未了。原本を移転先から削除しない。詳細はルートの `TODO_PDF_SOURCES.md` を参照。
+TeXとの完全照合は未了。原本を移転先から削除しない。詳細は[現行の未照合一覧](../../../../notes/source_recovery/pdf_source_checklist.md) を参照。

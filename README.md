@@ -23,6 +23,7 @@
 - `computations/`：再生成可能な有限計算と、必要な証明書。
 - `reconstruction/`：論文Bの局所・étale比較の再現スクリプト。
 - `sources/candidates/`：まだ現行原稿との内容照合が必要な候補TeX。新しい主論文の入口ではなく、照合なしに削除しない。
+- `notes/source_recovery/`：外部に保全されたPDF原本の[内容一覧](notes/source_recovery/pdf_mathematical_inventory.md)・[未照合箇所](notes/source_recovery/pdf_source_checklist.md)と、必要部分のTeX復元。
 
 ## 組版と静的検査
 
