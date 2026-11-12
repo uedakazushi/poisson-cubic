@@ -1,14 +1,24 @@
-\section{Fermat型の固定Poissonスキームと相対Poissonモジュライの既約成分}
+\section{Fermat型のspace・moduli stackとrelative moduli stackの既約成分}
 \label{sec:pg-fermat-relative-components}
-本節では、\emph{固定した滑らかなcubicのPoisson scheme}と、
-\emph{cubic自身も変形させる相対Poisson scheme}を比較する。
+本節では、固定したcubic $X$の
+\emph{space of Poisson structures} $\operatorname{Pois}(X)$、
+その\emph{moduli stack of Poisson structures} $\mathfrak{Pois}(X)$、
+および\emph{relative moduli stack of Poisson structures}
+$\mathfrak{Pois}^{\mathrm{rel}}_n$を比較する。
+これらの定義と代数性は
+定義\ref{def:pg-pois-space}、
+定義\ref{def:pg-fixed-pois-stack}、
+定義\ref{def:pg-relative-pois-stack}、
+定理\ref{thm:pg-relative-stack-algebraic}に示した。
 いずれの「既約成分」もスキームの基礎位相空間（すなわち被約化）の既約成分を意味し、
 その非被約構造や成分交叉のイデアルについての主張ではない。
-Poisson双ベクトルのスカラーは割らず、相対側でのみ射影座標変換を割る。
+Poisson双ベクトルのスカラーはどの場合も割らない。
+固定スタックでは有限群$\operatorname{Aut}(X)$で割り、
+relative stackでは連結群$\mathrm{PGL}(V)$で割る。
 本節の分類は定理\ref{thm:pg-normal}に依存し、その証明全体の独立再監査・
 先行研究上の新規性確認は完了していない。
 
-\subsection{対象と二つの成分数}
+\subsection{対象と三種類の成分数}
 $N=n+2\ge5$、$V=\mathbb C^N$、$S=\operatorname{Sym}(V^*)$とする。
 $F\in S_3$が滑らかな射影cubic $X_F\subset\mathbb P(V)$を定めるとき、
 命題\ref{prop:pg-represent}により、複素点の集合として
@@ -21,20 +31,24 @@ Jacobi方程式は$P$について二次斉次である。
 $F_N=\sum_{i=1}^N z_i^3$、$X_N=V(F_N)$について
 $\mathfrak P_N^{\mathrm{Fer}}=\operatorname{Pois}(X_N)$と書く。
 
-また滑らかな三次式の射影パラメータ開集合を
-$U_N\subset\mathbb P(S_3)$とし、その上の相対Poissonスキームの非零部分を
-$\mathfrak I_N^\times$とする。$[F]$の局所表示を選ぶと、
-双ベクトルは$\pi=\iota_{dF}P$と書ける。
-$F$のスカラー変更には$P$を逆スカラー倍して対応するので、
-相対の定義は局所表示の選択に依存しない。
-相対モジュライは商スタック
-$\mathfrak M_n=[\mathfrak I_N^\times/\mathrm{PGL}(V)]$の基礎位相空間として扱う。
+滑らかな三次式の射影パラメータ開集合
+$U_N\subset\mathbb P(S_3)$上の相対Poissonスキームを
+$\mathscr P_n$とする（式\eqref{eq:pg-relative-pois-space}）。
+その非零部分を$\mathscr P_n^\times$と書く。
+$[F]$の局所表示を選べば双ベクトルは
+$\pi=\iota_{dF}P$と書け、
+$F$を$aF$に替えると$P$を$a^{-1}P$に替えるので
+局所表示には依存しない。
+相対モジュライスタックは
+$\mathfrak{Pois}_n^{\mathrm{rel}}
+=[\mathscr P_n/\mathrm{PGL}(V)]$
+であり、零Poisson構造も含める。
 
 $\left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}$を、
 $\{1,\ldots,N\}$を各部分集合の要素数が$3$以上である
 $k$個の\emph{非順序}非空部分集合へ分割する方法の数とする。
 
-\begin{theorem}[Fermat fiberと相対schemeの成分数]
+\begin{theorem}[Fermatのspace・stackとrelative stackの成分数]
 \label{thm:pg-fermat-relative-count}
 $n\ge3$、$N=n+2$とする。定理\ref{thm:pg-normal}の下で、
 \begin{enumerate}
@@ -48,10 +62,24 @@ $n\ge3$、$N=n+2$とする。定理\ref{thm:pg-normal}の下で、
  一般Poisson階数$2k$の成分の個数は
  $\left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}$で、
  各成分のアフィン次元は$3N-8k$である。
-\item cubic自身も動かす相対スキームでは、一般階数$2k$ごとに
- ただ一つの既約成分が存在し、従って
+\item Fermat cubic $X_N$の
+\emph{moduli stack of Poisson structures}について、
+各$k$個の一般階数$2k$の既約成分は
+$N$を$k$個の整数$\ge3$の和に分割する方法と一対一に対応する。
+従って
+\begin{equation}
+ \boxed{\quad
+ \#\operatorname{Irr}(\mathfrak{Pois}(X_N))
+ =p_{\ge3}(N):=
+ [q^N]\prod_{b\ge3}(1-q^b)^{-1}.
+ \quad}
+ \label{eq:pg-fermat-stack-count}
+\end{equation}
+\item cubic自身も動かす
+\emph{relative moduli stack of Poisson structures}では、
+一般階数$2k$ごとにただ一つの既約成分が存在し、従って
 \[
- \#\operatorname{Irr}(\mathfrak M_n)=\left\lfloor\frac{N}{3}\right\rfloor.
+ \#\operatorname{Irr}(\mathfrak{Pois}^{\mathrm{rel}}_n)=\left\lfloor\frac{N}{3}\right\rfloor.
  \tag{R}\label{eq:pg-relative-count}
 \]
  その商スタック次元は$m=N-3k$として
@@ -61,7 +89,10 @@ $n\ge3$、$N=n+2$とする。定理\ref{thm:pg-normal}の下で、
  +k\left(10+6m+3\binom{m+1}{2}\right)-N^2.
 \end{equation}
 \end{enumerate}
-$\pi=0$を追加しても双方の被約既約成分数は変わらない。
+$\pi=0$を追加しても三者の被約既約成分数は変わらない。
+一般の滑らかなcubicではspaceも固定stackも
+一つの既約成分だけを持つ（系\ref{cor:pg-generic}）。
+従って固定$X$のstackの成分数は$X$の複素構造に依存する。
 \end{theorem}
 
 \subsection{固定Fermat fiberの成分を座標分割で記述する}
@@ -125,8 +156,61 @@ $k=1$の分割はただ一つである。
 零点は全ての錐に含まれ、追加の成分にはならない。
 \end{proof}
 
-\subsection{動くcubicのrank層は一つずつになる}
+\subsection{固定したFermatの商スタックでは集合分割が整数分割になる}
 \begin{proof}[定理\ref{thm:pg-fermat-relative-count}の第二項]
+命題\ref{prop:pg-fixed-stack-algebraic}から
+$\mathfrak{Pois}(X_N)$の既約成分は
+$\operatorname{Aut}(X_N)$の
+$\operatorname{Irr}(\operatorname{Pois}(X_N))$への
+作用の軌道と対応する。
+この群の作用を明示的に調べる。
+
+前節の自己同型の線形化によって、
+$\operatorname{Aut}(X_N)$はFermat式
+$F_N=\sum_i z_i^3$を定数倍まで保つ
+射影線形変換である。
+Hessian行列式は
+\begin{equation}
+ \det\operatorname{Hess}(F_N)
+ =6^N\prod_{i=1}^{N}z_i.
+ \label{eq:pg-fermat-hessian-discriminant}
+\end{equation}
+もし$F_N(Az)=cF_N(z)$なら
+連鎖律からHessianの行列式は
+\begin{equation}
+ \prod_i(Az)_i
+ =c^N\det(A)^{-2}\prod_i z_i
+ \label{eq:pg-fermat-hessian-transform}
+\end{equation}
+という単元倍の等式を満たす。
+多項式環の一意分解性により、
+各一次式$(Az)_i$はある$z_{\sigma(i)}$の定数倍となる。
+従って全ての自己同型はmonomial変換であり、
+逆に座標置換と三乗根による対角スケーリングは
+Fermatを保つ。よって
+\begin{equation}
+ \operatorname{Aut}(X_N)
+ \simeq(\mu_3^N/\mu_3)\rtimes\mathfrak S_N.
+ \label{eq:pg-fermat-automorphism-group}
+\end{equation}
+
+第一項で記述した成分$Z_{\mathcal B}$は
+各座標ブロックの支持集合の分割
+$\mathcal B=\{B_1,\ldots,B_k\}$で添字付けられている。
+対角スケーリングはその支持集合を変えず、
+$\mathfrak S_N$は座標添字を置換する。
+二つの分割が同じ群軌道に入るための必要十分条件は、
+ブロックの大きさの\emph{多重集合}
+$\{|B_1|,\ldots,|B_k|\}$が一致することである。
+これが$N$を$k$個の整数$\ge3$へ分割する方法と一致し、
+$k$全体について数えると
+\eqref{eq:pg-fermat-stack-count}を得る。
+有限群の商では成分の次元を変えないが、
+成分の添字付けを同一視することに注意する。
+\end{proof}
+
+\subsection{cubicも動くrelative stackのrank層は一つずつになる}
+\begin{proof}[定理\ref{thm:pg-fermat-relative-count}の第三項]
 $P_k=e_{123}+e_{456}+\cdots+e_{3k-2,3k-1,3k}$と置く。
 定理\ref{thm:pg-normal}によって、rank$\,2k$の相対Poisson対の三重ベクトル部分は
 $P_k$の$\mathrm{GL}_N$軌道$\mathcal O_{N,k}$である。
@@ -170,19 +254,19 @@ $\dim\mathrm{PGL}_N=N^2-1$を引くと式\eqref{eq:pg-relative-dim}を得る。
 \end{equation}
 従って係数抽出だけで固定Fermatの各rank成分数を求められる。
 \begin{center}
-\begin{tabular}{r|rrrr|r|r}
+\begin{tabular}{r|rrrr|rrr}
 \toprule
-$n$ & Fermat rank 2 & rank 4 & rank 6 & rank 8
-& Fermat計 & 相対計 \\
+$n$ & space rank 2 & rank 4 & rank 6 & rank 8
+& space計 & 固定stack & relative stack \\
 \midrule
-3 & 1 & -- & -- & -- & 1 & 1 \\
-4 & 1 & 10 & -- & -- & 11 & 2 \\
-5 & 1 & 35 & -- & -- & 36 & 2 \\
-6 & 1 & 91 & -- & -- & 92 & 2 \\
-7 & 1 & 210 & 280 & -- & 491 & 3 \\
-8 & 1 & 456 & 2100 & -- & 2557 & 3 \\
-9 & 1 & 957 & 10395 & -- & 11353 & 3 \\
-10 & 1 & 1969 & 42735 & 15400 & 60105 & 4 \\
+3 & 1 & -- & -- & -- & 1 & 1 & 1 \\
+4 & 1 & 10 & -- & -- & 11 & 2 & 2 \\
+5 & 1 & 35 & -- & -- & 36 & 2 & 2 \\
+6 & 1 & 91 & -- & -- & 92 & 3 & 2 \\
+7 & 1 & 210 & 280 & -- & 491 & 4 & 3 \\
+8 & 1 & 456 & 2100 & -- & 2557 & 5 & 3 \\
+9 & 1 & 957 & 10395 & -- & 11353 & 6 & 3 \\
+10 & 1 & 1969 & 42735 & 15400 & 60105 & 9 & 4 \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -190,17 +274,21 @@ $n$ & Fermat rank 2 & rank 4 & rank 6 & rank 8
 $(3,6)$型の分割$\binom93=84$と$(4,5)$型の分割$\binom94=126$の和、
 rank六の$280$は$(3,3,3)$型の分割
 $9!/((3!)^3\,3!)$であり、$1+210+280=491$となる。
-一方、相対的にはこの三つのrankにつき一つずつの三成分だけが残る。
+この場合Fermatの固定stackではrank二、rank四、rank六について
+それぞれ1、2、1成分で合計4成分となり、
+relative stackにはrankごとに一つずつの3成分だけが残る。
 これは\emph{固定特殊ファイバーの既約成分が、全体の異なる既約成分と
 一対一に対応する必要がない}ことを具体的に示している。
 
 \begin{remark}[最大性・scheme構造・既知結果との区別]
 固定Fermatの成分数が、全ての滑らかなcubicの中で最大になることは
 上の議論からは従わない。特に高次元での最大性は別の問題である。
-表は\emph{被約既約成分数}についてのもので、Jacobi方程式で定義される
+表のspace列は\emph{被約既約成分数}、固定stack列は
+その有限群商における成分軌道数である。
+Jacobi方程式で定義される
 Poisson schemeが被約であるとか、成分の交叉や零点での局所環を
 完全に決定したものではない。
-また$\mathfrak M_n$は商スタックである。
+また$\mathfrak{Pois}^{\mathrm{rel}}_n$は商スタックである。
 その粗モジュライの存在・構成や全ての幾何学的性質をここで主張しない。
 式\eqref{eq:pg-fermat-count}--\eqref{eq:pg-relative-dim}の初出・新規性は
 包括的には未確認であり、正規形の既知入力と本節の計数的帰結を区別する。
