@@ -57,7 +57,7 @@
       "status": "Direct join dimension and rank-drop proof reviewed. DEPENDS on existing thm:pg-normal, whose complete Lie-theoretic classification proof was not independently reaudited this turn."
     },
     {
-      "source": "papers/support/papers/reconstruction/coherent_residual_saturation.tex",
+      "source": "https://github.com/uedakazushi/nc-cubic2/blob/main/papers/relative_reconstruction/coherent_residual_saturation.tex",
       "labels": [
         "crs:thm:abstract",
         "crs:cor:level"
@@ -65,7 +65,7 @@
       "status": "Direct proof via the smooth diagonal, pseudo-perfect modules and finite evaluation; no presumed generation of all coherent objects."
     },
     {
-      "source": "papers/support/papers/reconstruction/coherent_residual_saturation.tex",
+      "source": "https://github.com/uedakazushi/nc-cubic2/blob/main/papers/relative_reconstruction/coherent_residual_saturation.tex",
       "labels": [
         "crs:lem:sections",
         "crs:lem:finite-lines",
@@ -74,7 +74,7 @@
       "status": "Verified hypotheses for AS-regular central cubic quotients using Burke-Stevenson derived sections, chi and finite cohomological dimension."
     },
     {
-      "source": "papers/support/papers/reconstruction/coherent_residual_saturation.tex",
+      "source": "https://github.com/uedakazushi/nc-cubic2/blob/main/papers/relative_reconstruction/coherent_residual_saturation.tex",
       "labels": [
         "crs:lem:descent",
         "crs:prop:residual-smooth",
@@ -317,7 +317,7 @@
         "ex:pg-ad-sixfold"
       ],
       "compute_assets": [
-        "computations/verify_general_dimension_multiblock.py",
+        "https://github.com/uedakazushi/nc-cubic2/blob/main/computations/verify_general_dimension_multiblock.py",
         "computations/build_general_dimension_center.py"
       ],
       "executed_checks": [
@@ -473,7 +473,7 @@
     "date": "2026-11-12",
     "status": "GitHub transfer and source-level checks; complete compilation not yet executed",
     "ambient_recovery": "papers/support/papers/sections/ambient_recovery_general.tex included in papers/paper_a.tex; all-dimension quadratic envelope and polarized-category theorems proved in source; Serre-only general-dimensional uniqueness not asserted",
-    "moduli_transfer": "nc-cubic2/papers/nc_cubic_threefold_moduli.tex includes moduli proofs and a self-contained threefold envelope lemma; nc-cubic2/papers/sections/mixed_center_picard.tex is a byte-identical transfer of original source",
+    "moduli_transfer": "nc-cubic2/papers/nc_cubic_threefold_moduli.tex includes moduli proofs and a self-contained threefold envelope lemma; nc-cubic2/https://github.com/uedakazushi/nc-cubic2/blob/main/papers/relative_reconstruction/mixed_center_picard.tex is a byte-identical transfer of original source",
     "moduli_code": [
       "nc-cubic2/computations/independent/verify_generic17_slice.py",
       "nc-cubic2/computations/independent/verify_generic17_center.py",

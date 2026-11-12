@@ -1,6 +1,6 @@
 # 論文B：完備曲率付き比較と一般点可換復元
 
-**2026-11-12 / B-v54。** 再開は `00_research_plan.md`。主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、形式比較の証明は `complete_curved_transport.tex`、局所比較は `three_object_window.tex`、基礎体降下は `generic_cubic_descent.tex`（同じディレクトリ）。
+**2026-11-12 / B-v54。** 再開は `00_research_plan.md`。主定理は `https://github.com/uedakazushi/nc-cubic2/blob/main/papers/relative_reconstruction/general_dimension_recovery.tex`、形式比較の証明は `complete_curved_transport.tex`、局所比較は `three_object_window.tex`、基礎体降下は `generic_cubic_descent.tex`（同じディレクトリ）。
 
 ## 現在の結論と適用範囲
 
@@ -89,6 +89,6 @@ Căldăraru–Tu, *Curved A∞ algebras and Landau–Ginzburg models*, NYJM19 (2
 
 これらは有限代数・組合せの検算であり、Kontsevichグラフ積分、非可換MFの実際のHom、高次積、全圏同値の計算機検証ではない。以前のwindow・勾配積分コードは保持するが今回は再実行していない。
 
-`latexmk papers/support/papers/complete_curved_transport.tex` で5頁の日本語証明抜粋を再生成する。本文外参照はラベル名で表示する。今回の抜粋はLuaLaTeXで組版・表示確認した。論文B全文の再組版、全入力の静的再監査、全既存計算の再実行は未実施。正確な状態とハッシュは `validation_paper_b.json`。
+`latexmk https://github.com/uedakazushi/nc-cubic2/blob/main/papers/relative_reconstruction/complete_curved_transport.tex` で5頁の日本語証明抜粋を再生成する。本文外参照はラベル名で表示する。今回の抜粋はLuaLaTeXで組版・表示確認した。論文B全文の再組版、全入力の静的再監査、全既存計算の再実行は未実施。正確な状態とハッシュは `validation_paper_b.json`。
 
 GitHub main正本、Actions・force pushなし。Libraryは実際のGitHub保存失敗時のみ緊急退避する。

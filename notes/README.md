@@ -1,17 +1,5 @@
-# 研究ノート
+# 現行の研究・監査ノート
 
-研究方針はルートの `00_research_plan.md` にあり、本フォルダーには現時点で有効な知識・未解決課題・計算・障害を置く。
+研究方針は `00_research_plan.md`。Aの監査は `poisson_article_submission_audit.md`・`universal_casimir.md`・`fermat_relative_poisson_components.md`、Bの監査は `paper_b_proof_audit.md`・`generic_recovery.md`。`research_notes.tex` は共有の詳細監査資料として保持する。そこにある独立相対構成の現行正本はnc-cubic2であり、旧来の主論文章番号とは区別する。
 
-- `notes/research_notes.md`：一般次元・各Poisson成分の研究ノート
-- `notes/reconstruction.md`：可換復元の相対理論
-- `notes/research_notes.tex`：既存の詳細な数学研究ノート
-- `notes/reconstruction_notes.tex`：一楕円ブロックと相対化の技術ノート
-- `notes/rotation_saturation_reduction_v14.md`：既存のrotation・saturation補足ノート
-
-- `notes/sm_bar_and_spreading.tex`：SMの有限bar対角判定・generic spreading。PDF-only原本第18--21節を証明付きで再構成した独立ノート
-
-TeXノートもルートから `latexmk notes/research_notes.tex` と `latexmk notes/reconstruction_notes.tex` で組版する。生成PDFは `build/` に置き、Git追跡しない。
-
-原ノートPDF2件は [nc-cubic2](https://github.com/uedakazushi/nc-cubic2/tree/main/notes/pdf-only) に保全済み。本リポジトリはPDFを追跡しない。
-
-`latexmk notes/sm_bar_and_spreading.tex` で現行SMの有限判定ノートを再生成する。
+独立成果の所在・検証・移管状態は `paper_b_scope_and_transfer.md`。旧候補資料の照合記録は `source_recovery/` に保持する。

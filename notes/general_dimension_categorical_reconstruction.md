@@ -4,7 +4,7 @@
 
 代数的・次数別有限自由な中心三次対、滑らかな可換特殊ファイバーという入力から、三対象windowで(L)、完備曲率移送で(CF)と(CF_3)を構成する。比較条件を独立に仮定せず、K=C(h)上のsmooth cubic模型と有限拡大上のrotation付き全coherent残余圏同値を得る。模型は全n>=3で幾何学的に一意。正則多変数局所基底にも同じ一般点定理が成立する。
 
-主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、局所比較は `three_object_window.tex`、形式比較の現行証明は `complete_curved_transport.tex`、模型降下は `generic_cubic_descent.tex`（同ディレクトリ）。全MF比較を固定三対象に制限してから局所化し、任意Laurent対象へ無限Taylor和を評価しない。古い支持節の比較条件は、これらの構成定理から入力する。
+主定理は `https://github.com/uedakazushi/nc-cubic2/blob/main/papers/relative_reconstruction/general_dimension_recovery.tex`、局所比較は `three_object_window.tex`、形式比較の現行証明は `complete_curved_transport.tex`、模型降下は `generic_cubic_descent.tex`（同ディレクトリ）。全MF比較を固定三対象に制限してから局所化し、任意Laurent対象へ無限Taylor和を評価しない。古い支持節の比較条件は、これらの構成定理から入力する。
 
 (D)と非可換低Natの明示行列は有効化の課題。方程式と同値核の定義体は別であり、K上の模型の一意性、特殊点込み相対同値、全射影化の導来同値、全nc cubicの表示は主張しない。既存の二次jet・明示混合族・相対Artin・point scheme・反例の証明は保持する。
 

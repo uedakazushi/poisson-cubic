@@ -1,90 +1,9 @@
 {
-  "version": "nc-cubic-v11-componentwise-paperB",
-  "date_jst": "2026-11-09",
-  "scope": "Current section of paper B; arbitrary dimension n>=3 and every reduced irreducible Poisson component. Not a replacement for all results in the parent repository.",
-  "mathematics": {
-    "proved_and_reviewed": [
-      "Smooth birational scalar chart T times A1 for every nonzero reduced irreducible cone",
-      "Spreading block normal form over a finite etale cover, assuming geometric generic normal form",
-      "Algebraization of a formal kernel vector of a finite matrix preserving any specified finite jet",
-      "Degreewise flatness of a regular central quotient under the explicitly stated fiberwise domain assumptions",
-      "Open saturation from an actual perfect diagonal certificate and map"
-    ],
-    "conditional": [
-      "Generic cubic realization for the constructed quantization on a dominant chart, conditional on actual smooth proper residual pair and the manuscript local realization principle (ER)"
-    ],
-    "not_proved": [
-      "Uniform PBW/AS-regular family on every chart",
-      "Relative residual smoothness and actual diagonal lifting",
-      "Full proof audit of manuscript ER and Poisson normal form",
-      "Global descent, all-points reconstruction, or uniqueness of all possible quantizations"
-    ],
-    "novelty": "Not comprehensively verified; standard geometric and commutative-algebra inputs are identified."
-  },
-  "computations": {
-    "arithmetic": "exact Q-polynomial/free-algebra identities",
-    "chart": {
-      "chart": "cone over Gr(2,5), p01=h",
-      "plucker_equations": 5,
-      "inverse_coordinates": 6,
-      "status": "passed"
-    },
-    "linear_example": {
-      "scope": "illustration of the linear lemma, not a universal cubic center",
-      "denominator": "1-s*h",
-      "verified_jet_order": 4,
-      "status": "passed"
-    },
-    "singular_block": {
-      "n": 5,
-      "jacobi_triples": 35,
-      "rank_witness": 4,
-      "gradient_radical": "all seven variables",
-      "pure_first_block": "x^3+y^3, singular at [0:0:1]",
-      "status": "passed"
-    },
-    "center": {
-      "base_ring": "ZZ[h]",
-      "relations": 3,
-      "certificate_terms": 15,
-      "cyclic_commutators": 3,
-      "uses_h_inverse": false,
-      "scope": "universal Fermat centrality only, not the full mixed family",
-      "status": "passed"
-    },
-    "not_verified": [
-      "general relative saturation",
-      "general PBW on a component chart",
-      "formal/etale categorical reconstruction theorem"
-    ]
-  },
-  "primary_sources_checked": {
-    "Stacks_00MC": "faithfully flat local completion",
-    "Stacks_0BDK": "perfect-complex rank-zero vanishing open and pullback",
-    "Stacks_055U": "etale-local sections of smooth morphisms",
-    "Toen_Vaquie": "arXiv:math/0503269v5, Theorem 3.6: moduli input, not ER by itself"
-  },
-  "local_validation": {
-    "source_closure": "passed; 24 labels, no missing references or citations",
-    "typesetting": {
-      "section_pages": 6,
-      "plan_pages": 3,
-      "notes_pages": 3,
-      "undefined_references": 0,
-      "missing_glyphs": 0,
-      "overfull_boxes": 0
-    },
-    "visual_review": "All twelve pages rendered as contact sheet; central proof/theorem pages inspected at reading scale",
-    "pdf_input_parity": "SHA256 snapshots in build_receipt_components.json; all compared successfully",
-    "proof_assistant": "not used"
-  },
-  "parent_delivery": {
-    "reviewed_main": "bb09af6e3a4d9407c55e3fe578bb474e3ef1c4d2",
-    "pdfs": "Only the standalone section, current plan and notes were rebuilt. Whole papers A/B/C and boundary PDFs were not rebuilt. New PDF binaries are supplied in the scoped bundle, not assumed synchronized to GitHub.",
-    "external_saves": "Report actual Library and GitHub receipts separately; local validation does not imply external persistence."
-  },
-  "environment": {
-    "python": "3.13.5",
-    "sympy": "1.14.0"
-  }
+  "status": "MIGRATED",
+  "entry": "https://github.com/uedakazushi/nc-cubic2/blob/main/papers/relative_reconstruction_models.tex",
+  "section": "all_poisson_components",
+  "finite_checker": "https://github.com/uedakazushi/nc-cubic2/blob/main/computations/verify_componentwise_reconstruction.py",
+  "certificate": "https://github.com/uedakazushi/nc-cubic2/blob/main/computations/componentwise_checks.json",
+  "current_validation": "https://github.com/uedakazushi/nc-cubic2/blob/main/validation_relative_reconstruction_models.json",
+  "scope": "Conditional component-chart construction; not a claim of new verification of all categorical proofs."
 }
