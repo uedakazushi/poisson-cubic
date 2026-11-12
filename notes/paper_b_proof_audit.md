@@ -1,6 +1,6 @@
 # 論文B：完備曲率付き比較と一般点可換復元
 
-**2026-11-12 / B-v46。** 再開は `00_research_plan.md`。主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、形式比較の証明は `complete_curved_transport.tex`、局所比較は `three_object_window.tex`、基礎体降下は `generic_cubic_descent.tex`（同じディレクトリ）。
+**2026-11-12 / B-v47。** 再開は `00_research_plan.md`。主定理は `papers/support/papers/reconstruction/general_dimension_recovery.tex`、形式比較の証明は `complete_curved_transport.tex`、局所比較は `three_object_window.tex`、基礎体降下は `generic_cubic_descent.tex`（同じディレクトリ）。
 
 ## 現在の結論と適用範囲
 
@@ -9,6 +9,10 @@
 この入力の一般点において、元の体K=C(h)上の滑らかな三次模型、有限拡大後のrotation・中心元由来周期付き全coherent残余圏同値、全n>=3での幾何学的一意性、BFKの生成段数上界2(n+2)(n+3)-1を得る。正則多変数局所基底の分数体にも同じ議論が通る。任意の抽象的nc cubic圏にこの表示があること、同値核のKへの降下、特殊点を含む代数的相対同値、全モジュライ上の接着は未証明。
 
 本文の証明を構成し主要段階を点検したことと、原稿全体の全支持補題の独立再監査、計算機形式検証、外部査読、包括的新規性調査を区別する。今回の結論は指定された変形族の範囲でのものであり、「すべての非可換cubicの無条件分類」と呼ばない。
+
+## 公表原稿の構成と確認の境界
+
+現行論文BのAbstractは主結果と適用条件だけを簡潔に述べ、検証作業の状況は研究方針・本ノート・検証記録に置く。Introductionは「問題設定」「結果の概要」「証明の方針と構成」「既知結果と適用範囲」に整理。主定理の証明を一般点・有限降下とcoherent飽和・方程式の定義体へ区分。一次・二次障害とcategorical接空間の節は、一般点の証明を中断しない位置（変形・有限方程式の部）へ配置。すべての定理、証明、例、反例、計算・参考文献の内容は保持する。今回の作業は編集であり、新しい数学的主張の独立監査ではない。
 
 ## 形式比較の論理と確認点
 

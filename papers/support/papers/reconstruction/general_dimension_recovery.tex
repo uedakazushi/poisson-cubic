@@ -1,16 +1,16 @@
-% 2026-11-12 / B-v43: local window and complete curved transport are theorems.
-\section{一般次元の中心三次非可換超曲面と主定理}
+% 2026-11-12 / B-v47: editorial revision; mathematical statements and proofs preserved.
+\section{中心三次非可換変形の一般点可換復元}
 \label{gdr:sec:main}
 
-\subsection{代数的入力と二種類の残余圏}
+\subsection{代数的入力と残余圏の定義}
 $n\ge3$、$N=n+2$、$a=N-3$、$R=\mathbb C[h]_{(h)}$、
 $\widehat R=\mathbb C[[h]]$、$K=\mathbb C(h)$、$L=\mathbb C((h))$とする。
 $A_R=\bigoplus_{j\ge0}(A_R)_j$は中央$R$-代数、$(A_R)_0=R$で、
 各次数成分は有限自由、$A_R/hA_R\simeq\mathbb C[x_1,\ldots,x_N]$と仮定する。
 $\Omega_R\in Z(A_R)_3$の剰余$F$は滑らかな射影三次超曲面を定めるものとし、
 $B_R=A_R/(\Omega_R)$と置く。
-以下はこの具体的な代数的中心三次変形に関する定理である。
-任意の抽象的nc cubic圏がこの入力を持つとは主張しない。
+以下の結果はこの代数的な組を対象とする。
+抽象的な非可換三次圏に対して同様の表示が存在することは仮定せず、結論ともしない。
 
 体上の$B=B_K$について$\mathcal O_B(j)=\pi B(j)$、
 $\mathcal C_B=\operatorname{thick}\{\mathcal O_B(j):j\in\mathbb Z\}$とし、
@@ -34,7 +34,7 @@ $\mathcal C_B=\operatorname{thick}\{\mathcal O_B(j):j\in\mathbb Z\}$とし、
 と定める。enhancementと冪等完備化を伴う。
 線束生成残余と全coherent残余の一致は後で証明する。
 
-\subsection{追加仮定ではない二つの比較}
+\subsection{主定理に用いる二つの比較定理}
 局所比較(L)は定理\ref{tw:thm:window}により代数的入力から構成する。
 $K_R=\operatorname{stab}(R)$と$T_R=K_R\oplus K_R(1)\oplus K_R(2)$について、
 $\mathcal K^{\rm lin}_{B_R}\simeq\operatorname{Perf}(R\operatorname{End}(T_R))$であり、
@@ -49,8 +49,9 @@ unital $A_\infty$同値
 \end{equation}
 があり、内部shiftと$(3)\simeq[2]$を保つ。
 その固定三対象への制限が定義\ref{tw:def:CF3}を満たす
-（系\ref{cft:cor:CF3}）。以後(L)、(CF)、(CF$_3$)は比較の名称であって追加仮定ではない。
-既存支持節がこれらを条件として記す場合は、以上の定理を入力する補題として読む。
+（系\ref{cft:cor:CF3}）。以後、(L)、(CF)、(CF$_3$)は構成された比較の略称とし、
+独立した追加仮定とはしない。既存の支持節でそれらを仮定する命題には、
+この二つの比較定理を適用する。
 
 \begin{theorem}[代数的中心三次変形の一般点可換復元]
 \label{gdr:thm:generic}
@@ -75,6 +76,7 @@ $\bigoplus_{j=0}^{N-1}\mathcal O_B(j)$が古典的生成対象である。
 \end{enumerate}
 \end{theorem}
 \begin{proof}
+\emph{一般点への移行。}
 命題\ref{gcd:prop:automatic-as}により$A_K$は左右noetherian Koszul AS正則で
 次元とparameterは$N$、$\Omega$は正則である。
 定理\ref{tw:thm:window}の固定三対象へ定理\ref{cft:thm:complete}を制限し、
@@ -97,6 +99,7 @@ $W_h$の判別式は特殊化で非零なので単元である。
 \end{equation}
 となる。
 
+\emph{有限降下とcoherent飽和。}
 三次係数、判別式の逆、perfect同値核、rotationと周期比較を
 有限生成$K$-部分代数へ降ろす。
 補題\ref{rog:lem:descent}と定理\ref{rog:thm:geometric-generic}の降下の証明により、
@@ -105,6 +108,7 @@ $W_h$の判別式は特殊化で非零なので単元である。
 命題\ref{crs:prop:residual-smooth}と定理\ref{crs:thm:coherent}でcoherent飽和を行う。
 これが第一項と全coherent残余圏の比較を与える。
 
+\emph{方程式の定義体と一意性。}
 得られた$K$上のsmooth proper pairへ定理\ref{gcd:thm:field-model}を適用する。
 低rotation積の底変更、勾配空間の可積分性と無限体上の可逆行列の選択により、
 方程式$G$を$K$上に取れる。必要なら同値核の有限定義体を拡大して
@@ -135,7 +139,7 @@ $R,\widehat R$は整域であり、$K\subset\operatorname{Frac}(\widehat R)$へ
 非零Eulerベクトル、BFK、有限降下、飽和、基礎体上の勾配積分を適用する。
 \end{proof}
 
-\subsection{明示模型と未解決の境界}
+\subsection{明示模型と結論の射程}
 \begin{corollary}[五変数混合族の明示的復元]\label{gdr:cor:mixed}
 $n=3$の既存の$\lambda=1$混合一変数量子化について、
 構成した比較に対する有限対角・乗法的characteristic比較(D)を仮定する。
@@ -155,7 +159,7 @@ $n=3$の既存の$\lambda=1$混合一変数量子化について、
 (L),(CF)は本稿で構成した比較を使う。
 \end{proof}
 
-一般存在の定理は(D)や低Natの具体行列を前提にしない。
+主定理の存在部分には(D)や低次数自然変換の積の明示行列を要しない。
 一方で同値核の$K$への降下、$h=0$で正則な$G$、特殊点込み相対同値、
 全Poisson moduli上の接着、有限拡大次数・同値核行列の明示は未解決である。
 全射影化の導来圏を可換cubic全体の導来圏と同一視しない。

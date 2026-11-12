@@ -1,51 +1,114 @@
 % !TEX root = paper_b.tex
-% 2026-11-12 / paper B v46. Supporting sources: papers/support/papers/.
+% 2026-11-12 / paper B v47. Supporting sources: papers/support/papers/.
 \makeatletter
 \def\input@path{{papers/support/}}
 \makeatother
 \input{papers/common}
-\hypersetup{pdftitle={代数的中心三次変形の一般点可換復元}}
-\title{代数的中心三次変形の一般点可換復元\\
-\large 完備曲率付き移送・三対象window・基礎体上の模型}
+\hypersetup{pdftitle={中心三次非可換変形の一般点における可換復元}}
+\title{中心三次非可換変形の一般点における可換復元\\
+\large Matrix factorizationとrotation付き残余圏}
 \author{}
-\date{2026年11月12日・論文B（研究草稿 v46）}
-\fancyhead[L]{\small 中心三次変形の一般点可換復元}
-\fancyhead[R]{\small 2026-11-12 / B-v46}
+\date{2026年11月12日・論文B（研究草稿 v47）}
+\fancyhead[L]{\small 中心三次非可換変形の可換復元}
+\fancyhead[R]{\small 2026-11-12 / B-v47}
 \begin{document}
 \maketitle
 \begin{abstract}
-$n\ge3$とし、次数別有限自由な代数的中心三次対で、特殊ファイバーが
-多項式環と滑らかな三次超曲面になるものを考える。
-三対象windowによる局所残余圏の表示と、完備係数上の実際の曲率付き$A_\infty$移送を構成する。
-形式比較では、中心元の逆像を三次式の有限自由加群上の可逆写像で取り出し、
-三次という次数制約からPoisson項を消す定数三重vectorを得る。
-曲率入力の個数とTaylor成分の位数を制御し、有限rank MF上の関手・逆関手・周期比較を構成する。
-これにより局所比較(L)と形式比較(CF$_3$)を追加仮定とせず、元の体$K=\mathbb C(h)$上の
-smooth cubic模型と、有限拡大後のrotation付き全coherent残余圏同値を得る。
-模型の幾何学的一意性は全$n\ge3$で成立し、既知のBFK定理から非零対象の三rotation和に
-生成段数$2(n+2)(n+3)-1$の上界を得る。
-正則多変数局所基底の分数体にも同じ結論が成立する。
-指定した代数的入力を持たない抽象的nc cubic、特殊点込み相対同値、同値核の基礎体への降下、
-全射影化の導来同値は扱わない。先行研究の一般理論と本稿での組合せを区別し、
-包括的新規性調査・外部査読・全証明の形式検証は未実施である。
+滑らかな射影三次超曲面を特殊ファイバーに持つ、次数別有限自由な
+代数的中心三次非可換変形を考える。
+任意の$n\ge3$について、その一般ファイバーのrotation付き残余圏を
+滑らかな可換三次$n$次元超曲面のKuznetsov成分として復元する。
+可換模型の方程式は元の関数体$\mathbb C(h)$上に取れ、
+圏同値は有限体拡大後に成立する。線束生成部分と全coherent残余圏の一致、
+可換模型の幾何学的一意性および生成段数の一様上界も得られる。
+
+証明では、三つのstabilizationによる相対window、
+次数別完備な曲率付きmatrix factorization比較、
+有限対象の局所化と生成定理、coherent圏の飽和を組み合わせる。
+さらに可換点での一次変形を直接比較し、五変数の場合には
+二次Jacobi障害のPl\"ucker表示と、Kuznetsov成分への
+Kodaira--Spencer写像の核を記述する。
+本論文の対象は上記の代数的中心三次変形に限り、
+任意の抽象的非可換三次圏の可換復元を主張するものではない。
 \end{abstract}
 \tableofcontents
 
-\section*{主題と結果の射程}
-対象は明示した代数的中心三次変形であり、一般の非可換三次圏の表示定理ではない。
-主経路は、代数的三対象window、次数別完備曲率移送、Euler非零性、既知のshift軌道生成、
-perfect核の有限降下、coherent飽和、低rotation積からの基礎体上の方程式抽出である。
-支持節で(L)、(CF)、(CF$_3$)を入力とする結果には、本稿の構成定理を適用する。
-それらは追加仮定ではないが、明示多項式を指定する(D)は独立の比較として残る。
-さらに双対数環上では、非可換積の一次変形を曲率付きHochschild coboundaryとして直接消せる。
-この独立の一次証明は全次数の形式移送を仮定せず、可換模型の一次変形が
-$(S/J(F))_3$を通ることと、cubic threefoldでその次元が10であることを示す。
-加えて五変数では、二次の結合律障害の係数イデアルが五本のPl\"ucker二次式と一致することを示す。
-さらにJLLZのinfinitesimal categorical Torelliを適用し、可換点における
-中心三次対の20次元接空間から$HH^2(\operatorname{Ku}(X))$への写像が全射で、
-その核が10次元の非可換一次方向に一致することを示す。
-これにより可換点の接空間20次元とPoisson錐に沿う局所次元17を区別する。
-既存の形式的二次jet・相対Artin・障害・明示族・point schemeの有効な結果と証明は保持する。
+\section{序論}\label{sec:paperB-introduction}
+
+\subsection{問題設定}
+滑らかな三次超曲面$X\subset\mathbb P^{n+1}$の導来圏には、
+例外線束を除いたKuznetsov成分$\operatorname{Ku}(X)$が現れる。
+この成分に内部次数シフトから誘導されるrotationを併せると、
+可換三次式を復元するための豊かな構造が得られる
+\cite{Orlov,LZ}。
+本稿では、この対応を中心三次元によって切り出される
+非可換射影超曲面の\emph{一般ファイバー}に適用する。
+
+考察するのは、次数付き代数$A_R$と次数三の中心元$\Omega_R$の組であり、
+$A_R/hA_R$は多項式環、$\Omega_R\bmod h$は滑らかな三次式である。
+ここで$r$次の各斉次成分は基底環上で有限自由と仮定する。
+この仮定は、抽象的な非可換三次圏が必ずそのような超曲面表示を
+持つという主張とは異なる。正確な定義は
+第\ref{gdr:sec:main}節で与える。
+
+\subsection{結果の概要}
+主定理\ref{gdr:thm:generic}は、一般ファイバーの
+\emph{全coherent残余圏}と滑らかな可換三次超曲面の
+Kuznetsov成分とのrotation付きMorita同値を与える。
+特に、\emph{可換模型の方程式}を元の体$K=\mathbb C(h)$上に
+取れることと、\emph{圏同値を実現する核}のためには
+有限拡大$K'/K$を要する場合があることを区別する。
+加えて、可換模型の幾何学的一意性と、
+BFKの既知の生成定理から得られる上界を述べる
+\cite{GCDBFK,LZ}。
+正則多変数局所基底への拡張は、
+個々の局所模型の一般点についての結論であり、
+モジュライ全体での比較の接着を意味しない。
+
+これとは別に、可換点での変形理論を調べる。
+双対数環上では非可換な積の一次方向が
+曲率付きmatrix factorizationにおいて消去され、
+残る可換変形はJacobian環の次数三部分に対応する。
+三次三様体では二次Jacobi障害をPl\"ucker関係式として表し、
+既知のinfinitesimal categorical Torelli
+\cite{JLLZ}と組み合わせて、可換点における
+圏論的Kodaira--Spencer写像の核を同定する。
+この可換点での接空間の計算は、非零Poisson一般点での
+忘却射の核についての主張ではない。
+
+\subsection{証明の方針と本稿の構成}
+証明は四つの段階からなる。
+まず線束の有限windowと三つのstabilizationを比較し、
+局所残余圏のproperなdg模型を構成する。
+次に、次数別完備な係数環上で曲率付き
+$A_\infty$関手と逆関手を作り、内部シフトと三次周期性を照合する。
+第三に、固定した三対象のHomを一般点へ移して非零性と生成性を示し、
+全coherent残余圏まで拡張する。
+最後に、低次数のrotation積から可換模型の勾配空間を取り出し、
+方程式の係数を$K$へ降ろす。
+存在証明には、低次数積の\emph{明示行列}や
+特定の明示多項式を先に計算する必要はない。
+
+第\ref{gdr:sec:main}節に主定理と依存関係を示した後、
+基礎体降下の有限代数的議論を述べる。
+第\ref{tw:sec:window}節および
+第\ref{cft:sec:transport}節が比較の構成を担う。
+可換点での一次・二次変形の結果は
+第\ref{fpk:sec:first-order}節にまとめる。
+後半には明示族、有限対角比較、相対的な障害と境界例を置き、
+これらを一般存在定理の追加仮定と混同しない。
+
+\subsection{既知結果と適用範囲}
+本稿は、Orlov型の残余圏とmatrix factorizationの比較、
+Kontsevichのformality、曲率付き$A_\infty$理論、
+MFの生成定理およびrotation付きTorelliを入力とする
+\cite{Orlov,PKontsevich,CT,GCDBFK,LZ}。
+局所windowの相対的な構成と完備係数での収束・周期性の照合、
+これらを一般点復元へ接続する部分を本稿で詳述する。
+既知定理の単なる適用、新たな構成上の議論、
+および新規性の先行研究上の未確認点を区別する。
+全射影化の導来圏の可換同値、特殊ファイバーを含む代数的相対同値、
+同値核の$K$への降下は結論に含めない。
 
 \input{papers/reconstruction/general_dimension_recovery}
 \input{papers/reconstruction/generic_cubic_descent}
@@ -53,7 +116,6 @@ $(S/J(F))_3$を通ることと、cubic threefoldでその次元が10であるこ
 \part{一般次元の復元定理を支える構成}
 \input{papers/sections/local_projective_model}
 \input{papers/reconstruction/three_object_window}
-\input{papers/reconstruction/first_order_poisson_kernel}
 \input{papers/reconstruction/complete_curved_transport}
 \input{papers/reconstruction/formal_cubic_mf_reconstruction}
 \input{papers/reconstruction/artin_residual_mf_comparison}
@@ -61,7 +123,8 @@ $(S/J(F))_3$を通ることと、cubic threefoldでその次元が10であるこ
 \input{papers/reconstruction/coherent_residual_saturation}
 \input{papers/reconstruction/geometric_rotation_basechange}
 
-\part{rotationの積・有限方程式・代数化}
+\part{可換点の変形と方程式の有限復元}
+\input{papers/reconstruction/first_order_poisson_kernel}
 \input{papers/reconstruction/explicit_jacobian_recovery}
 \input{papers/reconstruction/finite_algebraic_recovery}
 \input{papers/reconstruction/curved_diagonal_recovery}
@@ -73,7 +136,7 @@ $(S/J(F))_3$を通ることと、cubic threefoldでその次元が10であるこ
 \input{papers/reconstruction/central_symmetry_lifting}
 \input{papers/reconstruction/one_sided_morita_algebraization}
 
-\part{明示量子化・変形理論・境界例}
+\part{明示族・相対比較・境界例}
 \input{papers/reconstruction/poisson_first_order}
 \input{papers/sections/rotation_models}
 \input{papers/sections/rotation_obstruction}

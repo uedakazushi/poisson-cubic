@@ -1,7 +1,7 @@
 # 研究方針：Poisson三次超曲面の量子化と一般点可換復元
 
-**2026-11-12 / v62。再開時は最初に読む。GitHub uedakazushi/nc-cubic のmainが正本。**
-現行主原稿はA `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v46）。
+**2026-11-12 / v63。再開時は最初に読む。GitHub uedakazushi/nc-cubic のmainが正本。**
+現行主原稿はA `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v47）。
 
 ## 目標・到達点・達成基準
 
@@ -37,9 +37,13 @@ Aはsmooth cubicのPoisson正規形、退化、Bondal予想、代数的量子化
 
 一次資料：Jacovskis–Lin–Liu–Zhang, *Infinitesimal categorical Torelli theorems for Fano threefolds*, Theorem 4.4(2), arXiv:2203.08187（著者PDFの印刷p.15でη同型を確認）。本研究の組合せの新規性は未確認。
 
+## 現行論文Bの編集方針
+
+B-v47は、数学的主張や証明を追加・削除せず、読みやすさを優先して再構成した。Abstractを主定理と射程に絞り、Introductionに問題設定・主要結論・証明の4段階・先行研究との分担を置く。主定理の証明を段階別に区切り、比較定理の略称(L),(CF),(CF_3)を独立仮定と誤読しないよう明確化。一次・二次障害とcategorical tangentの節は、主定理の存在証明とは独立の結果なので、局所window・完備曲率移送と分け、変形論の部へ移した。記法・証明・ラベル・引用の数学的内容は保持する。既知の生成・Torelliの結果と本稿の構成をIntroductionで区別する。残る作業は論文全体の通読、重複節の本文整理、全組版、文献一次照合であり、編集済みであることと査読可能であることは異なる。
+
 ## 未解決の核心と次の具体的着手
 
-1. **公表可能性の独立監査。** 一次消滅と二次Plücker障害の証明を出発点に、新しい完備移送のnormalized全cochain、非小曲率の評価、matrix延長、periodicityと、既存window・有限降下・coherent飽和を別の観点から再点検する。B全文の参照・引用・組版を実行し、原稿全体を一貫した論理順へ再編する。主定理の証明を構成したことを、全支持節の再監査完了と同一視しない。
+1. **公表可能性の独立監査。** 一次消滅と二次Plücker障害の証明を出発点に、新しい完備移送のnormalized全cochain、非小曲率の評価、matrix延長、periodicityと、既存window・有限降下・coherent飽和を別の観点から再点検する。B全文の参照・引用・組版を実行し、導入・主結果・支持節の接続を通読する。主定理の証明を構成したことを、全支持節の再監査完了と同一視しない。
 2. **有効化。** 非可換入力のV=H^0 dgNat(Id,ρ)、U=H^0 dgNat(Id,ρ²)、積μを有限行列で構成し、G/Kを具体計算する。既知λ=1多項式の特定には(D)を検証する。
 3. **降下と相対化。** 同値核のKへの降下障害、h=0で正則な模型、特殊点込み相対同値、有限拡大次数と核の明示、モジュライ上の接着を調べる。幾何学的一意性とK上のformを混同しない。
 4. **Aの独立監査。** Lie正規形、普遍Hesse中心、PBW/AS、Cramer特殊化、Bondal・stack成分と一次資料比較を継続する。Aの代数的量子化存在証明にformalityを必須入力として戻さない。

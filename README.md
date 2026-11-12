@@ -1,11 +1,15 @@
 # nc-cubic — Poisson cubicの量子化と一般点可換復元
 
-**2026-11-12 / v62。** GitHub mainが正本。最初に [研究方針](00_research_plan.md) を読む。
+**2026-11-12 / v63。** GitHub mainが正本。最初に [研究方針](00_research_plan.md) を読む。
 
 | 原稿 | 主題 |
 |---|---|
 | [論文A](papers/paper_a.tex)（A-v51） | smooth cubicのPoisson正規形・退化・Bondal・代数的量子化・Poisson moduli |
-| [論文B](papers/paper_b.tex)（B-v46） | 代数的中心三次変形の一般点可換復元、完備曲率移送、基礎体上の模型 |
+| [論文B](papers/paper_b.tex)（B-v47） | 代数的中心三次変形の一般点可換復元、完備曲率移送、基礎体上の模型 |
+
+## 論文Bの構成
+
+B-v47ではAbstract・序論・主定理の証明の見出しを推敲した。局所windowと完備MF比較から一般点復元へ進む主経路を先に置き、一次・二次障害と圏論的接空間の結果を独立した部へ移した。既存の主張・証明・支持節を省略せず、検証範囲は変更していない。
 
 ## Bの現在の結論
 
