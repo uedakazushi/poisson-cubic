@@ -1,224 +1,68 @@
 {
   "date": "2026-11-12",
-  "paper_version": "B-v54",
-  "repository_version": "v70",
-  "canonical_entry": "papers/paper_b.tex",
-  "mathematics": {
-    "input": "Actual degreewise finite-free central cubic deformation of a polynomial algebra with smooth commutative cubic special fiber. The generic theorem uses a regular local algebraic base; the complete formal comparison allows a general complete noetherian local C-algebra with residue C.",
-    "complete_curved_transport": "Proof constructed and key steps checked in complete_curved_transport.tex: uncurved normalized graded formality, finite-matrix inverse for the central cubic, unique constant trivector and Jacobi-dependent second-action vanishing, finite Artin coalgebra flow and inverse, degreewise convergence on finite-rank MF, shift and central-element period compatibility.",
-    "comparison_hypotheses": "L, CF and CF_3 are theorem outputs for this input rather than independent assumptions. Existing conditional support results remain valid as modular lemmas.",
-    "retained_results": [
-      "base-field cubic equation",
-      "finite-extension rotation-preserving equivalence of full coherent residual categories",
-      "smooth proper total coherent category",
-      "geometric uniqueness for n>=3",
-      "BFK generation bound",
-      "regular multivariable generic extension"
-    ],
-    "explicit_model": "Identification with the previously computed lambda=1 polynomial still uses D for the constructed comparison.",
-    "audit_boundary": "Not a line-by-line independent audit of every pre-existing support lemma. No Lean/formal verification, external review or comprehensive novelty survey.",
-    "not_claimed": [
-      "every abstract nc cubic category has the required algebraic presentation",
-      "equivalence kernel over C(h)",
-      "model regular at h=0",
-      "algebraic relative equivalence including special fiber",
-      "global moduli gluing",
-      "explicit extension degree or equivalence kernel matrices"
-    ],
-    "first_order_kernel": "Direct dual-number curved Hochschild cancellation, independent of full Kontsevich formality; tangent cubic term lies in Jac(F)_3, dimension C(N+2,3)-N^2 (10 for N=5). The 17-to-10 moduli kernel is NOT established.",
-    "first_order_jacobi": "Jacobi is unnecessary for first-order curved cancellation; all-orders second-action vanishing uses Jacobi.",
-    "first_order_proof_location": "papers/support/papers/reconstruction/first_order_poisson_kernel.tex",
-    "first_order_plucker_cone": "At zero Poisson vertex of the affine Plucker cone over Gr(2,5), Zariski tangent dimension is 10 while cone dimension is 7. Combined with 10 cubic moduli directions: local 17-dimensional space has tangent dimension 20. First-order curved cancellation concerns the 10 infinitesimal Poisson directions at the commutative vertex, not a proved 7-dimensional categorical kernel at generic nonzero Poisson.",
-    "second_order_plucker": "For N=5 and any smooth cubic F, coefficient quadrics of Jacobi [ι_dF ξ,ι_dF ξ] generate exactly the five quadratic Plucker ideal generators of Gr(3,5). Independent proof via nondecomposable normal form, Euler irreducibility, and surjective wedge-square Pfaffian map. This is second-order ASSOCIATIVE obstruction, not complete central-pair formal moduli identification.",
-    "tangent_pair": "First-order marked central cubic pair tangent under identity-mod-epsilon graded equivalence: Λ^3 V ⊕ Jac(F)_3, dimensions 10+10=20 for N=5.",
-    "second_order_location": "papers/support/papers/reconstruction/first_order_poisson_kernel.tex",
-    "categorical_tangent_at_commutative": "Using dual-number graded MF comparison, relative Artin window, and JLLZ Theorem 4.4(2), differential from marked central cubic pairs to underlying dg Kuznetsov category HH^2 at a smooth cubic threefold is projection Λ^3 C^5 ⊕ Jac(F)_3 -> Jac(F)_3 followed by η iso. Hence exact 0 -> Λ^3 C^5 -> T_pair^1 -> HH^2(Ku(X)) -> 0, dimensions 10->20->10; does not compute generic nonzero Poisson kernel 7.",
-    "categorical_tangent_proof_location": "papers/support/papers/reconstruction/first_order_poisson_kernel.tex (fpk:thm:categorical-tangent)",
-    "corrected_latex": "Repaired malformed TeX backslashes and control characters in fpk:rem:moduli, and corrected scope of 7-dimensional fixed-F obstruction vs 17-dimensional total pair locus."
+  "paper_version": "B-v55",
+  "repository_version": "v71",
+  "entry": "papers/paper_b.tex",
+  "scope": "General n>=3 reconstruction theorem and necessary proofs only; independent material removed from main paper input, not yet entirely migrated out of source repository.",
+  "paper_A": {
+    "modified": false,
+    "entry_blob": "ec6ff5fc12a81de53765376cf583645f9dd8971b",
+    "original_support_tree_retained_unchanged": "61f358bbcb4a1c888bd8c78a8197beceaec0916e",
+    "typeset_again": false
   },
-  "executed_calculation": {
-    "script": "computations/verify_complete_curved_transport.py",
-    "script_sha256": "cf95171f6c049d1eff40bea5d68d519922947c78e5a818f9175021707537c9bf",
-    "command": "python3 computations/verify_complete_curved_transport.py --output build/complete_curved_transport_checks.json",
-    "result": "PASS",
-    "parameter_order": 4,
-    "tensor_length": 9,
-    "inverse_matrix_coefficient_identities": 10,
-    "coproduct_coefficient_identities": 2750,
-    "noncommuting_time_dependent_generator": true,
-    "odd_arity_filtration": true,
-    "nonnilpotent_object_substitution_inverse": true,
-    "Schouten_examples_N": [
-      5,
-      7
-    ],
-    "constant_trivector_contraction_ranks": [
-      10,
-      35
-    ],
-    "negative_control": "Casimir alone does not imply Jacobi or second-action vanishing",
-    "scope": "Finite algebra/combinatorics only; not graph integrals, actual nc MF Hom computations or categorical formal verification.",
-    "all_existing_certificates_rerun": false,
-    "first_order_checker": "computations/verify_first_order_curved_kernel.py",
-    "first_order_status": "checker source added; exact run must be separately confirmed",
-    "second_order_plucker_external_run": {
-      "scope": "Exact independent SymPy linear algebra in working container, not the uploaded code nor higher categorical proof",
-      "examples": [
-        "Fermat cubic five variables",
-        "mixed smooth cubic with coefficient 1/7"
-      ],
-      "quadratic_jacobi_coefficient_counts": [
-        20,
-        56
-      ],
-      "jacobi_quad_space_rank": [
-        5,
-        5
-      ],
-      "plucker_quad_space_rank": 5,
-      "joined_rank": [
-        5,
-        5
-      ],
-      "status": "PASS"
-    },
-    "second_order_git_script": "computations/verify_second_order_plucker.py; added to GitHub; not yet run from an actual git checkout"
-  },
-  "typesetting": {
-    "entry": "papers/support/papers/complete_curved_transport.tex",
-    "pdf": "build/complete_curved_transport.pdf",
+  "build": {
+    "command": "latexmk -g -r .latexmkrc papers/paper_b.tex",
     "engine": "LuaLaTeX",
-    "pages": 5,
-    "pdf_sha256": "081ae27d5f3fa25d255eb957e5bdd0ff1bb07b6eb0812dc2da81197c50f53d08",
-    "undefined_references": 0,
-    "undefined_citations": 0,
+    "complete_paper_build_executed": true,
+    "pages": 27,
+    "undefined_references_and_citations": 0,
     "overfull_boxes": 0,
-    "missing_glyphs": 0,
-    "visual_review": "Final PDF rendered with PyMuPDF; all five pages inspected in a contact sheet, with no clipping or overlap observed.",
-    "external_references": "References outside the excerpt intentionally display manuscript label names.",
-    "other_warnings": "Benign font information/warnings about Japanese italic shape and substituted sizes; no missing characters.",
-    "full_paper_B_build": false,
-    "sources_sha256": {
-      "papers/support/papers/reconstruction/complete_curved_transport.tex": "040bfcdf4299bb0b6cc452e9bd980b6b1436f008c17863ae5dfdf025a96ae775",
-      "papers/support/papers/complete_curved_transport.tex": "1c7c076338ca28c1066ee13e3f40d4a44ab0ec9b153db0bd8aae5bb61a780075"
+    "missing_characters": 0,
+    "multiply_defined_labels": 0,
+    "visual_review": "All 27 pages rendered and inspected in three contact sheets; no clipped text or overlap observed. Final latexmk run used identical sources and configuration.",
+    "pdf_sha256": "f3f833aec9f935e53abe3fb93fa28c66910467da722d5e1f435252c7cbc36191",
+    "pdf_git_tracked": false,
+    "latexmkrc_blob": "ab3ca75d9e516a01e44bcb555e0a8e5801867310"
+  },
+  "static_source_check": {
+    "executed": true,
+    "tex_files": 11,
+    "labels": 102,
+    "references": 94,
+    "citation_occurrences": 37,
+    "bibliography_entries": 13,
+    "unresolved_references": 0,
+    "unresolved_citations": 0,
+    "duplicate_labels": 0,
+    "source_blobs": {
+      "papers/paper_b.tex": "c07737b06927f2086f78ec56f21fe3fd6a9634fd",
+      "papers/support/papers/common.tex": "e53e7220975a65e301ddc9a38ea87c8449f180ec",
+      "papers/generic_recovery/main_result.tex": "f38146f125ce5abd06fd29b128411dcfe28919cf",
+      "papers/generic_recovery/local_model.tex": "96bd084458aa977c2076867c413f46ce9d4ecd60",
+      "papers/generic_recovery/window.tex": "6d4df54aff1f3ac8bb44a76dbdd7993cf8456701",
+      "papers/generic_recovery/curved_transport.tex": "5d21128be59123a0b1415a36c034faadd764aae7",
+      "papers/generic_recovery/generic_descent.tex": "5ead2fdac391ec466dc55cd4d42a259906a239f9",
+      "papers/generic_recovery/coherent_saturation.tex": "3aa4ddce728c76fd1ed577dffd2a4aee084a77a2",
+      "papers/generic_recovery/gradient_recovery.tex": "efc87fda2469df243919260ce7d95422e5a3c394",
+      "papers/generic_recovery/field_model.tex": "8c9105a957ade609d3e1fa082721b3d7a3bd3629",
+      "papers/generic_recovery/references.tex": "758b70e61e6ca4bdd8eb3a443f6246e8d50aeb4e"
     }
   },
-  "static_checks": {
-    "new_main_and_transport_labels_unique": true,
-    "new_main_and_transport_label_count": 34,
-    "new_environments_balanced": true,
-    "new_python_syntax_checked": true,
-    "full_paper_B_source_audit_rerun": false,
-    "first_order_source_included": true,
-    "first_order_tex_control_characters_none": true,
-    "first_order_tex_mangled_macros_corrected": true,
-    "paper_B_direct_and_bibliography_input_paths": "PASS: 42 main inputs and 26 bibliography inputs, all 68 paths exist on GitHub main.",
-    "new_introduction_citation_keys": "PASS: all 6 cited keys Orlov, LZ, JLLZ, PKontsevich, CT, GCDBFK found in current reference input sources.",
-    "paper_B_full_recursive_labels_and_citations": "NOT RUN: static path check and new introduction key check only.",
-    "edited_support_sections": "PASS: eight checked support files with no within-file duplicate labels or control bytes.",
-    "direct_main_inputs_expected": 47,
-    "original_relative_support_exact_reconcat": true,
-    "relative_support_math_labels_preserved": true,
-    "relative_support_math_environments_preserved": true,
-    "main_root_direct_inputs_checked": 47,
-    "bibliography_inputs_checked": 26,
-    "wrapper_inputs_checked": 6,
-    "source_paths_present": true,
-    "root_does_not_include_wrapper": true,
-    "six_relative_chapter_labels_checked": 78,
-    "six_relative_chapter_duplicate_labels": 0,
-    "finite_model_statement_labels_present": [
-      "thm:global",
-      "thm:multiblock-model",
-      "prop:bad-intro"
-    ],
-    "relative_chapter_source_commentary": "All current chapter files checked for label uniqueness, and all direct main, bibliography, compatibility-wrapper input paths exist in remote main.",
-    "global_source_scan": "B-v54 full main input closure PASS; no duplicates/undefined refs/undefined citations by source regex; see global_paper_b_tex_audit.",
-    "global_paper_b_tex_audit": {
-      "status": "PASS",
-      "audited_git_main": "8f78671496e232dc2b2eb9bacf420426cf058458",
-      "root": "papers/paper_b.tex",
-      "total_tex_files": 74,
-      "label_occurrences": 654,
-      "duplicate_label_keys": 0,
-      "reference_occurrences": 662,
-      "unresolved_reference_keys": 0,
-      "citation_occurrences": 255,
-      "unresolved_citation_keys": 0,
-      "bibliography_entries": 127,
-      "duplicate_bibliography_keys": 0,
-      "missing_nested_inputs": 0,
-      "method": "GitHub connector fetched the main TeX input closure; comments stripped by unescaped-percent line split; source regex for label/ref/cite/bibitem/input; not LuaLaTeX, not PDF inspection.",
-      "limitations": "Does not test arbitrary macros, runtime TeX expansion, internal environment correctness or mathematical proof validity."
-    }
+  "mathematical_verification": {
+    "new_results_added": false,
+    "necessary_proof_text_preserved_or_extracted": true,
+    "new_independent_audit_of_all_proofs": false,
+    "all_existing_calculation_certificates_rerun": false,
+    "scope_limit": "Typesetting and source checks do not establish mathematical correctness, novelty, or publication readiness."
   },
-  "primary_sources_checked": [
-    "Kontsevich author final PDF DefQuant_final.pdf: Theorem 4.6 (PDF p.17), Lemma 4.11 and Section 4.6.2 (p.22), affine equivariance and Theorem 6.3 (p.30): text and page images checked. Graph arity formula and Sections 6.2-6.4 also read.",
-    "Caldararu-Tu NYJM19 (2013), Section2, Remark2.8, Theorem2.12: parsed text checked; web page-image requests failed, so no visual-source verification claimed.",
-    "HKR first-order deformation correspondence cross-checked against Kontsevich's affine formality and classical Hochschild deformation theory; specific first-order cancellation is proved directly in current paper.",
-    "JLLZ Infinitesimal categorical Torelli theorems for Fano threefolds arXiv:2203.08187 Theorem 4.4(2) (printed p.15, web PDF screenshot inspected): η:H1(T_X) -> HH2(Ku(X)) is an isomorphism for smooth cubic threefolds."
-  ],
-  "environment": {
-    "python": "3.13.5",
-    "sympy": "1.14.0"
+  "migration": {
+    "destination": "uedakazushi/nc-cubic2/papers/reconstruction_extensions/",
+    "fulltext_sections_saved_and_blob_matched": 6,
+    "all_independent_material_transferred": false,
+    "companion_manuscript_integrated": false,
+    "companion_references_and_build_verified": false,
+    "source_sections_deleted": false,
+    "remaining_work": "notes/paper_b_scope_and_transfer.md"
   },
-  "persistence_policy": "GitHub main, fast-forward only, no Actions. Library only after actual push failure.",
-  "editorial": {
-    "scope": "Presentation/organization only; main mathematical statements and support proofs preserved",
-    "abstract": "Shortened to object, main theorem, proof tools, tangent result, scope",
-    "introduction": "Added structured overview: problem, results, 4-step strategy, related literature and limits",
-    "ordering": "Moved first-order/Plucker/categorical tangent section after core local window and complete curved MF transport",
-    "main_proof": "Inserted non-numbered prose stage headings; no changes to logical dependencies",
-    "typesetting": "NOT RUN in this revision; full manuscript remains unverified after editing",
-    "static_source_validation": "Direct TeX input closure and new introduction citation keys checked after refactoring; full recursive TeX/LaTeX integration and PDF inspection outstanding.",
-    "supportSections": "Harmonized BFK alternative generation proof, three-object CF3 sufficiency, window scope, completed formal MF comparison, multibase gluing limit, and coherent saturation. Removed obsolete audit-history phrasing from manuscript body, with substantive mathematics retained.",
-    "filesPolished": [
-      "papers/support/papers/reconstruction/generic_cubic_descent.tex",
-      "papers/support/papers/reconstruction/three_object_window.tex",
-      "papers/support/papers/reconstruction/complete_curved_transport.tex",
-      "papers/support/papers/reconstruction/rotation_orbit_generic_reconstruction.tex",
-      "papers/support/papers/reconstruction/coherent_residual_saturation.tex",
-      "papers/support/papers/reconstruction/general_dimension_recovery.tex"
-    ],
-    "mathematicalStatementChanges": "none; only context/terminology/remarks and prose proof organization",
-    "fullPaperBuild": "NOT RUN",
-    "fullRecursiveRefs": "NOT RUN",
-    "thirdPass": "Distinguished full formal MF construction vs its one-parameter variant and explicit second-order formula; removed repeated moduli/tangent-scope remarks without deleting their labels or mathematical statements; replaced stale proof-audit phrases in the manuscript.",
-    "modifiedMathResults": false,
-    "fullRecursiveAudit": "NOT RUN",
-    "five_parts": "I generic recovery proof, II point deformation and finite reconstruction, III Artin/etale/relative and obstructions, IV elliptic/mixed explicit models, V point schemes and flat limits",
-    "part_structure": "Same 42 TeX inputs, reordered and grouped in 5 parts. No mathematical theorem/proof, labels, inputs removed.",
-    "later_section_polish": "Separate alternate Todd-corrected HKR proof from direct first-order curved Hochschild; clarify conditional Poisson component charts and relative formal model scope; remove manuscript diary wording.",
-    "full_manuscript_lualatex": "NOT RUN",
-    "full_recursive_reference_audit": "NOT RUN",
-    "metadata_deduplication": "Combined repeated editorial-guide sections in README and research plan; audit note still contains current five-part orientation; no mathematical text removed.",
-    "source_check_status": "Confirmed direct TeX path closure and 8 edited support files. No full LuaLaTeX build or all-reference audit in this turn.",
-    "relative_support_split": {
-      "compatibility_entry": "papers/support/papers/sections/rotation_models.tex",
-      "main_direct_sources": [
-        "relative_formal_models.tex",
-        "relative_etale_models.tex",
-        "sklyanin_model_theorems.tex",
-        "sklyanin_block_models.tex",
-        "multiblock_generation.tex",
-        "relative_parameter_boundary.tex"
-      ],
-      "rationale": "Split formerly 2,658-line TeX source at five exact section boundaries; moved the exact finite-coefficient theorem block into explicit-model part; theorem statements/proofs and labels preserved. Paper B now includes six chapters directly across parts III-IV and never includes wrapper."
-    },
-    "math_claims_added": false,
-    "proofs_removed": false,
-    "latex_build": "NOT RUN; no PDF generated",
-    "final_partition": "Artin/etale statements and proofs in Part III; finite Sklyanin/multiblock theorem statements and proofs in Part IV. Compatibility wrapper live but not used in paper B.",
-    "full_recursive_tex_reference_and_citation_check": "NOT RUN",
-    "full_paper_lualatex": "NOT RUN",
-    "PDF_generation": "NOT RUN",
-    "bibliography_reposition": "Moved existing explicit Sklyanin/external-product literature review from relative formal overview to explicit-model statements, and étale-specific references to étale section; kept citation multiset exactly.",
-    "math_change": "None; claims, proofs, labels preserved.",
-    "full_paper_build": "NOT RUN",
-    "cross_file_references": "NOT RUN in this revision",
-    "proof_navigation": "Added proof-location maps for Artin formal theorem and three Sklyanin/multiblock results; updated support source guide.",
-    "math_changes": "none",
-    "full_build": "NOT RUN",
-    "audit": "B-v54 full 74-file source label/ref/citation audit completed; all labels and cites resolve; PDF and complete LuaLaTeX build still not run."
-  }
+  "persistence_policy": "GitHub main, expected-SHA fast-forward only; no Actions, no force push, PDF untracked. Library only after actual push failure."
 }

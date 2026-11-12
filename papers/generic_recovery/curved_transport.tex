@@ -1,0 +1,243 @@
+% Complete formal comparison and its three-object restriction.
+\section{次数別完備な曲率付き移送と形式比較の構成}
+\label{cft:sec:transport}
+
+本節では、完備係数上のMF比較を実際の関手と逆関手によって構成し、
+その固定三対象への制限を明らかにする。
+既知のKontsevich formalityを\emph{曲率を入れる前}に使い、
+その後のゲージ経路は有限Artin次数ごとに直接積分する。
+曲率の大きさ、全Hochschild cochain、単位、逆写像、有限rank、
+二つの次数、指定された周期比較をそれぞれ確認する。
+形式同値の存在を、解析的収束や全Laurent対象への関手と混同しない。
+
+\subsection{主張と既知結果の使用範囲}
+$(R,\mathfrak m)$を剰余体$\mathbb C$の完備noetherian局所$\mathbb C$-代数とする。
+ここでは$R$の正則性は不要である。
+$S=\mathbb C[x_1,\ldots,x_N]$、$N\ge3$、$\deg x_i=1$とし、
+$A^{\rm gr}=\bigoplus_{j\ge0}A_j$をunitalな中央$R$-代数とする。
+各$A_j$は有限自由、$A_0=R$、$A^{\rm gr}/\mathfrak m A^{\rm gr}=S$と仮定する。
+$\Omega\in Z(A^{\rm gr})_3$の剰余$F$は滑らかな射影三次超曲面を定めるものとする。
+次数別に剰余の単項式基底を持ち上げ、単位を保つ加群同定
+$A_j\simeq S_j\otimes_{\mathbb C}R$を選ぶ。
+
+\begin{theorem}[完備係数上の実際のgraded MF比較]
+\label{cft:thm:complete}
+上の入力に対し、$W\in R[x_1,\ldots,x_N]_3$、$W\bmod\mathfrak m=F$と、
+有限rank graded MFの実際の$R$-線形unital $A_\infty$同値
+\begin{equation}\label{cft:eq:equivalence}
+ \operatorname{MF}^{\mathbb Z}(A^{\rm gr},\Omega)
+ \simeq\operatorname{MF}^{\mathbb Z}(R[x_1,\ldots,x_N],W)
+\end{equation}
+が存在する。これは内部shiftと、中心元による$(3)\simeq[2]$を保ち、
+剰余では恒等であり、すべての$R/\mathfrak m^{q+1}$への切断と両立する。
+有限自由模型上で互いに逆な関手を構成し、有限coneと冪等完備化へ延長する。
+
+曲率付きbar写像のTaylor成分$F_r$と逆写像の成分$H_r$は
+\begin{equation}\label{cft:eq:bound}
+ F_0=H_0=0,\quad F_1,H_1=1+O(\mathfrak m),\quad
+ F_{2r}=H_{2r}=0,\quad F_{2r+1},H_{2r+1}\in\mathfrak m^r\quad(r\ge1)
+\end{equation}
+を満たすように取れる。次数付き代数の厳密同型は、この写像の前後に合成する。
+\end{theorem}
+
+Kontsevichの既知結果は、affine formality、HKR、Maurer--Cartan変形問題の比較
+\cite[Theorem~4.6, Section~4.6.2, Theorem~6.3]{PKontsevich}である。
+曲率付きtwistによるgraded MFの記述には
+\cite[Section~2, 特にRemark~2.8とTheorem~2.12]{CT}を使う。
+後者を形式的な無限arity関手へ無条件に適用せず、以下で評価式の有限性と収束を証明する。
+これらの一般理論の新規性は主張せず、本定理の組合せの初出は未確認である。
+
+\subsection{通常の結合変形と中心元の有限次元逆像}
+\begin{lemma}[次数を保つunitalな星積模型]\label{cft:lem:model}
+formal Poisson tensor
+$\pi\in\mathfrak m(S_2\otimes\bigwedge^2\langle\partial_i\rangle)\widehat\otimes R$
+と、単位・内部次数を保つ厳密な代数同型
+\begin{equation}\label{cft:eq:phi}
+ \phi:A^{\rm gr}\xrightarrow{\sim}(S\otimes R,*_\pi),\qquad
+ \phi\equiv1\pmod{\mathfrak m}
+\end{equation}
+が存在する。右辺も内部次数ごとの直和とする。
+\end{lemma}
+\begin{proof}
+単位を入力すると零になるnormalized Hochschild cochainを使う。
+多項式環の対角のgraded Koszul分解とnormalized bar分解の比較は
+内部次数を保つように選べる。従ってpolydifferential cochainから
+\emph{全ての}内部次数指定Hochschild cochainへの包含はHKR同型を誘導する。
+既存の積がbidifferentialであるという仮定は不要である。
+Kontsevichのグラフ写像はaffine線形変換に同変なので、内部weightを保つ。
+weight零に制限したformalityと上の包含の合成は準同型であり、
+次数別flatな結合積の変形をPoisson変形に対応させる。
+
+この対応を各$R/\mathfrak m^{q+1}$で行う。
+一段の核$\mathfrak m^q/\mathfrak m^{q+1}$では、持上げ障害の比較はHKRの
+次数二での単射性、積の差の補正は次数一での全射性による。
+一入力gaugeを同時に持ち上げるので、すでに選んだ低次jetを保てる。
+これは\cite[Theorem~4.6]{PKontsevich}の冪零変形問題の比較の逐次形である。
+全Hochschild cochain側のdegree零gaugeは一入力の写像であり、
+厳密な代数同型を与える。normalized性から単位を保つ。
+極限は各有限自由$A_j$内で存在し、逆写像も同様に存在する。
+weight零のbivectorの係数次数は二である。
+\end{proof}
+
+\begin{lemma}[中心逆像を有限行列で取り出す]\label{cft:lem:center}
+formalityを固定すると、$W\in S_3\otimes R$が一意に存在して
+\begin{equation}\label{cft:eq:center}
+ C_\pi(W)=\phi(\Omega),\qquad [\pi,W]=0,\qquad W\bmod\mathfrak m=F,
+ \quad
+ C_\pi(f):=\sum_{r\ge0}\frac1{r!}\mathcal U_{r+1}(f,\pi,\ldots,\pi)
+\end{equation}
+となる。
+\end{lemma}
+\begin{proof}
+関数一個とbivector $r$個のグラフの出力arityは零であり、内部weightを保つ。
+よって$C_\pi$は有限自由加群$S_3\otimes R$の$R$-線形自己写像で、
+$\mathcal U_1(f)=f$により$C_\pi=1+O(\mathfrak m)$である。
+その逆は各固定次数内で収束する幾何級数であり、$W$を一意に定める。
+
+接写像のchain恒等式は
+\begin{equation}\label{cft:eq:chain-center}
+ [*_\pi,C_\pi(W)]=\mathcal U^\pi([\pi,W])
+\end{equation}
+である。左辺は中心性から零。
+右辺の入力は係数次数四のvector場であり、接写像の最低次は
+vector場を導分として見るHKRの単射である。
+$\mathfrak m^q/\mathfrak m^{q+1}$で順にこの単射性を使うと
+$[\pi,W]\in\bigcap_q\mathfrak m^q=0$となる。
+曲率付きの通常のHochschild cohomologyをJacobian環と同一視する操作は使わない。
+\end{proof}
+
+\subsection{三次式の次数制約とゲージ経路}
+\begin{lemma}[唯一の定数三重vectorと二回目の作用]\label{cft:lem:primitive}
+一意な$\Xi\in\mathfrak m\bigwedge^3\langle\partial_i\rangle\otimes R$が存在し、
+\begin{equation}\label{cft:eq:primitive}
+ \pi=[\Xi,W],\qquad [\Xi,\pi]=0
+\end{equation}
+となる。
+\end{lemma}
+\begin{proof}
+滑らかな$F$の全偏微分は多項式環の正則列である。
+勾配Koszul contractionは、係数次数とrankの和「係数次数$+2\,\mathrm{rank}$」を保つ。
+各斉次部分は有限の有限自由$R$-複体である。
+剰余の完全性を使い、$\mathfrak m^q/\mathfrak m^{q+1}$で原像を逐次持ち上げると、
+完備化と分離性から正のrankで完全となる。
+
+$[\pi,W]=0$なので、係数次数二・rank二のcycle $\pi$の原像は
+係数次数零・rank三に取れる。二つの原像の差の原像は係数次数$-2$を要求するため零。
+これで$\Xi$の存在・一意性と$\Xi\bmod\mathfrak m=0$を得る。
+$D=[\Xi,\pi]$は係数次数一・rank四であり、graded Jacobiと$[\pi,\pi]=0$から
+$[W,D]=-[\pi,\pi]=0$となる。
+そのKoszul原像は係数次数$-1$を要求するので$D=0$である。
+ここでJacobi条件は必須であり、Casimir条件だけから第二の等式は従わない。
+\end{proof}
+
+周期変数$t$の二重次数を$(2,-3)$とし、$t$を微分せず、係数として多重線形に扱う。
+$\eta=\Xi/t$はcohomological degree零・内部weight零である。
+\begin{equation}\label{cft:eq:path}
+ \alpha_s=-tW+(1-s)\pi,\qquad
+ \partial_s\alpha_s=[\eta,\alpha_s]=-\pi
+\end{equation}
+はMaurer--Cartan経路で、始点は非可換模型、終点は可換模型に対応する。
+$W$は$\mathfrak m$の倍数でないので、通常の冪零MC定理をこの経路へ直接適用してはいけない。
+
+\begin{lemma}[大きい曲率でも有限なformality評価]\label{cft:lem:arity}
+$\alpha_s$の像はcurved associative構造
+$b_s=(*_{(1-s)\pi},-tC_{(1-s)\pi}(W))$である。
+$\gamma_s=\mathcal U^{\alpha_s}(\eta)$はarity一と三だけを持ち、
+$\gamma_s\in\mathfrak m$で、
+\begin{equation}\label{cft:eq:lax}
+ \partial_sb_s=[\gamma_s,b_s]
+\end{equation}
+となる。$\gamma_s$の正のarity成分はnormalizedである。
+\end{lemma}
+\begin{proof}
+グラフの辺数と配置空間の次元$2n+m-2$を等しくすると、
+関数$k$個とbivector任意個の出力arityは$2-2k$、
+さらにtrivector一個を入れた場合は$3-2k$となる。
+従って関数入力は高々一個で、残る入力は$\mathfrak m$の倍数である。
+mod $\mathfrak m^{q+1}$では必要な全Taylor和が有限となり、
+$L_\infty$恒等式も有限和の恒等式として適用できる。
+chain恒等式に$\partial_s\alpha_s=-[\alpha_s,\eta]$を代入すると
+$\partial_sb_s=-[b_s,\mathcal U^{\alpha_s}(\eta)]$、すなわち式\eqref{cft:eq:lax}である。
+
+正のarityで単位をboundary入力へ置く。
+そこへ辺が入れば定数の微分が零であり、入らなければ積分形式はその頂点を忘れた
+一つ低次元の配置空間からの引戻しなので最高次積分が零となる。
+internal頂点が一個の場合はHKR写像であり、同じ消滅は直接分かる。
+この議論は\cite[Sections~6.2--6.4]{PKontsevich}のグラフ表示に適用する。
+$t$への多重線形性と内部weightは全ての項で保たれる。
+\end{proof}
+
+\subsection{bar写像と逆写像の一様なarity評価}
+\begin{lemma}[順序付きflowと逆写像]\label{cft:lem:flow}
+$\partial_s\mathcal F_s=\gamma_s\mathcal F_s$、$\mathcal F_0=1$を解くと、
+各$R/\mathfrak m^{q+1}$上で実際のbar coalgebra同型を得る。
+$\mathcal F_1b_0=b_1\mathcal F_1$であり、写像・逆写像は式\eqref{cft:eq:bound}を満たす。
+\end{lemma}
+\begin{proof}
+mod $\mathfrak m^{q+1}$で
+\begin{equation}\label{cft:eq:ordered}
+ \mathcal F_s=1+\sum_{j=1}^{q}
+ \int_{0\le u_j\le\cdots\le u_1\le s}
+ \gamma_{u_1}\cdots\gamma_{u_j}\,du_j\cdots du_1
+\end{equation}
+とする。各係数は$s$の多項式で、積分は標数零での代数的積分である。
+$\gamma$がcoderivationなので、$\Delta\mathcal F_s$と
+$(\mathcal F_s\otimes\mathcal F_s)\Delta$は同じ微分方程式・初期値を持つ。
+よってcoalgebra写像である。
+$\mathcal F_s-1\in\mathfrak m$から逆は
+$\sum_{j=0}^{q}(1-\mathcal F_s)^j$で与えられる。
+式\eqref{cft:eq:lax}により$\mathcal F_s^{-1}b_s\mathcal F_s$の微分は零である。
+
+零項成分はなく、三入力coderivationを一回使うごとに出力長は二つ減る。
+一入力成分は長さを変えない。従ってarity $2r+1$には少なくとも$r$回の
+coderivationが必要で、係数は$\mathfrak m^r$に入る。
+偶数arityは現れず、逆flowにも同じ評価が成立する。
+出力tensor長$\ell$に寄与する成分の積の位数を足すと、mod $\mathfrak m^{q+1}$では
+入力長は高々$\ell+2q$である。従ってtensor長完備barへの延長も各剰余で連続である。
+単位はnormalized性からflow中固定され、高arity成分の単位入力は零となる。
+同じ形式的係数を切断しているので、商$R/\mathfrak m^{q+1}\to R/\mathfrak m^q$と両立する。
+\end{proof}
+
+\subsection{冪零でないMF行列への評価と周期比較}
+\begin{proof}[定理\ref{cft:thm:complete}の証明]
+上のbar写像を有限個のshiftを持つ自由加群の行列成分に拡張する。
+合成可能な添字列に沿う和とsuspensionのKoszul符号を用いるので、
+元のbar恒等式は行列上でも成立する。
+MF行列$Q$は$\mathfrak m$の倍数でも上三角でもなくてよい。
+mod $\mathfrak m^{q+1}$では、像は有限式
+\begin{equation}\label{cft:eq:object}
+ Q'=\sum_{r=0}^{q}F_{2r+1}(Q,\ldots,Q)
+\end{equation}
+で与えられる。$k$個の射に対するTaylor成分は、suspended表示で
+\begin{equation}\label{cft:eq:insertions}
+ \sum_{r_0,\ldots,r_k\ge0}
+ F_{k+r_0+\cdots+r_k}
+ (Q_k^{\otimes r_k},a_k,Q_{k-1}^{\otimes r_{k-1}},\ldots,a_1,Q_0^{\otimes r_0})
+\end{equation}
+である。$k+\sum r_i\le2q+1$の項だけが寄与するため有限である。
+
+suspensionを$\varsigma$と書くと、tensor長完備bar上で$\mathcal F(e^{\varsigma Q})=e^{\varsigma Q'}$である。
+$\mathcal F b_0=b_1\mathcal F$から対象のMF方程式と全functor恒等式が従う。
+同じ構成を逆bar写像に施すと、挿入公式はbar写像の合成と可換するので、
+二つのtwisted functorの合成は恒等となる。
+したがって各Artin切断で実際の互いに逆な関手がある。
+
+固定した有限自由加群、固定したcohomological次数と内部次数では、
+各行列成分の$t$の冪と$x$の次数が固定される。
+従って出力は有限個の$S_j\otimes R$の直和に属する。
+式\eqref{cft:eq:bound}から、式\eqref{cft:eq:object}と\eqref{cft:eq:insertions}は
+この有限自由加群内で$\mathfrak m$進収束する。
+すべての恒等式は各Artin商で成立しているため、分離性から$R$上でも成立する。
+これは同値の列の形式的な逆極限を宣言するのではなく、同じ基礎行列上の
+関手と逆関手の明示的な係数wise極限である。
+
+内部shiftは基礎加群のラベルを変えるだけであり、行列上の公式は不変である。
+各$F_r,H_r$は$R[t,t^{-1}]$-多重線形なので、$t$が与える
+$(3)\simeq[2]$の自然比較とも可換する。
+従って周期同型が未知のスカラー倍だけずれる、という曖昧さはない。
+別に選んだ任意の周期同型については主張しない。
+正規化された単位も行列上で保たれる。
+補題\ref{cft:lem:model}の厳密同型$\phi$と合成し、有限cone・冪等完備化へ延長して
+式\eqref{cft:eq:equivalence}を得る。
+\end{proof}
+

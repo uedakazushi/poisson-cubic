@@ -1,0 +1,97 @@
+\section{低rotation積と勾配空間の射影的一意性}
+\label{sec:explicit-jacobian-recovery}
+
+ここでは方程式の基礎体降下に必要な二つの入力を示す。
+導来自然変換の低次数積の同定はLin--Zhangの計算を用い、
+同じ勾配空間から得られる滑らかな三次式の射影的一意性は直接証明する。
+復元アルゴリズムの実例や積分不可能な二次関係の例は扱わない。
+
+\begin{proposition}[可換三次超曲面における低次数積]
+\label{prop:ej-geometric-low-degree}
+$k$を標数零の代数閉体、$F\in k[x_1,\ldots,x_N]_3$を
+滑らかな射影三次超曲面$X\subset\mathbb P^{N-1}$の方程式とし、$N\ge5$とする。
+$\mathcal C=\operatorname{Ku}(X)$、その対角双加群を$\Delta$、
+rotationの双加群を$P$と置く。このとき
+\[
+ H^0R\operatorname{Hom}_{\mathcal C^e}(\Delta,P)
+ \simeq\operatorname{Jac}(F)_1,
+ \qquad
+ H^0R\operatorname{Hom}_{\mathcal C^e}
+ (\Delta,P\otimes_{\mathcal C}^{\mathbf L}P)
+ \simeq\operatorname{Jac}(F)_2
+\]
+であり、合成による積はJacobian環の積である。
+特に、積の核は$\langle\partial_1F,\ldots,\partial_NF\rangle$に一致する。
+\end{proposition}
+\begin{proof}
+Orlovのdg比較をrotationも含めて用いると、$\rho_X$はgraded matrix
+factorizationの内部次数シフトとなる。
+Lin--Zhang\cite[Theorems~2.2, 3.5, Remark~3.6, Section~5]{LZ}の
+対角kernelの計算を適用する。
+恒等sectorは$\operatorname{Jac}(F)_t$を与える。
+三次式の非恒等sectorは全$N$変数を動かすので、
+cohomological degree零の$\operatorname{Hom}(\mathrm{Id},\rho^t)$に寄与できるのは
+$N$が偶数で$t=N/2$の場合に限る。
+$N$が奇数なら寄与はなく、$N$が偶数でも$N\ge6$なので$t=1,2$では寄与しない。
+従って表示した二つの同定を得る。
+このsector計算には$\gcd(N,3)=1$を必要としない。
+同論文Proposition~3.7の互いに素という条件は、内部シフトを
+Serre関手とcohomological shiftで表示してSerre代数へ埋め込むための条件であり、
+ここでは$\rho$自体を入力している。
+
+恒等sector上の合成は多項式の積である\cite[Remark~3.6]{LZ}。
+Jacobianイデアルは二次式$\partial_iF$で生成され、次数一部分は零である。
+滑らかさにより$\partial_iF$は一次独立である。
+実際、定数係数の関係があれば線形座標変換後に$F$は一つの変数に依らず、
+その変数軸上の射影点が特異点になる。
+従って次数二の核は勾配空間であり、積は全射である。
+\end{proof}
+
+\begin{proposition}[滑らかな三次式の勾配空間による一意性]
+\label{prop:ej-projective-uniqueness}
+標数零の代数閉体上で、同じ二次式空間を勾配空間に持つ
+二つの滑らかな三次式は線形座標変換で移り合う。
+\end{proposition}
+\begin{proof}
+$F,G$をその二つの三次式とする。
+それぞれの勾配は同じ空間の基底なので$\nabla G=A\nabla F$を満たす可逆行列$A$がある。
+$F$を、$F(x)=T(x,x,x)$を満たす対称三重線形形式$T$で表す。
+$a=A^{\mathsf t}$とすれば、$G$の対称性は
+\begin{equation}\label{eq:ej-symmetrizer}
+ T(au,v,w)=T(u,av,w)=T(u,v,aw)
+\end{equation}
+を意味する。一般にこの式を満たす線形写像全体を$\mathfrak s_T$とする。
+
+$a,b\in\mathfrak s_T$について、三つの引数の間で写像を移すと
+\[
+ \begin{aligned}
+ T(abu,v,w)&=T(bu,av,w)=T(u,av,bw)\\
+ &=T(au,v,bw)=T(au,bv,w)=T(bau,v,w).
+ \end{aligned}
+\]
+$F$が滑らかなので$u\mapsto T(u,-,-)$は単射であり、$ab=ba$が従う。
+さらに式\eqref{eq:ej-symmetrizer}から$ab$もsymmetrizerである。
+従って$\mathfrak s_T$は単位を持つ可換部分代数である。
+
+この代数に非零nilpotentがあれば、その適当な冪を取って
+$0\ne b\in\mathfrak s_T$かつ$b^2=0$とできる。
+$u=bv\ne0$を選ぶと
+\[
+ T(u,u,w)=T(bv,bv,w)=T(v,b^2v,w)=0
+ \quad\text{for every }w.
+\]
+これは$[u]$が$V(F)$の特異点であることを意味し、矛盾する。
+Jordan分解のnilpotent部分は元の写像の多項式であるから、
+$\mathfrak s_T$の全ての元は半単純で、特に$a$は対角化できる。
+固有空間分解を$k^N=\bigoplus_\lambda U_\lambda$とすると、
+式\eqref{eq:ej-symmetrizer}により異なる固有空間を含む混合項は零になる。
+よって
+\[
+ F=\sum_\lambda F_\lambda,
+ \qquad G=\sum_\lambda\lambda F_\lambda,
+ \qquad F_\lambda\in\operatorname{Sym}^3 U_\lambda^*.
+\]
+$a$が可逆なので各$\lambda\ne0$である。
+各$U_\lambda$の座標を$\lambda^{1/3}$倍すれば$F$を$G$へ移せる。
+この線形変換が射影同型を与える。
+\end{proof}

@@ -1,199 +1,68 @@
 % !TEX root = paper_b.tex
-% 2026-11-12 / paper B v54. Supporting sources: papers/support/papers/.
+% 2026-11-12 / B-v55. General-dimensional reconstruction only.
 \makeatletter
 \def\input@path{{papers/support/}}
 \makeatother
 \input{papers/common}
+\numberwithin{equation}{section}
+\setlength{\emergencystretch}{2em}
 \hypersetup{pdftitle={中心三次非可換変形の一般点における可換復元}}
-\title{中心三次非可換変形の一般点における可換復元\\
-\large Matrix factorizationとrotation付き残余圏}
+\title{中心三次非可換変形の一般点における可換復元}
 \author{}
-\date{2026年11月12日・論文B（研究草稿 v54）}
-\fancyhead[L]{\small 中心三次非可換変形の可換復元}
-\fancyhead[R]{\small 2026-11-12 / B-v54}
+\date{2026年11月12日・論文B（研究草稿 v55）}
+\fancyhead[L]{\small 中心三次非可換変形の一般点可換復元}
+\fancyhead[R]{\small 2026-11-12 / B-v55}
 \begin{document}
 \maketitle
 \begin{abstract}
 滑らかな射影三次超曲面を特殊ファイバーに持つ、次数別有限自由な
-代数的中心三次非可換変形を考える。
-任意の$n\ge3$について、その一般ファイバーのrotation付き残余圏を
+代数的中心三次非可換変形を考える。任意の$n\ge3$について、
+その一般ファイバーの全coherent残余圏を、有限体拡大後に
 滑らかな可換三次$n$次元超曲面のKuznetsov成分として復元する。
+同値はrotationと中心元に由来する三次周期比較を保つ。
 可換模型の方程式は元の関数体$\mathbb C(h)$上に取れ、
-圏同値は有限体拡大後に成立する。線束生成部分と全coherent残余圏の一致、
-可換模型の幾何学的一意性および生成段数の一様上界も得られる。
-
-証明では、三つのstabilizationによる相対window、
-次数別完備な曲率付きmatrix factorization比較、
-有限対象の局所化と生成定理、coherent圏の飽和を組み合わせる。
-さらに可換点での一次変形を直接比較し、五変数の場合には
-二次Jacobi障害のPl\"ucker表示と、Kuznetsov成分への
-Kodaira--Spencer写像の核を記述する。
-本論文の対象は上記の代数的中心三次変形に限り、
-任意の抽象的非可換三次圏の可換復元を主張するものではない。
+その幾何学的な射影同型類は一意である。
+証明は相対window、完備曲率付きmatrix factorizationの比較、
+一般点での生成と有限降下、coherent飽和、低rotation積からの勾配空間の積分からなる。
 \end{abstract}
 \tableofcontents
 
-\section{序論}\label{sec:paperB-introduction}
+\section{序論}
+非可換射影超曲面の残余圏が可換超曲面のKuznetsov成分として実現できるかを問う。
+本稿の対象は、次数別に有限自由な代数的中心三次対であって、
+特殊ファイバーが多項式環と滑らかな三次超曲面となるものに限る。
+主結果は任意の$n\ge3$で成立し、三次三様体だけを対象とするものではない。
+また、可換模型の方程式を定義する体と、圏同値の核を定義する体を区別する。
 
-\subsection{問題設定}
-滑らかな三次超曲面$X\subset\mathbb P^{n+1}$の導来圏には、
-例外線束を除いたKuznetsov成分$\operatorname{Ku}(X)$が現れる。
-この成分に内部次数シフトから誘導されるrotationを併せると、
-可換三次式を復元するための豊かな構造が得られる
-\cite{Orlov,LZ}。
-本稿では、この対応を中心三次元によって切り出される
-非可換射影超曲面の\emph{一般ファイバー}に適用する。
+証明の前半では、線束生成残余圏を三つのstabilizationで表示し、
+完備係数上で可換MF圏との実際の$A_\infty$比較を構成する。
+三つの対象を用いるのは方程式の次数が三であるためである。
+固定したHom複体を先に構成してから一般点へ移し、非零Eulerベクトルと
+BFKの生成定理\cite{GCDBFK}で本質的全射性を得る。
+続いてperfect双加群の有限降下とsmoothnessによる飽和を用い、
+線束生成部分から全coherent残余圏へ進む。
+最後に、rotationの低次数積から得られる勾配空間を積分し、
+可換方程式を元の体上に選ぶ。
 
-考察するのは、次数付き代数$A_R$と次数三の中心元$\Omega_R$の組であり、
-$A_R/hA_R$は多項式環、$\Omega_R\bmod h$は滑らかな三次式である。
-ここで$r$次の各斉次成分は基底環上で有限自由と仮定する。
-この仮定は、抽象的な非可換三次圏が必ずそのような超曲面表示を
-持つという主張とは異なる。正確な定義は
-第\ref{gdr:sec:main}節で与える。
+既知の入力は、非可換射影幾何とOrlov型比較\cite{LP-AZ,LP-BS}、
+Kontsevichのformality\cite{PKontsevich}、曲率付き$A_\infty$理論\cite{CT}、
+MFの生成とrotation付きTorelli\cite{GCDBFK,LZ}である。
+本稿ではその適用に必要なenhancement、次数別完備性、有限対象の局所化、
+有限降下と全coherent圏への拡張を明記する。
+低次数積だけを検査して圏同値の存在を結論するのではなく、
+幾何学的な可換模型の存在を先に確立してから方程式の定義体を改善する。
 
-\subsection{結果の概要}
-主定理\ref{gdr:thm:generic}は、一般ファイバーの
-\emph{全coherent残余圏}と滑らかな可換三次超曲面の
-Kuznetsov成分とのrotation付きMorita同値を与える。
-特に、\emph{可換模型の方程式}を元の体$K=\mathbb C(h)$上に
-取れることと、\emph{圏同値を実現する核}のためには
-有限拡大$K'/K$を要する場合があることを区別する。
-加えて、可換模型の幾何学的一意性と、
-BFKの既知の生成定理から得られる上界を述べる
-\cite{GCDBFK,LZ}。
-正則多変数局所基底への拡張は、
-個々の局所模型の一般点についての結論であり、
-モジュライ全体での比較の接着を意味しない。
+本文は一般次元の主定理とその証明に必要な結果のみを収める。
+変形接空間、三次三様体のPl\"ucker障害、独立の相対形式・étale理論、
+明示量子化族、point schemeの研究は、本稿の主証明の入力としない。
 
-これとは別に、可換点での変形理論を調べる。
-双対数環上では非可換な積の一次方向が
-曲率付きmatrix factorizationにおいて消去され、
-残る可換変形はJacobian環の次数三部分に対応する。
-三次三様体では二次Jacobi障害をPl\"ucker関係式として表し、
-既知のinfinitesimal categorical Torelli
-\cite{JLLZ}と組み合わせて、可換点における
-圏論的Kodaira--Spencer写像の核を同定する。
-この可換点での接空間の計算は、非零Poisson一般点での
-忘却射の核についての主張ではない。
-
-\subsection{証明の方針と本稿の構成}
-証明は四つの段階からなる。
-まず線束の有限windowと三つのstabilizationを比較し、
-局所残余圏のproperなdg模型を構成する。
-次に、次数別完備な係数環上で曲率付き
-$A_\infty$関手と逆関手を作り、内部シフトと三次周期性を照合する。
-第三に、固定した三対象のHomを一般点へ移して非零性と生成性を示し、
-全coherent残余圏まで拡張する。
-最後に、低次数のrotation積から可換模型の勾配空間を取り出し、
-方程式の係数を$K$へ降ろす。
-存在証明には、低次数積の\emph{明示行列}や
-特定の明示多項式を先に計算する必要はない。
-
-第\ref{gdr:sec:main}節に主定理と依存関係を示した後、
-基礎体降下の有限代数的議論を述べる。
-第\ref{tw:sec:window}節および
-第\ref{cft:sec:transport}節が比較の構成を担う。
-可換点での一次・二次変形の結果は
-第\ref{fpk:sec:first-order}節にまとめる。
-後半では相対形式復元・étale実現とその障害、具体的な楕円・混合族、
-point schemeとPoisson零点を順に扱う。これらの個別の結果には
-それぞれの仮定があり、一般点復元の主定理とは適用範囲を区別する。
-
-\subsection{既知結果と適用範囲}
-本稿は、Orlov型の残余圏とmatrix factorizationの比較、
-Kontsevichのformality、曲率付き$A_\infty$理論、
-MFの生成定理およびrotation付きTorelliを入力とする
-\cite{Orlov,PKontsevich,CT,GCDBFK,LZ}。
-局所windowの相対的な構成と完備係数での収束・周期性の照合、
-これらを一般点復元へ接続する部分を本稿で詳述する。
-既知定理の単なる適用、新たな構成上の議論、
-および新規性の先行研究上の未確認点を区別する。
-全射影化の導来圏の可換同値、特殊ファイバーを含む代数的相対同値、
-同値核の$K$への降下は結論に含めない。
-
-\input{papers/reconstruction/general_dimension_recovery}
-\input{papers/reconstruction/generic_cubic_descent}
-
-\part{一般次元の復元定理を支える構成}
-\input{papers/sections/local_projective_model}
-\input{papers/reconstruction/three_object_window}
-\input{papers/reconstruction/complete_curved_transport}
-\input{papers/reconstruction/formal_cubic_mf_reconstruction}
-\input{papers/reconstruction/artin_residual_mf_comparison}
-\input{papers/reconstruction/rotation_orbit_generic_reconstruction}
-\input{papers/reconstruction/coherent_residual_saturation}
-\input{papers/reconstruction/geometric_rotation_basechange}
-
-\part{可換点の変形と方程式の有限復元}
-\input{papers/reconstruction/first_order_poisson_kernel}
-\input{papers/reconstruction/explicit_jacobian_recovery}
-\input{papers/reconstruction/finite_algebraic_recovery}
-\input{papers/reconstruction/curved_diagonal_recovery}
-\input{papers/reconstruction/regular_diagonal_recovery}
-\input{papers/reconstruction/multiplicative_bar_comparison}
-\input{papers/reconstruction/diagonal_kernel_identity}
-\input{papers/reconstruction/relative_artin_sector}
-\input{papers/reconstruction/artin_rotation_obstructions}
-\input{papers/reconstruction/central_symmetry_lifting}
-\input{papers/reconstruction/one_sided_morita_algebraization}
-
-\part{相対形式復元と代数的実現の適用範囲}
-
-この部では、Artin基底上の形式復元と、
-smooth properな代数的dg圏のétale局所実現を扱う。
-いずれも主定理の一般点復元と異なる基底上の主張であり、
-必要な有限性・smoothnessを個別に明記する。
-これらは主定理\ref{gdr:thm:generic}の代数的一般点の議論と補完的である。
-とくに、各Artin切断の比較、完備局所基底上の相対smoothness、
-有限型底上のétale局所同値を同一視しない。
-明示された追加仮定の下での結果と、適用条件を調べる反例を区別する。
-
-\input{papers/sections/relative_formal_models}
-\input{papers/sections/relative_etale_models}
-\input{papers/sections/rotation_obstruction}
-\input{papers/sections/relative_saturation}
-\input{papers/reconstruction/artin_smoothness_obstruction}
-\input{papers/reconstruction/etale_realization}
-\input{papers/reconstruction/hochschild_obstructions}
-\input{papers/sections/all_poisson_components}
-\input{papers/sections/minimal_ainfty_arity}
-
-\part{明示的量子化と可換模型の計算}
-
-この部では、一般の存在定理だけでは指定されない具体的な可換三次式と、
-それを得るために必要な規格化・対角比較・有限計算を扱う。
-まずTodd補正付きHKRによるPoisson一次方向の制約を確認し、
-楕円一ブロック・多ブロック模型の主定理を述べる。
-その後、外部積の完全忠実性と生成性の条件を分けて証明し、
-楕円・混合族の明示式へ進む。
-非可換中心式の単純な可換化と復元先の方程式の相違も扱う。
-例外パラメータでの非proper性は、その適用範囲を示す反例として末尾に置く。
-明示式の特定に用いる比較(D)は、主定理の存在部分の仮定ではない。
-
-\input{papers/reconstruction/poisson_first_order}
-\input{papers/sections/sklyanin_model_theorems}
-\input{papers/sections/sklyanin_block_models}
-\input{papers/sections/multiblock_generation}
-\input{papers/sections/elliptic_reconstruction}
-\input{papers/reconstruction/explicit_model_comparison}
-\input{papers/reconstruction/mixed_test_family}
-\input{papers/reconstruction/curved_gauge_comparison}
-\input{papers/reconstruction/kontsevich_second_jet}
-\input{papers/reconstruction/mixed_equivariant_normal_form}
-\input{papers/sections/relative_parameter_boundary}
-
-\part{Point schemeとPoisson零点のスキーム論的比較}
-
-ここでは混合中心三次商のpoint moduleの台と非被約構造を調べ、
-半古典Poisson構造の零点スキームと比較する。
-結果は指定された混合族とそのパラメータ範囲で成立し、
-一般の非可換三次超曲面全体のpoint schemeを分類するものではない。
-特に、平坦極限についての主張と各非零ファイバーでの同型を区別する。
-
-\input{papers/reconstruction/point_scheme_poisson_zero}
-\input{papers/reconstruction/point_scheme_thickening}
-\input{papers/reconstruction/point_scheme_lambda_family}
-\input{papers/reconstruction/point_scheme_discriminant_boundary}
-
-\input{papers/references}
+\input{papers/generic_recovery/main_result}
+\input{papers/generic_recovery/local_model}
+\input{papers/generic_recovery/window}
+\input{papers/generic_recovery/curved_transport}
+\input{papers/generic_recovery/generic_descent}
+\input{papers/generic_recovery/coherent_saturation}
+\input{papers/generic_recovery/gradient_recovery}
+\input{papers/generic_recovery/field_model}
+\input{papers/generic_recovery/references}
 \end{document}

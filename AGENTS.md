@@ -1,22 +1,23 @@
-# AGENTS.md — nc-cubic 現行研究・開発指針
+# nc-cubic 現行編集・再現指示
 
-**2026-11-12 / v70。** mainが正本。最初に `00_research_plan.md` を読む。
-A `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v54）が現行主原稿。
+**2026-11-12 / v71。GitHub mainが正本。** 最初に `00_research_plan.md` を読む。
 
-## 現在の主定理と次の作業
+## ユーザーの指定
 
-指定した次数別有限自由な代数的中心三次変形・smoothな可換特殊ファイバーという入力について、三対象windowが(L)を、`complete_curved_transport.tex` が(CF)と(CF_3)を構成する。これらを独立の追加仮定へ戻さない。主定理は元の体上のcubic模型と有限拡大後の全coherent残余pair同値。正則多変数局所基底にも成立する。任意の抽象的nc cubic圏の表示は証明していない。
+論文A（`papers/paper_a.tex`、A-v51）はnc-cubicに残す。論文Aとその入力ソースを変更・移管しない。論文B（`papers/paper_b.tex`、B-v55）は、任意の n>=3 の一般点可換復元主定理と必要な証明だけを収録する。新しい研究結果の追加より、論文の焦点、完全な証明、参照と組版の整合を優先する。
 
-完備曲率移送は、通常のgraded unital formality、有限三次式空間のC_pi逆写像、勾配Koszul、arity1,3のflow、F_(2r+1)∈m^r、固定次数内のtwistingの収束、相互逆性とt多重線形な周期比較の順序。曲率はm小とは仮定せず、関数入力高々一個というグラフ次数で処理する。普通のcurved Hochschild cohomologyをJacobian環と同一視しない。
+Bの支持ソースは `papers/generic_recovery/` の9ファイル。共有preambleは従来の `papers/support/papers/common.tex`。主定理の証明はnc-cubicだけで読め、nc-cubic2の未公表証明を取得することを前提にしない。中心三次元の次数3と超曲面の次元nを混同しない。
 
-一次消滅の独立証明は `first_order_poisson_kernel.tex`。Jacobiを使わず曲率付きHKRのarity3境界で一次の非可換変形を消す。五変数では二次Hochschild障害のJacobi係数イデアルが五本のPlücker二次式と一致する。JLLZ Theorem 4.4(2)とArtin残余比較により、可換点でのcategorical KS写像20→10は全射・核10。これらと一般非零Poisson点の核7を混同しない。残る一次可換変形はJac(F)_3に値を持ち、cubic threefoldでは10次元。nc-cubic2の17次元族への接空間対応は未照合。今後は新結果を増やすより論文Bの編集・証明の独立監査を優先する。既存の完全な証明を削らず、序論・主結果・支持節の整合と先行研究引用を改善する。次は完備移送と既存window・降下・飽和の独立再点検、全文静的検査・組版・公表構成、非可換低Natの有効計算を優先する。原稿の証明を構成したことと全支持節・全計算の再監査完了は別。一般点の存在の前に(D)や低積の実計算を要求しない。(D)は特定の明示式の照合として残す。K上の方程式と同値核の定義体を混同しない。
+## 独立成果の移管は未完了
 
-Aの代数的量子中心にformalityを必須入力として戻さず、Lie正規形・PBW/AS・Hesse・Bondal・成分の監査を継続。17次元モジュライとambient周期性はnc-cubic2に保持する。
+`notes/paper_b_scope_and_transfer.md` に現行の分担と残件を記す。nc-cubic2に全文保存した6節だけで移管全体を完了扱いにしない。既存のモジュライ・明示量子化原稿へ統合し、必要な補題・文献・コードを揃え、照合と組版を確認する。未移管のソースを削除せず、旧コミットへのリンクだけで有効な結果を保持したとしない。
 
-論文BはI:主定理を支える比較、II:可換点の変形、III:Artin形式・étale、IV:楕円/混合量子化と有限係数模型、V:point schemeの五部構成。Part IIIには `relative_formal_models.tex` と `relative_etale_models.tex`、Part IVには `sklyanin_model_theorems.tex`、`sklyanin_block_models.tex`、`multiblock_generation.tex`、`relative_parameter_boundary.tex` を直接入力する。`rotation_models.tex` はこれらを順に読み込む互換入口のため、個別節との同時入力は禁止。数学的主張・証明・反例を削らず、各部の追加条件と一般点定理の結論を混同しない。今後は新しい研究結果を増やすより、公表本文の推敲と全文引用・組版検証を優先する。
+古い支持節・検算スクリプトにはBの旧配置への参照がある。主論文Bからは読まないが、独立成果の再開に必要な現行資産として残している。移管先の動作確認後に必要なコードと参照を整理する。Aが読む節と計算をその作業に巻き込まない。
 
-## 保存・再現
+## 証明状態と検証
 
-有効な既存証明・反例・必要証明書を保持し、状態説明は現行内容に同期する。日本語LuaLaTeX、PDF・中間物はbuild/で非追跡。GitHub mainへfast-forward、遠隔ref/blob確認、Actions・force pushなし。Libraryはpushの実失敗時のみ緊急退避。
+現在の定理には証明が記載されているが、今回の編集は全補題の独立再証明ではない。一般点の有限拡大と方程式の基礎体を区別する。特殊点込み相対同値、任意の抽象的nc cubicの表示、全射影化の導来同値を結論に加えない。
 
-`python3 computations/verify_complete_curved_transport.py --output build/complete_curved_transport_checks.json` は有限代数・余積・arityの検算であり、graph積分や圏同値の形式検証ではない。抜粋は `latexmk papers/support/papers/complete_curved_transport.tex`。全Bの組版とは区別する。最新の証明状態は `notes/paper_b_proof_audit.md`、実施検証は `validation_paper_b.json`。
+`latexmk -r .latexmkrc papers/paper_b.tex` で全文を組版する。B-v55は実際に27頁で組版し、全頁表示確認、未解決参照・引用・文字欠落・overfullは0。静的な11入力の参照照合と数学の独立監査は別。状態は `validation_paper_b.json`、証明の依存は `notes/generic_recovery.md`。
+
+日本語LuaLaTeX。PDF・中間物はbuild/で非追跡。GitHub Actions・force pushなし。mainへの保存後に遠隔HEADとファイルを確認する。LibraryはGitHub pushの実失敗時のみ緊急退避し、既存Libraryファイルを無断削除しない。

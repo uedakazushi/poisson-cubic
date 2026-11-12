@@ -1,0 +1,74 @@
+\section{主定理と証明の構成}\label{gdr:sec:main}
+
+$n\ge3$、$N=n+2$、$a=N-3$とし、
+\[
+ R=\mathbb C[h]_{(h)},\qquad \widehat R=\mathbb C[[h]],\qquad
+ K=\mathbb C(h),\qquad L=\mathbb C((h))
+\]
+と置く。非負次数付き中央$R$-代数$A_R$について、
+$(A_R)_0=R$、各$(A_R)_j$が有限自由で、
+$A_R/hA_R\simeq\mathbb C[x_1,\ldots,x_N]$と仮定する。
+$\Omega_R\in Z(A_R)_3$の剰余を$F$とし、$V(F)\subset\mathbb P^{N-1}$は滑らかとする。
+$B_R=A_R/(\Omega_R)$と置く。
+
+$B=B_K$について$\mathcal O(j)=\pi B(j)$とし、
+\[
+ \mathcal C_B=\operatorname{thick}\{\mathcal O(j):j\in\mathbb Z\},\qquad
+ \mathcal E_B=\langle\mathcal O,\ldots,\mathcal O(a-1)\rangle
+\]
+と定める。二つの残余圏
+\begin{equation}\label{gdr:eq:residual-defs}
+ \mathcal K_B^{\rm lin}=\mathcal C_B\cap\mathcal E_B^\perp,
+ \qquad
+ \mathcal K_B^{\rm coh}=D^b(\operatorname{qgr}B)\cap\mathcal E_B^\perp
+\end{equation}
+を区別し、rotationは$\rho_B=L_{\mathcal O}\circ(1)$とする。
+滑らかな三次超曲面$Y\subset\mathbb P^{n+1}$についても
+$\operatorname{Ku}(Y)=\langle\mathcal O_Y,\ldots,\mathcal O_Y(n-2)\rangle^\perp$、
+$\rho_Y=L_{\mathcal O_Y}\circ(1)$を用いる。
+全ての圏はdg enhancementと冪等完備化を伴う。
+
+\begin{theorem}[一般次元の中心三次非可換変形の可換復元]
+\label{gdr:thm:generic}
+以上の仮定の下で、$K$上に幾何学的に滑らかな三次超曲面
+$Y\subset\mathbb P^{n+1}_K$が存在し、ある有限拡大$K'/K$上で
+\begin{equation}\label{gdr:eq:main}
+ (\mathcal K^{\rm coh}_{B_{K'}},\rho_B)
+ \simeq(\operatorname{Ku}(Y_{K'}),\rho_Y)
+\end{equation}
+となる。このMorita同値は、中心元に由来する三次周期比較も保つ。
+さらに、$D^b(\operatorname{qgr}B_K)$はsmooth properであり、
+$\bigoplus_{j=0}^{N-1}\mathcal O(j)$が生成する。
+$Y$の幾何学的な射影同型類は一意である。
+また、代数閉包上の任意の非零$M\in\mathcal K^{\rm coh}_{B_K}\otimes_K\overline K$について、
+$M\oplus\rho_BM\oplus\rho_B^2M$の生成段数は$2(n+2)(n+3)-1$以下である。
+\end{theorem}
+
+\begin{proof}
+命題\ref{gcd:prop:automatic-as}により一般ファイバーのambientは
+noetherian Koszul AS正則であり、$\Omega_R$は正則である。
+定理\ref{tw:thm:window}は線束生成残余圏を、原点のstabilizationと
+その二つの内部shiftのendomorphism代数で表示する。
+この固定三対象に定理\ref{cft:thm:complete}の完備MF比較を適用してから局所化する。
+命題\ref{rog:prop:euler}の非零EulerベクトルとBFKの生成定理
+（命題\ref{gcd:prop:bound}）により、代数閉拡大体上で像は可換MF圏全体となる。
+定理\ref{rog:thm:geometric-generic}の有限降下によって、有限拡大後の
+滑らかな可換三次模型と線束生成残余圏の同値を得る。
+
+補題\ref{crs:lem:descent}により残余圏のsmoothnessは$K$へ降下する。
+命題\ref{crs:prop:residual-smooth}と定理\ref{crs:thm:coherent}を
+$K$と有限拡大上で適用すれば、線束生成部分は全coherent導来圏に一致する。
+これにより全coherent残余圏の同値と、全体のsmooth proper性・有限線束生成を得る。
+
+最後に、得られたsmooth properなrotation付き圏へ
+定理\ref{gcd:thm:field-model}を適用する。
+低rotation積の核を勾配空間として積分することで、可換模型の方程式を$K$上に選べる。
+必要なら同値核の有限定義体を拡大すれば式\eqref{gdr:eq:main}を得る。
+幾何学的一意性は命題\ref{prop:ej-projective-uniqueness}、
+生成段数の上界は命題\ref{gcd:prop:bound}から従う。
+\end{proof}
+
+本定理は、指定された次数別有限自由な代数的中心三次対に関するものである。
+任意の抽象的な非可換三次圏にこのような表示があるとは仮定せず、結論ともしない。
+方程式の定義体は$K$であるが、圏同値の核の$K$への降下は主張しない。
+また、特殊点を含む代数的相対同値や、射影化全体の可換導来同値を意味しない。

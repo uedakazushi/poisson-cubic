@@ -1,76 +1,62 @@
-# 研究方針：Poisson三次超曲面の量子化と一般点可換復元
+# 研究方針：論文Aの保持と一般次元の可換復元論文B
 
-**2026-11-12 / v70。再開時は最初に読む。GitHub uedakazushi/nc-cubic のmainが正本。**
-現行主原稿はA `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v54）。
+**2026-11-12 / v71。再開時は最初に読む。GitHub mainが正本。**
 
-## 目標・到達点・達成基準
+## 現在の目的と編集方針
 
-Aはsmooth cubicのPoisson正規形、退化、Bondal予想、代数的量子化、固定・相対Poisson moduliを公表可能にする。Bは、次数別有限自由な代数的中心三次変形で特殊ファイバーが多項式環とsmooth cubicである場合に、一般点のrotation付き全coherent残余圏を可換cubicから復元する。
+ユーザーの指定に従い、論文Aは引き続きnc-cubicに残す。論文Bは任意の n>=3 に対する代数的中心三次変形の一般点可換復元と、その証明に必要な結果のみを収める。今回は新しい研究結果を追加せず、既存証明を依存関係に従って組み直した。
 
-**Bの比較条件は構成定理になった。** 三対象windowで(L)を、`complete_curved_transport.tex` の `cft:thm:complete` で(CF)と(CF_3)を構成する。主定理にはこれらを独立に仮定しない。R=C[h]_(h)、K=C(h)上にsmooth cubic模型Yを取り、有限拡大後にrotationと中心元由来の三次周期比較を保つ全coherent残余圏同値を得る。模型は全n>=3で幾何学的に一意で、BFKの既知定理による三rotation和の生成段数上界2(n+2)(n+3)-1を持つ。正則多変数局所基底の分数体にも同じ結論が成立する。
+現行入口は `papers/paper_a.tex`（A-v51）と `papers/paper_b.tex`（B-v55）。Aの本文・支持ソース・共通TeX設定は変更していない。Bの独立成果の移管先はuedakazushi/nc-cubic2だが、移管はまだ一部であり、残る数学的内容を失わないよう現行ソースを保持する。
 
-この結論の対象は指定した**代数的中心三次変形**であり、任意の抽象的nc cubic圏の表示・分類ではない。証明の記載と今回の主要論証の点検、全支持節の独立監査、計算、組版、保存は区別する。包括的新規性調査・外部査読・形式検証は未実施。
+## 論文Bの主結果と自己完結した証明
 
-## 現在の証明の順序
+入力はR=C[h]_(h)上の次数別有限自由な代数的中心三次対で、特殊ファイバーが多項式環と滑らかな三次式となるもの。原稿では、K=C(h)上の幾何学的に滑らかな三次n次元超曲面Yと、有限拡大K'/K上のrotationおよび中心元由来の三次周期比較を保つ全coherent残余圏同値を証明する。全coherent導来圏のsmooth proper性・有限線束生成、可換模型の幾何学的一意性、BFKによる生成上界を同じ主定理の帰結として保持する。
 
-次数別Koszul持上げ → 代数的三対象window → 完備曲率移送 → 固定Homの局所化 → Euler非零性 → 代数閉包上のBFK生成 → perfect核の有限降下 → coherent飽和 → 低Natの体拡大 → 可積分勾配空間からG/Kを構成。
+証明は `papers/generic_recovery/` の次の九ファイルに集約する。
 
-形式比較では、通常の結合変形をgraded unital formalityで星積へ移す。中心逆像は有限自由な三次式空間上のC_pi=Id+O(m)を逆にして求める。勾配Koszulの完全性と次数からπ=[Ξ,W]、[Ξ,π]=0。曲率はmの倍数ではないが、出力arityは関数k個で2−2k、trivectorを加えると3−2kなので関数は高々一個。arity1,3のnormalized coderivationを積分して、写像・逆ともF_(2r+1)∈m^rを得る。固定次数内の有限自由行列でtwistingの和が収束し、実際の相互逆関手とt多重線形な周期比較を構成する。Artin同値の列の抽象的な逆極限で代用しない。
+- `main_result.tex`：一般次元の主定理と短い証明。
+- `local_model.tex`：次数別noetherian性、有限Koszul持上げ、Gorenstein型、線束Homとproper残余模型。
+- `window.tex`：有限rank MFのproper Hom、実際のdg stabilization、三対象windowとrotation。
+- `curved_transport.tex`：完備曲率付き移送、関手と逆関手、内部shiftと周期性。
+- `generic_descent.tex`：非零Eulerベクトル、固定対象のLaurent局所化、BFK生成、有限降下。
+- `coherent_saturation.tex`：有限Hom・smooth対角・線束による検出から全coherent圏へ。
+- `gradient_recovery.tex`：低rotation積の同定と、同じ勾配空間を持つ滑らかな三次式の射影的一意性。
+- `field_model.tex`：一般点AS正則性、体拡大と低積、可積分性によるG/K、生成上界。
+- `references.tex`：この証明に用いる13文献。
 
-方程式のKへの降下は一般点の存在とsmooth proper性の後に行う。低Natの明示行列や(D)を一般存在の前提に戻さない。(D)は特定の既知多項式を復元先に指定する比較として残る。
+必要な自作の補題・証明は本文内に残し、nc-cubic2の未公表支持節への参照だけで代用しない。定理の対象は上の具体的代数的入力であり、任意の抽象的nc cubicの表示、特殊点込み相対同値、同値核のKへの降下、全射影化の可換導来同値は結論しない。原稿に証明があることと、全証明の独立再監査・形式検証・外部査読は区別する。
 
-証明の入口は `papers/support/papers/reconstruction/general_dimension_recovery.tex`。局所比較は `three_object_window.tex`、完備比較は `complete_curved_transport.tex`、定義体・生成上界は `generic_cubic_descent.tex`（同ディレクトリ）。詳細は `notes/paper_b_proof_audit.md`。既存の形式二次jet、相対Artin、別生成証明、明示族、障害・反例は現行支持節に保持する。
+## 論文Aの保持する成果と未確認点
 
-## 一次非可換方向の消滅と接空間
+Aはsmooth cubicのPoisson正規形、退化スキーム、Bondal予想、代数的量子化、固定・相対Poisson moduliを扱う。active偏微分のgcd、古典Casimir核、普遍交換子minor、Cramer法による中心元構成を保持する。一般次元のquadratic envelope・偏極付きambient復元もAに残す。Pois(X)、固定商stack、相対stackを区別し、Fermat最大性は未証明として扱う。Lie正規形・PBW/AS・普遍中心恒等式などの全独立監査は未完了。Aの既存の研究上の知識は `notes/poisson_article_submission_audit.md`、`notes/universal_casimir.md`、`notes/fermat_relative_poisson_components.md` に保持し、今回書き換えていない。
 
-`papers/support/papers/reconstruction/first_order_poisson_kernel.tex` で、双対数環上の中心三次対に対する一次変形を全次数formalityを使わず直接比較する。HKRで積の一次項を二次係数bivector πへ正規化し、中心性から[π,F]=0、滑らかさ・Koszulからπ=[Ξ,F]となる。曲率 -tF のHochschild複体で η=ε HKR(Ξ)/t の境界がHKR(π)を消す。双対数なのでbar写像はarity1と3のみで実際に逆があり、graded MFの内部shift・中心元由来周期性も保つ。Jacobi条件は一次消滅には不要だが、全次数へ延長する際に必要。一次の可換式は標識によって導分(F)だけ変わり、(S/J(F))_3に値を持つ。次元は binom(N+2,3)-N²、cubic threefoldで10。PoissonのPlücker錐は一般非零点で7次元だが可換零点のZariski接空間は10次元で、cubicの変形10次元と合わせて局所次元17／接空間20という差がある。今回の一次消去は可換点の10方向を対象とし、一般非零点での7次元kernelと同一視しない。17次元非可換族の実際のcategorical forgetful微分はKodaira--Spencer照合が未完である。これは全次数比較の独立検算として価値がある。
+## 独立成果の分離と移管残件
 
-## 五変数の二次Hochschild障害の完全なPlücker表示
+主定理に不要な、三次三様体の一次接空間・Plücker障害・categorical KS、独立の相対Artin/étale復元、Sklyanin・多ブロック模型、有限対角/bar/Moritaの別構成、混合族と二次jet、point scheme、有限復元アルゴリズム・反例はB本文から外す。これらの公表価値は否定せず、nc-cubic2の現行研究へ証明ごと統合する。
 
-`first_order_poisson_kernel.tex` に、可換中心三次対(S,F)の一次変形（恒等剰余の次数付き同型を法とする）が `Λ³V ⊕ Jac(F)_3` と表せる命題を加えた。N=5で前者10、後者10、合計20次元。一次変形の積を二次まで延長するHochschild障害は `[π_Ξ,π_Ξ]/2` であり、滑らかなFではその係数二次式のイデアルが五つのPlücker関係式にスキーム論的に一致することを直接証明。非分解可能なΞを標準形 e012+e034 に移し、Jacobi条件を `F_{0i}F_j−F_{0j}F_i=0` と計算、Eulerから `3F F_{0i}=2F_0F_i` を得て滑らかさと矛盾させる。五つのPfaffianの二次写像が五次元の四形式空間へ全射なことからJacobi係数の生成イデアルも同一と示す。
+**現在の移管状態は部分完了。** nc-cubic2の `papers/reconstruction_extensions/` に6節の本文を保存し、元と同じGit blobであることを確認した。独立原稿への統合、参照・引用の解決、再現コード、残りの節の移管は未完了。元の独立ソースはまだ削除していない。詳細は `notes/paper_b_scope_and_transfer.md`。旧版を取得しないと再開できない構成にはせず、移管完了まで現行mainに本文を残す。
 
-これは既知Poisson構造のGrassmannian記述と整合する独立の二次障害の証明。新規性は未確認。二次の`結合積`障害がPlückerで切り出されることと、中心元も含めた全高次形式局所環の同定を区別する。nc-cubic2では局所次元17とZariski接空間20が別だが、一般非零Poisson点でのcategorical忘却微分とその7次元核は未確認。実例検算は `computations/verify_second_order_plucker.py`。
+## 次の作業と達成基準
 
-## 可換点における圏論的接空間の完全列
+最優先は移管の完了であり、新しい数学的主張の追加ではない。nc-cubic2の既存モジュライ・中心商・混合族と照合し、独立結果を公表用原稿として整理する。各移管節の全本文、必要な補題・参考文献・計算資産の保存と組版を確認してから元のB専用配置を整理する。Aが読むファイルは移管・削除しない。
 
-`first_order_poisson_kernel.tex` の `fpk:thm:categorical-tangent` において、Artin基底のenhanced windowと一次曲率付き比較で得た残余圏の一次変形をJLLZ Theorem 4.4(2)と照合。滑らかなcubic threefoldの `η:H¹(T_X)→HH²(Ku(X))` は同型であり、`T_pair^1 ≅ Λ³ C⁵ ⊕ Jac(F)_3` から基礎dg圏のKS類は `(Ξ,[G])↦η([G])`。よって正確な完全列 `0→Λ³ C⁵→T_pair^1→HH²(Ku(X))→0` を得る。可換点では20→10、核10。これは二次Plücker障害の次元7、一般非零Poisson点で期待される17→10の核7とは異なる。rotation付きmoduli stack全体の接空間をHH²と同一視する主張ではない。
+その後、短くしたBの全証明を通読し、仮定と一次資料を再点検する。組版成功は証明の正しさを保証しない。主定理そのものを短くするために必要な証明を省略したり、未確認の結果を引用済み扱いにしたりしない。
 
-一次資料：Jacovskis–Lin–Liu–Zhang, *Infinitesimal categorical Torelli theorems for Fano threefolds*, Theorem 4.4(2), arXiv:2203.08187（著者PDFの印刷p.15でη同型を確認）。本研究の組合せの新規性は未確認。
+## 再現と実際の確認
 
-## 論文Bの構成と編集方針
+既存の `.latexmkrc` を使い `latexmk -g -r .latexmkrc papers/paper_b.tex` を実行し、27頁の全文を生成した。11個のTeX入力で102ラベル、94参照、37引用、13文献項目を検査し、未解決・重複は0。最終ログの未解決参照・引用、overfull、文字欠落は0。全27頁を画像で表示確認した。PDFは生成物でGit追跡しない。
 
-論文Bは五部からなる。Iは一般点復元のwindow・完備MF比較・生成と飽和、IIは可換点の一次・二次変形と有限復元、IIIはArtin形式・étale復元と相対smoothnessの条件、IVは楕円・混合量子化の明示模型・多ブロック生成・例外係数と二次jet、Vはpoint schemeの台・非被約構造・平坦極限を扱う。各部の導入で主定理と条件付き相対定理を区別する。
-
-相対復元の長編節は、Artin形式・étale実現・楕円ブロック・多ブロック生成・境界例の五ファイルと、具体模型の主定理文を収めた一ファイルに整理した。論文Bでは部をまたいでこれらを直接読み込み、互換入口 `papers/support/papers/sections/rotation_models.tex` は六節の読込のみを担う。定理・証明・全ラベルを保持し、同内容の別証明の役割を区別して用語を統一する。公表本文に作業過程は蓄積しない。相対形式節に残っていた楕円・外部積生成の先行研究比較を明示模型の節へ移し、étale局所復元の先行研究比較も該当する構成定理の直前に移した。すべての文献引用・定理・証明・ラベルは保持する。Artin形式とSklyanin模型の主定理の直後から、各々の証明節へ移動できる案内を付けた。優先課題は全文組版と参照監査、一次文献の仮定との照合、大きな支持節に残る重複した説明の整理である。
-
-## 未解決の核心と次の具体的着手
-
-1. **公表可能性の独立監査。** 一次消滅と二次Plücker障害の証明を出発点に、新しい完備移送のnormalized全cochain、非小曲率の評価、matrix延長、periodicityと、既存window・有限降下・coherent飽和を別の観点から再点検する。B全文の参照・引用・組版を実行し、導入・主結果・支持節の接続を通読する。主定理の証明を構成したことを、全支持節の再監査完了と同一視しない。
-2. **有効化。** 非可換入力のV=H^0 dgNat(Id,ρ)、U=H^0 dgNat(Id,ρ²)、積μを有限行列で構成し、G/Kを具体計算する。既知λ=1多項式の特定には(D)を検証する。
-3. **降下と相対化。** 同値核のKへの降下障害、h=0で正則な模型、特殊点込み相対同値、有限拡大次数と核の明示、モジュライ上の接着を調べる。幾何学的一意性とK上のformを混同しない。
-4. **Aの独立監査。** Lie正規形、普遍Hesse中心、PBW/AS、Cramer特殊化、Bondal・stack成分と一次資料比較を継続する。Aの代数的量子化存在証明にformalityを必須入力として戻さない。
-
-## Aと分離先の現在の内容
-
-Aでは全体三次式がsmoothなら三変数制限が特異・零でも、active偏微分gcd=1、古典Casimir核一定、普遍交換子minor、Cramer法、Bertiniによる中心三次配分から代数的中心元を得る。Hesse型は短い多項式、一般には原点で正則な有理式。全依存の独立監査は未完。Pois(X)、固定商stack、relative stackは別の空間で、Fermat成分数はそれぞれ集合分割、整数分割、floor((n+2)/3)。Fermat最大性は未証明。一般次元quadratic envelope・偏極付きambient復元はAに保持する。詳細は `notes/poisson_article_submission_audit.md`、`notes/universal_casimir.md`、`notes/fermat_relative_poisson_components.md`。
-
-Bの混合族、point schemeとPoisson零点の平坦極限、λ³=−3の局所代数、相対Artin障害、有限対角・bar・Morita比較、Poisson一次消滅、非楕円型の有効な証明は保持する。全射影化の導来同値を残余同値と混同しない。17次元モジュライ、ambient周期性、6/7次元scheme詳細、独立境界はnc-cubic2、Reyeはreyeを正本とする。未照合候補は数学的内容を現行論文・ノートへ統合するまで削除しない。
-
-## 再現と実施状態
-
-`latexmk papers/paper_a.tex` / `latexmk papers/paper_b.tex`。静的検査は `python3 scripts/check_layout.py` と `python3 scripts/verify_bundle.py`。B-v53の実施状態は `validation_paper_b.json`、Aなどは `validation.json`。
-
-新しい `computations/verify_complete_curved_transport.py` はSchouten恒等式、CasimirだけではJacobiが従わない負例、非自律・非可換なbar flow模型の10逆行列恒等式と2750余積係数恒等式、arity位数、twisting代入の相互逆性を厳密検算した。実際の非可換MF HomやKontsevich重みの計算ではない。5頁の証明抜粋をLuaLaTeXで組版し表示確認した。B全文・全既存証明書の再実行は未実施。以前の検算コードは保持し、今回再実行したとは記載しない。
+Bの証明の構成・監査範囲は `notes/generic_recovery.md`、実施状態とソースハッシュは `validation_paper_b.json`。Aの再組版、全既存計算の再実行、全数学的証明の独立監査は今回行っていない。
 
 ## 研究一般の原則と保存許可
 
-以下は具体的計画とは別の常設原則である。
+以下は具体的な編集計画と区別する常設原則である。
 
-1. 数学的重要性、新規性、理解の深化、応用、正確性、実現可能性を総合して価値を最大化する。変更は現在の理由と解決／未解決として書き直し、履歴を蓄積しない。
-2. 証明済み、追加仮定付き、未完成、予想、計算的観察を区別する。仮定・依存・証明所在、記載／独立監査／計算を明記し、誤りなら依存する本文・要約・方針も訂正する。
-3. 公表稿は一次資料を確認し、既知結果との関係を具体的に説明する。未確認の文献・新規性を推測で補わず、外部PDFを大量収録しない。
-4. 公表価値のある成果と十分な証明は日本語LuaLaTeXで、現在の論理順に保持する。軽量化を理由に有効な数学的内容を削らない。
-5. ノートは現在有効な着想・計算・反例・障害・文献比較を整理し、会話・日誌・重複証明を蓄積しない。
-6. 本方針を入口とし、最新mainだけで目標・到達点・未解決点・具体的着手を理解できるようにする。旧ZIP・会話を前提にしない。
-7. 継続用一式は現行方針・ノート・原稿・必要な最小限のコード／入力／証明書とし、履歴・重複・cacheを除く。数学・検証可能性を容量上限に合わせて削らない。
-8. ユーザーの保存許可により区切りで承諾を求めずmainへfast-forward保存し、遠隔ref/blobを確認する。GitHub Actions・force pushは禁止。Libraryは実際のpush失敗時のみ緊急退避、既存Libraryファイルは明示許可なく削除しない。生成・検証・組版・保存を別々に報告する。
+1. 数学的重要性、新規性、理解、応用、正確性、実現可能性を総合して研究価値を最大化する。方針の変更は現在有効な理由と解決・未解決の境界として整理し、履歴を蓄積しない。
+2. 証明済み、仮定付き、未完成、予想、計算的観察を区別する。仮定・依存・証明所在と、記載・独立監査・有限計算を明記し、誤りなら依存する本文・要約・方針を同期して訂正する。
+3. 公表稿は一次資料を確認し、既知結果との関係を説明する。文献や新規性を推測で補わず、外部PDFを大量収録しない。
+4. 有効な成果と十分な証明を日本語LuaLaTeXで現在の論理順に保持する。軽量化を理由に数学的内容を削らない。
+5. ノートは現在有効な着想・計算・反例・障害・文献比較を整理し、会話や作業日誌や重複証明を蓄積しない。
+6. 研究方針を入口とし、現在の一式だけで目標・到達点・未解決・着手方法を理解できるようにする。過去の会話や旧ZIPを前提にしない。
+7. 一式は現行方針・ノート・論文・必要最小限のコード・入力・証明書とし、履歴・重複・cacheを除く。検証可能性を固定容量に合わせて削らない。
+8. ユーザーの保存許可により区切りで承諾を求めずGitHub mainへfast-forward保存し、遠隔ref/blobを確認する。GitHub Actions・force pushは禁止。GitHub正本という個別指定を優先し、Libraryは実際のpush失敗時のみ緊急退避する。既存Libraryファイルの無断削除はしない。生成・検証・組版・保存は別々に報告する。

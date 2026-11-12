@@ -1,49 +1,36 @@
-# nc-cubic — Poisson cubicの量子化と一般点可換復元
+# nc-cubic — Poisson三次超曲面の量子化と一般点可換復元
 
-**2026-11-12 / v70。** GitHub mainが正本。最初に [研究方針](00_research_plan.md) を読む。
+**2026-11-12 / v71。** GitHub `main` が正本。再開は [研究方針](00_research_plan.md) から。
 
-| 原稿 | 主題 |
+## 現行の二論文
+
+| 原稿 | 対象と現行構成 |
 |---|---|
-| [論文A](papers/paper_a.tex)（A-v51） | smooth cubicのPoisson正規形・退化・Bondal・代数的量子化・Poisson moduli |
-| [論文B](papers/paper_b.tex)（B-v54） | 代数的中心三次変形の一般点可換復元、完備曲率移送、基礎体上の模型 |
+| [論文A](papers/paper_a.tex)（A-v51） | 一般次元のPoisson幾何・代数的量子化。本文と支持ソースは今回変更していない。 |
+| [論文B](papers/paper_b.tex)（B-v55） | 任意の n>=3 における代数的中心三次変形の一般点可換復元と、その証明に必要な結果のみ。 |
 
-## 論文Bの五部構成
+論文Bは [papers/generic_recovery/](papers/generic_recovery/) に主定理と必要な証明を集約した。本文の順序は、局所代数的模型、三対象window、完備曲率付きMF比較、一般点への移行と有限降下、全coherent残余圏への飽和、低rotation積と勾配空間、方程式の基礎体降下である。主定理は三次三様体に限らず任意の n>=3 を扱う。方程式は元の体 C(h) 上、圏同値は有限拡大後という区別を保つ。
 
-- **I：一般点復元の構成** — 局所window、完備MF比較、一般点生成、coherent飽和
-- **II：可換点と有限復元** — 一次・二次変形、Plücker障害、圏論的接空間、低rotation積
-- **III：相対復元と適用条件** — [Artin形式復元](papers/support/papers/sections/relative_formal_models.tex)、[étale局所実現](papers/support/papers/sections/relative_etale_models.tex)、相対smoothness、障害例
-- **IV：明示的な可換模型** — [主定理](papers/support/papers/sections/sklyanin_model_theorems.tex)、[Sklyaninブロック](papers/support/papers/sections/sklyanin_block_models.tex)、[多ブロック生成](papers/support/papers/sections/multiblock_generation.tex)、[例外係数](papers/support/papers/sections/relative_parameter_boundary.tex)、混合量子化、二次jet
-- **V：point schemeの比較** — 台、非被約構造、混合係数の平坦極限と判別式境界
+## 編集と検証の状態
 
-各部で一般点主定理と個別の追加仮定を区別する。従来の長い支持ファイル `rotation_models.tex` は六つの現行節をまとめて読むための入口として残す。論文B本体では各節を適切な部から直接読み込み、同じ節が重複して組版されないようにする。既存の定理・証明・反例・計算は保持する。
+論文Bの全文をLuaLaTeX/latexmkで組版し、27頁を表示確認した。主原稿、共通設定、9個の本文・文献ファイルの計11ファイルを使用する。静的検査は102ラベル・94参照・37引用・13文献項目で、未解決・重複はない。最終ログの未解決参照・引用、文字欠落、overfull boxは0。これは組版と参照の検証であり、全数学的証明の新たな独立監査ではない。正確な状態は [validation_paper_b.json](validation_paper_b.json)、証明の依存は [notes/generic_recovery.md](notes/generic_recovery.md)。
 
-## Bの現在の結論
+## 独立成果の移管は未完了
 
-次数別有限自由な代数的中心三次対で、特殊ファイバーが多項式環とsmooth cubicであることを仮定する。[三対象window](papers/support/papers/reconstruction/three_object_window.tex)が(L)を、[完備曲率移送](papers/support/papers/reconstruction/complete_curved_transport.tex)が(CF)と(CF_3)を構成するため、これらを追加仮定とせず一般点復元を得る。
+一般次元の主定理に不要な変形論、相対Artin・étale理論の独立結果、明示量子化、point scheme等は論文Bの入力から外した。その数学的内容は削除していない。
 
-元の体K=C(h)上のsmooth cubic模型と有限拡大後のrotation付き全coherent残余圏同値を構成する。全n>=3の幾何学的一意性とBFKの既知の生成上界を保持し、正則多変数局所基底にも適用する。任意の抽象的nc cubicの表示、同値核のKへの降下、特殊点込み相対同値、全モジュライへの接着は主張しない。
+[nc-cubic2の移管先](https://github.com/uedakazushi/nc-cubic2/tree/main/papers/reconstruction_extensions) に、一次変形・Plücker障害、有限Jacobian復元、point schemeに関する6節の全文を保存した。移管先の独立原稿への統合、参考文献・必要計算コードの移管、残る支持節の移管はまだ終わっていない。未移管または統合未確認の本文は本リポジトリの現行支持ソースに保持し、旧コミットへの参照だけで代用しない。本文の集約完了と、リポジトリ間の移管完了を混同しない。
 
-[主定理](papers/support/papers/reconstruction/general_dimension_recovery.tex)、[監査ノート](notes/paper_b_proof_audit.md)、[検証状態](validation_paper_b.json)を参照。構成した証明、全支持節の独立監査、外部査読・新規性調査、計算機形式検証を区別する。
-
-## 一次方向と可換moduli
-
-[双対数上の一次消滅](papers/support/papers/reconstruction/first_order_poisson_kernel.tex) は全次数formalityに依存せず、中心三次対の非可換積の一次項がMF変形として消えることを直接証明する。残る可換三次式の一次係数はJacobian環の次数3に値を持つ。次元はcubic threefoldで10、cubic fourfoldで20。五変数では二次Hochschild障害の係数イデアルが五本のPlücker二次式に一致する（[証明](papers/support/papers/reconstruction/first_order_poisson_kernel.tex)）。JLLZのinfinitesimal categorical Torelliと組み合わせると、可換点の接空間20から$HH^2(\mathrm{Ku}(X))$（次元10）への写像は全射で、核はPoisson一次方向10次元と一致する。局所次元17と一次接空間20を区別する。ただしnc-cubic2の一般17次元族からのcategorical忘却核を7次元と同定したわけではない。
+詳細は [現行の分担と移管残件](notes/paper_b_scope_and_transfer.md)。論文Aの移管は行わず、Aとその支持ソースを維持する。
 
 ## 再現
 
 ```sh
-python3 scripts/check_layout.py
-python3 scripts/verify_bundle.py
-python3 computations/verify_complete_curved_transport.py --output build/complete_curved_transport_checks.json
-python3 computations/verify_first_order_curved_kernel.py
-python3 computations/verify_second_order_plucker.py
-latexmk papers/support/papers/complete_curved_transport.tex
 latexmk papers/paper_a.tex
 latexmk papers/paper_b.tex
+python3 scripts/verify_bundle.py --only paper_b
 ```
 
-新計算はSchouten恒等式と有限の非自律bar flow・逆・余積・arityの厳密検査であり、非可換MF HomやKontsevich重みの計算ではない。5頁の新抜粋を組版・表示確認したが、B全文と全既存証明書の再実行は未実施。Python 3/SymPy、LuaLaTeX/LuaTeX-ja/latexmkを使う。
+LuaLaTeX、LuaTeX-ja、latexmkを用いる。既存の `.latexmkrc` は変更していない。PDF・SyncTeX・中間物は `build/` に生成しGit追跡しない。今回実行したのは論文Bの全文組版と専用の静的照合であり、論文Aの再組版と全既存計算の再実行は未実施。
 
-Aの独立監査は [投稿監査](notes/poisson_article_submission_audit.md) に従う。17次元モジュライ・ambient周期性・独立境界は [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) が正本。既存の有効な証明・反例・計算を削除しない。
-
-PDF・中間物はbuild/で非追跡。mainへfast-forward保存と遠隔確認。GitHub Actions・force pushなし。LibraryはGitHub保存実失敗時のみ緊急退避。
+GitHub Actions・force pushは使用しない。Libraryは実際のGitHub保存失敗時のみ緊急退避し、既存Libraryファイルを無断削除しない。
