@@ -160,10 +160,31 @@ $\mathscr E_N$の全空間上で、相対Schouten括弧の
 $\pi=\iota_{dF}P$であり、Jacobi条件は
 $[\iota_{dF}P,\iota_{dF}P]=0$という
 $P$の二次斉次方程式で与えられる。
-前述の相対Koszul複体のexactnessと
-命題\ref{prop:pg-jacobi-extension}の議論は、
-滑らかな三次式の普遍開集合上で底変更と両立するので、
-これらは相対Poisson構造のスキーム構造を記述する。
+スキーム構造の底変更について説明する。
+$U_N$の各アフィン座標チャートで三次式の普遍代表$F$を選ぶ。
+滑らかさから各幾何学的ファイバーで偏微分$F_1,\ldots,F_N$は
+正則列で、Jacobian環のHilbert級数は
+\begin{equation}
+ \operatorname{Hilb}_{\CC[z]/(F_1,\ldots,F_N)}(t)
+ =(1+t)^N
+ \label{eq:pg-stack-gradient-hilbert}
+\end{equation}
+と一定である。
+従って各斉次次数の相対Koszul複体は有限自由
+$\OO_{U_N}$-加群の複体で、全ファイバーでexactかつ
+ホモロジーのrankが一定となる。
+有限自由行列の定階数条件から局所的に分裂し、
+任意の底変更後もexactである。
+命題\ref{prop:pg-represent}の次数別Koszul表示と、
+命題\ref{prop:pg-jacobi-extension}のdivergence・Eulerによる
+Jacobi延長の証明は、この分裂完全な複体と
+標数零の単元$N-3$の除法だけを用いる。
+従って任意の底変更後も、
+相対Jacobi条件がアフィン錐上の
+$[\iota_{dF}P,\iota_{dF}P]=0$と同値になる。
+これは$\operatorname{Pois}(X)$の自然な非被約scheme構造を
+各ファイバーで与え、局所三次代表を換えたときも
+方程式の零スキームは貼り合わさる。
 従って$\mathscr P_n$は$U_N$上有限型の閉スキームである。
 
 \begin{definition}[relative moduli stack of Poisson structures]
