@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact certificates for the componentwise-chart section of paper C.
+"""Exact certificates for the componentwise-chart section of paper B.
 
 No finite-field sampling and no floating-point arithmetic.  The tests are not a
 proof of relative saturation or of a categorical equivalence.  The center

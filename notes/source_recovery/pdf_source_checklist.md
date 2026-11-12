@@ -44,7 +44,7 @@ SMに直接必要なPDFのTeX化は [`notes/pdf-only/finite_smoothness_notes.pdf
 
 ## 2026-11-10：８本の原本を確定・照合した追加進捗
 
-- [x] nc-cubic2に移転済みのPDF８本に対応する原本（同一バイトサイズのLibrary PDF）をすべて特定し、８本の目次・総ページ数を点検。合計574ページ。照合表は `SOURCE_RECOVERY_AUDIT_20261110.md`。
+- [x] nc-cubic2に移転済みのPDF８本に対応する原本（同一バイトサイズのLibrary PDF）をすべて特定し、８本の目次・総ページ数を点検。合計574ページ。照合表は [PDF数学内容一覧](pdf_mathematical_inventory.md)。
 - [x] 論文VIの中心三次曲面の必要十分判別式 `H(H+1)(27H+28)` と特異点の分類を証明付きで [nc-cubic2の中心曲面判別式TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/central_fiber_discriminant.tex) に移植。混合パラメータの因子 `(α³+9)(28α³+243)` への変換も移植。
 - [x] 判別式２本、特殊点のHessian、`H=9` のGroebner基底を有理数演算で確認。再現用 [nc-cubic2の記号検算コード](https://github.com/uedakazushi/nc-cubic2/blob/main/computations/verify_central_fiber_discriminant.py) を追加。
 - [ ] 論文VIの非可換tailsへの判別式昇格を証明するAzumaya性・local order・Brauer指数6・特異圏の資料をTeX化する。中心曲面の判別式だけで済ませない。
