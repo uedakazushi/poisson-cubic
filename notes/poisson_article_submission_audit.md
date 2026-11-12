@@ -1,6 +1,6 @@
 # 論文Aの投稿準備：現行の監査と再開点
 
-**2026-11-12 / A-v45。** 最初に 00_research_plan.md を読む。
+**2026-11-12 / A-v46。** 最初に 00_research_plan.md を読む。
 論文本文は papers/paper_a.tex、専用文献は papers/support/papers/references_poisson_cubic.tex。
 本ノートは現在有効な知識・依存・課題を整理し、証明全文を重複させない。
 
@@ -38,6 +38,22 @@ GitHubへ保存したスクリプト自体をremoteで再実行したとは言�
 今後は表示変換による相対族の降下、PBW/AS証明の独立監査、
 LuaLaTeX全体組版と一次資料照合を優先し、
 特異三次制限への拡張は保留する。
+
+## 内在的な任意次元Hessian補正（最新の強化）
+
+`prop:pg-ad-intrinsic-hessian` により
+H(P,F)=(1/6)ΣP^{ijk}P^{abc}F_{ia}F_{jb}F_{kc} は
+座標不変の次数三多項式となる。
+一般正規形ではΣ_sλ_s²det Hess_{x_s}(f_s)。
+全g_s滑らかなら中心三次の正規化を行い、
+Ω_{P,h}=sym(F-h²H(P,F)/12+h⁴ K_{P,F}) を
+**全次数で厳密な中心三次元**として選べる。
+Hessian縮約の全次数・全次元数学的証明は
+`papers/support/papers/sections/general_dimension_universal_quantization.tex` に記載。
+6具体例でのSymPy独立検算は全てPASS。
+h⁴項はHesse座標依存であり、単一座標不変式とは断定しない。
+正規形Lie補題、相対AS/PBW入力、Bondal、文献新規性・
+LuaLaTeX全組版の独立監査は未完了。
 
 ## 主張の確実性と所在
 
