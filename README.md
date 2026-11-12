@@ -1,6 +1,6 @@
 # nc-cubic：論文Aの投稿準備と一般点可換復元
 
-**2026-11-12 / v47。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
+**2026-11-12 / v48。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
 
 ## 現在の最優先課題：論文Aの公表準備
 
@@ -10,6 +10,31 @@
 IntroductionとAbstractを改訂し、文献・label静的整合性を点検済み。
 主定理の全独立監査、全A組版、全旧証明書再実行は未完成。投稿可能判定は行っていない。
 論文B/Cの成果は保持し、新規拡張は論文Aの仕上げの後に再開する。
+
+## 新しい主定理：任意次元・任意階数の同時量子化
+
+任意の n≥3、N=n+2=3k+m と、滑らかな三次式
+F=Σ_{s=1}^k f_s(x_s,u)（各純三変数制限g_sは滑らか）に対して、
+k個の相互にSchouten可換なPoisson構造q_sがある。
+独立な量子化パラメータη_sのもとで
+**Ω_{η}=Σ_s Ω_{f_s,η_s} が厳密な中心三次元**となり、
+原点近傍でN次元Koszul AS-regular ambientと
+AS-Gorenstein中心商の各内部次数が平坦に変動する。
+(λ,h)↦η_s=λ_s hによって、全k次元Poisson線形族を
+零切断近傍で**一つの代数的族として同時に量子化**できる。
+任意次元の有限Hessian補正式、Hesse表示の係数を動かす相対構成、
+共有中心変数を持つ滑らかな6次元cubicの2変数量子化例も収録。
+
+- 詳細証明：`papers/support/papers/sections/general_dimension_universal_quantization.tex`
+- 原稿入口：`papers/paper_a.tex`
+- 現行研究ノート：`notes/universal_casimir.md`
+- 厳密なPoisson互換性検算：`computations/verify_general_dimension_multiblock.py`
+- 明示的Weyl中心symbolの構成：`computations/build_general_dimension_center.py`
+
+本結果は一般の各ブロック純三次が滑らかな正規形表示に関するもので、
+全Poisson moduliの大域的量子化やqgrのsmoothnessを主張しない。
+完全な独立証明監査・一次文献調査・LuaLaTeX全組版は未完了。
+次は高次元の表示チャートの同変性・モジュライ降下を優先する。
 
 ## 量子中心三次元：全Hesse型の普遍多項式公式
 
