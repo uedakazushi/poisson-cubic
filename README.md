@@ -1,15 +1,11 @@
 # nc-cubic — Poisson cubicの量子化と一般点可換復元
 
-**2026-11-12 / v66。** GitHub mainが正本。最初に [研究方針](00_research_plan.md) を読む。
+**2026-11-12 / v67。** GitHub mainが正本。最初に [研究方針](00_research_plan.md) を読む。
 
 | 原稿 | 主題 |
 |---|---|
 | [論文A](papers/paper_a.tex)（A-v51） | smooth cubicのPoisson正規形・退化・Bondal・代数的量子化・Poisson moduli |
 | [論文B](papers/paper_b.tex)（B-v50） | 代数的中心三次変形の一般点可換復元、完備曲率移送、基礎体上の模型 |
-
-## 論文Bの構成
-
-Abstractと序論は主定理と適用範囲を簡潔に説明し、比較の構成、一般点復元、可換点の変形理論、明示族を区別する。支持節では、比較条件(L),(CF),(CF$_3$)が構成済みであることを統一して示し、既知の生成・Torelli結果と本稿の構成を区別する。定理・証明・反例は省略していない。
 
 ## 論文Bの五部構成
 
@@ -19,7 +15,7 @@ Abstractと序論は主定理と適用範囲を簡潔に説明し、比較の構
 - **IV：明示的な可換模型** — 楕円ブロック、混合量子化、中心式、有限curved gauge、二次jet
 - **V：point schemeの比較** — 台、非被約構造、混合係数の平坦極限と判別式境界
 
-後半の各部冒頭では、一般点の主定理とは異なる仮定と適用範囲を説明している。旧長編由来の証明は内容を保持し、本文の研究過程的な記述を整理した。
+各部で一般点主定理と個別の追加仮定を区別する。既存の定理・証明・反例・計算は保持する。
 
 ## Bの現在の結論
 
@@ -31,7 +27,7 @@ Abstractと序論は主定理と適用範囲を簡潔に説明し、比較の構
 
 ## 一次方向と可換moduli
 
-[双対数上の一次消滅](papers/support/papers/reconstruction/first_order_poisson_kernel.tex) は全次数formalityに依存せず、中心三次対の非可換積の一次項がMF変形として消えることを直接証明する。残る可換三次式の一次係数はJacobian環の次数3に値を持つ。次元はcubic threefoldで10、cubic fourfoldで20。さらに五変数では二次Hochschild障害の係数イデアルが五本のPlücker二次式に一致する（[証明](papers/support/papers/reconstruction/first_order_poisson_kernel.tex)）。さらにJLLZのinfinitesimal categorical Torelliと組み合わせると、可換点の接空間20から$HH^2(\mathrm{Ku}(X))$（次元10）への写像は全射で、核はPoisson一次方向10次元と一致する。局所次元17と一次接空間20を区別する。ただしnc-cubic2の一般17次元族からのcategorical忘却核を7次元と同定したわけではない。
+[双対数上の一次消滅](papers/support/papers/reconstruction/first_order_poisson_kernel.tex) は全次数formalityに依存せず、中心三次対の非可換積の一次項がMF変形として消えることを直接証明する。残る可換三次式の一次係数はJacobian環の次数3に値を持つ。次元はcubic threefoldで10、cubic fourfoldで20。五変数では二次Hochschild障害の係数イデアルが五本のPlücker二次式に一致する（[証明](papers/support/papers/reconstruction/first_order_poisson_kernel.tex)）。JLLZのinfinitesimal categorical Torelliと組み合わせると、可換点の接空間20から$HH^2(\mathrm{Ku}(X))$（次元10）への写像は全射で、核はPoisson一次方向10次元と一致する。局所次元17と一次接空間20を区別する。ただしnc-cubic2の一般17次元族からのcategorical忘却核を7次元と同定したわけではない。
 
 ## 再現
 

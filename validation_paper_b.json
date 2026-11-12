@@ -1,7 +1,7 @@
 {
   "date": "2026-11-12",
   "paper_version": "B-v50",
-  "repository_version": "v66",
+  "repository_version": "v67",
   "canonical_entry": "papers/paper_b.tex",
   "mathematics": {
     "input": "Actual degreewise finite-free central cubic deformation of a polynomial algebra with smooth commutative cubic special fiber. The generic theorem uses a regular local algebraic base; the complete formal comparison allows a general complete noetherian local C-algebra with residue C.",
@@ -112,9 +112,10 @@
     "first_order_source_included": true,
     "first_order_tex_control_characters_none": true,
     "first_order_tex_mangled_macros_corrected": true,
-    "paper_B_direct_and_bibliography_input_paths": "PASS: 42 direct main-article inputs and 26 bibliography inputs; all 68 unique TeX source targets present in GitHub main; no build was executed.",
+    "paper_B_direct_and_bibliography_input_paths": "PASS: 42 main inputs and 26 bibliography inputs, all 68 paths exist on GitHub main.",
     "new_introduction_citation_keys": "PASS: all 6 cited keys Orlov, LZ, JLLZ, PKontsevich, CT, GCDBFK found in current reference input sources.",
-    "paper_B_full_recursive_labels_and_citations": "NOT RUN: static path check and new introduction key check only."
+    "paper_B_full_recursive_labels_and_citations": "NOT RUN: static path check and new introduction key check only.",
+    "edited_support_sections": "PASS: eight checked support files with no within-file duplicate labels or control bytes."
   },
   "primary_sources_checked": [
     "Kontsevich author final PDF DefQuant_final.pdf: Theorem 4.6 (PDF p.17), Lemma 4.11 and Section 4.6.2 (p.22), affine equivariance and Theorem 6.3 (p.30): text and page images checked. Graph arity formula and Sections 6.2-6.4 also read.",
@@ -154,6 +155,8 @@
     "part_structure": "Same 42 TeX inputs, reordered and grouped in 5 parts. No mathematical theorem/proof, labels, inputs removed.",
     "later_section_polish": "Separate alternate Todd-corrected HKR proof from direct first-order curved Hochschild; clarify conditional Poisson component charts and relative formal model scope; remove manuscript diary wording.",
     "full_manuscript_lualatex": "NOT RUN",
-    "full_recursive_reference_audit": "NOT RUN"
+    "full_recursive_reference_audit": "NOT RUN",
+    "metadata_deduplication": "Combined repeated editorial-guide sections in README and research plan; audit note still contains current five-part orientation; no mathematical text removed.",
+    "source_check_status": "Confirmed direct TeX path closure and 8 edited support files. No full LuaLaTeX build or all-reference audit in this turn."
   }
 }

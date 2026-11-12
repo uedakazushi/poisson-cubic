@@ -1,6 +1,6 @@
 # 研究方針：Poisson三次超曲面の量子化と一般点可換復元
 
-**2026-11-12 / v66。再開時は最初に読む。GitHub uedakazushi/nc-cubic のmainが正本。**
+**2026-11-12 / v67。再開時は最初に読む。GitHub uedakazushi/nc-cubic のmainが正本。**
 現行主原稿はA `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v50）。
 
 ## 目標・到達点・達成基準
@@ -37,15 +37,11 @@ Aはsmooth cubicのPoisson正規形、退化、Bondal予想、代数的量子化
 
 一次資料：Jacovskis–Lin–Liu–Zhang, *Infinitesimal categorical Torelli theorems for Fano threefolds*, Theorem 4.4(2), arXiv:2203.08187（著者PDFの印刷p.15でη同型を確認）。本研究の組合せの新規性は未確認。
 
-## 現行論文Bの編集と読者への導線
+## 論文Bの構成と編集方針
 
-Abstractは主定理と適用範囲を簡潔に述べ、Introductionを問題設定・主結果・証明の四段階・先行研究の関係で構成する。主定理の証明は一般点への移行、有限降下とcoherent飽和、方程式の定義体の順に提示する。局所window、完備MF比較、可換点での一次・二次変形論、明示族は論理的に独立した役割を持つことを示す。(L),(CF),(CF_3)は既に構成した比較であり、古い支持節の条件付き記述はその定理によって満たされる。証明・反例・有効な計算を省略しない。同じ定理を扱う複数の支持節は、主証明・一変数での別構成・二次公式という役割を区別して導入する。可換点のPlücker障害とcategorical接空間の末尾の注意は、既知の次元計算と未証明の相対化を整理し、同じ説明を繰り返さない。公表本文には作業監査の経緯を蓄積せず、仮定と証明の射程だけを明確に記載する。残る作業は全文の通読・組版・文献一次照合・証明の独立検証。編集と全監査完了を混同しない。
+論文Bは五部からなる。Iは一般点復元のwindow・完備MF比較・生成と飽和、IIは可換点の一次・二次変形と有限復元、IIIは相対形式・étale復元の追加条件と反例、IVは楕円・混合量子化の明示模型と二次jet、Vはpoint schemeの台・非被約構造・平坦極限を扱う。各部の導入で主定理と条件付き相対定理を区別する。
 
-## 論文Bの五部構成と編集方針
-
-I：一般次元の復元を支える構成（window、完備MF比較、一般点生成と飽和）。II：可換点の一次・二次変形と低rotation積からの有限復元。III：相対形式復元・étale局所実現の追加仮定、相対smoothnessと反例。IV：楕円ブロック、混合量子化、具体的中心式と二次jet。V：point schemeの台・非被約構造・混合係数の平坦極限。既存定理・証明・ラベルを保持したまま後半を三つの役割に再配置し、各部の導入で一般点主定理と個別の追加条件を区別する。
-
-相対形式復元の大きな独立節と、一般点の定理の重複は整理すべきだが、現在有効な補題・証明や反例を省略しない。Todd補正付きHKRによる一次消滅は直接的な曲率付きMFの一次同値の別の証明として位置づける。今後の作業は研究の拡張ではなく、本文の通読・用語の統一、文献・仮定・引用の確認、全文組版と全参照の検証に集中する。
+現在の数学的主張・証明・反例・再現資産を保持しつつ、長編相対復元節の冗長な導入、同内容の別証明の位置付け、用語を整理する。公表本文に作業過程は蓄積しない。優先課題は全文組版と参照監査、一次文献の仮定との照合、大きな支持節に残る重複した説明の整理である。
 
 ## 未解決の核心と次の具体的着手
 
@@ -62,7 +58,7 @@ Bの混合族、point schemeとPoisson零点の平坦極限、λ³=−3の局所
 
 ## 再現と実施状態
 
-`latexmk papers/paper_a.tex` / `latexmk papers/paper_b.tex`。静的検査は `python3 scripts/check_layout.py` と `python3 scripts/verify_bundle.py`。B-v48の実施状態は `validation_paper_b.json`、Aなどは `validation.json`。
+`latexmk papers/paper_a.tex` / `latexmk papers/paper_b.tex`。静的検査は `python3 scripts/check_layout.py` と `python3 scripts/verify_bundle.py`。B-v50の実施状態は `validation_paper_b.json`、Aなどは `validation.json`。
 
 新しい `computations/verify_complete_curved_transport.py` はSchouten恒等式、CasimirだけではJacobiが従わない負例、非自律・非可換なbar flow模型の10逆行列恒等式と2750余積係数恒等式、arity位数、twisting代入の相互逆性を厳密検算した。実際の非可換MF HomやKontsevich重みの計算ではない。5頁の証明抜粋をLuaLaTeXで組版し表示確認した。B全文・全既存証明書の再実行は未実施。以前の検算コードは保持し、今回再実行したとは記載しない。
 

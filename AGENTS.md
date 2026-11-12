@@ -1,6 +1,6 @@
 # AGENTS.md — nc-cubic 現行研究・開発指針
 
-**2026-11-12 / v66。** mainが正本。最初に `00_research_plan.md` を読む。
+**2026-11-12 / v67。** mainが正本。最初に `00_research_plan.md` を読む。
 A `papers/paper_a.tex`（A-v51）とB `papers/paper_b.tex`（B-v50）が現行主原稿。
 
 ## 現在の主定理と次の作業
