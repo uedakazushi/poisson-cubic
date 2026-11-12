@@ -7,7 +7,7 @@ checks every Jacobi coefficient, F-Casimir condition, and zero cross-block Hessi
 Run: python3 computations/verify_general_dimension_multiblock.py
 Requires: sympy
 """
-from itertools import combinations
+from itertools import combinations, permutations
 import sympy as sp
 
 
@@ -58,10 +58,25 @@ def test(k, m):
         for xa in xs[a]:
             for xb in xs[b]:
                 assert sp.diff(F, xa, xb) == 0
+    # Intrinsic (P tensor P)(Hess F)^3/6 must equal the sum of block determinants.
+    P = {}
+    for a in range(k):
+        indices = (3*a, 3*a+1, 3*a+2)
+        for perm in permutations(indices):
+            inversions = sum(perm[i] > perm[j] for i in range(3) for j in range(i+1, 3))
+            P[perm] = (-1)**inversions * lam[a]
+    hessian = {(i, j): sp.diff(F, variables[i], variables[j])
+               for i in range(3*k) for j in range(3*k)}
+    contraction = sp.expand(sum(
+        Pa*Pb*hessian[p[0], q[0]]*hessian[p[1], q[1]]*hessian[p[2], q[2]]/6
+        for p, Pa in P.items() for q, Pb in P.items()))
+    block_formula = sp.expand(sum(
+        lam[a]**2 * sp.hessian(terms[a], xs[a]).det() for a in range(k)))
+    assert sp.expand(contraction-block_formula) == 0, ("invariant Hessian", k, m)
     n = 3*k + m - 2
     assert len(variables) == n + 2
     print(f"PASS n={n}, k={k}, m={m}: {checked} Jacobi triples, "
-          f"{len(variables)} Casimir equations, cross-block Hessians")
+          f"{len(variables)} Casimir equations, cross-block and invariant Hessians")
 
 
 if __name__ == "__main__":
