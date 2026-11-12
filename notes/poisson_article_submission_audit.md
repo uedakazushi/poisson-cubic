@@ -1,6 +1,6 @@
 # 論文Aの投稿準備：現行の監査と再開点
 
-**2026-11-12 / A-v46。** 最初に 00_research_plan.md を読む。
+**2026-11-12 / A-v49。** 最初に 00_research_plan.md を読む。
 論文本文は papers/paper_a.tex、専用文献は papers/support/papers/references_poisson_cubic.tex。
 本ノートは現在有効な知識・依存・課題を整理し、証明全文を重複させない。
 
