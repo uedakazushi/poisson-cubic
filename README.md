@@ -1,6 +1,6 @@
 # nc-cubic：論文Aの投稿準備と一般点可換復元
 
-**2026-11-12 / v49。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
+**2026-11-12 / v50。GitHub mainが正本。** 最初に [研究方針](00_research_plan.md) を読む。
 
 ## 現在の最優先課題：論文Aの公表準備
 
@@ -10,6 +10,38 @@
 IntroductionとAbstractを改訂し、文献・label静的整合性を点検済み。
 主定理の全独立監査、全A組版、全旧証明書再実行は未完成。投稿可能判定は行っていない。
 論文B/Cの成果は保持し、新規拡張は論文Aの仕上げの後に再開する。
+
+## Poisson構造のspaceと二つのmoduli stacks
+
+論文Aでは、固定XのJacobi零スキームPois(X)を
+**space of Poisson structures**、
+その自己同型商[Pois(X)/Aut(X)]を
+**moduli stack of Poisson structures**、
+Xも変形した組(X,pi)の商[P_n/PGL(V)]を
+**relative moduli stack of Poisson structures**
+と定義する。n>=3の滑らかなcubicではAut(X)が有限エタールで、
+二つのstackは有限型Deligne--Mumford代数的スタック。
+証明はpapers/support/papers/sections/poisson_moduli_stacks.tex。
+
+**Fermatでの成分数は三種類を区別する。**
+N=n+2、F_N=Σz_i³なら、spaceの成分は
+各ブロックのサイズ>=3の集合分割Bごとの
+Z_B=Σ_{B_s∈B}cone(Gr(3,C^{B_s}))で与えられる。
+固定stackでは座標置換のためサイズの整数分割によって
+同一視され、成分数は
+p_>=3(N)=[q^N]∏_{b>=3}(1-q^b)^(-1)。
+relative stackの成分数はfloor((n+2)/3)。
+例えばn=10ではspace=60105、固定stack=9、relative stack=4。
+一般cubicでは固定space・stackとも既約。
+定理の証明は
+papers/support/papers/sections/fermat_relative_poisson_components.tex、
+現行研究ノートはnotes/fermat_relative_poisson_components.md。
+
+**論文Aの全表示数学式は自動の数値式番号へ統一した。**
+原稿入口はpapers/paper_a.tex、全TeX入力・式番号・参照・引用の
+静的検査はscripts/verify_article_a_numbering.py。
+最新原稿全体のLuaLaTeX組版とPDF目視は未実施であり、
+静的検査だけで組版が成功したとはしない。
 
 ## 新しい主定理：任意次元・任意階数の同時量子化
 
