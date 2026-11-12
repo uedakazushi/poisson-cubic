@@ -10,9 +10,9 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月12日・論文A（投稿準備稿 v49）}
+\date{2026年11月12日・論文A（投稿準備稿 v50）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-12 / A-v49}
+\fancyhead[R]{\small 2026-11-12 / A-v50}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -29,6 +29,10 @@ Bondal予想の次元下界を、平面曲線の射影joinを構成して導く�
 各Poisson構造に対して、原点を含む一変数Zariski開集合上に
 Koszul Artin--Schelter正則な周囲の量子化と
 中心正則三次元による量子超曲面を構成する。
+三変数制限が特異・零の場合も、全体の三次式の滑らかさ、
+古典的Casimir核の一定次元性、普遍交換子行列の
+階数上界およびCramer公式によって\emph{代数的な中心三次元}を得る。
+この全Poisson量子化定理には形式的中心元やformalityを使わない。
 さらに一般Hesse型の任意のパラメータと全ての中心混合係数について、
 量子化パラメータの有限多項式で表せる
 \emph{厳密な普遍中心三次公式}を構成する。
@@ -387,13 +391,51 @@ $\hbar^2$の不変項と区別される。
 
 適用範囲を明確にするため、
 滑らかな三変数三次制限に対する
-この無条件の明示公式と、
-三次制限が節点型・尖点型・零などの場合の
-形式的存在定理を区別する。
+短い普遍多項式中心元と、
+三次制限が節点型・尖点型・零の場合も適用できる
+Cramer有理式の代数的中心元を区別する。
+どちらも\emph{形式的存在補題を使わない}。
 前者の新規性は全混合方向を同時に扱う普遍恒等式であり、
 Sklyanin中心元の既知の基本公式自体ではない。
 一般の特異ブロックまでを一つの短い式で覆う主張や、
 GL$_3$不変な元座標での閉多項式公式はしない。
+
+
+\subsection*{全Poisson構造の中心元：形式化を使わない証明}
+任意のsmooth cubic $X$のPoisson正規形
+$F=\sum_{s=1}^k f_s(x_s,u)$では、
+三変数制限$g_s=f_s(x_s,0)$が特異・零のこともある。
+しかし純中心三次部分を各ブロックへ
+一般的に配分し直すと、各
+$V(f_s)\subset\PP(x_s,u)$を滑らかにできる
+（補題\ref{lem:pg-central-splitting-smooth}）。
+さらに\emph{全体の}$f_s$が滑らかなら
+\begin{equation}
+ \ker\bigl(S_3\xrightarrow{p\mapsto\{p,x_s\}_f}
+ (S_4)^3\bigr)
+ =\CC f_s\oplus\CC[u]_3
+ \label{eq:intro-classical-kernel-all}
+\end{equation}
+が成立する。これはactive偏微分の最大公約因子が1であることから従い、
+$g_s=0$の場合も有効である。
+
+一方、Hesse型の滑らかな制限を持つ稠密開集合で
+$\hbar$の多項式中心元が既に得られたため、
+次数三の量子交換子行列の$(r+1)$次小行列式は
+係数空間の稠密開上で零、従って\emph{普遍的に零}となる。
+上述の古典核の一定次元性から、任意の滑らかな$f_s$で
+原点を含む開集合上に
+Cramer行列式の比で表せる\emph{厳密な中心元}が存在する
+（定理\ref{thm:pg-universal-determinant}）。
+複数ブロックではこれらを足すだけでよい。
+これにより定理\ref{thm:pg-quantization}は
+\emph{全てのPoisson構造}について形式的量子化に頼らず証明される。
+さらに一般次元の$k$変数Poisson pencilの全方向も、
+$\hbar^2$の\emph{有理式}の中心元で
+同時に代数的量子化できる
+（定理\ref{thm:pg-ad-all-poisson}）。
+短いHesse多項式公式と、特異制限も含む
+有限Cramer有理式は明示性の異なる結果として区別する。
 
 \subsection*{具体例と適用範囲}
 非楕円型の節点ブロック・尖点ブロックが、
@@ -421,12 +463,13 @@ Br\"uckmann型消滅定理を利用する既知の背景結果
 第\ref{sec:pg-quantization}節で量子化を構成する。
 Fermat型の普遍混合中心元は
 第\ref{sec:pg-fermat-mixed-universal}節、
-全Hesse型の短い普遍多項式中心元と滑らかな三変数制限への帰結は
+全Hesse型の短い普遍多項式中心元は
 第\ref{sec:pg-hesse-mixed-universal}節、
-任意次元での$k$変数同時量子化は
-第\ref{sec:pg-all-dimensions}節、
-元の座標で計算する有限行列式の中心元公式は
-第\ref{sec:pg-universal-determinant}節で扱う。
+\emph{特異・零の制限も含む}全滑らかなブロックの
+有限Cramer有理式中心元は
+第\ref{sec:pg-universal-determinant}節、
+任意次元での$k$変数同時代数量子化は
+第\ref{sec:pg-all-dimensions}節で扱う。
 そのambientの周期性は第\ref{sec:pg-ambient-periodicity}節で扱う。
 spaceおよびmoduli stackの定義・代数性は
 第\ref{sec:pg-poisson-stacks}節で、
@@ -440,8 +483,8 @@ Bondal予想の帰結は第\ref{sec:pg-bondal}節、
 \input{papers/sections/poisson_geometry}
 \input{papers/sections/fermat_mixed_universal_center}
 \input{papers/sections/hesse_mixed_universal_center}
-\input{papers/sections/general_dimension_universal_quantization}
 \input{papers/sections/universal_casimir_determinant}
+\input{papers/sections/general_dimension_universal_quantization}
 \input{papers/sections/ambient_periodicity}
 \input{papers/sections/poisson_moduli_stacks}
 \input{papers/sections/fermat_relative_poisson_components}
