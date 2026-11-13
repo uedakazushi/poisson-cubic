@@ -1,14 +1,23 @@
 # 論文B：証明監査・先行研究・有効な障害
 
-2026-11-13 / B-v57。最初に `../00_research_plan.md` を読む。主定理は `papers/generic_recovery/main_result.tex` の `gdr:thm:generic`。本ノートのファイル名は、特に指定しない限り `papers/generic_recovery/` 内を指す。全稿入口は `papers/paper_b.tex`。
+2026-11-14 / B-v58。最初に `../00_research_plan.md` を読む。主定理は `papers/generic_recovery/main_result.tex` の `gdr:thm:generic`。本ノートのファイル名は、特に指定しない限り `papers/generic_recovery/` 内を指す。全稿入口は `papers/paper_b.tex`。
 
 ## 主張の状態と監査の結論
 
 指定された次数別有限自由な中心三次対について、局所window (L) と完備MF比較 (CF) を本文で構成し、主定理の追加仮定として課していない。一般点での全coherent残余pairの可換模型は有限体拡大後に存在し、方程式は元のK=C(h)上に取れる。幾何学的一意性はrotationを保つ模型の範囲で述べる。
 
-今回、局所代数・window・完備曲率移送・一般点生成と有限降下・coherent飽和・低rotation積と方程式の降下を分担して独立に読み直し、主要な引用定理を一次資料と照合した。下記の定式化訂正と証明補足を反映した後、主定理の仮定追加や存在結論の撤回を要する問題は見つかっていない。ただし、これは数学的な再点検の結果であり、計算機形式検証・外部査読・主定理の初出確定ではない。全次数の圏同値を有限計算で検証したとは報告しない。
+提供された独立査読報告（2026-11-14 / v1）は、主要証明を支持し、核心となる移送の提示・文献帰属・具体例・限定の整理を求めている。今回の改訂では追加した比較図式と二拡張の周期、非可換入力の一次jetの証明を独立に読み、CK・EG・Pirozhkov・Lin--Zhang・Sklyanin文献の該当箇所を確認した。主定理の入力や存在結論は変更していない。未変更の証明全体を今回一から再監査した、計算機形式検証した、正式な投稿査読で採択された、包括的な初出を確定したとは述べない。本文の証明、提供された査読の判定、今回の読解、有限計算は別の状態として扱う。
 
-## 正確な定式化と補った証明
+## 査読の要求と現在の本文
+
+| 要求 | 現行の対応箇所 | 状態と範囲 |
+| --- | --- | --- |
+| 核心定理と比較図式 | `gdr:thm:complete-intro`, `cft:thm:complete`, `tw:eq:comparison-diagram`, `tw:eq:period-extension`, `tw:eq:rotation-period-square` | 完備底上の実MF関手・逆・rank・t-relative性を明示し、余核からrotationまで指定周期を追跡。新しい図式と型を独立読解 |
+| 既知結果との差分 | 序論の定理別比較表、`references.tex` | Pirozhkovの三次範囲n>3を明記。EGの有限rankとCKの変形複体の範囲を確認。BFKの上界・Jacobian Torelliは既知の帰結 |
+| 非可換な具体例 | `explicit_example.tex`, `gre:prop:input`, `gre:prop:jet` | 全次数自由性・中心性・非可換性を証明し、形式的potentialの非零一次jetを算出。一般点K-modelや低rotation積の全行列は未計算 |
+| 限定の集約 | `gdr:subsec:scope` | K/K'、幾何学的一意性/form、線束/coherent、通常局所化/torsion Morita、特殊化の範囲を保持し、後続節から参照 |
+
+## 正確な定式化と証明の所在
 
 ### 対称積の核と一意性
 
@@ -40,6 +49,14 @@
 
 `cft:thm:complete` では、flowのarity 2r+1成分が t^{-r} f_{2r+1} と書けることを `cft:eq:t-weight` に示す。Q=(0,tq_1;q_0,0) の2r+1回の合成では、左下成分にt^r、右上成分にt^{r+1}が現れる。従って像のt冪は0、1に戻り、同じ二つのrank・同じ有限個の内部shiftを持つ通常のMFとなる。Rの正則性を使うのはwindow/Hom側であり、この完備flowの構成自体には有限自由加群の完備性・分離性で足りる。
 
+### 非可換Hesse族の復元jet
+
+`gre:prop:input` の三生成元関係は [y,z]=h x²+(h²/2)(yz+zy) と巡回置換であり、中心変数u,vを加える。一般ファイバーが滑らかな楕円型Sklyaninであることは明示判別式で確認する。各次数は有限生成DVR加群で、一般ファイバーの階数と剰余の次元が等しいためtorsionがなく自由となる。既知の中心式Gと採用したΩの恒等式、および次数四のtorsion-free性が中心性を与える。この全次数証明は有限計算に依存しない。
+
+`gre:prop:jet` ではWeyl同定の積の一次項が(h/2){-,-}_0となる。formalityの逐次持上げを恒等mod h²から始めることでφσ=1+O(h²)に選べ、U_2(f,π_1)には許されるグラフがないためC_pi=1+O(h²)である。従ってΩの中心逆像はW_rec=F+h xyz+O(h²)。xyzはJac(F)_3の非零元なので恒等を剰余とする座標変換・単元倍で消せない。非可換性は次数二の交換子が非零であり三次中心商でも残ることから分かる。
+
+これは形式的potentialのjet計算であり、一般点への有限降下で選んだ方程式のh=0での正則性や同じjetを結論しない。非可換由来の一次積と中心元を実際に使っており、既知の可換勾配空間だけを積分した例とも区別される。
+
 ## 完備曲率移送の論理
 
 本文の証明を重複して収録せず、再点検で重要となる依存だけを記す。
@@ -49,7 +66,7 @@
 3. `cft:lem:primitive`：正則勾配Koszulの次数制約からpi=[Xi,W]となる定数trivector Xiが一意に存在する。Jacobiと負の係数次数の不存在から[Xi,pi]=0を得る。Casimir条件だけでは第二の消滅は得られない。
 4. `cft:lem:arity`：関数k個とbivectorの出力arityは2−2k、trivector一個を加えると3−2k。関数入力は高々一個で、残りはmの倍数なので、大きい曲率にもかかわらず各Artin次数でTaylor和が有限になる。gamma_sのarityは1と3のみで、単位入力に関してnormalizedである。
 5. `cft:lem:flow`：非自律で非可換のcoderivationを順序付き積分する。coalgebra性、逆写像、F b_0=b_1 Fを微分方程式で示す。F_(2r+1),H_(2r+1)∈m^r、偶数arityと零項は零。出力長ellに対し入力長はell+2q以下で、tensor長完備barにも各Artin商で連続に作用する。
-6. `cft:thm:complete`：Qがmの倍数でなくても、arity上界により対象と射への挿入公式は各Artin次数で有限。固定bigdegreeの有限自由加群内で極限を取り、逆bar写像から逆関手を得る。t-relative性が内部shiftと指定された(3)=[2]の整合を与える。
+6. `cft:thm:complete`：F_(2r+1)の評価はMF行列挿入前のbar写像の評価であり、挿入後のMF関手には偶数入力成分もあり得る。Qがmの倍数でなくても、arity上界により対象と射への挿入公式は各Artin次数で有限。固定bigdegreeの有限自由加群内で極限を取り、逆bar写像から逆関手を得る。t-relative性が内部shiftと指定された(3)=[2]の整合を与える。
 
 一般点へは固定三対象のHom・高次積を先に構成してから局所化する。任意Laurent係数MFへの無限Taylor和の評価は主証明で必要ない。
 
@@ -65,7 +82,7 @@ windowの生成性は有限長加群 T_j=B(j)_{<1-a} の実際のfiltrationに�
 
 ## 一次資料と新規性の位置
 
-| 一次資料 | 今回照合した箇所 | 本稿での役割 |
+| 一次資料 | 本文が依拠する確認箇所 | 本稿での役割 |
 | --- | --- | --- |
 | [Kontsevich著者最終稿](https://www.ihes.fr/~maxim/TEXTS/DefQuant_final.pdf) | Theorem 4.6, §4.6.2, Theorem 6.3, §§6.2–6.4 | 通常のformality、MC比較、グラフ恒等式。arXiv初版との番号の差を参照版の明記で解消 |
 | [Căldăraru--Tu](https://nyjm.albany.edu/j/2013/19-16v.pdf) | §2, Remark 2.8, Theorem 2.12 | twistとgraded MF、無限挿入の有限性の条件 |
@@ -76,6 +93,9 @@ windowの生成性は有限長加群 T_j=B(j)_{<1-a} の実際のfiltrationに�
 | [BFK v3](https://arxiv.org/abs/1012.0864v3) | Theorem 5.15 | 非零対象のd個のshiftによる生成と上界 |
 | [Toën--Vaquié v5](https://arxiv.org/abs/math/0503269v5) | Lemmas 2.8, 2.10 | smooth対角とpseudo-perfect性、perfect核・射の有限降下 |
 | [Perry v2](https://arxiv.org/abs/1804.00132v2) | Lemmas 4.13, 4.15 | 左右随伴の存在とadmissible分解のsmoothness |
+| [Pirozhkov v1](https://arxiv.org/abs/2208.13604v1) | Theorem 1.2 (=5.3)と直後の注意 | rotation付きTorelli。三次の場合は次元n>3。刊行書誌はBull. London Math. Soc. 56 (2024), no.10, 3075–3089, DOI 10.1112/blms.13117 |
+| [Smith--Tate](https://sites.math.washington.edu/~smith/Research/tate.pdf) | §1 pp.19–20、p.35 Remark (1) | SklyaninのHilbert級数・domain性と中心三次元。K-Theory 8 (1994), 19–63 |
+| [De Laet--Le Bruyn v1](https://arxiv.org/abs/1405.1158v1) | §2 p.3の巡回中心元公式 | 具体例のG。Algebr. Represent. Theory 18 (2015), no.3, 761–776, DOI 10.1007/s10468-014-9515-6 |
 | [Lin--Zhang v2](https://arxiv.org/abs/2310.09927v2) | Theorem 3.5, Remark 3.6, §5, Theorem 5.1 | 低rotation積のsector計算と既知のrotation付きTorelli |
 | [Toën著者稿](https://www.math.univ-toulouse.fr/~btoen/defdgalg.pdf) | Théorème 1 | smooth proper dg代数と射のfiltered-colimit降下。Bull. London Math. Soc. 40 (2008), 642–650, DOI 10.1112/blms/bdn043 |
 | [Tu v2](https://arxiv.org/abs/1009.4151v2) | Theorems 1.1, 1.4, 6.2 | 可換孤立斉次MFのd個のstabilization shiftによる生成。Compos. Math. 150 (2014), 1549–1578 |
@@ -99,7 +119,9 @@ Lowen--Van den Bergh Theorem 5.4は先頭曲率の冪零性の下で形式MCとt
 
 三次の定数trivectorによる一段経路、arity1/3、F_(2r+1)∈m^rの定量的実現は本文に明示する。主題として残るのは、これを代数的中心三次変形の一般点・有限降下・全coherent飽和・基礎体上の方程式へ結びつける結論である。後半の有限降下と抽象飽和は既知の一般原理の応用である。明示的な完備比較・相対windowと包括的な一般点結論を成果の中心とする。同一の一般点定理を述べる一次文献は調査範囲では確認できていないが、この組合せおよび明示的実現の初出は未確定。新規性の評価では「curved formalityが新しい」「一般的にMFをpotentialで記述できることが新しい」という説明を用いない。
 
-Etingof--Ginzburgの通常次数三次例はN=3の楕円Sklyanin型である。本稿のN>=5・任意の指定された中心三次変形・一般点のrotation付き残余圏を、同文献がそのまま述べているわけではない。LZの一意性とBFKの生成上界は既知結果の利用であり、存在定理の初出を確定する資料でもない。
+Etingof--GinzburgはC上のweighted gradedな有限rank自由MFを既に扱い、Theorem 3.6.2(i)でDbCoh(E)との三角同値を与える。有限rank自体を本稿の新規性としない。同定理は内部shiftと通常の可換三次rotationの指定比較を含むpair同値までは述べない。通常次数三次例はN=3の楕円Sklyanin型である。本稿のN>=5・任意の指定された中心三次変形・一般点のrotation付き残余圏を、同文献がそのまま述べているわけではない。Pirozhkovの定理は三次n>3であり、三次三様体を含めるLZのTheorem 5.1と区別する。LZの一意性とBFKの生成上界は既知結果の利用であり、存在定理の初出を確定する資料でもない。
+
+文献の細部として、Burke--Stevensonの実際のMSRI論文と目次はpp.93–123であり、出版社の章メタデータは末尾空白頁を含む93–124となっている。本文書誌は印刷された論文の範囲に合わせる。De Laet--Le Bruyn arXiv v1の序論Theorem 1には中心式の誤植があるため、正しい式のある§2 p.3を参照し、Smith--Tate p.35の巡回和とも照合する。
 
 ## 再発を避けるための反例・障害
 
@@ -135,6 +157,6 @@ Plückerの二次障害、全Artin window、相対étale、明示混合族・高
 
 ## 再現と未解決の核心
 
-`verify_complete_curved_transport.py` は5/7変数のSchouten恒等式、定数trivector contraction、negative control、および有限次数の非自律coalgebra flowの逆・coproduct・arity評価を検査する。`verify_three_object_window.py` は有限行列の摂動縮約と三角的filtration、`verify_generic_cubic_descent.py` は既知の可換勾配空間の可積分性と非分裂symmetrizerの例を厳密体Q(t)上で検査する。いずれもKontsevichグラフ積分や実際の非可換MFの全Hom/高次積の計算機証明ではない。
+`verify_complete_curved_transport.py` は5/7変数のSchouten恒等式、定数trivector contraction、negative control、および有限次数の非自律coalgebra flowの逆・coproduct・arity評価を検査する。`verify_three_object_window.py` は有限行列の摂動縮約と三角的filtration、`verify_generic_cubic_descent.py` は既知の可換勾配空間の可積分性と非分裂symmetrizerの例を厳密体Q(t)上で検査する。`verify_recovery_example.py` は具体的な非可換Hesse入力の判別式・中心元係数恒等式をQ[h]上で、三つの中心交換子をh⁴を法として、次数三以下の400組のWeyl積をh²を法として検算し、xyzの非零Jacobian剰余を確認する。いずれもKontsevichグラフ積分や実際の非可換MFの全Hom/高次積の計算機証明ではない。
 
-再現コマンドは研究方針に記載し、最新の終了コード・出力ハッシュ・組版・画面確認の状態は `validation_paper_b.json` に置く。生成PDFと計算出力はbuild/で非追跡。次に必要なのは、上述の既知原理に対する一般点結論の新規性の確定と、具体的非可換入力からのV,U,積の算出である。有限拡大の必要性・次数、同値核の具体行列、特殊点を含む代数的模型、全モジュライ上の接着は引き続き独立の未解決課題である。
+再現コマンドは研究方針に記載し、最新の終了コード・出力ハッシュ・組版・画面確認の状態は `validation_paper_b.json` に置く。生成PDFと計算出力はbuild/で非追跡。次に必要なのは、一般点結論の初出の確定、具体例のh²補正、および非可換入力からV,U,積の全行列を算出することである。有限拡大の必要性・次数、同値核の具体行列、特殊点を含む代数的模型、全モジュライ上の接着は引き続き独立の未解決課題である。

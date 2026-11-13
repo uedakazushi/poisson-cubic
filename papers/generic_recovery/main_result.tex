@@ -1,5 +1,6 @@
 \section{主定理と証明の構成}\label{gdr:sec:main}
 
+\subsection{入力、残余圏と指定周期の規約}
 $n\ge3$、$N=n+2$、$a=N-3$とし、
 \[
  R=\mathbb C[h]_{(h)},\qquad \widehat R=\mathbb C[[h]],\qquad
@@ -26,7 +27,17 @@ $B=B_K$について$\mathcal O(j)=\pi B(j)$とし、
 滑らかな三次超曲面$Y\subset\mathbb P^{n+1}$についても
 $\operatorname{Ku}(Y)=\langle\mathcal O_Y,\ldots,\mathcal O_Y(n-2)\rangle^\perp$、
 $\rho_Y=L_{\mathcal O_Y}\circ(1)$を用いる。
+内部shiftは$M(j)_q=M_{q+j}$とし、$[r]$はcohomological shiftとする。
 全ての圏はdg enhancementと冪等完備化を伴う。
+\(\operatorname{MF}^{\mathbb Z}(A,\Omega)\)は有限自由graded MFのdg圏を表し、
+Morita同値を述べる際にはその有限coneと冪等完備化も含める。
+中心元$\Omega$から定まる三次周期を$\tau^{\rm MF}:(3)\to[2]$と書く。
+特異圏では導来自己交叉の境界写像$\eta(3)$がこれに対応し、
+残余圏ではwindowを通して$\tau^{\rm rot}:\rho_B^3\to[2]$を定める。
+この規格化を図式\eqref{tw:eq:rotation-period-square}で追跡する。
+以下の「周期を保つ」は、この指定された自然比較を保つことをいう。
+
+\subsection{一般点の可換模型}
 
 \begin{theorem}[一般次元の中心三次非可換変形の可換復元]
 \label{gdr:thm:generic}
@@ -69,7 +80,41 @@ $K$と有限拡大上で適用すれば、線束生成部分は全coherent導来
 生成段数の上界は命題\ref{gcd:prop:bound}から従う。
 \end{proof}
 
-本定理は、指定された次数別有限自由な代数的中心三次対に関するものである。
-任意の抽象的な非可換三次圏にこのような表示があるとは仮定せず、結論ともしない。
-方程式の定義体は$K$であるが、圏同値の核の$K$への降下は主張しない。
-また、特殊点を含む代数的相対同値や、射影化全体の可換導来同値を意味しない。
+生成段数の上界はBFK\cite[Theorem~5.15]{GCDBFK}に$d=3$を代入した帰結である。
+主定理の存在結論と、この既知の定量的帰結を区別する。
+
+\subsection{結論に含まれないことと比較の範囲}\label{gdr:subsec:scope}
+主定理、完備移送定理、方程式降下定理の定義体と対象範囲をここに集約する。
+\begin{enumerate}[label=(\arabic*)]
+\item \textbf{入力と復元する圏。}
+入力は指定された次数別有限自由な代数的中心三次対である。
+任意の抽象的な非可換三次圏にこの表示があることや、$A_K,B_K$の可換性は結論しない。
+復元するのはrotation付き残余pairであり、
+$D^b(\operatorname{qgr}B_K)\simeq D^b(Y)$を主張するものでもない。
+\item \textbf{方程式と同値核の体。}
+方程式は$K$上に選べるが、同値核とその比較図式について保証するのは
+ある有限拡大$K'/K$上の存在である。
+一意性は共通の代数閉拡大体上の射影同型類について述べる。
+$K$上のformは一意とは限らず、例\ref{gcd:ex:forms}がこの違いを示す。
+同例は同値核の降下障害が非零であることを証明したものではない。
+\item \textbf{線束部分と全coherent圏。}
+式\eqref{gdr:eq:residual-defs}の二つの圏は、証明の最初から同一視しない。
+局所proper模型は対角のperfect性まで保証するものではなく、
+一般点の可換模型からsmoothnessを得た後、
+定理\ref{crs:thm:coherent}で全coherent圏との一致を示す。
+任意の相対底上でこの一致やenhancedなOrlov同値が成立するとは主張しない。
+\item \textbf{完備底と通常の局所化。}
+完備移送は各内部次数の有限自由加群内で行い、内部次数についての無限級数は導入しない。
+一般点では固定三対象の通常のHom複体を先に構成し、その後$h$を反転する。
+任意のLaurent係数MFへ無限Taylor和を直接評価することや、
+torsion Morita同値だけから通常の一般点同値を得ることは用いない。
+任意の完備noetherian局所底を許すのは定理\ref{cft:thm:complete}であり、
+windowや全coherent圏の比較をその一般性へ拡張するものではない。
+\item \textbf{特殊化と具体計算。}
+$Y$が元の$V(F)$の定数族であること、全閉パラメータでの同値、
+特殊点を含む代数的相対同値は結論しない。
+基礎体上で積分した方程式が$h=0$で正則であることや、その剰余が$F$であることも
+方程式降下定理だけからは従わない。
+非可換入力から得る形式的potentialの有限jetと、
+$K$上の方程式・rotation積・同値核の全係数の計算は別の問題である。
+\end{enumerate}

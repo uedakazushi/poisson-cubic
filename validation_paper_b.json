@@ -1,125 +1,108 @@
 {
-  "date": "2026-11-13",
-  "paper_version": "B-v57",
-  "repository_version": "nc-cubic-v82",
-  "reviewed_remote_base_commit": "7f782fcb08e9f7ab4b1e86211f7eb08ebcf083ed",
+  "date": "2026-11-14",
+  "paper_version": "B-v58",
+  "repository_version": "nc-cubic-v88",
   "entry": "papers/paper_b.tex",
-  "scope": "Publication-oriented proof review, precise comparison with primary precedents, and arithmetic description of gradient integration. Current mathematical content is in the manuscript and audit note.",
+  "reviewed_remote_base_commit": "6edea1d37d61cc0497c732d4b639daba6cb59b93",
+  "scope": "Revision of paper B responding to four requests in the user-supplied independent report. Current proofs and limitations are in the manuscript and audit note, not a cumulative revision log.",
+  "supplied_report": {
+    "filename": "nc-cubic-paper-b-referee-report-2026-11-14-v1.pdf",
+    "manuscript": "B-v57",
+    "reviewed_commit": "f4c8fb131f346099ed2fb8af29429574861b505e",
+    "scope": "The supplied report supports the identified proof chain and requests substantial presentation, attribution, example and scope improvements. It is not a new external review or journal acceptance of B-v58."
+  },
   "mathematical_review": {
-    "proof_chain_reread": true,
-    "sections": [
-      "local noetherian/Koszul/AS model and line-bundle Hom",
-      "three-object dg window and graded stabilization",
-      "completed curved transport and finite-rank MF evaluation",
-      "generic generation and finite descent",
-      "coherent saturation and smoothness gluing",
-      "low rotation product, geometric uniqueness and field of definition"
+    "audit_note": "notes/paper_b_proof_audit.md",
+    "current_revision_independently_read": [
+      "Standalone complete local finite-rank MF theorem, actual inverse functors, rank and shift preservation, and pre-insertion bar arity bounds.",
+      "Enhanced window/dg quotient/cokernel/totalization diagram and the Yoneda two-extension determining the specified period and rotation square.",
+      "Explicit Hesse--Sklyanin input, central cubic normalization, all-degree freeness from generic Hilbert series and the DVR module theorem, Weyl first product and recovered nontrivial first jet.",
+      "Theorem-level attribution and exact scope of Etingof--Ginzburg, Carqueville--Kay, Pirozhkov, Lin--Zhang, Smith--Tate and De Laet--Le Bruyn.",
+      "Unified distinctions between equation and kernel descent, geometric uniqueness and K-forms, line bundles and all coherent objects, ordinary localization and torsion Morita theory."
     ],
-    "review_note": "notes/paper_b_proof_audit.md",
-    "corrections": [
-      "The gradient space is the kernel on Sym^2 V, not on V tensor V.",
-      "Geometric uniqueness is stated for rotation-compatible cubic models.",
-      "Perfectness of descent kernels, adjoint kernels and unit/counit cones is justified.",
-      "The residual inclusion has both adjoints before applying smoothness gluing.",
-      "A finite graded projective presentation explicitly produces the stabilization factorization.",
-      "The t/weight calculation verifies that the bar flow preserves ordinary finite-rank graded MF."
-    ],
-    "added_counterexample": "gcd:ex:forms: F=sum x_i^3 and G=(1+h)x_1^3+sum_{i>1}x_i^3 are smooth over C[h]_(h), agree on the special fiber and are projectively isomorphic over C[[h]], but not over C(h). This is not an example of a nonzero equivalence-kernel descent obstruction.",
-    "conclusion": "No additional input hypothesis or withdrawal of the generic existence conclusion was required by the issues found in this review.",
-    "theorem_scope": "A cubic equation is defined over K=C(h); the full coherent residual equivalence preserving rotation and the specified cubic periodicity is obtained over some finite K-prime/K. Geometric projective uniqueness is among rotation-compatible models.",
-    "not_claimed": [
-      "uniqueness of the K-form",
-      "descent of the equivalence kernel to K",
-      "an algebraic relative equivalence including the special point",
-      "equivalence of the entire noncommutative projective category with the entire commutative cubic category",
-      "a new general curved-formality or finite-descent theorem",
-      "a new Jacobian Torelli theorem",
-      "a full arithmetic PGL classification by the symmetrizer-unit quotient"
-    ],
-    "final_statement_consistency_review": true,
+    "substantive_error_found_in_targeted_reading": false,
+    "all_unchanged_proofs_fully_reaudited_this_revision": false,
     "formal_proof_assistant_verification": false,
-    "external_referee_review": false,
-    "prior_work": "Carqueville--Kay Proposition 3.4 directly compares second-kind deformation cochains and polyvectors; it does not itself state the required full graded MF equivalence preserving rotation. Lowen--Van den Bergh and Blanc--Katzarkov--Pandit provide formal deformation/generator principles. Toën/Toën--Vaquié provide finite descent, perfectness and open equivalence criteria. BFK generation, Lin--Zhang rotation Torelli, and Ueda--Yoshinaga/Wang/Hwang gradient theory are known inputs. The manuscript specifies its relative, bigraded, normalized, coefficient-complete and finite-rank constructions separately.",
-    "novelty_status": "The completed MF construction, fixed three-object localization and their combination with algebraic generic reconstruction are presented precisely. No identical theorem was located in the checked primary sources; first occurrence and publication-level novelty of the combination remain unconfirmed.",
-    "current_review_focus": [
-      "Direct scope of Carqueville--Kay formality versus the complete graded finite-rank MF construction",
-      "Toën/Toën--Vaquié descent and saturation; Lowen--Van den Bergh and Blanc--Katzarkov--Pandit deformation/generator precedents",
-      "Ueda--Yoshinaga, Wang and Hwang gradient/symmetrizer precedents",
-      "Finite étale symmetrizer algebra, integration-space dimension, restricted arithmetic orbit set and the formally trivial nontrivial K-form example"
+    "external_referee_acceptance_of_current_version": false,
+    "novelty_status": "Prior theorems and their applications are explicitly attributed. No comprehensive first-occurrence or priority determination is claimed.",
+    "main_theorem_hypotheses_preserved": true,
+    "current_conclusion": "A geometrically smooth cubic equation over K=C(h), with full coherent residual equivalence preserving rotation and the specified cubic period after some finite K-prime/K. Uniqueness is geometric projective uniqueness among rotation-compatible models.",
+    "not_claimed": [
+      "Kernel descent to K or uniqueness of the K-form.",
+      "An algebraic relative equivalence through the commutative special point, or equivalence of the whole projective categories.",
+      "Vanishing of the even Taylor components after MF matrix insertion; the parity bounds concern the bar maps before insertion.",
+      "A complete rational K-equation or equivalence kernel for the explicit example.",
+      "Direct extraction of all low-rotation product matrices from the noncommutative category.",
+      "All-degree flatness or categorical equivalence established by finite computation."
     ],
-    "added_results": {
-      "symmetrizer_algebra": "ej:lem:symmetrizer-algebra: finite étale E_F, field extension compatibility and unique finest geometric Sebastiani--Thom decomposition. These are organized as basic consequences of Hwang, not a new Jacobian Torelli theorem.",
-      "integration": "gcd:prop:integrability-symmetrizer: E_F is linearly isomorphic to I_Q and L_Q; its dimension is the number of finest geometric ST blocks. Exact gradient Q corresponds to units.",
-      "restricted_orbits": "Only the E_F-unit coordinate transformations and equation scalars are classified by E_F^*/[k^*(E_F^*)^3]; no full PGL or equivalence-kernel classification is claimed.",
-      "indecomposable": "gcd:cor:indecomposable-equation: geometric ST indecomposability implies scalar uniqueness over k for a fixed gradient space; not kernel descent."
-    },
-    "independent_targeted_reread": {
-      "completed": true,
-      "scope": [
-        "Finite étale symmetrizer proof and primitive idempotents",
-        "Transpose convention a=A^t in the integration identification",
-        "Cubic action formula and restricted unit quotient",
-        "Geometric indecomposability corollary",
-        "1+h form example using the Hessian and valuation"
-      ],
-      "substantive_error_found": false,
-      "formal_verification": false
+    "explicit_example": {
+      "proofs": "gre:prop:input and gre:prop:jet in papers/generic_recovery/explicit_example.tex",
+      "coefficient_ring": "C[h]_(h)",
+      "potential_first_jet": "W_rec=(x^3+y^3+z^3+u^3+v^3)/3+hxyz+O(h^2)",
+      "nontriviality": "xyz is nonzero in Jac(F)_3=C[x,y,z,u,v]/(x^2,y^2,z^2,u^2,v^2)_3.",
+      "remaining": "Higher quantum corrections, the full rational model, the equivalence kernel and complete low-rotation matrices are not computed."
     }
   },
   "static_source_check": {
-    "executed_for_version": "B-v57",
     "command": "python3 scripts/verify_bundle.py --only paper_b --require-pdfs",
+    "executed_for_version": "B-v58",
     "exit_code": 0,
-    "tex_files": 11,
-    "labels": 116,
-    "references": 114,
-    "citation_occurrences": 59,
-    "bibliography_entries": 22,
+    "tex_files": 12,
+    "labels": 138,
+    "references": 160,
+    "citation_occurrences": 64,
+    "bibliography_entries": 25,
     "unresolved_references": 0,
     "unresolved_citations": 0,
     "duplicate_labels": 0,
     "source_blobs": {
       "papers/generic_recovery/coherent_saturation.tex": "79eeb6c1d4b30d6cb129cadf37081e671efe349b",
-      "papers/generic_recovery/curved_transport.tex": "ac66ca529eaf6b4f47ef80620856a5e258b355ec",
-      "papers/generic_recovery/field_model.tex": "287faddeaa0201192c82ae9ae03248da0576d1d1",
+      "papers/generic_recovery/curved_transport.tex": "6d93e0fca9aebc70c0035dec2b0526941122cc63",
+      "papers/generic_recovery/explicit_example.tex": "2757959eba85c6667a64507b8de76a6f84bdda50",
+      "papers/generic_recovery/field_model.tex": "6f6311da0916f24a2ac1c476594d4cbf012c66fb",
       "papers/generic_recovery/generic_descent.tex": "d0841a09794c13bf29af4b7d9e94f5011565a21e",
       "papers/generic_recovery/gradient_recovery.tex": "a53542d40a8cfb8d2fa17ec2bbd4ce554b4f4ad8",
-      "papers/generic_recovery/local_model.tex": "9f6b76413f6cb3b53d9bed29906b8a386bdfc58c",
-      "papers/generic_recovery/main_result.tex": "e104eb6ab6a8927201665e0ed80ae3b6fca11606",
-      "papers/generic_recovery/references.tex": "30d00634d36cb75b7893b87e78e027804fca14e7",
-      "papers/generic_recovery/window.tex": "01008e7384da4ff62bfa82fec7a53ba26c086243",
-      "papers/paper_b.tex": "c320116611985662b1f410033e15b437d827cd39",
+      "papers/generic_recovery/local_model.tex": "4e1610b0a575a84eea18b751fda87e60e756943a",
+      "papers/generic_recovery/main_result.tex": "e0d99dc085f94e976daad2309ad8198ae1224f8a",
+      "papers/generic_recovery/references.tex": "908f16dd5f869eecd79cf036ddcaea3d4deb0476",
+      "papers/generic_recovery/window.tex": "14db27717e5096bc4b1dc9e5a33f5bbd08164303",
+      "papers/paper_b.tex": "24cea08e7dd30cffdc522410b18127a3037afa25",
       "papers/support/papers/common.tex": "e53e7220975a65e301ddc9a38ea87c8449f180ec"
     }
   },
   "build": {
-    "executed_for_version": "B-v57",
-    "execution_date": "2026-11-13",
+    "executed_for_version": "B-v58",
+    "execution_date": "2026-11-14",
     "command": "python3 scripts/build.py --only paper_b",
-    "environment_note": "Built successfully using isolated TEXMF variables with an available LuaLaTeX/LuaTeX-ja runtime; repository TeX configuration was unchanged. A complete TeX installation can run the documented command directly.",
     "exit_code": 0,
+    "environment_note": "A complete LuaLaTeX/LuaTeX-ja installation can run the command directly. This environment used isolated user-owned TEXMF variables and restored missing runtime files; repository build configuration and shared preamble were unchanged.",
     "engine": "This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)",
     "complete_paper_build_executed": true,
-    "pages": 33,
-    "undefined_references_and_citations": 0,
-    "overfull_boxes": 0,
-    "missing_characters": 0,
-    "multiply_defined_labels": 0,
+    "pages": 40,
+    "typesetting_failures": {
+      "undefined_references": false,
+      "undefined_citations": false,
+      "missing_glyphs": false,
+      "overfull_boxes": false
+    },
     "visual_review": {
       "all_pages_rendered": true,
       "all_pages_contact_sheets_inspected": true,
       "detail_pages_inspected": [
-        15,
-        26,
-        30,
-        31
+        5,
+        16,
+        17,
+        18,
+        37,
+        38
       ],
-      "observed_clipping_or_overlap": false
+      "observed_clipping_or_overlap": false,
+      "scope": "All 40 pages viewed in contact sheets; new comparison diagrams, table and example also viewed at page resolution. The final table-heading change affected only page 5; the other 39 rendered pages matched the inspected render pixel-for-pixel, and page 5 was reinspected."
     },
-    "pdf_sha256": "8408c3edb43ab048253689ff8e65b1257aa9a82cc71e33de6ffbfdfe4d4ddc86",
+    "pdf_sha256": "41c276a1953af1b725db3ee32c3acf119bc6e4f1aedf0fd4d14d7db4c316daca",
     "pdf_git_tracked": false,
     "receipt": "build/paper_b.receipt.json",
-    "receipt_sha256": "150f1ff952047e13cc9deef3d28fabc522ae605d3b4192065e07fa2a652d0bff",
+    "receipt_sha256": "02298c5d0084165e59b8ab7701ba6e88daad981c9bac0f325a7f0c357afbcefb",
     "current_source_pdf_hash_parity": true,
     "latexmkrc_blob": "ab3ca75d9e516a01e44bcb555e0a8e5801867310"
   },
@@ -127,13 +110,16 @@
     {
       "script": "computations/verify_complete_curved_transport.py",
       "command": "python3 computations/verify_complete_curved_transport.py --output build/verify_complete_curved_transport.json",
+      "executed_for_version": "B-v58",
+      "execution_date": "2026-11-14",
+      "status": "PASS",
       "exit_code": 0,
       "script_sha256": "cf95171f6c049d1eff40bea5d68d519922947c78e5a818f9175021707537c9bf",
       "output": "build/verify_complete_curved_transport.json",
       "output_sha256": "a41f43ec48829ab3fde6891f3aad456f2d50fc9beef327112240e3e1c251d147",
       "output_git_tracked": false,
-      "scope": "finite algebra and combinatorics only, not graph/formality/category verification",
       "result": {
+        "scope": "finite algebra and combinatorics only, not graph/formality/category verification",
         "polyvectors": {
           "positive_examples": [
             {
@@ -162,21 +148,19 @@
           "odd_arity_filtration": true,
           "object_substitution_inverse": true
         }
-      },
-      "executed_for_version": "B-v56",
-      "rerun_in_current_revision": false,
-      "script_unchanged_in_current_revision": true,
-      "execution_date": "2026-11-13"
+      }
     },
     {
       "script": "computations/verify_three_object_window.py",
       "command": "python3 computations/verify_three_object_window.py --output build/verify_three_object_window.json",
+      "executed_for_version": "B-v58",
+      "execution_date": "2026-11-14",
+      "status": "PASS",
       "exit_code": 0,
       "script_sha256": "5b642e79e43e50fc305b9958d3b816409387b0e1138563b31e0415c54ba936e4",
       "output": "build/verify_three_object_window.json",
       "output_sha256": "fb11f68dacd260ba8cf5ec4235b56aff0929b5764083a65c2fe272959cf7422f",
       "output_git_tracked": false,
-      "scope": "finite algebraic sign/filtration checks only; not categorical proofs",
       "result": {
         "retract_identities": 16,
         "schur_complement_examples": 2,
@@ -196,21 +180,19 @@
           15,
           16
         ]
-      },
-      "executed_for_version": "B-v56",
-      "rerun_in_current_revision": false,
-      "script_unchanged_in_current_revision": true,
-      "execution_date": "2026-11-13"
+      }
     },
     {
       "script": "computations/verify_generic_cubic_descent.py",
       "command": "python3 computations/verify_generic_cubic_descent.py --output build/verify_generic_cubic_descent.json",
+      "executed_for_version": "B-v58",
+      "execution_date": "2026-11-14",
+      "status": "PASS",
       "exit_code": 0,
       "script_sha256": "33c7687a19bbec41e564ad183dfb6e29393bf3ab6784e07d71c4544241b00be7",
       "output": "build/verify_generic_cubic_descent.json",
       "output_sha256": "667151b5ca27b06c83b62e23250f057e040ebe071bb296651ecf4315055aca0e",
       "output_git_tracked": false,
-      "scope": "Exact commutative linear algebra over Q(t); no nc natural transformations computed.",
       "result": {
         "examples": [
           {
@@ -258,10 +240,33 @@
           "equivalence kernel",
           "finite extension degree"
         ]
-      },
-      "executed_for_version": "B-v57",
-      "rerun_in_current_revision": true,
-      "execution_date": "2026-11-13"
+      }
+    },
+    {
+      "script": "computations/verify_recovery_example.py",
+      "command": "python3 computations/verify_recovery_example.py --output build/verify_recovery_example.json",
+      "executed_for_version": "B-v58",
+      "execution_date": "2026-11-14",
+      "status": "PASS",
+      "exit_code": 0,
+      "script_sha256": "97b908a6b81de10f1330ca36b1c93f3870ba52a944c8adfed3a3eb0d12f09cfc",
+      "output": "build/verify_recovery_example.json",
+      "output_sha256": "a4d2560ce2d8bba8bd631bd9a6b4e7a82e3ed92c4e3d85b1927cf493cbdc97f5",
+      "output_git_tracked": false,
+      "result": {
+        "status": "passed",
+        "coefficient_ring": "Q[h] (exact); finite h-jets use rational coefficients",
+        "exact_polynomial_identities": [
+          "Sklyanin discriminant",
+          "G = -9h (u_h S/3 + v_h T)"
+        ],
+        "central_commutators_mod_h4": 3,
+        "weyl_first_product_mod_h2_monomial_pairs": 400,
+        "noncommutative_first_commutator": "[y,z] = h*x^2 mod h^2",
+        "recovered_potential_first_jet": "(x^3+y^3+z^3+u^3+v^3)/3 + h*x*y*z mod h^2",
+        "jacobian_remainder_of_xyz": "x*y*z (nonzero)",
+        "scope": "Finite algebraic identities only. All-degree freeness, the formality comparison, categorical equivalence, and generic descent are proved in the text, not by this script."
+      }
     }
   ],
   "calculation_environment": {
@@ -269,24 +274,26 @@
     "sympy": "1.14.0"
   },
   "paper_A": {
-    "version": "A-v51",
+    "version": "A-v56",
+    "preserved_from_remote_commit": "6edea1d37d61cc0497c732d4b639daba6cb59b93",
     "modified": false,
-    "recursive_tex_inputs": 16,
-    "all_recursive_input_blobs_match_review_base": true,
+    "recursive_tex_inputs": 20,
+    "all_recursive_input_blobs_match_preserved_remote": true,
+    "validation_record_preserved": true,
     "shared_common_blob": "e53e7220975a65e301ddc9a38ea87c8449f180ec",
-    "mathematically_reaudited_this_review": false,
-    "typeset_this_review": false
+    "mathematically_reaudited_this_B_revision": false,
+    "typeset_this_B_revision": false
   },
   "repository_layout_check": {
     "command": "python3 scripts/check_layout.py",
     "exit_code": 0,
-    "distinct_AB_tex_inputs": 26,
+    "distinct_AB_tex_inputs": 31,
     "tracked_PDFs": 0
   },
   "limits": [
-    "Finite exact computations verify the specified identities and examples, not Kontsevich graph integrals or the full categorical equivalence.",
-    "Primary results and their uses were checked, but the complete proofs of all external papers were not reproved.",
-    "Typesetting, mathematical review, computational checks, and remote persistence are separate states."
+    "Finite exact checks establish only the recorded identities and examples, not graph integrals, all-degree flatness, categorical equivalences or generic descent.",
+    "Primary statements and relevant proof passages were checked; complete proofs of all cited papers were not reproduced.",
+    "Mathematical reading, computation, typesetting, source/PDF parity and remote persistence are separate states."
   ],
-  "persistence_policy": "GitHub main, expected-parent fast-forward only; no Actions or force push; PDFs and reproducible calculation outputs remain untracked. Remote ref/blob parity is checked after the update, outside this self-referential manifest."
+  "persistence_policy": "GitHub main, expected-parent fast-forward only; PDFs and regenerable output remain untracked. Remote ref/blob parity and final bundle integrity are checked after creation, outside this self-referential record."
 }

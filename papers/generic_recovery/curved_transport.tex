@@ -8,7 +8,7 @@
 その後のゲージ経路は有限Artin次数ごとに直接積分する。
 曲率の大きさ、全Hochschild cochain、単位、逆写像、有限rank、
 二つの次数、指定された周期比較をそれぞれ確認する。
-形式同値の存在を、解析的収束や全Laurent対象への関手と混同しない。
+完備化と一般点への局所化の規約は第\ref{gdr:subsec:scope}節に従う。
 
 \subsection{主張と既知結果の使用範囲}
 $(R,\mathfrak m)$を剰余体$\mathbb C$の完備noetherian局所$\mathbb C$-代数とする。
@@ -30,7 +30,9 @@ $A_j\simeq S_j\otimes_{\mathbb C}R$を選ぶ。
 \end{equation}
 が存在する。これは内部shiftと、中心元による$(3)\simeq[2]$を保ち、
 剰余では恒等であり、すべての$R/\mathfrak m^{q+1}$への切断と両立する。
-有限自由模型上で互いに逆な関手を構成し、有限coneと冪等完備化へ延長する。
+有限自由模型上で互いに逆な関手を構成し、その二つのrankと内部shiftを保つ。
+構成は$\deg t=(2,-3)$の周期変数についてrelativeであり、$t$を微分しない。
+同値は有限coneと冪等完備化へ延長する。
 
 曲率付きbar写像のTaylor成分$F_r$と逆写像の成分$H_r$は
 \begin{equation}\label{cft:eq:bound}
@@ -38,6 +40,8 @@ $A_j\simeq S_j\otimes_{\mathbb C}R$を選ぶ。
  F_{2r}=H_{2r}=0,\quad F_{2r+1},H_{2r+1}\in\mathfrak m^r\quad(r\ge1)
 \end{equation}
 を満たすように取れる。次数付き代数の厳密同型は、この写像の前後に合成する。
+この評価はMF行列を挿入する前のbar写像について述べており、
+挿入後のMF関手の偶数Taylor成分の消滅を意味しない。
 \end{theorem}
 
 Kontsevichの既知結果は、affine formality、HKR、Maurer--Cartan変形問題の比較
@@ -299,10 +303,8 @@ bar恒等式により$(Q')^2=tW\,\mathrm{id}$を満たす。
 内部shiftは基礎加群のラベルを変えるだけであり、行列上の公式は不変である。
 各$F_r,H_r$は$R[t,t^{-1}]$-多重線形なので、$t$が与える
 $(3)\simeq[2]$の自然比較とも可換する。
-従って周期同型が未知のスカラー倍だけずれる、という曖昧さはない。
-別に選んだ任意の周期同型については主張しない。
+従って第\ref{gdr:sec:main}節で固定した周期比較がそのまま保存される。
 正規化された単位も行列上で保たれる。
 補題\ref{cft:lem:model}の厳密同型$\phi$と合成し、有限cone・冪等完備化へ延長して
 式\eqref{cft:eq:equivalence}を得る。
 \end{proof}
-

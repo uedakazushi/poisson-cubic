@@ -1,6 +1,6 @@
 # 一般次元の可換復元：証明の再開案内
 
-2026-11-13 / B-v57。最初に `../00_research_plan.md` を読む。入口は `papers/paper_b.tex`、証明は `papers/generic_recovery/`。監査範囲・文献比較・有効な障害は `paper_b_proof_audit.md`、実行状態は `../validation_paper_b.json` にまとめる。
+2026-11-14 / B-v58。最初に `../00_research_plan.md` を読む。入口は `papers/paper_b.tex`、証明は `papers/generic_recovery/`。監査範囲・文献比較・有効な障害は `paper_b_proof_audit.md`、実行状態は `../validation_paper_b.json` にまとめる。
 
 ## 主定理の範囲
 
@@ -15,7 +15,7 @@ n>=3、N=n+2、R=C[h]_(h)。各次数が有限自由の中央代数A_Rについ�
 | 段階 | 現行ソース・主要ラベル | 必要な内容 |
 | --- | --- | --- |
 | 局所代数 | `local_model.tex`, `lp:thm:main` | 次数別有限性、Koszul分解の持上げ、中心正則性、線束Hom |
-| 三対象window | `window.tex`, `tw:thm:window` | 実際のdg section--window、有限長filtration、stabilizationとrotation |
+| 三対象window | `window.tex`, `tw:thm:window` | 実際のdg section--window、有限長filtration、stabilizationとrotation。`tw:eq:comparison-diagram` と指定周期の二拡張・正方形を参照 |
 | 完備MF比較 | `curved_transport.tex`, `cft:thm:complete` | 通常formality、中心逆像、定数trivector、arity 1/3のflowと有限rank上の収束 |
 | 一般点 | `generic_descent.tex`, `rog:thm:geometric-generic` | 固定三対象を先に局所化、Eulerベクトルの非零性、BFK、有限降下 |
 | 全coherentへの拡張 | `coherent_saturation.tex`, `crs:thm:coherent` | smooth対角、pseudo-perfect加群、全twistによる検出 |
@@ -23,9 +23,15 @@ n>=3、N=n+2、R=C[h]_(h)。各次数が有限自由の中央代数A_Rについ�
 
 全coherentのsmoothnessを前提に置かず、可換模型の存在から残余のsmoothnessを得て、飽和を適用する。低次数積の可積分性だけで圏同値の存在を結論せず、幾何学的模型の存在を先に確立する。
 
+## 具体的な非可換入力で得た一次jet
+
+`explicit_example.tex` の `gre:prop:input` は [y,z]=h x²+(h²/2)(yz+zy) と巡回置換に中心変数u,vを加えた族を扱う。既知のSklyanin中心元を規格化し、一般・特殊ファイバーのHilbert級数とDVR構造定理から全次数の有限自由性を得る。
+
+`gre:prop:jet` はWeyl同定で積の一次項が(h/2){-,-}_0となること、φσ=1+O(h²)とC_pi=1+O(h²)を用い、W_rec=F+h xyz+O(h²)を導く。F=(x³+y³+z³+u³+v³)/3、xyzはJac(F)_3で非零である。`verify_recovery_example.py` は必要な有限恒等式の検算であり、全次数の自由性や圏同値の証明ではない。
+
 ## 次の計算への入口
 
-実際の非可換入力でrotation核Pと対角Deltaの有限表示を作り、V、U、積を取り出す。Qの基底q_aに対し、行列Aの線形条件
+同じ例のh²補正を、Weyl積とformality中心写像の二次項から求める。さらに実際の非可換入力でrotation核Pと対角Deltaの有限表示を作り、V、U、積を取り出す。Qの基底q_aに対し、行列Aの線形条件
 
 `sum_a A_ia partial_j q_a = sum_a A_ja partial_i q_a`
 
@@ -35,4 +41,4 @@ n>=3、N=n+2、R=C[h]_(h)。各次数が有限自由の中央代数A_Rについ�
 
 ## 担当境界
 
-三次三様体の接空間20→10、Plücker障害、相対Artin/étale理論、Sklyanin・多ブロック・明示混合族・point schemeは独立成果であり、主定理の入力に用いない。現行の所在は `paper_b_scope_and_transfer.md`。必要証明は本稿内に置き、独立成果の全文を再導入しない。
+三次三様体の接空間20→10、Plücker障害、相対Artin/étale理論、多ブロック・明示混合族の一般論・point schemeは独立成果であり、主定理の入力に用いない。現行の所在は `paper_b_scope_and_transfer.md`。必要証明は本稿内に置き、独立成果の全文を再導入しない。

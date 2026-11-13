@@ -62,15 +62,11 @@ $\mathcal K_B^{\rm lin}\otimes_R^{\mathbf L}k\simeq\operatorname{Ku}(X)$を得�
 \end{enumerate}
 \end{theorem}
 
-\begin{remark}[主張しないこと]\label{lp:rem:limits}
-$\Gamma_R$の底上proper性と$\Gamma_R^e$上の対角perfect性は異なる。
-本定理は後者、一般の可換cubic模型の存在、有限型開集合へのdg構造のspread、
-任意の導来基底上のOrlov同値を結論しない。
-$\mathcal C_B=D^b(\operatorname{qgr}B)$や
-$\mathcal K_B^{\rm lin}=D_{\rm sg}^b(\operatorname{gr}B)$も一般には主張しない。
-上付き${\rm lin}$は、線束と有限操作から作る部分圏を全coherent残余圏と区別するための記号である。
-本節は一般点復元の入力のうち、proper模型・有界Orlov分解を具体化する。
-主定理の残る結論は、後続のwindow・完備MF比較・一般点降下・coherent飽和で証明する。
+\begin{remark}[主証明における局所模型の役割]\label{lp:rem:limits}
+本節はproper模型と有界Orlov分解を具体化する。
+$\Gamma_R^e$上の対角のperfect性と全coherent圏への拡張は、
+第\ref{gdr:subsec:scope}節(3)の順序に従い、一般点の可換模型を得た後に証明する。
+従って、この段階では上付き${\rm lin}$を保って議論する。
 \end{remark}
 
 \subsection{先行研究と本節の寄与}
@@ -80,8 +76,7 @@ Burke--Stevenson\cite[Definition 5.1, Lemmas 6.1--6.2, Theorem 6.4]{LP-BS}を用
 dg生成対象によるMorita表示はKeller\cite[Theorem 3.8]{LP-Keller}の一般理論である。
 これらの定理自体を新しい結果とは扱わない。
 以下では、与えられた量子化に対してnoetherian性・Gorenstein型・Homの底変更・有限生成を導き、
-既存原稿で別途仮定していた相対proper模型の条件を正則局所基底で検証する。
-この組合せの新規性は未確認であり、外部査読や形式証明は未実施である。
+相対proper模型の適用条件を、正則局所基底上で具体的に検証する。
 
 \section{局所基底でのnoetherian性と有限Koszul持上げ}
 \label{lp:sec:lift}
@@ -386,4 +381,3 @@ $\widetilde\rho=L_{\mathcal O}\circ(1)$を具体的に構成する。
 また$Q$を$B\oplus B(-3)[1]$と双加群として分裂させてはならない。
 その拡張類$\eta$こそが周期性を与えている。
 \end{remark}
-

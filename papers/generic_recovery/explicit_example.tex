@@ -1,0 +1,158 @@
+\section{非可換Hesse族からの復元potentialの一次jet}
+\label{gre:sec:example}
+
+本節では、具体的な非可換中心三次対を入力として、
+定理\ref{cft:thm:complete}が与える\emph{完備底上のpotential}の一次jetを計算する。
+中心元の公式は古典的Sklyanin理論による。
+その公式を可換多項式として読むだけでなく、対称化による積の一次項と
+formalityの中心写像を比較してから復元potentialを求める。
+
+\subsection{代数的入力と全次数の有限自由性}
+$R=\mathbb C[h]_{(h)}$とし、$D_R$を三生成元$x,y,z$と関係式
+\begin{equation}\label{gre:eq:relations}
+ \begin{aligned}
+ [y,z]&=h x^2+\frac{h^2}{2}(yz+zy),\\
+ [z,x]&=h y^2+\frac{h^2}{2}(zx+xz),\\
+ [x,y]&=h z^2+\frac{h^2}{2}(xy+yx)
+ \end{aligned}
+\end{equation}
+で定め、$A_R=D_R[u,v]$と置く。$u,v$は中心の次数一元である。
+以下の三次元と次数零の係数を用いる：
+\begin{equation}\label{gre:eq:central-coefficients}
+ \begin{aligned}
+ S&=x^3+y^3+z^3,&
+ T&=\frac{xyz+yzx+zxy+yxz+xzy+zyx}{6},\\
+ u_h&=1+\frac{h^4}{2}+\frac{h^5}{6}-\frac{h^8}{48},&
+ v_h&=\frac{(4-h^4)(12h+h^5-8h^2)}{48},\\
+ \Omega_h&=\frac{u_h}{3}S+v_hT+\frac{u^3+v^3}{3}.&&
+ \end{aligned}
+\end{equation}
+係数$u_h,v_h$と中心変数$u,v$は別の記号である。
+
+\begin{proposition}[主定理を適用できる非可換な三次三様体の族]
+\label{gre:prop:input}
+$A_R$の各次数成分は有限自由で、$A_R/hA_R=\mathbb C[x,y,z,u,v]$である。
+$\Omega_h$は中心三次元であり、その剰余
+\begin{equation}\label{gre:eq:fermat}
+ F=\frac{x^3+y^3+z^3+u^3+v^3}{3}
+\end{equation}
+は滑らかな三次三様体を定める。
+$A_K$および$A_K/(\Omega_h)$は非可換である。
+\end{proposition}
+\begin{proof}
+$a=1-h^2/2$、$b=-1-h^2/2$、$c=-h$とすると、
+式\eqref{gre:eq:relations}は$ayz+bzy+cx^2=0$とその巡回置換である。
+$abc=h(1-h^4/4)$であり、
+\begin{equation}\label{gre:eq:sklyanin-discriminant}
+ (a^3+b^3+c^3)^3-(3abc)^3
+ =-27h^3\left\{
+ \left(h+\frac{h^2}{3}\left(1+\frac{h^3}{4}\right)\right)^3
+ +\left(1-\frac{h^4}{4}\right)^3\right\}\ne0.
+\end{equation}
+従って$\overline K$上の一般ファイバーは滑らかな楕円型の三次元Sklyanin代数であり、
+そのHilbert級数は$(1-z)^{-3}$である
+\cite[Section~1, pp.~19--20]{GRSklyaninST}。
+基礎体の忠実平坦拡大は各次数の次元を保つので、$K$上でも同じである。
+一方、剰余は三変数多項式環であり、同じHilbert級数を持つ。
+
+ここから\emph{全ての}次数の自由性が従う。
+固定した$j$について$(D_R)_j$は有限生成$R$-加群である。
+DVR上の構造定理により、その自由部分の階数は一般ファイバーの次元
+$\binom{j+2}{2}$、非零torsion巡回成分の個数は
+$\dim_{\mathbb C}((D_R)_j/h(D_R)_j)-\binom{j+2}{2}$である。
+後者は零なので$(D_R)_j$は自由である。
+中心多項式変数$u,v$を加えても各次数の有限自由性は保たれる。
+有限個のHilbert関数の検算からPBW性を推論しているのではない。
+
+$C=xyz+yzx+zxy$、$D=yxz+xzy+zyx$と置く。
+既知のSklyanin中心三次元は
+\begin{equation}\label{gre:eq:known-center}
+ G=a(b^3-c^3)C+b(c^3-a^3)D+c(a^3-b^3)S
+\end{equation}
+である\cite[Section~2, p.~3]{GRSklyaninDLL}。
+これは\cite[p.~35, Remark~(1)]{GRSklyaninST}の中心元の巡回和でもある。
+関係式の巡回和から$C-D=hS+(h^2/2)(C+D)$となるので、係数を代入すると
+\begin{equation}\label{gre:eq:center-identity}
+ G=-9h\left(\frac{u_h}{3}S+v_hT\right)
+\end{equation}
+を得る。この等式は多項式恒等式である。
+一般ファイバーでは$h$が可逆であり、$G$の中心性から括弧内は中心となる。
+次数四成分の$R$-自由性により交換子の消滅は$R$へ戻る。
+$u,v$は中心なので$\Omega_h$も中心である。
+剰余は式\eqref{gre:eq:fermat}であり、五つの偏微分の共通零点は原点だけである。
+
+最後に、$h^{-1}[y,z]=x^2+(h/2)(yz+zy)$の剰余は$x^2\ne0$である。
+次数二の自由性から$[y,z]$は$A_K$で非零である。
+中心三次商は次数二に関係を加えないので、その商でも非零である。
+\end{proof}
+
+\subsection{中心写像を経由した復元と非零の変形類}
+$\widehat R=\mathbb C[[h]]$上で、Weyl対称化による次数別加群同型
+\[
+ \sigma:\widehat R[x,y,z,u,v]\longrightarrow A_{\widehat R}
+\]
+を使う。これは各次数の有限自由加群の間の写像で、剰余が恒等なので同型である。
+
+\begin{proposition}[復元potentialの非自明な一次jet]
+\label{gre:prop:jet}
+定理\ref{cft:thm:complete}のformality比較を適切に選ぶと、
+式\eqref{gre:eq:relations}、\eqref{gre:eq:central-coefficients}から得られるpotentialは
+\begin{equation}\label{gre:eq:recovered-jet}
+ W_{\rm rec}=F+hxyz+O(h^2)
+ \quad\text{in }\widehat R[x,y,z,u,v]_3.
+\end{equation}
+その一次項は$\operatorname{Jac}(F)_3$で非零であり、
+恒等を剰余とする射影座標変換と方程式の単元倍では消せない。
+\end{proposition}
+\begin{proof}
+対称化で戻した積を$m_h$とする。
+式\eqref{gre:eq:relations}を$h^2$で切断すると、
+$h$を$-h$へ送りwordを逆順にする操作は反対代数との同型となる。
+Weyl対称化はwordの逆順に不変なので、$m_h=m_0+hm_1+O(h^2)$の
+$m_1$は反対称である。結合則の一次項より$m_1$はHochschild二cocycleであり、
+可換代数上の反対称二cocycleはbiderivationである。
+生成元上の交換子を使えば
+\begin{equation}\label{gre:eq:first-product}
+ m_h(f,g)=fg+\frac h2\{f,g\}_0+O(h^2),\qquad
+ \{y,z\}_0=x^2,\quad\{z,x\}_0=y^2,\quad\{x,y\}_0=z^2,
+\end{equation}
+となり、$u,v$との括弧は零である。
+この括弧は三変数Fermat三次式のJacobian Poisson括弧である。
+
+Kontsevich積の一次項も式\eqref{gre:eq:first-product}に一致する規約を取る。
+補題\ref{cft:lem:model}の逐次持上げを、$h^2$を法とする恒等写像から始めれば、
+厳密同型$\phi$を$\phi\sigma=1+O(h^2)$となるように選べる。
+中心写像$C_\pi$の$h$一次項は$\mathcal U_2(f,\pi_1)$である。
+このグラフには関数頂点一個と二重vector頂点一個があり、出力arityは零である。
+二本の辺は両方とも関数頂点へ向かわねばならないが、
+同じ向きの多重辺は許されない（許しても反対称tensorと対称二階微分の縮約が零になる）。
+従って$\mathcal U_2(f,\pi_1)=0$であり、$C_\pi=1+O(h^2)$を得る。
+
+一方、$u_h=1+O(h^4)$、$v_h=h+O(h^2)$なので
+$\sigma^{-1}(\Omega_h)=F+hxyz+O(h^2)$である。
+補題\ref{cft:lem:center}の実際の中心逆像
+$W_{\rm rec}=C_\pi^{-1}\phi(\Omega_h)$を取ると、
+式\eqref{gre:eq:recovered-jet}が従う。
+
+最後に、$F$のJacobianイデアルは$(x^2,y^2,z^2,u^2,v^2)$である。
+次数三の$xyz$はこのイデアルに入らない。
+一次の線形座標変換が加える項は$\sum\ell_i\partial_iF$であり、
+方程式の一次の単元倍が加える$F$もEuler恒等式で同じイデアルに属する。
+従って上の一次変形類は非零である。
+\end{proof}
+
+この例は、非可換な入力から完備可換模型の非定数jetを取り出す計算である。
+非可換交換子の一次項そのものは三重vectorのゲージで除かれ、
+中心曲率の一次項$xyz$が可換模型の変形として残る。
+$h^2$以上のquantum補正、有限拡大上の同値核、
+および非可換側から直接抽出する低rotation積の全行列はこの計算の対象外である。
+また、一般点の有限降下で選ぶ$K$上の方程式が、原点で正則でこのjetを持つとは結論しない。
+式\eqref{gre:eq:recovered-jet}は指定した完備比較で得たpotentialのjetであり、
+一般点模型の存在と全形式係数の代数化は区別する。
+
+付属の\texttt{computations/verify\_recovery\_example.py}は、
+式\eqref{gre:eq:sklyanin-discriminant}と\eqref{gre:eq:center-identity}を
+$\mathbb Q[h]$上で確認し、三つの中心交換子を$h^4$を法として、
+また次数三以下の単項式間の積を$h^2$を法として厳密計算する。
+これらは有限な恒等式の検算であり、全次数の自由性、
+完備MF同値や一般点降下の計算機証明ではない。

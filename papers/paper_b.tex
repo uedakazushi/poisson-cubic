@@ -1,5 +1,5 @@
 % !TEX root = paper_b.tex
-% 2026-11-13 / B-v57. Prior-work comparison and arithmetic of gradient integration.
+% 2026-11-14 / B-v58. Complete MF transport, comparison diagrams and a noncommutative first jet.
 \makeatletter
 \def\input@path{{papers/support/}}
 \makeatother
@@ -9,9 +9,9 @@
 \hypersetup{pdftitle={中心三次非可換変形の一般点における可換復元}}
 \title{中心三次非可換変形の一般点における可換復元}
 \author{}
-\date{2026年11月13日・論文B（研究草稿 v57）}
+\date{2026年11月14日・論文B（研究草稿 v58）}
 \fancyhead[L]{\small 中心三次非可換変形の一般点可換復元}
-\fancyhead[R]{\small 2026-11-13 / B-v57}
+\fancyhead[R]{\small 2026-11-14 / B-v58}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -24,6 +24,8 @@
 rotation付きの模型として、その幾何学的な射影同型類は一意である。
 証明は相対window、完備曲率付きmatrix factorizationの比較、
 一般点での生成と有限降下、coherent飽和、低rotation積からの勾配空間の積分からなる。
+完備比較では、有限rankと内部shiftを保つ実際の関手と逆関手を構成する。
+非可換なSklyanin型の具体例で、復元potentialの非自明な一次jetも求める。
 \end{abstract}
 \tableofcontents
 
@@ -34,13 +36,50 @@ rotation付きの模型として、その幾何学的な射影同型類は一意
 主結果は任意の$n\ge3$で成立し、三次三様体だけを対象とするものではない。
 また、可換模型の方程式を定義する体と、圏同値の核を定義する体を区別する。
 
+\subsection{二つの中心結果}
+一般点の存在定理\ref{gdr:thm:generic}と、その核心となる次の完備移送定理を分けて述べる。
+後者は正則でない完備局所底も許す独立した結果であり、
+一般点への局所化や全coherent圏への拡張は、その後に証明する。
+
+\begin{theorem}[完備曲率移送；定理\ref{cft:thm:complete}の概要]
+\label{gdr:thm:complete-intro}
+$(R,\mathfrak m)$を剰余体$\mathbb C$の完備noetherian局所可換$\mathbb C$-代数とし、$N\ge3$とする。
+次数付き中央$R$-代数$A^{\rm gr}=\bigoplus_{j\ge0}A_j$は
+$A_0=R$、各$A_j$が有限自由、
+$A^{\rm gr}/\mathfrak mA^{\rm gr}\simeq\mathbb C[x_1,\ldots,x_N]$を満たすとする。
+$\Omega\in Z(A^{\rm gr})_3$の剰余$F$が滑らかな射影三次超曲面を定めるとき、
+$W\in R[x_1,\ldots,x_N]_3$、$W\bmod\mathfrak m=F$と、
+有限自由graded MFの全体に定義された互いに逆な
+$R$-線形unital $A_\infty$関手
+\begin{equation}\label{gdr:eq:complete-intro}
+ \operatorname{MF}^{\mathbb Z}(A^{\rm gr},\Omega)
+ \simeq\operatorname{MF}^{\mathbb Z}(R[x_1,\ldots,x_N],W)
+\end{equation}
+が存在する。これらは有限自由模型の二つのrankと内部shiftを保ち、
+全てのArtin切断と両立し、有限coneと冪等完備化へ延長する。
+構成は$\deg t=(2,-3)$の周期変数に関してrelative、すなわち$t$を微分せず係数として扱い、
+内部shiftと中心元に由来する指定された$(3)\simeq[2]$を保つ。
+関手を定める曲率付きbar写像とその逆のTaylor成分は
+\begin{equation}\label{gdr:eq:bar-bound-intro}
+ \begin{gathered}
+ F_0=H_0=0,\qquad F_1,H_1=1+O(\mathfrak m),\\
+ F_{2r}=H_{2r}=0,\qquad F_{2r+1},H_{2r+1}\in\mathfrak m^r\quad(r\ge1)
+ \end{gathered}
+\end{equation}
+を満たす。
+\end{theorem}
+
 三次という次数の役割は、中心性を表す勾配Koszul複体に現れる。
 完備化後に二次係数のPoisson tensorを$\pi$、中心元の可換側の逆像を$W$とすると、
 $[\pi,W]=0$から定数trivector $\Xi$が一意に定まり、$\pi=[\Xi,W]$となる。
 Jacobi恒等式と次数制約からさらに$[\Xi,\pi]=0$を得る。
 この有限なゲージ経路を曲率付きbar写像へ移し、
 有限rankのgraded MF上で収束する関手と逆関手を作るのが比較の核心である。
+式\eqref{gdr:eq:bar-bound-intro}はMF行列を挿入する前のbar写像の評価である。
+挿入後のMF関手では偶数入力成分も現れ得るが、各Artin次数で必要な和は有限となる。
+固定した内部次数の有限自由加群内で極限を取るため、行列の多項式次数も有界に保たれる。
 
+\subsection{一般点へ進む証明の構成}
 証明の前半では、線束生成残余圏を三つのstabilizationで表示し、
 完備係数上で可換MF圏との実際の$A_\infty$比較を構成する。
 三つの対象を用いるのは方程式の次数が三であるためである。
@@ -50,21 +89,35 @@ BFKの生成定理\cite{GCDBFK}で本質的全射性を得る。
 線束生成部分から全coherent残余圏へ進む。
 最後に、rotationの低次数積から得られる勾配空間を積分し、
 可換方程式を元の体上に選ぶ。
+余核、dg商、有限totalization、section--window、mutationの比較は
+図式\eqref{tw:eq:comparison-diagram}に集約し、
+指定周期の移り方を式\eqref{tw:eq:specified-period}と
+図式\eqref{tw:eq:rotation-period-square}で明示する。
+第\ref{gdr:subsec:scope}節に、各段階で使う圏・定義体と結論の範囲をまとめる。
 
 \subsection{先行研究との関係}
 非可換射影幾何と有界Orlov型比較にはArtin--Zhang、Burke--Stevenson
 \cite{LP-AZ,LP-BS}を用いる。非可換中心商のMF圏が可換幾何で記述される
-先行例として、Etingof--Ginzburg\cite[Theorem~3.6.2]{EG}は、
-非可換楕円特異点のgraded MF圏と楕円曲線の有界導来圏との三角同値を示している。
+先行例として、Etingof--Ginzburg\cite[Sections~3.5--3.6, Theorem~3.6.2(i)]{EG}は、
+$\mathbb C$上の三生成元weighted homogeneousな非可換楕円特異点について、
+有限rank自由加群によるgraded MF圏と楕円曲線の有界導来圏との三角同値を示している。
 通常次数の三次の場合、これは三変数のSklyanin型の状況に対応する。
-本稿は$N=n+2\ge5$変数の任意の指定された中心三次変形を扱い、
-rotationと周期比較を備えた一般点の残余圏を構成する。
+従って有限rankや非可換MFの可換幾何による記述自体は既知である。
+同定理のtargetは楕円曲線全体の導来圏であり、内部shiftを通常の可換三次のrotationと
+同定したpair同値はその主張に含まれていない。
+本稿は$N=n+2\ge5$変数の任意の指定された中心三次変形について、
+$\mathbb C[h]_{(h)}$から一般点へ進み、有限拡大上でrotationと指定周期を備えた
+\emph{全coherent残余圏}の可換模型を構成する。
 
 曲率付き変形をpotentialの変形として扱う形式的存在原理は、
 Kontsevichのformality\cite{PKontsevich}とその曲率付き拡張に基づく。
-Carqueville--Kay\cite[Theorem~3.1, Proposition~3.4]{CK}は、
-多項式曲率代数および固定MFのendomorphism代数の第二種変形複体を
-polyvector場と比較する。同論文の第二種cochainはarityについての直和であり、
+Carqueville--Kay\cite[Section~3.1, Theorem~3.1, Proposition~3.4]{CK}は、
+$\mathbb C$上の孤立potentialと固定した有限行列MFについて、
+$\mathbb Z/2$-gradedなendomorphism代数および多項式曲率代数の
+第二種変形複体をpolyvector場と$L_\infty$比較する。
+その定理の対象は変形を支配する複体であり、全ての内部次数付きMF上の
+関手と逆関手、rotation・指定周期の比較は本稿で構成する。
+同論文の第二種cochainはarityについての直和であり、
 その極大イデアル進完備化では各Artin次数に有限個のarityだけが現れる。
 本稿ではこの原理を指定された中心三次変形へ適用するため、
 単位・二重次数を保つゲージを構成し、全有限rank graded MF上での評価と逆関手を証明する。
@@ -101,8 +154,14 @@ Perryのadmissibility・smoothnessの貼合せ\cite[Lemmas~4.13, 4.15]{CRSPerry}
 これらの原理を適用するため、相対windowのproper Hom、
 降下核と単位・余単位のcone、rotationと指定周期の図式を具体的に確認する。
 
-rotation付きFano超曲面の幾何学的一意性と低rotation積の計算は
-Lin--Zhang\cite[Theorems~3.5, 5.1]{LZ}による。
+rotation付きFano超曲面のTorelliには
+Pirozhkov\cite[Theorem~1.2]{PirozhkovTorelli}の先行定理がある。
+三次の場合の同定理の範囲は本稿の記法で$n>3$であり、三次三様体を含めて引用しない。
+Lin--Zhang\cite[Theorem~3.5, Remark~3.6, Theorem~5.1]{LZ}は
+低rotation積のsector計算と、三次三様体も含むrotation付き一意性を与え、
+同論文第5節はPirozhkovとの関係も明記している。
+これらは可換模型間の一意性に関する既知結果であり、
+本稿の中心は非可換入力からそのような模型の\emph{存在}を得ることである。
 勾配空間とSebastiani--Thom分解の関係は
 Ueda--Yoshinaga\cite[Lemma~3]{UedaYoshinaga}、
 Wang\cite[Theorem~1.1]{WangJacobian}、
@@ -113,9 +172,42 @@ Hwang\cite{HwangSymmetrizer}のsymmetrizer理論に従う。
 最細の幾何学的Sebastiani--Thom分解のブロック数の一致、
 固定した勾配空間に対する基礎体上の方程式の曖昧さを記述する。
 
-本文は一般次元の主定理とその証明に必要な結果のみを収める。
+\smallskip
+定理単位の帰属を次の表にまとめる。既知の原理そのものと、
+本稿の入力に対して追加して証明する内容を区別する。
+\begin{longtable}{@{}p{.23\linewidth}p{.34\linewidth}p{.37\linewidth}@{}}
+\toprule
+本稿の結論 & 関連する既知結果 & 本稿で確認する内容\\
+\midrule
+\endhead
+定理\ref{cft:thm:complete} & Kontsevichのformality、CKの第二種変形比較
+& 三次のarity評価、全有限rank graded MF上の実関手と逆、$t$-relativeな指定周期\\
+定理\ref{tw:thm:window} & Burke--Stevensonのwindow、Chenの余核比較
+& 正則局所底上のdg比較、有限Hom、三対象の生成、rotation・周期の整合\\
+定理\ref{gdr:thm:generic} & EGの楕円先行例、perfect核の有限降下、smoothnessによる飽和
+& 一般の中心三次入力から一般点の全coherent残余pairを可換模型へ結ぶ存在定理\\
+命題\ref{gcd:prop:bound} & BFK Theorem~5.15
+& 同定理の$d=3$への直接の適用。新しい生成上界とは数えない\\
+定理\ref{gcd:thm:field-model} & Pirozhkov、Lin--ZhangのTorelli、Hwang等の勾配空間の理論
+& 模型存在後の低積の基礎体降下と積分。幾何学的一意性は既知理論の帰結\\
+\bottomrule
+\end{longtable}
+
+\subsection{非可換入力からの具体的な一次jet}
+第\ref{gre:sec:example}節では、三生成元Sklyanin代数へ中心変数を二つ加えた
+代数的中心三次対を取り、定理\ref{cft:thm:complete}の形式的模型について
+\begin{equation}\label{gdr:eq:example-intro}
+ W_{\rm rec}=\frac{x^3+y^3+z^3+u^3+v^3}{3}+hxyz+O(h^2)
+\end{equation}
+を求める。$xyz$は特殊ファイバーのJacobian環で非零なので、
+この一次項は恒等を特殊化とする座標変換では消えない。
+これは非可換入力の中心元と積から計算した形式的復元のjetであり、
+関数体上の方程式や同値核の全係数を計算したという主張とは区別する。
+
+本文は一般次元の主定理、その証明と上の具体例を収める。
 変形接空間、三次三様体のPl\"ucker障害、独立の相対形式・étale理論、
-明示量子化族、point schemeの研究は、本稿の主証明の入力としない。
+明示量子化族の一般論、point schemeの研究は、本稿の主証明の入力としない。
+上の具体例には必要な表示と証明を本稿内に記す。
 
 \input{papers/generic_recovery/main_result}
 \input{papers/generic_recovery/local_model}
@@ -125,5 +217,6 @@ Hwang\cite{HwangSymmetrizer}のsymmetrizer理論に従う。
 \input{papers/generic_recovery/coherent_saturation}
 \input{papers/generic_recovery/gradient_recovery}
 \input{papers/generic_recovery/field_model}
+\input{papers/generic_recovery/explicit_example}
 \input{papers/generic_recovery/references}
 \end{document}
