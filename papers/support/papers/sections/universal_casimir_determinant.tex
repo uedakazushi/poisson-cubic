@@ -134,8 +134,16 @@ Berger--TailleferのPBW定理
 固定内部次数$d$の商は有限表示であり、
 全ファイバー次元が
 $\binom{m+d+2}{d}$に等しい。
-既約で被約な底上では、有限表示行列のFittingイデアルと
-定階数条件から各次数部分が局所自由である。
+ここから各次数部分の局所自由性が従うことを明示する。
+底のアフィン開部分上でこの商の有限表示行列を取り、
+その行数を$q$とすると、全ての閉点で行列の階数は
+$r=q-\binom{m+d+2}{d}$である。
+底は被約な有限型$\CC$-スキームなので、
+全ての$(r+1)$次小行列式は恒等的に零である。
+各点の近傍で非零の$r$次小行列式を可逆にし、
+行と列の基本変形を行うと行列は
+$\operatorname{diag}(I_r,0)$の形となる。
+従ってその余核、すなわち次数$d$部分は局所自由である。
 $d=3,4$のWeyl対称化基底は$\hbar=0$で
 通常の単項式基底なので、さらに
 $\mathcal U_m$を零切断の近傍へ縮めれば、
@@ -170,16 +178,22 @@ $\hbar=0$を含む開集合上で
 \end{equation}
 \end{lemma}
 \begin{proof}
-稠密開集合$\mathcal T_m^\circ$上では、
+まず任意の閉点$f\in\mathcal T_m^\circ$を固定する。
 系\ref{cor:pg-smooth-ternary-explicit}が
-$\hbar=0$近傍で$f$を持ち上げる
+その$\hbar=0$近傍で$f$を持ち上げる
 \emph{代数的な厳密中心三次元}を与える。
 その中心元と$d_m$個の純中心三次単項式は
 法$\hbar$で線形独立なので、
+必要ならこの近傍を縮めれば、
 $\mathcal D_{f,\hbar}$の核の次元は
 少なくとも$d_m+1$である。
 従って全$(r_m+1)$次小行列式は
-$\mathcal T_m^\circ$上のZariski稠密部分で零となる。
+既約な開曲線$\mathcal U_m\cap(\{f\}\times\mathbb A^1)$の
+非空開部分で零であり、その全体で零となる。
+これを全ての$f\in\mathcal T_m^\circ$に適用すると、
+小行列式は$\mathcal U_m$の稠密開部分
+$\mathcal U_m\cap(\mathcal T_m^\circ\times\mathbb A^1)$で零となる。
+この議論にはHesse座標を$f$について代数的に同時選択する必要はない。
 これらの小行列式は
 $\mathcal U_m$上の\emph{正則関数}であり、
 $\mathcal U_m$は既約かつ被約である。
@@ -325,10 +339,16 @@ $c_s$の偏微分はそこで零である。
 ゆえに$f_s$は全ての$c_s$に対し、
 $u=0$上では滑らかである。
 
+次に$m>0$とする。
 $u\ne0$の開集合では、中心三次式$\CC[u]_3$の
 線形系は基点自由である。
-固定した$\widetilde f_s$へ一般の$c_s(u)$を足す
-アフィン線形系にBertini定理を適用すれば、
+従って$\langle\widetilde f_s,\CC[u]_3\rangle$が定める
+射影線形系に標数零のBertini定理を適用すると、
+一般の元はこの開集合上で滑らかである。
+その非空開条件と$\widetilde f_s$の係数が非零という
+非空開条件を同時に満たし、その係数を1に規格化する。
+これにより、固定した$\widetilde f_s$へ一般の$c_s(u)$を足す
+アフィン線形系についても、
 $u\ne0$でも滑らかな$f_s$を与える$c_s$の集合は
 非空Zariski開となる。
 $k=1$なら$f_1=F$なので既に滑らか。
@@ -368,7 +388,7 @@ $V(f)\subset\PP^5$は滑らか。
 \end{equation}
 を満たす。これは補題
 \ref{lem:pg-det-classical-kernel}の帰結であり、
-\texttt{computations/verify\_singular\_cubic\_classical\_kernel.py}
+\path{computations/verify_singular_cubic_classical_kernel.py}
 でも有理数演算で厳密検算できる。
 しかもこの例ではCramer式を計算するまでもなく、
 \begin{equation}

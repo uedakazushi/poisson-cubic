@@ -7,11 +7,11 @@
 
 \subsection{一次資料との関係と主定理}
 三変数の同次Jacobian代数のAS-regular性はMori--Smith
-\cite[Theorem 4.2, Lemma 4.1]{MSNE12}の分類を用いる。
+\cite[Theorem 4.2, Lemma 4.1]{PMoriSmith}の分類を用いる。
 中央一次元による拡大にはLe Bruyn--Smith--Van den Bergh
 \cite[Theorem 2.6, Corollary 2.7, Theorem 3.1.3]{LBSVNE12}、
 低次ポテンシャルを加えるPBW変形とその双加群複体にはBerger--Taillefer
-\cite[Theorems 3.1 and 3.6]{BTNE12}を用いる。
+\cite[Theorems 3.1 and 3.6]{PBergerTaillefer}を用いる。
 これらの一般定理を新規な成果とは主張しない。
 本節では、前節の特定の節点・尖点成分に対して中心混合項を保った具体的な式を与え、
 係数環、例外集合、底変更および対角の種類を明記する。
@@ -116,7 +116,7 @@ $D_\epsilon$の各幾何学的ファイバーは四次元noetherian Koszul AS-re
 \end{lemma}
 \begin{proof}
 $u=0$の三変数代数は、尖点型では全$h$、節点型では$h\ne\pm2$で
-三次元Calabi--Yau AS-regularである\cite[Lemma 4.1, Theorem 4.2]{MSNE12}。
+三次元Calabi--Yau AS-regularである\cite[Lemma 4.1, Theorem 4.2]{PMoriSmith}。
 域性とnoetherian性は、次のOre表示からも確認できる。
 節点型では量子平面$yz=qzy$上に
 \begin{equation}
@@ -248,7 +248,7 @@ Koszul双加群分解を$Q[u]$へ拡大したものである。
 補題\ref{nq:lem:pbw}の$u=0$で、各次数成分は有限自由$Q$-加群である。
 各複素点に特殊化すると、Mori--Smithの三次元Calabi--Yau代数に対する
 同次ポテンシャル分解となり完全である
-\cite[Theorem 4.2]{MSNE12}\cite[\S3.2]{BTNE12}。
+\cite[Theorem 4.2]{PMoriSmith}\cite[\S3.2]{PBergerTaillefer}。
 各次数における複体は有限個の有限自由$Q$-加群からなり、
 全閉点のfiberで完全なので$Q$上で完全である。
 さらに最後の項も自由であるから、各次数の完全列は$Q$-加群として分裂する。
@@ -258,7 +258,7 @@ filtrationは下に有界で、各元のactive次数は有限である。
 随伴複体でcycleの最高次数を消し、次数を下げる帰納法により
 元の複体の完全性を得る。底変更後も同じmonic PBW表示と同じ随伴分解を持つため、
 同じ証明が適用できる。これは既知のPBWポテンシャル分解
-\cite[Theorem 3.6の証明]{BTNE12}を、今回の係数環と底変更について明示したものである。
+\cite[Theorem 3.6の証明]{PBergerTaillefer}を、今回の係数環と底変更について明示したものである。
 \end{proof}
 
 \begin{remark}[中心方向の通常微分は使えない]\label{nq:rem:no-derivation}
@@ -276,10 +276,14 @@ $-2h(x+\partial_u(z)z)=0$という一次の関係が必要になるが、PBW性�
 \subsection{七生成元への組立てと中心三次商}
 まず$E_s$を$\CC[s]$上で考える。$u=0$のFermat型三次元Jacobian代数は
 全ての$s$で三次元Calabi--Yau AS-regularである
-\cite[Theorem 4.2(1)]{MSNE12}。
-$u$を加えた関係式の一次混合係数は対角行列であり、
-cyclic potentialのsyzygyにより
-\cite[Theorem 3.1.3]{LBSVNE12}の条件を$\gamma=0$で満たす。
+\cite[Theorem 4.2(1)]{PMoriSmith}。
+$u$を加えた関係式を
+$g_j=f_j+u l_j+\alpha_j u^2$と書くと、
+\cite[Theorem 3.1.3]{LBSVNE12}の記法では
+$Q=I$、$(x_1,x_2,x_3)=(a,b,c)$、$l_j=-2s x_j$、
+$\alpha_j=0$である。
+従って$\sum_j(x_jl_j-l_jx_j)=0$であり、
+同定理の三つの条件を全て$\gamma_j=0$で満たす。
 従って各$s$で$E_s$は中心正則$u$を持つ四次元Koszul AS-regular domainである。
 各次数の$\CC[s]$-加群は有限生成で全fiberの次元が一定なので自由となる。
 $u$による完全列を次数ごとに分裂させると、$E_s$は$\CC[s,u]$上自由で、
@@ -343,4 +347,6 @@ $u\otimes1-1\otimes u$による商であり、この元は正則である。
 次に必要なのは、中心三次商の相対局所cohomology・射影化とOrlov windowを含むproperなdg模型、
 およびその模型の対角のperfect性である。
 この過程で中心方向の混合を除かず、注意\ref{nq:rem:no-derivation}の障害を扱わなければならない。
-一般次元・全Poisson成分への可換復元は、引き続きこの未解決段階を含む。
+特に、可換特殊点を含む二変数底全体での相対残余圏の比較は、
+本節では証明していない。
+一変数一般点での可換模型については論文Bで別途扱う。

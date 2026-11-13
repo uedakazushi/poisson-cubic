@@ -1,0 +1,193 @@
+{
+  "version": "A-v52",
+  "bundle_version": "nc-cubic-v83",
+  "date": "2026-11-13",
+  "manuscript": "papers/paper_a.tex",
+  "audit_note": "notes/poisson_article_submission_audit.md",
+  "scope": "Publication-oriented mathematical proof reading, primary-source comparison, exact computation, source consistency and PDF inspection. These are distinct states.",
+  "source_base_commit": "a298607e4391b6bfc92cf05997e6c7f2d0c9d29b",
+  "mathematical_review": {
+    "proof_chains_read": [
+      "Euler/Koszul representation, divergence and Hessian condition",
+      "quadratic Lie lemma, all-dimensional Jacobian-block normal form, projective rank, leaves and degeneracy geometry",
+      "Bondal lower bounds via joins",
+      "universal mixed Hesse centre, classical Casimir kernel, universal rank and Cramer centre",
+      "Bertini splitting, PBW, Koszul/AS-regular ambient and central AS-Gorenstein quotient",
+      "fixed and relative Poisson stacks, Fermat component theorem, nonelliptic fixed components",
+      "quadratic envelope, polarized section algebra, conditional even-Veronese and derived reconstruction"
+    ],
+    "material_corrections": [
+      "The relative forgetful scheme morphism is affine of finite type, not a closed immersion into the base.",
+      "Relative rank strata use the simultaneous scalar action (F,P)->(aF,a^-1 P) and reduced structures.",
+      "The threefold derived-recovery corollary explicitly assumes left/right noetherian B over C.",
+      "Ambient PBW alone does not imply S-freeness of the central quotient; regular highest active symbol is a sufficient condition, and B/(u^3) demonstrates the obstruction."
+    ],
+    "formal_verification": false,
+    "external_referee_review": false,
+    "comprehensive_priority_established": false
+  },
+  "static_checks": {
+    "command": "python3 scripts/verify_bundle.py --only paper_a --require-pdfs",
+    "status": "PASS",
+    "tex_files": 16,
+    "labels": 257,
+    "references": 238,
+    "bibitems": 23,
+    "citations": 61,
+    "equation_environments": 261,
+    "align_environments": 6,
+    "duplicate_or_unresolved_labels": 0,
+    "duplicate_or_unresolved_citation_keys": 0,
+    "unnumbered_display_math": 0
+  },
+  "typesetting": {
+    "command": "python3 scripts/build.py --only paper_a",
+    "status": "PASS",
+    "exit_code": 0,
+    "runtime_note": "Executed with an isolated TeX environment supplying installed LuaTeX-ja packages and a compatible format; the repository build scripts and .latexmkrc were unchanged.",
+    "pages": 69,
+    "pdf_tracked_in_git": false,
+    "version": "nc-cubic-v83",
+    "source": "papers/paper_a.tex",
+    "tex_inputs": {
+      "papers/paper_a.tex": "61eebb83f8064f007b3307fc11a51f50525206455ed47b0fbc1abef1c8453cb7",
+      "papers/support/papers/common.tex": "0933403982627adcb2f0c70849a86a618c5410961f7cdd65e17d24edaf616580",
+      "papers/support/papers/references_poisson_cubic.tex": "1b87695804c65fb1fc1bc8f1cd67c36b7fcf273ce5ffcee42eebd13a3155be94",
+      "papers/support/papers/sections/ambient_recovery_general.tex": "5ea7e1954e83af8341a368c9c6dd3ac1e1cd16ab924d4ed28e1723a9d20fc6aa",
+      "papers/support/papers/sections/bondal_cubic.tex": "a91f2db24022ee91481cc7b1feb4afde4aac1fcf8bf9b7e2d389234c90893a4e",
+      "papers/support/papers/sections/complete_intersections.tex": "616a785563ab5c22453208c3f2e859e58b67335dfe89dee834aa9ae920d55562",
+      "papers/support/papers/sections/explicit_hesse_center.tex": "b273057d34fa2d69540ca5fa2140d9e7f5f92a1fcb5cd75bf07433109535c9b9",
+      "papers/support/papers/sections/fermat_mixed_universal_center.tex": "8a9f12c96734a263c2b3bed413bd634760a13ff8ddff01e0bcf363785248b2c3",
+      "papers/support/papers/sections/fermat_relative_poisson_components.tex": "6528a2da29665a825c1bbab20cc255ba9aa6afc1443b3dccce5f1e138528e7f0",
+      "papers/support/papers/sections/general_dimension_universal_quantization.tex": "fe54d8b5bc618cd22a3e24d9752f52d91e09c5e34c6872a0a33cab6c8922040c",
+      "papers/support/papers/sections/hesse_mixed_universal_center.tex": "7768ff8f1134819549c76c220c00080900453985769773168e5c265fa0f66d38",
+      "papers/support/papers/sections/nonelliptic_poisson_components.tex": "7549b4052c146ec657e21003055c51a4ba78d4fd1a44349b711ea42c4938eb55",
+      "papers/support/papers/sections/nonelliptic_quantization.tex": "0a3d1580273437ca95378a009a13f49a217ede342ecf371e6fec99e87e702ba6",
+      "papers/support/papers/sections/poisson_geometry.tex": "fb18d546e3bf82b7ca3419c8234d143e67c90956c64feee2c4e43ef11235a637",
+      "papers/support/papers/sections/poisson_moduli_stacks.tex": "90d73a7863060cc6b478c79d29d251f7f6b3748e4f6ab70d1026f23b611d047e",
+      "papers/support/papers/sections/universal_casimir_determinant.tex": "4dc847de11c015e6f30a5f21f8bcf7d8fc316bb1a3f6503d57e8f2f1ded69b11"
+    },
+    "build_config_sha256": "834ec2488a63445af9f1da72f461bef24397e1c2ba229988c4f9ed9128de60d2",
+    "pdf": "build/paper_a.pdf",
+    "pdf_sha256": "4fb99360066d412fd99d4701e189fd21fcef7271feee79d33b16175a8bc805e0",
+    "engine": "This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)",
+    "source_date_epoch": "1794441600",
+    "typesetting_failures": {
+      "undefined_references": false,
+      "undefined_citations": false,
+      "missing_glyphs": false,
+      "overfull_boxes": false
+    },
+    "scope": "Typesetting and file parity only; not independent mathematical verification."
+  },
+  "visual_inspection": {
+    "status": "PASS",
+    "all_pages_rendered": 69,
+    "all_pages_overview_inspected": true,
+    "detail_pages": [
+      1,
+      28,
+      36,
+      46,
+      49,
+      53,
+      68
+    ],
+    "scope": "Page overview, Japanese glyphs, equation wrapping and numbering, modified ambient and moduli statements, component table, bibliography. No visible clipping or overlap in the inspected rendering."
+  },
+  "exact_computations": [
+    {
+      "command": "python3 computations/verify_poisson_article_A.py",
+      "script": "computations/verify_poisson_article_A.py",
+      "script_sha256": "50d662b4918ba98a942526e12c010d3ee897b4e9a995c6cb3d74d0427115e041",
+      "status": "PASS",
+      "exit_code": 0,
+      "result": "Smoothness of one explicit two-block cubic, 56 Jacobi and 56 Euler-wedge identities over exact coefficients."
+    },
+    {
+      "command": "python3 computations/verify_nonelliptic_components.py --direct",
+      "script": "computations/verify_nonelliptic_components.py",
+      "script_sha256": "47132c669f93b04ddadcfaebc0a97f3df5902ba492d14838cfe72b0ac3c22829",
+      "status": "PASS",
+      "exit_code": 0,
+      "result": "Both saved integer certificates and the direct Schouten linearization: rank 33 in each of the nodal and cuspidal examples; determinants +8916100448256 and -4565043429507072."
+    },
+    {
+      "command": "python3 computations/verify_poisson_stack_component_counts.py",
+      "script": "computations/verify_poisson_stack_component_counts.py",
+      "script_sha256": "052a2c22a1fb73adf2aaeda251321fae0e586a11256c8eecad321adc12733ccd",
+      "status": "PASS",
+      "exit_code": 0,
+      "result": "All eight rows n=3,...,10: space/fixed-stack/relative-stack component counts."
+    },
+    {
+      "command": "python3 computations/verify_universal_hesse_mixed_center.py",
+      "script": "computations/verify_universal_hesse_mixed_center.py",
+      "script_sha256": "83ee2cef8ab984b2bb92bfef9f1947b5f58a1ca1bbd0adf466c3af8dca736229",
+      "status": "PASS",
+      "exit_code": 0,
+      "result": "339 weighted free words, 162 relation multiples, rank 144 at h=0 and over Q(h,t); three central commutators vanish with six independent mixed coefficients."
+    },
+    {
+      "command": "python3 computations/verify_cubic_casimir_jet.py",
+      "script": "computations/verify_cubic_casimir_jet.py",
+      "script_sha256": "d7faf1134403d3e99a569af9e64c399cc4703200b58cfa33e6faba72b7a850e2",
+      "status": "PASS",
+      "exit_code": 0,
+      "result": "20 independent coefficients, 125 word/order coefficients for each of x,y,z; finite jet only."
+    },
+    {
+      "command": "python3 computations/verify_singular_cubic_classical_kernel.py",
+      "script": "computations/verify_singular_cubic_classical_kernel.py",
+      "script_sha256": "703d8951c3dff91c2bc3cc3dada11c32056f6f070e297cfc1e305b234c170c5b",
+      "status": "PASS",
+      "exit_code": 0,
+      "result": "Smooth total cubic with zero ternary restriction: exact rank 45 of a 378x56 matrix, kernel dimension 11."
+    },
+    {
+      "command": "python3 -u computations/verify_nonelliptic_quantization.py",
+      "script": "computations/verify_nonelliptic_quantization.py",
+      "script_sha256": "b0c00fa02004e778c516d5e93e7c7ecf9d103dbce607897a10fdbe271d2b5966",
+      "status": "PASS",
+      "exit_code": 0,
+      "result": "Two monic Diamond systems and overlaps; six universal central commutators; h=0 limits; potential syzygies; denominator scopes; two negative controls; 17-term Fermat certificate. Recalculated result exactly matches the saved JSON without --write.",
+      "output_log": "build/verify_nonelliptic_quantization.log (untracked, regenerable)"
+    }
+  ],
+  "certificate_inputs": {
+    "computations/nonelliptic_components_certificate.json": "6d27516b2af32a7c68fc06dfa15f3b8f47a45a17c9abea88bf219931a2c8d798",
+    "computations/nonelliptic_quantization_certificate.json": "3a68ba59926479b6b489d7ad3ed18b48542374223322a74a684703ad8e69fb13"
+  },
+  "preserved_paper_B": {
+    "version": "B-v57",
+    "unchanged_from_source_base_commit": true,
+    "tex_input_count": 11,
+    "tex_inputs_sha256": {
+      "papers/generic_recovery/coherent_saturation.tex": "8ffb2eb73b7baaab0591c385a1877ab1ab2c864d50e4dd905843207b222a19e7",
+      "papers/generic_recovery/curved_transport.tex": "b6ecbfb57b61e356f7bd3b9df5f838ed4d10f77a0326107057f4a1d7e5fc5a4b",
+      "papers/generic_recovery/field_model.tex": "4f653b88dfa6496ff6ef85c3327ce1a55ff956467a993a856b60bd2f6923ae47",
+      "papers/generic_recovery/generic_descent.tex": "7e5f0b3e05b9a5e4be79d0a80ca584a94d8d5be0135f22e05f53eaf512750bfc",
+      "papers/generic_recovery/gradient_recovery.tex": "2ed88b4728368680479394e38e3b5895a9b15122499b4302791b52cfad29fec1",
+      "papers/generic_recovery/local_model.tex": "859a2b76171df0593b4581ed1da90bf8848477615571a8628ebaf63dfe0a3d23",
+      "papers/generic_recovery/main_result.tex": "ff9ea284945425328faa342a3cbf477acd2bbe88951d1eef1b3170e311531c7f",
+      "papers/generic_recovery/references.tex": "37b5b307af17fba1db55ac9876f7f8041103523713d2094bd3c5911fbb4103e4",
+      "papers/generic_recovery/window.tex": "99fb44d54a3cb3d94d10c4b8db0bf5023d985625b2fc75ecaa29a862718e1fb0",
+      "papers/paper_b.tex": "c981f8354d4fa0b801b5c666602b399e7bd46386f8f4f0cabea33622dbacca60",
+      "papers/support/papers/common.tex": "0933403982627adcb2f0c70849a86a618c5410961f7cdd65e17d24edaf616580"
+    },
+    "shared_preamble_unchanged": true,
+    "re_audited_in_this_A_review": false,
+    "re_built_in_this_A_review": false,
+    "validation": "validation_paper_b.json"
+  },
+  "remaining_limits": [
+    "Brueckmann original proofs (1976 Satz 3 / 1977 Satz 6) were not obtained; Fu--Hwang Lemma 4.1 and its explicit attribution were verified.",
+    "Originality of the all-dimensional normal form, relative component theorem and the full quantization combination has not been exhaustively established.",
+    "Global equivariant descent of quantization to the Poisson moduli stack, qgr smoothness for all closed parameters and relative residual equivalence through the commutative special point are not claimed.",
+    "A successful finite example does not prove the all-dimensional theorems; the universal symbolic identity has a different scope from specialized examples."
+  ],
+  "persistence": {
+    "authoritative": "GitHub uedakazushi/nc-cubic main",
+    "policy": "Expected-parent fast-forward only; confirm remote ref, parent and all blobs separately after saving. The containing commit identifies the saved source bundle."
+  }
+}

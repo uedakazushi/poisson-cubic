@@ -1,14 +1,20 @@
 # 研究方針：中心三次変形の量子化と一般点可換復元
 
-2026-11-13 / v82。再開時は本ファイルを最初に読む。GitHub mainが正本。
+2026-11-13 / v83。再開時は本ファイルを最初に読む。GitHub mainが正本。
 
 ## 現在の目標と達成基準
 
-論文A `papers/paper_a.tex`（A-v51）は一般次元のPoisson幾何・代数的量子化・ambient復元を扱う。論文B `papers/paper_b.tex`（B-v57）は、次数別有限自由な代数的中心三次変形の一般点可換復元を扱う。公表の達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、使用する既知定理の適用範囲と新規性が具体的に説明され、全文を再生成できることである。
+論文A `papers/paper_a.tex`（A-v52）は一般次元のPoisson幾何・代数的量子化・ambient復元を扱う。論文B `papers/paper_b.tex`（B-v57）は、次数別有限自由な代数的中心三次変形の一般点可換復元を扱う。公表の達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、使用する既知定理の適用範囲と新規性が具体的に説明され、全文を再生成できることである。
 
 Bでは n>=3、R=C[h]_(h)、K=C(h) とし、A_R/hA_R が N=n+2 変数多項式環、中心三次元の剰余が滑らかな三次式であることを仮定する。可換方程式はK上、全coherent残余圏のrotation・指定三次周期付き同値はある有限拡大上に構成する。模型の一意性はrotation付きpairを実現する模型の幾何学的射影同型類についてである。K上のformの一意性・同値核のKへの降下・特殊点を含む代数的相対同値は結論に含めない。
 
 ## 到達点と証明の所在
+
+AではEuler--Koszul表示、Jacobi条件のHessian線形化、Lie代数補題、全次元正規形、退化軌跡とBondalの次元下界、代数的中心三次元とPBW/AS性、固定・相対Poisson成分、ambient復元の証明を再点検した。本文の証明を追う監査と有限計算は別々に記録している。所在・仮定・一次資料の確認範囲は `notes/poisson_article_submission_audit.md`、実行状態は `validation_paper_a.json` を参照する。
+
+相対Poisson空間から三次式のパラメータ空間への忘却射は有限型アフィン射であり、閉埋め込みではない。階数層の記述には (F,P)↦(aF,a^{-1}P) の同時スカラー作用と被約構造を明記した。三次三様体の導来復元には左右noetherian性を明示し、偶数Veroneseからの復元に必要な中心二変数上の自由性はambient PBWだけでは従わないと訂正した。最高active記号の正則性が十分条件となる。正規形・Bondal・全Poisson量子化・成分数の主要結論は保持している。
+
+Aの量子化は、全三次式の滑らかさ→active gradientのgcd=1→三次Casimir核の一定次元→普遍交換子小行列式の恒等的消滅→Cramer中心元、という有限代数的構成による。Hesse制限の滑らかさは短い多項式公式の条件であり、全Poisson定理には不要。Kontsevich--Dolgushevの形式理論は背景であって、この存在証明の入力ではない。純中心三次項の配分、相対PBW、中心正則性、AS-Gorenstein商まで本文に証明がある。モジュライ全体へ量子化を降下する同変な構成はまだ得ていない。
 
 Bの証明は `papers/generic_recovery/` だけで完結する。`local_model.tex` と `window.tex` が局所proper模型と三対象window、`curved_transport.tex` が実際の完備A_infty比較、`generic_descent.tex` がEuler非消滅・BFK生成・有限降下、`coherent_saturation.tex` が全coherent圏への飽和、`gradient_recovery.tex` と `field_model.tex` が勾配空間の積分と方程式の基礎体降下を与える。
 
@@ -22,10 +28,11 @@ B-v57ではこの証明連鎖を数学的に再点検した。対称積の核と
 
 ## 優先する次の課題
 
-1. Bの存在定理を一つの具体的な非可換入力で有効化する。rotation核Pと対角Deltaの有限表示から V=H^0RHom(Delta,P)、U=H^0RHom(Delta,P^2)、積を算出し、Q=ker(Sym^2 V→U)を積分する。まず既存のstabilization模型の有限Homへ戻り、構造写像のどの係数までがV,Uに必要かを特定する。可換勾配空間を入力する補助計算を、非可換圏からの抽出の代用にしない。
-2. 公表上の貢献を、完備比較と相対windowの具体的構成、および包括的な一般点復元に絞る。既知の一般原理と本稿の適用条件の対照は監査ノートにある。新たな引用が必要になれば一次資料で範囲を確かめ、同一の定理の初出が判明すれば序論・方針を修正する。
-3. 同値核のGalois降下を調べる。E_F=kという方程式の一意性と、rotation付き同値核の降下を分け、まずその自己同値群・自己同型群を同定する。`gcd:ex:forms` は特殊ファイバーも完備化も一致するがK上非同型の例である。TsenによるBrauer群消滅や形式点の存在だけでK'=Kを結論しない。
-4. Aは専用監査ノートに従って正規形・PBW/AS・全中心恒等式の検証を継続する。今回のB監査はAの数学的再監査を意味しない。
+1. Aの公表上の中心を全次元正規形・Bondal・全Poisson代数的量子化・相対成分数に置く。LPT/Mayanskiyの三次元分類、Gualtieri--Pymの四次元、Druel--Pereira--Pym--Touzetの五次元、Azaの隣接退化軌跡の選言と比較し、高次元の同一定理の初出を引き続き調べる。Brückmann消滅はFu--Hwang Lemma 4.1の仮定・引用先を確認したが、1976年Satz 3と1977年Satz 6の原証明は未取得。原資料を入手して背景節の適用を最終確認する。
+2. Aの表示チャート間でCramer中心元を比較する。三次中心核の差が純中心三次式に属することを使い、正規化の変換とcocycleを先に計算する。量子化の全モジュライへの降下、全閉パラメータのqgr滑らかさ、可換特殊点を含む相対残余圏同値は、Bの一変数一般点復元とは区別した未解決課題である。
+3. Bの存在定理を一つの具体的な非可換入力で有効化する。rotation核Pと対角Deltaの有限表示から V=H^0RHom(Delta,P)、U=H^0RHom(Delta,P^2)、積を算出し、Q=ker(Sym^2 V→U)を積分する。まず既存のstabilization模型の有限Homへ戻り、構造写像のどの係数までがV,Uに必要かを特定する。可換勾配空間を入力する補助計算を、非可換圏からの抽出の代用にしない。
+4. 公表上の貢献を、完備比較と相対windowの具体的構成、および包括的な一般点復元に絞る。既知の一般原理と本稿の適用条件の対照は監査ノートにある。新たな引用が必要になれば一次資料で範囲を確かめ、同一の定理の初出が判明すれば序論・方針を修正する。
+5. 同値核のGalois降下を調べる。E_F=kという方程式の一意性と、rotation付き同値核の降下を分け、まずその自己同値群・自己同型群を同定する。`gcd:ex:forms` は特殊ファイバーも完備化も一致するがK上非同型の例である。TsenによるBrauer群消滅や形式点の存在だけでK'=Kを結論しない。
 
 ## 一般原則と保存許可
 
@@ -38,6 +45,8 @@ B-v57ではこの証明連鎖を数学的に再点検した。対称積の核と
 ```sh
 python3 scripts/check_layout.py
 python3 scripts/verify_bundle.py
+python3 scripts/build.py --only paper_a
+python3 scripts/verify_bundle.py --only paper_a --require-pdfs
 python3 scripts/build.py --only paper_b
 python3 scripts/verify_bundle.py --only paper_b --require-pdfs
 python3 computations/verify_complete_curved_transport.py --output build/verify_complete_curved_transport.json
@@ -45,4 +54,4 @@ python3 computations/verify_three_object_window.py --output build/verify_three_o
 python3 computations/verify_generic_cubic_descent.py --output build/verify_generic_cubic_descent.json
 ```
 
-日本語LuaLaTeX、LuaTeX-ja、latexmk、Pythonと `requirements.txt` の依存を用いる。Aは `python3 scripts/build.py --only paper_a` で組版する。PDF・SyncTeX・中間物・再生成可能な出力はbuild/で非追跡。生成、検証、遠隔保存を別の状態として記録し、有限検算を圏同値の計算機証明とは報告しない。
+日本語LuaLaTeX、LuaTeX-ja、latexmk、Pythonと `requirements.txt` の依存を用いる。Aの厳密計算は `validation_paper_a.json` のコマンドで再現する。大きな記号行列を扱うスクリプトは一つずつ実行する。PDF・SyncTeX・中間物・再生成可能な出力はbuild/で非追跡。生成、検証、遠隔保存を別の状態として記録し、有限検算を一般定理や圏同値の計算機証明とは報告しない。今回のA改訂ではB-v57と共通preambleを変更していない。

@@ -1,220 +1,187 @@
-# 論文Aの投稿準備：現行の監査と再開点
+# 論文Aの公表準備：主張・依存・検証の範囲
 
-**2026-11-12 / A-v51。** 最初に 00_research_plan.md を読む。
-論文本文は papers/paper_a.tex、専用文献は papers/support/papers/references_poisson_cubic.tex。
-本ノートは現在有効な知識・依存・課題を整理し、証明全文を重複させない。
+**2026-11-13 / A-v52・nc-cubic-v83。** 再開時は `00_research_plan.md` を先に読む。
+本文は `papers/paper_a.tex`、専用文献は `papers/support/papers/references_poisson_cubic.tex`。
+以下の節ファイルはすべて `papers/support/papers/sections/` にある。
+計算・組版・入力ハッシュの実行記録はルートの `validation_paper_a.json` に集約する。
 
-## 論文Aの範囲と切り離した詳細幾何
+## 現在の公表範囲
 
-一般次元のPoisson正規形、退化スキームの生成元と零点完全交叉、
-Bondal予想、量子化、固定・相対moduli stacksを論文Aの中心に据える。
-旧6/7次元専用節`sec:pg-six-seven`と
-完全交叉の数値計算節`sec:pg-numerical`は
-一般定理の証明の入力ではないため、現行論文Aから除外した。
-専用節・数値節は完全なTeX本文として
-`uedakazushi/nc-cubic2/papers/sections/`へ移し、
-必要な一般退化イデアル・critical coverの証明も
-同リポジトリに収録した。
-主原稿Aでは`prop:pg-deg-ideal`、`lem:pg-critical-cover`、
-`prop:pg-deg-support`、`prop:pg-zero-ci`を全文維持。
-旧6/7次元のprimary厚化（長さ8,64,49）と
-n=7のCalabi--Yau四次元のHodge数は
-移管先の新しい独立草稿に保持されている。
-この研究の独立公表価値・主要primary分解の独立監査は未確定。
-Aの数学的な中核に必要な証明を外部の草稿へのリンクで代用していない。
-論文A-v51の現在の入力閉包16ファイルで表示式の数値式番号、引用、参照を静的検査済み。式番号のないdisplay、重複ラベル、未解決引用・参照は見つからなかった。LuaLaTeX全文組版・PDF目視は未実施。
+中心結果は、滑らかな三次超曲面上の全Poisson構造のJacobianブロック正規形、
+全次元でのBondalの下界、全Poisson構造の代数的量子化、Fermatと相対Poissonモジュライの成分数である。
+ambientの二次包絡、偏極付き圏からの復元、三次三様体の条件付き導来復元を同じ原稿に収める。
+要約・序論はこの依存順に整理し、Fermatのspace・固定stack・相対stackの三種類の成分数を区別する。
+表示式には数値の式番号を付ける。
 
-## 任意次元の新しい主定理と検証の状態
+一般退化イデアル、critical cover、零点完全交叉は本文に必要な証明を保持する。
+独立な六・七次元のprimary厚化（長さ8, 64, 49）と数値幾何は
+`uedakazushi/nc-cubic2` の `papers/poisson_cubic_six_seven_geometry.tex` が現行入口であり、
+Aの一般定理の証明を移管先へのリンクで代用していない。
+移管先の独立公表価値とprimary分解の監査は、Aの検証とは別である。
 
-論文Aに `general_dimension_universal_quantization.tex` を収録した。
-`prop:pg-ad-compatible` は k個のJacobianブロックが相互Schouten可換で、
-一般Poisson rankが2#{s:λ_s≠0}と示す。
-`thm:pg-all-dimensions` は任意のN=3k+mで、
-各純active三次g_s滑らかの下、独立なk変数η_sの
-**中心元Ω_η=ΣΩ_{f_s,η_s}、ambient AS正則・中心商AS-Gorenstein、
-内部次数ごとの多変数底平坦性**を証明する。
-`cor:pg-ad-whole-pencil` は全λ線形族を
-(λ,h)↦η_s=λ_s hによる一つの相対代数族で量子化。
-`prop:pg-ad-relative-chart` はFのHesse表示係数も動かす。
-`cor:pg-ad-hessian` は一般次元のHessian二次補正と四次補正の和。
-これらの証明は以前に普遍恒等式を計算検証した
-三変数Hesse中心元、相対PBW、Koszul tensor、中心正則性の
-filtrationに依存。**本改訂で数学的証明を原稿に追加したが、
-依存補題の全てを今回新たに独立再監査したとは限らない。**
-適用範囲は固定正規形の一般smooth block locusと
-その表示チャートであり、全Poissonモジュライの大域構成ではない。
+## 主張の確実性と証明の所在
 
-`computations/verify_general_dimension_multiblock.py` と同じSymPyコードを
-ローカルで実行し、滑らかな例
-(k,m)=(1,2),(2,0),(2,2),(3,0),(3,3),(4,0)
-（n=3,4,6,7,10）についてJacobiator計610成分、
-F-Casimir計52成分、異なるブロック間のHessian交差成分を
-独立なλ_sを保持した厳密計算で確認した。
-`computations/build_general_dimension_center.py` と同等のコードを
-ローカルで実行し、共通中心u,vを持つn=6,k=2の明示的な
-Weyl中心symbolについてΩ_0=F、η_1η_2の補正なしを確認。
-**いずれも全次元の中心性の計算証明ではない。**
-GitHubへ保存したスクリプト自体をremoteで再実行したとは言わない。
-今後は表示変換による相対族の降下、PBW/AS証明の独立監査、
-LuaLaTeX全体組版と一次資料照合を優先し、
-特異三次制限への拡張は保留する。
+今回、次の証明連鎖を本文と外部入力の適用条件に沿って再点検した。
+「点検」は独立な数学的読み直しを意味し、Lean等の形式検証や外部査読を意味しない。
+主定理の記載済み証明、有限計算、初出の確認は区別する。
 
-## 内在的な任意次元Hessian補正（最新の強化）
+| 主張・所在 | 有効な仮定と結論 | 今回確認した範囲 |
+| --- | --- | --- |
+| `prop:pg-represent`、`prop:pg-jacobi-extension`、`lem:pg-linearize`、`poisson_geometry.tex` | n>=3、Xが滑らかな三次。Poisson表示、Jacobi条件とHessian線形条件の対応 | Euler/Koszul、divergenceの係数、Hessianとの符号を追跡 |
+| `lem:pg-quadratic-lie`、`thm:pg-normal` | 全非零Poisson構造が三変数Jacobianブロックへ分解 | 非退化形式の同時選択、可解根基、最高ウェイト、rank>=2単純因子の排除、混合項の消去 |
+| `lem:pg-projective-rank`、`thm:pg-bondal`、`bondal_cubic.tex` | 全2j<nについてdim D_(2j)>=2j+1 | joinの次元、Euler線によるrank低下、ブロック数の端のケース |
+| `prop:pg-deg-ideal`、`lem:pg-critical-cover`、`prop:pg-deg-support`、`prop:pg-zero-ci` | 一般退化イデアルは全正規形。critical coverと零点完全交叉には各純active三次の滑らかさが必要 | 正規形に基づく式と仮定の使い分け |
+| `thm:pg-universal-determinant`、`universal_casimir_determinant.tex` | 全体三次fが滑らかなら、active制限が特異・零でも、原点近傍に代数的中心三次元 | gcd、古典核、普遍行列、局所自由性、稠密Hesse開、Cramer規格化、偶性 |
+| `thm:pg-quantization`、`thm:pg-ad-all-poisson` | 全Poisson構造について原点を含むZariski開上のAS-regular ambientと中心正則三次商 | 中心三次配分、PBW、Koszul tensor、中心元の正則性、AS-Gorenstein change of rings |
+| `thm:pg-all-dimensions`、`cor:pg-ad-whole-pencil`、`prop:pg-ad-intrinsic-hessian` | 各純active三次が滑らかな場合は独立多変数底と短い多項式中心公式 | 係数環上の自由性、全パラメータでの多項式中心性、交差補正がないこと |
+| `thm:pg-fermat-relative-count`、`fermat_relative_poisson_components.tex` | Fermat固定space、固定stack、全cubic相対stackの位相的既約成分 | Hessianによるブロック復元、有限群軌道、被約rank層、同時スカラー作用、閉包の非包含 |
+| `ne:main`、`nonelliptic_poisson_components.tex` | 二つの固定された滑らかなcubic fivefoldに2次元の非楕円Poisson成分 | 整数証明書と直接Schouten線形化を再実行、接空間から成分性への議論 |
+| `thm:pg-ambient-recovery-general`、`thm:pg-ambient-recovery-polarized`、`ambient_recovery_general.tex` | 二次包絡と三次核。圏からの復元には本文のnoetherian・AS-Gorenstein条件 | 低次数積、section algebra、飽和のExt消滅 |
+| `prop:pg-ambient-even`、`cor:pg-ambient-derived-threefold` | C上、二変数中心、中心上自由性、左右noetherian性、所定のSerre関手を仮定 | conicからの中心復元、局所化と交叉、次数の再設定、必要仮定の明示 |
 
-`prop:pg-ad-intrinsic-hessian` により
-H(P,F)=(1/6)ΣP^{ijk}P^{abc}F_{ia}F_{jb}F_{kc} は
-座標不変の次数三多項式となる。
-一般正規形ではΣ_sλ_s²det Hess_{x_s}(f_s)。
-全g_s滑らかなら中心三次の正規化を行い、
-Ω_{P,h}=sym(F-h²H(P,F)/12+h⁴ K_{P,F}) を
-**全次数で厳密な中心三次元**として選べる。
-Hessian縮約の全次数・全次元数学的証明は
-`papers/support/papers/sections/general_dimension_universal_quantization.tex` に記載。
-6具体例でのSymPy独立検算は全てPASS。
-h⁴項はHesse座標依存であり、単一座標不変式とは断定しない。
-正規形Lie補題、相対AS/PBW入力、Bondal、文献新規性・
-LuaLaTeX全組版の独立監査は未完了。
+全モジュライ上の同変量子化、粗モジュライの構成、Poissonスキームの全被約構造、
+全閉パラメータでのqgr滑らかさ、特殊点を含む相対残余圏同値はここでの定理ではない。
+B-v57の一変数一般点での全coherent残余圏復元（同値は有限拡大後）とは区別する。
 
-## 主張の確実性と所在
+## 誤りを避けるための構造上の要点
 
-1. Poisson正規形（thm:pg-normal、papers/support/papers/sections/poisson_geometry.tex）：全非零構造の三変数Jacobianブロック分解。n>=3、X smooth。証明は記載済みだが、核心のLie代数補題 lem:pg-quadratic-lie を含め、今回の全面的独立監査は未完了。
-2. Bondal予想（thm:pg-bondal、papers/support/papers/sections/bondal_cubic.tex）：全 2j<n について dim D_{2j}>=2j+1。j<k で j+1 個のブロック上の平面曲線joinを構成し、Euler線の射影化でrankが2低下する。正規形定理に依存。scheme-theoretic primary分解を与える主張ではない。高次元での新規性調査は未完。
-3. 退化スキーム（prop:pg-deg-ideal）：任意の正規形に適用できる。critical cover と零点の完全交叉（lem:pg-critical-cover、prop:pg-zero-ci）には各 f_s(x_s,0) が滑らかな平面三次という追加仮定が必要。
-4. **全Poisson量子化（thm:pg-quantization、thm:pg-universal-determinant、thm:pg-ad-all-poisson）**：全ての滑らかなcubic上のPoisson構造について原点を含む一変数Zariski開上にAS-regular ambientと中心正則三次商を代数的に構成。三変数制限が特異・零でも全体三次のactive gradient gcd=1、古典Casimir核一定、普遍量子交換子行列のminor恒等式とCramer、中心三次の配分Bertiniによって証明。**形式的中心元・formality・Dolgushevを量子化定理の存在証明に使わない。** 相対PBWとAS条件・正規形は従来の入力で全独立監査が必要。モジュライ全係数上の大域的同変量子化やqgr smoothnessは未証明。
-5. 非楕円Poisson成分（ne:main）：固定した二つの滑らかなcubic fivefoldのPoisson schemeで2次元成分を示す。35列の線形化Jacobi行列がrank33という整数証明書に依存する。今回全行列を再実行したわけではない。全cubicを動かすrelative成分性を主張しない。
-6. Hesse中心元（thm:explicit-hesse-center）：既知Sklyanin公式のPoissonパラメータへの翻訳。基本中心公式の新規性は主張しない。
+### 相対Poisson空間
 
-## 全Poisson構造の代数的中心三次元：証明済みの核心と依存
+`poisson_moduli_stacks.tex` の相対Poisson空間は、
+$\mathcal E=\Lambda^3V\otimes\mathcal O_{U_N}(-1)$ の全空間に閉埋め込みされる。
+底 $U_N$ への忘却射自体は有限型アフィン射であり、一般には閉埋め込みではない。
+固定F上にはPoisson構造を動かす非自明なファイバーがある。
 
-**新しい最重要結果**：
-`universal_casimir_determinant.tex`（定理`thm:pg-universal-determinant`）で、
-`f∈C[x,y,z,u]_3`の**全体**が滑らかなcubicを定める限り、
-三変数制限g=f(x,y,z,0)の特異性を問わず、
-Jacobian量子代数に`Omega_h∈Z(A_{f,h})_3`、
-`Omega_0=f`となる**厳密な代数的中心三次元**を構成。
-係数は原点で分母が消えないh²の有理関数で、
-計算は次数3・4の有限交換子行列とCramer法に尽きる。
-形式的中心元の一般存在補題は不要である。
+相対Koszul複体は、被約底上で各次数のコホモロジー次元が一定であることから局所分裂し、任意底変更と両立する。
+普遍三次式をアフィン錐で扱うときは $(F,P)\mapsto(aF,a^{-1}P)$ で割る必要がある。
+被約rank層は $GL_N\times^{\operatorname{Stab}(P_k)}\mathcal F_{N,k}^{sm}$ から得られ、
+射影化のための $\mathbb G_m$ が次元を1下げる。スタビライザーの次元は $8k+3km+m^2$。
+この規約を落とすと相対次元と成分数の議論が不正確になる。
+詳細は `notes/fermat_relative_poisson_components.md`。
 
-**証明の依存関係（論文Aに全文あり）**：
-1. `lem:pg-det-gradient-coprime`：全体fの滑らかさから
-   gcd(f_x,f_y,f_z)=1。共通因子h=0と残るm中心偏微分の
-   非零共通零点がKrullの高さ定理から存在して矛盾。
-2. `lem:pg-det-classical-kernel`：
-   次数三古典Jacobian CasimirはC f+C[u]_3。
-   これにより古典交換子行列のrankは
-   r=binom(m+5,3)-binom(m+2,3)-1と一定。
-3. `lem:pg-det-universal-rank`：
-   滑らかな全体fの係数空間の稠密開（g smooth）で
-   Hesse型の厳密代数中心が存在する。
-   PBW/Weyl自由基底上の量子交換子行列の
-   全(r+1)小行列式は稠密開で零、故に係数空間上の
-   **正則関数恒等式として普遍的に零**。
-   g特異・零への特殊化でもrank≤rを保つ。
-   これは中心元そのものの無条件な特殊化ではない。
-4. `thm:pg-universal-determinant`：
-   原点で非零のr×r小行列でCramer中心元を構成。
-   古典Casimir核により正確にOmega_0=f。
-   語の反転とh→−hで係数はh²の有理関数。
-5. `lem:pg-central-splitting-smooth`：
-   正規形F=Σ tilde f_s(x_s,u)+c(u)の純中心三次を
-   c=Σc_sへ一般に分配する。
-   u=0での滑らかさはX smooth、u≠0は中心三次の
-   基点自由線形系へのBertini、
-   配分空間の既約性により全f_sを同時にsmooth化。
-   active微分は変わらず元のPoisson構造を保持。
-6. `thm:pg-quantization` と`thm:pg-ad-all-poisson`：
-   各blockの中心元の和と共有中心u上のPBW/Koszul/AS議論で
-   **全Poisson構造**と固定正規形のk次元Poisson pencilを
-   同時に代数的量子化する。
-   Hesse制限の場合は短い有限多項式、特異制限はCramer有理式。
+### 中心二変数とambient復元
 
-**独立計算**：
-`f=u x²+v y²+w z²+u³+v³+w³`は
-`f(x,y,z,0,0,0)=0`だが全体はsmooth。
-古典交換子行列378×56をSymPy有理数演算で
-実際にrank45と確認し、核次元11=
-C f+C[u,v,w]_3を確認。
-`computations/verify_singular_cubic_classical_kernel.py`。
-さらに当該例ではf自身が厳密な量子中心元である。
-有限の検算は一般定理の代わりではない。
+$S=\mathbf C[u,v]$、$D=S^{(2)}=\mathbf C[a,b,c]/(ac-b^2)$ とする。
+$D_1$ のconicのgraded自己同型は $GL_2/\{\pm1\}$ から来る。
+偶数Veroneseを元の次数の2倍に戻してからSとtensorし、uとvの局所化を取る。
+$S[u^{-1}]=D[(u^2)^{-1}]\oplus uD[(u^2)^{-1}]$ と奇数部分の記述、
+S自由基底に関する交叉から元の代数を回復する。
+このため商代数自身のS自由性が必要である。
 
-**先行研究との関係・未完了事項**：
-Etingof–Ginzburg, arXiv:0709.3593v4 §8.3の
-potentialのrank一定・特殊化議論を原PDFの
-当該ページで確認した。今回の方法は
-smoothな全体fからのactive gradient gcd、
-古典Casimir一定次元、普遍minorとCramerによる
-**原点の規格化も含む代数的構成**を用いる。
-先行研究上の完全な新規性確認はまだない。
-Hesse型の普遍全係数恒等式証明書
-`computations/verify_universal_hesse_mixed_center.py`、
-Mori–Smithのrank判定、Berger–TailleferのPBW、
-全Poisson正規形のLie補題、中央拡大とAS正則性の
-全独立監査と全LuaLaTeX組版・PDF目視は未完。
-相対Poisson moduli stackへのグローバルな量子化の降下は
-まだ未解決。
+**ambientのPBW性だけでは商のS自由性は従わない。** 例えば $B/(u^3)$ はS-torsionを持つ。
+active filtrationに関して中心三次元Gの最高記号 $g_3$ が正則で、
+$\operatorname{gr}B=S_{f_3}\otimes S$ なら
+$\operatorname{gr}(B/(G))=(S_{f_3}/(g_3))\otimes S$ となり、斉次基底の持上げでS自由性を得る。
+これは `eq:pg-ambient-quotient-symbol` の十分条件である。
+導来復元の系にはBの左右noetherian性を明示し、AのAS-Gorenstein injective dimension 4からsection algebraを回復する。
 
-**形式的中心元について**：
-従来のKontsevich–Dolgushev/絶対CY経由の構成は
-考え得る代替手段だが、その相対化・完備双加群の全条件の
-独立監査を終えていない。
-**今回の完成した全Poisson量子化定理には使用しない。**
-`notes/universal_casimir.md`に現行の核心と再現方法を整理し、
-原稿に不要な旧形式的証明を付録として蓄積しない。
+### 正規形とBondalの下界
 
-## Lie代数補題の検査点
+$K(P)$ の基点自由性からVとsupport Wの両方に非退化なBを取るには、二つの非空開集合の交叉を使う。
+可解根基の作用が既約加群上スカラーとなるだけでは零とはいえず、$W=[W,W]$ によるtrace零性を併用する。
+最高根が単純根ではないことは、隣接単純根のroot stringを使って正当化する。
 
-K(P)の基点自由性からBertiniを用いて、V上もsupport W上も非退化な対称形式 B in K(P) を取る。
-[x,y]=P(B^flat x,B^flat y) はB不変なLie括弧で、W=[W,W]、Z(W)=0。
-可解根基が非零なら最後の非零導来イデアルに含まれる極小W-イデアルIを取る。
-Iは可換な既約W-加群。可解根基の作用は既約表現上スカラーであり、W=[W,W]のtrace零性からその作用は零。
-Z(W)=0 よりIは半単純商の非自明な表現なので、最高ウェイトとsl2関係を用いて
-H([a,b],[c,d])+H([b,c],[a,d])+H([c,a],[b,d])=0
-に代入すると、全Hに共通の等方方向が存在して基点自由性と矛盾する。
-半単純Wのrank2以上の単純因子も最高根の正根分解から同様に排除する。
-従ってWはsl2の直和となる。
-**一次資料で確認した範囲：** Etingof, *Lie Groups and Lie Algebras* 原PDFの p.88 Proposition 16.9（可解根基のスカラー作用）、p.114 Definition 21.13 / Lemma 21.14（非単純正根の正根和）、p.137 Theorem 25.17（最高ウェイト）、p.173 §32.2（最高根の設定）を本文・ページ画像で確認し、論文Aの最高根の証明記述を明確化した。これは外部入力の参照監査であって、基点自由からの全Lie補題の形式検証ではない。
-Euler列からのPoisson表現（prop:pg-represent）、Jacobiのdivergence（prop:pg-jacobi-extension）、Hessian（lem:pg-linearize）も独立再監査の対象として残す。
+rank 2rの二重ベクトルを一次元Lで割ったときのrankは、
+$L\subset\operatorname{im}b$ なら2r-2、それ以外なら2rである。
+この線形代数補題を明示して、join上でEuler線が像に入ることとBondalのrank評価を結ぶ。
+本文の一般証明と一具体例の外積計算は別である。詳細は `notes/bondal_cubic.md`。
 
-## 独立検算と限界
+## 代数的中心元の証明の依存
 
-computations/verify_poisson_article_A.py は
-F=(x^3+y^3+z^3+a^3+b^3+c^3+u^3+v^3)/3+uxy+vab
-を対象とし、Poisson Jacobiatorの56成分、および二つの平面三次曲線のjoinでEuler wedge pi^2が消える56成分を理想で割った余りとして検査する。最初の独立実行でそれぞれPASS。
-現行のGitHub版はgradient理想の零次元性によるsmoothnessチェックを追加したため、GitHub版そのものの再実行は未確認。
-これは一具体例の厳密計算であり、一般次元の証明を形式検証するものではない。
+1. `lem:pg-det-gradient-coprime`：全体fの滑らかさから $\gcd(f_x,f_y,f_z)=1$。
+   共通因子と中心偏微分を同時に消す非零点がKrullの高さ定理から生じれば、全勾配の零点となって矛盾する。
+2. `lem:pg-det-classical-kernel`：三次古典Casimirは $\mathbf C f+\mathbf C[u]_3$。
+   分数体上の比例係数はgcd=1により多項式で、斉次次数から定数となる。
+3. `lem:pg-det-universal-rank`：有限表示の次数別行列は被約な係数底上で一定階数を持ち、局所自由な商を与える。
+   各固定fのh曲線上で、滑らかなactive制限に対するHesse中心公式から小行列式の消滅を得る。
+   その後fを動かして普遍恒等式とする。Hesse座標の代数的な同時選択は仮定しない。
+4. `thm:pg-universal-determinant`：古典rankの非零小行列を局所化し、Cramer法で $\Omega_0=f$ を規格化する。
+   語の反転と $h\mapsto-h$ により係数は $h^2$ の有理関数となり、分母は原点で消えない。
+5. `lem:pg-central-splitting-smooth`：純中心三次を各ブロックへ配分する。
+   $u=0$ は全体Xの滑らかさ、$u\ne0$ は基点自由な線形系のBertiniを用いる。
+   射影線形系のうち元のブロックの係数が非零のchartで係数を1に規格化し、必要なアフィン配分空間に戻る。
+6. `thm:pg-quantization`、`thm:pg-ad-all-poisson`：各中心元の和、共有中心上のPBW/Koszul性、
+   一つのactive blockのfiltrationによる正則性から、全Poisson構造と固定正規形のpencilを量子化する。
+   非可換domainのtensor積が常にdomainである、という一般には誤る命題は使わない。
 
-論文A-v51の16ファイルに対し、256 equation環境、6 align環境、249ラベル、235参照、24文献項目、58引用を検査してPASS（未解決・重複0、番号なしdisplay0）。これは静的文字列検査であり、全体LuaLaTeX組版・PDF表示確認・非楕円成分の全行列証明書再計算は未実施。
+短い有限多項式中心公式には滑らかなactive制限が必要だが、Cramer構成は特異・零の制限を含む。
+普遍Hesse証明書は独立混合係数を保持した有理関数体上の恒等式であり、数値特殊化による推測ではない。
+内在的な二次補正は $H(P,F)=\frac16\sum P^{ijk}P^{abc}F_{ia}F_{jb}F_{kc}$、
+正規形では $\sum_s\lambda_s^2\det\operatorname{Hess}_{x_s}(f_s)$。
+四次補正を一つの座標不変式と断定しない。
+詳しい公式、例、Dolgushevによる代替形式ルートの制約は `notes/universal_casimir.md` を参照する。
 
-## 一次文献の位置づけ
+## 一次文献と本稿の位置づけ
 
-- Loray–Pereira–Touzet, arXiv:1112.3871、および Mayanskiy, arXiv:1303.5916：滑らかなcubic threefoldでのGrassmann記述は既知。
-- Gualtieri–Pym, DOI:10.1112/plms/pds090：Bondal予想とFano四次元の既知結果。
-- Druel–Pereira–Pym–Touzet, arXiv:2606.03424 (2026)：Fano五次元での全結果、高次元一般Fanoでの部分結果。
-- Mori–Smith, arXiv:1502.07403、Berger–Taillefer, arXiv:math/0610112、Kontsevich, arXiv:q-alg/9709040、Dolgushev, arXiv:math/0612288、Etingof–Ginzburg, arXiv:0709.3593、Smith–Tateは量子化の既知入力。
-- **Dolgushev一次資料の確認（2026-11-12）：** arXiv:math/0612288v3 の Proposition 1（PDF印刷p.9；不変形式でのunimodularity判定）と Theorem 3（印刷p.15；dualizing bimoduleが自明であることとunimodularityの同値）を原PDF本文・ページ画像で照合した。Theorem 3の仮定は滑らかな複素アフィン多様体、標準束自明、形式星積である。論文Aにおける絶対Calabi–Yau性の示し方、相対係数・完備双加群・形式星積への適用の全仮定は未監査。
-- Brueckmann消滅のFu–Hwang経由の引用は原論文へ遡って条件を監査する。
-これらは調査・比較した文献であり、全ての引用定理を今回一次PDFから再検証したという意味ではない。
-高次元cubicの正規形・Bondal結論の包括的新規性照合は未完成。
+| 文献 | 確認した所在・適用範囲 | 本稿との関係 |
+| --- | --- | --- |
+| Loray--Pereira--Touzet, arXiv:1112.3871v3 | Theorems 7.1, 9.1 | 三次三様体の分類は既知。本稿は高次元の複数Jacobianブロックを扱う |
+| Mayanskiy, arXiv:1303.5916 | Theorem 1 | GrassmannスキームのJacobi方程式による記述とPoisson cohomology |
+| Gualtieri--Pym, DOI 10.1112/plms/pds090 | Theorem 7.13 | Fano四次元のBondal予想は既知 |
+| Druel--Pereira--Pym--Touzet, arXiv:2606.03424v1 | Theorem 1.2、Corollary 1.3、著者PDF | 奇数次元のsubmaximal退化軌跡とFano五次元。本稿はcubicというクラスで全次元・全rank |
+| Darío Martín Aza, arXiv:2604.07217v1 | Theorem 1.3, p.2、証明p.10 | 隣接退化軌跡の真包含の下での選言。全Bondal予想の証明とは扱わない |
+| Etingof, MIT 2024 lecture notes | Prop.16.9 p.88、Def.21.13/Lem.21.14 p.114、Thm.25.17 p.137、§32.2 p.173 | 可解根基、最高ウェイト、最高根の既知入力 |
+| Mori--Smith, Math. Z. 287 (2017), 215--241, DOI 10.1007/s00209-016-1824-5 | 本文確認はarXiv:1502.07403v2。Thm.1.4、Cor.2.7/2.9、Thm.4.2(1)、Lemma 7.1/Thm.7.2 pp.23--24 | standard性、AS-regular/3-CY、滑らかな平面三次で全パラメータの判定、point curve |
+| Berger--Taillefer, JNCG 1 (2007), 241--270, DOI 10.4171/JNCG/6 | 刊行PDFのThm.1.1(i) p.242、Thm.3.1 p.246、Thm.3.6 p.251 | 低次数potentialからのPBW変形。(ii)の逆向き分類の追加条件は使わない |
+| Le Bruyn--Smith--Van den Bergh, Math. Z. 222 (1996), 171--212 | 著者PDF、Thm.2.6/Cor.2.7、Thm.3.1.3 | 中心正則拡大。Fermatブロックのパラメータ代入を本文で明示 |
+| Smith--Tate; De Laet--Le Bruyn | 後者arXiv:1405.1158v1 §2 p.3 | 純Sklyanin中心公式は既知。本稿の追加は混合係数、普遍恒等式、Cramer構成。表示の誤植注意は中心ノートに記載 |
+| Etingof--Ginzburg, arXiv:0709.3593v4 | Prop.8.1.1(i)、§8.3 | potentialのrankと特殊化の既知手法。本稿の規格化された有限Cramer構成と比較 |
+| Dolgushev, Selecta Math. 14 (2009), 199--228, DOI 10.1007/s00029-008-0062-z | 本文確認はarXiv:math/0612288v3 Prop.1 p.9、Thm.3 pp.15--16 | 条件は全形式Poisson classのunimodularity。本稿の代数化の証明には用いない |
+| Fu--Hwang, arXiv:1608.00846v2 | Lemma 4.1 p.13：完全交叉Zで1<=r<=dim Z-1、p<=rならH^0(Ω_Z^r(p))=0 | Brückmann型消滅の明示的定理文と適用条件を確認 |
+| SGA 2 XII Cor.3.7、Stacks Tag 06FI、Artin--Zhang | Picard群、商stack、section algebra | モジュライ・偏極付き復元の既知の一般原理 |
 
-## 次の具体的な着手順
+文献URL・DOIと現在の引用キーは専用参考文献にある。
+Brückmannの1976年論文はMath. Nachr.71,203--210、DOI 10.1002/mana.19760710116で書誌を確認した。
+1977年続編はFu--Hwangの書誌でMath. Nachr.77,307--318。
+**原証明（1976年Satz 3、1977年Satz 6）は未取得であり、読了と報告しない。**
+高次元の正規形・Bondalのjoin証明・相対成分数・量子化の包括的結論と同一の先行定理は調査範囲で確認できていないが、初出は未確定である。
+刊行書誌を確認したことと、その刊行版の定理番号・証明全文を再照合したことも区別する。
 
-1. 最優先は今回の全Poisson代数中心定理の**全依存監査**。
-   稠密Hesse開→普遍minor恒等式の証明と
-   全体fのactive gradient gcd、中心三次配分のBertiniを
-   数学的に独立に点検する。
-   特異g=0の古典rank検証コードと
-   普遍Hesse係数不定元の検証コードを再実行する。
-2. 全次元`thm:pg-normal`のLie補題、
-   PBW/AS正則性、中心正則性のfiltrationと
-   AS-Gorenstein change of ringsを一次資料と照合。
-3. relative moduli stackの構造・成分数・
-   Cramer中心のHesse表示チャート間の同型と
-   moduliへの降下可能性を研究する。
-4. 論文Aの全表示式の数値式番号、TeX参照・bibitem、
-   LuaLaTeX全組版、PDF目視を確認してから投稿可否を判定する。
-   先行研究上の新規性・全依存監査が未完のため
-   投稿可能であるとはまだ断定しない。
+## 実行済みの厳密計算と限界
 
-GitHub mainが正本。Libraryはpushが実際に失敗した時だけ緊急退避。
+以下は現行のスクリプトを作業環境で実行した結果であり、GitHub Actionsによる実行ではない。
+スクリプトハッシュと最終状態は `validation_paper_a.json`。
+
+| スクリプト（computations/） | 結果と範囲 |
+| --- | --- |
+| `verify_poisson_article_A.py` | 滑らかな一具体例、56 Jacobi成分と56 Euler外積成分が厳密に零 |
+| `verify_nonelliptic_components.py --direct` | nodal/cuspidal両例でHessian線形化と直接Schouten線形化のrank 33。保存した整数小行列証明書を照合 |
+| `verify_poisson_stack_component_counts.py` | n=3,...,10の三種類の成分数、全8行一致 |
+| `verify_universal_hesse_mixed_center.py` | 339基底語、162関係倍数、rank 144。Q(h,t)上で独立な6混合係数を保持し、3交換子が恒等的に零 |
+| `verify_cubic_casimir_jet.py` | 20自由係数。x,y,z各交換子の125個の語・次数係数が零。有限jetの検算であり、任意次数の中心性を単独で証明しない |
+| `verify_singular_cubic_classical_kernel.py` | active制限0の滑らかな例で378×56行列のrank 45、核次元11 |
+| `verify_nonelliptic_quantization.py` | 二つのmonic Diamond系と重なり、六普遍中心交換子、h=0極限、potential syzygy、分母範囲、二つのnegative control、17項Fermat恒等式がPASS。保存JSON全体と厳密一致 |
+
+非楕円例の33次小行列式は nodal: $8916100448256=2^{24}3^{12}$、
+cuspidal: $-4565043429507072=-2^{33}3^{12}$。
+その非零性と既知の2次元pencilにより接空間次元2を得る。
+元のPoissonスキームは有限型Cスキームなので、正則局所環から該当点での滑らかさを結論できる。
+
+独立多ブロックの補助例・Hesse平行移動・別のminor等のコードも保持しているが、
+上表にない計算を今回再実行済みとは扱わない。
+有限例のJacobi/rank検算は全次元正規形や成分定理の一般証明の代わりではない。
+普遍係数での恒等式検証と有限例への特殊化を区別する。
+
+## 再現と残る課題
+
+```sh
+python3 scripts/check_layout.py
+python3 scripts/build.py --only paper_a
+python3 scripts/verify_bundle.py --only paper_a --require-pdfs
+python3 computations/verify_poisson_article_A.py
+python3 computations/verify_nonelliptic_components.py --direct
+python3 computations/verify_poisson_stack_component_counts.py
+python3 computations/verify_universal_hesse_mixed_center.py
+python3 computations/verify_cubic_casimir_jet.py
+python3 computations/verify_singular_cubic_classical_kernel.py
+python3 computations/verify_nonelliptic_quantization.py
+```
+
+大きな記号行列のスクリプトは一つずつ実行する。
+組版の成功、PDF表示の確認、数学的証明の監査、遠隔保存は別々に記録する。
+
+優先課題は、Brückmann原証明の入手、先行研究の初出照合、Cramer中心のチャート間変換である。
+相対残余圏と全閉パラメータの滑らかさは独立の研究課題として扱い、原稿Aの確立した結果の仮定へ曖昧に混ぜない。
+公表価値は主要結果の正確さと既知結果との差から判断し、形式検証・外部査読・初出確定が済んだとは断定しない。
+
+GitHub mainが正本。節目の保存に追加承諾は不要。LibraryはGitHub保存が実際に失敗した時だけ緊急退避に用いる。

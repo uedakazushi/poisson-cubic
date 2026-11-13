@@ -10,496 +10,280 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月12日・論文A（投稿準備稿 v51）}
+\date{2026年11月13日・論文A（投稿準備稿 v52）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-12 / A-v51}
+\fancyhead[R]{\small 2026-11-13 / A-v52}
 \begin{document}
 \maketitle
 \begin{abstract}
 複素数体上の滑らかな射影三次超曲面
-$X=V(F)\subset\mathbb P^{n+1}$（$n\geq3$）の正則Poisson構造を研究する。
-全ての大域双ベクトル場を定数三重ベクトル$P$の縮約
-$\iota_{dF}P$で一意に記述し、
-Jacobi恒等式とHessianの線形系から、
-任意の非零Poisson構造を三変数Jacobianブロックの直和に帰着する。
-この正規形から、全ての許される退化階数における
-Bondal予想の次元下界を、平面曲線の射影joinを構成して導く。
-さらに退化スキームの生成イデアル、滑らかな平面三次制限を持つ場合の
-有限平坦critical cover、symplectic leafの幾何を記述する。
-各Poisson構造に対して、原点を含む一変数Zariski開集合上に
-Koszul Artin--Schelter正則な周囲の量子化と
-中心正則三次元による量子超曲面を構成する。
-三変数制限が特異・零の場合も、全体の三次式の滑らかさ、
-古典的Casimir核の一定次元性、普遍交換子行列の
-階数上界およびCramer公式によって\emph{代数的な中心三次元}を得る。
-この全Poisson量子化定理には形式的中心元やformalityを使わない。
-さらに一般Hesse型の任意のパラメータと全ての中心混合係数について、
-量子化パラメータの有限多項式で表せる
-\emph{厳密な普遍中心三次公式}を構成する。
-Hesse標準形により任意の滑らかな三変数三次制限へ
-この公式を適用でき、同じ対象に対する有限行列式の
-普遍有理表示も形式的中心元存在定理に依存せずに得る。
-さらに任意の次元$N=3k+m$のJacobian正規形について、
-$k$個のブロックの量子化パラメータを独立に動かし、
-一般階数$2k$のPoisson構造だけでなくその線形族全体を
-同時に量子化する。
-中心三次元は各ブロックの明示式の和であり、
-ブロック間の追加補正は必要ない。
-さらに定数三重ベクトルと$F$のHessianの内在的縮約により、
-任意次元の量子中心三次元の二次補正項を座標に依らず記述する。
-固定した滑らかなcubic fivefoldに現れる節点型・尖点型の
-非楕円Poisson成分と、Hesse型の明示中心元も扱う。
-高次元の正規形と量子化の構成を主結果とし、
-既知の三次元分類、一般のFano多様体についてのBondal予想、
-Sklyanin中心公式との関係を区別する。
-さらに中心三次商のambientについて、次元によらず
-次数一、二の積だけから二次包絡を復元し、
-偏極付き三つ組から中心方程式の直線も復元できることを証明する。
-Serre関手のみを使う復元については必要な追加仮定と
-一般次元での未解決部分を明記する。
+$X\subset\mathbb P^{n+1}$、$n\ge3$の正則Poisson構造を研究する。
+大域双ベクトル場の定数三重ベクトル表示とHessianの線形系を用い、
+全ての非零Poisson構造を三変数Jacobianブロックの直和に帰着する。
+この正規形から、全ての許される退化階数に対するBondal予想の次元下界と、
+退化スキームの方程式を導く。
+また各Poisson構造を、原点を含む一変数Zariski開集合上の
+Koszul Artin--Schelter正則代数と、その正則中心三次商に量子化する。
+中心元は、滑らかな三変数制限に対する普遍Hesse公式と、
+古典Casimir核および普遍交換子行列の階数を用いて代数的に構成する。
+この構成は三変数制限が特異または零の場合も含み、
+固定した正規形のPoisson線形族を同時に量子化する。
+さらに、固定超曲面上のPoissonスキームとその自己同型群による商、
+超曲面自身を動かす相対モジュライを区別し、
+Fermat超曲面の成分を集合分割で記述するとともに、
+相対モジュライの既約成分数が$\lfloor(n+2)/3\rfloor$であることを示す。
+最後に、偏極付きの量子超曲面から二次ambientと中心方程式の直線を復元する。
 \end{abstract}
 \tableofcontents
 
 \section{序論}\label{sec:paperA-introduction}
 
-\subsection*{問題設定と三種類のモジュライ}
-$\mathbb C$上の滑らかな三次超曲面
-$X=V(F)\subset\mathbb P(V)$、$\dim V=N=n+2\geq5$を固定する。
-本稿では、以下の三つの対象を明確に区別する。
-固定した$X$上の全正則Poisson構造のJacobi零スキームを
-\emph{space of Poisson structures}と呼び、
-\begin{equation}
- \operatorname{Pois}(X)=
- \{\pi\in H^0(X,\bigwedge\nolimits^2T_X):[\pi,\pi]=0\}
- \label{eq:intro-poisson-space}
-\end{equation}
-と書く。その同型類を、Poisson構造を保つ$X$の自己同型を
-射として分類する商スタックは
-\emph{moduli stack of Poisson structures}であり、
-\begin{equation}
- \mathfrak{Pois}(X)=
- [\operatorname{Pois}(X)/\operatorname{Aut}(X)],
- \qquad
- \operatorname{Aut}(X,\pi)=
- \{\phi\in\operatorname{Aut}(X):\phi_*\pi=\pi\}
- \label{eq:intro-poisson-fixed-stack}
-\end{equation}
-と定義する。ここで$\operatorname{Aut}(X)$は$X$の全自己同型群、
-$\operatorname{Aut}(X,\pi)$は各点の安定化子
-（Poisson automorphism群）である。
-$\pi$のスカラーは割らず、零構造も含める。
+三次超曲面のPoisson構造は、その可換幾何と次数付き非可換変形を結ぶ。
+本稿の目的は、任意次元の滑らかな三次超曲面について、
+Poisson構造の正規形、退化軌跡、代数的量子化を一つの証明体系にまとめ、
+固定した超曲面と相対モジュライの双方でその帰結を記述することである。
+以下では$X=V(F)\subset\mathbb P(V)$、$\dim V=N=n+2\ge5$とし、
+基礎体は$\mathbb C$とする。
 
-さらに$X$自身も動かし、滑らかなcubic $n$-foldと
-Poisson bivectorの組$(X,\pi)$を同型によって分類する
-\emph{relative moduli stack of Poisson structures}を
-\begin{equation}
- \mathfrak{Pois}^{\mathrm{rel}}_n
- =[\mathscr P_n/\mathrm{PGL}_{n+2}]
- \label{eq:intro-poisson-relative-stack}
+\subsection*{正規形と退化軌跡}
+三次式$F$を固定すると、大域双ベクトル場は
+\begin{equation}\label{eq:intro-bivector-representation}
+ \bigwedge\nolimits^3V\xrightarrow{\sim}H^0(X,\bigwedge\nolimits^2T_X),
+ \qquad P\longmapsto\pi_P=\iota_{dF}P|_X
 \end{equation}
-と定義する。$\mathscr P_n$は全滑らかな三次式の
-パラメータ空間上にある相対Jacobi零スキームである。
-$X$を固定した商と、$X$を動かす商を混同しない。
-
-命題\ref{prop:pg-fixed-stack-algebraic}と
-定理\ref{thm:pg-relative-stack-algebraic}において、
-$\operatorname{Aut}(X)$が有限エタールであること、
-$\mathscr P_n$が有限型スキームであることを証明し、
-$\mathfrak{Pois}(X)$と$\mathfrak{Pois}^{\mathrm{rel}}_n$が
-ともに$\CC$上有限型のDeligne--Mumford代数的スタックである
-ことを示す。特に、stackの既約成分とspaceの既約成分を
-区別する必要がある。
-
-\subsection*{複素構造に依存する固定スタックと相対成分数}
-定理\ref{thm:pg-fermat-relative-count}は、
-一般の滑らかなcubicでは
-$\operatorname{Pois}(X)$も$\mathfrak{Pois}(X)$も既約である一方、
-特殊な$X$では既約成分が増えることを示す。
-$N=n+2$、Fermat cubic
-\begin{equation}
- X_N=V(F_N)\subset\PP^{N-1},\qquad
- F_N=\sum_{i=1}^N z_i^3
- \label{eq:intro-fermat-equation}
-\end{equation}
-を取る。$V_B=\langle e_i:i\in B\rangle$、
-$\widehat{\operatorname{Gr}}(3,V_B)$を
-$\operatorname{Gr}(3,V_B)$のPl\"ucker錐（原点を含む）と書く。
-$\mathcal B=\{B_1,\ldots,B_k\}$が
-$\{1,\ldots,N\}$の\emph{非順序分割}で、
-全ての$|B_s|\ge3$ならば
-\begin{equation}
- Z_{\mathcal B}=
- \sum_{B\in\mathcal B}
- \widehat{\operatorname{Gr}}(3,V_B)
- \ \subset\ \bigwedge\nolimits^3\CC^N,
- \qquad
- \operatorname{Pois}(X_N)_{\mathrm{red}}
- =\bigcup_{\mathcal B}Z_{\mathcal B}.
- \label{eq:intro-fermat-components}
-\end{equation}
-これらの$Z_{\mathcal B}$がspaceの相異なる既約成分であり、
-$k$個のブロックを持つものは一般Poisson階数$2k$を与える。
-そのspaceにおける成分数は、
-各部分の大きさが$3$以上である集合分割の個数
-$\left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}$
-によって
-\begin{equation}
- \#\operatorname{Irr}(\operatorname{Pois}(X_N))
- =\sum_{k=1}^{\lfloor N/3\rfloor}
- \left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3},
- \quad
- \sum_{N\ge0}\frac{t^N}{N!}
- \left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}
- =\frac{(e^t-1-t-t^2/2)^k}{k!}
- \label{eq:intro-fermat-space-count}
-\end{equation}
-と明示的に表せる。
-
-一方、$X_N$の自己同型群は
-$(\mu_3^N/\mu_3)\rtimes\mathfrak S_N$であり、
-座標置換は同じブロックの大きさを持つ集合分割を
-同一視する。従って\emph{固定したmoduli stack}の成分数は、
-各部分が$3$以上の\emph{整数分割}の個数
-$p_{\ge3}(N)$となる。さらに
-\emph{relative moduli stack}の成分数は
-Poisson一般階数を固定するごとに一つの成分となり、
-\begin{equation}
- \boxed{
- \begin{aligned}
- \#\operatorname{Irr}(\mathfrak{Pois}(X_N))
- &=p_{\ge3}(N)=[q^N]\prod_{b\ge3}(1-q^b)^{-1},\\
- \#\operatorname{Irr}(\mathfrak{Pois}^{\mathrm{rel}}_n)
- &=\left\lfloor\frac{n+2}{3}\right\rfloor .
- \end{aligned}}
- \label{eq:intro-poisson-stack-counts}
-\end{equation}
-この違いは、固定特殊ファイバーでは複素構造に応じて
-多数のPoisson成分が現れるものの、
-$X$も動かせばそれらが少数の相対成分の特殊化に
-まとまることを表す。例えば
-\begin{equation}
- \begin{array}{c|rrrrr}
- n&3&4&6&7&10\\\hline
- \#\operatorname{Irr}(\operatorname{Pois}(X_N))
- &1&11&92&491&60105\\
- \#\operatorname{Irr}(\mathfrak{Pois}(X_N))
- &1&2&3&4&9\\
- \#\operatorname{Irr}(\mathfrak{Pois}^{\mathrm{rel}}_n)
- &1&2&2&3&4
- \end{array}
- \label{eq:intro-poisson-count-table}
-\end{equation}
-となる。固定Fermatのstackの成分数は
-$n$とともに増大し、relative stackの線形成長とは対照的である。
-固定Fermatのspaceの分割数はさらに速く増大する。
-Fermatが固定cubicの成分数を常に最大化するとは
-主張しない。また固定stackの成分数を
-集合分割数そのものと取り違えない。
-
-\subsection*{先行研究と主要結果の位置づけ}
-三次元の滑らかなcubicについては、
-Loray--Pereira--Touzet~\cite{LPTPoissonCubic}および
-Mayanskiy~\cite[Theorem~1]{PMayanskiy}による分類があり、
-非零Poisson構造の射影化はPl\"ucker埋込みの
-$\operatorname{Gr}(2,5)$となる。
-本稿の正規形はこれを低次元の場合として含む一方、
-高次元では一般階数$2,4,\ldots$の複数のブロックが現れ得る。
-退化軌跡の次元に関するBondal予想は
-Gualtieri--Pym~\cite{BondalGualtieriPym}によって
-Fano四次元まで証明され、
-Druel--Pereira--Pym--Touzet~\cite{BondalDruelPereiraPymTouzet}
-によってFano五次元で証明された。
-本稿の帰結は、滑らかな三次超曲面という特定のクラスについて
-任意の次元を同時に扱うものであり、一般のFano多様体への主張ではない。
-
-量子化に関しては、三次元Sklyanin代数、
-potentialによるPBW変形および中心元の理論を入力とする
-\cite{PMoriSmith,PBergerTaillefer,EG,SmithTate}。
-一般の形式的量子化とそのCalabi--Yau双対性については
-Kontsevich~\cite{PKontsevich}、
-Dolgushev~\cite{PDolgushev}および
-Etingof--Ginzburg~\cite[\S8.3]{EG}の既知の理論がある。
-本稿の\emph{代数的中心元の存在証明}は
-それらのformality・完備双加群理論を入力とせず、
-Hesse型で証明した全係数の中心恒等式、
-古典的Casimir核の一定次元性、
-普遍交換子行列の小行列式の代数的消滅のみを用いる。
-稠密な滑らかな三変数制限から特異制限への
-rank恒等式の特殊化と、個々の中心元の無条件な
-特殊化とは区別する。
-
-\subsection*{主要結果I：Poisson正規形}
-第一の結果（定理\ref{thm:pg-normal}）は、
-\begin{equation}
- \wedge^3V\ \xrightarrow{\;\sim\;}\ 
- H^0(X,\wedge^2T_X),\qquad
- P\longmapsto \iota_{dF}P|_X
-\end{equation}
-という線形同型（命題\ref{prop:pg-represent}）と、
-Jacobi恒等式の代数的記述から始まる。
-非零のPoisson構造に対して、ある$k\geq1$、$m\geq0$、
-$N=3k+m$および直和分解
-$V=W_1\oplus\cdots\oplus W_k\oplus U$（$\dim W_s=3$）が存在し、
-\begin{equation}
+と一意に表示される（命題\ref{prop:pg-represent}）。
+Jacobi恒等式を$F$のHessianに関する線形条件へ変換し、
+基点を持たない二次形式の系に対応するLie代数を解析することにより、
+次の正規形を得る（定理\ref{thm:pg-normal}）。
+任意の非零Poisson構造に対し、
+$N=3k+m$および$V=W_1\oplus\cdots\oplus W_k\oplus U$、
+$\dim W_s=3$となる分解を選んで
+\begin{equation}\label{eq:intro-block-normal-form}
  F=\sum_{s=1}^k f_s(x_s,u),\qquad
  P=\sum_{s=1}^k
  \partial_{x_{s1}}\wedge\partial_{x_{s2}}\wedge\partial_{x_{s3}}
 \end{equation}
-と書ける。$U$の座標$u$はPoisson中心であり、
-各$W_s$上で括弧は$f_s$のJacobian括弧となる。
-一般階数は$2k$である。
-この分解は存在の主張であり、個々の座標や
-中心三次項の配分の一意性は要求しない。
-証明の核心は、Hessianの線形系から作る二次Lie代数を
-$\mathfrak{sl}_2$因子の直和に帰着する補題
-\ref{lem:pg-quadratic-lie}である。
+と書ける。$u$はPoisson中心の座標であり、一般Poisson階数は$2k$である。
+証明の核心は補題\ref{lem:pg-quadratic-lie}で、
+対応する二次Lie代数の非中心部分が$\mathfrak{sl}_2$の直和となることを示す。
+個々の座標や純中心三次項のブロックへの配分の一意性は必要としない。
 
-$n=3$では$N=5$なので$k=1$であり、
-$\operatorname{Gr}(3,V)\cong\operatorname{Gr}(2,V^*)$
-という既知のGrassmann記述が回復される。
-高次元でも一般の滑らかな$F$では非零構造の一般階数が
-二である（系\ref{cor:pg-generic}）。
-固定した特殊な$F$では複数ブロックの成分が現れるので、
-「一般のcubic」と「固定cubicのPoissonスキームの一般点」を混同しない。
+$n=3$では$k=1$となり、既知のGrassmann記述を回復する。
+一般の滑らかな$F$でも非零構造の一般階数は二であるが、
+特殊な$F$には複数ブロックの構造が現れる（系\ref{cor:pg-generic}）。
+従って、一般の超曲面上の構造と、固定した特殊超曲面のPoissonスキームの
+一般点とでは、一般階数が異なり得る。
 
-\subsection*{主要結果II：退化軌跡とBondal予想}
-$D_{2j}(\pi)=V(\pi^{j+1})$を階数が$2j$以下になる閉部分スキームとする。
-定理\ref{thm:pg-bondal}において、任意の$n\geq3$、
-$2j<n$について
-\begin{equation}
- \dim D_{2j}(\pi)\geq 2j+1
+$D_{2j}(\pi)=V(\pi^{j+1})$を階数が$2j$以下となる退化スキームとする。
+正規形から、全ての$2j<n$について
+\begin{equation}\label{eq:intro-bondal}
+ \dim D_{2j}(\pi)\ge2j+1
 \end{equation}
-を証明する。一般階数$2k$で$j<k$の場合には、
-$j+1$個の互いに独立なJacobianブロックから平面曲線を選び、
-それらの射影join$J_{j+1}$を$D_{2j}(\pi)$に含める。
-$\dim J_{j+1}=2j+1$であり、
-射影化でEuler方向が消えることが階数低下の鍵となる。
-この証明は前記の正規形定理に依存する。
-退化軌跡の台の次元下界と、その非被約スキーム構造は区別する。
+を得る（定理\ref{thm:pg-bondal}）。
+$j<k$では、$j+1$個のブロック上の平面曲線の射影joinを構成し、
+Euler方向を除いた双ベクトルの階数を計算する。
+このjoinは次元$2j+1$で$D_{2j}(\pi)$に含まれる。
+三変数制限$f_s(x_s,0)$の滑らかさはこの次元下界には不要である。
 
-より精密には命題\ref{prop:pg-deg-ideal}が全階数の
-退化スキームのイデアル層の生成元を与える。
-各ブロックの中心座標$u=0$への制限が
-滑らかな平面三次曲線を定めるという追加仮定の下では、
-補題\ref{lem:pg-critical-cover}と命題\ref{prop:pg-zero-ci}により、
-有限平坦critical coverと零点の完全交叉性・次数を得る。
-この追加仮定は、正規形やBondal予想の定理そのものには課さない。
+退化スキームの生成イデアルは命題\ref{prop:pg-deg-ideal}で与える。
+各$f_s(x_s,0)$が滑らかな平面三次を定める場合には、
+有限平坦critical coverと零点の完全交叉性・次数をさらに記述する
+（補題\ref{lem:pg-critical-cover}、命題\ref{prop:pg-zero-ci}）。
+この追加仮定を、正規形とBondal予想の定理の仮定から区別する。
 
-\subsection*{主要結果III：代数的な中心三次量子化}
-定理\ref{thm:pg-quantization}は、固定した任意の$\pi$に対し、
-$0$を含む一変数Zariski開集合$U\subset\mathbb A^1_\hbar$上で
-二次関係式による代数$A_U$と三次中心元$\Omega_U$を構成する。
-その閉ファイバーはKoszul AS-regularで、生成元数$N$、
-Hilbert級数$(1-t)^{-N}$、大域次元$N$を持つ。
-中心正則商$B_U=A_U/(\Omega_U)$は
-$S/(F)$の平坦量子化であり、
-各ファイバーはAS-Gorenstein、Hilbert級数
-$(1-t^3)/(1-t)^N$を持つ。
-この構成は\emph{各Poisson構造ごと}のものであり、
-全Poisson係数空間にわたる単一の相対量子化族、
-または$\operatorname{qgr}B_\hbar$のsmoothnessを結論しない。
-原点を含む開集合の存在と、特定の閉点における公式の可逆性も区別する。
+\subsection*{代数的量子化と中心元}
+定理\ref{thm:pg-quantization}は、固定した任意のPoisson構造に対し、
+$0$を含むZariski開集合$U\subset\mathbb A^1_\hbar$上に
+二次代数$A_U$と正則中心三次元$\Omega_U$を構成する。
+各次数成分は底上で平坦であり、
+$A_U$の閉ファイバーは$N$生成元、Hilbert級数$(1-t)^{-N}$、
+大域次元$N$のKoszul AS正則代数となる。
+中心商$B_U=A_U/(\Omega_U)$は$\operatorname{Sym}(V^*)/(F)$の平坦量子化で、
+各閉ファイバーはAS Gorenstein、Hilbert級数$(1-t^3)/(1-t)^N$を持つ。
+関係式は、各ブロックについて巡回的に
+\begin{equation}\label{eq:intro-quantum-relations}
+ [x_{s2},x_{s3}]
+ =\hbar\,\operatorname{sym}(\partial_{x_{s1}}f_s)
+\end{equation}
+であり、異なるブロックと中心変数の間の交換子は零である。
 
-さらに任意次元の二次ambientと次数$d\ge3$の正規超曲面商について、
-低次数の積からambientと方程式直線を復元する
+中心三次元の構成は、以下の有限次元の議論による。
+まず滑らかな三変数制限を持つブロックについて、
+Hesse座標で全混合係数を許す厳密な多項式中心公式を与える
+（定理\ref{thm:pg-fermat-mixed-universal}、
+\ref{thm:pg-universal-hesse-mixed}）。
+次に、\emph{全体の}三次式$f$が滑らかであれば、
+三変数制限の特異性によらず古典Casimir核は
+\begin{equation}\label{eq:intro-classical-kernel-all}
+ \ker\left(S_3\xrightarrow{p\mapsto(\{p,x_i\}_f)_{i=1}^3}
+ (S_4)^3\right)=\mathbb C f\oplus\mathbb C[u]_3
+\end{equation}
+となる。ここで$S=\mathbb C[x_1,x_2,x_3,u]$である。
+滑らかな三変数制限を持つ係数の稠密開集合での中心公式から、
+普遍量子交換子行列の所定の小行列式が恒等的に消える。
+これと古典核の一定次元性を合わせ、Cramer公式で
+$\hbar=0$において正則な有理式の中心元を得る
+（定理\ref{thm:pg-universal-determinant}）。
+中心項を配分して各ブロック全体を滑らかにできることは
+補題\ref{lem:pg-central-splitting-smooth}で示す。
+このため量子化定理には形式的中心元の存在を仮定する必要がない。
+
+固定した正規形では、独立なパラメータ$\eta_1,\ldots,\eta_k$を導入し、
+各ブロックの中心元を加えることで
+\begin{equation}\label{eq:intro-independent-center}
+ \Omega_{\boldsymbol\eta}=\sum_{s=1}^k\Omega_{f_s,\eta_s}
+\end{equation}
+を得る。ブロック間の追加補正は不要である。
+$\eta_s=\lambda_s\hbar$により、$\sum_s\lambda_s\pi_s$という
+Poisson線形族の全方向を一つの相対代数族で量子化できる
+（定理\ref{thm:pg-all-dimensions}、\ref{thm:pg-ad-all-poisson}）。
+滑らかな三変数制限では高々$\eta_s^4$の多項式公式を用い、
+特異・零の制限を含む一般の場合には原点で正則な有理式を用いる。
+また、定数三重ベクトルとHessianの縮約
+\begin{equation}\label{eq:intro-intrinsic-hessian}
+ \mathscr H(P,F)=\frac16P^{ijk}P^{abc}F_{ia}F_{jb}F_{kc}
+\end{equation}
+により、中心元の二次補正を内在的に表す
+（命題\ref{prop:pg-universal-casimir-jet}、
+\ref{prop:pg-ad-intrinsic-hessian}）。
+二次jetの普遍恒等式とHesse表示での全次数中心公式は、異なる主張である。
+
+この量子化は各構造および固定した正規形の線形族についての構成である。
+全Poissonモジュライ上の大域的な量子化射や、
+全閉点での$\operatorname{qgr}B_\hbar$のsmoothnessは結論に含めない。
+
+\subsection*{固定・相対モジュライとFermatの成分}
+固定した$X$上のJacobi零スキームと、その自己同型群による商を
+\begin{equation}\label{eq:intro-poisson-space}
+ \operatorname{Pois}(X)=
+ \{\pi\in H^0(X,\bigwedge\nolimits^2T_X):[\pi,\pi]=0\},
+\end{equation}
+\begin{equation}\label{eq:intro-poisson-fixed-stack}
+ \mathfrak{Pois}(X)=[\operatorname{Pois}(X)/\operatorname{Aut}(X)],
+ \quad \operatorname{Aut}(X,\pi)=
+ \{\phi\in\operatorname{Aut}(X):\phi_*\pi=\pi\}
+\end{equation}
+と書く。前者をPoisson構造のspace、後者を固定モジュライstackと呼ぶ。
+Poisson構造のスカラーは割らず、零構造も含める。
+超曲面自身を動かす相対モジュライは
+\begin{equation}\label{eq:intro-poisson-relative-stack}
+ \mathfrak{Pois}^{\mathrm{rel}}_n=[\mathscr P_n/\mathrm{PGL}_{n+2}]
+\end{equation}
+である。$\mathscr P_n$は滑らかな三次超曲面のパラメータ空間上の
+相対Jacobi零スキームである。方程式の代表を使う表示では
+$(F,P)\sim(cF,c^{-1}P)$とし、$\pi_P$を不変に保つ。
+命題\ref{prop:pg-fixed-stack-algebraic}、
+定理\ref{thm:pg-relative-stack-algebraic}により、
+両モジュライは有限型Deligne--Mumford代数的スタックとなる。
+
+固定した一般の滑らかなcubicではspaceも固定stackも既約だが、
+特殊な複素構造では既約成分が増える。
+定理\ref{thm:pg-fermat-relative-count}ではFermat超曲面
+\begin{equation}\label{eq:intro-fermat-equation}
+ X_N=V(F_N)\subset\mathbb P^{N-1},\qquad F_N=\sum_{i=1}^Nz_i^3
+\end{equation}
+について、各部分の大きさが三以上の非順序集合分割
+$\mathcal B=\{B_1,\ldots,B_k\}$と
+$V_B=\langle e_i:i\in B\rangle$を用い、
+\begin{equation}\label{eq:intro-fermat-components}
+ Z_{\mathcal B}=\sum_{B\in\mathcal B}\widehat{\operatorname{Gr}}(3,V_B),
+ \qquad \operatorname{Pois}(X_N)_{\mathrm{red}}
+ =\bigcup_{\mathcal B}Z_{\mathcal B}
+\end{equation}
+と記述する。$\widehat{\operatorname{Gr}}$は原点を含むPl\"ucker錐であり、
+$Z_{\mathcal B}$がspaceの相異なる既約成分である。
+$k$個の部分を持つ成分の一般Poisson階数は$2k$となる。
+従ってspaceの成分数は
+\begin{equation}\label{eq:intro-fermat-space-count}
+ \begin{aligned}
+ \#\operatorname{Irr}(\operatorname{Pois}(X_N))
+ &=\sum_{k=1}^{\lfloor N/3\rfloor}
+ \left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3},\\
+ \sum_{N\ge0}\frac{t^N}{N!}
+ \left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}
+ &=\frac{(e^t-1-t-t^2/2)^k}{k!}.
+ \end{aligned}
+\end{equation}
+一方、$\operatorname{Aut}(X_N)=(\mu_3^N/\mu_3)\rtimes\mathfrak S_N$は
+同じ部分の大きさを持つ集合分割を同一視する。
+固定stackの成分数は、各部分が三以上の整数分割数$p_{\ge3}(N)$となる。
+相対モジュライでは一般Poisson階数ごとに一つの成分があり、
+\begin{equation}\label{eq:intro-poisson-stack-counts}
+ \begin{aligned}
+ \#\operatorname{Irr}(\mathfrak{Pois}(X_N))
+ &=p_{\ge3}(N)=[q^N]\prod_{b\ge3}(1-q^b)^{-1},\\
+ \#\operatorname{Irr}(\mathfrak{Pois}^{\mathrm{rel}}_n)
+ &=\left\lfloor\frac{n+2}{3}\right\rfloor.
+ \end{aligned}
+\end{equation}
+例えば次のように、三種類の成分数は異なる。
+\begin{equation}\label{eq:intro-poisson-count-table}
+ \begin{array}{c|rrrrr}
+ n&3&4&6&7&10\\\hline
+ \#\operatorname{Irr}(\operatorname{Pois}(X_N))&1&11&92&491&60105\\
+ \#\operatorname{Irr}(\mathfrak{Pois}(X_N))&1&2&3&4&9\\
+ \#\operatorname{Irr}(\mathfrak{Pois}^{\mathrm{rel}}_n)&1&2&2&3&4
+ \end{array}
+\end{equation}
+ここではFermatが固定超曲面の成分数を最大化するとは主張しない。
+また、滑らかなcubic fivefoldの固定Poissonスキームに、
+節点型・尖点型の三変数制限を持つ成分が現れる具体例を
+定理\ref{ne:main}に与える。
+その成分性は、直接Schouten線形化でも検証できる整数小行列式で示す。
+
+\subsection*{ambientの復元}
+三次以上の一つの斉次関係で二次代数を割っても、次数一・二の積は変わらない。
+この事実から量子超曲面の二次包絡としてambientを復元し、
+商写像の三次核から中心方程式の直線を得る
 （定理\ref{thm:pg-ambient-recovery-general}）。
-AS Gorenstein仮定の下では偏極付き圏
-$(\operatorname{qgr}A,\mathcal O_A,(1))$からも復元できる
+左右noetherianなAS Gorenstein性と所定のinjective dimensionの下では、
+偏極付き三つ組からsection algebraを復元して同じ構成を適用できる
 （定理\ref{thm:pg-ambient-recovery-polarized}）。
-構造対象のみからSerre関手によって復元する強化は、
-三次三様体での偶数Veroneseと追加中心条件の下で証明する。
-一般次元のSerre関手から得られるVeroneseを
-無条件に元の代数と同一視しない。
+三次三様体については、Serre双対性・二変数中心・中心上の自由性などを仮定して、
+構造対象付き導来圏から偶数Veroneseを経由する復元も示す
+（系\ref{cor:pg-ambient-derived-threefold}）。
+一般次元でSerre関手から得られるVeroneseが元の代数を決定するかは別の問題である。
 
-さらに中心元の反自己同型に関する偶数次正規化を示し
-（補題\ref{lem:pg-center-parity}）、
-任意の三変数Jacobianブロックについて
-\begin{equation}
- \Theta_f=\operatorname{sym}_R\!
- \left(f-\frac{\hbar^2}{12}
- \det\left(\frac{\partial^2f}{\partial x_i\partial x_j}\right)_{i,j=1}^3
- \right)
-\end{equation}
-が$\hbar^5$を法として中心であることを証明する
-（命題\ref{prop:pg-universal-casimir-jet}）。
-証明は二十個の独立係数を保持した有界次数の非可換語の
-厳密な恒等式検査に基づく。これは全次数の閉公式ではなく、
-一般的な中心元存在定理と区別した二次の明示結果である。
+\subsection*{先行研究との関係}
+三次三様体のPoisson構造の分類は
+Loray--Pereira--Touzet\cite[Theorems~7.1, 9.1]{LPTPoissonCubic}による。
+Mayanskiy\cite[Theorem~1]{PMayanskiy}はJacobi方程式からGrassmannスキームの
+記述を与え、Poisson cohomologyを計算している。
+本稿の正規形はこの三次元の場合を含み、高次元の複数Jacobianブロックを扱う。
+Bondal予想について、Gualtieri--Pym\cite[Theorem~7.13]{BondalGualtieriPym}は
+Fano四次元の場合を証明し、
+Druel--Pereira--Pym--Touzet\cite[Corollary~1.3]{BondalDruelPereiraPymTouzet}は
+Fano五次元の場合を証明した。
+Aza\cite[Theorem~1.3]{BondalAza}は、一般のFano多様体で隣接する退化軌跡が
+真に異なるとき、少なくとも一方がBondalの次元下界を満たすことを示している。
+本稿では滑らかな三次超曲面というクラスについて任意次元の全退化階数を扱う。
 
-まず論文B関連のFermat型全混合中心式を、
-$\mathbb Q(\hbar)$上の普遍的な次数四関係式の恒等式として検証し、
-形式的中心元の存在を仮定しない
-\emph{有限多項式の厳密な中心元}とする
-（定理\ref{thm:pg-fermat-mixed-universal}）。
-次にこの公式を一般の
-\begin{equation}
- g_t(x,y,z)=\frac{x^3+y^3+z^3}{3}+txyz
-\end{equation}
-へ拡張する。任意の$t$と独立な中心混合係数
-$A,B,C,D,E,H$について、二次量子化パラメータ$q=\hbar^2$の
-高々二次の七つの係数多項式を使って
-中心三次元を与える（定理\ref{thm:pg-universal-hesse-mixed}）。
-$\mathbb Q(\hbar,t)$上で339自由語・162関係ベクトルからなる
-行列の階数144と、三つの交換子の剰余零を証明する。
-$\hbar=0$でも階数が144なので、原点を含む開部分に
-全係数恒等式が降下する。これは有限特殊化の成功や
-形式的な存在証明を新定理として扱うものではなく、
-\emph{厳密な普遍多項式恒等式}を用いた構成である。
+量子化では、Mori--Smithの三生成元Calabi--Yau代数の判定、
+Berger--TailleferのpotentialによるPBW変形、
+中心正則拡大の理論を用いる\cite{PMoriSmith,PBergerTaillefer,LBSVNE12}。
+Sklyanin中心元の基本公式は既知であり\cite{SmithTate,DeLaetLeBruyn}、
+本稿ではそのPoissonパラメータ表示、全混合係数の普遍恒等式、
+および特異制限へ進むための交換子行列の階数の議論を与える。
+一般の形式的量子化とCalabi--Yau双対性には
+Kontsevich、Dolgushev、Etingof--Ginzburgの理論がある
+\cite{PKontsevich,PDolgushev,EG}。
+本稿の代数的中心元の存在証明は、前述の有限次元の構成による。
+完全交叉の存在判定はBr\"uckmann型消滅の既知の帰結
+\cite[Lemma~4.1]{FuHwangCI}として、
+偏極付き圏のsection algebra復元はArtin--Zhangの理論
+\cite{PAZAmbient}の適用として記す。
 
-一般のHesse型に含まれる対角二次混合項は中心変数による
-平行移動で消去できる
-（系\ref{cor:pg-universal-hesse-all-mixed}）。
-さらに任意の滑らかな平面三次式はHesse標準形に
-線形変換できるので、\emph{任意の滑らかな三変数制限}
-$F(x,y,z,0)$を持つJacobianブロックについて、
-選んだHesse座標での\emph{有限多項式中心元}を得る
-（系\ref{cor:pg-smooth-ternary-explicit}）。
-元の座標を保ちたいときには、
-次数三交換子行列の非零小行列を用いた
-普遍Cramer表示も得られる
-（定理\ref{thm:pg-universal-determinant}）。
-中心変数が二つなら$30\times30$の決定式を使う。
-さらに\emph{全体の}三次式が滑らかである限り、
-三変数制限が特異または恒等的零であっても
-同じrankの行列式表示が成立する。
-これは稠密なHesse型からの小行列式の
-恒等的消滅を使った代数的な特殊化であり、
-形式的中心元の存在という仮定を要しない。
+\subsection*{本文の構成}
+第\ref{sec:general-poisson-existence}節で完全交叉と斉次多様体の背景を述べる。
+第\ref{sec:pg-extension}--\ref{sec:pg-degeneracy}節で表示・正規形・葉・退化スキームを扱い、
+第\ref{sec:pg-quantization}節で量子化の主定理を証明する。
+Fermat・Hesse型の普遍中心公式、有限行列式による一般中心元、
+多変数量子化は第\ref{sec:pg-fermat-mixed-universal}--\ref{sec:pg-all-dimensions}節に置く。
+第\ref{sec:pg-ambient-recovery}節がambient復元、
+第\ref{sec:pg-poisson-stacks}--\ref{sec:pg-fermat-relative-components}節がモジュライを扱う。
+第\ref{sec:pg-bondal}節でBondal予想の帰結を示し、
+第\ref{ne:examples}節以降に非楕円成分と明示量子化の例を収める。
 
-\subsection*{任意次元への拡張}
-正規形のブロック数$k$は
-$1\le k\le\lfloor(n+2)/3\rfloor$の任意の値を取り得る。
-各ブロックの純active三次式が滑らかであれば、
-中心変数を共有したまま独立な量子化パラメータ
-$\eta_1,\ldots,\eta_k$を導入できる。
-各ブロックの普遍中心三次元の和
-\begin{equation}
- \Omega_{\boldsymbol\eta}
- =\sum_{s=1}^k\Omega_{f_s,\eta_s}
-\end{equation}
-は厳密な中心元であり、周囲の次数付き代数は
-適切な原点近傍で次元$N=3k+m$のKoszul AS-regular、
-中心商はAS-Gorensteinとなる
-（定理\ref{thm:pg-all-dimensions}）。
-$\eta_s=\lambda_s\hbar$という特殊化で
-$\sum_s\lambda_s\pi_s$という$k$次元の
-Poisson線形族を\emph{一つの相対的な代数族として同時に量子化}できる（系\ref{cor:pg-ad-whole-pencil}）。
-この高次元への拡張は、単一の三変数公式から形式的に
-存在が言えるだけでなく、共通中心変数の上での
-テンソル積・PBW基底・全ファイバーの中心正則性・
-多変数底の平坦性まで証明するものである。
-さらに同じ証明は、Cramer式による有理関数中心元を使えば、
-\emph{三変数制限の滑らかさを課さず}全Poisson線形族へ拡張する
-（定理\ref{thm:pg-ad-all-poisson}）。
-この場合、中心元が$\eta_s^4$までの多項式であるとは
-主張せず、原点で正則な有理式として与える。
-有限の全次数Hessian公式も
-系\ref{cor:pg-ad-hessian}に記載する。
-さらに任意次元の$V$における定数三重ベクトル
-$P\in\bigwedge^3V$について
-\begin{equation}
- \mathscr H(P,F)=\frac16
- P^{ijk}P^{abc}F_{ia}F_{jb}F_{kc}
-\end{equation}
-という\emph{座標不変}の三次式を定義すると、
-一般次元の中心三次元の$\hbar^2$補正は
-中心三次元の加減を除いて
-$-\hbar^2\mathscr H(P,F)/12$となる
-（命題\ref{prop:pg-ad-intrinsic-hessian}）。
-高次補正は各Hesseブロックの四次補正の和で明示でき、
-$\hbar^2$の不変項と区別される。
-
-適用範囲を明確にするため、
-滑らかな三変数三次制限に対する
-短い普遍多項式中心元と、
-三次制限が節点型・尖点型・零の場合も適用できる
-Cramer有理式の代数的中心元を区別する。
-どちらも\emph{形式的存在補題を使わない}。
-前者の新規性は全混合方向を同時に扱う普遍恒等式であり、
-Sklyanin中心元の既知の基本公式自体ではない。
-一般の特異ブロックまでを一つの短い式で覆う主張や、
-GL$_3$不変な元座標での閉多項式公式はしない。
-
-
-\subsection*{全Poisson構造の中心元：形式化を使わない証明}
-任意のsmooth cubic $X$のPoisson正規形
-$F=\sum_{s=1}^k f_s(x_s,u)$では、
-三変数制限$g_s=f_s(x_s,0)$が特異・零のこともある。
-しかし純中心三次部分を各ブロックへ
-一般的に配分し直すと、各
-$V(f_s)\subset\PP(x_s,u)$を滑らかにできる
-（補題\ref{lem:pg-central-splitting-smooth}）。
-さらに\emph{全体の}$f_s$が滑らかなら
-\begin{equation}
- \ker\bigl(S_3\xrightarrow{p\mapsto\{p,x_s\}_f}
- (S_4)^3\bigr)
- =\CC f_s\oplus\CC[u]_3
- \label{eq:intro-classical-kernel-all}
-\end{equation}
-が成立する。これはactive偏微分の最大公約因子が1であることから従い、
-$g_s=0$の場合も有効である。
-
-一方、Hesse型の滑らかな制限を持つ稠密開集合で
-$\hbar$の多項式中心元が既に得られたため、
-次数三の量子交換子行列の$(r+1)$次小行列式は
-係数空間の稠密開上で零、従って\emph{普遍的に零}となる。
-上述の古典核の一定次元性から、任意の滑らかな$f_s$で
-原点を含む開集合上に
-Cramer行列式の比で表せる\emph{厳密な中心元}が存在する
-（定理\ref{thm:pg-universal-determinant}）。
-複数ブロックではこれらを足すだけでよい。
-これにより定理\ref{thm:pg-quantization}は
-\emph{全てのPoisson構造}について形式的量子化に頼らず証明される。
-さらに一般次元の$k$変数Poisson pencilの全方向も、
-$\hbar^2$の\emph{有理式}の中心元で
-同時に代数的量子化できる
-（定理\ref{thm:pg-ad-all-poisson}）。
-短いHesse多項式公式と、特異制限も含む
-有限Cramer有理式は明示性の異なる結果として区別する。
-
-\subsection*{具体例と適用範囲}
-非楕円型の節点ブロック・尖点ブロックが、
-滑らかなcubic fivefold上の固定Poissonスキームの
-既約成分の一般点として現れる例を定理\ref{ne:main}に与える。
-これは全cubicを動かす相対Poissonモジュライの
-既約成分性を述べるものではない。
-楕円型のHesseブロックについては、既知の
-Sklyanin中心元の公式を本稿のPoissonパラメータで書き直し、
-具体的な中心三次式を与える（定理\ref{thm:explicit-hesse-center}）。
-これらの特別な式を、全ての混合ブロックに対する閉公式とは主張しない。
-
-完全交叉におけるPoisson構造の存在判定
-（定理\ref{thm:ci-poisson-existence}）は
-Br\"uckmann型消滅定理を利用する既知の背景結果
-\cite{FuHwangCI}として記す。
-また、論文中のCalabi--Yau完全交叉や数値的不変量の計算は、
-所定の平面三次制限・滑らかさの仮定の下で適用する。
-
-\subsection*{構成}
-まず第\ref{sec:pg-extension}節で双ベクトル場を定数三重ベクトルで表示し、
-第\ref{sec:pg-normal}節で正規形を証明する。
-続く第\ref{sec:pg-leaves}節と第\ref{sec:pg-degeneracy}節で
-葉・退化スキームの幾何を記述し、
-第\ref{sec:pg-quantization}節で量子化を構成する。
-Fermat型の普遍混合中心元は
-第\ref{sec:pg-fermat-mixed-universal}節、
-全Hesse型の短い普遍多項式中心元は
-第\ref{sec:pg-hesse-mixed-universal}節、
-\emph{特異・零の制限も含む}全滑らかなブロックの
-有限Cramer有理式中心元は
-第\ref{sec:pg-universal-determinant}節、
-任意次元での$k$変数同時代数量子化は
-第\ref{sec:pg-all-dimensions}節で扱う。
-二次包絡と偏極付き圏からの内在的復元は
-第\ref{sec:pg-ambient-recovery}節で扱う。
-spaceおよびmoduli stackの定義・代数性は
-第\ref{sec:pg-poisson-stacks}節で、
-Fermat特殊ファイバーと相対成分数は
-第\ref{sec:pg-fermat-relative-components}節で扱う。
-Bondal予想の帰結は第\ref{sec:pg-bondal}節、
-非楕円型成分とその量子化は第\ref{ne:examples}節以下、
-明示Hesse公式は第\ref{sec:explicit-hesse-center}節に置く。
-各主張の証明に用いた既知の結果と本稿の新しい帰結を分けて記述する。
 \input{papers/sections/complete_intersections}
 \input{papers/sections/poisson_geometry}
 \input{papers/sections/fermat_mixed_universal_center}

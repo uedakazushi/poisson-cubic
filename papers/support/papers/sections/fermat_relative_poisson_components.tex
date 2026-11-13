@@ -15,8 +15,8 @@ $\mathfrak{Pois}^{\mathrm{rel}}_n$を比較する。
 Poisson双ベクトルのスカラーはどの場合も割らない。
 固定スタックでは有限群$\operatorname{Aut}(X)$で割り、
 relative stackでは連結群$\mathrm{PGL}(V)$で割る。
-本節の分類は定理\ref{thm:pg-normal}に依存し、その証明全体の独立再監査・
-先行研究上の新規性確認は完了していない。
+本節の分類は定理\ref{thm:pg-normal}に依存する。
+その正規形から、固定Fermatの座標支持と相対rank層を記述して成分を数える。
 
 \subsection{対象と三種類の成分数}
 $N=n+2\ge5$、$V=\mathbb C^N$、$S=\operatorname{Sym}(V^*)$とする。
@@ -211,24 +211,61 @@ $k$全体について数えると
 
 \subsection{cubicも動くrelative stackのrank層は一つずつになる}
 \begin{proof}[定理\ref{thm:pg-fermat-relative-count}の第三項]
-$P_k=e_{123}+e_{456}+\cdots+e_{3k-2,3k-1,3k}$と置く。
-定理\ref{thm:pg-normal}によって、rank$\,2k$の相対Poisson対の三重ベクトル部分は
+$\mathscr P_{n,k}$を一般Poisson階数$2k$の局所閉層とし、
+本証明ではその被約構造を考える。
+定理\ref{thm:pg-normal}により、この層は局所表示$P$の縮約写像
+$\Lambda^2V^*\to V$の階数が$3k$であるという局所閉条件で定まる。
+三次式の代表と三重ベクトルの相互のスカラーを正確に扱うため、
+まず$U_N$上の滑らかな三次式のアフィン錐
+$\widetilde U_N\subset S_3\setminus\{0\}$へ引き戻す。
+$P_k=e_{123}+e_{456}+\cdots+e_{3k-2,3k-1,3k}$と置くと、
+定理\ref{thm:pg-normal}によって、引戻しの三重ベクトル部分は
 $P_k$の$\mathrm{GL}_N$軌道$\mathcal O_{N,k}$である。
-この軌道は既約で、その次元は$k(3N-8)$である。
-実際$N=3k+m$とすると、$P_k$の安定化子のLie次元は
-$8k+3km+m^2$なので、$N^2-(8k+3km+m^2)=k(3N-8)$となる。
-$P_k$を固定した三次式は
+
+この軌道の次元を求める。
+$W=\bigoplus_{s=1}^kW_s$を$P_k$のsupport、$V=W\oplus U$、$\dim U=m$とする。
+補題\ref{ne:blocks}により、$P_k$の安定化子は$W_s$を置換する。
+その単位成分では各$W_s$上の変換は$\mathrm{SL}(W_s)$に属し、
+$U$上の可逆変換と$U\to W$の線形写像は任意に選べる。
+従って安定化子の次元は$8k+m^2+3km$であり、
+既約な軌道の次元は
+\begin{equation}
+ \dim\mathcal O_{N,k}=N^2-(8k+3km+m^2)=k(3N-8)
+\end{equation}
+となる。
+
+$P_k$を固定したとき、補題\ref{lem:pg-linearize}の条件は
+異なる$W_s,W_t$間のHessian成分が全て零であることと同値である。
+必要性は式\eqref{eq:pg-K}で二つの共変ベクトルを$W_s^*$から、
+残り二つを$W_t^*$から選ぶことで従い、十分性はブロックごとのJacobian括弧から従う。
+従って許される三次式の線形空間$\mathcal F_{N,k}$は
 \begin{equation}
  F=c(u)+\sum_{s=1}^k\bigl(f_{s,3}(x_s)+f_{s,2}(x_s,u)+f_{s,1}(x_s,u)\bigr)
 \end{equation}
-の形の線形空間であり、係数次元は
+で与えられる。ここで$f_{s,j}$のactive次数は$j$、中心次数は$3-j$である。
+係数次元は
 \begin{equation}
  \ell_{N,k}=\binom{m+2}{3}
  +k\left(10+6m+3\binom{m+1}{2}\right).
 \end{equation}
-その射影化の滑らかなcubicの部分は非空既約開集合である
-（Fermat三次式が例になる）。よってrank$\,2k$層は既約で
-次元$k(3N-8)+\ell_{N,k}-1$を持ち、
+滑らかな三次式の部分$\mathcal F_{N,k}^{\mathrm{sm}}$は
+Fermat三次式を含む非空既約開集合である。
+$P$を軌道上で動かすと、この線形空間は等変性により
+$\mathcal O_{N,k}$上の階数$\ell_{N,k}$のベクトル束となる。
+従って引き戻したrank層
+\begin{equation}
+ \widetilde{\mathscr P}_{N,k}
+ \simeq\mathrm{GL}_N\times^{\operatorname{Stab}(P_k)}
+ \mathcal F_{N,k}^{\mathrm{sm}}
+\end{equation}
+は既約で、次元は$k(3N-8)+\ell_{N,k}$である。
+自由なスカラー作用
+\begin{equation}
+ a\cdot(F,P)=(aF,a^{-1}P)\qquad(a\in\mathbb G_m)
+\end{equation}
+で割ると、$P\otimes F\in\bigwedge^3V\otimes\OO_{U_N}(-1)$という
+表示を介して$\mathscr P_{n,k}$を得る。
+従って$\mathscr P_{n,k}$は既約で次元$k(3N-8)+\ell_{N,k}-1$を持ち、
 $\dim\mathrm{PGL}_N=N^2-1$を引くと式\eqref{eq:pg-relative-dim}を得る。
 
 異なるrank層の閉包が互いに包含されないことを確かめる。

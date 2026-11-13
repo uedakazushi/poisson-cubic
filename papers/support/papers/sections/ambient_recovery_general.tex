@@ -164,8 +164,16 @@ $z$は全ての$a$と可換である。従って
  D=k[u^2,uv,v^2]
  \simeq k[a,b,c]/(ac-b^2)
 \end{equation}
-である。このconicの次数一パラメータを二重に取ることで、
-$S=k[u,v]$は共通符号を除いて復元される。
+である。具体的には$D_1$の基底$a,b,c$を選び、唯一の二次関係を
+$ac-b^2=0$とする。その二次Veronese表示
+$a=u^2$、$b=uv$、$c=v^2$により$S=k[u,v]$を取る。
+この選択は復元した代数の同型類に影響しない。
+実際、$D$の次数付き自己同型は滑らかなconic
+$\operatorname{Proj}D\simeq\mathbb P^1$の自己同型を誘導し、
+$\mathcal O_{\mathbb P^1}(2)$を保つ。
+従って$k=\mathbb C$上では$\mathrm{GL}_2$の元へ持ち上がり、
+持上げの核は共通符号$\{\pm1\}$である。
+以下では$R,D$の次数を二倍し、$S$の元の次数と合わせる。
 $D$の$S$への中心的拡大を使い、
 \begin{equation}\label{eq:pg-ambient-even-localizations}
  T_u=R[(u^2)^{-1}]
@@ -174,7 +182,9 @@ $D$の$S$への中心的拡大を使い、
  T_v=R[(v^2)^{-1}]
        \otimes_{D[(v^2)^{-1}]}S[v^{-1}]
 \end{equation}
-と置く。偶奇の次数を分けた積写像により
+と置く。$S[u^{-1}]=D[(u^2)^{-1}]\oplus uD[(u^2)^{-1}]$であり、
+$A[u^{-1}]$の奇数部分は$u$とその偶数部分の積に等しい。
+従って偶奇の次数を分けた積写像により
 $T_u\simeq A[u^{-1}]$、$T_v\simeq A[v^{-1}]$となる。
 $A$は$S$上自由であり、$k[u,v]$の高さ二の原点を
 除いた正則関数は多項式なので、
@@ -241,7 +251,8 @@ $Q\in\mathbb C[u,v]_2$となる。
 
 \begin{corollary}[三次三様体の構造対象付き導来復元]
 \label{cor:pg-ambient-derived-threefold}
-$B$を五次元Koszul AS正則Calabi--Yau代数とし、
+$k=\mathbb C$とし、$B$を左右noetherianな五次元Koszul
+AS正則Calabi--Yau代数とする。
 $G\in Z(B)_3$を正則中心元、$A=B/(G)$とする。
 $\operatorname{qgr}A$は有限大域次元を持ち、そのSerre関手が
 $\mathsf S\simeq(-2)[3]$であると仮定する。
@@ -263,7 +274,10 @@ $\mathsf S^{-1}[3]\simeq(2)$から
  \operatorname{Hom}(\mathcal O_A,\mathsf S^{-n}[3n]\mathcal O_A)
  \simeq A^{(2)}
 \end{equation}
-が得られる。命題\ref{prop:pg-ambient-even}で$A$を復元し、
+が得られる。ここでは、$A$が左右noetherianなAS Gorenstein代数で
+injective dimension $4$を持つことから、
+定理\ref{thm:pg-ambient-recovery-polarized}のsection algebra同型を用いた。
+命題\ref{prop:pg-ambient-even}で$A$を復元し、
 定理\ref{thm:pg-ambient-recovery-general}を適用する。
 \end{proof}
 
@@ -272,7 +286,17 @@ Jacobian型五生成元族については、
 純三変数の滑らかな三次式の低次数中心の消滅と
 Hessianの非退化性を用い、一般点で
 $Z(A)_2=k[u,v]_2$を示す補題がある。
-$A$が$k[u,v]$上自由であることも相対PBWの議論から得られる。
+$A$の$k[u,v]$上の自由性には、ambientの相対PBW性に加えて
+商の最高active記号を確認する必要がある。
+例えば$\operatorname{gr}B=S_{f_3}\otimes k[u,v]$で、
+$G$の最高active記号が$S_{f_3}$の正則な三次元$g_3$ならば、
+\begin{equation}\label{eq:pg-ambient-quotient-symbol}
+ \operatorname{gr}(B/(G))\simeq(S_{f_3}/(g_3))\otimes k[u,v]
+\end{equation}
+となる。右辺の各active次数の$k$-基底を持ち上げ、
+最高記号について帰納することで$A$の$k[u,v]$-自由基底を得る。
+ambientが自由であるという条件だけでは商の自由性は従わず、
+例えば中心元$u^3$による商は$k[u,v]$上torsionを持つ。
 ただしこの事実だけで$\operatorname{qgr}A$の
 有限大域次元が全閉点で保証されるとはいわない。
 これらの追加条件なしに一般次元でSerre復元を主張しない。

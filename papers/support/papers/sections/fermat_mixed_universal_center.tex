@@ -3,9 +3,7 @@
 本節では代数的な普遍中心元の公式を直接構成するため、
 Fermat型の三変数Jacobianブロックの\emph{全混合係数}に対する
 有限多項式の中心三次元を構成する。
-この式は論文Bに関連する既存技術稿に書かれていたが、
-これまでの独立検証は有限体特殊化に留まっていた。
-ここでは六つの係数を互いに独立な記号として保ち、
+六つの係数を互いに独立な記号として保ち、
 $\hbar$も不定元とした全係数恒等式の証明を与える。
 
 \begin{theorem}[普遍Fermat混合中心三次元]
@@ -137,8 +135,8 @@ $D,E,H$は中心二次式、$G$は中心三次式である。
 $X=x+p$, $Y=y+q$, $Z=z+r$を置き、
 \begin{equation}
  \begin{aligned}
- D'&=D-p^2-Aq-Cr,&
- E'&=E-q^2-Ap-Br,&
+ D'&=D-p^2-Aq-Cr,\\
+ E'&=E-q^2-Ap-Br,\\
  H'&=H-r^2-Bq-Cp,\\
  G'&=G+\tfrac23(p^3+q^3+r^3)
      +Apq+Bqr+Crp-Dp-Eq-Hr
@@ -172,15 +170,13 @@ Weyl対称化と可換である。
 従って公式\eqref{eq:pg-fermat-mixed-Omega}は、
 Hessianを用いて次の短い\emph{厳密な}表示にも書き直せる：
 \begin{equation}
-\boxed{\quad
+\boxed{\begin{aligned}
 \Omega_{F,\hbar}
- =\sym\!\left(
- F-\frac{\hbar^2}{12}\det\operatorname{Hess}_{x,y,z}(F)
- +\frac{\hbar^2}{6}ABC
- +\frac{\hbar^4}{18}
- (Az^2+Bx^2+Cy^2-ACx-ABy-BCz)
- \right).
-\quad}
+ =\sym\!\Bigl(&F-\frac{\hbar^2}{12}\det\operatorname{Hess}_{x,y,z}(F)
+ +\frac{\hbar^2}{6}ABC\\
+ &+\frac{\hbar^4}{18}
+ (Az^2+Bx^2+Cy^2-ACx-ABy-BCz)\Bigr).
+\end{aligned}}
 \label{eq:pg-fermat-mixed-hessian}
 \end{equation}
 ここで$\sym$は全active単項式へWeyl対称化を施し、
@@ -190,11 +186,9 @@ Hessianを用いて次の短い\emph{厳密な}表示にも書き直せる：
 重要なのは、$\hbar^4$補正も含む本式が
 有限次ジェットでなく\emph{厳密な中心元}であることである。
 
-式\eqref{eq:pg-fermat-mixed-Omega}自体は
-論文Bの関連研究に既に現れたものであり、
-今回新たに得た成果は、全ての中心係数を独立な記号として保持した
-\emph{普遍的・厳密な中心性の計算証明}と
-\eqref{eq:pg-fermat-all-mixed}への明示的拡張である。
+本節では、全ての中心係数を独立な記号として保持して
+式\eqref{eq:pg-fermat-mixed-Omega}の中心性を厳密に証明し、
+\eqref{eq:pg-fermat-all-mixed}への明示的拡張を与えた。
 先行文献に同じ公式が含まれるかは未確認であり、
 無条件な新規性は主張しない。
 一般のHesseパラメータ$t$については

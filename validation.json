@@ -1,336 +1,27 @@
 {
-  "version": "nc-cubic-v82",
+  "version": "nc-cubic-v83",
   "date": "2026-11-13",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; expected-parent fast-forward updates; no Actions or force push.",
-  "scope": "Current paper A-v51 and publication-oriented mathematical audit of paper B-v57, including precise prior-work comparison and arithmetic of gradient integration. All recursive paper A inputs are unchanged.",
+  "scope": "Current A-v52 publication review; B-v57 and shared preamble preserved.",
   "papers": {
     "A": {
       "entry": "papers/paper_a.tex",
-      "version": "A-v51",
+      "version": "A-v52",
       "audit": "notes/poisson_article_submission_audit.md",
-      "independently_reaudited_this_review": false,
-      "typeset_this_review": false
+      "validation": "validation_paper_a.json",
+      "major_proof_chains_reaudited": true,
+      "typeset_and_rendered_this_review": true
     },
     "B": {
       "entry": "papers/paper_b.tex",
       "version": "B-v57",
       "audit": "notes/paper_b_proof_audit.md",
       "validation": "validation_paper_b.json",
-      "proof_chain_reaudited_this_review": true,
-      "formal_verification": false,
-      "external_referee_review": false,
-      "exhaustive_novelty_established": false
+      "modified_in_current_A_review": false,
+      "re_audited_in_current_A_review": false,
+      "re_built_in_current_A_review": false
     }
-  },
-  "article_A_submission_audit": {
-    "manuscript": "papers/paper_a.tex",
-    "bibliography": "papers/support/papers/references_poisson_cubic.tex",
-    "research_note": "notes/poisson_article_submission_audit.md",
-    "exact_test": "computations/verify_poisson_article_A.py",
-    "editorial": {
-      "status": "Abstract, Introduction and prior-work comparison rewritten; manuscript A now uses dedicated bibliography",
-      "static_citation_check": "PASS A-v51: 24 bibitems and 58 citations; no unresolved or duplicate keys across 16 source files.",
-      "static_label_check": "PASS A-v51: 249 labels and 235 refs; no unresolved or duplicate labels across 16 source files.",
-      "caveat": "Static regex checks, not a full TeX parse or document build",
-      "display_math_check": "PASS A-v51 static check: 256 numbered equation environments, 6 align environments, 0 unnumbered displays, equation/end pairs balanced; full LuaLaTeX build not executed."
-    },
-    "mathematical_check": {
-      "status": "PASS on local independently constructed test for 56 Jacobi components and 56 join Euler-wedge components over exact rational coefficients",
-      "scope": "One explicit smooth two-block cubic; cannot prove Lie algebra normal form or arbitrary n Bondal",
-      "uploaded_script_rerun": "NOT RUN in GitHub execution environment; latest script adds smoothness zero-dimensional gradient check; exact uploaded version not re-executed"
-    },
-    "proofs": {
-      "established_in_existing_draft": [
-        "prop:pg-represent",
-        "lem:pg-quadratic-lie",
-        "thm:pg-normal",
-        "thm:pg-bondal",
-        "thm:pg-quantization"
-      ],
-      "independently_fully_reaudited": "NO",
-      "pending": [
-        "Original-source verification of Etingof Lie input and root-system argument",
-        "Full review of relative PBW and completed relative/absolute Calabi-Yau argument and Dolgushev input",
-        "Independent rerun of nonelliptic 33-rank certificates",
-        "Comprehensive originality/prior art review of high-dimensional cubic Bondal and normal form",
-        "Check Dolgushev relative/application hypotheses and complete CY resolution independently; checking the primary theorem statement alone does not verify its application."
-      ],
-      "primary_sources_checked_in_this_stage": [
-        "Etingof Lie Groups and Lie Algebras MIT course notes: original PDF printed p88 Prop16.9, printed p114 Definition21.13/Lemma21.14, printed p137 Thm25.17, printed p173 §32.2; inspected original page images.",
-        "Dolgushev arXiv:math/0612288v3: original PDF printed p9 Prop1 and printed p15 Thm3; inspected original page images; hypotheses are smooth complex affine variety with trivial canonical bundle and formal Kontsevich deformation.",
-        "Mori and Smith arXiv:1502.07403v2, PDF printed p5 Theorem 1.4 standard+rank-two-minor criterion, PDF printed p12 Corollary 2.9 3-CY iff AS-regular, domain; checked original page images.",
-        "Berger and Taillefer, JNCG (2007) original PDF p242 Theorem 1.1(i): arbitrary lower-degree potential on 3-CY potential is PBW and 3-CY; checked original page image.",
-        "Etingof and Ginzburg arXiv:0709.3593v4 original PDF pp29-30 Proposition 8.1.1(i), proof uses polynomial relative base R=C[u], no isolated singularity hypothesis in part (i); original pages checked."
-      ],
-      "relative_absolute_kontsevich_bridge": "Clarified in paper A: differential cochains in active x are included in absolute polydifferentials; graph formula for active-only Pi differentiates only x, hence same absolute Kontsevich star product. Standard formality/absolute completed CY assumptions still not independently fully established.",
-      "formal_center_route": "Removed from the proof and source body of article A. Earlier Dolgushev/Kontsevich/relative absolute completed CY approach was an unaudited alternative, not required for the now purely algebraic centre existence theorem. Do not restore it as a needed dependency."
-    },
-    "typesetting": {
-      "whole_article_A": "NOT RUN after periodicity section removal; full LuaLaTeX build and PDF inspection outstanding."
-    },
-    "universal_casimir_jet": {
-      "theorem_labels": [
-        "lem:pg-center-parity",
-        "prop:pg-universal-casimir-jet"
-      ],
-      "manuscript_section": "papers/support/papers/sections/poisson_geometry.tex",
-      "statement": "For arbitrary f of active degree <=3 over a commutative central coefficient ring, sym(f-h^2 det(Hess_x f)/12) central modulo h^5 near h=0 (PBW/h-flat); normalized central formal lifts have only even powers of h in Weyl ordering.",
-      "computation": "Exact symbolic Q[a_0,...,a_19] identity for all 20 independent coefficients; each of the three universal commutators reduces to zero modulo h^4 using only the three Jacobian relations. Involution plus flatness upgrades to modulo h^5.",
-      "independent_execution": "PASS: locally executed equivalent universal SymPy reduction for 20 independent coefficients; 3 generator checks all zero. Independently verified Hesse central formula second h-jet. Exact uploaded GitHub script not executed after upload.",
-      "script": "computations/verify_cubic_casimir_jet.py",
-      "full_formal_center_existence": "NOT settled by second jet; relies on lem:pg-formal-center and its relative-formality / completed absolute Calabi-Yau argument, pending full audit",
-      "references_checked": [
-        "Berger-Taillefer J. Noncommut. Geom. (2007), Theorem 1.1(i), original PDF p242",
-        "Etingof-Ginzburg arXiv:0709.3593v4, Proposition 8.1.1(i), original PDF pp29-30, uses relative base R=C[u] in proof"
-      ],
-      "theorem_integration": "Quantization theorem thm:pg-quantization now explicitly asserts parity-invariant choice of algebraic central cubic; proof averages over a symmetric Zariski open. Source has explicit universal Hessian commutator identity mod h^4."
-    },
-    "version": "A-v50",
-    "exact_universal_fermat_mixed_center": {
-      "source": "papers/support/papers/sections/fermat_mixed_universal_center.tex",
-      "theorem_labels": [
-        "thm:pg-fermat-mixed-universal",
-        "cor:pg-fermat-all-mixed"
-      ],
-      "certificate": "computations/verify_universal_fermat_mixed_center.py",
-      "status": "PROVED: local h=0 algebraic polynomial centrality for all independent graded central coefficients A,B,C,D,E,H; uses exact Q(h) syzygy reduction and equal ranks at h=0; no formal-center lemma needed.",
-      "dimensions": {
-        "free_weighted_degree4_words": 339,
-        "degree4_relation_multiples": 162,
-        "generic_Qh_rank": 144,
-        "special_h0_rank": 144,
-        "universal_commutator_remainders": [
-          0,
-          0,
-          0
-        ]
-      },
-      "verification": "A local standalone SymPy implementation was executed successfully with Q(h) rank144, special h=0 rank144, and all three universal commutators reducing to zero; the GitHub-hosted script itself was not executed after upload.",
-      "applies_to": "Any number of central variables and their arbitrary degree-1/2/3 coefficient polynomials; diagonal quadratic mixtures by explicit central translation; coordinate GL3 Fermat orbit.",
-      "limitations": "Cubic active restriction must be GL3-equivalent to Fermat for the short polynomial formula; AS regularity of ambient is separate from centrality; full literature novelty not checked.",
-      "compact_formula": "sym(F-h^2*det(Hess_x(F))/12+h^2*A*B*C/6+h^4*(A*z^2+B*x^2+C*y^2-A*C*x-A*B*y-B*C*z)/18) for F=(x^3+y^3+z^3)/3+Axy+Byz+Czx+Dx+Ey+Hz+G",
-      "flatness_argument": "Over Q[h]_(h), degree-four relation matrix has generic and special rank144, so Smith invariant factors are units; quotient is h-torsion-free and generic polynomial identities descend to neighborhood of h=0. This is independent of full-degree PBW."
-    },
-    "generic_universal_determinant": {
-      "source": "papers/support/papers/sections/universal_casimir_determinant.tex",
-      "theorem_labels": [
-        "lem:pg-det-classical-kernel",
-        "thm:pg-universal-determinant"
-      ],
-      "status": "PROVED UNCONDITIONALLY for EVERY smooth TOTAL cubic f(x,y,z,u), including singular/zero ternary restriction g. Formal centre existence is NOT an input.",
-      "proof": "Classical cubic Casimir kernel constant C f+C[u]_3 by gcd(f_x,f_y,f_z)=1 for smooth total f. The generic smooth-g Hesse polynomial centre forces all higher universal commutator minors identically zero in the irreducible smooth f coefficient family, hence rank bound persists for all smooth f. A nonvanishing classical rank-r minor gives an exact Cramer rational-in-h^2 centre with special fibre f. Pure-center cubic splitting via Bertini makes all blocks of a smooth global F smooth without modifying Poisson partials.",
-      "exact_classical_minors": [
-        {
-          "m": 0,
-          "columns": 9,
-          "determinant": -72
-        },
-        {
-          "m": 2,
-          "columns": 30,
-          "determinant": 4608
-        }
-      ],
-      "certificate": "computations/verify_universal_casimir_minor.py",
-      "verification": "Exact SymPy classical Poisson matrix generated and determinants verified locally (-72, 4608). This is not a quantum center check.",
-      "limits": "No single short polynomial centre for all singular g is claimed. The Cramer centre is local in the h-Zariski neighborhood of 0 and rational in h^2; varying f can require different nonzero minors and choices of central cubic allocation. Global descent on Poisson moduli is unproved."
-    },
-    "exact_universal_hesse_mixed_center": {
-      "source": "papers/support/papers/sections/hesse_mixed_universal_center.tex",
-      "labels": [
-        "thm:pg-universal-hesse-mixed",
-        "cor:pg-hesse-hessian-form",
-        "cor:pg-universal-hesse-all-mixed",
-        "cor:pg-smooth-ternary-explicit",
-        "cor:pg-smooth-block-algebraic-quant"
-      ],
-      "computation": "computations/verify_universal_hesse_mixed_center.py",
-      "statement": "For g_t=(x^3+y^3+z^3)/3+txyz, arbitrary t and independent graded central coefficients A,B,C (weight1), D,E,H (weight2), G(weight3), an explicit polynomial center of degree3 has coefficients polynomial in q=h^2 of degree <=2. Center holds exactly on Zariski neighborhood of h=0, for all t, without formal central existence hypothesis.",
-      "verification": "An independently authored standalone Python SymPy program was executed locally over QQ(h,t) with all six central coefficients algebraically independent, yielding 339 free weighted degree4 words, 162 degree4 multiples of the three relations, generic rank144, and exact zero remainder for all three universal commutators. The GitHub-committed script uses the same exact algorithm but was not executed on GitHub after upload.",
-      "special_rank": "At h=0 relations are ordinary commutators, quotient degree4 dimension195, hence rank144 for all t; a separately exact rational row reduction at h=0 was completed. This permits descent from QQ(h,t) to a Zariski neighborhood of h=0 as an honest universal center identity.",
-      "compact_hessian": "Omega=sym(F-h^2 det(Hess_x F)/12+h^2 A B C/6+h^4 Psi_t(F)), where Psi_t is explicitly defined in paper A.",
-      "smooth_ternary_corollary": "By central translation removing diagonal quadratic mixtures, and Artebani-Dolgachev Lemma 1 on Hesse normal forms, all smooth ternary g=F(x,0) have an exact explicit algebraic center after a linear coordinate change. Transformation h'=lambda det(M) h is proved. This does not claim a single GL3 invariant formula in original coordinates.",
-      "quantization_scope": "If every active ternary block g_s is smooth, the polynomial centers together with established PBW/domain/AS arguments give explicit algebraic quantization without Kontsevich/Dolgushev formal-center input. Full arbitrary singular g theorem still depends on independently unaudited formal-center lemma.",
-      "limitation": "Unresolved: general singular ternary restrictions (nodal, cuspidal, zero, etc.) in one closed formula; primary-source novelty survey; full LuaLaTeX manuscript rebuild."
-    },
-    "arbitrary_dimensional_simultaneous_quantization": {
-      "source": "papers/support/papers/sections/general_dimension_universal_quantization.tex",
-      "mathematical_status": "Mathematical proofs written for arbitrary n, relying on existing and previously established one-block Hesse center, PBW, Koszul tensor, regular cubic and normal-form inputs; independent full audit of all dependencies is not completed.",
-      "statements": [
-        "For n>=3, N=n+2=3k+m, smooth cubic F=sum f_s(x_s,u) and each g_s=f_s(x_s,0) smooth ternary cubic, q_s=i_{d f_s} P_s are pairwise Schouten compatible and span a k-dimensional Poisson linear family; generic rank 2 times support size.",
-        "Independent eta_s on blocks give algebra A_eta tensoring over the SHARED C[u,eta] coefficient ring, with exact central cubic Omega_eta=sum Omega_{f_s,eta_s} and no mixed eta_s eta_t correction.",
-        "On an open neighborhood of eta=0: each fibre Koszul AS regular global dimension N, Hilbert (1-z)^(-N), Omega fibrewise regular, central quotient AS-Gorenstein injdim N-1, Hilbert (1-z^3)/(1-z)^N, graded pieces locally free in the multi-parameter base.",
-        "Via eta_s=lambda_s h, the pullback opens a neighborhood of the ENTIRE h=0 zero section in lambda-space times h, giving one family quantizing the entire k-dimensional linear Poisson pencil.",
-        "The Hesse presentation coefficient space itself can vary and carries a relative polynomial center; this does not construct a quotient of the full Poisson pair moduli.",
-        "Intrinsic all-dimension Hessian contraction H(P,F)=(1/6) sum P^{ijk}P^{abc} F_{ia}F_{jb}F_{kc}, equal to sum lambda_s^2 det Hess_{x_s}(f_s) in normal form; after pure-central normalisation an exact central cubic is sym(F-h^2 H(P,F)/12+h^4 K_{P,F}); K is explicit in a chosen Hesse chart."
-      ],
-      "key_labels": [
-        "prop:pg-ad-compatible",
-        "thm:pg-all-dimensions",
-        "cor:pg-ad-whole-pencil",
-        "prop:pg-ad-relative-chart",
-        "cor:pg-ad-hessian",
-        "prop:pg-ad-intrinsic-hessian",
-        "ex:pg-ad-sixfold"
-      ],
-      "compute_assets": [
-        "https://github.com/uedakazushi/nc-cubic2/blob/main/computations/verify_general_dimension_multiblock.py",
-        "computations/build_general_dimension_center.py"
-      ],
-      "executed_checks": [
-        "Local independent SymPy symbolic run for (k,m)=(1,2),(2,0),(2,2),(3,0),(3,3),(4,0) i.e. n=3,4,6,7,10: 610 Jacobi triples and 52 Casimir components all zero with independent lambda_s; cross Hessians all zero.",
-        "Same six symbolic tests with intrinsic six-index Hessian tensor contraction: exact agreement with sum of block Hessian determinants.",
-        "Local explicit polynomial Weyl-symbol constructor on shared-center n=6, k=2, m=2 example with two independent eta parameters: Omega_00=F, mixed eta derivative zero, F has 30 polynomial monomials and Omega 142 polynomial monomials."
-      ],
-      "verification_limits": "Finite tests support proof, not formal verification. Symbol constructor checks its substitution and parameter separation, not all noncommutative commutators; those are deduced from one-block universal Hesse exact centrality. GitHub-hosted scripts not executed after upload.",
-      "remaining": [
-        "Coordinate/Hesse chart transition and equivariance of relative families in general n",
-        "Descent to Poisson moduli; no global full-moduli quantization asserted",
-        "Independent re-audit of PBW, all AS-regular/domain, normal-form and Bondal dependencies",
-        "Full paper A LuaLaTeX build, PDF visual check and primary literature novelty survey"
-      ],
-      "all_poisson_extension": "thm:pg-ad-all-poisson proves independent block-parameter simultaneous quantization for arbitrary smooth X, WITHOUT assuming smooth g_s; Cramer rational central elements replace short Hesse polynomial formula. All family AS/PBW and flatness assertions use prior results and need comprehensive independent audit."
-    },
-    "poisson_moduli_stacks": {
-      "source": "papers/support/papers/sections/poisson_moduli_stacks.tex",
-      "definition": "Pois(X) is closed affine Jacobi zero scheme in H^0(X, wedge^2 T_X); fixed moduli stack of Poisson structures = [Pois(X)/Aut(X)], stabilizers Aut(X,pi); relative moduli stack of Poisson structures = [P_n/PGL(V)] with P_n a closed relative Jacobi scheme in Tot(wedge^3 V tensor O_U(-1)).",
-      "algebraicity": "Proof in article A: for each smooth cubic n>=3, Pic X=Z O_X(1), Aut X finite etale via absence of linear Jacobian syzygies; fixed quotient DM finite type. Universal Jacobi scheme lives inside Tot(wedge^3 V tensor O(-1)) and has base-change-stable equations via constant-rank split graded Koszul complexes (Jacobian ring Hilbert (1+t)^N). PGL(V) quotient is algebraic finite type by Stacks Project tag 06FI, and finite etale stabilizers imply DM.",
-      "theorem_labels": [
-        "prop:pg-fixed-stack-algebraic",
-        "thm:pg-relative-stack-algebraic"
-      ],
-      "status": "Mathematical proof written in the manuscript; tested external primary statement Stacks Project tag 06FI. Full independent audit of all family base change and geometry dependencies not complete."
-    },
-    "fermat_stacks": {
-      "source": "papers/support/papers/sections/fermat_relative_poisson_components.tex",
-      "theorem": "thm:pg-fermat-relative-count",
-      "corrected_counts": "Fermat Pois(X_N) space components = set partitions of [N] into blocks size >=3; fixed moduli stack components = Aut(X_N)-orbits on those components = integer partitions of N into parts >=3; relative stack components floor(N/3).",
-      "group": "Aut(X_N)=(mu_3^N/mu_3) semidirect S_N, proven from Hessian determinant 6^N product z_i and unique factorization, all automorphisms linear by Picard Lefschetz.",
-      "sample_counts": [
-        {
-          "n": 3,
-          "space": 1,
-          "fixed_stack": 1,
-          "relative_stack": 1
-        },
-        {
-          "n": 4,
-          "space": 11,
-          "fixed_stack": 2,
-          "relative_stack": 2
-        },
-        {
-          "n": 5,
-          "space": 36,
-          "fixed_stack": 2,
-          "relative_stack": 2
-        },
-        {
-          "n": 6,
-          "space": 92,
-          "fixed_stack": 3,
-          "relative_stack": 2
-        },
-        {
-          "n": 7,
-          "space": 491,
-          "fixed_stack": 4,
-          "relative_stack": 3
-        },
-        {
-          "n": 8,
-          "space": 2557,
-          "fixed_stack": 5,
-          "relative_stack": 3
-        },
-        {
-          "n": 9,
-          "space": 11353,
-          "fixed_stack": 6,
-          "relative_stack": 3
-        },
-        {
-          "n": 10,
-          "space": 60105,
-          "fixed_stack": 9,
-          "relative_stack": 4
-        }
-      ],
-      "proof_dependencies": "Poisson normal form and Hessian Jacobi lemma, whose full independent audit remains open; fixed stack orbit count uses group monomiality, relative count uses irreducibility of rank-2k strata and strict dimension-drop to exclude closures.",
-      "reproduction": "computations/verify_poisson_stack_component_counts.py",
-      "numerical_verification": "Exact integer recurrence independently executed for n=3,...,10, all triples agree with the manuscript table; does not prove geometric component theorem.",
-      "caveat": "Fermat maximality among all smooth cubics not claimed; component counts concern underlying reduced topological irreducible components, not nilpotent scheme structure."
-    },
-    "equation_numbering": {
-      "scope": "papers/paper_a.tex and all 15 direct TeX inputs (including bibliography and preamble), not papers B/C",
-      "change": "All TeX display math converted from \\\\[ ... \\\\] or align* to numbered equation and aligned environments; manual alphabetic equation tags removed; equation numbering by section enabled in root.",
-      "after_transform_static_check": "PASS (A-v49 post-move): 239 numbered equation environments + 6 numbered align blocks, no unnumbered display formulas/manual tags, all source environment counts balanced.",
-      "script": "scripts/verify_article_a_numbering.py",
-      "actual_lualatex_build": "NOT RUN"
-    },
-    "six_seven_geometry_move": {
-      "status": "TRANSFER VERIFIED and original specialized sections EXCLUDED from paper A after copying.",
-      "source": "papers/support/papers/sections/poisson_geometry.tex",
-      "source_removed_sections": [
-        "sec:pg-six-seven",
-        "sec:pg-numerical"
-      ],
-      "destination_repo": "uedakazushi/nc-cubic2",
-      "destination_entrypoint": "papers/poisson_cubic_six_seven_geometry.tex",
-      "preserved_exact_sections": [
-        "papers/sections/poisson_cubic_degeneracy_background.tex (5,862 characters, bit-for-bit matching source general-degeneracy section)",
-        "papers/sections/poisson_cubic_six_seven_geometry.tex (8,967 characters, bit-for-bit matching former specialized section)",
-        "papers/sections/poisson_cubic_six_seven_numerical.tex (2,755 original characters preserved verbatim; additional Fermat thickening and AS counts appended)"
-      ],
-      "additional_destination_assets": [
-        "notes/poisson_cubic_six_seven_geometry.md",
-        "computations/verify_poisson_cubic_six_seven_numerics.py"
-      ],
-      "retained_in_main": "The full all-dimensional degeneracy ideal proposition prop:pg-deg-ideal, finite flat critical cover lem:pg-critical-cover, support prop:pg-deg-support and complete-intersection prop:pg-zero-ci with their proofs remain in article A.",
-      "mathematical_value": "Special dimension rank tables and Chern/Hodge/genus numbers mostly applications of general/standard formulas; specialized rank6 sevenfold primary decomposition (generic transverse length 8/64 and reduced-kernel difference 49) potentially valuable independent scheme geometry, needs primary-audit and novelty literature.",
-      "destination_static_check": "PASS: new paper entrypoint and all three TeX inputs available, 26 labels / 15 refs, all resolved, 3 bibitem/citation pairs, balanced TeX environments; actual LuaLaTeX compilation NOT RUN.",
-      "numerical_check": "PASS: equivalent locally executed SymPy Chern/Hodge/genus/length calculations; remote committed script has NOT been rerun. Does not verify nonreduced primary ideal decomposition.",
-      "source_static_check": "PASS: 16 article A source files, 239 equation environments and 6 align environments, zero unnumbered math/tags, 210 labels/225 references and 25 bibitems/61 citation uses; missing/duplicate references NONE.",
-      "operations": "Destination repository files were created and exact original sections verified before the source-specific portions of the original article-A file were removed. Separate files in user's Library were not deleted."
-    },
-    "algebraic_centre_all_poisson": {
-      "theorem": "thm:pg-universal-determinant",
-      "source": "papers/support/papers/sections/universal_casimir_determinant.tex",
-      "quantum_theorems": [
-        "thm:pg-quantization",
-        "thm:pg-ad-all-poisson"
-      ],
-      "scope": "Every smooth total cubic f(x,y,z,u) and every smooth cubic X with any normal-form Poisson structure; ternary restriction g=f(x,y,z,0) need not be smooth, irreducible or nonzero.",
-      "proof_steps": [
-        "lem:pg-det-gradient-coprime: Smooth total f implies gcd(f_x,f_y,f_z)=1. If common homogeneous factor h existed, h=f_{u1}=...=f_{um}=0 would have a nonzero projective solution by Krull height, giving gradient zero.",
-        "lem:pg-det-classical-kernel: For cubic p with d_x p wedge d_x f=0, fraction field factor a is in S by gcd1, and homogeneous degrees force a constant. Thus classical cubic Casimirs C f + C[u]_3 and classical D matrix rank r=binom(m+5,3)-binom(m+2,3)-1 for all smooth total f.",
-        "lem:pg-det-universal-rank: Smooth total cubic coefficient space T is reduced irreducible. A dense open has smooth g, for which exact Hesse central cubic is known. Universal degree3/4 Weyl commutator matrix D(f,h) is algebraic near T x {0} by PBW. All (r+1)-minors vanish on the dense generic-g open and hence identically on T near h=0. Thus rank D(f,h)<=r for every smooth total f, even with singular/zero g.",
-        "thm:pg-universal-determinant: A nonzero r x r classical minor at each f remains invertible around h=0. Cramer column replacement gives Omega_h=f_cent+a(sym(w0)-sum(det M_j/det M) sym(w_j)), an EXACT algebraic central cubic with Omega_0=f. Reversal + h->-h forces coefficients rational in h^2 and the denominator is nonzero at h=0.",
-        "lem:pg-central-splitting-smooth: For a smooth X with normal form F=sum f_s(x_s,u), redistribute the pure-central cubic c(u)=sum c_s(u). Each block is already smooth at u=0 by smoothness of X, and is generically smooth off u=0 by Bertini applied to the base-point-free system of pure-center cubics. All blocks can simultaneously be made smooth on an irreducible affine distribution space, without changing active partials or Poisson structure.",
-        "thm:pg-quantization: Apply exact algebraic centre to each smooth block after pure-center splitting; sum them. Existing PBW, tensor Koszul, central regularity via active-degree leading symbols, change of rings and finite-rank flatness complete the AS-regular ambient and AS-Gorenstein central quotient.",
-        "thm:pg-ad-all-poisson: Independent block parameters give a simultaneous k-variable algebraic quantum pencil for ALL ternary restrictions; centres are rational in each eta_s^2 and have no cross-block eta products."
-      ],
-      "current_status": "Complete paper-level mathematical proof written with all dependencies identified; new elementary gcd/rank/Cramer and Bertini arguments independently checked conceptually. Existing universal Hesse symbolic certificate, normal-form theorem and PBW/AS inputs have not all been independently re-executed/audited in this turn; full publication-ready verification still needed.",
-      "formal_deformation_required": false,
-      "primary_comparison": "Etingof-Ginzburg arXiv:0709.3593v4, Proposition 8.1.1(i), Section 8.3, exact PDF image page 32 (zero-index 31) checked; uses related rank/properness specialization for a general CY potential. Current approach specifies classical cubic kernel and reconstructs normalized algebraic Cramer centre, including singular/zero ternary restrictions.",
-      "novelty": "Comprehensive priority/novelty determination not completed."
-    }
-  },
-  "article_A_recorded_exact_checks": {
-    "article_A_static": "PASS post-move A-v49: 16 source files; 239 numbered equation environments, 6 align; 210 labels,225 refs,25 bibitems,61 cites. 0 missing/duplicate refs/cites. Static check only; no new TeX compile.",
-    "article_A_example": "Independent local SymPy demonstration: 56 Jacobi and 56 Euler-wedge components PASS; latest GitHub script including smoothness check not re-executed",
-    "article_A_universal_casimir_jet": "PASS in local SymPy symbolic independent-coefficient expansion (20 coefficients, 3 commutators) modulo h^4, upgraded to h^5 by a proved anti-involution+flatness argument; exact uploaded script not rerun",
-    "article_A_fermat_mixed_universal": "PASS locally: 339 weighted free words, 162 quadratic relation multiples, rank 144 both over QQ(h) and at h=0, 3 universal center commutators reduce to 0 over QQ(h); all 6 coefficients algebraically independent.",
-    "article_A_classical_casimir_minor": "PASS locally using exact rational SymPy matrices: 9x9 determinant -72 (m=0), 30x30 determinant +4608 (m=2).",
-    "article_A_hesse_mixed_universal": "PASS locally over Q(h,t): 339 weighted free words, 162 quadratic relation multiples, rank144, 3 universal center commutators exactly zero; all 6 central symbols algebraically independent; independent explicit special rank144 at h=0.",
-    "article_A_hesse_hessian_identity": "PASS exact SymPy coefficient comparison of expanded formula and sym(F-h^2 det Hess F/12+h^2 ABC/6+h^4 Psi_t(F)); the difference is identically zero with symbolic t and all coefficients.",
-    "article_A_hesse_translation": "PASS exact SymPy expansion of the diagonal central shift formula with symbolic t and arbitrary A,B,C,D,E,H and three central linear shifts.",
-    "article_A_general_dimension": "PASS independent local SymPy for 6 cases n=3,4,6,7,10; 610 Poisson Jacobi components, 52 Casimir components, cross Hessian and invariant six-index Hessian identity exactly zero.",
-    "article_A_general_dimension_symbol_constructor": "PASS local SymPy demo (n=6,k=2,m=2 shared center u,v): Weyl center Omega_00=F and no mixed eta_s eta_t terms; 30 F and 142 Omega monomials. Not a free-algebra centrality certificate.",
-    "article_A_fermat_stack_component_counts": "PASS exact Python integer recurrence for n=3,...,10: Pois space=1,11,36,92,491,2557,11353,60105; fixed moduli stack=1,2,2,3,4,5,6,9; relative stack=1,2,2,2,3,3,3,4.",
-    "article_A_six_seven_migration": "PASS exact text comparison before removal: original general-degeneracy, dimension-specific six/seven geometry, numeric section all preserved at nc-cubic2; target paper static checks PASS and local equivalent SymPy numerical suite PASS.",
-    "article_A_singular_ternary_classical_kernel": "PASS in independent local SymPy rational arithmetic: for f=u*x^2+v*y^2+w*z^2+u^3+v^3+w^3, g=f(x,y,z,0)=0 but total f is smooth. Classical Jacobian Casimir matrix size 378x56 has exact rank45, kernel 11-dimensional equal to C f+C[u,v,w]_3. A corresponding standalone script is committed to computations/verify_singular_cubic_classical_kernel.py; exact GitHub-hosted script was not rerun after upload."
   },
   "independent_results": {
     "authoritative_repository": "uedakazushi/nc-cubic2",
@@ -339,18 +30,22 @@
     "role": "Independent results and their certificates; not inputs to the current paper B proof."
   },
   "reproducibility": {
-    "build": "python3 scripts/build.py --only paper_b",
+    "build": [
+      "python3 scripts/build.py --only paper_a",
+      "python3 scripts/build.py --only paper_b"
+    ],
     "source_checks": [
       "python3 scripts/check_layout.py",
       "python3 scripts/verify_bundle.py"
     ],
+    "paper_A_checks": "validation_paper_a.json",
     "paper_B_checks": "validation_paper_b.json",
-    "pdf_tracking": false,
-    "build_directory": "build/"
+    "build_directory": "build/",
+    "pdf_tracking": false
   },
   "status_limits": [
-    "Proof text, independent mathematical reading, finite exact calculations, typesetting, and remote persistence are different states.",
-    "No new independent proof audit or build of paper A is claimed.",
-    "Publication priority for the combination of curved comparison, generic descent, and coherent saturation remains unestablished."
+    "Proof text, independent mathematical reading, finite exact computation, typesetting, and remote persistence are different states.",
+    "Each paper-specific validation records the exact scope and remaining limitations.",
+    "No claim of formal proof verification, external referee acceptance, or comprehensive originality determination."
   ]
 }

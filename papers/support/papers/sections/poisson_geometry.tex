@@ -112,6 +112,8 @@ J=FT+E\wedge B_2,\qquad T\in\bigwedge^3V,
 \end{equation}
 定義から $\delta(FT)=\iota_{dF}T$、
 $\delta(E\wedge B_2)=NB_2-E\wedge\delta B_2$。
+後者の係数は、係数次数 $d$、外積次数 $r$ の斉次多重ベクトル $C$ に対する
+$\delta(E\wedge C)=(N+d-r)C-E\wedge\delta C$ に $d=r=2$ を代入したものである。
 $\delta J=0$ に $E$ を外積すると
 $E\wedge B_2=-N^{-1}E\wedge\iota_{dF}T$ となる。
 これを代入して $dF$ で縮約すると
@@ -148,7 +150,11 @@ L_a^{ijk}=\sum_{r,b}(P^{ira}P^{jkb}+P^{jra}P^{kib}+P^{kra}P^{ijb})F_{br}.
 \end{equation}
 $L_a^{ijk}$ は一次式なので、補題\ref{lem:pg-gradient}より
 Jacobi 条件は全 $L_a^{ijk}=0$ と同値である。
-これは\eqref{eq:pg-K}への座標共変ベクトルの代入と符号を除いて一致する。
+\eqref{eq:pg-K}の左辺を $\mathcal B_H(\alpha,\beta,\gamma,\eta)$ と書けば、正確には
+\begin{equation}
+L_a^{ijk}(p)=-\mathcal B_{\operatorname{Hess}_F(p)}(dz_i,dz_j,dz_k,dz_a)
+\end{equation}
+である。
 多重線形性が第一の主張を与える。
 三次微分の対称性により
 $\operatorname{Hess}_F(p)(w,w)=2dF_w(p)$。
@@ -169,6 +175,7 @@ $W=\operatorname{span}\{P(\alpha,\beta)\mid\alpha,\beta\in V^*\}$ とおく。
 $K(P)$ の $\PP(W)$ への制限も基点をもたない。
 標数零の Bertini 定理により、それぞれの一般の二次超曲面は滑らかであり、
 従って $V$ 上および $W$ 上での非退化条件は非空開条件である。
+いずれも同じベクトル空間 $K(P)$ の非空開部分を定めるので、その共通部分は非空である。
 両者を満たす $B\in K(P)$ を選ぶ。
 
 $B^\flat:V\to V^*$ により $[x,y]=P(B^\flat x,B^\flat y)$ と定める。
@@ -189,10 +196,12 @@ $\mathfrak r=\operatorname{rad}(W)\neq0$ と仮定する。
 $I$ は可換で、既約な $W$-加群である。
 複素有限次元 Lie 代数の既約表現では可解根基はスカラーで作用する
 \cite[Proposition 16.9]{PEtingofLie}。
-$W=[W,W]$ のため全作用素の trace は零であり、$\mathfrak r$ は $I$ に零で作用する。
+その作用を $\rho_I$ と書くと、$W=[W,W]$ より $\operatorname{tr}\rho_I(x)=0$ が全 $x\in W$ に対して成立する。
+従って $x\in\mathfrak r$ について $\rho_I(x)=c_x\operatorname{id}_I$ ならば
+$(\dim I)c_x=0$ であり、$\mathfrak r$ は $I$ に零で作用する。
 従って $I$ は $W/\mathfrak r$ の既約加群であり、$Z(W)=0$ から自明表現ではない。
 最高ウェイトベクトル $0\neq v\in I$ と単純根 $\alpha$ を
-$\lambda(h_\alpha)>0$ となるように選び、
+$\lambda(h_\alpha)\in\mathbb Z_{>0}$ となるように選び、
 $e_\alpha,f_\alpha,h_\alpha$ を $W$ に持ち上げる。
 $w=\lambda(h_\alpha)^{-1}[f_\alpha,v]\in I$ とおくと
 \begin{equation}
@@ -205,10 +214,11 @@ $\lambda(h_\alpha)H(v,v)=0$ が全 $H$ に対して成立する。
 これは基点自由性に反する。従って $W$ は半単純である。
 
 階数二以上の単純因子があるとする。
-その最高根 $\theta$ は単純根ではない
-（既約かつ階数二以上の根系では最高根のsupportは全ての単純根を含む）。
+その最高根 $\theta$ は単純根ではない。
+実際、もし単純根なら、Dynkin 図の連結性から隣接する単純根 $\beta$ があり、
+根の string 性により $\theta+\beta$ も根となって最高根性に反する。
 正根でありながら単純でない根は二つの正根の和となるので
-\cite[Lemma~21.14および\S32.2]{PEtingofLie}、
+\cite[Definition~21.13, Lemma~21.14および\S32.2]{PEtingofLie}、
 $\theta=\alpha+\beta$ と書ける。
 対応する根ベクトル$a=e_\alpha$、$b=e_\beta$を選ぶと
 根空間の標準的交換子関係から
@@ -231,6 +241,25 @@ $B$ で添字を上げれば所要の $P=\sum_sP_s$ を得る。
 \end{proof}
 
 \subsection{三次式の分解と一般階数}
+\begin{lemma}[直線による商と双ベクトルの階数]\label{lem:pg-projective-rank}
+$T$ を有限次元ベクトル空間、$b\in\bigwedge^2T$ を階数 $2r$ の双ベクトル、
+$L\subset T$ を一次元部分空間とする。
+$I_b=\operatorname{im}(b^\sharp:T^*\to T)$ とし、$\overline b$ を $T/L$ への像とすると
+\begin{equation}
+\operatorname{rank}\overline b=
+\begin{cases}
+2r-2,&L\subset I_b,\\
+2r,&L\not\subset I_b.
+\end{cases}
+\end{equation}
+\end{lemma}
+\begin{proof}
+$L\not\subset I_b$ なら $I_b\to T/L$ は単射なので、双ベクトルの階数は変わらない。
+$L\subset I_b$ なら、$I_b$ の Darboux 基底を $L=\CC e_1$ および
+$b=e_1\wedge f_1+\cdots+e_r\wedge f_r$ となるように選べる。
+商では最初の項だけが消え、残る $2r-2$ 本の基底ベクトルは独立である。
+\end{proof}
+
 \begin{theorem}[Poisson 正規形]\label{thm:pg-normal}\label{pthm:normal-form}
 任意の非零 Poisson 構造に対して、$N=3k+m$ となる $k\geq1$ と線形座標
 $x_s=(x_{s1},x_{s2},x_{s3})$、$u=(u_1,\ldots,u_m)$ が存在し、
@@ -261,14 +290,14 @@ $\nabla f\cdot(\nabla\times\nabla f)=0$ と、異なるブロックが互いの�
 各 active gradient は恒等的に零ではない。
 そうなら $F$ は対応する三変数に依存せず、その座標平面に特異点をもつ。
 従ってアフィン空間の一般階数は $2k$。
-非零な二次偏微分は既約な三次式 $F$ で割り切れないので、$X$ の一般点でも全ブロックが階数二をもつ。
-階数 $2r$ の交代双ベクトルを直線 $L$ で割ると、
-$L$ がその像に入らなければ階数は $2r$、入れば $2r-2$ である。
-これは像上の Darboux 基底により分かる。
-ここで $L=\CC E$。
+非零の active 偏微分は二次式であり、既約な三次式 $F$ で割り切れないので、
+$X$ の一般点でも全ブロックが階数二をもつ。
+補題\ref{lem:pg-projective-rank}を $L=\CC E$ に適用する。
 $m>0$ なら一般点で $E$ は中心方向成分をもち、像に入らない。
 $m=0$ なら第 $s$ ブロックの像は $\ker df_s$ で、Euler 方向が入る条件は $3f_s=0$。
-$N\geq5$ の下で $m=0$ なら $k\geq2$ であり、全 $f_s=0$ は $X$ の真の閉集合である。
+$N\geq5$ の下で $m=0$ なら $k\geq2$ である。
+各 $f_s$ は非零で異なるブロックの変数に依存するので $F$ と比例せず、
+全 $f_s=0$ は $X$ の真の閉集合である。
 よって一般点では射影化で階数は低下しない。
 \end{proof}
 座標、ブロックの順序、中心三次式の配分の一意性は主張しない。

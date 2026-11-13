@@ -1,6 +1,6 @@
 # 固定FermatのPoisson space・商スタックと相対Poissonモジュライ
 
-**2026-11-12 / v2。再開時は最初に `00_research_plan.md` を読む。**
+**2026-11-13 / v3（論文A-v52、nc-cubic-v83）。再開時は最初に `00_research_plan.md` を読む。**
 現行公表原稿は `papers/paper_a.tex`、
 定義・代数性の証明は
 `papers/support/papers/sections/poisson_moduli_stacks.tex`、
@@ -31,6 +31,10 @@
   relative Jacobi二次方程式の零スキーム `P_n` が閉部分として入る。
   局所で `pi=i_{dF}P`。FをaFに替えたらPをP/aに替えるので
   Eは正しく張り合わさる。
+  `P_n→U_N` は有限型アフィン射であり、閉埋込みは
+  `P_n→Tot(E)`。忘却射と閉埋込みを区別する。
+  GL(V)の中心スカラーはΛ³VとO_U(-1)に逆の重みで作用するため、
+  作用はPGL(V)へ降りる。
   PGL(V)は滑らかで作用groupoidのsource/targetも滑らかなため、
   Stacks Project Theorem 97.17.2, tag 06FI を適用し代数的有限型。
   各幾何学的stabilizerが有限エタールなAut(X,pi)なのでDM。
@@ -40,6 +44,18 @@
   Xの同型類上のresidual gerbeに沿った非枠付きfiberは
   [Pois(X)/Aut(X)]。これらを混同しない。
 
+相対表示の任意の底変更への適合性は、幾何学的点での同型だけからは
+結論しない。三次代表を選んだ各アフィンチャートで、偏微分の相対Koszul複体を
+斉次次数ごとに考える。各ファイバーでは偏微分が正則列をなし、
+Jacobian環のHilbert級数は `(1+t)^N`。
+正のKoszulホモロジーは零、次数零ホモロジーの次元は一定なので、
+各微分の階数は一定となる。被約な基底U_N上で局所的に行列を分割でき、
+複体は局所自由なJacobian環の次数部分を分解する局所分裂複体となる。
+したがって任意の底変更後も完全性を保つ。
+`prop:pg-represent` の表示と `prop:pg-jacobi-extension` のJacobi延長は、
+この複体と標数零で可逆なN−3による除法に適合する。
+これにより相対Jacobi方程式は自然な非被約Poisson scheme構造を保って貼り合わさる。
+
 ## Fermatの三種類の成分数（証明を原稿に記載）
 
 `F_N=Σ_i z_i³`とし、`N=n+2`。
@@ -48,7 +64,12 @@
 `Z_B=Σ_{B∈mathcal B} cone(Gr(3,C^B)) ⊂ Λ³C^N`。
 これらが`Pois(X_N)_{red}`の全既約成分。
 一般rankは2k、成分の次元は3N-8k。
-この記述は `thm:pg-normal` に依存し、その全証明の独立監査は未完了。
+この記述は `thm:pg-normal` に依存する。
+Fermatの対角Hessianから各 `i_{dz_i}P` が分解可能となり、
+正規形の異なる3次元支持ブロックは互いに素な座標集合に含まれる。
+未使用の座標をブロックへ加えることで上の分割による被覆を得る。
+縮約写像の階数と、一般点での支持ブロックの内在性により、
+異なる分割が異なる既約成分を与える。
 
 **space** の成分数：
 `Σ_{k=1}^{floor(N/3)} S_≥3(N,k)`、
@@ -74,6 +95,29 @@ k増加で縮約写像のrankは上がり、閉包関係では
 PGL(V)は連結だから成分を置換しない。
 零Poisson切断は既存のrank2成分の閉包に入る。
 
+ここで成分数・次元の議論は**被約rank層とその閉包**について行う。
+局所表示Pの縮約写像 `Λ²V*→V` の階数が3kとなる条件が局所閉層を定める。
+`m=N−3k`、`P_k=e_123+e_456+...+e_(3k−2,3k−1,3k)` とすると、
+三次式の滑らかなアフィン錐へ引き戻した層は
+`GL_N ×^{Stab(P_k)} F_(N,k)^sm` で表される。
+安定化子の次元は `8k+3km+m²`、軌道の次元は `k(3N−8)`。
+固定P_kに適合する三次式は、異なるactiveブロック間のHessian成分が零となる
+線形空間をなし、その次元は
+
+`ell_(N,k)=binom(m+2,3)+k(10+6m+3 binom(m+1,2))`。
+
+その滑らかな部分はFermat三次式を含む非空既約開集合である。
+自由なG_m作用 `(F,P)↦(aF,a^(−1)P)` で割って射影的な三次パラメータへ戻すと、
+相対rank層の次元は `k(3N−8)+ell_(N,k)−1`。
+さらにPGL_Nで割ったstack次元は
+
+`d_(n,k)=k(3N−8)+ell_(N,k)−N²`。
+
+隣接するrank層の次元差は `3(3k−1)(N−3k)+8>0`。
+これと縮約階数の半連続性を併用して、異なるrank層の閉包の相互非包含を得る。
+G_m商は三次式の代表を選ぶ自由度を除く操作であり、Poisson bivectorの
+スカラーを射影化する操作ではない。
+
 | n | N | Fermat space | fixed stack | relative stack |
 |---:|---:|---:|---:|---:|
 | 3 | 5 | 1 | 1 | 1 |
@@ -89,28 +133,69 @@ PGL(V)は連結だから成分を置換しない。
 持つ（論文A cor:pg-generic）。固定stackの成分数は複素構造に
 依存する。Fermatが全smooth cubicで最大と証明したわけではない。
 
-## 主張の確実性と再現
+## 主張の確実性、証明監査と再現
 
-- 原稿に代数性と成分公式の数学的証明を記載した。
-  この作業で全一次資料を網羅調査した意味ではない。
-  元のPoisson正規形・Fermatの分割分類・相対rank層の
-  依存証明全体を独立に再監査したわけではない。
-- Stacks Project tag 06FI の定理文、
-  Grothendieck–Lefschetz Picard（SGA2 XII Cor 3.7）、
-  Matsumura–Monskyの自己同型群の既知結果を照合。
-- `python3 computations/verify_poisson_stack_component_counts.py` は
-  n=3,...,10に対し集合分割数・整数分割数・floor(N/3)
-  の全表を厳密整数演算で検算。
-  計数式の検査でありPoisson正規形の証明ではない。
-- `python3 scripts/verify_article_a_numbering.py` は式番号、
-  `eqref`、`bibitem`の静的整合性検査（LuaLaTeX組版ではない）。
-- `latexmk papers/paper_a.tex` で論文AをLuaLaTeX組版する。
-  最新v48の全原稿の組版・PDF目視確認は今回未実施。
+代数性と成分公式の数学的証明は上記の二つの原稿節にある。
+固定・相対stackの代数性、忘却射のアフィン性、相対Koszul複体の局所分裂と
+任意底変更、G_mのスカラー規約、Fermatの座標分割による被覆、
+被約rank層の既約性・次元・閉包の非包含を独立に点検した。
+証明は正規形 `thm:pg-normal`、ブロックの内在性 `ne:blocks`、
+相対表示 `prop:pg-represent` とJacobi延長 `prop:pg-jacobi-extension` を用いる。
+これらを含む論文A全体の依存監査と一次資料の照合範囲は
+`notes/poisson_article_submission_audit.md` を参照する。
+Stacks Project tag 06FI、Grothendieck–Lefschetz Picard定理
+（SGA2 XII Cor 3.7）、Matsumura–Monskyとの関係は
+`poisson_moduli_stacks.tex` の証明・引用に記載している。
+ここでいう独立点検は数学的な論証の監査であり、形式証明系による検証ではない。
+
+次の二つの計算スクリプトは2026-11-13の監査で実際に実行し、成功した。
+
+- `python3 computations/verify_poisson_stack_component_counts.py`：
+  n=3,...,10について集合分割数・整数分割数・floor(N/3)の全表が一致。
+  厳密整数演算による計数式の検査であり、Poisson正規形や一般次元の成分分類を
+  計算で証明したものではない。
+- `python3 computations/verify_nonelliptic_components.py --direct`：
+  二つの固定smooth cubic fivefold（node/cusp例）の35列の接空間行列を再計算し、
+  ともにrank33、核次元2を確認。
+  `computations/nonelliptic_components_certificate.json` の33×33小行列と一致し、
+  行列式はそれぞれ `8916100448256=2^24·3^12`、
+  `−4565043429507072=−2^33·3^12`。
+  直接Schouten計算によるJacobi線形化も両例でrank33だった。
+  この直接計算は35個の三重添字と84個の三次単項式からなる
+  2940係数を用い、零行は省略する。
+  スクリプト内のsmoothness、Poisson plane、射影rank4のwitness、
+  determinant curveの検査も成功した。
+  この証明書が支えるのは固定した二例の成分と接空間であり、
+  全cubicを動かした相対成分性ではない。
+  数学的な成分性・一般点での被約性の論証は
+  `papers/support/papers/sections/nonelliptic_poisson_components.tex` の
+  `ne:main` にある。
+
+再生成・整合性検査はリポジトリのルートで行う。
+
+```sh
+python3 scripts/build.py --only paper_a
+python3 scripts/verify_bundle.py --only paper_a --require-pdfs
+```
+
+後者は入力閉包、数値式番号の規約、ラベル・参照・引用と、
+現行ソースに対応するPDF・組版receiptを検査する。
+LuaLaTeX組版そのものとPDF表示の点検は別の検証であり、
+最終実行状態は `validation_paper_a.json` に集約する。
+
+**射程と未解決事項：** 成分公式は基礎位相空間の分類であって、
+Jacobi scheme全体の被約性、成分交叉のイデアル、零点の局所環を決定しない。
+非楕円二例の検証を一般の相対schemeの被約性へ拡張してはならない。
+相対商stackの粗モジュライの存在・構成や、Fermatの成分数の最大性も未証明。
+上の成分公式の初出・新規性の包括的な照合は未完であり、
+既知の商stack一般論と正規形からの計数的帰結を区別する。
 
 ## 次の優先事項
 
-現在のPoisson stack定義とFermat・relative成分公式を
-論文AのIntroductionに適切に置いたので、
-本稿の主結果の全依存監査（とくに正規形のLie補題）、
-モジュライ成分のscheme構造・交叉の扱い、
-全一次文献照合とLuaLaTeX組版を行う。
+1. 高次元の正規形・Fermatの分割分類・相対rank成分の先行研究との
+   比較を進め、既知の入力と公表上の貢献を具体化する。
+2. scheme構造を調べる場合は、少数ブロックの交叉と零Poisson点の
+   Jacobiイデアルから着手し、被約成分の分類だけでは決まらない厚みを区別する。
+3. Fermatの最大性、一般の固定cubicの成分数、粗モジュライの構成は
+   独立した問題として扱う。相対Poisson stack上への量子化の降下については
+   `notes/universal_casimir.md` と論文Aの適用範囲を参照する。
