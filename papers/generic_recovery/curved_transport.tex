@@ -47,6 +47,22 @@ Kontsevichの既知結果は、affine formality、HKR、Maurer--Cartan変形問�
 後者を形式的な無限arity関手へ無条件に適用せず、以下で評価式の有限性と収束を証明する。
 これらの一般理論の新規性は主張せず、本定理の組合せの初出は未確認である。
 
+\begin{remark}[既知の曲率付きformalityとの比較]\label{cft:rem:prior-formality}
+Carqueville--Kay\cite[Proposition~2.3, Remark~2.4, Proposition~3.4]{CK}の
+曲率付きformalityは、基点$b_F=\mu_0-tF$の第二種Hochschild複体を
+$[-tF,-]$を微分とするpolyvector複体と比較する。
+孤立特異点の勾配Koszul複体のコホモロジーは関数のJacobian空間に集中し、
+その斉次代表同士のSchouten括弧は零である。
+従って、基点の曲率を微分に含めて
+$\delta=(\mu_A-\mu_0)-t(\Omega-F)\in\mathfrak m$に
+各Artin商のMC比較を適用することが、potentialによる形式的存在原理を与える。
+第二種cochainのarity直和を$\mathfrak m$進完備化すれば、各Artin次数で有限arityとなる。
+内部weightを保ち、$t$を係数とする比較が次数付きの場合に対応する。
+以下の証明はこの存在原理に対し、三次特有の定数trivector、
+一段のゲージ経路、式\eqref{cft:eq:bound}の一様評価を与える。
+通常のMF圏のHochschild複体と第二種複体を無条件に同一視する必要はない。
+\end{remark}
+
 \subsection{通常の結合変形と中心元の有限次元逆像}
 \begin{lemma}[次数を保つunitalな星積模型]\label{cft:lem:model}
 formal Poisson tensor
@@ -192,6 +208,18 @@ $\sum_{j=0}^{q}(1-\mathcal F_s)^j$で与えられる。
 一入力成分は長さを変えない。従ってarity $2r+1$には少なくとも$r$回の
 coderivationが必要で、係数は$\mathfrak m^r$に入る。
 偶数arityは現れず、逆flowにも同じ評価が成立する。
+さらに$t$を含まない入力に制限すれば
+\begin{equation}\label{cft:eq:t-weight}
+ F_{2r+1}=t^{-r}f_{2r+1},\qquad
+ H_{2r+1}=t^{-r}g_{2r+1},
+ \qquad \operatorname{wt}(f_{2r+1})=
+ \operatorname{wt}(g_{2r+1})=-3r
+\end{equation}
+である。ここで$\operatorname{wt}$は、出力の多項式次数から入力の次数の和を引いた内部weightである。
+実際、$\gamma_s$の三入力成分は関数入力を持たず、$\eta=\Xi/t$から$t^{-1}$を一つ含む。
+一入力成分は関数入力$-tW$を一つ持つので$t$の冪は零である。
+arityを$2r+1$から一へ減らすflowの項には三入力成分が正確に$r$回現れるため、
+$t$の冪は$-r$である。内部weight零から$f_{2r+1},g_{2r+1}$のweightも従う。
 出力tensor長$\ell$に寄与する成分の積の位数を足すと、mod $\mathfrak m^{q+1}$では
 入力長は高々$\ell+2q$である。従ってtensor長完備barへの延長も各剰余で連続である。
 単位はnormalized性からflow中固定され、高arity成分の単位入力は零となる。
@@ -222,6 +250,21 @@ $\mathcal F b_0=b_1\mathcal F$から対象のMF方程式と全functor恒等式�
 二つのtwisted functorの合成は恒等となる。
 したがって各Artin切断で実際の互いに逆な関手がある。
 
+有限rankの通常のgraded MFの形が保存されることも確認する。
+基礎自由加群の偶・奇基底のcohomological次数をそれぞれ零・一に取ると、
+その行列は、内部shiftを基底に付したまま
+\begin{equation}\label{cft:eq:two-block-matrix}
+ Q=\begin{pmatrix}0&tq_1\\q_0&0\end{pmatrix},
+ \qquad Q^2=tC_\pi(W)\,\mathrm{id}
+\end{equation}
+と書ける。ここでは$\phi$で星積模型へ移した行列を用い、平方は始点の星積で計算する。
+$2r+1$個の$Q$を挿入した合成可能な添字列では、
+左下成分に$t$が$r$個、右上成分に$r+1$個現れる。
+式\eqref{cft:eq:t-weight}の$t^{-r}$を掛けると、像の$t$の冪はそれぞれ零・一となる。
+従って$Q'$は同じ有限個の内部shiftと同じ二つの階数を持つ行列であり、
+bar恒等式により$(Q')^2=tW\,\mathrm{id}$を満たす。
+逆写像についても同じ計算が成り立つ。
+
 固定した有限自由加群、固定したcohomological次数と内部次数では、
 各行列成分の$t$の冪と$x$の次数が固定される。
 従って出力は有限個の$S_j\otimes R$の直和に属する。
@@ -230,6 +273,8 @@ $\mathcal F b_0=b_1\mathcal F$から対象のMF方程式と全functor恒等式�
 すべての恒等式は各Artin商で成立しているため、分離性から$R$上でも成立する。
 これは同値の列の形式的な逆極限を宣言するのではなく、同じ基礎行列上の
 関手と逆関手の明示的な係数wise極限である。
+この極限には有限自由加群の$\mathfrak m$進完備性・分離性と、
+各Artin商での有限評価だけを使っており、$R$の正則性や有限大域次元は必要ない。
 
 内部shiftは基礎加群のラベルを変えるだけであり、行列上の公式は不変である。
 各$F_r,H_r$は$R[t,t^{-1}]$-多重線形なので、$t$が与える

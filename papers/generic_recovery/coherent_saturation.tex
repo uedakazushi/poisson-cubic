@@ -1,4 +1,4 @@
-% 2026-11-11 / v36
+% 2026-11-13. Coherent saturation with explicit admissibility.
 \section{線束生成部分の飽和と全coherent残余圏}
 \label{crs:sec:saturation}
 
@@ -182,12 +182,18 @@ $\mathcal O,\ldots,\mathcal O(a-1)$は例外列である。
 これはGorensteinの線束cohomology公式、または
 \cite[Theorem~6.4]{LP-BS}のOrlov分解から従う。
 $\mathcal C_B$はproperなので、例外列への評価・余評価は有限であり、
-その生成部分はadmissibleである。残余部分もadmissibleとなり
+その生成部分はadmissibleである。これにより半直交分解
 \[
  \mathcal C_B=\langle\mathcal K_B^{\rm lin},
                  \mathcal O,\ldots,\mathcal O(a-1)\rangle
 \]
-を得る。smoothnessの貼合せ\cite[Lemma~4.15(3)]{CRSPerry}を適用する。
+を得る。$\mathcal K_B^{\rm lin}$はproperな$\mathcal C_B$の充満部分圏なのでproperであり、
+仮定によりsmoothでもある。従って、その包含
+$\mathcal K_B^{\rm lin}\hookrightarrow\mathcal C_B$は
+\cite[Lemma~4.13]{CRSPerry}により左右随伴を持つ。
+これで残余成分もadmissibleとなる。
+全成分のadmissibilityを確認した上で、
+smoothnessの貼合せ\cite[Lemma~4.15(3)]{CRSPerry}を適用する。
 具体的には各例外成分は$\operatorname{Perf}(k)$でsmooth、
 相互Homはproperであり、smoothな成分の間の貼合せ双加群は
 \cite[Lemma~2.8(2)]{ROGTV}によりperfectである。

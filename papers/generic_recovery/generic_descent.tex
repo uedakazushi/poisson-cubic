@@ -150,10 +150,29 @@ $L$を有限生成$K$-部分代数のfiltered colimitとして表し、
 $\mathsf C_D$は$D$-properなので、包絡代数上のperfect加群を右$\Gamma_D$へ制限してもperfectである。
 
 $Q_D=R\operatorname{Hom}_{\Gamma_D}(P_D,\Gamma_D)$と置く。
-片側smoothnessにより$Q_D$は右$\mathsf C_D$-perfectであり、随伴の単位・余単位のconeは
-$D$-perfectである。$L$への底変更後は零なので、
-有限生成性と$D\subset L$により、ある$0\ne f\in D$を反転すれば両coneは零となる。
-rotation比較のconeも同様に消せる。
+$P_D$が右$\Gamma_D$-perfectで、$\Gamma_D$が$D$-properなので、
+$P_D$と$Q_D$はいずれも$D$-perfectである。
+$Q_D$を右$\mathsf C_D$-加群と見ると、$\mathsf C_D$のsmoothnessと
+\cite[Lemma~2.8(2)]{ROGTV}により右$\mathsf C_D$-perfectでもある。
+従って$-\otimes_{\mathsf C_D}^{\mathbf L}P_D$と
+$-\otimes_{\Gamma_D}^{\mathbf L}Q_D$はperfect加群の圏の間の随伴対をなし、
+その単位・余単位は双加群の射
+\[
+ \mathsf C_D\longrightarrow P_D\otimes_{\Gamma_D}^{\mathbf L}Q_D,
+ \qquad Q_D\otimes_{\mathsf C_D}^{\mathbf L}P_D\longrightarrow\Gamma_D
+\]
+で表される。第一のテンソル積は$P_D$の右$\Gamma_D$-perfect性と
+$Q_D$の$D$-perfect性から、第二のテンソル積は$Q_D$の右$\mathsf C_D$-perfect性と
+$P_D$の$D$-perfect性から、それぞれ$D$-perfectである。
+両方の対角も$D$-perfectなので、単位・余単位のconeは$D$-perfectとなる。
+また$P_D$の右$\Gamma_D$-perfect性により、$Q_D$とこの随伴の形成は
+$D\to L$の底変更と可換する。従って両coneは$L$への底変更後に零となる。
+
+$D$はnoetherian整域なので、これらのconeは有限個の有限生成cohomology加群を持つ。
+$D\subset L$より各加群は$D$-torsionであり、有限生成元のannihilatorの積を取れば、
+ある$0\ne f\in D$の反転後に両coneが零となる。
+rotation比較の両辺も、可逆双加群によるテンソルが片側のperfect性を保つことと
+両代数のproper性から$D$-perfectであり、そのconeを同じ方法で消せる。
 指定周期性の図式はperfect双加群間の有限個の射の等式であるから、
 必要なら段階を拡大し、さらに一つの元を反転して等式を保つ。
 任意の高次群作用を有限の周期図式と同一視してはいない。

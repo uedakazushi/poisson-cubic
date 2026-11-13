@@ -21,7 +21,16 @@ rotationの双加群を$P$と置く。このとき
  \simeq\operatorname{Jac}(F)_2
 \]
 であり、合成による積はJacobian環の積である。
-特に、積の核は$\langle\partial_1F,\ldots,\partial_NF\rangle$に一致する。
+特に、この積は対称積を経由し、誘導される全射
+\begin{equation}\label{ej:eq:symmetric-product}
+ \operatorname{Sym}^2
+ H^0R\operatorname{Hom}_{\mathcal C^e}(\Delta,P)
+ \longrightarrow
+ H^0R\operatorname{Hom}_{\mathcal C^e}
+ (\Delta,P\otimes_{\mathcal C}^{\mathbf L}P)
+\end{equation}
+の核は、上の同定の下で
+$\langle\partial_1F,\ldots,\partial_NF\rangle$に一致する。
 \end{proposition}
 \begin{proof}
 Orlovのdg比較をrotationも含めて用いると、$\rho_X$はgraded matrix
@@ -44,8 +53,16 @@ Jacobianイデアルは二次式$\partial_iF$で生成され、次数一部分�
 滑らかさにより$\partial_iF$は一次独立である。
 実際、定数係数の関係があれば線形座標変換後に$F$は一つの変数に依らず、
 その変数軸上の射影点が特異点になる。
-従って次数二の核は勾配空間であり、積は全射である。
+従って対称積上の次数二の核は勾配空間であり、積は全射である。
+$V\otimes V$からの積の核には$\bigwedge^2V$も含まれるので、
+勾配空間は必ず式\eqref{ej:eq:symmetric-product}の核として取る。
 \end{proof}
+
+rotation付きの滑らかなFano超曲面の幾何学的一意性は
+\cite[Theorem~5.1]{LZ}により既知である。
+次の命題は、三次式の方程式を基礎体へ降下するために用いる
+その三次の場合の自足的な線形代数の証明であり、
+categorical Torelli定理自体の新規性は主張しない。
 
 \begin{proposition}[滑らかな三次式の勾配空間による一意性]
 \label{prop:ej-projective-uniqueness}

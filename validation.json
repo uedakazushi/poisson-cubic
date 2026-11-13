@@ -1,170 +1,28 @@
 {
-  "version": "nc-cubic-v56",
-  "date": "2026-11-12",
+  "version": "nc-cubic-v81",
+  "date": "2026-11-13",
   "current_entry": "00_research_plan.md",
-  "authoritative": "GitHub uedakazushi/nc-cubic main; Library only following actual GitHub publication failure.",
-  "scope": "Paper A-v51: algebraic central cubic and AS-regular quantization proved for ALL Poisson structures on every smooth cubic n-fold n>=3, including singular or zero ternary block restrictions, using universal commutator rank identities, Cramer determinants and Bertini central-cubic splitting. Formal existence, Kontsevich and Dolgushev no longer used in the proof. Existing Poisson stack, normal form, Bondal, explicit Hesse and paper B results retained; 17-dimensional nc cubic moduli is moved to nc-cubic2 and ambient recovery is integrated into A. Ambient Z-algebra periodicity is included in the nc-cubic2 moduli paper rather than article A. The canonical main manuscript entrypoints are papers/paper_a.tex and papers/paper_b.tex; updated build scripts have not yet been run in a clean checkout.",
-  "proofs_written_and_checked": [
-    {
-      "source": "papers/support/papers/reconstruction/point_scheme_discriminant_boundary.tex",
-      "labels": [
-        "pdb:thm:flat",
-        "pdb:thm:sixfold",
-        "pdb:cor:double-cubic"
-      ],
-      "status": "Proof of monic Groebner rank24 across all lambda,h, local algebras at lambda^3=-3 and the doubled-cubic collision. This does not extend smooth-Poisson zero theorem to singular X."
-    },
-    {
-      "source": "papers/support/papers/reconstruction/point_scheme_lambda_family.tex",
-      "labels": [
-        "psl:lem:free",
-        "psl:thm:universal-flat",
-        "psl:cor:collision"
-      ],
-      "status": "Direct proof of rank24 basis and flatness, nilpotent v-shear, smooth-lambda Poisson special fiber, support collision. Scheme point-module identification relies on known Sklyanin theorem and the central-coordinate functor argument in the previous section."
-    },
-    {
-      "source": "papers/support/papers/reconstruction/point_scheme_thickening.tex",
-      "labels": [
-        "ps39:thm:flat-limit"
-      ],
-      "status": "Constructs flat family E_h disjoint union Sigma_h over U=Spec C[h,(h^6+27)^-1], with explicit trivialization of isolated finite component; special fiber is Poisson zero subscheme, while point scheme of B_0 is X_0."
-    },
-    {
-      "source": "papers/support/papers/reconstruction/point_scheme_thickening.tex",
-      "labels": [
-        "ps39:lem:abelian",
-        "ps39:prop:length",
-        "ps39:thm:comparison",
-        "ps39:thm:global"
-      ],
-      "status": "Full scheme-theoretic argument using central-coordinate multilinearization, exact commutative chart and nontrivial Sklyanin shift; relies on classical Sklyanin scheme/translation theorem. Standalone typeset separately."
-    },
-    {
-      "source": "papers/support/papers/reconstruction/point_scheme_poisson_zero.tex",
-      "labels": [
-        "prop:psp-point-support",
-        "prop:psp-comparison"
-      ],
-      "status": "Set-theoretic classification via central linear coordinates and 3D Sklyanin point-module theorem; explicit 12 fixed points; Poisson critical scheme has length24. The full point scheme's nilpotent structure is not established."
-    },
-    {
-      "source": "papers/support/papers/sections/bondal_cubic.tex",
-      "labels": [
-        "thm:pg-bondal",
-        "rem:pg-bondal-scope"
-      ],
-      "status": "Direct join dimension and rank-drop proof reviewed. DEPENDS on existing thm:pg-normal, whose complete Lie-theoretic classification proof was not independently reaudited this turn."
-    },
-    {
-      "source": "https://github.com/uedakazushi/nc-cubic2/blob/main/papers/relative_reconstruction/coherent_residual_saturation.tex",
-      "labels": [
-        "crs:thm:abstract",
-        "crs:cor:level"
-      ],
-      "status": "Direct proof via the smooth diagonal, pseudo-perfect modules and finite evaluation; no presumed generation of all coherent objects."
-    },
-    {
-      "source": "https://github.com/uedakazushi/nc-cubic2/blob/main/papers/relative_reconstruction/coherent_residual_saturation.tex",
-      "labels": [
-        "crs:lem:sections",
-        "crs:lem:finite-lines",
-        "crs:thm:coherent"
-      ],
-      "status": "Verified hypotheses for AS-regular central cubic quotients using Burke-Stevenson derived sections, chi and finite cohomological dimension."
-    },
-    {
-      "source": "https://github.com/uedakazushi/nc-cubic2/blob/main/papers/relative_reconstruction/coherent_residual_saturation.tex",
-      "labels": [
-        "crs:lem:descent",
-        "crs:prop:residual-smooth",
-        "crs:thm:generic"
-      ],
-      "status": "Finite-field smoothness descent proved by restriction/retract; gluing and saturation extend existing L,CF generic theorem to full coherent residual pair. Explicit formula still depends on D."
-    }
-  ],
-  "independent_audit_scope": [
-    "Stevenson Theorem6.13 primary PDF p26: all thick subcategories of the affine hypersurface singularity category, not just tensor ideals.",
-    "Regrading and compact-localization step reviewed; no error found in this audited step.",
-    "Restriction of completed functor to fixed finite objects before Laurent localization reviewed; the entire formality construction is not independently reaudited."
-  ],
-  "executed_exact_checks": {
-    "orbit_reexecution": "Existing verify_rotation_orbit.py rerun: 64 Euler vectors and 41 exact 32x32 MF polynomial identities passed.",
-    "unchanged_script_git_blob": "ad87ed126e4d157208fffac3d16c38a3ffd80dec",
-    "regenerated_certificate_git_blob": "79bf60036f597ead16bca22d526a5f807d535ebd",
-    "source_audit": "scripts/verify_coherent_residual_assets.py --rerun-orbit passed source closure, labels, citations, parent C integration and exact JSON match.",
-    "not_a_formal_proof": "No new toy calculation is claimed to prove the saturation theorem.",
-    "point_scheme_thickening": "SymPy Q(h) commutative chart identities and Groebner standard-monomial lengths24 at h=1,2,3. No automatic verification of Sklyanin theorem or global point functor.",
-    "lambda_point_scheme": "Ran SymPy script: 12 Groebner computations over lambda=0,1,2,-1 and h=0,1,2 with local length24, exact polynomial reduction and nilpotent shear checks. Regenerated JSON in local working copy. Not a formal proof of point-module functor.",
-    "discriminant_boundary": "Local SymPy exact reductions passed, finite field p=11 boundary lambda=2 with h=0,1,2 all rank24; 3 nonzero-branch local rings length6. Standalone expanded Japanese LuaLaTeX draft compiled to 3 pages and visually checked; concise integrated GitHub TeX not independently compiled.",
-    "article_A_static": "PASS post-move A-v49: 16 source files; 239 numbered equation environments, 6 align; 210 labels,225 refs,25 bibitems,61 cites. 0 missing/duplicate refs/cites. Static check only; no new TeX compile.",
-    "article_A_example": "Independent local SymPy demonstration: 56 Jacobi and 56 Euler-wedge components PASS; latest GitHub script including smoothness check not re-executed",
-    "article_A_universal_casimir_jet": "PASS in local SymPy symbolic independent-coefficient expansion (20 coefficients, 3 commutators) modulo h^4, upgraded to h^5 by a proved anti-involution+flatness argument; exact uploaded script not rerun",
-    "article_A_fermat_mixed_universal": "PASS locally: 339 weighted free words, 162 quadratic relation multiples, rank 144 both over QQ(h) and at h=0, 3 universal center commutators reduce to 0 over QQ(h); all 6 coefficients algebraically independent.",
-    "article_A_classical_casimir_minor": "PASS locally using exact rational SymPy matrices: 9x9 determinant -72 (m=0), 30x30 determinant +4608 (m=2).",
-    "article_A_hesse_mixed_universal": "PASS locally over Q(h,t): 339 weighted free words, 162 quadratic relation multiples, rank144, 3 universal center commutators exactly zero; all 6 central symbols algebraically independent; independent explicit special rank144 at h=0.",
-    "article_A_hesse_hessian_identity": "PASS exact SymPy coefficient comparison of expanded formula and sym(F-h^2 det Hess F/12+h^2 ABC/6+h^4 Psi_t(F)); the difference is identically zero with symbolic t and all coefficients.",
-    "article_A_hesse_translation": "PASS exact SymPy expansion of the diagonal central shift formula with symbolic t and arbitrary A,B,C,D,E,H and three central linear shifts.",
-    "article_A_general_dimension": "PASS independent local SymPy for 6 cases n=3,4,6,7,10; 610 Poisson Jacobi components, 52 Casimir components, cross Hessian and invariant six-index Hessian identity exactly zero.",
-    "article_A_general_dimension_symbol_constructor": "PASS local SymPy demo (n=6,k=2,m=2 shared center u,v): Weyl center Omega_00=F and no mixed eta_s eta_t terms; 30 F and 142 Omega monomials. Not a free-algebra centrality certificate.",
-    "article_A_fermat_stack_component_counts": "PASS exact Python integer recurrence for n=3,...,10: Pois space=1,11,36,92,491,2557,11353,60105; fixed moduli stack=1,2,2,3,4,5,6,9; relative stack=1,2,2,2,3,3,3,4.",
-    "article_A_six_seven_migration": "PASS exact text comparison before removal: original general-degeneracy, dimension-specific six/seven geometry, numeric section all preserved at nc-cubic2; target paper static checks PASS and local equivalent SymPy numerical suite PASS.",
-    "article_A_singular_ternary_classical_kernel": "PASS in independent local SymPy rational arithmetic: for f=u*x^2+v*y^2+w*z^2+u^3+v^3+w^3, g=f(x,y,z,0)=0 but total f is smooth. Classical Jacobian Casimir matrix size 378x56 has exact rank45, kernel 11-dimensional equal to C f+C[u,v,w]_3. A corresponding standalone script is committed to computations/verify_singular_cubic_classical_kernel.py; exact GitHub-hosted script was not rerun after upload."
-  },
-  "primary_sources_checked": [
-    "Burke-Stevenson arXiv1507.00830v1, Prop4.18/Lemmas6.1,6.2/Thm6.4: PDF pp12-14,17-19 inspected including screenshots.",
-    "Toen-Vaquie arXivmath/0503269v5 Lemma2.8(2): PDF pp21-22 inspected including screenshot.",
-    "Perry Noncommutative homological projective duality (2019), Lemma4.15(3), primary accepted-manuscript HTML inspected.",
-    "Stevenson arXiv1105.4698v3 Theorem6.13 and Dyckerhoff arXiv0904.4713v5 Section2.4: primary PDF pages inspected.",
-    "Gualtieri–Pym (2013), Poisson modules and degeneracy loci DOI10.1112/plms/pds090: Bondal conjecture and Fano dimension four; Druel–Pereira–Pym–Touzet arXiv:2606.03424 (2026): Fano dimension five."
-  ],
-  "retained_without_full_reaudit": [
-    "All previous A/B/C mathematical sections and computation sources retained.",
-    "L local regular-base stabilization/window proof; CF full curved formality and inverse coherence; D noncommutative diagonal comparison not fully independently reaudited.",
-    "v27 full noncommutative matrix witness not regenerated this turn; its retained SHA256 is 88d62952bfa999f57e454d68ec341b3fe8bea8df69a649710280d5b119404b78.",
-    "Article A normal form: Etingof root-theoretic inputs checked, but complete proof and theorem applications not independently reaudited."
-  ],
-  "not_established": [
-    "Explicit generic equivalence-kernel matrices, extension degree or effective diagonal generation level.",
-    "Equivalence of the whole noncommutative projective derived category with that of the commutative cubic; only residual pairs are compared.",
-    "Finite global dimension of the graded affine quotient B.",
-    "Relative equivalence including h=0, compact inverse over the entire completed base, or multi-parameter all-component extension.",
-    "Comprehensive novelty determination, external referee check, or formal proof.",
-    "Independent complete revalidation of the existing Lie algebra normal form, exhaustive novelty/prior art for Bondal on cubic n-folds n>=6, and scheme-theoretic dimension/primary decomposition from the new join argument.",
-    "Special fibers h=0 or h^6=-27; point scheme of general nc cubic or other lambda; formal verification of global point module functor.",
-    "General theorem that Poisson zero schemes equal flat limits of point schemes outside the explicit mixed cubic family.",
-    "General point-scheme flat-limit theorem for arbitrary noncommutative cubic threefolds; degeneration at lambda^3=-3 or h^6=-27; independent verification of all Sklyanin deformation theorems; first publication novelty.",
-    "Full point scheme at h^6=-27 or Poisson zero degeneracy on singular cubic lambda^3=-3; these are outside the smooth limit theorem.",
-    "Article A full independent proof audit, complete novelty review and submission-ready typeset final PDF.",
-    "A single coordinate-free GL3-equivariant low-degree polynomial formula in the ORIGINAL ternary coefficients, without choosing Hesse coordinates: not established (explicit formula exists after Hesse normalization).",
-    "A short exact universal closed central cubic formula for ALL singular/zero ternary restrictions: not established; nodal and cuspidal special formulas exist.",
-    "Actual LuaLaTeX build and visual inspection of the complete article A-v44: not run in the current turn.",
-    "Coordinate-independent explicit quartic h^4 correction K(P,F) without choosing a Hesse chart: not established.",
-    "Global descent of arbitrary-dimensional k-parameter quantizations from Hesse presentation charts to the full Poisson pair moduli: not established.",
-    "Full independent validation of normal-form and AS-regularity dependencies and complete paper A compilation: pending.",
-    "A fully independently audited proof of Poisson normal form and relative irreducible component count: not completed; current manuscript contains detailed proofs using the normal-form lemma.",
-    "A full LuaLaTeX compilation and page-by-page rendered PDF inspection of article A-v48 after renumbering: not executed.",
-    "Fermat maximizing fixed Poisson stack component counts among all smooth cubic hypersurfaces: not established.",
-    "Full independent rerun of universal Hesse all-coefficient centre certificate and exhaustive normal-form, PBW/AS regularity, centre regularity, Bondal and stack component dependency audit: pending.",
-    "A short GLOBAL polynomial centre for every singular/zero ternary restriction, as opposed to an exact local rational Cramer formula, is not established.",
-    "An algebraic centre/quantization family canonically descended to the entire relative moduli stack of Poisson pairs: not established.",
-    "Whole article A-v50 LuaLaTeX build and PDF visual check: not performed in this turn."
-  ],
-  "typesetting": {
+  "authoritative": "GitHub uedakazushi/nc-cubic main; expected-parent fast-forward updates; no Actions or force push.",
+  "scope": "Current paper A-v51 and publication-oriented mathematical audit of paper B-v56. Paper A mathematics and all recursive TeX inputs are unchanged in this review.",
+  "papers": {
     "A": {
-      "build_completed": false,
-      "reason": "The current A-v51 source has not been recompiled and visually reviewed following repository organization."
+      "entry": "papers/paper_a.tex",
+      "version": "A-v51",
+      "audit": "notes/poisson_article_submission_audit.md",
+      "independently_reaudited_this_review": false,
+      "typeset_this_review": false
     },
     "B": {
-      "build_completed": false,
-      "reason": "The former paper C was renamed paper B (B-v40) without changing mathematical inputs; complete LuaLaTeX build and visual inspection of this entrypoint have not been executed."
+      "entry": "papers/paper_b.tex",
+      "version": "B-v56",
+      "audit": "notes/paper_b_proof_audit.md",
+      "validation": "validation_paper_b.json",
+      "proof_chain_reaudited_this_review": true,
+      "formal_verification": false,
+      "external_referee_review": false,
+      "exhaustive_novelty_established": false
     }
   },
-  "environment": {
-    "python": "3.13.5",
-    "sympy": "1.14.0"
-  },
-  "persistence": "Creation, computation, typesetting and remote publication are separate. Remote branch and changed blobs are verified after push.",
   "article_A_submission_audit": {
     "manuscript": "papers/paper_a.tex",
     "bibliography": "papers/support/papers/references_poisson_cubic.tex",
@@ -459,47 +317,40 @@
       "novelty": "Comprehensive priority/novelty determination not completed."
     }
   },
-  "papers_layout": {
-    "entrypoints": [
-      "papers/paper_a.tex",
-      "papers/paper_b.tex"
-    ],
-    "support": "papers/support/papers/",
-    "verified_direct_files_only": true,
-    "build_verified": false,
-    "comment": "Two main manuscripts A/B; former moduli paper is maintained in nc-cubic2. Full current LuaLaTeX builds and visual PDF checks are outstanding."
+  "article_A_recorded_exact_checks": {
+    "article_A_static": "PASS post-move A-v49: 16 source files; 239 numbered equation environments, 6 align; 210 labels,225 refs,25 bibitems,61 cites. 0 missing/duplicate refs/cites. Static check only; no new TeX compile.",
+    "article_A_example": "Independent local SymPy demonstration: 56 Jacobi and 56 Euler-wedge components PASS; latest GitHub script including smoothness check not re-executed",
+    "article_A_universal_casimir_jet": "PASS in local SymPy symbolic independent-coefficient expansion (20 coefficients, 3 commutators) modulo h^4, upgraded to h^5 by a proved anti-involution+flatness argument; exact uploaded script not rerun",
+    "article_A_fermat_mixed_universal": "PASS locally: 339 weighted free words, 162 quadratic relation multiples, rank 144 both over QQ(h) and at h=0, 3 universal center commutators reduce to 0 over QQ(h); all 6 coefficients algebraically independent.",
+    "article_A_classical_casimir_minor": "PASS locally using exact rational SymPy matrices: 9x9 determinant -72 (m=0), 30x30 determinant +4608 (m=2).",
+    "article_A_hesse_mixed_universal": "PASS locally over Q(h,t): 339 weighted free words, 162 quadratic relation multiples, rank144, 3 universal center commutators exactly zero; all 6 central symbols algebraically independent; independent explicit special rank144 at h=0.",
+    "article_A_hesse_hessian_identity": "PASS exact SymPy coefficient comparison of expanded formula and sym(F-h^2 det Hess F/12+h^2 ABC/6+h^4 Psi_t(F)); the difference is identically zero with symbolic t and all coefficients.",
+    "article_A_hesse_translation": "PASS exact SymPy expansion of the diagonal central shift formula with symbolic t and arbitrary A,B,C,D,E,H and three central linear shifts.",
+    "article_A_general_dimension": "PASS independent local SymPy for 6 cases n=3,4,6,7,10; 610 Poisson Jacobi components, 52 Casimir components, cross Hessian and invariant six-index Hessian identity exactly zero.",
+    "article_A_general_dimension_symbol_constructor": "PASS local SymPy demo (n=6,k=2,m=2 shared center u,v): Weyl center Omega_00=F and no mixed eta_s eta_t terms; 30 F and 142 Omega monomials. Not a free-algebra centrality certificate.",
+    "article_A_fermat_stack_component_counts": "PASS exact Python integer recurrence for n=3,...,10: Pois space=1,11,36,92,491,2557,11353,60105; fixed moduli stack=1,2,2,3,4,5,6,9; relative stack=1,2,2,2,3,3,3,4.",
+    "article_A_six_seven_migration": "PASS exact text comparison before removal: original general-degeneracy, dimension-specific six/seven geometry, numeric section all preserved at nc-cubic2; target paper static checks PASS and local equivalent SymPy numerical suite PASS.",
+    "article_A_singular_ternary_classical_kernel": "PASS in independent local SymPy rational arithmetic: for f=u*x^2+v*y^2+w*z^2+u^3+v^3+w^3, g=f(x,y,z,0)=0 but total f is smooth. Classical Jacobian Casimir matrix size 378x56 has exact rank45, kernel 11-dimensional equal to C f+C[u,v,w]_3. A corresponding standalone script is committed to computations/verify_singular_cubic_classical_kernel.py; exact GitHub-hosted script was not rerun after upload."
   },
-  "post_reorganization_validation": {
-    "date": "2026-11-12",
-    "status": "GitHub transfer and source-level checks; complete compilation not yet executed",
-    "ambient_recovery": "papers/support/papers/sections/ambient_recovery_general.tex included in papers/paper_a.tex; all-dimension quadratic envelope and polarized-category theorems proved in source; Serre-only general-dimensional uniqueness not asserted",
-    "moduli_transfer": "nc-cubic2/papers/nc_cubic_threefold_moduli.tex includes moduli proofs and a self-contained threefold envelope lemma; nc-cubic2/https://github.com/uedakazushi/nc-cubic2/blob/main/papers/relative_reconstruction/mixed_center_picard.tex is a byte-identical transfer of original source",
-    "moduli_code": [
-      "nc-cubic2/computations/independent/verify_generic17_slice.py",
-      "nc-cubic2/computations/independent/verify_generic17_center.py",
-      "nc-cubic2/computations/verify_split_codimension.py"
-    ],
-    "static_checks": "Article A-v51 source closure: all 16 files have 249 labels, 235 refs, 24 bibliography keys, 58 citations, no missing or duplicate keys, no unnumbered displays. nc-cubic2 moduli manuscript and new periodicity section previously checked for 67 labels, 60 refs, 19 bibliography keys, 31 citations.",
-    "not_executed": "Full LuaLaTeX build/PDF inspection of modified article A and moved moduli manuscript, and rerun of moved verification scripts not performed in this change",
-    "known_open_problem": "17-dimensional constructed nc cubic family not proved to be a moduli irreducible component; general Serre-Veronese lifting not proved",
-    "independent_determinant_check": "PASS: an independent local SymPy reproduction of the transferred 31x31 integer tangent matrix at F0 yielded -5538243375000. This was an equivalent reimplementation, not execution of the exact GitHub script.",
-    "paper_B_removed": "papers/paper_b.tex deleted from nc-cubic main after destination files were verified; current direct paper entrypoints are A/C.",
-    "ambient_periodicity": "The complete Z-algebra periodicity proof, normal-family criterion and bibliography are present in nc-cubic2/papers/sections/ambient_periodicity.tex and included in its nc_cubic_threefold_moduli.tex (destination main 0689e7d). Theorems are no longer part of article A; general quadratic-envelope recovery stays in A."
+  "independent_results": {
+    "authoritative_repository": "uedakazushi/nc-cubic2",
+    "scope_note": "notes/paper_b_scope_and_transfer.md",
+    "transfer_validation": "validation_transfer.json",
+    "role": "Independent results and their certificates; not inputs to the current paper B proof."
   },
-  "artifact_organization": {
-    "date": "2026-11-12",
-    "canonical_entrypoints": [
-      "papers/paper_a.tex",
-      "papers/paper_b.tex"
+  "reproducibility": {
+    "build": "python3 scripts/build.py --only paper_b",
+    "source_checks": [
+      "python3 scripts/check_layout.py",
+      "python3 scripts/verify_bundle.py"
     ],
-    "support_tree": "papers/support/papers/",
-    "build_utility": "scripts/build.py",
-    "source_verification": "scripts/verify_bundle.py",
-    "layout_check": "scripts/check_layout.py",
-    "auxiliary_reconstruction": "reconstruction/",
-    "candidate_sources": "sources/candidates/ (unreconciled; retained for mathematical safety)",
-    "pdf_tracking": "No tracked PDFs; generated files belong in ignored build/.",
-    "build_executed": false,
-    "proof_audit_executed": false
-  }
+    "paper_B_checks": "validation_paper_b.json",
+    "pdf_tracking": false,
+    "build_directory": "build/"
+  },
+  "status_limits": [
+    "Proof text, independent mathematical reading, finite exact calculations, typesetting, and remote persistence are different states.",
+    "No new independent proof audit or build of paper A is claimed.",
+    "Publication priority for the combination of curved comparison, generic descent, and coherent saturation remains unestablished."
+  ]
 }

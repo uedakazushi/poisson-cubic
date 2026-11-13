@@ -112,9 +112,27 @@ Chenの余核定理\cite[Theorem~7.2]{AMChen}は三角圏の定理である。
 有限自由graded MFの成分別split exact圏を$\mathcal F$、
 有限生成graded Gorenstein-projective $B$-加群のexact圏を$\mathcal G$とする。
 $A$の大域次元が有限なので、$\mathcal G$の全対象は有限$A$-射影次元を持つ。
-各有限graded projective $A$-加群は、$A_0=R$が局所であることから自由である。
+ChenのCorollary~2.11により、非零$M\in\mathcal G$の$A$-射影次元は一である
+（零対象も含めれば高々一）。従って有限生成元を斉次に選ぶと
+\begin{equation}\label{tw:eq:graded-presentation}
+ 0\longrightarrow P_0\xrightarrow{d_0}P_1\longrightarrow M\longrightarrow0
+\end{equation}
+という有限graded projective $A$-加群による表示を得る。
+実際、有限graded freeな$P_1$からの全射の核は$A$上射影であり、
+斉次写像の持上げの次数零成分を取ることでgradedにも射影である。
+各有限graded projective $A$-加群は、$A_0=R$が局所であることから
+有限個の内部shiftを持つ自由加群である。
+$\Omega M=0$より、次数零の乗法写像$\Omega_{P_1}:P_1\to P_1(3)$は
+$d_0(3)$を経由し、一意な$d_1:P_1\to P_0(3)$を定める。
+従って
+\begin{equation}\label{tw:eq:graded-factorization}
+ d_0(3)d_1=\Omega_{P_1},\qquad d_1d_0=\Omega_{P_0}.
+\end{equation}
+第二式は第一式と$d_0(3)$の単射性から従う。
+これが本稿の内部shift規約における有限自由graded MFで、その余核は$M$である。
+この構成はChenのTheorem~7.2とRemark~7.3(2)の本質的全射性を斉次に実現する。
 余核はexact関手$\mathcal F\to\mathcal G$であり、projective-injectiveを保つ。
-Chenの証明は生成元と持上げを斉次に選ぶことでこのgraded版にも適用できる。
+射とhomotopyの持上げも次数零成分を取れるので、同定理の完全忠実性もgraded版で成立する。
 右加群については$A^{\mathrm{op}}$へ同じ結果を適用する。
 従って、その誘導するstable categoryの関手は同値である。
 

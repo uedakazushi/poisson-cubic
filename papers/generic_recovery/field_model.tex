@@ -81,7 +81,8 @@ $n\ge3$、$N=n+2$とする。上のpairがある代数閉拡大体$\Omega/k$上�
 \item $X_G=V(G)\subset\mathbb P(V^*)$は$k$上幾何学的に滑らかで、$X_{G,\Omega}\simeq Y$である。
 \item ある有限拡大$k'/k$上で$(\mathcal C_{k'},\rho)\simeq(\operatorname{Ku}(X_{G,k'}),\rho_G)$である。
 元の同値に三次周期比較を指定していた場合、それも保存できる。
-\item $\mathcal C$の任意の滑らかなcubic模型は、共通の代数閉拡大体上で射影同型である。
+\item pair $(\mathcal C,\rho)$の任意のrotation付き滑らかなcubic模型は、
+共通の代数閉拡大体上で射影同型である。
 \end{enumerate}
 従って方程式の定義体には有限拡大を必要としない。
 一方、同値双加群の$k$への降下や、$k$上での模型の一意性は主張しない。
@@ -133,7 +134,7 @@ $X_G$は既に$k$上にあり、そのKuznetsov成分はsmooth properである�
 固定された二つのproper dg模型に補題\ref{rog:lem:descent}を適用する。
 perfect同値核、rotation比較、指定周期図式を有限生成$k$-部分代数へ降ろし、
 単位・余単位のconeを消す非空開の閉点を選べば、有限拡大$k'/k$上の同値を得る。
-第三の主張も、任意の模型に式\eqref{gcd:eq:gradient-data}を適用し、
+第三の主張も、任意のrotation付き模型に式\eqref{gcd:eq:gradient-data}を適用し、
 同じ勾配空間の射影的一意性を用いれば従う。
 \end{proof}
 
@@ -144,6 +145,24 @@ perfect同値核、rotation比較、指定周期図式を有限生成$k$-部分�
 $k=\mathbb C(h)$のときも$G$の係数が$h=0$で正則、あるいは$G_0=F$とは限らない。
 特殊点を含む代数的な相対同値は本定理の結論には含めない。
 \end{remark}
+
+\begin{example}[同じ勾配空間を持つ異なる基礎体上のform]
+\label{gcd:ex:forms}
+$k=\mathbb C(h)$、$N\ge5$とし、
+\begin{equation}\label{gcd:eq:forms}
+ F=\sum_{i=1}^Nx_i^3,\qquad
+ G=h x_1^3+\sum_{i=2}^Nx_i^3
+\end{equation}
+と置く。両者の勾配空間は$\langle x_1^2,\ldots,x_N^2\rangle$であり、
+幾何学的には射影同型であるが、$k$上では射影同型でない。
+実際、両者のHessian行列式の零集合は座標超平面の和である。
+射影線形同型があればこの配置を保つので、その行列は置換行列と対角行列の積となる。
+すると$h$と$1$の係数比は$k$内の三乗でなければならないが、
+$h$進付値が$1$であることに矛盾する。
+従って勾配空間の復元だけから$k$上の射影同型類の一意性を結論できない。
+これは二つの方程式のformの例であり、圏同値核の降下障害が非零であることを
+証明する例ではない。
+\end{example}
 
 \subsection{既知の生成定理による最短経路と一様な上界}
 

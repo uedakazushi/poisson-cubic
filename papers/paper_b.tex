@@ -1,5 +1,5 @@
 % !TEX root = paper_b.tex
-% 2026-11-12 / B-v55. General-dimensional reconstruction only.
+% 2026-11-13 / B-v56. Publication-oriented proof and literature audit.
 \makeatletter
 \def\input@path{{papers/support/}}
 \makeatother
@@ -9,9 +9,9 @@
 \hypersetup{pdftitle={中心三次非可換変形の一般点における可換復元}}
 \title{中心三次非可換変形の一般点における可換復元}
 \author{}
-\date{2026年11月12日・論文B（研究草稿 v55）}
+\date{2026年11月13日・論文B（研究草稿 v56）}
 \fancyhead[L]{\small 中心三次非可換変形の一般点可換復元}
-\fancyhead[R]{\small 2026-11-12 / B-v55}
+\fancyhead[R]{\small 2026-11-13 / B-v56}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -21,7 +21,7 @@
 滑らかな可換三次$n$次元超曲面のKuznetsov成分として復元する。
 同値はrotationと中心元に由来する三次周期比較を保つ。
 可換模型の方程式は元の関数体$\mathbb C(h)$上に取れ、
-その幾何学的な射影同型類は一意である。
+rotation付きの模型として、その幾何学的な射影同型類は一意である。
 証明は相対window、完備曲率付きmatrix factorizationの比較、
 一般点での生成と有限降下、coherent飽和、低rotation積からの勾配空間の積分からなる。
 \end{abstract}
@@ -34,6 +34,13 @@
 主結果は任意の$n\ge3$で成立し、三次三様体だけを対象とするものではない。
 また、可換模型の方程式を定義する体と、圏同値の核を定義する体を区別する。
 
+三次という次数の役割は、中心性を表す勾配Koszul複体に現れる。
+完備化後に二次係数のPoisson tensorを$\pi$、中心元の可換側の逆像を$W$とすると、
+$[\pi,W]=0$から定数trivector $\Xi$が一意に定まり、$\pi=[\Xi,W]$となる。
+Jacobi恒等式と次数制約からさらに$[\Xi,\pi]=0$を得る。
+この有限なゲージ経路を曲率付きbar写像へ移し、
+有限rankのgraded MF上で収束する関手と逆関手を作るのが比較の核心である。
+
 証明の前半では、線束生成残余圏を三つのstabilizationで表示し、
 完備係数上で可換MF圏との実際の$A_\infty$比較を構成する。
 三つの対象を用いるのは方程式の次数が三であるためである。
@@ -44,13 +51,41 @@ BFKの生成定理\cite{GCDBFK}で本質的全射性を得る。
 最後に、rotationの低次数積から得られる勾配空間を積分し、
 可換方程式を元の体上に選ぶ。
 
-既知の入力は、非可換射影幾何とOrlov型比較\cite{LP-AZ,LP-BS}、
-Kontsevichのformality\cite{PKontsevich}、曲率付き$A_\infty$理論\cite{CT}、
-MFの生成とrotation付きTorelli\cite{GCDBFK,LZ}である。
-本稿ではその適用に必要なenhancement、次数別完備性、有限対象の局所化、
-有限降下と全coherent圏への拡張を明記する。
-低次数積だけを検査して圏同値の存在を結論するのではなく、
-幾何学的な可換模型の存在を先に確立してから方程式の定義体を改善する。
+\subsection{先行研究との関係}
+非可換射影幾何と有界Orlov型比較にはArtin--Zhang、Burke--Stevenson
+\cite{LP-AZ,LP-BS}を用いる。非可換中心商のMF圏が可換幾何で記述される
+先行例として、Etingof--Ginzburg\cite[Theorem~3.6.2]{EG}は、
+非可換楕円特異点のgraded MF圏と楕円曲線の有界導来圏との三角同値を示している。
+通常次数の三次の場合、これは三変数のSklyanin型の状況に対応する。
+本稿は$N=n+2\ge5$変数の任意の指定された中心三次変形を扱い、
+rotationと周期比較を備えた一般点の残余圏を構成する。
+
+曲率付き変形をpotentialの変形として扱う一般原理も既存のものである。
+Kontsevichのformality\cite{PKontsevich}を曲率付きの状況へ拡張する
+Carqueville--Kay\cite[Theorem~3.1, Proposition~3.4]{CK}は、
+polyvector場と曲率付きHochschild変形問題の比較を与える。
+同論文の第二種cochainはarityについての直和であり、その極大イデアル進完備化では
+各Artin次数に有限個のarityだけが現れる。この性質は、冪零でない有限MF行列へ
+ゲージ写像を評価するための基礎となる。
+本稿の完備比較は、この既知原理を三次・次数付き状況で明示的に実現するものと位置付ける。
+この形式的存在原理は孤立potential一般に通じる。
+通常のformalityを曲率導入前に使い、三次の次数制約からarity一・三だけのflowと
+$F_{2r+1}\in\mathfrak m^r$という一様な評価を得て、その後の移送を
+行列上の挿入公式で構成する。
+Căldăraru--Tuのtwisted complexによるMFの記述\cite[Section~2]{CT}と合わせ、
+完備底上の有限rank、単位、内部次数、指定三次周期性を確認する。
+一般的な曲率付きformality、あるいは適切な完備化で有限rank MFにゲージを
+評価する原理自体を本稿の新規結果とはしない。
+
+三つのshiftによる生成とその一様な上界は
+Ballard--Favero--Katzarkov\cite[Theorem~5.15]{GCDBFK}の帰結である。
+rotation付きの滑らかなFano超曲面の幾何学的一意性も
+Lin--Zhang\cite[Theorem~5.1]{LZ}により既知である。
+本稿ではその三次の場合を、低次数の対称積の核と勾配空間を用いて直接説明し、
+既に存在する可換模型の方程式を元の体へ降ろすために使う。
+本稿の中心となる組合せは、上記の完備MF比較を固定三対象上で局所化し、
+有限降下と全coherent圏への飽和を経て、代数的変形の一般点で可換模型を得ることである。
+各既知定理の適用と、この組合せに必要な構成を証明中で区別する。
 
 本文は一般次元の主定理とその証明に必要な結果のみを収める。
 変形接空間、三次三様体のPl\"ucker障害、独立の相対形式・étale理論、

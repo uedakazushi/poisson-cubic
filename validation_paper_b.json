@@ -1,83 +1,240 @@
 {
   "date": "2026-11-13",
-  "paper_version": "B-v55",
-  "repository_version": "v72",
+  "paper_version": "B-v56",
+  "repository_version": "nc-cubic-v81",
+  "reviewed_remote_base_commit": "99b45fe4999fa89471fb274fced07a1b772927f1",
   "entry": "papers/paper_b.tex",
-  "scope": "General n>=3 reconstruction theorem and necessary proofs only. Paper B source unchanged during point-scheme migration; other independent material still pending migration.",
-  "paper_A": {
-    "modified": false,
-    "entry_blob": "ec6ff5fc12a81de53765376cf583645f9dd8971b",
-    "input_dependencies_unchanged": true,
-    "shared_common_blob": "e53e7220975a65e301ddc9a38ea87c8449f180ec",
-    "references_poisson_cubic_blob": "f4f9edb056e75af048478a026cc6c176f4affc85",
-    "typeset_again_this_migration": false
-  },
-  "build": {
-    "executed_for_version": "B-v55",
-    "execution_date": "2026-11-12",
-    "rerun_this_migration": false,
-    "command": "latexmk -g -r .latexmkrc papers/paper_b.tex",
-    "engine": "LuaLaTeX",
-    "complete_paper_build_executed": true,
-    "pages": 27,
-    "undefined_references_and_citations": 0,
-    "overfull_boxes": 0,
-    "missing_characters": 0,
-    "multiply_defined_labels": 0,
-    "visual_review": "All 27 pages rendered and inspected in three contact sheets; no clipped text or overlap observed. Current paper B sources have not changed since that build.",
-    "pdf_sha256": "f3f833aec9f935e53abe3fb93fa28c66910467da722d5e1f435252c7cbc36191",
-    "pdf_git_tracked": false,
-    "latexmkrc_blob": "ab3ca75d9e516a01e44bcb555e0a8e5801867310"
+  "scope": "Publication-oriented review of the complete generic reconstruction proof chain and cited primary results; corrections and proof expansions are in the current manuscript.",
+  "mathematical_review": {
+    "proof_chain_reread": true,
+    "sections": [
+      "local noetherian/Koszul/AS model and line-bundle Hom",
+      "three-object dg window and graded stabilization",
+      "completed curved transport and finite-rank MF evaluation",
+      "generic generation and finite descent",
+      "coherent saturation and smoothness gluing",
+      "low rotation product, geometric uniqueness and field of definition"
+    ],
+    "review_note": "notes/paper_b_proof_audit.md",
+    "corrections": [
+      "The gradient space is the kernel on Sym^2 V, not on V tensor V.",
+      "Geometric uniqueness is stated for rotation-compatible cubic models.",
+      "Perfectness of descent kernels, adjoint kernels and unit/counit cones is justified.",
+      "The residual inclusion has both adjoints before applying smoothness gluing.",
+      "A finite graded projective presentation explicitly produces the stabilization factorization.",
+      "The t/weight calculation verifies that the bar flow preserves ordinary finite-rank graded MF."
+    ],
+    "added_counterexample": "gcd:ex:forms: identical gradient spaces need not determine the same K-projective form; this is not an example of a nonzero kernel descent obstruction.",
+    "conclusion": "No additional input hypothesis or withdrawal of the generic existence conclusion was required by the issues found in this review.",
+    "theorem_scope": "A cubic equation is defined over K=C(h); the full coherent residual equivalence preserving rotation and the specified cubic periodicity is obtained over some finite K-prime/K. Geometric projective uniqueness is among rotation-compatible models.",
+    "not_claimed": [
+      "uniqueness of the K-form",
+      "descent of the equivalence kernel to K",
+      "an algebraic relative equivalence including the special point",
+      "equivalence of the entire noncommutative projective category with the entire commutative cubic category"
+    ],
+    "final_statement_consistency_review": true,
+    "formal_proof_assistant_verification": false,
+    "external_referee_review": false,
+    "prior_work": "Carqueville--Kay gives the general curved-formality/potential principle; finite-rank evaluation in the arity-sum completion is also a known principle. Etingof--Ginzburg supplies an elliptic precedent; BFK generation and Lin--Zhang rotation Torelli are known inputs.",
+    "novelty_status": "The cubic explicit flow and its combination with algebraic generic descent, coherent saturation and field descent are described precisely; first occurrence and publication-level novelty of the combination remain unconfirmed."
   },
   "static_source_check": {
-    "executed_for_version": "B-v55",
+    "executed_for_version": "B-v56",
+    "command": "python3 scripts/verify_bundle.py --only paper_b --require-pdfs",
+    "exit_code": 0,
     "tex_files": 11,
-    "labels": 102,
-    "references": 94,
-    "citation_occurrences": 37,
-    "bibliography_entries": 13,
+    "labels": 110,
+    "references": 98,
+    "citation_occurrences": 43,
+    "bibliography_entries": 15,
     "unresolved_references": 0,
     "unresolved_citations": 0,
     "duplicate_labels": 0,
     "source_blobs": {
-      "papers/paper_b.tex": "c07737b06927f2086f78ec56f21fe3fd6a9634fd",
-      "papers/support/papers/common.tex": "e53e7220975a65e301ddc9a38ea87c8449f180ec",
-      "papers/generic_recovery/main_result.tex": "f38146f125ce5abd06fd29b128411dcfe28919cf",
-      "papers/generic_recovery/local_model.tex": "96bd084458aa977c2076867c413f46ce9d4ecd60",
-      "papers/generic_recovery/window.tex": "6d4df54aff1f3ac8bb44a76dbdd7993cf8456701",
-      "papers/generic_recovery/curved_transport.tex": "5d21128be59123a0b1415a36c034faadd764aae7",
-      "papers/generic_recovery/generic_descent.tex": "5ead2fdac391ec466dc55cd4d42a259906a239f9",
-      "papers/generic_recovery/coherent_saturation.tex": "3aa4ddce728c76fd1ed577dffd2a4aee084a77a2",
-      "papers/generic_recovery/gradient_recovery.tex": "efc87fda2469df243919260ce7d95422e5a3c394",
-      "papers/generic_recovery/field_model.tex": "8c9105a957ade609d3e1fa082721b3d7a3bd3629",
-      "papers/generic_recovery/references.tex": "758b70e61e6ca4bdd8eb3a443f6246e8d50aeb4e"
+      "papers/generic_recovery/coherent_saturation.tex": "c7f266efc54dab301bb3c1b06dd4e548c911903a",
+      "papers/generic_recovery/curved_transport.tex": "8c61c70239efcda7e11a7cfcff725a28791e01c4",
+      "papers/generic_recovery/field_model.tex": "39c41e3c342d23bc4db6be49441c24e8a0f3909a",
+      "papers/generic_recovery/generic_descent.tex": "762a8132a66b25d72a6344463f5d3128f93f7583",
+      "papers/generic_recovery/gradient_recovery.tex": "083349fbc05cf3669b3f33c8262cd3397352ea0d",
+      "papers/generic_recovery/local_model.tex": "9f6b76413f6cb3b53d9bed29906b8a386bdfc58c",
+      "papers/generic_recovery/main_result.tex": "e104eb6ab6a8927201665e0ed80ae3b6fca11606",
+      "papers/generic_recovery/references.tex": "15c40d47aacc16b6e69394382c151eb936e0dba5",
+      "papers/generic_recovery/window.tex": "01008e7384da4ff62bfa82fec7a53ba26c086243",
+      "papers/paper_b.tex": "2b4816c921eabec7f0ec826e959b83c3630c3741",
+      "papers/support/papers/common.tex": "e53e7220975a65e301ddc9a38ea87c8449f180ec"
     }
   },
-  "mathematical_verification": {
-    "new_results_added": false,
-    "necessary_proof_text_preserved_or_extracted": true,
-    "new_independent_audit_of_all_proofs": false,
-    "all_existing_calculation_certificates_rerun": false,
-    "scope_limit": "Typesetting and source checks do not establish mathematical correctness, novelty, or publication readiness."
-  },
-  "migration": {
-    "destination": "uedakazushi/nc-cubic2",
-    "point_scheme_unit": {
-      "destination_commit_verified": "62f50628a3a91f035020f3f774587e976db48ac4",
-      "entry": "papers/mixed_cubic_point_schemes.tex",
-      "validation": "validation_mixed_cubic_point_schemes.json",
-      "companion_integrated": true,
-      "reference_closure_and_lualatex_verified": true,
-      "pages": 12,
-      "four_calculation_scripts_executed": true,
-      "source_deduplicated_files": 17,
-      "removed_certificate_blobs_reproduced": ["ccaf67deb70cbe5beed60a87fffe6af263c468c6", "237beb142eac71879b87efc072b1cff9c8f4b4ea", "52ff1efaf782a31008870124d30b4245f0baf830"],
-      "mixed_family_independent_remainder_retained": true
+  "build": {
+    "executed_for_version": "B-v56",
+    "execution_date": "2026-11-13",
+    "command": "python3 scripts/build.py --only paper_b",
+    "environment_note": "The initial system invocation lacked lualatex.fmt. The successful invocation used isolated TEXMF variables with an available LuaLaTeX/LuaTeX-ja runtime; repository TeX configuration was unchanged. A normal complete TeX installation can run the documented command directly.",
+    "exit_code": 0,
+    "engine": "This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)",
+    "complete_paper_build_executed": true,
+    "pages": 30,
+    "undefined_references_and_citations": 0,
+    "overfull_boxes": 0,
+    "missing_characters": 0,
+    "multiply_defined_labels": 0,
+    "visual_review": {
+      "all_pages_rendered": true,
+      "all_pages_contact_sheets_inspected": true,
+      "detail_pages_inspected": [
+        3,
+        15,
+        18,
+        28
+      ],
+      "observed_clipping_or_overlap": false
     },
-    "first_order_and_finite_recovery_fulltexts_saved": true,
-    "first_order_and_finite_recovery_companion_integration": false,
-    "all_independent_material_transferred": false,
-    "remaining_work": "notes/paper_b_scope_and_transfer.md"
+    "pdf_sha256": "433c5a7a570457f5306db8156c98266ce20b43d30f1ccc545ded61fd83ef20b0",
+    "pdf_git_tracked": false,
+    "receipt": "build/paper_b.receipt.json",
+    "receipt_sha256": "df402e9ec36f6a533e29f4a44fdc55b51b28b0774a7266f7a407305dbc8e439a",
+    "current_source_pdf_hash_parity": true,
+    "latexmkrc_blob": "ab3ca75d9e516a01e44bcb555e0a8e5801867310"
   },
-  "persistence_policy": "GitHub main, expected-SHA fast-forward only; no Actions, no force push, PDF untracked. Library only after actual push failure."
+  "executed_exact_checks": [
+    {
+      "script": "computations/verify_complete_curved_transport.py",
+      "command": "python3 computations/verify_complete_curved_transport.py --output build/verify_complete_curved_transport.json",
+      "exit_code": 0,
+      "script_sha256": "cf95171f6c049d1eff40bea5d68d519922947c78e5a818f9175021707537c9bf",
+      "output": "build/verify_complete_curved_transport.json",
+      "output_sha256": "a41f43ec48829ab3fde6891f3aad456f2d50fc9beef327112240e3e1c251d147",
+      "output_git_tracked": false,
+      "scope": "finite algebra and combinatorics only, not graph/formality/category verification",
+      "result": {
+        "polyvectors": {
+          "positive_examples": [
+            {
+              "N": 5,
+              "Casimir": true,
+              "Jacobi": true,
+              "second_action": true,
+              "constant_trivector_rank": 10
+            },
+            {
+              "N": 7,
+              "Casimir": true,
+              "Jacobi": true,
+              "second_action": true,
+              "constant_trivector_rank": 35
+            }
+          ],
+          "negative_control": "Casimir alone does not imply Jacobi or second-action vanishing"
+        },
+        "bar_flow": {
+          "max_parameter_order": 4,
+          "max_tensor_length": 9,
+          "inverse_matrix_identities": 10,
+          "coproduct_coefficient_identities": 2750,
+          "noncommuting_time_dependent_generator": true,
+          "odd_arity_filtration": true,
+          "object_substitution_inverse": true
+        }
+      }
+    },
+    {
+      "script": "computations/verify_three_object_window.py",
+      "command": "python3 computations/verify_three_object_window.py --output build/verify_three_object_window.json",
+      "exit_code": 0,
+      "script_sha256": "5b642e79e43e50fc305b9958d3b816409387b0e1138563b31e0415c54ba936e4",
+      "output": "build/verify_three_object_window.json",
+      "output_sha256": "fb11f68dacd260ba8cf5ec4235b56aff0929b5764083a65c2fe272959cf7422f",
+      "output_git_tracked": false,
+      "scope": "finite algebraic sign/filtration checks only; not categorical proofs",
+      "result": {
+        "retract_identities": 16,
+        "schur_complement_examples": 2,
+        "all_denominators_units_at_origin": true,
+        "triangular_window_cases": 12,
+        "N_values": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      }
+    },
+    {
+      "script": "computations/verify_generic_cubic_descent.py",
+      "command": "python3 computations/verify_generic_cubic_descent.py --output build/verify_generic_cubic_descent.json",
+      "exit_code": 0,
+      "script_sha256": "af0152bcd0f67e55c721458164cbd56b77fefbfc388b846c55a2fdadbb3d7ef7",
+      "output": "build/verify_generic_cubic_descent.json",
+      "output_sha256": "9cc0c338db13cc403d31484cd76f99a402981056afb7bb230242e3821c9693ac",
+      "output_git_tracked": false,
+      "scope": "Exact commutative linear algebra over Q(t); no nc natural transformations computed.",
+      "result": {
+        "examples": [
+          {
+            "variables": 5,
+            "mixed": false,
+            "field": "Q(t)",
+            "integrability_dimension": 5,
+            "gradient_identities": 5,
+            "all_gradient_identities_zero": true
+          },
+          {
+            "variables": 5,
+            "mixed": true,
+            "field": "Q(t)",
+            "integrability_dimension": 1,
+            "gradient_identities": 5,
+            "all_gradient_identities_zero": true
+          },
+          {
+            "variables": 6,
+            "mixed": true,
+            "field": "Q(t)",
+            "integrability_dimension": 1,
+            "gradient_identities": 6,
+            "all_gradient_identities_zero": true
+          }
+        ],
+        "not_tested": [
+          "BFK theorem",
+          "categorical (L)/(CF)",
+          "equivalence kernel",
+          "finite extension degree"
+        ]
+      }
+    }
+  ],
+  "calculation_environment": {
+    "python": "3.12.14",
+    "sympy": "1.14.0"
+  },
+  "paper_A": {
+    "version": "A-v51",
+    "modified": false,
+    "recursive_tex_inputs": 16,
+    "all_recursive_input_blobs_match_review_base": true,
+    "shared_common_blob": "e53e7220975a65e301ddc9a38ea87c8449f180ec",
+    "mathematically_reaudited_this_review": false,
+    "typeset_this_review": false
+  },
+  "repository_layout_check": {
+    "command": "python3 scripts/check_layout.py",
+    "exit_code": 0,
+    "distinct_AB_tex_inputs": 26,
+    "tracked_PDFs": 0
+  },
+  "limits": [
+    "Finite exact computations verify the specified identities and examples, not Kontsevich graph integrals or the full categorical equivalence.",
+    "Primary results and their uses were checked, but the complete proofs of all external papers were not reproved.",
+    "Typesetting, mathematical review, computational checks, and remote persistence are separate states."
+  ],
+  "persistence_policy": "GitHub main, expected-parent fast-forward only; no Actions or force push; PDFs and reproducible calculation outputs remain untracked. Remote ref/blob parity is checked after the update, outside this self-referential manifest."
 }
