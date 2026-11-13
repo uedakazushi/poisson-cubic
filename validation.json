@@ -1,28 +1,30 @@
 {
-  "version": "nc-cubic-v88",
+  "version": "nc-cubic-v89",
   "date": "2026-11-14",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; expected-parent fast-forward updates; no Actions or force push.",
-  "scope": "Paper B-v58 revision responding to the supplied independent referee report: standalone completed MF transport, consolidated enhanced window/period comparison, theorem-level attribution, an explicit noncommutative recovered first jet, and unified scope limitations. Paper A-v56 and shared preamble preserved.",
+  "scope": "Paper A-v57 continued referee revision: canonical full-parameter equivariant PBW centre for zero ternary restriction, compatibility with the general reductive-family choice, support-plane stratum and character descent; structural PBW/AS and divided-kernel proof audit. Concurrent B-v58 and shared preamble preserved.",
   "papers": {
     "A": {
       "entry": "papers/paper_a.tex",
-      "version": "A-v56",
+      "version": "A-v57",
       "audit": "notes/poisson_article_submission_audit.md",
       "validation": "validation_paper_a.json",
-      "modified_in_current_B_revision": false,
-      "all_recursive_inputs_preserved": true,
-      "mathematically_reaudited_in_current_B_revision": false,
-      "rebuilt_in_current_B_revision": false,
-      "preserved_remote_commit": "6edea1d37d61cc0497c732d4b639daba6cb59b93"
+      "typeset_and_rendered_this_review": true,
+      "current_review_scope": "Independent reading of the all-degree PBW/AS/regular-quotient chain, rank/Cramer and Reynolds arguments, the zero-restriction theorem and support-plane descent; existing geometric results retained.",
+      "current_changes_independently_read": true,
+      "complete_reaudit_of_unchanged_proofs_this_revision": false
     },
     "B": {
       "entry": "papers/paper_b.tex",
       "version": "B-v58",
       "audit": "notes/paper_b_proof_audit.md",
       "validation": "validation_paper_b.json",
-      "modified_in_current_revision": true,
-      "review_scope": "New comparison diagrams and first-jet example independently read; exact primary-source comparisons; unchanged full proof not wholly reaudited."
+      "modified_in_current_A_review": false,
+      "re_audited_in_current_A_review": false,
+      "re_built_in_current_A_review": false,
+      "modified_in_concurrent_B_v58_revision": true,
+      "concurrent_B_v58_review_scope": "New comparison diagrams and first-jet example independently read; exact primary-source comparisons; unchanged full proof not wholly reaudited."
     }
   },
   "independent_results": {
@@ -49,5 +51,10 @@
     "Proof text, independent mathematical reading, finite exact computation, typesetting, and remote persistence are different states.",
     "Each paper-specific validation records the exact scope and remaining limitations.",
     "No claim of formal proof verification, external referee acceptance, or comprehensive originality determination."
-  ]
+  ],
+  "concurrent_main_preserved": {
+    "commit": "438fd73abce6eb37fa3a18943405571ac1d0ceec",
+    "paper_B": "B-v58",
+    "scope": "B-v58 source closure, its exact computation and validation retained byte-for-byte; shared research documents reconciled with A-v57."
+  }
 }

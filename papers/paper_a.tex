@@ -10,9 +10,9 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月14日・論文A（投稿準備稿 v56）}
+\date{2026年11月14日・論文A（投稿準備稿 v57）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-14 / A-v56}
+\fancyhead[R]{\small 2026-11-14 / A-v57}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -32,6 +32,8 @@ Koszul Artin--Schelter正則代数と、その正則中心三次商に量子化�
 固定した変数分解の全滑らかな係数空間上に中心元を選べる。
 さらに、変数分解を保つ一般線形群に関して同変な中心元を選び、
 三変数制限が滑らかな部分では中心変数による平行移動との整合性も得る。
+制限が恒等的零の層では、PBW対称化した三次式自体が
+全パラメータで全ブロック群に共変な正則中心元となる。
 三次三様体では、この構成をPoisson対の被約モジュライの稠密開上へ降ろし、
 変形変数を固定した代数的量子化の族を得る。
 また、固定した正規形のPoisson線形族を同時に量子化する。
@@ -183,9 +185,19 @@ $g$の方向微分が張る二次式の部分束を同変に分裂し、
 Poisson係数と変形変数を分けると、変形変数を固定したまま
 対応する商スタック上に中心商の族が降りる
 （系\ref{cor:pg-equivariant-central-quotient}）。
-この選択の一意性、特異な$g$における全座標群への拡張、
+また$g=0$ならJacobian括弧は中心係数環上でactive変数についてaffine-linearとなり、
+PBW対称化の随伴同変性から
+\begin{equation}\label{eq:intro-zero-restriction-center}
+ \Omega_{f,t}=\sym(f),\qquad
+ [x_i,\sym(p)]=t\,\sym(\{x_i,p\}_f)
+\end{equation}
+を得る。この場合は全$t\in\mathbb A^1$でPBW性と全ブロック群への共変性が成り立ち、
+例外パラメータの除去も純中心係数の変更も不要である
+（定理\ref{thm:pg-equivariant-zero-center}）。
+一般の同変選択の一意性、非零の特異な$g$における全座標群への拡張、
 複数ブロックの配分との整合性は、この同変性定理の結論に含めない。
-線形群の商は、階数二のPoisson対の被約層内の対応する開部分上の
+$g$が滑らかな場合、全ブロック群$G$による商は、
+階数二のPoisson対の被約層内の対応する開部分上の
 $\mathbb G_m$-gerbeである
 （命題\ref{prop:pg-equivariant-poisson-gerbe}）。
 $\gcd(m,3)=1$なら指標を用いて次数線形化を補正でき、
@@ -195,6 +207,10 @@ $\gcd(m,3)=1$なら指標を用いて次数線形化を補正でき、
 この族を得る。
 ここで十七は底の次元であり、固定した非零変形パラメータでの
 非可換代数の同型類の像の次元を主張するものではない。
+零制限の層はsupport平面が$X$に含まれる条件であり、$m\ge3$のときに限り非空となる。
+この層でも同じgerbeと指標補正を用い、$\gcd(m,3)=1$なら
+全変形直線上の代数族をPoissonモジュライへ降ろせる
+（命題\ref{prop:pg-equivariant-zero-stratum}）。
 
 固定した正規形では、独立なパラメータ$\eta_1,\ldots,\eta_k$を導入し、
 各ブロックの中心元を加えることで
@@ -206,7 +222,8 @@ $\eta_s=\lambda_s\hbar$により、$\sum_s\lambda_s\pi_s$という
 Poisson線形族の全方向を一つの相対代数族で量子化できる
 （定理\ref{thm:pg-all-dimensions}、\ref{thm:pg-ad-all-poisson}）。
 滑らかな三変数制限では高々$\eta_s^4$の多項式公式を用い、
-特異・零の制限を含む一般の場合には原点で正則な有理式を用いる。
+零制限では上のPBW対称化を、非零の特異な制限を含む一般の場合には
+原点で正則な有理式を用いる。
 また、定数三重ベクトルとHessianの縮約
 \begin{equation}\label{eq:intro-intrinsic-hessian}
  \mathscr H(P,F)=\frac16P^{ijk}P^{abc}F_{ia}F_{jb}F_{kc}
@@ -373,6 +390,12 @@ Mori--Smith\cite[Theorems~1.4, 4.2]{PMoriSmith}を用いる。
 その証明では、古典核の一定次元性と普遍交換子行列の小行列式を用い、
 三変数制限が特異・零の場合も同じ有限線形代数で扱う。
 中心元の存在、左右正則性、および中心商の平坦性は別々に証明する。
+零制限については、定理\ref{thm:pg-equivariant-zero-center}で
+PBW対称化が随伴作用と可換する既知の原理
+\cite[Corollaries~13.7--13.8, p.~75]{PEtingofLie}を用いて、
+全パラメータの中心元を直接構成する。
+この原理自体を新規とせず、中心混合係数を動かす全ブロック群への共変性と
+support平面を含む層上の族への適用を明示する。
 
 \paragraph{明示中心公式と全ブロックへの組立て。}
 純Sklyanin中心元の基本公式は既知である
@@ -394,8 +417,9 @@ Etingof--Ginzburg\cite[\S9, p.~1414]{EG}には、
 定理\ref{thm:pg-all-dimensions}と\ref{thm:pg-ad-all-poisson}では
 独立な多パラメータを保持する。
 同変性については定理\ref{thm:pg-equivariant-levi-center}、
-\ref{thm:pg-equivariant-parabolic-center}で所定の群への同変な選択を、
-系\ref{cor:pg-equivariant-character-descent}で所定の条件下の降下を証明する。
+\ref{thm:pg-equivariant-parabolic-center}、\ref{thm:pg-equivariant-zero-center}で
+所定の群への同変な選択を、系\ref{cor:pg-equivariant-character-descent}と
+命題\ref{prop:pg-equivariant-zero-stratum}で所定の条件下の降下を証明する。
 これらの相対的な規格化と降下は、点ごとの非スカラー中心元の存在定理から
 直ちに従う主張ではない。
 一般の形式的量子化とunimodularityに関する
@@ -456,8 +480,8 @@ Serre関手からの復元には中心・自由性・滑らかさ等の追加仮
 指定した古典極限を持つ相対中心元。有限次数検算と全次数PBW性を分離 \\
 全ブロック & 中心項の配分、中心元の和、最高記号の正則性 &
 定理\ref{thm:pg-quantization}、\ref{thm:pg-ad-all-poisson}。商の平坦性まで証明 \\
-同変化・降下 & 不変開、Reynolds作用素、centering、指標補正 &
-所定の群と滑らかな制限上の降下。全Poissonモジュライへの無条件な降下は含めない \\
+同変化・降下 & 不変開、Reynolds作用素、centering、PBW対称化、指標補正 &
+滑らかな制限と零制限上の所定の降下。零制限では全パラメータを扱う \\
 \bottomrule
 \end{tabular}
 \end{center}

@@ -1,6 +1,6 @@
 # 滑らかなcubic n-foldに対するBondal予想
 
-**2026-11-14 / A-v56・nc-cubic-v87。最初に `00_research_plan.md` を読む。**
+**2026-11-14 / A-v57・nc-cubic-v89。最初に `00_research_plan.md` を読む。**
 証明全文は `papers/support/papers/sections/bondal_cubic.tex` の `thm:pg-bondal`。
 正規形、射影化の補題、分離型三次四様体の分類は
 `papers/support/papers/sections/poisson_geometry.tex` にある。
@@ -100,12 +100,12 @@ python3 computations/verify_split_cubic_fourfold.py
 python3 computations/verify_hessian_split_obstruction.py
 ```
 
-**A-v56で新規に実行した厳密計算は `verify_hessian_split_obstruction.py` だけである。**
+**幾何の既存計算は再実行せず、現在のコード・証明書のハッシュ一致を検証記録に保持する。**
 `validation_paper_a.json` に列挙する他の10検算は過去のPASSを引き継ぎ、本改訂では再実行していない。
 次の二つの既存検算についても、その実行版と対象を区別する。
 
 `verify_poisson_article_A.py` の実行記録はA-v52、2026-11-13で、次のPASSを確認済みである。
-現行コードのハッシュ一致を検証記録に保持しているが、A-v55およびA-v56では再実行していない。
+現行コードのハッシュ一致を検証記録に保持しているが、今回再実行していない。
 
 ```text
 PASS: smooth test cubic, 56 Jacobi and 56 Euler-wedge identities
@@ -118,7 +118,7 @@ F=(x³+y³+z³+a³+b³+c³+u³+v³)/3+uxy+vabである。
 56成分のEuler外積恒等式を確認する。
 これは一つの具体例に対する検算である。
 
-`verify_split_cubic_fourfold.py` の直近の実行記録はA-v55、2026-11-14で、終了コード0と全PASSを確認済みである。A-v56では再実行していない。
+`verify_split_cubic_fourfold.py` の直近の実行記録はA-v55、2026-11-14で、終了コード0と全PASSを確認済みである。今回再実行していない。
 対象はF=(x_0³+x_1³+x_2³+y_0³+y_1³+y_2³)/3という分離型Fermat例である。
 次の恒等式を有理係数で厳密に検算した。
 
