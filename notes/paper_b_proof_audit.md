@@ -1,12 +1,12 @@
 # 論文B：証明監査・先行研究・有効な障害
 
-2026-11-14 / B-v58。最初に `../00_research_plan.md` を読む。主定理は `papers/generic_recovery/main_result.tex` の `gdr:thm:generic`。本ノートのファイル名は、特に指定しない限り `papers/generic_recovery/` 内を指す。全稿入口は `papers/paper_b.tex`。
+2026-11-14 / B-v59。最初に `../00_research_plan.md` を読む。主定理は `papers/generic_recovery/main_result.tex` の `gdr:thm:generic`。本ノートのファイル名は、特に指定しない限り `papers/generic_recovery/` 内を指す。全稿入口は `papers/paper_b.tex`。
 
 ## 主張の状態と監査の結論
 
 指定された次数別有限自由な中心三次対について、局所window (L) と完備MF比較 (CF) を本文で構成し、主定理の追加仮定として課していない。一般点での全coherent残余pairの可換模型は有限体拡大後に存在し、方程式は元のK=C(h)上に取れる。幾何学的一意性はrotationを保つ模型の範囲で述べる。
 
-提供された独立査読報告（2026-11-14 / v1）は、主要証明を支持し、核心となる移送の提示・文献帰属・具体例・限定の整理を求めている。今回の改訂では追加した比較図式と二拡張の周期、非可換入力の一次jetの証明を独立に読み、CK・EG・Pirozhkov・Lin--Zhang・Sklyanin文献の該当箇所を確認した。主定理の入力や存在結論は変更していない。未変更の証明全体を今回一から再監査した、計算機形式検証した、正式な投稿査読で採択された、包括的な初出を確定したとは述べない。本文の証明、提供された査読の判定、今回の読解、有限計算は別の状態として扱う。
+提供された独立査読報告（2026-11-14 / v1）は、主要証明を支持し、核心となる移送の提示・文献帰属・具体例・限定の整理を求めている。現行稿は比較図式と二拡張の周期を明示し、具体例を二次jetと全次数の有理Hesse模型まで進めた。今回独立に読んだ範囲は、二次の星積・中心写像の規約、同変Hesse表示、相対THCR、三変数a=0のdg比較、Perfの通常の底変更、jによる全次数同定と固定模型への降下である。主定理の入力や存在結論は変更していない。未変更の証明全体を今回一から再監査した、計算機形式検証した、正式な投稿査読で採択された、包括的な初出を確定したとは述べない。本文の証明、提供された査読の判定、今回の読解、有限計算は別の状態として扱う。
 
 ## 査読の要求と現在の本文
 
@@ -14,7 +14,7 @@
 | --- | --- | --- |
 | 核心定理と比較図式 | `gdr:thm:complete-intro`, `cft:thm:complete`, `tw:eq:comparison-diagram`, `tw:eq:period-extension`, `tw:eq:rotation-period-square` | 完備底上の実MF関手・逆・rank・t-relative性を明示し、余核からrotationまで指定周期を追跡。新しい図式と型を独立読解 |
 | 既知結果との差分 | 序論の定理別比較表、`references.tex` | Pirozhkovの三次範囲n>3を明記。EGの有限rankとCKの変形複体の範囲を確認。BFKの上界・Jacobian Torelliは既知の帰結 |
-| 非可換な具体例 | `explicit_example.tex`, `gre:prop:input`, `gre:prop:jet` | 全次数自由性・中心性・非可換性を証明し、形式的potentialの非零一次jetを算出。一般点K-modelや低rotation積の全行列は未計算 |
+| 非可換な具体例 | `explicit_example.tex`, `gre:prop:input`, `gre:prop:jet` と後続のHesse・楕円比較 | 全次数自由性・中心性・非可換性、二次jet、全次数の有理係数と明示K-modelを証明。核の具体行列・拡大次数・直接抽出する低rotation積の全行列は未計算 |
 | 限定の集約 | `gdr:subsec:scope` | K/K'、幾何学的一意性/form、線束/coherent、通常局所化/torsion Morita、特殊化の範囲を保持し、後続節から参照 |
 
 ## 正確な定式化と証明の所在
@@ -49,13 +49,25 @@
 
 `cft:thm:complete` では、flowのarity 2r+1成分が t^{-r} f_{2r+1} と書けることを `cft:eq:t-weight` に示す。Q=(0,tq_1;q_0,0) の2r+1回の合成では、左下成分にt^r、右上成分にt^{r+1}が現れる。従って像のt冪は0、1に戻り、同じ二つのrank・同じ有限個の内部shiftを持つ通常のMFとなる。Rの正則性を使うのはwindow/Hom側であり、この完備flowの構成自体には有限自由加群の完備性・分離性で足りる。
 
-### 非可換Hesse族の復元jet
+### 非可換Hesse族の二次jetと全次数の有理模型
 
 `gre:prop:input` の三生成元関係は [y,z]=h x²+(h²/2)(yz+zy) と巡回置換であり、中心変数u,vを加える。一般ファイバーが滑らかな楕円型Sklyaninであることは明示判別式で確認する。各次数は有限生成DVR加群で、一般ファイバーの階数と剰余の次元が等しいためtorsionがなく自由となる。既知の中心式Gと採用したΩの恒等式、および次数四のtorsion-free性が中心性を与える。この全次数証明は有限計算に依存しない。
 
-`gre:prop:jet` ではWeyl同定の積の一次項が(h/2){-,-}_0となる。formalityの逐次持上げを恒等mod h²から始めることでφσ=1+O(h²)に選べ、U_2(f,π_1)には許されるグラフがないためC_pi=1+O(h²)である。従ってΩの中心逆像はW_rec=F+h xyz+O(h²)。xyzはJac(F)_3の非零元なので恒等を剰余とする座標変換・単元倍で消せない。非可換性は次数二の交換子が非零であり三次中心商でも残ることから分かる。
+`gre:prop:jet` では生成元を固定するharmonic-angle formalityを採用する。Weyl同定の積の一次項は(h/2){-,-}_0で、φσ=1+h²ρ₂+O(h³)、ρ₂=(yz∂x²+zx∂y²+xy∂z²)/6、ρ₂F=xyzとなる。Dito §2式(3)のeye項−Θ^{ik}f_i g_k/24を含める。これは一般Poisson構造の式であり、同論文§3.1の線形Poissonへの限定と混同しない。任意の線形形式Xの星冪とpolarizationから比較作用素を求めており、有限個の単項式の照合だけを証明にしていない。
 
-これは形式的potentialのjet計算であり、一般点への有限降下で選んだ方程式のh=0での正則性や同じjetを結論しない。非可換由来の一次積と中心元を実際に使っており、既知の可換勾配空間だけを積分した例とも区別される。
+中心接写像ではU₂(f,q)=0で、残る二次グラフは関数頂点へspokeが向くinner二輪だけである。Shoikhet §1.3のharmonic-angle重み零を適用し、C_pi=1+O(h³)を得る。中心元のWeyl表示の係数−2/3にρ₂Fの+1が加わり、W_rec=F+h xyz+(h²/3)xyz+O(h³)となる。xyzはJac(F)_3で非零。非線形Poissonの全高次中心写像が恒等であるとは主張しない。
+
+`gre:prop:hesse-normalform` は位数27の有限Hesse群に同変なformality比較を選び、active potentialをA(h)S/3+B(h)xyzとする。平均するのは各平方零段階の線形補正であり、非線形解そのものではない。中心変数へ自明に延長し、active座標をA^(-1/3)倍してW_H=F+λ(h)xyz、λ=B/Aとする。h,t,u,vは固定する。`gre:prop:marked-hesse-uniqueness` は恒等を剰余とする五変数線形座標変換・単元倍の下でλが変わらないことを最低非零h次数で証明する。異なる全てのformality選択がこの座標同値で結ばれるという追加主張ではない。
+
+他の三変数入力へ進む際には、Hesse表示の存在を有限群に依存せず示す方法も使える。GL₃×A¹から三次式空間への写像(g,λ)↦(S/3+λxyz)∘gの(1,0)における微分は、九つのx_i²x_jとxyzを基底として同型である。形式的逆関数定理によりFermat近傍の任意の三変数形式三次式を恒等近傍の線形変換で一意にHesse表示へ移せる。本例の群同変な規格化は、二次jetを保つA^(-1/3)という座標変換まで特定する利点がある。
+
+全次数の同定は次の依存を使う。Sklyaninパラメータa=1−h²/2,b=−1−h²/2,c=−hから λ_pt=−(a³+b³+c³)/(3abc)=(h+h²/3+h⁵/12)/(1−h⁴/4) を作り、E_R: S+3λ_pt xyz=0を一般点の点曲線の平坦閉包とする。p=(a:b:c)、O=(1:−1:0)に対するtranslationは特殊ファイバーで恒等。次数別有限自由なTHCRへの写像を先に構成し、一般点で消える関係式・正規化中心元をtorsion-free性でR上へ戻す。特殊ファイバーの同型から各次数でNakayamaを適用し、D_R/(Ω_D)との同型を得る。
+
+相対σ-amplenessは、線束積L_nの特殊化がL_0^nであることからH¹の消滅をNakayamaで持ち上げる。Keeler Proposition 7.2とLemma 7.6の一般底版を使い、左右の規約を揃える。次に三変数について、noetherian性、長さ3のKoszul分解、中心正則性と相対Gorenstein parameter a=0を確認し、Burke–Stevenson Theorem 6.4(3)と余核のdg stabilizationを適用する。正のaを前提としたN>=5のwindowをそのまま引用せず、楕円曲線のOを例外対象とも扱わない。
+
+完備MF同値を相対曲線のPerf dg模型へ移してからC((h))へ平坦底変更し、Antieau–Krashen–Ward Theorem 2.2により二つの楕円曲線を同定する。両者はOを持つ。j(λ)=[3λ(8−λ³)/(1+λ³)]³で、括弧内は24λ+O(λ⁴)。λ,λ_ptがともにh+O(h²)であるため三乗根の枝が固定され、λ=λ_ptが全次数で従う。任意のLaurent係数MF行列に完備Taylor和を直接代入する操作は使わない。
+
+この結果は、K上の明示式 Q=(4−h⁴)(S+u³+v³)+(12h+4h²+h⁵)xyz=0 を与える。指定周期の規格化にはW_H=Q/[3(4−h⁴)]を使う。元の五変数の完備比較と実際の線形座標変換がrotation・周期を保ち、固定K模型への `rog:lem:descent` が有限K'/K上の核と比較を与える。jだけから五変数の周期を復元したという主張ではない。方程式はh=0でFermatへ特殊化するが、特殊点を含む代数的相対圏同値やK'=Kを結論しない。
 
 ## 完備曲率移送の論理
 
@@ -96,6 +108,11 @@ windowの生成性は有限長加群 T_j=B(j)_{<1-a} の実際のfiltrationに�
 | [Pirozhkov v1](https://arxiv.org/abs/2208.13604v1) | Theorem 1.2 (=5.3)と直後の注意 | rotation付きTorelli。三次の場合は次元n>3。刊行書誌はBull. London Math. Soc. 56 (2024), no.10, 3075–3089, DOI 10.1112/blms.13117 |
 | [Smith--Tate](https://sites.math.washington.edu/~smith/Research/tate.pdf) | §1 pp.19–20、p.35 Remark (1) | SklyaninのHilbert級数・domain性と中心三次元。K-Theory 8 (1994), 19–63 |
 | [De Laet--Le Bruyn v1](https://arxiv.org/abs/1405.1158v1) | §2 p.3の巡回中心元公式 | 具体例のG。Algebr. Represent. Theory 18 (2015), no.3, 761–776, DOI 10.1007/s10468-014-9515-6 |
+| [Dito v1](https://arxiv.org/abs/math/9905080v1) | §2 式(3), p.5、§3 Theorem 2, pp.5–7 | harmonic-angle星積の全二次項とWeyl比較。Lett. Math. Phys. 48 (1999), 307–322、DOI 10.1023/A:1007643618406 |
+| [Shoikhet v1](https://arxiv.org/abs/math/0007080v1) | §1.3 主定理, pp.4–5、§2.3.1の逆向きwheelとの区別 | inner二輪の重み零。Lett. Math. Phys. 56 (2001), 141–149、DOI 10.1023/A:1010842705836 |
+| [Artin–Tate–Van den Bergh](https://doi.org/10.1007/978-0-8176-4574-8_3) | §1 pp.37–38、Theorem 6.8, p.62。原文scan/OCRも確認 | translation pと中心商THCRの古典的入力。初版Grothendieck Festschrift I, Progr. Math. 86 (1990), 33–85。DOIは2007再刊版。SklyaninのcentralityはSmith–Tate p.20を併用 |
+| [Keeler v5](https://arxiv.org/abs/math/0108068v5) | Theorem 1.3, p.2、Proposition 7.2, p.30、Lemma 7.6と左右規約, pp.30–31 | Noetherian底上のσ-amplenessとqgr比較。J. Algebra 259 (2003), 243–283、訂正507 (2018), 592–598。訂正込みv5を使用 |
+| [Antieau–Krashen–Ward v1](https://arxiv.org/abs/1409.2580v1) | Theorem 2.2, pp.4–5、§3.4, pp.12–13 | 任意体上の楕円曲線の導来同値から同型、Perf dg模型の平坦底変更。Adv. Math. 306 (2017), 1–23、DOI 10.1016/j.aim.2016.09.037 |
 | [Lin--Zhang v2](https://arxiv.org/abs/2310.09927v2) | Theorem 3.5, Remark 3.6, §5, Theorem 5.1 | 低rotation積のsector計算と既知のrotation付きTorelli |
 | [Toën著者稿](https://www.math.univ-toulouse.fr/~btoen/defdgalg.pdf) | Théorème 1 | smooth proper dg代数と射のfiltered-colimit降下。Bull. London Math. Soc. 40 (2008), 642–650, DOI 10.1112/blms/bdn043 |
 | [Tu v2](https://arxiv.org/abs/1009.4151v2) | Theorems 1.1, 1.4, 6.2 | 可換孤立斉次MFのd個のstabilization shiftによる生成。Compos. Math. 150 (2014), 1549–1578 |
@@ -128,7 +145,10 @@ Etingof--GinzburgはC上のweighted gradedな有限rank自由MFを既に扱い�
 - **CasimirとJacobiは別。** F=sum_(i=0)^4 x_i^3/3、Xi=partial_0∧partial_1∧partial_2+partial_0∧partial_3∧partial_4、pi=[Xi,F]では[pi,F]=0だが[Xi,pi]と[pi,pi]は非零である。`verify_complete_curved_transport.py` にnegative controlを保持する。
 - **特殊生成性だけの持上げは偽。** P^1上のcone(O(−1) --h s--> O)はh=0でOとO(−1)[1]を含み生成するが、hを反転すると非零section sの零点に支持された対象となり、全導来圏を生成しない。windowの実際のfiltrationと一般点のEuler非消滅が必要である。
 - **同じ勾配空間と形式同型は基礎体上の同型を意味しない。** `gcd:ex:forms` のsum x_i^3と(1+h)x_1^3+sum_(i>1)x_i^3はR上smoothで特殊ファイバーが同じ、C[[h]]上同型だがK上では射影非同型。本文にHessianとh+1に沿う付値による証明を収める。核の降下障害の非零例としては使わない。
-- **有限可積分性は圏同値を証明しない。** 方程式抽出は幾何学的模型の存在を得た後の段階である。特定のlambda=1の明示方程式を模型と同定するには、実際の非可換低積との追加比較が必要。
+- **有限可積分性は圏同値を証明しない。** 方程式抽出は幾何学的模型の存在を得た後の段階である。指定した明示方程式を模型と同定するには、非可換入力との追加比較が必要である。本例では相対楕円曲線の比較を用い、実際の低rotation積を計算する方法とは区別する。
+- **星積のgaugeと中心写像を同時に変える。** eye無しのWeyl gaugeでは中心接写像はρ^(-1)C_pi=1−h²ρ₂+O(h³)となる。eye項を除きながらharmonic-angleのC_pi=1+O(h³)を保持してはいけない。線形PoissonのDuflo補正を、この中心接写像の係数へそのまま代入することもできない。
+- **点曲線の平坦閉包と相対点スキームは別。** 生の行列式abc S−(a³+b³+c³)xyzには共通因子hがあり、D_0の点スキームはP²である。中心商にもG=−9hΩ_Dでなく正規化Ω_Dを使う。hを除かない商は非平坦になる。
+- **三変数のa=0とFano windowを分ける。** 楕円曲線上のOはExt¹を持つ。N>=5の例外対象・Euler非消滅の議論を流用せず、a=0の全Dsg–全Perf比較を用いる。一般点への移行はproper dg模型の底変更で行い、無制御のLaurent Taylor評価を避ける。
 
 ## 基礎体降下と非分裂例
 
@@ -157,6 +177,6 @@ Plückerの二次障害、全Artin window、相対étale、明示混合族・高
 
 ## 再現と未解決の核心
 
-`verify_complete_curved_transport.py` は5/7変数のSchouten恒等式、定数trivector contraction、negative control、および有限次数の非自律coalgebra flowの逆・coproduct・arity評価を検査する。`verify_three_object_window.py` は有限行列の摂動縮約と三角的filtration、`verify_generic_cubic_descent.py` は既知の可換勾配空間の可積分性と非分裂symmetrizerの例を厳密体Q(t)上で検査する。`verify_recovery_example.py` は具体的な非可換Hesse入力の判別式・中心元係数恒等式をQ[h]上で、三つの中心交換子をh⁴を法として、次数三以下の400組のWeyl積をh²を法として検算し、xyzの非零Jacobian剰余を確認する。いずれもKontsevichグラフ積分や実際の非可換MFの全Hom/高次積の計算機証明ではない。
+`verify_complete_curved_transport.py` は5/7変数のSchouten恒等式、定数trivector contraction、negative control、および有限次数の非自律coalgebra flowの逆・coproduct・arity評価を検査する。`verify_three_object_window.py` は有限行列の摂動縮約と三角的filtration、`verify_generic_cubic_descent.py` は既知の可換勾配空間の可積分性と非分裂symmetrizerの例を厳密体Q(t)上で検査する。これら三本は未変更であり、今回の実行範囲と区別する。`verify_recovery_example.py` は中心元係数恒等式、h⁴を法とする三中心交換子、h²を法とする400組のWeyl積を保持し、全B₂式・Θ・ρ₂・二次jet、HesseのWeierstrass変換・c₄・Δ・j、有理係数と五変数式の恒等式を追加検算する。inner輪の解析的重み、全次数の自由性、THCR・Orlov・全次数の圏比較はコードの検証対象外である。
 
-再現コマンドは研究方針に記載し、最新の終了コード・出力ハッシュ・組版・画面確認の状態は `validation_paper_b.json` に置く。生成PDFと計算出力はbuild/で非追跡。次に必要なのは、一般点結論の初出の確定、具体例のh²補正、および非可換入力からV,U,積の全行列を算出することである。有限拡大の必要性・次数、同値核の具体行列、特殊点を含む代数的模型、全モジュライ上の接着は引き続き独立の未解決課題である。
+再現コマンドは研究方針に記載し、最新の終了コード・出力ハッシュ・組版・画面確認の状態は `validation_paper_b.json` に置く。生成PDFと計算出力はbuild/で非追跡。次に必要なのは、一般点結論の初出の確定、同値核の有効化、および非可換入力からV,U,積の全行列を算出することである。この例の方程式は全次数で決定したが、有限拡大の必要性・次数、同値核の具体行列、特殊点を含む代数的相対同値、全モジュライ上の接着は残る。古典Sklyanin曲線・既知の楕円導来同値定理・j公式そのものの新規性は主張しない。

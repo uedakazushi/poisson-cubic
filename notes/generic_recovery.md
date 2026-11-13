@@ -1,6 +1,6 @@
 # 一般次元の可換復元：証明の再開案内
 
-2026-11-14 / B-v58。最初に `../00_research_plan.md` を読む。入口は `papers/paper_b.tex`、証明は `papers/generic_recovery/`。監査範囲・文献比較・有効な障害は `paper_b_proof_audit.md`、実行状態は `../validation_paper_b.json` にまとめる。
+2026-11-14 / B-v59。最初に `../00_research_plan.md` を読む。入口は `papers/paper_b.tex`、証明は `papers/generic_recovery/`。監査範囲・文献比較・有効な障害は `paper_b_proof_audit.md`、実行状態は `../validation_paper_b.json` にまとめる。
 
 ## 主定理の範囲
 
@@ -23,21 +23,37 @@ n>=3、N=n+2、R=C[h]_(h)。各次数が有限自由の中央代数A_Rについ�
 
 全coherentのsmoothnessを前提に置かず、可換模型の存在から残余のsmoothnessを得て、飽和を適用する。低次数積の可積分性だけで圏同値の存在を結論せず、幾何学的模型の存在を先に確立する。
 
-## 具体的な非可換入力で得た一次jet
+## 非可換Hesse入力の二次jetと全次数の有理模型
 
-`explicit_example.tex` の `gre:prop:input` は [y,z]=h x²+(h²/2)(yz+zy) と巡回置換に中心変数u,vを加えた族を扱う。既知のSklyanin中心元を規格化し、一般・特殊ファイバーのHilbert級数とDVR構造定理から全次数の有限自由性を得る。
+`explicit_example.tex` は [y,z]=h x²+(h²/2)(yz+zy) と巡回置換を持つD_Rへ中心変数u,vを加えた族を扱う。`gre:prop:input` は既知Sklyanin中心元を規格化し、一般・特殊ファイバーのHilbert級数とDVR構造定理から全次数の有限自由性を証明する。
 
-`gre:prop:jet` はWeyl同定で積の一次項が(h/2){-,-}_0となること、φσ=1+O(h²)とC_pi=1+O(h²)を用い、W_rec=F+h xyz+O(h²)を導く。F=(x³+y³+z³+u³+v³)/3、xyzはJac(F)_3で非零である。`verify_recovery_example.py` は必要な有限恒等式の検算であり、全次数の自由性や圏同値の証明ではない。
+`gre:prop:jet` は生成元を固定するharmonic-angle比較を用い、W_rec=F+h xyz+(h²/3)xyz+O(h³) を導く。F=(x³+y³+z³+u³+v³)/3である。Weyl表示の係数−2/3に、比較作用素ρ₂=(yz∂x²+zx∂y²+xy∂z²)/6によるρ₂F=xyzが加わる。中心接写像の二次項はShoikhetのinner二輪消滅によって零。xyzはJac(F)_3で非零である。
+
+`gre:prop:hesse-normalform` は、Hesse対称群に同変な比較とactive変数の規格化によって W_H=F+λ(h)xyz を与える。底のhと周期tを固定する。`gre:prop:marked-hesse-uniqueness` は恒等を剰余とする線形座標変換・単元倍に関するλの一意性を証明する。
+
+さらに、全次数で
+
+`λ(h)=(h+h²/3+h⁵/12)/(1−h⁴/4)`
+
+が成り立つ。証明の依存は、正規化中心商 D_R/(Ω_D) の相対THCR表示 → 三変数a=0のdg Orlov・MF比較 → 完備MF同値とPerf曲線の分数体への底変更 → 有理点を持つ楕円曲線の導来同値からの同型 → j不変量の形式分枝の一意性、である。特殊ファイバーがP²となる元の点スキームと、一般点の点曲線の平坦閉包E_Rを区別する。商にはG=−9hΩ_DではなくΩ_Dを使う。
+
+従ってK上の可換三次三様体は
+
+`(4−h⁴)(x³+y³+z³+u³+v³)+(12h+4h²+h⁵)xyz=0`
+
+と明示できる。元の五変数の完備MF比較から、この固定K模型へのrotation・指定周期付き同値を `rog:lem:descent` により有限拡大へ降ろす。楕円曲線の同型だけから五変数のperiod比較を結論するのではない。
+
+`verify_recovery_example.py` は必要な中心式・有限jet・Weierstrass変換・c₄、Δ、j・有理係数・五変数式の恒等式を厳密検算する。全次数の自由性、THCR、Orlov同値、全次数のλの同定は本文の証明による。
 
 ## 次の計算への入口
 
-同じ例のh²補正を、Weyl積とformality中心写像の二次項から求める。さらに実際の非可換入力でrotation核Pと対角Deltaの有限表示を作り、V、U、積を取り出す。Qの基底q_aに対し、行列Aの線形条件
+明示方程式が得られたため、次は実際の非可換入力でrotation核Pと対角Deltaの有限表示を作り、V、U、積を取り出す。三対象stabilizationの有限Homへ戻り、shiftを表す双加群と導来自然変換の複体を具体化する。Qの基底q_aに対し、行列Aの線形条件
 
 `sum_a A_ia partial_j q_a = sum_a A_ja partial_i q_a`
 
-を解き、可逆解から `G=(1/3)sum_(i,a) x_i A_ia q_a` を作る。既存の `verify_generic_cubic_descent.py` は既知の可換勾配空間からこの線形代数を検算するコードであり、非可換のV,U,積を算出するコードではない。
+を解き、可逆解から `G=(1/3)sum_(i,a) x_i A_ia q_a` を作る。既存の `verify_generic_cubic_descent.py` は既知の可換勾配空間からこの線形代数を検算するコードであり、非可換のV,U,積を算出するコードではない。今回の楕円比較による方程式同定とも方法が異なる。
 
-同コードは3例の積分に加え、F=x0^3+3t x0 x1^2+x2^3+x3^3+x4^3の非分裂代数 E_F=Q(t)[u]/(u^2-t)×Q(t)^3 とF^a(bx)=F^(ab^3)(x)を検算する。本文の証明は計算結果に依存しない。
+同コードは3例の積分に加え、F=x0³+3t x0 x1²+x2³+x3³+x4³の非分裂代数 E_F=Q(t)[u]/(u²−t)×Q(t)³ とF^a(bx)=F^(ab³)(x)を検算する。本文の証明は計算結果に依存しない。同値核の具体行列、必要な有限拡大の次数、Kへの核の降下は未解決である。
 
 ## 担当境界
 

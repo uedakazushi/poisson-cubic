@@ -1,108 +1,130 @@
 {
   "date": "2026-11-14",
-  "paper_version": "B-v58",
-  "repository_version": "nc-cubic-v88",
+  "paper_version": "B-v59",
+  "repository_version": "nc-cubic-v91",
   "entry": "papers/paper_b.tex",
-  "reviewed_remote_base_commit": "6edea1d37d61cc0497c732d4b639daba6cb59b93",
-  "scope": "Revision of paper B responding to four requests in the user-supplied independent report. Current proofs and limitations are in the manuscript and audit note, not a cumulative revision log.",
+  "reviewed_remote_base_commit": "9bbba3f4977d92d99c65e1e22d98ac993d73c301",
+  "scope": "Continued revision of the noncommutative Hesse example: direct second jet, all-order Hesse normalization, relative elliptic comparison, rational K-model and period-compatible finite descent. Current knowledge and validation, not a cumulative change log.",
   "supplied_report": {
     "filename": "nc-cubic-paper-b-referee-report-2026-11-14-v1.pdf",
     "manuscript": "B-v57",
     "reviewed_commit": "f4c8fb131f346099ed2fb8af29429574861b505e",
-    "scope": "The supplied report supports the identified proof chain and requests substantial presentation, attribution, example and scope improvements. It is not a new external review or journal acceptance of B-v58."
+    "scope": "The supplied report concerns B-v57 and the requested revision directions; it is not external referee acceptance of B-v59."
   },
   "mathematical_review": {
     "audit_note": "notes/paper_b_proof_audit.md",
     "current_revision_independently_read": [
-      "Standalone complete local finite-rank MF theorem, actual inverse functors, rank and shift preservation, and pre-insertion bar arity bounds.",
-      "Enhanced window/dg quotient/cokernel/totalization diagram and the Yoneda two-extension determining the specified period and rotation square.",
-      "Explicit Hesse--Sklyanin input, central cubic normalization, all-degree freeness from generic Hilbert series and the DVR module theorem, Weyl first product and recovered nontrivial first jet.",
-      "Theorem-level attribution and exact scope of Etingof--Ginzburg, Carqueville--Kay, Pirozhkov, Lin--Zhang, Smith--Tate and De Laet--Le Bruyn.",
-      "Unified distinctions between equation and kernel descent, geometric uniqueness and K-forms, line bundles and all coherent objects, ordinary localization and torsion Morita theory."
+      "Harmonic-angle B2 including the eye term, generator-fixing Weyl comparison, inner two-wheel vanishing and the recovered h^2/3 coefficient.",
+      "Equivariant square-zero formality lifting, active-variable extension, all-order Hesse normalization and uniqueness under identity-residue coordinate equivalence.",
+      "Normalized central quotient, the canonical kernel generator G=3c3, relative THCR construction, all-degree freeness and sigma-ampleness over the DVR.",
+      "Dimension-independent algebraic inputs and the separate N=3, a=0 dg Orlov/stabilization bridge; regularity and smooth proper curve models.",
+      "Flat base change of Perf models, elliptic derived equivalence over C((h)), the Hesse j computation and uniqueness of the h+O(h^2) branch.",
+      "The fixed rational K-model, period normalization by W_alg=Q/[3(4-h^4)], finite kernel descent and coherent saturation.",
+      "Primary passages in Dito, Shoikhet, Artin-Tate-Van den Bergh, Smith-Tate, De Laet-Le Bruyn, Keeler, Burke-Stevenson and Antieau-Krashen-Ward."
     ],
     "substantive_error_found_in_targeted_reading": false,
     "all_unchanged_proofs_fully_reaudited_this_revision": false,
     "formal_proof_assistant_verification": false,
     "external_referee_acceptance_of_current_version": false,
-    "novelty_status": "Prior theorems and their applications are explicitly attributed. No comprehensive first-occurrence or priority determination is claimed.",
+    "novelty_status": "Classical Sklyanin/THCR descriptions, star-product coefficients, inner-wheel vanishing, a=0 Orlov equivalence, elliptic Torelli and Hesse invariants are attributed. No comprehensive priority determination is claimed.",
     "main_theorem_hypotheses_preserved": true,
-    "current_conclusion": "A geometrically smooth cubic equation over K=C(h), with full coherent residual equivalence preserving rotation and the specified cubic period after some finite K-prime/K. Uniqueness is geometric projective uniqueness among rotation-compatible models.",
+    "current_conclusion": "The general existence theorem is retained. For the specified five-variable Hesse-Sklyanin input, the rational equation over K is explicit, and the complete comparison descends to that fixed model over some finite K-prime/K, preserving rotation and the specified cubic period.",
     "not_claimed": [
-      "Kernel descent to K or uniqueness of the K-form.",
-      "An algebraic relative equivalence through the commutative special point, or equivalence of the whole projective categories.",
-      "Vanishing of the even Taylor components after MF matrix insertion; the parity bounds concern the bar maps before insertion.",
-      "A complete rational K-equation or equivalence kernel for the explicit example.",
+      "Kernel descent to K, a computed extension degree, or uniqueness of the K-form.",
+      "An algebraic relative equivalence through h=0, or equivalence of the whole projective categories in dimension three.",
+      "Evaluation of the complete Taylor series on arbitrary Laurent-coefficient MF matrices.",
+      "An explicit all-order generator-fixing formality map, the scalar A(h), or matrices of an equivalence kernel.",
       "Direct extraction of all low-rotation product matrices from the noncommutative category.",
-      "All-degree flatness or categorical equivalence established by finite computation."
+      "All-order categorical results established by finite symbolic tests."
     ],
     "explicit_example": {
-      "proofs": "gre:prop:input and gre:prop:jet in papers/generic_recovery/explicit_example.tex",
+      "source": "papers/generic_recovery/explicit_example.tex",
+      "proofs": [
+        "gre:prop:input",
+        "gre:prop:jet",
+        "gre:prop:hesse-normalform",
+        "gre:prop:marked-hesse-uniqueness",
+        "gre:prop:elliptic-quotient",
+        "gre:lem:elliptic-mf",
+        "gre:thm:exact-potential",
+        "gre:cor:rational-model"
+      ],
       "coefficient_ring": "C[h]_(h)",
-      "potential_first_jet": "W_rec=(x^3+y^3+z^3+u^3+v^3)/3+hxyz+O(h^2)",
-      "nontriviality": "xyz is nonzero in Jac(F)_3=C[x,y,z,u,v]/(x^2,y^2,z^2,u^2,v^2)_3.",
-      "remaining": "Higher quantum corrections, the full rational model, the equivalence kernel and complete low-rotation matrices are not computed."
+      "fixed_convention": "Harmonic-angle formality; generator-fixing strict comparison for the second jet; h and t fixed under active Hesse normalization.",
+      "potential_second_jet": "W_rec=F+hxyz+(h^2/3)xyz+O(h^3)",
+      "all_order_normal_form": "W_H=F+[(h+h^2/3+h^5/12)/(1-h^4/4)]xyz",
+      "rational_equation": "Q=(4-h^4)(x^3+y^3+z^3+u^3+v^3)+(12h+4h^2+h^5)xyz=0",
+      "specified_period_normalization": "W_alg=Q/[3(4-h^4)]",
+      "nontriviality": "xyz is nonzero in Jac(F)_3.",
+      "remaining": "Explicit comparison kernels, extension degree/removal, direct low-rotation matrices and algebraic relative equivalence."
     }
   },
   "static_source_check": {
     "command": "python3 scripts/verify_bundle.py --only paper_b --require-pdfs",
-    "executed_for_version": "B-v58",
+    "executed_for_version": "B-v59",
     "exit_code": 0,
     "tex_files": 12,
-    "labels": 138,
-    "references": 160,
-    "citation_occurrences": 64,
-    "bibliography_entries": 25,
+    "labels": 162,
+    "references": 205,
+    "citation_occurrences": 86,
+    "bibliography_entries": 30,
     "unresolved_references": 0,
     "unresolved_citations": 0,
     "duplicate_labels": 0,
     "source_blobs": {
       "papers/generic_recovery/coherent_saturation.tex": "79eeb6c1d4b30d6cb129cadf37081e671efe349b",
       "papers/generic_recovery/curved_transport.tex": "6d93e0fca9aebc70c0035dec2b0526941122cc63",
-      "papers/generic_recovery/explicit_example.tex": "2757959eba85c6667a64507b8de76a6f84bdda50",
+      "papers/generic_recovery/explicit_example.tex": "78d112d335b2330138fcbf9f56cef6082c2caca4",
       "papers/generic_recovery/field_model.tex": "6f6311da0916f24a2ac1c476594d4cbf012c66fb",
       "papers/generic_recovery/generic_descent.tex": "d0841a09794c13bf29af4b7d9e94f5011565a21e",
       "papers/generic_recovery/gradient_recovery.tex": "a53542d40a8cfb8d2fa17ec2bbd4ce554b4f4ad8",
       "papers/generic_recovery/local_model.tex": "4e1610b0a575a84eea18b751fda87e60e756943a",
-      "papers/generic_recovery/main_result.tex": "e0d99dc085f94e976daad2309ad8198ae1224f8a",
-      "papers/generic_recovery/references.tex": "908f16dd5f869eecd79cf036ddcaea3d4deb0476",
+      "papers/generic_recovery/main_result.tex": "f548856692219d86c020bfb368a46955e8a28f93",
+      "papers/generic_recovery/references.tex": "1196396dba66e9d9a50ce21e0f44b3c41ab04814",
       "papers/generic_recovery/window.tex": "14db27717e5096bc4b1dc9e5a33f5bbd08164303",
-      "papers/paper_b.tex": "24cea08e7dd30cffdc522410b18127a3037afa25",
+      "papers/paper_b.tex": "19440cefce22fa3439e2a400318ee1e3a6b0feac",
       "papers/support/papers/common.tex": "e53e7220975a65e301ddc9a38ea87c8449f180ec"
     }
   },
-  "build": {
-    "executed_for_version": "B-v58",
-    "execution_date": "2026-11-14",
+  "typesetting": {
     "command": "python3 scripts/build.py --only paper_b",
+    "executed_command": "python /workspace/scratch/a8e5fcd83ad5/tex-runtime/run.py python scripts/build.py --only paper_b",
+    "environment_note": "The managed runtime supplied missing TeX packages and Japanese fonts through isolated TEXMF variables. Repository build configuration and common preamble were not changed.",
+    "executed_for_version": "B-v59",
     "exit_code": 0,
-    "environment_note": "A complete LuaLaTeX/LuaTeX-ja installation can run the command directly. This environment used isolated user-owned TEXMF variables and restored missing runtime files; repository build configuration and shared preamble were unchanged.",
+    "pages": 48,
     "engine": "This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)",
-    "complete_paper_build_executed": true,
-    "pages": 40,
-    "typesetting_failures": {
+    "failures": {
       "undefined_references": false,
       "undefined_citations": false,
       "missing_glyphs": false,
       "overfull_boxes": false
     },
     "visual_review": {
+      "pdf_sha256": "786c9ad997b1aa9e95ef799c09d323e04eea9783557570396b6859e5b07448b8",
       "all_pages_rendered": true,
+      "rendered_pages": 48,
       "all_pages_contact_sheets_inspected": true,
+      "contact_sheets_inspected": 8,
       "detail_pages_inspected": [
-        5,
-        16,
-        17,
-        18,
-        37,
-        38
+        6,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
       ],
       "observed_clipping_or_overlap": false,
-      "scope": "All 40 pages viewed in contact sheets; new comparison diagrams, table and example also viewed at page resolution. The final table-heading change affected only page 5; the other 39 rendered pages matched the inspected render pixel-for-pixel, and page 5 was reinspected."
+      "scope": "Poppler-rendered contact sheets of every page inspected; full-page images of the new introduction, second jet, all-order Hesse normalization, elliptic quotient, a=0 comparison, exact rational theorem, explicit cubic model and beginning of bibliography inspected. No clipping, overlap or visibly broken formulas observed."
     },
-    "pdf_sha256": "41c276a1953af1b725db3ee32c3acf119bc6e4f1aedf0fd4d14d7db4c316daca",
+    "pdf_sha256": "786c9ad997b1aa9e95ef799c09d323e04eea9783557570396b6859e5b07448b8",
     "pdf_git_tracked": false,
     "receipt": "build/paper_b.receipt.json",
-    "receipt_sha256": "02298c5d0084165e59b8ab7701ba6e88daad981c9bac0f325a7f0c357afbcefb",
+    "receipt_sha256": "7a2b0725e87cb110b1ec683ed5ed4dccfbf2971882f90bad270c68c1c62d4d87",
     "current_source_pdf_hash_parity": true,
     "latexmkrc_blob": "ab3ca75d9e516a01e44bcb555e0a8e5801867310"
   },
@@ -148,7 +170,9 @@
           "odd_arity_filtration": true,
           "object_substitution_inverse": true
         }
-      }
+      },
+      "not_rerun_in_current_revision": true,
+      "retention_basis": "Unchanged script hash; prior successful exact result retained with its original execution version."
     },
     {
       "script": "computations/verify_three_object_window.py",
@@ -180,7 +204,9 @@
           15,
           16
         ]
-      }
+      },
+      "not_rerun_in_current_revision": true,
+      "retention_basis": "Unchanged script hash; prior successful exact result retained with its original execution version."
     },
     {
       "script": "computations/verify_generic_cubic_descent.py",
@@ -240,22 +266,24 @@
           "equivalence kernel",
           "finite extension degree"
         ]
-      }
+      },
+      "not_rerun_in_current_revision": true,
+      "retention_basis": "Unchanged script hash; prior successful exact result retained with its original execution version."
     },
     {
       "script": "computations/verify_recovery_example.py",
       "command": "python3 computations/verify_recovery_example.py --output build/verify_recovery_example.json",
-      "executed_for_version": "B-v58",
+      "executed_for_version": "B-v59",
       "execution_date": "2026-11-14",
       "status": "PASS",
       "exit_code": 0,
-      "script_sha256": "97b908a6b81de10f1330ca36b1c93f3870ba52a944c8adfed3a3eb0d12f09cfc",
+      "script_sha256": "928ff5e5d4478730fc04c2712dba0edd290b8b7cb5842ac4136ac38c1273c544",
       "output": "build/verify_recovery_example.json",
-      "output_sha256": "a4d2560ce2d8bba8bd631bd9a6b4e7a82e3ed92c4e3d85b1927cf493cbdc97f5",
+      "output_sha256": "98450f0dea077567d8e1db997963553ef14c04b0c76fc323cacf4c8f3f5e7490",
       "output_git_tracked": false,
       "result": {
         "status": "passed",
-        "coefficient_ring": "Q[h] (exact); finite h-jets use rational coefficients",
+        "coefficient_ring": "Q[h, lambda] and Q(h, lambda) (exact); finite h-jets use rational coefficients",
         "exact_polynomial_identities": [
           "Sklyanin discriminant",
           "G = -9h (u_h S/3 + v_h T)"
@@ -265,7 +293,68 @@
         "noncommutative_first_commutator": "[y,z] = h*x^2 mod h^2",
         "recovered_potential_first_jet": "(x^3+y^3+z^3+u^3+v^3)/3 + h*x*y*z mod h^2",
         "jacobian_remainder_of_xyz": "x*y*z (nonzero)",
-        "scope": "Finite algebraic identities only. All-degree freeness, the formality comparison, categorical equivalence, and generic descent are proved in the text, not by this script."
+        "second_jet": {
+          "full_harmonic_angle_B2_source": "Dito math/9905080v1 (3), pi=P0/2",
+          "theta_active_matrix": [
+            [
+              "-8*y*z",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "-8*x*z",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-8*x*y"
+            ]
+          ],
+          "B2_x_x": "y*z/3",
+          "B2_x2_x": "2*x*y*z/3",
+          "rho2_F": "x*y*z",
+          "weyl_gauge_polynomial_identity_degrees": [
+            2,
+            3
+          ],
+          "center_image_mod_h3": "h**2*x*y*z/3 + h*x*y*z + u**3/3 + v**3/3 + x**3/3 + y**3/3 + z**3/3",
+          "recovered_potential_mod_h3": "h**2*x*y*z/3 + h*x*y*z + u**3/3 + v**3/3 + x**3/3 + y**3/3 + z**3/3",
+          "jacobian_remainder_first_coefficient": "x*y*z",
+          "jacobian_remainder_second_coefficient": "x*y*z/3",
+          "analytic_input_not_recomputed": "Shoikhet math/0007080: harmonic-angle inner W2=0; with the graph classification this gives C_pi=Id mod h^3",
+          "scope": "Exact finite polynomial identities only. Graph weights, all-order formality, and the strict comparison are cited or proved separately in the manuscript."
+        },
+        "rational_hesse": {
+          "lambda_point": "(h**5/12 + h**2/3 + h)/(1 - h**4/4)",
+          "sklyanin_ratio_identity": "-(a^3+b^3+c^3)/(3abc) = lambda_point",
+          "weierstrass_coordinates": "X=z, Y=x-y, Z=x+y-lambda*z",
+          "coordinate_determinant": "2",
+          "four_times_transformed_hesse_cubic": "X**3*(4*lambda**3 + 4) + 9*X**2*Z*lambda**2 + 6*X*Z**2*lambda + 3*Y**2*Z + Z**3",
+          "monic_weierstrass_coefficients": {
+            "a1": "0",
+            "a2": "-3*lambda**2",
+            "a3": "0",
+            "a4": "8*lambda**4/3 + 8*lambda/3",
+            "a6": "-16*lambda**6/27 - 32*lambda**3/27 - 16/27"
+          },
+          "c4": "16*lambda*(lambda**3 - 8)",
+          "discriminant": "-4096*(lambda**3 + 1)**3/27",
+          "j_invariant": "27*lambda**3*(8 - lambda**3)**3/(lambda**3 + 1)**3",
+          "discriminant_cross_checks": [
+            "c4^3-c6^2 = 1728*Delta",
+            "Delta = 16*disc(monic cubic)"
+          ],
+          "cleared_denominator_Q": "x*y*z*(h**5 + 4*h**2 + 12*h) + (4 - h**4)*(u**3 + v**3 + x**3 + y**3 + z**3)",
+          "Q_identity": "Q = 3*(4-h^4)*(F+lambda_point*x*y*z)",
+          "lambda_point_mod_h3": "h**2/3 + h",
+          "matches_independent_recovered_second_jet": true,
+          "special_fibre_Q": "4*u**3 + 4*v**3 + 4*x**3 + 4*y**3 + 4*z**3",
+          "smooth_special_fibre_projective_charts_verified": 5,
+          "scope": "Exact symbolic polynomial and rational identities only. No THCR identification, Orlov equivalence, or all-order categorical argument identifying the recovered series with lambda_point is verified by these computations."
+        },
+        "scope": "Finite algebraic identities only. Graph weights and inner-wheel vanishing are cited inputs. All-degree freeness, formality, THCR identifications, Orlov equivalences, the all-order categorical comparison, and generic descent are not verified by this script."
       }
     }
   ],
@@ -274,15 +363,16 @@
     "sympy": "1.14.0"
   },
   "paper_A": {
-    "version": "A-v56",
-    "preserved_from_remote_commit": "6edea1d37d61cc0497c732d4b639daba6cb59b93",
+    "version": "A-v58",
+    "preserved_from_remote_commit": "9bbba3f4977d92d99c65e1e22d98ac993d73c301",
     "modified": false,
     "recursive_tex_inputs": 20,
     "all_recursive_input_blobs_match_preserved_remote": true,
     "validation_record_preserved": true,
     "shared_common_blob": "e53e7220975a65e301ddc9a38ea87c8449f180ec",
     "mathematically_reaudited_this_B_revision": false,
-    "typeset_this_B_revision": false
+    "typeset_this_B_revision": false,
+    "source_closure_check": "PASS; 20 files, 417 labels, 411 references, 87 citations."
   },
   "repository_layout_check": {
     "command": "python3 scripts/check_layout.py",

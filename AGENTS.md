@@ -1,6 +1,6 @@
 # Codex実行指示 — nc-cubic
 
-2026-11-14 / v90。最初に `00_research_plan.md` と `notes/paper_b_scope_and_transfer.md` を読む。GitHub mainが正本。
+2026-11-14 / v91。最初に `00_research_plan.md` と `notes/paper_b_scope_and_transfer.md` を読む。GitHub mainが正本。
 
 ## 公表向け監査と担当境界
 
@@ -14,11 +14,11 @@
 
 現行の仮定・証明所在・文献比較は `notes/poisson_article_submission_audit.md`、実行確認は `validation_paper_a.json` に集約する。相対忘却射のアフィン性、被約rank層、中心核と通常の中心の違い、Ω'=aΩ+cによるイデアルの不一致、全モジュライ降下の未解決性を保持する。17は構成した底の次元であり、固定h≠0の非可換同型類の像の次元ではない。Bの一般点復元と全閉パラメータでの相対同値を混同しない。
 
-論文BはB-v58。添付の独立査読報告に基づき、完備曲率移送を序論の独立した中心定理として述べ、window・dg商・余核・totalization・mutationを一つの比較図式へ集約した。指定三次周期は二拡張のYoneda類からrotation正方形まで追跡する。arity評価はMF行列を挿入する前のbar写像に対するものであり、挿入後のMF関手の偶数Taylor成分の消滅と混同しない。
+論文BはB-v59。添付の独立査読報告に基づき、完備曲率移送を序論の独立した中心定理として述べ、window・dg商・余核・totalization・mutationを一つの比較図式へ集約した。指定三次周期は二拡張のYoneda類からrotation正方形まで追跡する。arity評価はMF行列を挿入する前のbar写像に対するものであり、挿入後のMF関手の偶数Taylor成分の消滅と混同しない。
 
 Pirozhkov Theorem 1.2の三次の場合はn>3と明記し、Lin--Zhangの低積・Torelliとの関係を整理した。EGは既に有限rank graded MFを扱い、CKは第二種変形複体を比較する。本稿の追加は一般入力・完備実関手・指定周期・一般点降下・全coherentへの接続である。一般的なformality、BFKの上界、Jacobian Torelliを新しい結果に数えない。包括的な初出は未確定である。
 
-`explicit_example.tex` のHesse--Sklyanin族は独立の具体例であり、Aの一般量子化定理をBの入力へ追加しない。既知Sklyanin理論とDVRの構造定理で全次数の自由性を示し、Weyl対称化と中心写像から W_rec=F+h xyz+O(h²) を得る。xyzはJac(F)_3で非零。この形式的jetを、K上の方程式や同値核の全係数、直接抽出した低rotation積の全行列と呼ばない。
+`explicit_example.tex` のHesse--Sklyanin族はAの一般量子化定理に依存しない。既知Sklyanin理論とDVRの構造定理で全次数の自由性を示す。生成元を固定するharmonic-angle比較の二次jetは W_rec=F+h xyz+(h²/3)xyz+O(h³) であり、全次数のHesse係数は λ=(h+h²/3+h⁵/12)/(1−h⁴/4)。K上の模型は (4−h⁴)(x³+y³+z³+u³+v³)+(12h+4h²+h⁵)xyz=0 と確定した。相対THCR、a=0のdg Orlov比較、properなPerf模型の底変更と楕円曲線の同定が証明を支える。三変数ではOを例外対象と扱わず、N>=5の正のaのwindow定理をそのまま流用しない。生の点スキーム方程式の共通因子h、G=−9hΩの規格化、Weyl gaugeと中心写像の同時変更を保持する。同値核の行列・拡大次数・直接抽出した低rotation積の全行列は未計算。
 
 主定理の存在結論と仮定は保持する。方程式のK降下、核の有限拡大K'上の存在、幾何学的一意性、K-form、線束部分と全coherent圏、通常の局所化とtorsion Moritaの区別は `gdr:subsec:scope` に集約した。固定勾配空間の積分は有限étale代数E_Fで記述し、E_F=kなら方程式は基礎体上でスカラー倍まで一意。ただし同値核のKへの降下は未解決。現在の確認範囲と再現は `notes/paper_b_proof_audit.md` と `validation_paper_b.json` を参照する。
 
@@ -34,7 +34,7 @@ Aの同変性では、全滑らかなfでG_0=(GL3×GLm)×Gmに関する平均化
 
 ## 厳格な保護
 
-- 移管整理では `papers/paper_a.tex`（A-v58）、`papers/paper_b.tex`（B-v58）、両者の再帰的な全入力、`papers/generic_recovery/`、`papers/support/papers/common.tex`、共通設定を保護する。ユーザーが依頼した公表向け監査によるA/Bの修正はこの移管保護とは区別する。A-v58の改訂ではB-v58の全入力と共通preambleを変更していない。必要証明を移管先へのリンクだけで代用しない。
+- 移管整理では `papers/paper_a.tex`（A-v58）、`papers/paper_b.tex`（B-v59）、両者の再帰的な全入力、`papers/generic_recovery/`、`papers/support/papers/common.tex`、共通設定を保護する。ユーザーが依頼した公表向け監査によるA/Bの修正はこの移管保護とは区別する。本B-v59改訂では並行作業のA-v58の全入力・専用検証記録と共通preambleを保持する。必要証明を移管先へのリンクだけで代用しない。
 - パスだけで移管可否を決めず、input/include・論理参照・引用・ノート・コードの実依存を確認する。共有する文献・証明書・検算を消さない。
 - 数学的問題は具体的な仮定・反例・依存先とともに監査ノートへ記し、主定理を迂回して強化・弱化しない。
 - 全次数MF存在と条件付き移送、全coherentと線束生成圏、有限Artinと一般Artin、形式と代数的同値、相対smooth properの仮定を区別する。

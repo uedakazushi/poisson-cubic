@@ -1,5 +1,5 @@
 % !TEX root = paper_b.tex
-% 2026-11-14 / B-v58. Complete MF transport, comparison diagrams and a noncommutative first jet.
+% 2026-11-14 / B-v59. Complete MF transport and an explicit rational Hesse model.
 \makeatletter
 \def\input@path{{papers/support/}}
 \makeatother
@@ -9,9 +9,9 @@
 \hypersetup{pdftitle={中心三次非可換変形の一般点における可換復元}}
 \title{中心三次非可換変形の一般点における可換復元}
 \author{}
-\date{2026年11月14日・論文B（研究草稿 v58）}
+\date{2026年11月14日・論文B（研究草稿 v59）}
 \fancyhead[L]{\small 中心三次非可換変形の一般点可換復元}
-\fancyhead[R]{\small 2026-11-14 / B-v58}
+\fancyhead[R]{\small 2026-11-14 / B-v59}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -25,7 +25,8 @@ rotation付きの模型として、その幾何学的な射影同型類は一意
 証明は相対window、完備曲率付きmatrix factorizationの比較、
 一般点での生成と有限降下、coherent飽和、低rotation積からの勾配空間の積分からなる。
 完備比較では、有限rankと内部shiftを保つ実際の関手と逆関手を構成する。
-非可換なSklyanin型の具体例で、復元potentialの非自明な一次jetも求める。
+非可換なSklyanin型の具体例では、復元potentialの二次jetを直接計算し、
+楕円曲線の比較により全次数のHesse係数と関数体上の三次方程式を明示する。
 \end{abstract}
 \tableofcontents
 
@@ -108,6 +109,17 @@ $\mathbb C$上の三生成元weighted homogeneousな非可換楕円特異点に�
 本稿は$N=n+2\ge5$変数の任意の指定された中心三次変形について、
 $\mathbb C[h]_{(h)}$から一般点へ進み、有限拡大上でrotationと指定周期を備えた
 \emph{全coherent残余圏}の可換模型を構成する。
+
+第\ref{gre:sec:example}節の計算では、Sklyanin中心商のtwisted homogeneous
+coordinate ring表示\cite{GRSklyaninATV,GRSklyaninST}を用いる。
+相対$qgr$比較にはKeeler\cite[Proposition~7.2, Lemma~7.6]{GRKeeler}、
+三変数の$a=0$比較にはBurke--Stevenson\cite[Theorem~6.4(3)]{LP-BS}、
+分数体上の楕円曲線の同定にはAntieau--Krashen--Ward
+\cite[Theorem~2.2]{GRAKW}を使う。
+これらの既知結果を完備MF比較と合わせ、指定した非可換中心対に対応する
+五変数のHesse方程式を具体的に決定する。
+二次jetでは、Ditoの全二次星積\cite[Section~2, equation~(3)]{GRDito}と
+Shoikhetのinner-wheel消滅\cite[Section~1.3]{GRShoikhet}の規約を区別する。
 
 曲率付き変形をpotentialの変形として扱う形式的存在原理は、
 Kontsevichのformality\cite{PKontsevich}とその曲率付き拡張に基づく。
@@ -193,21 +205,34 @@ Hwang\cite{HwangSymmetrizer}のsymmetrizer理論に従う。
 \bottomrule
 \end{longtable}
 
-\subsection{非可換入力からの具体的な一次jet}
+\subsection{非可換入力からの明示的な可換模型}
 第\ref{gre:sec:example}節では、三生成元Sklyanin代数へ中心変数を二つ加えた
-代数的中心三次対を取り、定理\ref{cft:thm:complete}の形式的模型について
+代数的中心三次対を取る。$F=(x^3+y^3+z^3+u^3+v^3)/3$とすると、
+生成元を固定するharmonic-angle比較から
+$W_{\rm rec}=F+hxyz+(h^2/3)xyz+O(h^3)$を直接得る。
+さらに底の$h$を固定し、剰余が恒等である線形座標変換により、
+全形式次数で
 \begin{equation}\label{gdr:eq:example-intro}
- W_{\rm rec}=\frac{x^3+y^3+z^3+u^3+v^3}{3}+hxyz+O(h^2)
+ W_{\rm H}=F+\frac{h+h^2/3+h^5/12}{1-h^4/4}\,xyz
 \end{equation}
-を求める。$xyz$は特殊ファイバーのJacobian環で非零なので、
-この一次項は恒等を特殊化とする座標変換では消えない。
-これは非可換入力の中心元と積から計算した形式的復元のjetであり、
-関数体上の方程式や同値核の全係数を計算したという主張とは区別する。
+とできることを証明する。$xyz$は特殊ファイバーのJacobian環で非零なので、
+一次項は恒等を特殊化とする座標変換では消えない。
+したがって、この例の可換模型は$K=\mathbb C(h)$上の滑らかな三次三様体
+\begin{equation}\label{gdr:eq:explicit-model-intro}
+ (4-h^4)(x^3+y^3+z^3+u^3+v^3)
+ +(12h+4h^2+h^5)xyz=0
+\end{equation}
+に取れる。証明は三変数の中心商を相対楕円曲線へ結び、
+その$\operatorname{Perf}$のdg模型を分数体へ底変更して、$j$不変量と一次項を比較する。
+可換側の指定周期は式\eqref{gdr:eq:example-intro}のpotentialから規格化する。
+五変数のrotation・指定周期を保つ同値は、元の完備MF比較から
+この固定模型へ有限降下する。同値核の具体行列、必要な拡大次数、
+非可換圏からの低rotation積の全行列は計算していない。
 
 本文は一般次元の主定理、その証明と上の具体例を収める。
 変形接空間、三次三様体のPl\"ucker障害、独立の相対形式・étale理論、
-明示量子化族の一般論、point schemeの研究は、本稿の主証明の入力としない。
-上の具体例には必要な表示と証明を本稿内に記す。
+明示量子化族の一般論、独立に進めるpoint schemeの研究は、本稿の主証明の入力としない。
+上の具体例に必要な古典Sklyanin表示、相対比較と全次数の同定は本稿内に記す。
 
 \input{papers/generic_recovery/main_result}
 \input{papers/generic_recovery/local_model}
