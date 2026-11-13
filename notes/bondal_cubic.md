@@ -1,6 +1,6 @@
 # 滑らかなcubic n-foldに対するBondal予想
 
-**2026-11-14 / A-v55・nc-cubic-v86。最初に `00_research_plan.md` を読む。**
+**2026-11-14 / A-v56・nc-cubic-v87。最初に `00_research_plan.md` を読む。**
 証明全文は `papers/support/papers/sections/bondal_cubic.tex` の `thm:pg-bondal`。
 正規形、射影化の補題、分離型三次四様体の分類は
 `papers/support/papers/sections/poisson_geometry.tex` にある。
@@ -43,12 +43,31 @@ Poisson零点スキームは被約なE_f⊔E_gで、そこではmodularベクト
 構成と一般のf,gについての局所証明は `prop:pg-split-elliptic` にあり、
 この命題自体は正規形定理に依存しない。
 
-逆に、滑らかな三次四様体の一般階数四の全Poisson構造は、適当な分離表示でこの形になる。
-必要性は `thm:pg-normal` のN=6、k=2、m=0の場合、十分性は上の明示構成による。
-正確な同値と依存関係は `cor:pg-cubic-fourfold-elliptic` を参照する。
+滑らかな三次四様体X=V(F)⊂P⁵について、`cor:pg-cubic-fourfold-elliptic` は次の三条件を同値とする。
+
+1. Xが一般階数四の正則Poisson構造を持つ。
+2. 線形座標を選ぶとF=f(x_0,x_1,x_2)+g(y_0,y_1,y_2)と書ける（(3,3)型Thom–Sebastiani分解）。
+3. 周囲のP⁵におけるHessian階数三以下の軌跡 H_{≤3}(F)={ [v] : rank Hess F(v)≤3 }が線形平面P²を含む。
+
+第一項から第二項は `thm:pg-normal` のN=6、k=2、m=0の場合、逆向きは上の明示構成による。
+全体Fの滑らかさからf,gも滑らかな平面三次を定める。
+第二項と第三項はBricalli–Favale–Pirolaの既知のTheorem 3.4（刊行版pp.10–12）のn=5、k=2の場合であり、
+本稿の追加はPoisson正規形との接続である。書誌と適用範囲は後述のHessianの項を参照する。
+第三項の平面はX内の平面ではない。分離表示では二つの座標平面が該当し、Xとの交叉はE_fとE_gとなる。
+一般階数四の全Poisson構造は適当な分離表示でq_f+q_gの形となり、purely elliptic log symplecticである。
 被約なPoisson零点スキームを退化因子の特異スキームと混同しない。
 後者は各楕円曲線の横断方向に長さ8の厚みを持つ
 （`rem:pg-split-singular-schemes`）。
+
+**Hessian行列式の可約性だけでは第三項を代用できない。**
+`ex:pg-reducible-hessian-no-rank-four` は
+F=x_0³+x_1³+h(z_1,z_2,z_3,z_4)、h=Σz_i³−(Σz_i)³という滑らかな例を与える。
+Hessian行列式は非零でx_0x_1を因子に持つが、全Hessianに関して自己共役な定数行列の空間は
+E_F={diag(a,b,cI₄)}であり、その冪等元の階数は0,1,2,4,5,6だけである。
+線形座標変換x=PyではE_{F∘P}=P⁻¹E_FPなので、(3,3)分解が与えるはずの階数三の射影を任意の座標で排除できる。
+従ってこの例に一般階数四のPoisson構造は存在しない。
+例自体は(1,1,4)型に分解しており、任意のThom–Sebastiani分解の不存在を主張しているのではない。
+滑らかさの符号議論、E_Fの決定と射影障害の証明は同例に置き、下記の検算はその一例の線形恒等式を確認する。
 
 ## 数学的監査の到達点
 
@@ -60,7 +79,9 @@ Poisson零点スキームは被約なE_f⊔E_gで、そこではmodularベクト
 - `thm:pg-normal`：三変数ブロック分解、逆向きのJacobi条件、射影空間とX上の一般階数2k。m=0では全f_s=0がXの真閉集合となる点も確認した。
 - `lem:pg-projective-rank` と `thm:pg-bondal`：双ベクトルの像に含まれる直線で割るとrankが2下がり、含まれなければrankが保たれること、およびjoinの各点への適用。
 - `prop:pg-split-elliptic`：独立変数のJacobian括弧、完全交叉とSerre条件によるDの正規性、暗黙消去した局所座標でのPfaffianとmodular場の非消滅。明示構成・局所計算を独立に確認した。
-- `cor:pg-cubic-fourfold-elliptic` と `rem:pg-split-elliptic-lift-obstruction`：N=6の正規形からの分類、および非連結な曲線に沿う三重消滅をambientへ持ち上げられない障害。
+- `cor:pg-cubic-fourfold-elliptic` と `rem:pg-fourfold-ts-hessian-scope`：N=6の正規形による(3,3)分離型との同値、Bricalli–Favale–Pirola Theorem 3.4の適用、周囲のHessian階数軌跡内の平面とX内の平面の区別。
+- `ex:pg-reducible-hessian-no-rank-four`：滑らかさ、定数symmetrizerの決定、共役による座標不変性と階数三の冪等元の排除。Hessian行列式の可約性だけでは一般階数四の存在を結論できない具体例である。
+- `prop:pg-triple-lifting-obstruction` と `cor:pg-split-lifting-obstruction`：各連結成分が正次元の滑らかな中心に対する任意のr≥2の消失を保つ持上げ障害。持上げ次数は超曲面と同じdに固定する。分離型ではr=d=3の障害が非零であり、Pymの公開原稿との比較は `rem:pg-split-elliptic-lift-obstruction` に分離している。
 
 Lie理論の外部入力はEtingof, *Lie Groups and Lie Algebras* の
 Proposition 16.9、Definition 21.13／Lemma 21.14、Theorem 25.17、§32.2を
@@ -76,10 +97,15 @@ Euler--divergenceの既知前史と半単純Lie代数の核計算は後述のBon
 ```sh
 python3 computations/verify_poisson_article_A.py
 python3 computations/verify_split_cubic_fourfold.py
+python3 computations/verify_hessian_split_obstruction.py
 ```
 
-`verify_poisson_article_A.py` は前回の監査で次のPASSを確認済みであり、
-現行コードは同一であり、A-v55の今回の検証でも再実行してPASSを確認した。
+**A-v56で新規に実行した厳密計算は `verify_hessian_split_obstruction.py` だけである。**
+`validation_paper_a.json` に列挙する他の10検算は過去のPASSを引き継ぎ、本改訂では再実行していない。
+次の二つの既存検算についても、その実行版と対象を区別する。
+
+`verify_poisson_article_A.py` の実行記録はA-v52、2026-11-13で、次のPASSを確認済みである。
+現行コードのハッシュ一致を検証記録に保持しているが、A-v55およびA-v56では再実行していない。
 
 ```text
 PASS: smooth test cubic, 56 Jacobi and 56 Euler-wedge identities
@@ -92,7 +118,7 @@ F=(x³+y³+z³+a³+b³+c³+u³+v³)/3+uxy+vabである。
 56成分のEuler外積恒等式を確認する。
 これは一つの具体例に対する検算である。
 
-`verify_split_cubic_fourfold.py` は2026-11-13にSymPy 1.14.0で実行し、終了コード0と全PASSを確認した。
+`verify_split_cubic_fourfold.py` の直近の実行記録はA-v55、2026-11-14で、終了コード0と全PASSを確認済みである。A-v56では再実行していない。
 対象はF=(x_0³+x_1³+x_2³+y_0³+y_1³+y_2³)/3という分離型Fermat例である。
 次の恒等式を有理係数で厳密に検算した。
 
@@ -104,6 +130,16 @@ F=(x³+y³+z³+a³+b³+c³+u³+v³)/3+uxy+vabである。
 
 Fermat例の有限検算を、全ての滑らかなf,gに対する証明や分類定理の計算機証明とは扱わない。
 一般の場合の証明は `prop:pg-split-elliptic`、符号は `eq:pg-split-modular` を参照する。
+
+`verify_hessian_split_obstruction.py` はA-v56、2026-11-14に実行し、終了コード0と全PASSを確認した。
+対象は上記のF=x_0³+x_1³+Σz_i³−(Σz_i)³だけであり、有理係数のまま次を確認する。
+
+- Hessianのブロック表示と行列式 det Hess F=6⁶x_0x_1(e₄−se₃)。ここでs=Σz_i、e_jはzの基本対称式。
+- 36個の定数行列成分に対する90本の係数方程式の階数33、核次元3、および核がdiag(a,b,c,c,c,c)の空間と一致すること。
+- 冪等条件a²=a、b²=b、c²=cと、複素数体への拡大後も可能な冪等元の階数が0,1,2,4,5,6だけであること。
+
+これは一つの三次式に対する線形恒等式の厳密検算である。全係数に対するHessian判定やPoisson分類を計算機で証明したものではない。
+滑らかさは本文の符号議論で、任意の座標で(3,3)分解を排除する根拠は同例の共役と射影の議論で証明する。
 再生成可能な実行ログの置場はbuild/であり、検証・組版の集約記録は `validation_paper_a.json` に置く。
 
 ## 先行研究と初出確認の範囲
@@ -162,9 +198,42 @@ cubic threefoldのGrassmann記述とも区別する。
 確認した一次文献では任意次元の全ブロック正規形と同一の定理を特定できていないが、
 六次元以上のcubicに対する全退化階数の結論と明示的join構成の初出は未確定である。
 
+### Hessian階数軌跡による分離型判定
+
+Bricalli–Favale–Pirola, *On the irreducibility of Hessian loci of cubic hypersurfaces*,
+Forum of Mathematics, Sigma 13 (2025), e80, 1–36、
+[DOI・刊行本文](https://doi.org/10.1017/fms.2025.36)、[arXiv:2406.12024](https://arxiv.org/abs/2406.12024)。
+参照箇所は刊行版Theorem A（p.2）、Theorem B（p.3）、Theorem 3.4とその証明（pp.10–12）である。
+本稿が用いるのはTheorem 3.4のn=5、k=2であり、滑らかな六変数三次式の(3,3)分解と
+周囲のP⁵のHessian階数三以下の軌跡に線形平面が含まれることの同値を与える。
+Hessianによるこの同値は既知であり、本稿の `thm:pg-normal` を用いて一般階数四のPoisson構造の存在と結び付ける。
+
+同文献のTheorem Aは、滑らかな三次四様体についてHessian超曲面が既約かつ正規であることと、
+任意のサイズのThom–Sebastiani分解がないことを同値とする。
+この条件は(1,5)型や(2,4)型も区別せずに扱うので、(3,3)分解の判定とは異なる。
+本稿の可約Hessianの例はこの違いを明示するもので、一般のsymmetrizer理論の新規性を主張しない。
+
 ### Pymの公開原稿との不整合と非連結性の障害
 
-一般次数の命題 `prop:pg-triple-lifting-obstruction` は、滑らかな超曲面X内の滑らかな非空Cの全連結成分が正次元のとき、H¹(P^N,I_C²)=C^{π₀(C)}/Cを与える。三重消失を保つ次数dの持上げの障害はこの群に入り、存在時は一意。分離型のδ(g_X)は[(0,1)]で非零である。証明は現行本文にあり、ここで全文を重複しない。
+命題 `prop:pg-triple-lifting-obstruction` は、滑らかな次数dの超曲面X⊂P^Nと、
+その中の空でない滑らかな閉部分多様体Cを扱う。Cの全連結成分は正次元と仮定する。
+I⊂O_{P^N}、J⊂O_XをそれぞれCのイデアル層とすると、任意の整数r≥2に対して
+H¹(P^N,I^{r−1})≅C^{π₀(C)}/C·1であり、r重消失を保つ次数dの持上げには完全列
+
+```text
+0 → H⁰(P^N,I^r(d)) → H⁰(X,J^r(d)) →δ_r C^{π₀(C)}/C·1
+```
+
+がある。δ_r(s)=0が持上げの存在条件で、存在すれば一意である。Cが連結なら全ての切断が一意に持ち上がる。
+この完全列はδ_rの全射性を主張しない。冪・交わりはイデアル層について取り、周囲のIとX上のJを区別する。
+証明の要点は(F)∩I^r=FI^{r−1}、余法層の正の対称冪の大域切断の消滅、および各連結成分の定数が全ての厚みに延長することである。
+証明全文と参照式は `eq:pg-split-lifting-sequence`、`eq:pg-conormal-powers-no-sections`、`eq:pg-thickening-global-functions` にある。
+
+**この形の障害群と一意性には、持上げる切断の次数がd=deg Xであることが必要である。**
+別の次数eでは持上げ列の左端がI^{r−1}(e−d)となり、障害群はH¹(P^N,I^{r−1}(e−d))、
+持上げ間の差はH⁰(P^N,I^{r−1}(e−d))で測る。上記の成分定数による同定や一意性をそのまま移してはならない。
+全連結成分の正次元性も余法層の対称冪の消滅に使う仮定であり、零次元成分を含む中心は本命題の対象外である。
+分離型のr=d=3では `cor:pg-split-lifting-obstruction` によりδ(g|_X)=[(0,1)]≠0となる。
 
 Pym, *Elliptic singularities on log symplectic manifolds and Feigin–Odesskii Poisson brackets*,
 Compositio Math. 153 (2017), no.4, 717–744、
@@ -181,8 +250,8 @@ C=E_f⊔E_gは非連結で、H¹(P⁵,I_C)≅ℂ、さらにH¹(P⁵,I_C²)≅�
 E_f沿いの三重消滅はλ=0、E_g沿いではλ=−1を要求する。
 各連結成分で選べる持上げを同時には選べないことが本質である。
 持上げ列の接続準同型によるδ(g|_X)は、一次元のH¹(P⁵,I_C²)の生成元となる。
-詳細は `rem:pg-split-elliptic-lift-obstruction`、
-`eq:pg-split-lifting-sequence`、`eq:pg-split-obstruction-class` にまとめている。
+非零障害の証明は `cor:pg-split-lifting-obstruction` と `eq:pg-split-obstruction-class`、
+文献との比較は `rem:pg-split-elliptic-lift-obstruction` にまとめている。
 
 **刊行版本文およびaccepted manuscript本文は未取得であり、刊行版・訂正文との最終照合は未了。**
 [Oxfordの公開登録](https://ora.ox.ac.uk/objects/uuid:a457621f-f733-41b0-99c7-fa475b8e807e)には
@@ -192,17 +261,28 @@ accepted manuscript `ell-log-symp.pdf`（444 KB、受理日2016-07-18）の登�
 [Crossrefの当該DOI登録](https://api.crossref.org/works/10.1112/S0010437X16008174)にも訂正を結ぶrelation・update情報は確認できない。
 この範囲で訂正案内を確認できていないという状態であり、訂正文の不存在や刊行版にも同じ記述があることを推測しない。
 
-後続文献については、次の二つを区別する。
+後続文献は対象・定義・連結性の仮定を区別して参照し、Pym 2017の刊行本文との直接比較を置き換えない。
 
 - Pym, *Constructions and classifications of projective Poisson varieties*,
   Lett. Math. Phys. 108 (2018), no.3, 573–632、
   [刊行本文・DOI](https://doi.org/10.1007/s11005-017-0984-5)。
-  §5.2のTheorem 5.12直後は、元論文が他のいくつかのFano四様体でも非存在を示すと概括する。
-  三次四様体の場合の訂正や、非連結な曲線の持上げ障害の指摘ではない。
+  刊行版§5.2、Theorem 5.12と直後の段落（印刷p.623）を確認している。
+  定理はP⁴上の分類であり、その直後は元論文が他のいくつかのFano四様体でも非存在を示すと概括する。
+  三次四様体を具体的に挙げた訂正や、非連結な曲線の持上げ障害の説明ではない。
 - Harder, *Mixed Hodge structures in log symplectic geometry*,
   [arXiv:2005.11367v1](https://arxiv.org/abs/2005.11367v1)、[PDF](https://arxiv.org/pdf/2005.11367v1)。
   §4.2、Theorem 4.3（p.17）は特異曲線Cがconnectedであることを明示的に仮定する。
   従って本稿のC=E_f⊔E_gへそのまま適用できず、Pymの三次四様体非存在を訂正する記述でもない。
+- Pym–Schedler, *Holonomic Poisson manifolds and deformations of elliptic algebras*,
+  [確認したarXiv:1707.06035v1](https://arxiv.org/pdf/1707.06035v1)、§4.2–4.3（pp.16–18）。
+  正規な退化因子とq_{d,1}の変形を扱い、そこで用いる連結性は割線多様体とGysin写像の議論に属する。
+  非連結な零点曲線からの三次式の持上げを扱う議論とは区別する。
+- Matviichuk–Pym–Schedler, *A local Torelli theorem for log symplectic manifolds*,
+  [確認したarXiv:2010.08692v2](https://arxiv.org/pdf/2010.08692v2)、p.5、pp.16–17、参考文献[52]。
+  確認したPymの引用箇所は単純楕円特異点と局所Moser正規形に関するもので、三次四様体の持上げの比較ではない。
+- Matviichuk, *Elliptic log symplectic brackets on projective bundles*, Selecta Math. 31 (2025), article 20、
+  [刊行本文・DOI](https://doi.org/10.1007/s00029-024-01014-5)、Definition A（p.3）。
+  同論文のellipticは余次元二のsymplectic leafの空間が楕円曲線となることであり、Pymの局所的なpurely elliptic条件と同一視しない。
 
 ## 継続する課題
 

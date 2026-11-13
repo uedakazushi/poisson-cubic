@@ -1,6 +1,6 @@
 # 論文Aの公表準備：主張・依存・検証の範囲
 
-**2026-11-14 / A-v55・nc-cubic-v86。** 再開時は `00_research_plan.md` を先に読む。
+**2026-11-14 / A-v56・nc-cubic-v87。** 再開時は `00_research_plan.md` を先に読む。
 本文は `papers/paper_a.tex`、専用文献は `papers/support/papers/references_poisson_cubic.tex`。
 以下の節ファイルはすべて `papers/support/papers/sections/` にある。
 計算・組版・入力ハッシュの実行記録はルートの `validation_paper_a.json` に集約する。
@@ -9,7 +9,7 @@
 
 中心結果は、滑らかな三次超曲面上の全Poisson構造のJacobianブロック正規形、
 全次元でのBondalの下界、全Poisson構造の代数的量子化、Fermatと相対Poissonモジュライの成分数である。
-具体的な四次元の帰結として、一般階数四の構造の分離型分類と純楕円退化因子を扱う。
+具体的な四次元の帰結として、一般階数四の構造の分離型分類、ambient Hessian階数軌跡による存在判定と純楕円退化因子を扱う。Hessianの可約性だけでは不十分な滑らかな例も含める。
 中心元は固定した変数分解の全滑らかな係数空間上で同時選択できる。
 単一ブロックではreductive群に関して全係数空間上で同変に選べ、
 三変数制限が滑らかな部分では中心平行移動を含む群にも拡張できる。
@@ -29,9 +29,9 @@ Aの一般定理の証明を移管先へのリンクで代用していない。
 
 次の証明連鎖を本文と外部入力の適用条件に沿って点検している。
 「点検」は独立な数学的読み直しを意味し、Lean等の形式検証や外部査読を意味しない。
-既存の有効な証明監査を保持し、現改訂では独立Lie補題、一般次数の持上げ障害、
-量子化の証明分割と先行研究への帰属を重点的に読み直した。
-旧一体節の70ラベルと移動したラベル付き主張・証明を比較し、移動による欠落がないことを確認した。
+既存の有効な証明監査を保持し、現改訂ではHessianによる四様体の存在判定、
+可約Hessianの具体的反例、任意r>=2の持上げ障害、および同変降下の群・古典極限を独立に読み直した。
+既存の正規形・量子化の全証明を今回新たに再監査したという意味ではない。
 これは添付査読報告をすべて再実行・形式検証したという意味ではない。
 主定理の記載済み証明、有限計算、初出の確認は区別する。
 
@@ -42,15 +42,16 @@ Aの一般定理の証明を移管先へのリンクで代用していない。
 | `lem:pg-basepoint-free-lie`、`lem:pg-quadratic-lie`、`thm:pg-normal` | 全非零Poisson構造が三変数Jacobianブロックへ分解 | 非退化形式の同時選択、可解根基、最高ウェイト、rank>=2単純因子の排除、混合項の消去 |
 | `lem:pg-projective-rank`、`thm:pg-bondal`、`bondal_cubic.tex` | 全2j<nについてdim D_(2j)>=2j+1 | joinの次元、Euler線によるrank低下、ブロック数の端のケース |
 | `prop:pg-deg-ideal`、`lem:pg-critical-cover`、`prop:pg-deg-support`、`prop:pg-zero-ci` | 一般退化イデアルは全正規形。critical coverと零点完全交叉には各純active三次の滑らかさが必要 | 正規形に基づく式と仮定の使い分け |
-| `prop:pg-split-elliptic`、`cor:pg-cubic-fourfold-elliptic` | 滑らかな三次四様体の一般階数四の構造は全て分離型で純楕円log symplectic | 具体例の滑らかさ、正規なjoin、Pfaffian、被約Poisson零点、modular場、正規形からの分類。Pym v1の非連結持上げ障害も独立に確認 |
-| `prop:pg-triple-lifting-obstruction`、`cor:pg-split-lifting-obstruction`、`poisson_geometry.tex` | 滑らかな次数d超曲面内の滑らかな非空C、全連結成分が正次元。H¹(I_C²)=C^{π₀(C)}/C、三重消失の障害δ | ideal sheafの冪、局所正則パラメータ、余法層の切断消滅、一次近傍の成分定数。分離型でδ(g_X)=[(0,1)]≠0。全射性は未主張 |
+| `prop:pg-split-elliptic`、`cor:pg-cubic-fourfold-elliptic` | 滑らかな三次四様体の一般階数四の構造は全て(3,3)分離型で純楕円log symplectic。その存在はambient Hessian階数≤3軌跡が平面を含むことと同値 | join・Pfaffian・被約Poisson零点・modular場の既存直接証明を保持。BFP Theorem 3.4のn=5,k=2の仮定・結論を今回照合 |
+| `ex:pg-reducible-hessian-no-rank-four` | F=x₀³+x₁³+Σzᵢ³−(Σzᵢ)³は滑らかでHessian可約だが(3,3)型に分解しない | 符号による滑らかさ、全点での定数symmetrizer E_F=diag(a,b,cI₄)、座標共役、階数三冪等元の不存在を独立に読解。QQ線形代数の検算は別記 |
+| `prop:pg-triple-lifting-obstruction`、`cor:pg-split-lifting-obstruction`、`poisson_geometry.tex` | 滑らかな次数d超曲面内の滑らかな非空C、全連結成分が正次元。任意r>=2についてH¹(I_C^{r−1})=C^{π₀(C)}/C、次数d・r重消失の障害δ_r | ideal sheafの冪、正則局所方程式、余法束の全対称冪の切断消滅、全厚みの成分定数。連結時は存在・一意性。r=3の分離型でδ(g_X)≠0。全射性と任意twistへの拡張は未主張 |
 | `prop:pg-PBW`、`lem:pg-center-parity`、`prop:pg-universal-casimir-jet`、`quantization_foundations.tex` | 一ブロックの相対PBW・偶性・有限jet | 既知PBW入力と係数環への拡張。全次数PBWを有限次数の中心性検算とは区別 |
 | `thm:pg-universal-determinant`、`universal_casimir_determinant.tex` | 全体三次fが滑らかなら、active制限が特異・零でも、原点近傍に代数的中心三次元 | gcd、古典核、普遍行列、局所自由性、稠密Hesse開、Cramer規格化、偶性 |
 | `lem:pg-det-divided-kernel`、`prop:pg-det-normalization-transition`、`thm:pg-det-global-coefficient-lift` | 固定変数分解の全係数空間×h内で、全零切断を含む開上の偶な中心元。遷移はΩ'=aΩ+c | 任意底変更、通常の中心との差、偶principal開、忠実平坦下降、UFD/Pic=0、単元補正、Hesseのイデアル不一致、covarianceを独立に再点検 |
 | `thm:pg-equivariant-levi-center`、`equivariant_central_lifts.tex` | 全滑らかなfでG_0同変な偶中心元。定義開も不変で全零切断を含む | stable idealへのReynolds平均、twistした古典切断の持上げ、商線束の零点除去 |
 | `thm:pg-equivariant-parabolic-center` | g=f(x,0)も滑らかなら、中心平行移動を含む全G同変中心元 | δ_gの同変左逆、B_fの変換則、中心調整した三次式と開集合の引戻し |
 | `cor:pg-equivariant-central-quotient` | 線形群の商上の次数別平坦なAS-Gorenstein中心商族 | t=ηhでhを固定、domainと正則性、各次数の局所自由性、スカラーの重み |
-| `prop:pg-equivariant-poisson-gerbe`、`cor:pg-equivariant-character-descent` | gcd(m,3)=1なら次数線形化を補正して階数二のPoisson層内の開へ降下。n=3で底は17次元 | GLの付随束表示、方程式スカラー、中心gerbe、mr−3s=1による群の分裂。固定h≠0での像の次元は未主張 |
+| `prop:pg-equivariant-poisson-gerbe`、`cor:pg-equivariant-character-descent`、`rem:pg-equivariant-classical-family` | gcd(m,3)=1なら次数線形化を補正して階数二の被約Poisson層内の開へ降下。n=3で底は17次元 | GLの付随束表示、二つのスカラーの群完全列、fppf安定化群完全列、mr−3s=1の分裂、古典極限Sym(E_θ)と三次直線、相対Projを点検。大域中心生成元と固定h≠0での像の次元は未主張 |
 | `thm:pg-quantization`（`algebraic_quantization.tex`）、`thm:pg-ad-all-poisson` | 全Poisson構造について原点を含むZariski開上のAS-regular ambientと中心正則三次商 | 中心三次配分、PBW、Koszul tensor、中心元の正則性、AS-Gorenstein change of rings |
 | `thm:pg-all-dimensions`、`cor:pg-ad-whole-pencil`、`prop:pg-ad-intrinsic-hessian` | 各純active三次が滑らかな場合は独立多変数底と短い多項式中心公式 | 係数環上の自由性、全パラメータでの多項式中心性、交差補正がないこと |
 | `thm:pg-fermat-relative-count`、`fermat_relative_poisson_components.tex` | Fermat固定space、固定stack、全cubic相対stackの位相的既約成分 | Hessianによるブロック復元、有限群軌道、被約rank層、同時スカラー作用、閉包の非包含 |
@@ -112,7 +113,11 @@ $L\subset\operatorname{im}b$ なら2r-2、それ以外なら2rである。
 この線形代数補題を明示して、join上でEuler線が像に入ることとBondalのrank評価を結ぶ。
 本文の一般証明と一具体例の外積計算は別である。詳細は `notes/bondal_cubic.md`。
 
-### 分離型三次四様体と非連結曲線の持上げ
+### 分離型三次四様体、Hessian判定と持上げ
+
+Bricalli–Favale–Pirolaの刊行Theorem 3.4は、滑らかなcubicの(k+1,n−k)分離型と、ambient Hessian階数≤k+1軌跡内のP^kの存在を同値にする。n=5,k=2を本稿の正規形に合わせるとrank4 Poissonの存在を方程式Fだけから判定できる。平面はX内ではなくambient P⁵内にある。Theorem AのHessian可約性・非正規性の条件は全サイズの分離を含むため、(3,3)条件とは区別する。
+
+反例 `ex:pg-reducible-hessian-no-rank-four` の定数symmetrizerはdiag(a,b,cI₄)である。その冪等元の階数は0,1,2,4,5,6だけなので、座標に依存しない(3,3)分解の障害になる。E_Fの条件はHessianの全係数に対する恒等式であり、一点の行列に関する自己共役性ではない。既知Hessian判定そのものの新規性は主張しない。
 
 F=f(x)+g(y)ではD=V(f,g)が正規な(3,3)完全交叉で、
 特異集合は互いに素な楕円曲線E_f、E_gとなる。
@@ -131,9 +136,10 @@ IをP⁵内、JをX内のCのイデアルとすると、
 独立な反例証明と一般階数四の分類は本文に保持し、未取得資料の内容を推測しない。
 
 一般次数の持上げ命題では、全連結成分が正次元なら
-余法層→Ω¹_P|C→O_C(-1)^{N+1}からH⁰(I/I²)=0となる。
-一次近傍の大域関数は成分定数だけなのでH¹(I²)=C^{π₀(C)}/C。
-0→I²→I³(d)→i_*J³(d)→0により三重消失の持上げ障害を得る。
+余法束→Ω¹_P|C→O_C(-1)^{N+1}の部分束埋込みの対称冪から、全j>=1でH⁰(I^j/I^{j+1})=0となる。
+全ての厚みの大域関数は成分定数だけなので、任意r>=2でH¹(I^{r−1})=C^{π₀(C)}/Cである。
+0→I^{r−1}→I^r(d)→i_*J^r(d)→0によりr重消失の持上げ障害を得る。
+ここでd=deg Xに固定することが重要であり、次数eなら障害群はH¹(I^{r−1}(e−d))となる。
 正次元という仮定は不可欠な証明入力であり、点を含む中心へ無条件に拡張しない。
 独立命題は文献比較から切り離され、連結時の存在・一意性も明示する。
 
@@ -184,6 +190,7 @@ Oxfordの2016年受理原稿の本文は取得できなかった。訂正文の�
 | --- | --- | --- |
 | Bondal, MPIM 93-67 (1993) | §4、印刷pp.11–12の無番号Lemma/Theorem | 射影Poissonの一意な斉次divergence-free持上げは既知。本稿はcubic上のJacobiatorの延長へ適用 |
 | Derdzinski–Gal, DOI 10.1007/s12188-013-0085-z、arXiv:1304.2801 | 著者PDF (1.4) p.2、Theorem B p.3・§5、Lemma 7.1(a) p.10 | 式の符号・係数まで同じ核計算。半単純性への還元は別。ブロック復元は本稿の独立証明を使用 |
+| Bricalli–Favale–Pirola, Forum Math. Sigma 13 (2025), e80, DOI 10.1017/fms.2025.36、arXiv:2406.12024 | 刊行Theorem A p.2、Theorem B p.3、Theorem 3.4 p.10・証明pp.11–12 | Hessian階数軌跡による分離型判定は既知。本稿はn=5,k=2をrank4 Poisson存在に結び付ける |
 | Pym, DOI 10.1112/S0010437X16008174、arXiv:1507.05668v1 | 確認したv1 Definition 4.2、Theorem 1.3、Lemma 5.5、Prop.5.7 | 分離型例との不整合と非連結曲線の持上げ障害。刊行版本文・訂正状況は未確認 |
 | Loray--Pereira--Touzet, arXiv:1112.3871v3 | Theorems 7.1, 9.1 | 三次三様体の分類は既知。本稿は高次元の複数Jacobianブロックを扱う |
 | Mayanskiy, arXiv:1303.5916 | Theorem 1 | GrassmannスキームのJacobi方程式による記述とPoisson cohomology |
@@ -199,7 +206,7 @@ Oxfordの2016年受理原稿の本文は取得できなかった。訂正文の�
 | Derksen, Advances in Mathematics 141 (1999), 366–384 | 著者公開PDF §2, p.369 | Reynolds射影とstable部分加群を保つ性質は既知。本稿は不変開・中心lift・方向微分の分裂へ適用 |
 | Dolgushev, Selecta Math. 14 (2009), 199--228, DOI 10.1007/s00029-008-0062-z | 本文確認はarXiv:math/0612288v3 Prop.1 p.9、Thm.3 pp.15--16 | 条件は全形式Poisson classのunimodularity。本稿の代数化の証明には用いない |
 | Fu--Hwang, arXiv:1608.00846v2 | Lemma 4.1 p.13：完全交叉Zで1<=r<=dim Z-1、p<=rならH^0(Ω_Z^r(p))=0 | Brückmann型消滅の明示的定理文と適用条件を確認 |
-| SGA 2 XII Cor.3.7、Stacks Tags 06FI/0BCH、Artin--Zhang | Picard群、商stack、UFDのPic=0、section algebra | モジュライ・係数空間上の中心元・偏極付き復元の既知の一般原理 |
+| SGA 2 XII Cor.3.7、Stacks Tags 06FI/0BCH/06PD/06WT、Artin--Zhang | Picard群、商stack、UFDのPic=0、gerbe判定、同変準連接層の降下、section algebra | モジュライ・係数空間上の中心元・偏極付き復元の既知の一般原理 |
 
 Hesse表示の混合二次項Axy+Byz+Czxは、t可逆なら
 x=X−B/t、y=Y−C/t、z=Z−A/tで消える。残る低次項は各一変数の多項式で、
@@ -221,15 +228,15 @@ Brückmannの1976年論文はMath. Nachr.71,203--210、DOI 10.1002/mana.19760710
 
 ## 実行済みの厳密計算と限界
 
-今回直接実行したのは、新しいHesse平行移動の普遍恒等式と、
-文脈を改訂した分離型四様体の既存厳密計算である。
-他の既存計算は現在のコード・証明書のハッシュを照合して実行済みの証拠を保持し、
+今回直接実行したのは、新しい可約Hessian反例の厳密線形代数とHessian恒等式である。
+他の十件の既存計算は現在のコード・証明書のハッシュを照合して実行済みの証拠を保持し、
 今回の再実行とは区別する。添付査読報告の独立実装そのものは添付されておらず、再実行したとは扱わない。
 実行対象、以前の検算の適用可能性、現在の入力ハッシュは `validation_paper_a.json` に集約する。
 
 | スクリプト（computations/） | 結果と範囲 |
 | --- | --- |
-| `verify_hesse_translation.py` | 今回PASS。独立全係数で平行移動後の三次式を定数項まで照合し、三つの交換関係を自由語の有理係数で照合。中心性・PBW性の検証ではない |
+| `verify_hessian_split_obstruction.py` | 今回PASS。単一の具体例でHessian行列・行列式を照合。QQ上90方程式・36未知数のrank33、核dim3、冪等元の可能rank0,1,2,4,5,6。滑らかさ・一般分解判定・Poisson分類の証明ではない |
+| `verify_hesse_translation.py` | 実施済み結果を引継ぎ、今回未再実行。独立全係数で平行移動後の三次式を定数項まで照合し、三つの交換関係を自由語の有理係数で照合。中心性・PBW性の検証ではない |
 | `verify_equivariant_centering.py` | 25混合係数を記号のまま保持。二組の座標変換で左逆、B_fの変換、中心調整した三次式、三つのJacobian括弧がPASS。Reynolds存在や全群定理の計算機証明ではない |
 | `verify_split_cubic_fourfold.py` | 分離型Fermat例のambient 20 Jacobi成分とCasimir、射影10括弧・10 Jacobi・接性、暗黙消去後の4 Jacobi、Pfaffian、modular場の二通りの計算がPASS |
 | `verify_poisson_article_A.py` | 滑らかな一具体例、56 Jacobi成分と56 Euler外積成分が厳密に零 |
@@ -259,6 +266,7 @@ python3 scripts/verify_bundle.py --only paper_a --require-pdfs
 python3 computations/verify_equivariant_centering.py
 python3 computations/verify_split_cubic_fourfold.py
 python3 computations/verify_hesse_translation.py
+python3 computations/verify_hessian_split_obstruction.py
 python3 computations/verify_poisson_article_A.py
 python3 computations/verify_nonelliptic_components.py --direct
 python3 computations/verify_poisson_stack_component_counts.py

@@ -1,11 +1,11 @@
 {
-  "version": "A-v55",
-  "bundle_version": "nc-cubic-v86",
+  "version": "A-v56",
+  "bundle_version": "nc-cubic-v87",
   "date": "2026-11-14",
   "manuscript": "papers/paper_a.tex",
   "audit_note": "notes/poisson_article_submission_audit.md",
-  "scope": "Revision responding to the supplied independent referee report on A-v54: precise prior-work comparison, a standalone basepoint-free Lie lemma, a general disconnected-centre lifting obstruction, geometry-to-quantization proof order and uniform ambient A / quotient B notation. Existing principal theorem statements and proof content are preserved. Current proof reading, exact calculations, source checks, typesetting, visual inspection and remote persistence are recorded separately.",
-  "source_base_commit": "f4c8fb131f346099ed2fb8af29429574861b505e",
+  "scope": "Continued revision following the supplied A-v54 referee report: combine the published Bricalli-Favale-Pirola Hessian-rank criterion with the cubic-fourfold Poisson classification; prove a smooth reducible-Hessian example with no rank-four Poisson structure; extend the same-degree lifting obstruction to all orders r>=2; make quotient scalars, stabilizers and the descended classical family explicit. Mathematical reading, exact computation, typesetting, visual inspection and persistence are separate states.",
+  "source_base_commit": "8c61de1af48b4080a8f2fc1ef6f053c44742a4c3",
   "mathematical_review": {
     "proof_chains_read": [
       "Euler/Koszul representation, divergence and Hessian condition",
@@ -17,7 +17,7 @@
       "quadratic envelope, polarized section algebra, conditional even-Veronese and derived reconstruction",
       "Low-twist differential-form vanishing on smooth complete intersections via the punctured cone, conormal resolution and Euler contraction; this is a self-contained proof of a known vanishing statement.",
       "Split cubic fourfolds: normal join divisor, reduced Poisson zero scheme, distinct singular scheme, local Pfaffian and modular field, pure ellipticity and generic-rank-four classification.",
-      "Nonconnected elliptic double curves: ambient cubic lifting obstruction, H^1(I_C)=C and H^1(I_C^2)=C, compared specifically with Pym arXiv:1507.05668v1.",
+      "Smooth positive-dimensional centres: all-order r>=2 lifting at the defining degree d, H^1(I_C^(r-1))=C^{pi_0(C)}/C; the split elliptic double-curve case supplies a nonzero r=3 obstruction, compared specifically with Pym arXiv:1507.05668v1.",
       "Constant-rank divided-commutator kernel, actual-centre distinction under base change, affine Cramer transitions, global even central lift on a coefficient-dependent principal open containing the entire zero section.",
       "Hesse example of different degree-three central ideals under the ambient identity; coordinate covariance, equivariant complement-line selection on the stated opens, and its remaining full-moduli scope.",
       "Affine reductive equivariant lifting: invariant principal neighborhoods of a stable closed subscheme, lifting invariant sections with character twists, and splitting equivariant vector-bundle exact sequences.",
@@ -27,7 +27,10 @@
       "Fiberwise central regularity, locally split degreewise multiplication, flat central quotient families and AS-Gorenstein invariants; t=eta*h fixes the deformation parameter under group action.",
       "Reduced rank-two Poisson stratum via a nonzero decomposable-trivector incidence and a parabolic associated bundle; the central scalar gerbe and its character splitting when gcd(m,3)=1. For m=2 the base has dimension 17, without a claim about the fixed-nonzero-h image in noncommutative algebra moduli.",
       "Split-fourfold obstruction: 0->I_C^2->I_C^3(3)->i_*J_C^3(3)->0 and the nonzero connecting class delta(g|X) generating H^1(I_C^2)=C.",
-      "Research notes: multi-block central-kernel projectivization, regularity using one active filtration and R-freeness, group-equivariant tautological quotients, classical-line dilatation and its restriction to h-regular test bases; the obstruction to a global retraction depending only on a noncone ternary cubic."
+      "Research notes: multi-block central-kernel projectivization, regularity using one active filtration and R-freeness, group-equivariant tautological quotients, classical-line dilatation and its restriction to h-regular test bases; the obstruction to a global retraction depending only on a noncone ternary cubic.",
+      "Published Bricalli-Favale-Pirola Theorem 3.4 with n=5,k=2: ambient rank<=3 Hessian locus containing a plane is equivalent to a (3,3) splitting, and hence by the manuscript normal form to rank-four Poisson existence.",
+      "Explicit smooth cubic F=x0^3+x1^3+sum(z_i^3)-(sum z_i)^3: reducible Hessian determinant; constant symmetrizers diag(a,b,cI4); no rank-three idempotent and therefore no (3,3) splitting after any linear coordinate change.",
+      "Effective quotient-group and fppf stabilizer exact sequences; character-twisted degree-one bundle, classical cubic line and relative Proj of the descended commutative limit."
     ],
     "material_corrections": [
       "The relative forgetful scheme morphism is affine of finite type, not a closed immersion into the base.",
@@ -44,16 +47,20 @@
       "All-group equivariance does not retain the pure-central-coefficient gauge. The singular or zero ternary restriction and changes of multi-block decomposition or pure-central allocation remain separate questions.",
       "Pointwise existence of a non-scalar central element is explicitly credited to Etingof--Ginzburg. Mixed quadratic coefficients by themselves are not claimed as new: for invertible Hesse t they can be translated to the existing presentation.",
       "The general lifting obstruction is independent of any literature-error claim and is C^{pi_0(C)}/C; connectedness gives vanishing, while disconnectedness alone does not assert that every section has a nonzero obstruction.",
-      "The ambient recovery appendix uses A for the ambient algebra and B for its central quotient, consistently with the quantization part."
+      "The ambient recovery appendix uses A for the ambient algebra and B for its central quotient, consistently with the quantization part.",
+      "The cubic-fourfold Hessian plane lies in ambient P^5, not in X. Hessian reducibility by itself does not imply a rank-four Poisson structure, as shown by the smooth (1,1,4) example.",
+      "For every r>=2 the lifting obstruction has the component-constant description only at the defining degree d; for another twist e the relevant group is H^1(I_C^(r-1)(e-d)).",
+      "The descended centre is a cubic line subbundle and its homogeneous ideal; a globally chosen generator on the reduced Poisson stack is not asserted."
     ],
     "formal_verification": false,
     "external_referee_review": false,
     "comprehensive_priority_established": false,
     "independent_reading_this_revision": [
-      "The standalone perfect centreless Lie algebra lemma, its radical-elimination argument, semisimple rank reduction, and the nondegenerate-support reduction were independently read by the main editor and a collaborating reviewer.",
-      "The general lifting exact sequence, the conormal vanishing, H^1(I_C^2)=C^{pi_0(C)}/C, and the nonzero split-fourfold obstruction were independently read by the main editor and a collaborating reviewer.",
-      "The extraction of quantization foundations, the main quantization proof and special examples was compared with the base source: all original labels and moved proof statements were retained; changed transitions and the ambient A / quotient B convention were checked.",
-      "Primary-source hypotheses and relevant theorem locations were compared with the introduction and research notes. The Etingof--Ginzburg coordinate translation was checked algebraically, and the Pym comparison is expressly limited to the accessed v1."
+      "The main editor and a collaborating mathematical reviewer read the Bricalli-Favale-Pirola application and its published hypotheses, the ambient-plane distinction, and the no-(3,3)-splitting example.",
+      "The symmetrizer example was independently derived by another collaborating reviewer and computed over QQ; the coordinate-change Hessian formula explicitly includes its evaluation point.",
+      "The all-r>=2 lifting proposition was read by the main editor and two collaborating reviewers: the conormal symmetric-power injections, functions on every thickening, the defining-degree twist and uniqueness were checked.",
+      "The quotient-group sequence, fppf stabilizer sequence and character-twisted classical-family remark were read against the original action convention by the main editor and a collaborating reviewer.",
+      "Existing unchanged proof chains are retained from their recorded readings; this is not a new complete audit or a formal verification of the whole manuscript."
     ],
     "primary_source_comparison": [
       {
@@ -95,15 +102,22 @@
       {
         "source": "Mori--Smith, Theorem 1.4 and Theorem 4.2; Berger--Taillefer, Theorem 1.1",
         "scope": "Three-dimensional regular algebras and potential PBW deformations are separate inputs. Finite-degree centre computations are not used as a substitute for the all-degree PBW theorem."
+      },
+      {
+        "source": "Bricalli-Favale-Pirola, On the irreducibility of Hessian loci of cubic hypersurfaces, Forum of Mathematics, Sigma 13 (2025), e80, DOI 10.1017/fms.2025.36: Theorem A p.2, Theorem B p.3, Theorem 3.4 p.10 and proof pp.11-12",
+        "scope": "Published full text checked. The known rank-locus splitting criterion is credited; the Poisson equivalence uses this manuscript normal form. Arbitrary-size Thom-Sebastiani splitting is not substituted for the required (3,3) splitting."
+      },
+      {
+        "source": "Stacks Project, Lemma 78.27.1 (Tag 06PD), Proposition 96.14.3 (Tag 06WT), Lemma 15.119.3 (Tag 0BCH)",
+        "scope": "Primary statements checked: quotient-gerbe criterion, equivariant quasi-coherent descent, and UFD Picard vanishing. Group sequences and the graded multiplicative descent are explicit in the manuscript."
       }
     ],
     "reviewed_in_this_revision": [
-      "Theorem-level contribution comparison with Bondal, Derdzinski--Gal, Loray--Pereira--Touzet / Mayanskiy, Mori--Smith / Artin--Tate--Van den Bergh, Berger--Taillefer and Etingof--Ginzburg.",
-      "Lemma lem:pg-basepoint-free-lie, with the hypotheses of the representation-theoretic inputs stated separately; application in lem:pg-quadratic-lie.",
-      "Proposition prop:pg-triple-lifting-obstruction and corollary cor:pg-split-lifting-obstruction; no surjectivity of the connecting map is asserted.",
-      "Remark rem:pg-hesse-eg-translation: an explicit central translation for invertible t, its full cubic constant term, all three quantum relations, and the distinction from regular normalization over the fixed coefficient ring.",
-      "Proof order: geometry, one-block PBW / centres, all-block quantization, equivariance / descent and examples; ambient recovery and complete-intersection background in appendices.",
-      "Current research policy, notes, verification scope and retained paper B input hashes."
+      "Corollary cor:pg-cubic-fourfold-elliptic, remark rem:pg-fourfold-ts-hessian-scope and the published Bricalli-Favale-Pirola Theorem 3.4.",
+      "Example ex:pg-reducible-hessian-no-rank-four and its exact QQ verifier.",
+      "Proposition prop:pg-triple-lifting-obstruction for every r>=2 and the unchanged split r=3 application.",
+      "Equations eq:pg-equivariant-effective-group-sequence and eq:pg-equivariant-stabilizer-sequence; remark rem:pg-equivariant-classical-family.",
+      "Introduction, current research policy, notes, bibliography, validation scopes and retained paper B input hashes."
     ],
     "proof_chains_read_scope": "The list describes the current proof chains with recorded mathematical readings. This revision independently checks the new or reorganized arguments listed below; it is not a new complete audit of every unchanged proof.",
     "supplied_referee_report": {
@@ -112,19 +126,19 @@
       "version": "v1",
       "reviewed_manuscript": "A-v54",
       "reviewed_commit": "f4c8fb131f346099ed2fb8af29429574861b505e",
-      "scope": "User-supplied independent report. Its conclusions concern that version. The report is not journal acceptance of A-v55, and its independent code was not supplied or rerun here."
+      "scope": "User-supplied independent report about the identified A-v54 commit. It is not journal acceptance of the revised A-v56; its independent code was not supplied or rerun here."
     },
-    "external_referee_review_scope": "No journal referee acceptance or new external review of the revised A-v55 is claimed; the supplied independent A-v54 report is identified separately."
+    "external_referee_review_scope": "No journal referee acceptance or external review of A-v56 is claimed; the supplied independent A-v54 report is identified separately."
   },
   "static_checks": {
     "command": "python3 scripts/verify_bundle.py --only paper_a --require-pdfs",
     "status": "PASS",
     "tex_files": 20,
-    "labels": 360,
-    "references": 353,
-    "bibitems": 27,
-    "citations": 74,
-    "equation_environments": 333,
+    "labels": 373,
+    "references": 359,
+    "bibitems": 28,
+    "citations": 79,
+    "equation_environments": 343,
     "align_environments": 6,
     "duplicate_or_unresolved_labels": 0,
     "duplicate_or_unresolved_citation_keys": 0,
@@ -134,19 +148,19 @@
     "command": "python3 scripts/build.py --only paper_a",
     "status": "PASS",
     "exit_code": 0,
-    "runtime_note": "Executed with an isolated TeX tree and compatible user-owned LuaLaTeX format; LuaTeX-ja from the TeX Live 2024 final archive and HaranoAji fonts supplied the missing runtime dependencies. Repository build scripts, shared preamble and .latexmkrc are unchanged. A fresh compile used the SOURCE_DATE_EPOCH recorded below.",
+    "runtime_note": "Fresh compile with an isolated user-owned LuaLaTeX format, compatible LuaTeX-ja from the TeX Live 2024 final archive and HaranoAji fonts. Repository build scripts, shared preamble and .latexmkrc unchanged. The source date epoch is recorded below.",
     "pdf_tracked_in_git": false,
-    "version": "nc-cubic-v86",
+    "version": "nc-cubic-v87",
     "source": "papers/paper_a.tex",
     "tex_inputs": {
-      "papers/paper_a.tex": "5cbf543be67b6128e1096aeb32799ba7d19e81cb4827b7ba534e06c99cfebd5f",
+      "papers/paper_a.tex": "56e66176c284f54c6438f31f3ba36fa30cdedb7a8bd281f489f9332cb8d13d4e",
       "papers/support/papers/common.tex": "0933403982627adcb2f0c70849a86a618c5410961f7cdd65e17d24edaf616580",
-      "papers/support/papers/references_poisson_cubic.tex": "322be3c1277982a364b822ebff630c8888ab741e756108799a93b63de6b13de9",
+      "papers/support/papers/references_poisson_cubic.tex": "9aed9130ea7eaaddc81a79c15a3bf2701552f619aa89ebf5cb853b47383afaf0",
       "papers/support/papers/sections/algebraic_quantization.tex": "4ef1dd57966a277f2911c628e86b7ccb53ac747f71a7a90393460ad883f4c1cc",
       "papers/support/papers/sections/ambient_recovery_general.tex": "8912372ec0485d2cf9dade34f98a0fdf7eea3e567f669cca711e38896da67d71",
       "papers/support/papers/sections/bondal_cubic.tex": "a91f2db24022ee91481cc7b1feb4afde4aac1fcf8bf9b7e2d389234c90893a4e",
       "papers/support/papers/sections/complete_intersections.tex": "e620d35be4f838a1c955e85a9205fb9df26b5d6fc8e5b4e9c44543d5708e4bb7",
-      "papers/support/papers/sections/equivariant_central_lifts.tex": "82d02f1cb23a5cfb3e695ebc6739bf78942ebaea82145c7e148059b45cad5ec9",
+      "papers/support/papers/sections/equivariant_central_lifts.tex": "cdf2b9088c9fd9da0abf420fb05e8f13e0d0126202720438a4108beb460417df",
       "papers/support/papers/sections/explicit_hesse_center.tex": "b273057d34fa2d69540ca5fa2140d9e7f5f92a1fcb5cd75bf07433109535c9b9",
       "papers/support/papers/sections/fermat_mixed_universal_center.tex": "8a9f12c96734a263c2b3bed413bd634760a13ff8ddff01e0bcf363785248b2c3",
       "papers/support/papers/sections/fermat_relative_poisson_components.tex": "6528a2da29665a825c1bbab20cc255ba9aa6afc1443b3dccce5f1e138528e7f0",
@@ -154,7 +168,7 @@
       "papers/support/papers/sections/hesse_mixed_universal_center.tex": "6b68c1b822cf0ff59cc2428143a4b6deb6681cfcec55b8a8d1b55ff987a44ba5",
       "papers/support/papers/sections/nonelliptic_poisson_components.tex": "d5ae5186ce2d5b16b0ea73fb2bb39ae0babecd38c57a8d321347d947bc5c304b",
       "papers/support/papers/sections/nonelliptic_quantization.tex": "0cc6bd4a27c77c38e92ab1dfce03e223f01caa6db99b1ccccdd0e3d73e925728",
-      "papers/support/papers/sections/poisson_geometry.tex": "f74b3aab467824b23d718764ccf8f4d51abfc36e385c00e8f188abc502f7369e",
+      "papers/support/papers/sections/poisson_geometry.tex": "677284052464edf829e73acf7e4cfe54a456498ce43a8c612a7910dced988303",
       "papers/support/papers/sections/poisson_moduli_stacks.tex": "3ff96414a693bb7c8e6f7de18e656612d752d1f7a9aea5a4a2d279376e43a6c3",
       "papers/support/papers/sections/quantization_foundations.tex": "296d090a9ff84d96252e523bdbd14dfc965bc5c7971bba2995f8310a4a680d2f",
       "papers/support/papers/sections/special_poisson_blocks.tex": "8f4bf8883bdc5817507255dea03ce0da9b7fe9717f83a934a275eab913b91e86",
@@ -162,7 +176,7 @@
     },
     "build_config_sha256": "834ec2488a63445af9f1da72f461bef24397e1c2ba229988c4f9ed9128de60d2",
     "pdf": "build/paper_a.pdf",
-    "pdf_sha256": "d62302497e311c85cc8c5df2f770810aae01a797e611af27c5575c39726cdb9b",
+    "pdf_sha256": "9a5481385f021737e668a93818ed61b3fba2b33381e0b40894b5ac1b8fc94689",
     "engine": "This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)",
     "source_date_epoch": "1794441600",
     "typesetting_failures": {
@@ -172,27 +186,25 @@
       "overfull_boxes": false
     },
     "scope": "Typesetting and file parity only; not independent mathematical verification.",
-    "pages": 88
+    "pages": 90
   },
   "visual_inspection": {
     "status": "PASS",
-    "all_pages_rendered": 88,
+    "all_pages_rendered": 90,
     "all_pages_overview_inspected": true,
     "detail_pages": [
       1,
-      8,
+      5,
       9,
-      12,
-      13,
       22,
       23,
-      44,
-      45,
-      54,
-      79,
-      87
+      24,
+      69,
+      70,
+      88,
+      90
     ],
-    "scope": "All 88 pages inspected in eight contact sheets. Twelve pages inspected at detailed resolution: abstract, prior-work comparison and dependency table, standalone Lie lemma and reduction, general lifting obstruction and Pym comparison, Hesse coordinate comparison, main quantization theorem, ambient A / quotient B notation, and the main Etingof--Ginzburg bibliography entry. No visible clipping or overlap in the inspected rendering. This is a layout check, not a mathematical proof verification."
+    "scope": "All 90 pages inspected in eight contact sheets. Ten pages inspected at detailed resolution: current title and abstract; introduction and precise prior-work comparison; Hessian criterion, explicit obstruction example and all-order lifting proof; quotient-group and stabilizer sequences, character descent and classical-family remark; new Bricalli-Favale-Pirola and Stacks bibliography entries. No visible clipping or overlap in the inspected rendering. Layout inspection is not mathematical proof verification."
   },
   "exact_computations": [
     {
@@ -287,7 +299,7 @@
       "exit_code": 0,
       "executed_for_revision": "A-v55",
       "execution_date": "2026-11-14",
-      "rerun_in_this_revision": true,
+      "rerun_in_this_revision": false,
       "current_script_hash_matches": true,
       "result": "One split Fermat example over QQ: 20 ambient Jacobi triples and Casimir identity; all 10 projective brackets and 10 Jacobi triples; implicit-chart derivations and four Jacobi triples; Pfaffian/determinant, modular field and independent logarithmic-Pfaffian formula. This is a finite example, not the general smooth-f,g proof."
     },
@@ -311,9 +323,21 @@
       "exit_code": 0,
       "executed_for_revision": "A-v55",
       "execution_date": "2026-11-14",
-      "rerun_in_this_revision": true,
+      "rerun_in_this_revision": false,
       "current_script_hash_matches": true,
       "result": "Exact identity over the rational function field with independent Hesse and mixed coefficients: the translated cubic including its constant term and all three free-word quadratic relations agree with the stated Etingof--Ginzburg presentation. This does not prove centrality or PBW flatness."
+    },
+    {
+      "command": "python3 computations/verify_hessian_split_obstruction.py",
+      "script": "computations/verify_hessian_split_obstruction.py",
+      "script_sha256": "215b2b24257197eedee0d6395ee811c8d4ef1b22ee12cd759907956fdd41f946",
+      "status": "PASS",
+      "exit_code": 0,
+      "executed_for_revision": "A-v56",
+      "execution_date": "2026-11-14",
+      "rerun_in_this_revision": true,
+      "current_script_hash_matches": true,
+      "result": "Exact Hessian matrix and determinant identities for one cubic over QQ; 90 equations in 36 constant-matrix variables, rank 33, kernel dimension 3 and span diag(a,b,cI4). The idempotent ranks over C are 0,1,2,4,5,6. Smoothness, the coordinate-invariant projection implication and the Poisson classification are proved in the manuscript, not by this finite computation."
     }
   ],
   "certificate_inputs": {
@@ -351,7 +375,7 @@
     "For gcd(m,3)=1, descent is proved on a zero-section-containing open over the stated reduced rank-two Poisson stratum. If 3 divides m, the given group has no character of scalar weight one; this does not prove nonneutrality of the gerbe or nonexistence of another descent method.",
     "For cubic threefolds, 17 is the dimension of the reduced Poisson base. Generic finiteness or a 17-dimensional image for the abstract noncommutative algebras at fixed nonzero h is not proved.",
     "Quantization over the full Poisson moduli stack, qgr smoothness for all closed parameters and relative residual equivalence through the commutative special point are not claimed.",
-    "Two exact computations were executed for A-v55: the new universal Hesse translation verifier and the existing split Fermat fourfold verifier. Eight earlier computation results were retained without rerun, with current script and certificate hashes checked. Symbolic identities, finite examples, mathematical proof reading and formal proof verification have different scopes."
+    "Only the new Hessian-splitting-obstruction verifier was executed for A-v56. Ten earlier computation results are retained without rerun, with current script and certificate hashes checked. A finite example, a universal symbolic identity, mathematical proof reading and formal proof verification have distinct scopes."
   ],
   "persistence": {
     "authoritative": "GitHub uedakazushi/nc-cubic main",

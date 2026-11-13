@@ -813,13 +813,24 @@ modular場の上の符号は
 一般の$f,g$についての証明は前命題の局所計算である。
 \end{remark}
 
-\begin{corollary}[一般階数四の三次四様体の分類]
+\begin{corollary}[三次四様体の一般階数四とHessian軌跡]
 \label{cor:pg-cubic-fourfold-elliptic}
-滑らかな三次四様体が一般階数四の正則Poisson構造を持つための
-必要十分条件は、射影座標を選んで
-$F=f(x_0,x_1,x_2)+g(y_0,y_1,y_2)$と書けることである。
-ここで$f,g$はいずれも滑らかな平面三次を定める。
-一般階数四の全ての構造は、適当なこの表示で前命題の形となり、
+滑らかな三次四様体$X=V(F)\subset\PP(V)$、$\dim V=6$に対し、
+Hessianの階数軌跡を
+\begin{equation}\label{eq:pg-fourfold-hessian-rank-three}
+ \mathscr H_{\le3}(F)=
+ \{[v]\in\PP(V):\operatorname{rank}(\operatorname{Hess}F(v))\leq3\}
+\end{equation}
+と定める。次の三条件は同値である。
+\begin{enumerate}
+\item $X$は一般階数四の正則Poisson構造を持つ。
+\item 射影座標を選んで
+ $F=f(x_0,x_1,x_2)+g(y_0,y_1,y_2)$と書ける。
+ ここで$f,g$はいずれも滑らかな平面三次を定める。
+\item $\mathscr H_{\le3}(F)$は線形平面$\PP^2$を含む。
+\end{enumerate}
+一般階数四の全ての構造は、適当な第二項の表示で
+命題\ref{prop:pg-split-elliptic}の形となり、
 purely elliptic log symplecticである。
 \end{corollary}
 \begin{proof}
@@ -827,75 +838,167 @@ purely elliptic log symplecticである。
 $k=2$、$m=0$であり、$F=f+g$となる。
 一方の平面三次に特異点があれば、他方の座標を零とすることで
 $X$の特異点が得られるため、両方とも滑らかである。
+これで第一項から第二項が従う。
 逆向きと最後の主張は命題\ref{prop:pg-split-elliptic}による。
+第二項と第三項の同値は
+Bricalli--Favale--Pirola\cite[Theorem~3.4, pp.~10--12]{PBricalliFavalePirola}
+において、同論文の記法で$n=5$、$k=2$とした場合である。
 \end{proof}
 
-\begin{proposition}[三重消失を保つ持上げと連結成分の障害]
+\begin{remark}\label{rem:pg-fourfold-ts-hessian-scope}
+第三項の平面は周囲の$\PP(V)$内の平面であり、$X$内の平面ではない。
+分離表示では$\PP^2_x$と$\PP^2_y$がこれに当たり、
+それらと$X$との交叉は$E_f$と$E_g$である。
+Hessianによる第二項と第三項の同値は既知の結果であり、
+本稿ではこれをPoisson正規形による第一項と第二項の同値に結び付けている。
+同じ文献のTheorem~Aは、滑らかな三次四様体について
+Hessian超曲面が既約かつ正規であることと、
+任意のサイズのThom--Sebastiani分解を持たないことを同値としている。
+従ってHessian超曲面の可約性または非正規性は、
+$(1,5)$型や$(2,4)$型の分解も含む条件であり、
+本系で用いる$\mathscr H_{\le3}(F)$内の平面の条件とは区別する。
+\end{remark}
+
+\begin{example}[Hessianの可約性だけでは階数四を判定できない]
+\label{ex:pg-reducible-hessian-no-rank-four}
+$s=z_1+z_2+z_3+z_4$とし、
+\begin{equation}\label{eq:pg-hessian-counterexample-cubic}
+ F=x_0^3+x_1^3+h(z),\qquad
+ h(z)=\sum_{i=1}^4z_i^3-s^3
+\end{equation}
+と置く。$X=V(F)\subset\PP^5$は滑らかで、そのHessian超曲面は可約だが、
+$X$上に一般階数四の正則Poisson構造は存在しない。
+
+まず$h$の勾配が消えれば$z_i^2=s^2$である。
+$s=0$なら全ての$z_i$が零であり、$s\ne0$なら
+$z_i=\epsilon_i s$、$\epsilon_i\in\{1,-1\}$より
+$\sum_{i=1}^4\epsilon_i=1$を得るが、左辺は偶数なので矛盾する。
+従って$h=0$は滑らかな三次曲面であり、$F=0$も滑らかである。
+$J$を全成分が1の$4\times4$行列とすると、
+\begin{equation}\label{eq:pg-hessian-counterexample-matrix}
+ \frac16\operatorname{Hess}F
+ =\operatorname{diag}\bigl(x_0,x_1,
+          \operatorname{diag}(z_1,z_2,z_3,z_4)-sJ\bigr).
+\end{equation}
+最後のブロックの行列式は恒等的に零でない
+（$z_1=\cdots=z_4=1$での値は$-15$）ので、
+$\det\operatorname{Hess}F$は$x_0x_1$を因子に持ち、可約である。
+
+$(3,3)$分解がないことを次の線形代数で確認する。
+全ての点$v$についてHessianに関して自己共役な定数行列の空間を
+\begin{equation}\label{eq:pg-hessian-counterexample-symmetrizer}
+ E_F=\{T\in\operatorname{Mat}_6(\CC):
+       \operatorname{Hess}F(v)T=T^{\mathsf t}\operatorname{Hess}F(v)
+       \text{ for all }v\}
+\end{equation}
+とする。$x_0,x_1$の係数を比較すると、$T$の最初の二行の非対角成分は零となる。
+残る係数行列$E_{ii}-J$、$1\le i\le4$の共通核は零なので、
+最初の二列の非対角成分も零である。
+実際、$(E_{ii}-J)v=0$なら$i$以外の成分から$\sum_jv_j=0$を得て、
+$i$成分から$v_i=0$となるので、全ての$i$について成り立てば$v=0$である。
+残る$4\times4$ブロックを$T_4$、その第$j$列の和を$c_j$とする。
+$(E_{ii}-J)T_4$の対称性を、$i$と異なる$k,l$で比較すると$c_k=c_l$である。
+任意の$k\ne l$に対してそのような$i$を選べるので全ての$c_j$は等しい。
+次に$(i,l)$成分と$(l,i)$成分を比較すると$(T_4)_{il}=0$、$l\ne i$を得る。
+従って$T_4$は対角で、その全対角成分も等しく、
+\begin{equation}\label{eq:pg-hessian-counterexample-algebra}
+ E_F=\{\operatorname{diag}(a,b,cI_4):a,b,c\in\CC\},
+ \qquad
+ \{\operatorname{rank}T:T\in E_F,\ T^2=T\}
+ =\{0,1,2,4,5,6\}.
+\end{equation}
+線形座標変換$x=Py$に対して
+$\operatorname{Hess}(F\circ P)(y)=P^{\mathsf t}\operatorname{Hess}F(Py)P$なので、
+$E_{F\circ P}=P^{-1}E_FP$であり、冪等元の階数は保存される。
+もし$F$が$(3,3)$型に分離すれば、一方のブロックへの射影は
+$E_F$の階数三の冪等元を与えるが、そのような元はない。
+従って系\ref{cor:pg-cubic-fourfold-elliptic}により一般階数四の構造は存在しない。
+式\eqref{eq:pg-hessian-counterexample-algebra}の線形方程式は
+\path{computations/verify_hessian_split_obstruction.py}で有理係数のまま検算できる。
+\end{example}
+
+\begin{proposition}[高次消失を保つ持上げと連結成分の障害]
 \label{prop:pg-triple-lifting-obstruction}
-$X=V(F)\subset\mathbb P^N_{\mathbb C}$ を滑らかな次数 $d$ の超曲面とし、
-$i:X\hookrightarrow\mathbb P^N$ を閉埋込みとする。
-$C\subset X$ は空でない滑らかな閉部分多様体で、その全連結成分は正次元とする。
-$\mathcal I\subset\mathcal O_{\mathbb P^N}$ と
-$\mathcal J\subset\mathcal O_X$ をそれぞれ $C$ のイデアル層とし、
-$c=\#\pi_0(C)$ と置く。このとき自然な同型
+$X=V(F)\subset\mathbb P^N_{\mathbb C}$を滑らかな次数$d$の超曲面とし、
+$i:X\hookrightarrow\mathbb P^N$を閉埋込みとする。
+$C\subset X$は空でない滑らかな閉部分多様体で、その全連結成分は正次元とする。
+$\mathcal I\subset\mathcal O_{\mathbb P^N}$と
+$\mathcal J\subset\mathcal O_X$をそれぞれ$C$のイデアル層とする。
+任意の整数$r\ge2$について自然な同型
 \begin{equation}\label{eq:pg-split-disconnected-cohomology}
- H^1(\mathbb P^N,\mathcal I^2)
+ H^1(\mathbb P^N,\mathcal I^{r-1})
  \simeq \mathbb C^{\pi_0(C)}/\mathbb C\mathbf1
 \end{equation}
 および完全列
 \begin{equation}\label{eq:pg-triple-lifting-sections}
- 0\longrightarrow H^0(\mathbb P^N,\mathcal I^3(d))
- \longrightarrow H^0(X,\mathcal J^3(d))
- \xrightarrow{\ \delta\ }
+ 0\longrightarrow H^0(\mathbb P^N,\mathcal I^r(d))
+ \longrightarrow H^0(X,\mathcal J^r(d))
+ \xrightarrow{\ \delta_r\ }
  \mathbb C^{\pi_0(C)}/\mathbb C\mathbf1
 \end{equation}
-がある。したがって $s\in H^0(X,\mathcal J^3(d))$ が
-$C$ に沿う三重消失を保って周囲の次数 $d$ の多項式へ持ち上がることと
-$\delta(s)=0$ は同値であり、持上げが存在すれば一意である。
-特に $C$ が連結なら全ての $s$ が一意に持ち上がる。
+がある。したがって$s\in H^0(X,\mathcal J^r(d))$が
+$C$に沿う$r$重消失を保って周囲の次数$d$の多項式へ持ち上がることと
+$\delta_r(s)=0$は同値であり、持上げが存在すれば一意である。
+特に$C$が連結なら全ての$s$が一意に持ち上がる。
+以下、$r=3$では$\delta_3$を単に$\delta$と書く。
 \end{proposition}
 
 \begin{proof}
 以下の冪と交わりは全てイデアル\emph{層}について取る。
-$C$ と $X$ の滑らかさから、$C$ の各点の近傍では $F$ を
-$\mathcal I$ の正則パラメータ系の一員に取れる。従って
+$C$と$X$の滑らかさから、$C$の各点の近傍では$F$の局所方程式を
+$\mathcal I$を生成する正則パラメータ系の一員に取れる。従って
 \begin{equation}
- (F)\cap\mathcal I^3=F\mathcal I^2.
+ (F)\cap\mathcal I^r=F\mathcal I^{r-1}.
 \end{equation}
 実際、$\operatorname{gr}_{\mathcal I}\mathcal O_{\mathbb P^N}
-\simeq\operatorname{Sym}_{\mathcal O_C}(\mathcal I/\mathcal I^2)$ における
-$F$ の次数一記号は局所的に自由生成元であり、その乗法は単射である。
-この局所等式と $\mathcal J=\mathcal I\mathcal O_X$ により
+\simeq\operatorname{Sym}_{\mathcal O_C}(\mathcal I/\mathcal I^2)$における
+$F$の次数一記号は局所的に自由生成元であり、その乗法は単射である。
+この局所等式と$\mathcal J=\mathcal I\mathcal O_X$により
 \begin{equation}\label{eq:pg-split-lifting-sequence}
- 0\longrightarrow\mathcal I^2
- \xrightarrow{\ \cdot F\ }\mathcal I^3(d)
- \longrightarrow i_*\mathcal J^3(d)\longrightarrow0
+ 0\longrightarrow\mathcal I^{r-1}
+ \xrightarrow{\ \cdot F\ }\mathcal I^r(d)
+ \longrightarrow i_*\mathcal J^r(d)\longrightarrow0
 \end{equation}
 を得る。
 
-$C_{(1)}=V(\mathcal I^2)$ と置く。余法完全列と射影空間の Euler 列により
+余法完全列と射影空間のEuler列により
 \begin{equation}
  \mathcal I/\mathcal I^2
  \hookrightarrow\Omega^1_{\mathbb P^N}|_C
  \hookrightarrow\mathcal O_C(-1)^{\oplus(N+1)}
 \end{equation}
-である。各連結成分が正次元の射影多様体なので
-$H^0(C,\mathcal O_C(-1))=0$、従って
-$H^0(C,\mathcal I/\mathcal I^2)=0$ となる。
-ゆえに $H^0(C_{(1)},\mathcal O_{C_{(1)}})\to H^0(C,\mathcal O_C)$ は単射である。
-一方、$C_{(1)}$ の連結成分は $C$ の連結成分と一致し、
-各成分上の定数関数は $C_{(1)}$ にも定数として延長する。
-$H^0(C,\mathcal O_C)=\mathbb C^{\pi_0(C)}$ なので、この写像は同型である。
-完全列
-\begin{equation}
- 0\longrightarrow\mathcal I^2\longrightarrow\mathcal O_{\mathbb P^N}
- \longrightarrow\mathcal O_{C_{(1)}}\longrightarrow0
+である。これらの商は局所自由なので合成も部分束の埋込みであり、
+任意の$j\ge1$について対称冪を取っても単射性が保たれる。
+各連結成分が正次元の射影多様体であることから、
+\begin{equation}\label{eq:pg-conormal-powers-no-sections}
+ \mathcal I^j/\mathcal I^{j+1}
+ \simeq\operatorname{Sym}^j(\mathcal I/\mathcal I^2)
+ \hookrightarrow\mathcal O_C(-j)^{\oplus\binom{N+j}{j}},
+ \qquad H^0(C,\mathcal I^j/\mathcal I^{j+1})=0
 \end{equation}
-と $H^1(\mathbb P^N,\mathcal O_{\mathbb P^N})=0$ から
-\eqref{eq:pg-split-disconnected-cohomology} を得る。
-$C\ne\varnothing$ より $H^0(\mathbb P^N,\mathcal I^2)=0$ であるから、
-\eqref{eq:pg-split-lifting-sequence} のコホモロジー完全列は
-\eqref{eq:pg-triple-lifting-sections} を与える。
+となる。$C_{(q)}=V(\mathcal I^{q+1})$、$q\ge0$と置くと、
+$q\ge1$での完全列
+$0\to\mathcal I^q/\mathcal I^{q+1}\to
+\mathcal O_{C_{(q)}}\to\mathcal O_{C_{(q-1)}}\to0$により、
+大域切断の制限写像は単射である。
+一方、全ての$C_{(q)}$の位相空間は$C$と同じであり、
+各連結成分上の定数はその厚みにも定数として延長する。
+従って帰納的に
+\begin{equation}\label{eq:pg-thickening-global-functions}
+ H^0(C_{(q)},\mathcal O_{C_{(q)}})
+ \xrightarrow{\sim} H^0(C,\mathcal O_C)
+ =\mathbb C^{\pi_0(C)}\qquad(q\ge0)
+\end{equation}
+を得る。$q=r-2$として完全列
+\begin{equation}
+ 0\longrightarrow\mathcal I^{r-1}\longrightarrow\mathcal O_{\mathbb P^N}
+ \longrightarrow\mathcal O_{C_{(r-2)}}\longrightarrow0
+\end{equation}
+と$H^1(\mathbb P^N,\mathcal O_{\mathbb P^N})=0$を用いれば
+\eqref{eq:pg-split-disconnected-cohomology}が従う。
+$C\ne\varnothing$より$H^0(\mathbb P^N,\mathcal I^{r-1})=0$であるから、
+\eqref{eq:pg-split-lifting-sequence}のコホモロジー完全列は
+\eqref{eq:pg-triple-lifting-sections}を与える。
 \end{proof}
 
 \begin{corollary}[分離型三次四様体の非零障害]

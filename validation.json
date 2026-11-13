@@ -1,17 +1,17 @@
 {
-  "version": "nc-cubic-v86",
+  "version": "nc-cubic-v87",
   "date": "2026-11-14",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; expected-parent fast-forward updates; no Actions or force push.",
-  "scope": "Paper A-v55 revision addressing the independent referee report: theorem-level prior-work comparison; standalone basepoint-free Lie lemma and disconnected lifting obstruction; geometry-to-quantization proof order; uniform ambient A and quotient B notation. B-v57 and shared preamble preserved.",
+  "scope": "Paper A-v56 continued referee revision: published Hessian-locus criterion, an explicit reducible-Hessian obstruction example, all-order same-degree lifting, and explicit quotient-group and classical-family descent. B-v57 and shared preamble preserved.",
   "papers": {
     "A": {
       "entry": "papers/paper_a.tex",
-      "version": "A-v55",
+      "version": "A-v56",
       "audit": "notes/poisson_article_submission_audit.md",
       "validation": "validation_paper_a.json",
       "typeset_and_rendered_this_review": true,
-      "current_review_scope": "Referee-requested literature, exposition and proof-dependency revision; independent reading of the extracted Lie lemma and the general lifting obstruction. No general theorem is weakened.",
+      "current_review_scope": "Independent reading of the Hessian criterion, counterexample, all-order lifting and equivariant-descent clarification; original principal results retained.",
       "current_changes_independently_read": true,
       "complete_reaudit_of_unchanged_proofs_this_revision": false
     },

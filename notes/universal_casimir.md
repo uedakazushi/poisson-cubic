@@ -1,6 +1,6 @@
 # 全Poisson構造の代数的中心三次元と一般次元量子化：現行研究ノート
 
-**2026-11-14 / v10（論文A-v55・論文B-v57、bundle nc-cubic-v86）。再開時はまず `00_research_plan.md` を読む。**
+**2026-11-14 / v11（論文A-v56・論文B-v57、bundle nc-cubic-v87）。再開時はまず `00_research_plan.md` を読む。**
 正本はGitHub `uedakazushi/nc-cubic` の `main`。
 現行公表原稿は `papers/paper_a.tex`（論文A）。
 主要証明の所在：
@@ -295,6 +295,8 @@ f^\circに対する同変中心元をx+B_fuへ代入することで、
 非零ηに制限すると、この商は階数二の被約層内の滑らかな三変数制限の開
 \(\mathfrak P_{n,1}^{\mathrm{ell}}\) 上の \(\mathbb G_m\)-gerbeである
 （`prop:pg-equivariant-poisson-gerbe`）。
+二つのスカラーは、K_sc={(aI_V,a⁻³)} と方程式代表の自由なλ作用として区別する。Ĝ=(GL(V)×Gm,λ)/K_scには1→Gm,λ→Ĝ→PGL(V)→1があり、幾何学的点の安定化群は1→K_sc→G_(f,η)→Aut(X,π)→1となる。詳細は `eq:pg-equivariant-effective-group-sequence` と `eq:pg-equivariant-stabilizer-sequence`。商のgerbe判定は[Stacks Tag 06PD, Lemma 78.27.1](https://stacks.math.columbia.edu/tag/06PD)、同変準連接層の降下は[Tag 06WT, Proposition 96.14.3](https://stacks.math.columbia.edu/tag/06WT)を参照する。
+
 さらにgcd(m,3)=1ならmr−3s=1となる整数を選び、
 \[
 \theta=(\det N)^r\lambda^s,\qquad
@@ -306,7 +308,7 @@ f^\circに対する同変中心元をx+B_fuへ代入することで、
 零切断を含む開へ降りる（`cor:pg-equivariant-character-descent`）。
 m=2、n=3ではθ=(det N)²λであり、底Poissonスタックの次元は17である。
 指標による中立化と次数線形化の補正は一般的な操作であり、
-本研究ではこれを同変な中心商の族に適用した。
+本研究ではこれを同変な中心商の族に適用した。降下後の次数一束をE_θとすると古典極限はSym(E_θ)とその三次直線による商であり、相対Projは元の普遍三次超曲面族になる。中心三次直線と生成イデアルは降りるが、底スタック上に一つの大域中心生成元を選べるとは限らない（`rem:pg-equivariant-classical-family`）。
 
 17は底の次元であり、固定したh≠0の非可換代数の同型類の像が17次元とは主張しない。
 hを保つ変形族全体からは特殊ファイバーと一次括弧により元のPoisson対を回復できる。
@@ -716,7 +718,7 @@ PBWの族への拡張、Koszul AS-regular中央一次元拡大、
 重い記号計算は一本ずつ実行する。
 LuaLaTeXによる再生成コマンドは`latexmk papers/paper_a.tex`で、
 PDFと中間生成物は`build/`へ出力される。
-**A-v55全体の組版・参照検査・PDF確認および計算の最終実施状態は、
+**A-v56全体の組版・参照検査・PDF確認および計算の最終実施状態は、
 リポジトリルートの[`validation_paper_a.json`](../validation_paper_a.json)を参照する。**
 本文の証明監査、計算の実行、PDFの確認、配布物の生成・保存は別の状態として扱う。
 

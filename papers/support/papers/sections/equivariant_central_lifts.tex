@@ -445,12 +445,34 @@ $\mathfrak P_{n,1}^{\mathrm{ell}}
 \end{equation}
 を得る。右辺の作用では
 $(aI_V,a^{-3})$が$(F,P)$を固定する。
-この中心部分群で割り、さらに自由な
-\eqref{eq:pg-equivariant-equation-scalar}の作用で割れば、
-残る群は$\mathrm{PGL}(V)$である。
+この二つのスカラーを区別するため、
+\begin{equation}
+ \widehat G=(\mathrm{GL}(V)\times\mathbf G_{m,\lambda})/K_{\mathrm{sc}},
+ \qquad
+ 1\longrightarrow\mathbf G_{m,\lambda}
+ \longrightarrow\widehat G
+ \longrightarrow\mathrm{PGL}(V)\longrightarrow1
+ \label{eq:pg-equivariant-effective-group-sequence}
+\end{equation}
+と書く。左の単射は$\lambda\mapsto[(I_V,\lambda)]$である。
+実際、fppf局所的に$\mathrm{PGL}(V)$への射の核の元を$[(aI_V,\lambda)]$と表せば、
+$[(I_V,a^3\lambda)]$と一意に書ける。
+従ってまず$K_{\mathrm{sc}}$で割り、次に自由な
+\eqref{eq:pg-equivariant-equation-scalar}の作用で割ると、
+$\mathrm{PGL}(V)$による商を得る。
 これが\eqref{eq:pg-equivariant-poisson-gerbe}の第一の同型を与える。
 $K_{\mathrm{sc}}$は$G$の中心にあり$\mathscr S_m$に自明に作用するので、
-第二の射はこの$K_{\mathrm{sc}}\simeq\mathbf G_m$をbandとするgerbeである。
+第二の射はこの$K_{\mathrm{sc}}\simeq\mathbf G_m$をbandとするgerbeである
+（商のgerbe判定について\cite[Lemma~78.27.1, Tag~\texttt{06PD}]{PStacks}も参照）。
+特に幾何学的点$(f,\eta)$における安定化群の関係は、fppf層としての完全列
+\begin{equation}
+ 1\longrightarrow K_{\mathrm{sc}}
+ \longrightarrow G_{(f,\eta)}
+ \longrightarrow\operatorname{Aut}(X,\pi)\longrightarrow1
+ \label{eq:pg-equivariant-stabilizer-sequence}
+\end{equation}
+である。右端は射影的なPoisson対の自己同型群であり、
+方程式の代表を変える自由なスカラーを安定化群に余分に含めていない。
 
 $n=3$、$m=2$では、三次式の係数空間の次元は$35$なので、
 \begin{equation}
@@ -527,6 +549,9 @@ $\theta^{-d}\theta^{-e}=\theta^{-(d+e)}$となり、積と単位の同変性は�
 中心三次直線の線形化も$\theta^{-3}$でtwistすれば、
 その包含および生成するイデアルの乗法写像は同変である。
 従って代数と商は$\overline G$による商へ降りる。
+ここでは商スタック上の準連接層と同変準連接層の同値
+\cite[Proposition~96.14.3, Tag~\texttt{06WT}]{PStacks}を
+次数別に用いており、積とイデアルも同変写像として降りる。
 
 底の開集合は$G$-不変であり$K_{\mathrm{sc}}$が底に自明に作用するので、
 \eqref{eq:pg-equivariant-rigidified-family-base}へ降りる。
@@ -534,6 +559,29 @@ $\theta^{-d}\theta^{-e}=\theta^{-(d+e)}$となり、積と単位の同変性は�
 従って次数別局所自由性と各ファイバーの主張は前の系から従う。
 $m=2$では$r=2,s=1$が所要の等式を満たす。
 \end{proof}
+
+\begin{remark}[降下した古典極限と中心三次直線]
+\label{rem:pg-equivariant-classical-family}
+前の系の降下した代数を$\mathcal A^\theta$、$\mathcal B^\theta$とし、
+$E_\theta=\mathcal A^\theta_1|_{\hbar=0}$を次数一のベクトル束とする。
+古典極限は底スタック上で
+\begin{equation}
+ \mathcal A^\theta|_{\hbar=0}\simeq\operatorname{Sym}(E_\theta),
+ \qquad
+ \mathcal B^\theta|_{\hbar=0}
+ \simeq\operatorname{Sym}(E_\theta)/(\mathcal J_0)
+ \label{eq:pg-equivariant-classical-family}
+\end{equation}
+と書ける。ここで$\mathcal J_0\subset\operatorname{Sym}^3(E_\theta)$は、
+局所的に古典方程式$f$が張る中心三次直線であり、
+右辺ではそれが生成する斉次イデアルを取る。
+この表示は各atlasでの多項式環と方程式の表示を降ろしたものである。
+指標による一様な次数twistは相対$\operatorname{Proj}$を変えないので、
+その射影化は底Poissonスタック上の元の普遍三次超曲面族となる。
+降下するのは中心三次直線とその生成イデアルであり、
+底スタック上でこの直線を自明化する一つの大域生成元$\Omega$を
+選べることまでは主張しない。
+\end{remark}
 
 \begin{remark}[次数重みと十七次元の意味]
 \label{rem:pg-equivariant-gerbe-degree-weights}

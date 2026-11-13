@@ -10,9 +10,9 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月14日・論文A（投稿準備稿 v55）}
+\date{2026年11月14日・論文A（投稿準備稿 v56）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-14 / A-v55}
+\fancyhead[R]{\small 2026-11-14 / A-v56}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -112,6 +112,11 @@ $F=f(x_0,x_1,x_2)+g(y_0,y_1,y_2)$という分離表示を持つことが同値�
 正規性、零点スキームおよびmodularベクトル場を直接計算して
 purely elliptic log symplecticであることを示す
 （命題\ref{prop:pg-split-elliptic}）。
+Bricalli--Favale--Pirola\cite[Theorem~3.4]{PBricalliFavalePirola}の
+Thom--Sebastiani分解の判定を合わせると、一般階数四の構造の存在は
+周囲の$\PP^5$におけるHessianの階数が三以下となる軌跡が線形平面を含むこととも同値である。
+Hessian行列式の可約性だけでは十分でない
+（例\ref{ex:pg-reducible-hessian-no-rank-four}）。
 
 \subsection*{代数的量子化と中心元}
 定理\ref{thm:pg-quantization}は、固定した任意のPoisson構造に対し、
@@ -398,11 +403,23 @@ Kontsevich・Dolgushevの理論\cite{PKontsevich,PDolgushev}は背景であり�
 本稿の有限Cramer構成の証明入力ではない。
 
 \paragraph{分離型四様体と持上げ障害。}
+Bricalli--Favale--Pirola\cite[Theorem~BおよびTheorem~3.4]{PBricalliFavalePirola}は、
+滑らかな三次式のThom--Sebastiani分解をHessian階数軌跡内の線形空間で特徴付けた。
+系\ref{cor:pg-cubic-fourfold-elliptic}の第二項と第三項の同値はこの既知定理であり、
+第一項との同値は本稿のPoisson正規形を用いる。
+例\ref{ex:pg-reducible-hessian-no-rank-four}では、
+定数symmetrizerの階数三の冪等元が存在しないことにより、
+Hessian行列式の可約性だけでは十分でないことを具体化する。
+この線形代数の議論は、特定の座標表示で混合項がないことを調べるだけでなく、
+任意の線形座標変換による$(3,3)$分解を排除する。
+
 分離型三次四様体の直接計算
 （命題\ref{prop:pg-split-elliptic}）と、
-非連結な中心の三重消失を保つ持上げ障害
+非連結な中心の高次消失を保つ持上げ障害
 （命題\ref{prop:pg-triple-lifting-obstruction}、
 系\ref{cor:pg-split-lifting-obstruction}）を独立に証明する。
+持上げ命題は、全連結成分が正次元の滑らかな中心と任意の消失次数$r\ge2$に対し、
+超曲面と同じ次数の切断の障害を$\mathbb C^{\pi_0(C)}/\mathbb C$として記述する。
 文献との比較は、本文を確認したPym
 \cite{PPymElliptic}のarXiv:1507.05668v1に限定する。
 同版のDefinition~4.2, p.~17、Lemma~5.5, pp.~28--29、
