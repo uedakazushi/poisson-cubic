@@ -1,11 +1,11 @@
 {
-  "version": "A-v52",
-  "bundle_version": "nc-cubic-v83",
+  "version": "A-v53",
+  "bundle_version": "nc-cubic-v84",
   "date": "2026-11-13",
   "manuscript": "papers/paper_a.tex",
   "audit_note": "notes/poisson_article_submission_audit.md",
-  "scope": "Publication-oriented mathematical proof reading, primary-source comparison, exact computation, source consistency and PDF inspection. These are distinct states.",
-  "source_base_commit": "a298607e4391b6bfc92cf05997e6c7f2d0c9d29b",
+  "scope": "Publication-oriented mathematical proof reading, primary-source comparison, exact computation, source consistency and PDF inspection. A-v53 adds the split cubic fourfold theorem, a global coefficient-family central lift, affine normalization transitions and a self-contained low-twist vanishing proof; these verification states remain distinct.",
+  "source_base_commit": "f180e6d93d7415d58a7cbc66eddfbaaf1f86599e",
   "mathematical_review": {
     "proof_chains_read": [
       "Euler/Koszul representation, divergence and Hessian condition",
@@ -14,27 +14,60 @@
       "universal mixed Hesse centre, classical Casimir kernel, universal rank and Cramer centre",
       "Bertini splitting, PBW, Koszul/AS-regular ambient and central AS-Gorenstein quotient",
       "fixed and relative Poisson stacks, Fermat component theorem, nonelliptic fixed components",
-      "quadratic envelope, polarized section algebra, conditional even-Veronese and derived reconstruction"
+      "quadratic envelope, polarized section algebra, conditional even-Veronese and derived reconstruction",
+      "Low-twist differential-form vanishing on smooth complete intersections via the punctured cone, conormal resolution and Euler contraction; this is a self-contained proof of a known vanishing statement.",
+      "Split cubic fourfolds: normal join divisor, reduced Poisson zero scheme, distinct singular scheme, local Pfaffian and modular field, pure ellipticity and generic-rank-four classification.",
+      "Nonconnected elliptic double curves: ambient cubic lifting obstruction, H^1(I_C)=C and H^1(I_C^2)=C, compared specifically with Pym arXiv:1507.05668v1.",
+      "Constant-rank divided-commutator kernel, actual-centre distinction under base change, affine Cramer transitions, global even central lift on a coefficient-dependent principal open containing the entire zero section.",
+      "Hesse example of different degree-three central ideals under the ambient identity, coordinate covariance and the remaining equivariant complement-line descent problem."
     ],
     "material_corrections": [
       "The relative forgetful scheme morphism is affine of finite type, not a closed immersion into the base.",
       "Relative rank strata use the simultaneous scalar action (F,P)->(aF,a^-1 P) and reduced structures.",
       "The threefold derived-recovery corollary explicitly assumes left/right noetherian B over C.",
-      "Ambient PBW alone does not imply S-freeness of the central quotient; regular highest active symbol is a sufficient condition, and B/(u^3) demonstrates the obstruction."
+      "Ambient PBW alone does not imply S-freeness of the central quotient; regular highest active symbol is a sufficient condition, and B/(u^3) demonstrates the obstruction.",
+      "The semisimple kernel calculation is attributed precisely to Derdzinski--Gal Theorem B; radical elimination from smoothness remains a separate argument. Bondal section 4 supplies the earlier divergence-free homogeneous lift.",
+      "Pym arXiv v1 Theorem 1.3 / Proposition 5.7 are contradicted by the proved split cubic fourfold example. The disconnected-centre failure of Lemma 5.5 is exhibited explicitly; no assertion is made about an unverified published or corrected text.",
+      "The divided-commutator kernel commutes with arbitrary base change on the constant-rank open, whereas the ordinary centre can enlarge at h-torsion or at h=0.",
+      "Two normalized central lifts have transition Omega_j=a_ij Omega_i+c_ij; equality of their classical limits does not force a_ij=1 or equality of their central ideals.",
+      "The fixed-coordinate coefficient-family existence theorem does not assert a coefficient-independent parameter open or equivariant descent to the full Poisson moduli stack."
     ],
     "formal_verification": false,
     "external_referee_review": false,
-    "comprehensive_priority_established": false
+    "comprehensive_priority_established": false,
+    "independent_reading_this_revision": [
+      "The split cubic fourfold proof and its Pym-v1 comparison were read independently by the main reviewer and two collaborating reviewers.",
+      "The new coefficient-family, normalization and descent-scope arguments were independently read by the main reviewer and a collaborating reviewer.",
+      "The low-twist vanishing proof was independently read by the main reviewer after its construction by a collaborating reviewer."
+    ],
+    "primary_source_comparison": [
+      {
+        "source": "Derdzinski--Gal, Curvature spectra of simple Lie groups, author final manuscript, (1.4), Theorem B and Lemma 7.1(a)",
+        "scope": "The known semisimple kernel theorem is attributed; an obstacle in an auxiliary argument of the proof of Lemma 7.1 is recorded in the research notes, and the manuscript retains an independent block argument."
+      },
+      {
+        "source": "Bondal, MPIM 93-67 (1993), section 4, printed pp. 11-12",
+        "scope": "Earlier Euler-divergence identity and divergence-free homogeneous lift."
+      },
+      {
+        "source": "Pym, arXiv:1507.05668v1, Definition 4.2, Theorem 1.3, Lemma 5.5 and Proposition 5.7",
+        "scope": "Full relevant preprint passages checked. Published metadata confirmed, but published/accepted full text and possible corrections were not obtained."
+      },
+      {
+        "source": "Stacks Project, Tag 0BCH",
+        "scope": "Vanishing of Picard group for a UFD; used after descending the even matrix to the coefficient ring with tau=h^2."
+      }
+    ]
   },
   "static_checks": {
     "command": "python3 scripts/verify_bundle.py --only paper_a --require-pdfs",
     "status": "PASS",
     "tex_files": 16,
-    "labels": 257,
-    "references": 238,
-    "bibitems": 23,
-    "citations": 61,
-    "equation_environments": 261,
+    "labels": 306,
+    "references": 267,
+    "bibitems": 26,
+    "citations": 70,
+    "equation_environments": 291,
     "align_environments": 6,
     "duplicate_or_unresolved_labels": 0,
     "duplicate_or_unresolved_citation_keys": 0,
@@ -45,31 +78,31 @@
     "status": "PASS",
     "exit_code": 0,
     "runtime_note": "Executed with an isolated TeX environment supplying installed LuaTeX-ja packages and a compatible format; the repository build scripts and .latexmkrc were unchanged.",
-    "pages": 69,
+    "pages": 77,
     "pdf_tracked_in_git": false,
-    "version": "nc-cubic-v83",
+    "version": "nc-cubic-v84",
     "source": "papers/paper_a.tex",
     "tex_inputs": {
-      "papers/paper_a.tex": "61eebb83f8064f007b3307fc11a51f50525206455ed47b0fbc1abef1c8453cb7",
+      "papers/paper_a.tex": "6133b9868297c5d0edbd0eeb78235198df5f7224422d37299d09b8e1ec4aa648",
       "papers/support/papers/common.tex": "0933403982627adcb2f0c70849a86a618c5410961f7cdd65e17d24edaf616580",
-      "papers/support/papers/references_poisson_cubic.tex": "1b87695804c65fb1fc1bc8f1cd67c36b7fcf273ce5ffcee42eebd13a3155be94",
+      "papers/support/papers/references_poisson_cubic.tex": "087fed140456338f6a8f1a20211b583ff22f5ee363427e2ea9fedf7da7be8a1d",
       "papers/support/papers/sections/ambient_recovery_general.tex": "5ea7e1954e83af8341a368c9c6dd3ac1e1cd16ab924d4ed28e1723a9d20fc6aa",
       "papers/support/papers/sections/bondal_cubic.tex": "a91f2db24022ee91481cc7b1feb4afde4aac1fcf8bf9b7e2d389234c90893a4e",
-      "papers/support/papers/sections/complete_intersections.tex": "616a785563ab5c22453208c3f2e859e58b67335dfe89dee834aa9ae920d55562",
+      "papers/support/papers/sections/complete_intersections.tex": "e620d35be4f838a1c955e85a9205fb9df26b5d6fc8e5b4e9c44543d5708e4bb7",
       "papers/support/papers/sections/explicit_hesse_center.tex": "b273057d34fa2d69540ca5fa2140d9e7f5f92a1fcb5cd75bf07433109535c9b9",
       "papers/support/papers/sections/fermat_mixed_universal_center.tex": "8a9f12c96734a263c2b3bed413bd634760a13ff8ddff01e0bcf363785248b2c3",
       "papers/support/papers/sections/fermat_relative_poisson_components.tex": "6528a2da29665a825c1bbab20cc255ba9aa6afc1443b3dccce5f1e138528e7f0",
       "papers/support/papers/sections/general_dimension_universal_quantization.tex": "fe54d8b5bc618cd22a3e24d9752f52d91e09c5e34c6872a0a33cab6c8922040c",
       "papers/support/papers/sections/hesse_mixed_universal_center.tex": "7768ff8f1134819549c76c220c00080900453985769773168e5c265fa0f66d38",
-      "papers/support/papers/sections/nonelliptic_poisson_components.tex": "7549b4052c146ec657e21003055c51a4ba78d4fd1a44349b711ea42c4938eb55",
+      "papers/support/papers/sections/nonelliptic_poisson_components.tex": "d5ae5186ce2d5b16b0ea73fb2bb39ae0babecd38c57a8d321347d947bc5c304b",
       "papers/support/papers/sections/nonelliptic_quantization.tex": "0a3d1580273437ca95378a009a13f49a217ede342ecf371e6fec99e87e702ba6",
-      "papers/support/papers/sections/poisson_geometry.tex": "fb18d546e3bf82b7ca3419c8234d143e67c90956c64feee2c4e43ef11235a637",
-      "papers/support/papers/sections/poisson_moduli_stacks.tex": "90d73a7863060cc6b478c79d29d251f7f6b3748e4f6ab70d1026f23b611d047e",
-      "papers/support/papers/sections/universal_casimir_determinant.tex": "4dc847de11c015e6f30a5f21f8bcf7d8fc316bb1a3f6503d57e8f2f1ded69b11"
+      "papers/support/papers/sections/poisson_geometry.tex": "3ed6121467efd9e225f3fbb25eb93bc0e7e7c2be14271f99b14c3fb5e43af469",
+      "papers/support/papers/sections/poisson_moduli_stacks.tex": "3ff96414a693bb7c8e6f7de18e656612d752d1f7a9aea5a4a2d279376e43a6c3",
+      "papers/support/papers/sections/universal_casimir_determinant.tex": "db1f6dd08e177b3ce8e752b1aa595e9fb4e43987fae54ae6556c0df8ac490c70"
     },
     "build_config_sha256": "834ec2488a63445af9f1da72f461bef24397e1c2ba229988c4f9ed9128de60d2",
     "pdf": "build/paper_a.pdf",
-    "pdf_sha256": "4fb99360066d412fd99d4701e189fd21fcef7271feee79d33b16175a8bc805e0",
+    "pdf_sha256": "a93a32775b8f0127b6ef9de59f71a2f67d39c7cd3f5efcd2e1cb7da0e72ddea0",
     "engine": "This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)",
     "source_date_epoch": "1794441600",
     "typesetting_failures": {
@@ -82,18 +115,18 @@
   },
   "visual_inspection": {
     "status": "PASS",
-    "all_pages_rendered": 69,
+    "all_pages_rendered": 77,
     "all_pages_overview_inspected": true,
     "detail_pages": [
-      1,
-      28,
-      36,
-      46,
-      49,
-      53,
-      68
+      9,
+      22,
+      23,
+      40,
+      41,
+      42,
+      75
     ],
-    "scope": "Page overview, Japanese glyphs, equation wrapping and numbering, modified ambient and moduli statements, component table, bibliography. No visible clipping or overlap in the inspected rendering."
+    "scope": "All 77 pages inspected in seven contact sheets. Full-size inspection of the new complete-intersection proof, split-fourfold local calculation and lifting obstruction, coefficient-family theorem, normalization example, descent qualifications and bibliography. No visible clipping or overlap in the inspected rendering."
   },
   "exact_computations": [
     {
@@ -102,7 +135,11 @@
       "script_sha256": "50d662b4918ba98a942526e12c010d3ee897b4e9a995c6cb3d74d0427115e041",
       "status": "PASS",
       "exit_code": 0,
-      "result": "Smoothness of one explicit two-block cubic, 56 Jacobi and 56 Euler-wedge identities over exact coefficients."
+      "result": "Smoothness of one explicit two-block cubic, 56 Jacobi and 56 Euler-wedge identities over exact coefficients.",
+      "executed_for_revision": "A-v52",
+      "execution_date": "2026-11-13",
+      "rerun_in_this_revision": false,
+      "current_script_hash_matches": true
     },
     {
       "command": "python3 computations/verify_nonelliptic_components.py --direct",
@@ -110,7 +147,11 @@
       "script_sha256": "47132c669f93b04ddadcfaebc0a97f3df5902ba492d14838cfe72b0ac3c22829",
       "status": "PASS",
       "exit_code": 0,
-      "result": "Both saved integer certificates and the direct Schouten linearization: rank 33 in each of the nodal and cuspidal examples; determinants +8916100448256 and -4565043429507072."
+      "result": "Both saved integer certificates and the direct Schouten linearization: rank 33 in each of the nodal and cuspidal examples; determinants +8916100448256 and -4565043429507072.",
+      "executed_for_revision": "A-v52",
+      "execution_date": "2026-11-13",
+      "rerun_in_this_revision": false,
+      "current_script_hash_matches": true
     },
     {
       "command": "python3 computations/verify_poisson_stack_component_counts.py",
@@ -118,7 +159,11 @@
       "script_sha256": "052a2c22a1fb73adf2aaeda251321fae0e586a11256c8eecad321adc12733ccd",
       "status": "PASS",
       "exit_code": 0,
-      "result": "All eight rows n=3,...,10: space/fixed-stack/relative-stack component counts."
+      "result": "All eight rows n=3,...,10: space/fixed-stack/relative-stack component counts.",
+      "executed_for_revision": "A-v52",
+      "execution_date": "2026-11-13",
+      "rerun_in_this_revision": false,
+      "current_script_hash_matches": true
     },
     {
       "command": "python3 computations/verify_universal_hesse_mixed_center.py",
@@ -126,7 +171,11 @@
       "script_sha256": "83ee2cef8ab984b2bb92bfef9f1947b5f58a1ca1bbd0adf466c3af8dca736229",
       "status": "PASS",
       "exit_code": 0,
-      "result": "339 weighted free words, 162 relation multiples, rank 144 at h=0 and over Q(h,t); three central commutators vanish with six independent mixed coefficients."
+      "result": "339 weighted free words, 162 relation multiples, rank 144 at h=0 and over Q(h,t); three central commutators vanish with six independent mixed coefficients.",
+      "executed_for_revision": "A-v52",
+      "execution_date": "2026-11-13",
+      "rerun_in_this_revision": false,
+      "current_script_hash_matches": true
     },
     {
       "command": "python3 computations/verify_cubic_casimir_jet.py",
@@ -134,7 +183,11 @@
       "script_sha256": "d7faf1134403d3e99a569af9e64c399cc4703200b58cfa33e6faba72b7a850e2",
       "status": "PASS",
       "exit_code": 0,
-      "result": "20 independent coefficients, 125 word/order coefficients for each of x,y,z; finite jet only."
+      "result": "20 independent coefficients, 125 word/order coefficients for each of x,y,z; finite jet only.",
+      "executed_for_revision": "A-v52",
+      "execution_date": "2026-11-13",
+      "rerun_in_this_revision": false,
+      "current_script_hash_matches": true
     },
     {
       "command": "python3 computations/verify_singular_cubic_classical_kernel.py",
@@ -142,7 +195,11 @@
       "script_sha256": "703d8951c3dff91c2bc3cc3dada11c32056f6f070e297cfc1e305b234c170c5b",
       "status": "PASS",
       "exit_code": 0,
-      "result": "Smooth total cubic with zero ternary restriction: exact rank 45 of a 378x56 matrix, kernel dimension 11."
+      "result": "Smooth total cubic with zero ternary restriction: exact rank 45 of a 378x56 matrix, kernel dimension 11.",
+      "executed_for_revision": "A-v52",
+      "execution_date": "2026-11-13",
+      "rerun_in_this_revision": false,
+      "current_script_hash_matches": true
     },
     {
       "command": "python3 -u computations/verify_nonelliptic_quantization.py",
@@ -151,7 +208,24 @@
       "status": "PASS",
       "exit_code": 0,
       "result": "Two monic Diamond systems and overlaps; six universal central commutators; h=0 limits; potential syzygies; denominator scopes; two negative controls; 17-term Fermat certificate. Recalculated result exactly matches the saved JSON without --write.",
-      "output_log": "build/verify_nonelliptic_quantization.log (untracked, regenerable)"
+      "output_log": "build/verify_nonelliptic_quantization.log (untracked, regenerable)",
+      "executed_for_revision": "A-v52",
+      "execution_date": "2026-11-13",
+      "rerun_in_this_revision": false,
+      "current_script_hash_matches": true
+    },
+    {
+      "command": "python3 computations/verify_split_cubic_fourfold.py",
+      "script": "computations/verify_split_cubic_fourfold.py",
+      "script_sha256": "ee0c09c63a88785cf7b7679d8b3dca7fb515ea2513e8d39465d93f86a346db0c",
+      "status": "PASS",
+      "exit_code": 0,
+      "executed_for_revision": "A-v53",
+      "execution_date": "2026-11-13",
+      "rerun_in_this_revision": true,
+      "current_script_hash_matches": true,
+      "result": "One split Fermat example over QQ: 20 ambient Jacobi triples and Casimir identity; all 10 projective brackets and 10 Jacobi triples; implicit-chart derivations and four Jacobi triples; Pfaffian/determinant, modular field and independent logarithmic-Pfaffian formula. This is a finite example, not the general smooth-f,g proof.",
+      "output_log": "build/verify_split_cubic_fourfold.log (untracked, regenerable)"
     }
   ],
   "certificate_inputs": {
@@ -181,10 +255,11 @@
     "validation": "validation_paper_b.json"
   },
   "remaining_limits": [
-    "Brueckmann original proofs (1976 Satz 3 / 1977 Satz 6) were not obtained; Fu--Hwang Lemma 4.1 and its explicit attribution were verified.",
-    "Originality of the all-dimensional normal form, relative component theorem and the full quantization combination has not been exhaustively established.",
+    "The Pym comparison is restricted to the checked arXiv v1; the published/accepted full text and possible corrections still require final comparison.",
+    "Brueckmann original proofs (1976 Satz 3 / 1977 Satz 6) were not obtained; Fu--Hwang Lemma 4.1 and its attribution were verified. The needed low-twist vanishing is now proved self-containedly in the manuscript, so these unavailable proofs are no longer a mathematical dependency of that criterion.",
+    "Originality of the all-dimensional normal form, relative component theorem and the full quantization combination has not been exhaustively established. The known Derdzinski--Gal and Bondal statements are explicitly separated from the current contribution.",
     "Global equivariant descent of quantization to the Poisson moduli stack, qgr smoothness for all closed parameters and relative residual equivalence through the commutative special point are not claimed.",
-    "A successful finite example does not prove the all-dimensional theorems; the universal symbolic identity has a different scope from specialized examples."
+    "A successful finite example does not prove the all-dimensional theorems; the universal symbolic identity has a different scope from specialized examples. The seven unchanged earlier computations were not rerun in A-v53; their A-v52 execution receipts are retained with current script and certificate hashes checked."
   ],
   "persistence": {
     "authoritative": "GitHub uedakazushi/nc-cubic main",

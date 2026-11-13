@@ -1,10 +1,10 @@
 # 研究方針：中心三次変形の量子化と一般点可換復元
 
-2026-11-13 / v83。再開時は本ファイルを最初に読む。GitHub mainが正本。
+2026-11-13 / v84。再開時は本ファイルを最初に読む。GitHub mainが正本。
 
 ## 現在の目標と達成基準
 
-論文A `papers/paper_a.tex`（A-v52）は一般次元のPoisson幾何・代数的量子化・ambient復元を扱う。論文B `papers/paper_b.tex`（B-v57）は、次数別有限自由な代数的中心三次変形の一般点可換復元を扱う。公表の達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、使用する既知定理の適用範囲と新規性が具体的に説明され、全文を再生成できることである。
+論文A `papers/paper_a.tex`（A-v53）は一般次元のPoisson幾何・代数的量子化・ambient復元を扱う。論文B `papers/paper_b.tex`（B-v57）は、次数別有限自由な代数的中心三次変形の一般点可換復元を扱う。公表の達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、使用する既知定理の適用範囲と新規性が具体的に説明され、全文を再生成できることである。
 
 Bでは n>=3、R=C[h]_(h)、K=C(h) とし、A_R/hA_R が N=n+2 変数多項式環、中心三次元の剰余が滑らかな三次式であることを仮定する。可換方程式はK上、全coherent残余圏のrotation・指定三次周期付き同値はある有限拡大上に構成する。模型の一意性はrotation付きpairを実現する模型の幾何学的射影同型類についてである。K上のformの一意性・同値核のKへの降下・特殊点を含む代数的相対同値は結論に含めない。
 
@@ -15,6 +15,12 @@ AではEuler--Koszul表示、Jacobi条件のHessian線形化、Lie代数補題�
 相対Poisson空間から三次式のパラメータ空間への忘却射は有限型アフィン射であり、閉埋め込みではない。階数層の記述には (F,P)↦(aF,a^{-1}P) の同時スカラー作用と被約構造を明記した。三次三様体の導来復元には左右noetherian性を明示し、偶数Veroneseからの復元に必要な中心二変数上の自由性はambient PBWだけでは従わないと訂正した。最高active記号の正則性が十分条件となる。正規形・Bondal・全Poisson量子化・成分数の主要結論は保持している。
 
 Aの量子化は、全三次式の滑らかさ→active gradientのgcd=1→三次Casimir核の一定次元→普遍交換子小行列式の恒等的消滅→Cramer中心元、という有限代数的構成による。Hesse制限の滑らかさは短い多項式公式の条件であり、全Poisson定理には不要。Kontsevich--Dolgushevの形式理論は背景であって、この存在証明の入力ではない。純中心三次項の配分、相対PBW、中心正則性、AS-Gorenstein商まで本文に証明がある。モジュライ全体へ量子化を降下する同変な構成はまだ得ていない。
+
+固定したactive・中心変数の分解については、全滑らかな三次式の係数空間とh直線の積に、零切断全体を含む一つの開集合を取り、偶な中心元を同時に選べる。`thm:pg-det-global-coefficient-lift` は、割った交換子の定階数核、τ=h²への下降、factorialな係数環のPicard群消滅を用いる。通常の中心はh=0で次数三全体へ増えるため、この核の底変更と混同しない。規格化の変更は Ω'=aΩ+c（aは単元、cは純中心）であり、同じ古典極限でも中心イデアルは変わり得る。具体的Hesse例と同変な中心直線を選ぶ問題は `notes/universal_casimir.md` に整理した。
+
+三次四様体の一般階数四の構造は、二つの滑らかな平面三次の分離型F=f+gに限られ、全てpurely elliptic log symplecticとなる。退化因子は正規なjoin、Poisson零点スキームは被約な二本の楕円曲線の非交和である。`prop:pg-split-elliptic` は正規形に依存しない直接証明、`cor:pg-cubic-fourfold-elliptic` は正規形からの分類を与える。Pym arXiv:1507.05668v1のTheorem 1.3・Proposition 5.7とは両立せず、同版Lemma 5.5が非連結曲線で成立しないH¹(I_C)=0を用いることを具体化した。刊行版本文・訂正文との照合は未了で、比較を公開v1に限定する。
+
+既知部分の帰属も明確にした。Bondal 1993のdivergence-free持上げ、Derdzinski--Gal Theorem Bの半単純Lie代数上の核計算と、本稿のHessian基点自由性からの根基排除を区別する。完全交叉の低twist消滅には `lem:ci-low-twist-vanishing` で穿孔錐とKoszul分解による独立証明を与えた。Brückmann原証明は未取得だが、現行の存在判定の証明依存からは外れている。
 
 Bの証明は `papers/generic_recovery/` だけで完結する。`local_model.tex` と `window.tex` が局所proper模型と三対象window、`curved_transport.tex` が実際の完備A_infty比較、`generic_descent.tex` がEuler非消滅・BFK生成・有限降下、`coherent_saturation.tex` が全coherent圏への飽和、`gradient_recovery.tex` と `field_model.tex` が勾配空間の積分と方程式の基礎体降下を与える。
 
@@ -28,8 +34,8 @@ B-v57ではこの証明連鎖を数学的に再点検した。対称積の核と
 
 ## 優先する次の課題
 
-1. Aの公表上の中心を全次元正規形・Bondal・全Poisson代数的量子化・相対成分数に置く。LPT/Mayanskiyの三次元分類、Gualtieri--Pymの四次元、Druel--Pereira--Pym--Touzetの五次元、Azaの隣接退化軌跡の選言と比較し、高次元の同一定理の初出を引き続き調べる。Brückmann消滅はFu--Hwang Lemma 4.1の仮定・引用先を確認したが、1976年Satz 3と1977年Satz 6の原証明は未取得。原資料を入手して背景節の適用を最終確認する。
-2. Aの表示チャート間でCramer中心元を比較する。三次中心核の差が純中心三次式に属することを使い、正規化の変換とcocycleを先に計算する。量子化の全モジュライへの降下、全閉パラメータのqgr滑らかさ、可換特殊点を含む相対残余圏同値は、Bの一変数一般点復元とは区別した未解決課題である。
+1. Aの公表上の中心を全次元正規形・Bondal・全Poisson代数的量子化・相対成分数に置き、三次四様体の純楕円分類を具体的帰結として示す。Pym論文の刊行版または著者のaccepted manuscriptを通常の公開経路で入手し、v1との該当箇所・訂正状況を最優先で照合する。Oxfordの登録メタデータは確認できたが本文は取得できていない。独立な反例証明は現行本文にある。Bondal・Derdzinski--Gal・LPT/Mayanskiy・Gualtieri--Pym等との比較を踏まえ、包括的な正規形・成分定理の初出も引き続き調べる。
+2. 中心元の同変な直線を選ぶ条件を調べる。局所規格化のaffine遷移と、固定係数空間上の中心元の存在は解決済みである。次は中心変数によるactive座標の平行移動、およびブロック間の純中心三次配分について、0→C_m→K→L→0の分裂に対する作用を計算する。分裂の空間はHom(L,C_m)のaffine束であり、座標変換に安定な開とcocycleも必要となる。全モジュライへの降下、全閉パラメータのqgr滑らかさ、特殊点を含む相対残余圏同値は、Bの一変数一般点復元と区別する。
 3. Bの存在定理を一つの具体的な非可換入力で有効化する。rotation核Pと対角Deltaの有限表示から V=H^0RHom(Delta,P)、U=H^0RHom(Delta,P^2)、積を算出し、Q=ker(Sym^2 V→U)を積分する。まず既存のstabilization模型の有限Homへ戻り、構造写像のどの係数までがV,Uに必要かを特定する。可換勾配空間を入力する補助計算を、非可換圏からの抽出の代用にしない。
 4. 公表上の貢献を、完備比較と相対windowの具体的構成、および包括的な一般点復元に絞る。既知の一般原理と本稿の適用条件の対照は監査ノートにある。新たな引用が必要になれば一次資料で範囲を確かめ、同一の定理の初出が判明すれば序論・方針を修正する。
 5. 同値核のGalois降下を調べる。E_F=kという方程式の一意性と、rotation付き同値核の降下を分け、まずその自己同値群・自己同型群を同定する。`gcd:ex:forms` は特殊ファイバーも完備化も一致するがK上非同型の例である。TsenによるBrauer群消滅や形式点の存在だけでK'=Kを結論しない。
@@ -47,6 +53,7 @@ python3 scripts/check_layout.py
 python3 scripts/verify_bundle.py
 python3 scripts/build.py --only paper_a
 python3 scripts/verify_bundle.py --only paper_a --require-pdfs
+python3 computations/verify_split_cubic_fourfold.py
 python3 scripts/build.py --only paper_b
 python3 scripts/verify_bundle.py --only paper_b --require-pdfs
 python3 computations/verify_complete_curved_transport.py --output build/verify_complete_curved_transport.json

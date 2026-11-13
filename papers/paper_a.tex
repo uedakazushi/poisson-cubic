@@ -10,9 +10,9 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月13日・論文A（投稿準備稿 v52）}
+\date{2026年11月13日・論文A（投稿準備稿 v53）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-13 / A-v52}
+\fancyhead[R]{\small 2026-11-13 / A-v53}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -22,12 +22,15 @@ $X\subset\mathbb P^{n+1}$、$n\ge3$の正則Poisson構造を研究する。
 全ての非零Poisson構造を三変数Jacobianブロックの直和に帰着する。
 この正規形から、全ての許される退化階数に対するBondal予想の次元下界と、
 退化スキームの方程式を導く。
+三次四様体の一般階数四の構造は二つの滑らかな平面三次の分離型に限られ、
+全て純楕円型の対数symplectic構造となる。
 また各Poisson構造を、原点を含む一変数Zariski開集合上の
 Koszul Artin--Schelter正則代数と、その正則中心三次商に量子化する。
 中心元は、滑らかな三変数制限に対する普遍Hesse公式と、
 古典Casimir核および普遍交換子行列の階数を用いて代数的に構成する。
 この構成は三変数制限が特異または零の場合も含み、
-固定した正規形のPoisson線形族を同時に量子化する。
+固定した変数分解の全滑らかな係数空間上に中心元を選べる。
+また、固定した正規形のPoisson線形族を同時に量子化する。
 さらに、固定超曲面上のPoissonスキームとその自己同型群による商、
 超曲面自身を動かす相対モジュライを区別し、
 Fermat超曲面の成分を集合分割で記述するとともに、
@@ -91,6 +94,14 @@ Euler方向を除いた双ベクトルの階数を計算する。
 （補題\ref{lem:pg-critical-cover}、命題\ref{prop:pg-zero-ci}）。
 この追加仮定を、正規形とBondal予想の定理の仮定から区別する。
 
+三次四様体では、一般階数四の構造を持つことと
+$F=f(x_0,x_1,x_2)+g(y_0,y_1,y_2)$という分離表示を持つことが同値である
+（系\ref{cor:pg-cubic-fourfold-elliptic}）。
+この場合、退化因子は二本の楕円曲線のjoinであり、
+正規性、零点スキームおよびmodularベクトル場を直接計算して
+purely elliptic log symplecticであることを示す
+（命題\ref{prop:pg-split-elliptic}）。
+
 \subsection*{代数的量子化と中心元}
 定理\ref{thm:pg-quantization}は、固定した任意のPoisson構造に対し、
 $0$を含むZariski開集合$U\subset\mathbb A^1_\hbar$上に
@@ -128,6 +139,18 @@ $\hbar=0$において正則な有理式の中心元を得る
 補題\ref{lem:pg-central-splitting-smooth}で示す。
 このため量子化定理には形式的中心元の存在を仮定する必要がない。
 
+固定した変数分解の全滑らかな係数空間についても、
+零切断全体を含む一つの開集合上に偶な中心元を選べる
+（定理\ref{thm:pg-det-global-coefficient-lift}）。
+ここでは$\hbar$で割った交換子の核を定階数のベクトル束とし、
+純中心部分による商線束をfactorialな係数環上で自明化する。
+異なる規格化の間の遷移は一般に
+$\Omega'=a\Omega+c$（$a$は単元、$c$は純中心三次式）である。
+同じ古典極限を持つ中心元でも、自然な周囲代数の同一視で
+同じ中心イデアルを定めるとは限らない
+（例\ref{ex:pg-det-distinct-normalized-ideals}）。
+従って、係数空間上の存在とモジュライへの同変な降下は区別する。
+
 固定した正規形では、独立なパラメータ$\eta_1,\ldots,\eta_k$を導入し、
 各ブロックの中心元を加えることで
 \begin{equation}\label{eq:intro-independent-center}
@@ -148,7 +171,8 @@ Poisson線形族の全方向を一つの相対代数族で量子化できる
 \ref{prop:pg-ad-intrinsic-hessian}）。
 二次jetの普遍恒等式とHesse表示での全次数中心公式は、異なる主張である。
 
-この量子化は各構造および固定した正規形の線形族についての構成である。
+この量子化は各構造、固定した正規形の線形族、および固定した変数分解の
+係数空間上での構成である。
 全Poissonモジュライ上の大域的な量子化射や、
 全閉点での$\operatorname{qgr}B_\hbar$のsmoothnessは結論に含めない。
 
@@ -245,6 +269,19 @@ $k$個の部分を持つ成分の一般Poisson階数は$2k$となる。
 一般次元でSerre関手から得られるVeroneseが元の代数を決定するかは別の問題である。
 
 \subsection*{先行研究との関係}
+射影空間上のPoisson構造の斉次divergence-free持上げは
+Bondal\cite[\S4]{PBondal93}による。
+本稿では同じEuler--divergenceの議論を三次超曲面上のJacobiatorへ適用して、
+周囲の射影空間への延長がPoissonとなることを示す。
+正規形のLie代数的部分では、半単純Lie代数上の式
+\eqref{eq:pg-lie-H}の核の記述はDerdzinski--Gal
+\cite[Theorem~B]{PDerdzinskiGal}に含まれる。
+Cartan三形式からの単純ブロックの内在性も
+同論文のLemma~7.1(a)で述べられている。
+本稿では、滑らかな三次式のHessianの基点自由性から可解根基を排除して
+半単純な場合へ還元し、この構造をPoisson幾何と退化軌跡へ適用する。
+ブロックの内在性には、補題\ref{ne:blocks}の縮約階数による直接証明を与える。
+
 三次三様体のPoisson構造の分類は
 Loray--Pereira--Touzet\cite[Theorems~7.1, 9.1]{LPTPoissonCubic}による。
 Mayanskiy\cite[Theorem~1]{PMayanskiy}はJacobi方程式からGrassmannスキームの
@@ -258,6 +295,13 @@ Aza\cite[Theorem~1.3]{BondalAza}は、一般のFano多様体で隣接する退�
 真に異なるとき、少なくとも一方がBondalの次元下界を満たすことを示している。
 本稿では滑らかな三次超曲面というクラスについて任意次元の全退化階数を扱う。
 
+分離型三次四様体の構成は、Pymの公開原稿
+\cite[arXiv v1, Theorem~1.3]{PPymElliptic}にある
+三次四様体の純楕円構造の非存在という記述とは両立しない。
+注意\ref{rem:pg-split-elliptic-lift-obstruction}で、
+同版Lemma~5.5の持上げの議論における非連結な曲線の障害を明示する。
+この比較は確認したarXiv版に限定し、刊行版本文・訂正文との最終照合は残している。
+
 量子化では、Mori--Smithの三生成元Calabi--Yau代数の判定、
 Berger--TailleferのpotentialによるPBW変形、
 中心正則拡大の理論を用いる\cite{PMoriSmith,PBergerTaillefer,LBSVNE12}。
@@ -269,7 +313,8 @@ Kontsevich、Dolgushev、Etingof--Ginzburgの理論がある
 \cite{PKontsevich,PDolgushev,EG}。
 本稿の代数的中心元の存在証明は、前述の有限次元の構成による。
 完全交叉の存在判定はBr\"uckmann型消滅の既知の帰結
-\cite[Lemma~4.1]{FuHwangCI}として、
+\cite[Lemma~4.1]{FuHwangCI}であり、必要な低twistの消滅は
+補題\ref{lem:ci-low-twist-vanishing}で独立に証明する。
 偏極付き圏のsection algebra復元はArtin--Zhangの理論
 \cite{PAZAmbient}の適用として記す。
 

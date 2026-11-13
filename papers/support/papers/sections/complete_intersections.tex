@@ -2,15 +2,99 @@
 \label{sec:general-poisson-existence}
 本節は三次超曲面のPoisson構造を一般の射影多様体の中に位置づける。
 完全交叉に対する非存在の部分はBr\"uckmannの古典的消滅定理
-（Fu--Hwang \cite[Lemma 4.1]{FuHwangCI} に引用）による。
+（Fu--Hwang \cite[Lemma 4.1]{FuHwangCI} に引用）の低twistの部分による。
+以下では、必要な消滅を錐のconormal分解から独立に証明する。
 本節の既知結果を新規な分類とみなさない。
 
 \subsection{滑らかな射影完全交叉の存在判定}
+\begin{lemma}[低twistの微分形式の消滅]\label{lem:ci-low-twist-vanishing}
+$X\subset\PP^M_{\CC}$を次元$n\ge2$の滑らかな通常の射影完全交叉とする。
+このとき
+\begin{equation}
+ H^0(X,\Omega_X^p(t))=0
+ \qquad(1\le p\le n-1,\ t\le p).
+ \label{eq:ci-vanishing}
+\end{equation}
+\end{lemma}
+\begin{proof}
+$c=M-n$とし、$X$を定める斉次正則列を$F_1,\ldots,F_c$とする。
+斉次座標環と頂点を除いたアフィン錐を
+\begin{equation}
+ S=\CC[z_0,\ldots,z_M],\qquad
+ R=S/(F_1,\ldots,F_c),\qquad
+ U=\Spec R\setminus\{R_+\}
+ \label{eq:ci-punctured-cone}
+\end{equation}
+とおく。射影空間の線束の中間コホモロジー消滅
+\cite[III, Theorem 5.1]{PHartshorne}を$X$のKoszul分解に適用すると、
+すべての$\ell\in\mathbb Z$に対して
+\begin{equation}
+ H^0(X,\OO_X(\ell))=R_\ell,\qquad
+ H^i(X,\OO_X(\ell))=0\quad(1\le i\le n-1)
+ \label{eq:ci-line-bundle-cohomology}
+\end{equation}
+を得る。ここで$\ell<0$では$R_\ell=0$とする。
+実際、長さ$c$のKoszul分解で現れる中間コホモロジーの次数は
+$1$以上$n-1+c=M-1$以下である。
+射影$q:U\to X$はアフィンな$\mathbb G_m$-torsorであり、
+$q_*\OO_U=\bigoplus_{\ell\in\mathbb Z}\OO_X(\ell)$だから
+\begin{equation}
+ \Gamma(U,\OO_U)=R,\qquad
+ H^i(U,\OO_U)=0\quad(1\le i\le n-1).
+ \label{eq:ci-cone-cohomology}
+\end{equation}
+
+$U$は滑らかな完全交叉なので、conormal列はベクトル束の完全列
+\begin{equation}
+ 0\longrightarrow\mathcal N:=\bigoplus_{j=1}^c\OO_U\,dF_j
+ \longrightarrow\mathcal G:=\bigoplus_{a=0}^{M}\OO_U\,dz_a
+ \longrightarrow\Omega_U^1\longrightarrow0
+ \label{eq:ci-conormal-sequence}
+\end{equation}
+である。これに付随する外積の分解は
+\begin{equation}
+ \begin{gathered}
+ \mathcal C_j=\operatorname{Sym}^j\mathcal N
+              \otimes\bigwedge^{p-j}\mathcal G\quad(0\le j\le p),\\
+ 0\longrightarrow\mathcal C_p\longrightarrow\cdots
+ \longrightarrow\mathcal C_0\longrightarrow\Omega_U^p\longrightarrow0.
+ \end{gathered}
+ \label{eq:ci-exterior-conormal-resolution}
+\end{equation}
+各$\mathcal C_j$は、同変構造を忘れれば$\OO_U$の有限直和である。
+$p\le n-1$と\eqref{eq:ci-cone-cohomology}により
+$H^i(U,\mathcal C_j)=0$が$1\le i\le p$で成り立つ。
+したがって\eqref{eq:ci-exterior-conormal-resolution}の長完全列を順に用いると、
+$\Gamma(U,\bigwedge^p\mathcal G)\to\Gamma(U,\Omega_U^p)$は全射となる。
+この全射は錐のスカラー作用と可換であり、$dz_a$の重さは$1$なので、
+重さ$t$の成分について
+\begin{equation}
+ R_{t-p}\otimes\bigwedge^p(\CC^{M+1})^{\vee}
+ \twoheadrightarrow\Gamma(U,\Omega_U^p)_t
+ \label{eq:ci-cone-form-surjection}
+\end{equation}
+を得る。
+
+$H^0(X,\Omega_X^p(t))$の切断は、$U$上の重さ$t$の水平形式
+$\alpha$に対応する。すなわちEuler場$E=\sum_a z_a\partial_{z_a}$に対して
+$\iota_E\alpha=0$かつ$\mathcal L_E\alpha=t\alpha$である。
+$t<p$なら\eqref{eq:ci-cone-form-surjection}の左辺が零なので$\alpha=0$である。
+$t=p$なら$R_0=\CC$であるため、$\alpha$は定数係数$p$形式の制限であり、
+$d\alpha=0$を満たす。よってCartanの公式から
+\begin{equation}
+ p\alpha=\mathcal L_E\alpha
+ =d(\iota_E\alpha)+\iota_E(d\alpha)=0.
+ \label{eq:ci-cartan-vanishing}
+\end{equation}
+$p>0$と標数零より$\alpha=0$であり、主張が従う。
+\end{proof}
+
 \begin{theorem}\label{thm:ci-poisson-existence}
 複素数体上の滑らかな通常の射影完全交叉
 \begin{equation}
  X=X_{d_1,\ldots,d_c}\subset\PP^{n+c},
  \qquad n\ge3,\quad d_j\ge2
+ \label{eq:ci-poisson-setup}
 \end{equation}
 について、以下は同値である。
 \begin{enumerate}[label=(\arabic*)]
@@ -27,13 +111,8 @@ $s=\sum_{j=1}^c(d_j-1)$とおく。随伴公式から
  \bigwedge^2T_X\simeq\Omega_X^{n-2}(n+1-s)
  \label{eq:ci-forms}
 \end{equation}
-である。Br\"uckmannの消滅\cite[Lemma 4.1]{FuHwangCI}は
-\begin{equation}
- H^0(X,\Omega_X^p(k))=0
- \qquad(1\le p\le n-1,\ k\le p)
- \label{eq:ci-vanishing}
-\end{equation}
-を与える。$n\ge3$なので$p=n-2\ge1$を取り、
+である。補題\ref{lem:ci-low-twist-vanishing}に
+$n\ge3$から$p=n-2\ge1$を取り、
 $s\ge3$なら$n+1-s\le n-2$ゆえ
 $H^0(X,\bigwedge^2T_X)=0$となる。
 したがって(1)なら$s\le2$であり、$d_j\ge2$より列挙した四種類に限る。
@@ -44,12 +123,14 @@ $E=\sum_i z_i\partial_{z_i}$を用いて
 \begin{equation}
  \alpha=\iota_E(dL_0\wedge\cdots\wedge dL_{n-2})
        \in H^0(X,\Omega_X^{n-2}(n-1))
+ \label{eq:ci-projective-form}
 \end{equation}
 を定める。一般の選択では$\alpha|_X$は非零である。
 $L_0\ne0$上では
 \begin{equation}
  \alpha=L_0^{n-1}\,
  d(L_1/L_0)\wedge\cdots\wedge d(L_{n-2}/L_0)
+ \label{eq:ci-local-form}
 \end{equation}
 となり、一般点でその核は有理写像
 $X\dashrightarrow\PP^{n-2}$のファイバーに接する
@@ -139,6 +220,7 @@ $F=\sum_{s=1}^k f_s(x_s,u)$に対し、
  \quad
  [x_{s1},x_{s2}]
  =\hbar\,\operatorname{sym}_R(\partial_{x_{s3}}f_s)
+ \label{eq:ci-quantization-relations}
 \end{equation}
 と書ける。異なるブロックと中心変数の間の交換子は零である。
 三次中心元$\Omega_\hbar$は零のZariski近傍で存在し、
@@ -159,6 +241,7 @@ $[z,x]=\hbar y^2$なら
 \begin{equation}
  \Omega=x^3+y^3+z^3
       -2\hbar^2\operatorname{sym}(xyz)
+ \label{eq:ci-fermat-center}
 \end{equation}
 は実際に中心元となる。直接の交換子計算は
 本論文のFermat型の補題にある。

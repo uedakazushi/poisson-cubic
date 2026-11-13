@@ -301,6 +301,285 @@ Cramer公式の係数は$\CC(\hbar^2)$に属する。
 形式冪級数も無限次数の中心補正も必要ない。
 \end{proof}
 
+\subsection{中心元の規格化と係数空間上の構成}
+\label{subsec:pg-det-center-family}
+普遍交換子行列の階数がちょうど$r_m$となる開部分を
+$\mathcal V_m\subset\mathcal U_m$とする。
+補題\ref{lem:pg-det-classical-kernel}により、
+$\mathcal V_m$は零切断$\mathcal T_m\times\{0\}$全体を含む。
+この上で
+\begin{equation}
+ \mathcal E_d=S_d\otimes_\CC\OO_{\mathcal V_m},\qquad
+ \mathcal C_m=R_3\otimes_\CC\OO_{\mathcal V_m},\qquad
+ \rho:\mathcal E_3\longrightarrow\mathcal C_m,
+ \quad p\longmapsto p(0,0,0,u)
+ \label{eq:pg-det-degree-three-bundles}
+\end{equation}
+とおき、$\mathcal E_3^{\mathrm{act}}=\ker\rho$とする。
+従って$\mathcal E_3=\mathcal C_m\oplus\mathcal E_3^{\mathrm{act}}$である。
+$\mathcal A$をこの上の普遍量子代数とし、
+以下、Weyl同型によって$\mathcal E_3$と$\mathcal A_3$を同一視する。
+
+\begin{lemma}[割った交換子の核と底変更]
+\label{lem:pg-det-divided-kernel}
+\begin{equation}
+ \mathcal K=\ker\mathcal D,\qquad
+ \mathcal L=\ker(\mathcal D|_{\mathcal E_3^{\mathrm{act}}})
+ \label{eq:pg-det-kernel-line}
+\end{equation}
+とおくと、$\mathcal K$は階数$d_m+1$、$\mathcal L$は階数一の
+局所自由加群であり、
+\begin{equation}
+ \mathcal K=\mathcal C_m\oplus\mathcal L,
+ \qquad \mathcal K/\mathcal C_m\simeq\mathcal L.
+ \label{eq:pg-det-kernel-splitting}
+\end{equation}
+任意の底変更$\alpha:T\to\mathcal V_m$について、
+核・像・余核および\eqref{eq:pg-det-kernel-splitting}の形成は底変更と両立する。
+特に
+\begin{equation}
+ \alpha^*\mathcal K\simeq\ker(\alpha^*\mathcal D),
+ \qquad
+ \alpha^*\mathcal L\simeq
+ \ker(\alpha^*\mathcal D|_{\alpha^*\mathcal E_3^{\mathrm{act}}}).
+ \label{eq:pg-det-kernel-base-change}
+\end{equation}
+\end{lemma}
+\begin{proof}
+$\mathcal D$は純中心三次部分を消す。
+各点の近傍で$r_m$次小行列式を可逆にし、行と列の基本変形を行う。
+全ての$(r_m+1)$次小行列式は恒等的に零なので、
+行列は単位行列$I_{r_m}$と零行列からなる形となる。
+従って核・像・余核は局所自由で、対応する完全列は局所的に分裂する。
+この形は非被約な底への変更でも保たれる。
+$\mathcal E_3^{\mathrm{act}}$の階数は$r_m+1$であるから、その核は階数一である。
+純中心部分への射影$\rho$が分裂を与える。
+\end{proof}
+
+\begin{remark}[通常の中心の形成との区別]
+\label{rem:pg-det-center-base-change}
+この補題が扱うのは$\hbar$で\emph{割った}交換子の核である。
+$h_T=\alpha^*\hbar$、$\mathcal D_T=\alpha^*\mathcal D$と書くと、
+通常の中心については
+\begin{equation}
+ \begin{aligned}
+ Z(\mathcal A_T)_3&=\ker(h_T\mathcal D_T),\\
+ Z(\mathcal A_T)_3/\alpha^*\mathcal K
+ &\simeq
+ \operatorname{Ann}_{\OO_T}(h_T)
+ \otimes_{\OO_T}\operatorname{im}\mathcal D_T.
+ \end{aligned}
+ \label{eq:pg-det-ordinary-center-base-change}
+\end{equation}
+実際、$\mathcal D_T$の像への全射は局所的に分裂しており、
+中心元の像はちょうど$h_T$で消える部分である。
+$h_T$が非零因子なら両方の核は一致する。
+しかし$h_T=0$では代数は可換なので通常の中心は$\mathcal E_{3,T}$全体であり、
+割った交換子の核は古典Casimir部分
+$\mathcal C_{m,T}+\OO_T f$である。
+従って\eqref{eq:pg-det-kernel-base-change}を、通常の中心が
+任意の底変更と両立するという主張に読み替えてはならない。
+\end{remark}
+
+\begin{proposition}[Cramer規格化の一意性と遷移]
+\label{prop:pg-det-normalization-transition}
+全次数三でactive変数を含む単項式$w_i$を固定し、
+その係数写像を$\varepsilon_i$、$f$の$w_i$係数を$\alpha_i$とする。
+$\alpha_i$が可逆で、$\varepsilon_i|_{\mathcal L}$が自明化を与える開部分では、
+Cramer中心元$\Omega_i$は次の三条件によって一意に定まる：
+\begin{equation}
+ \mathcal D\Omega_i=0,\qquad
+ \rho(\Omega_i)=f_{\mathrm{cent}},\qquad
+ \varepsilon_i(\Omega_i-f_{\mathrm{cent}})=\alpha_i.
+ \label{eq:pg-det-normalization-conditions}
+\end{equation}
+特に、同じ$w_i$を用いる限り、可逆な小行列を作る\emph{行の選択}に依存しない。
+二つの規格化が有効な共通開部分では
+\begin{equation}
+ \begin{aligned}
+ \Omega_j&=a_{ij}\Omega_i+c_{ij},\\
+ a_{ij}&=
+ \frac{\alpha_j}{\varepsilon_j(\Omega_i-f_{\mathrm{cent}})}
+ \in\OO^\times,\qquad
+ c_{ij}=(1-a_{ij})f_{\mathrm{cent}}\in\mathcal C_m.
+ \end{aligned}
+ \label{eq:pg-det-affine-transition}
+\end{equation}
+一般に、$\mathcal K/\mathcal C_m$の基底へ写る二つの局所切断
+$\Omega,\Omega'$の間には、一意な単元$a$と純中心三次式$c$による
+$\Omega'=a\Omega+c$が成り立つ。
+両方が法$\hbar$で$f$となるなら、$a|_{\hbar=0}=1$、$c|_{\hbar=0}=0$である。
+\end{proposition}
+\begin{proof}
+$\Omega_i-f_{\mathrm{cent}}$は$\mathcal L$の切断であり、
+同線束の自明化$\varepsilon_i$における値を指定すれば一意に決まる。
+定理\ref{thm:pg-universal-determinant}のCramer式はこの条件を満たすので、
+行の選択を変えても同じ元を与える。
+共通開上では$\Omega_i-f_{\mathrm{cent}}$と
+$\Omega_j-f_{\mathrm{cent}}$がともに$\mathcal L$の基底である。
+その比を$\varepsilon_j$で計算すると\eqref{eq:pg-det-affine-transition}となる。
+一般の場合も商線束での比を$a$とすれば、差は$\mathcal C_m$に属する。
+法$\hbar$で$\CC f\oplus R_3$が直和であることから最後の主張を得る。
+従って同じ古典極限を持つという条件だけでは、$a=1$とは結論できない。
+\end{proof}
+
+\begin{theorem}[固定した変数分解の全係数空間における中心元]
+\label{thm:pg-det-global-coefficient-lift}
+全三次式の係数を$\boldsymbol c$、滑らかさの判別式を$\Delta$とし、
+$B_0=\CC[\boldsymbol c,\Delta^{-1}]$とおく。
+従って$\mathcal T_m=\operatorname{Spec}B_0$である。
+$\tau$を新しい不定元とすると、ある$Q\in B_0[\tau]$、$Q(0)=1$が存在し、
+\begin{equation}
+ B=B_0[\tau,Q(\tau)^{-1}],\qquad
+ B_h=B_0[\hbar,Q(\hbar^2)^{-1}]
+ \simeq B[\hbar]/(\hbar^2-\tau)
+ \label{eq:pg-det-even-coefficient-rings}
+\end{equation}
+上で次が成り立つ。
+固定したactive変数$x,y,z$と中心変数$u$に関する普遍代数には、
+\begin{equation}
+ \Omega_{\mathrm{univ}}\in Z(\mathcal A_{B_h})_3,
+ \qquad
+ \Omega_{\mathrm{univ}}\bmod\hbar=f_{\mathrm{univ}},
+ \qquad
+ \rho(\Omega_{\mathrm{univ}})=f_{\mathrm{cent}}
+ \label{eq:pg-det-global-center}
+\end{equation}
+を満たす中心元が存在する。
+そのWeyl係数は$B$に属し、$\hbar$について偶である。
+さらに$\Omega_{\mathrm{univ}}-f_{\mathrm{cent}}$は商線束の大域的な基底となる。
+従って全ての滑らかな$f$について、零切断全体を含む\emph{一つの}係数開集合上に、
+係数が正則な中心三次元を同時に選べる。
+この選択の正準性や座標変換に関する同変性は主張しない。
+\end{theorem}
+\begin{proof}
+$\mathcal V_m$の補集合を閉集合として定めるイデアルを
+$I\subset B_0[\hbar]$とする。
+補集合は零切断と交わらないので$I+(\hbar)=B_0[\hbar]$であり、
+$p\in I$、$p(0)=1$を選べる。
+$p(\hbar)p(-\hbar)$は偶多項式であるから、
+これを$Q(\hbar^2)$と書く。
+そのprincipal開は$\mathcal V_m$に含まれ、零切断全体を含む。
+必要なら最初に$\hbar\mapsto-\hbar$で移した開部分との共通部分を取っておく。
+
+Weyl基底では$\mathcal D$の全成分が$\hbar$について偶であるから、
+$\mathcal D$は$B$上の行列へ降りる。
+$B_h=B\oplus\hbar B$は$B$上忠実平坦である。
+従って$r_m$次小行列式が生成するイデアルは$B$上でも単位イデアルであり、
+全ての$(r_m+1)$次小行列式は零である。
+補題\ref{lem:pg-det-divided-kernel}の行列操作を$B$上で行うと、
+active部分の核$L_B$は階数一の有限射影$B$-加群となる。
+$B$は多項式環の局所化なのでUFDであり、
+$\operatorname{Pic}(B)=0$である\cite[Tag~0BCH]{PStacks}。
+従って$L_B$の基底$\ell$を選べる。
+
+$Q(0)=1$より$B/(\tau)=B_0$である。
+古典Casimir核の計算から、$L_B/(\tau)$の基底は
+$f_{\mathrm{univ}}-f_{\mathrm{cent}}$である。
+実際、この切断は全ての滑らかな$f$で非零なので線束の基底となる。
+従ってある$b\in B_0^\times$について
+\begin{equation}
+ \ell\bmod\tau=b(f_{\mathrm{univ}}-f_{\mathrm{cent}}).
+ \label{eq:pg-det-global-generator-normalization}
+\end{equation}
+$b^{-1}$を$B$の単元とみて$\ell$を$b^{-1}\ell$へ換え、
+$\Omega_{\mathrm{univ}}=f_{\mathrm{cent}}+\ell$とすればよい。
+$\mathcal D\ell=0$は全交換子の消滅を意味し、
+$B$に属する係数は$\hbar$について偶である。
+\end{proof}
+
+\begin{example}[規格化の変更と中心三次イデアル]
+\label{ex:pg-det-distinct-normalized-ideals}
+$f=(x^3+y^3+z^3)/3+xyz+u^3$を取る。
+これは滑らかなHesse三次と$u^3$の和なので全三次超曲面は滑らかである。
+$S=x^3+y^3+z^3$、$T=\sym(xyz)$、$\tau=\hbar^2$とし、
+\begin{equation}
+ U=1+\frac{\tau}{2}+\frac{7\tau^2}{48},\qquad
+ W=1-\frac{5\tau}{6}+\frac{7\tau^2}{48},\qquad
+ U-W=\frac{4\tau}{3}
+ \label{eq:pg-det-hesse-transition-coefficients}
+\end{equation}
+とおく。定理\ref{thm:pg-universal-hesse-mixed}の$t=1$の式により、
+$US/3+WT+u^3$は中心元である。
+$U,W$が可逆な原点近傍で、
+\begin{equation}
+ \Omega_x=u^3+\frac S3+\frac WU T,\qquad
+ \Omega_T=u^3+\frac U{3W}S+T
+ \label{eq:pg-det-hesse-normalized-centers}
+\end{equation}
+も中心元となる。
+命題\ref{prop:pg-det-normalization-transition}の一意性により、
+これらはそれぞれ$x^3$の係数を$1/3$、$xyz$の係数を$1$に固定したCramer規格化である。
+両方の古典極限と純中心係数は同じだが、
+\begin{equation}
+ \Omega_T=\frac UW\Omega_x+
+ \left(1-\frac UW\right)u^3
+ \label{eq:pg-det-hesse-affine-transition}
+\end{equation}
+であり、その差は純中心項だけではない。
+通常のWeyl基底も有効な共通開へ縮めると、
+$\hbar\ne0$では、自然な周囲代数の同一視の下で
+$(\Omega_x)$と$(\Omega_T)$は異なるイデアルである。
+実際、両イデアルが一致すれば次数三部分を比較して
+$\Omega_T=b\Omega_x$となる。
+$u^3$係数より$b=1$だが、$S$の係数は$U/W\ne1$なので矛盾する。
+これは中心商の抽象的な代数同型の不存在を主張する例ではなく、
+affineな遷移だけでは同じ中心イデアルを得ないことを示す。
+\end{example}
+
+\begin{remark}[ブロックを保つ座標変換]
+\label{rem:pg-det-block-covariance}
+以下の比較は、双方の構成が定義される共通開部分上で行う。
+定理で選んだprincipal開そのものの座標変換に関する不変性は主張しない。
+$M\in\mathrm{GL}_3(\CC)$、$N\in\mathrm{GL}_m(\CC)$、
+$C\in\operatorname{Mat}_{3\times m}(\CC)$、$\lambda\in\CC^\times$に対し、
+\begin{equation}
+ \begin{aligned}
+ X&=Mx+Cu,\qquad U=Nu,\\
+ f'(X,U)&=\lambda^{-1}
+ f\bigl(M^{-1}(X-CN^{-1}U),N^{-1}U\bigr),\qquad
+ \hbar'=\lambda\det(M)\hbar
+ \end{aligned}
+ \label{eq:pg-det-block-coordinate-change}
+\end{equation}
+とおくと、代入は$A_{f',\hbar'}\simeq A_{f,\hbar}$を与える。
+中心変数は可換であり、Weyl対称化はこの線形代入と可換する。
+三重ベクトルの変換則から、代入を$\Phi$と書けば
+\begin{equation}
+ \Phi^{\oplus3}(\mathcal D_{f',\hbar'}p')
+ =\frac1{\lambda\det M}\,
+ M\mathcal D_{f,\hbar}(\Phi p')
+ \label{eq:pg-det-divided-matrix-covariance}
+\end{equation}
+となる。従って$\mathcal K$、純中心部分、およびその商線束はこの変換と両立する。
+Poisson係数を$\eta=\nu\hbar$と分けて記す場合は、
+$\nu'=\lambda\det(M)\nu$とすることで共通の変形変数$\hbar$を固定できる。
+一方、$f'$へ規格化した中心元を$\Omega'$とすると、
+$\lambda\Phi(\Omega')$と$f$へ規格化した$\Omega$の間に保証されるのは
+$\lambda\Phi(\Omega')=a\Omega+c$という遷移である。
+特に中心平行移動は純中心部分への射影$\rho$を保たないため、
+この代数の変換則から中心元の選択の同変性までを結論することはできない。
+\end{remark}
+
+\begin{remark}[係数空間上の存在とモジュライへの降下]
+\label{rem:pg-det-global-descent-scope}
+定理\ref{thm:pg-det-global-coefficient-lift}は、固定した変数分解の係数空間上で
+中心元を一括して選べることを示す。
+この底では商線束の非自明性を障害とする必要はない。
+しかし例\ref{ex:pg-det-distinct-normalized-ideals}の通り、
+別々に規格化した中心商が自然な周囲代数の同一視で貼り合わさるとは限らない。
+
+純中心部分との交わりが零で、商線束へ同型に写る中心三次直線を選ぶことは、
+完全列$0\to\mathcal C_m\to\mathcal K\to\mathcal L\to0$の分裂を選ぶことと同値である。
+その選択空間は$\mathcal Hom(\mathcal L,\mathcal C_m)$の作用するaffine束であり、
+中心三次イデアルの選択を記述する。
+モジュライへ降下するには、この選択を座標変換に関して同変にし、
+零切断で$\CC f$を選ぶ条件および遷移のcocycleと両立させる必要がある。
+複数ブロックでは、ブロック分解と純中心三次の配分の変化との両立も必要である。
+これらは本定理のfactorialな係数環上での基底選択とは別の条件であり、
+全Poissonモジュライへの大域量子化の降下はここでは主張しない。
+\end{remark}
+
 \begin{lemma}[中心三次式の配分による全ブロックの滑らか化]
 \label{lem:pg-central-splitting-smooth}
 $X=V(F)\subset\PP^{N-1}$が滑らかで、

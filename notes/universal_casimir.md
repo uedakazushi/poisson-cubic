@@ -1,6 +1,6 @@
 # 全Poisson構造の代数的中心三次元と一般次元量子化：現行研究ノート
 
-**2026-11-13 / v7（論文A-v52・論文B-v57、bundle nc-cubic-v83）。再開時はまず `00_research_plan.md` を読む。**
+**2026-11-13 / v8（論文A-v53・論文B-v57、bundle nc-cubic-v84）。再開時はまず `00_research_plan.md` を読む。**
 正本はGitHub `uedakazushi/nc-cubic` の `main`。
 現行公表原稿は `papers/paper_a.tex`（論文A）。
 主要証明の所在：
@@ -50,12 +50,16 @@ k次元Poisson線形族の全方向を一つの代数的族で量子化できる
 全特異制限に共通する低次数の短い\(\eta_s\)-多項式を
 示したわけではない。
 全Poissonモジュライへの同変な大域量子化は未構成である。
+ただし、固定したactive・中心変数の分解では、
+全滑らかな三次式の係数空間と変形直線の積の中で、
+零切断全体を含む一つの開集合上に中心元を同時に選べる。
+これは係数と無関係な一つのh開集合を得る主張ではない。
 一変数一般点での全coherent残余圏の可換復元は論文B-v57が扱い、
 有限体拡大後の同値を証明している。
 全閉パラメータでのqgrの滑らかさや、可換特殊点を含む相対残余圏の比較は
 この一般点の結果とは別の問題である（§7参照）。
 
-## 2. 代数的証明の4段階と依存関係
+## 2. 代数的中心元と係数空間上の選択
 
 ### (I) 滑らかな全体三次式のactive偏微分は互いに素
 
@@ -139,6 +143,78 @@ IIから特殊化は正確にf。
 反自己同型によって各係数は\(\hbar^2\)の有理関数。
 分母は原点で非零なので\(\hbar=0\)を含むZariski開で
 **代数的中心元**となる（thm:pg-universal-determinant）。
+
+### (V) 定階数核・全係数空間・規格化の遷移
+
+`lem:pg-det-divided-kernel` で、零切断全体を含むrank=r_mの開上に
+\[
+ \mathcal K=\ker\mathcal D,\qquad
+ \mathcal C_m=\mathbb C[u]_3\otimes\mathcal O,\qquad
+ \mathcal L=\ker(\mathcal D|_{\text{active部分}})
+\]
+を取り、\(\mathcal K=\mathcal C_m\oplus\mathcal L\)、rank \(\mathcal L=1\) を得る。
+可逆小行列による局所分裂により、非被約な底を含む任意の底変更と両立する。
+一方、通常の中心は
+\[
+ Z(\mathcal A_T)_3=\ker(h_T\mathcal D_T),\qquad
+ Z(\mathcal A_T)_3/\mathcal K_T
+ \simeq\operatorname{Ann}(h_T)\otimes\operatorname{im}\mathcal D_T
+\]
+であり、\(h_T=0\) では次数三全体へ増える
+（`rem:pg-det-center-base-change`）。
+
+係数環 \(B_0=\mathbb C[\boldsymbol c,\Delta^{-1}]\) で、
+悪い閉集合のイデアルIと(h)は単位イデアルを生成する。
+従って \(p\in I,\ p(0)=1\) を選び、
+\(p(h)p(-h)=Q(h^2)\) による一つの偶principal開へ縮められる。
+Weyl表示の割った交換子行列は偶なので
+\[
+ B=B_0[\tau,Q(\tau)^{-1}],\qquad \tau=h^2
+\]
+へ降りる。\(B[h]/(h^2-\tau)\) はB上忠実平坦であり、定階数条件も降りる。
+BはUFDなのでPic(B)=0。Lの大域基底を選び、
+法τでの \(f-f_{\mathrm{cent}}\) との単元比を \(B_0^\times\) で補正すると、
+\(\Omega_{\mathrm{univ}}\bmod h=f\) を全係数で同時に課せる。
+詳細は `thm:pg-det-global-coefficient-lift`。
+引用は [Stacks, Tag 0BCH](https://stacks.math.columbia.edu/tag/0BCH)。
+固定係数空間での商線束の非自明性は、この構成の障害ではない。
+
+固定単項式の係数と純中心係数を指定したCramer中心元は一意で、
+行のminor選択には依存しない。
+単項式規格化を変えると
+\[
+ \Omega_j=a_{ij}\Omega_i+(1-a_{ij})f_{\mathrm{cent}}
+\]
+というaffine遷移となる。同じ古典極限が保証するのは
+\(a_{ij}|_{h=0}=1\) であり、\(a_{ij}=1\) ではない
+（`prop:pg-det-normalization-transition`）。
+
+実例は \(f=(x^3+y^3+z^3)/3+xyz+u^3\) である。
+S=x³+y³+z³、T=sym(xyz)、τ=h²とすると、
+\[
+ U=1+\tau/2+7\tau^2/48,\quad
+ W=1-5\tau/6+7\tau^2/48,\quad U-W=4\tau/3,
+\]
+\[
+ \Omega_x=u^3+S/3+(W/U)T,\qquad
+ \Omega_T=u^3+(U/(3W))S+T
+\]
+で、\(\Omega_T=(U/W)\Omega_x+(1-U/W)u^3\) となる。
+共通開のh≠0で二つの中心イデアルは自然なambientの同一視の下では異なる。
+これは抽象的な商代数の非同型を意味しない
+（`ex:pg-det-distinct-normalized-ideals`）。
+
+座標変換 \(X=Mx+Cu,\ U=Nu\) と
+\(f'=\lambda^{-1}f\circ\Phi\) に対しては
+\(h'=\lambda\det(M)h\) が代数を同一視する。
+K、純中心部分、商線束も共通定義開で変換と両立するが、
+中心平行移動は純中心部分への射影を保たない。
+中心三次直線を選ぶことは完全列
+\(0\to\mathcal C_m\to\mathcal K\to\mathcal L\to0\) の分裂を選ぶことで、
+選択の空間は \(\mathcal Hom(\mathcal L,\mathcal C_m)\) のaffine束となる。
+全モジュライへの降下には、座標変換・中心三次配分に同変な分裂、
+零切断での \(\mathbb C f\) との一致、およびcocycle条件が必要である。
+その存在は未解決である（`rem:pg-det-global-descent-scope`）。
 
 ## 3. 複数ブロックに対する中心三次の配分
 
@@ -284,7 +360,7 @@ GL3のHesse変換と中心平行移動は
 （共通中心を持つ2ブロックのHesse中心式を合成）がある。
 これら二本は今回の監査では再実行しておらず、一般次元定理の形式検証でもない。
 
-## 7. A-v52の監査・再現手順と先行研究
+## 7. 証明監査・再現手順と先行研究
 
 ### 証明監査と計算検証の範囲
 
@@ -295,11 +371,15 @@ PBWの族への拡張、Koszul AS-regular中央一次元拡大、
 中心元の左右正則性も証明を追って確認した。
 定階数から底上局所自由性を得る議論、Hesse座標の同時選択を必要としない
 稠密性の使い方、Bertiniのアフィンchartへの移行は原稿で明確化している。
+全零切断を含む偶principal開、τへの下降、Picard群消滅、
+大域基底の単元補正、Ann(h)による通常の中心との差、
+規格化遷移・イデアル不一致例・座標変換も独立に読み直して確認した。
 これは数学的な証明監査であり、定理全体の形式証明器による検証ではない。
 正規形・Lie代数・退化幾何等を含むA全体の監査は
 `notes/poisson_article_submission_audit.md`を参照する。
 
-以下は2026-11-13に**現行スクリプトを直接実行した状態**である。
+以下は2026-11-13のA-v52監査で現行スクリプトを直接実行した結果である。
+本改訂ではコードと証明書のハッシュ一致を確認して保持し、これらの重い計算は再実行していない。
 コマンドはリポジトリのルートで実行し、Python 3とSymPyを用いる。
 
 | コマンド | 最終状態 | 検証の内容と限界 |
@@ -314,19 +394,12 @@ PBWの族への拡張、Koszul AS-regular中央一次元拡大、
 `computations/nonelliptic_quantization_certificate.json`の一致を確認した。
 公開本文の還元式、中心三次元、重なりの正規形、Fermat恒等式も実装と照合している。
 
-実行対象のSHA256：
-
-```text
-83ee2cef8ab984b2bb92bfef9f1947b5f58a1ca1bbd0adf466c3af8dca736229  computations/verify_universal_hesse_mixed_center.py
-d7faf1134403d3e99a569af9e64c399cc4703200b58cfa33e6faba72b7a850e2  computations/verify_cubic_casimir_jet.py
-703d8951c3dff91c2bc3cc3dada11c32056f6f070e297cfc1e305b234c170c5b  computations/verify_singular_cubic_classical_kernel.py
-b0c00fa02004e778c516d5e93e7c7ecf9d103dbce607897a10fdbe271d2b5966  computations/verify_nonelliptic_quantization.py
-```
+実行対象と証明書のSHA-256は `validation_paper_a.json` に集約する。
 
 重い記号計算は一本ずつ実行する。
 LuaLaTeXによる再生成コマンドは`latexmk papers/paper_a.tex`で、
 PDFと中間生成物は`build/`へ出力される。
-**A-v52全体の組版・参照検査・PDF確認および計算の最終実施状態は、
+**A-v53全体の組版・参照検査・PDF確認および計算の最終実施状態は、
 リポジトリルートの[`validation_paper_a.json`](../validation_paper_a.json)を参照する。**
 本文の証明監査、計算の実行、PDFの確認、配布物の生成・保存は別の状態として扱う。
 
@@ -389,8 +462,9 @@ Proposition 1では、先頭項が至る所非零の形式的最高次形式
 
 優先する未解決問題は次の通りである。
 
-1. Cramer中心元のチャートを越えた正準化・同変接着と、相対Poissonモジュライ上の大域量子化。
-   まず二つの非零小行列式の共通開上で、規格化の違いと中心元の差を比較する。
+1. 中心直線の同変選択と、相対Poissonモジュライ上の大域量子化。
+   固定係数空間の存在と局所affine遷移は解決済みであり、
+   次は上記の分裂affine束への中心平行移動・ブロック配分の作用とcocycleを計算する。
 2. 特異・零の三変数制限に対する短い普遍多項式表示の存在。
    Cramer式の分母と特異型ごとの有限関係式を調べ、単なる可逆な中心元の再規格化で除去できる分母を区別する。
 3. 全閉パラメータにおけるqgrの滑らかさ、可換特殊点を含む一変数・多変数底全体での相対残余圏の比較。

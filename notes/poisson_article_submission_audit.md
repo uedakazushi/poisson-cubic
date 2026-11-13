@@ -1,6 +1,6 @@
 # 論文Aの公表準備：主張・依存・検証の範囲
 
-**2026-11-13 / A-v52・nc-cubic-v83。** 再開時は `00_research_plan.md` を先に読む。
+**2026-11-13 / A-v53・nc-cubic-v84。** 再開時は `00_research_plan.md` を先に読む。
 本文は `papers/paper_a.tex`、専用文献は `papers/support/papers/references_poisson_cubic.tex`。
 以下の節ファイルはすべて `papers/support/papers/sections/` にある。
 計算・組版・入力ハッシュの実行記録はルートの `validation_paper_a.json` に集約する。
@@ -9,6 +9,8 @@
 
 中心結果は、滑らかな三次超曲面上の全Poisson構造のJacobianブロック正規形、
 全次元でのBondalの下界、全Poisson構造の代数的量子化、Fermatと相対Poissonモジュライの成分数である。
+具体的な四次元の帰結として、一般階数四の構造の分離型分類と純楕円退化因子を扱う。
+中心元は固定した変数分解の全滑らかな係数空間上でも同時選択できるが、同変なモジュライ降下とは区別する。
 ambientの二次包絡、偏極付き圏からの復元、三次三様体の条件付き導来復元を同じ原稿に収める。
 要約・序論はこの依存順に整理し、Fermatのspace・固定stack・相対stackの三種類の成分数を区別する。
 表示式には数値の式番号を付ける。
@@ -21,21 +23,24 @@ Aの一般定理の証明を移管先へのリンクで代用していない。
 
 ## 主張の確実性と証明の所在
 
-今回、次の証明連鎖を本文と外部入力の適用条件に沿って再点検した。
+次の証明連鎖を本文と外部入力の適用条件に沿って点検している。
 「点検」は独立な数学的読み直しを意味し、Lean等の形式検証や外部査読を意味しない。
 主定理の記載済み証明、有限計算、初出の確認は区別する。
 
 | 主張・所在 | 有効な仮定と結論 | 今回確認した範囲 |
 | --- | --- | --- |
+| `lem:ci-low-twist-vanishing`、`complete_intersections.tex` | 滑らかな完全交叉、n>=2、1<=p<=n-1、t<=pならH⁰(Ω^p(t))=0 | Koszulによる線束消滅、穿孔錐のconormal外積分解、水平形式とCartan公式による独立証明。既知結果である |
 | `prop:pg-represent`、`prop:pg-jacobi-extension`、`lem:pg-linearize`、`poisson_geometry.tex` | n>=3、Xが滑らかな三次。Poisson表示、Jacobi条件とHessian線形条件の対応 | Euler/Koszul、divergenceの係数、Hessianとの符号を追跡 |
 | `lem:pg-quadratic-lie`、`thm:pg-normal` | 全非零Poisson構造が三変数Jacobianブロックへ分解 | 非退化形式の同時選択、可解根基、最高ウェイト、rank>=2単純因子の排除、混合項の消去 |
 | `lem:pg-projective-rank`、`thm:pg-bondal`、`bondal_cubic.tex` | 全2j<nについてdim D_(2j)>=2j+1 | joinの次元、Euler線によるrank低下、ブロック数の端のケース |
 | `prop:pg-deg-ideal`、`lem:pg-critical-cover`、`prop:pg-deg-support`、`prop:pg-zero-ci` | 一般退化イデアルは全正規形。critical coverと零点完全交叉には各純active三次の滑らかさが必要 | 正規形に基づく式と仮定の使い分け |
+| `prop:pg-split-elliptic`、`cor:pg-cubic-fourfold-elliptic` | 滑らかな三次四様体の一般階数四の構造は全て分離型で純楕円log symplectic | 具体例の滑らかさ、正規なjoin、Pfaffian、被約Poisson零点、modular場、正規形からの分類。Pym v1の非連結持上げ障害も独立に確認 |
 | `thm:pg-universal-determinant`、`universal_casimir_determinant.tex` | 全体三次fが滑らかなら、active制限が特異・零でも、原点近傍に代数的中心三次元 | gcd、古典核、普遍行列、局所自由性、稠密Hesse開、Cramer規格化、偶性 |
+| `lem:pg-det-divided-kernel`、`prop:pg-det-normalization-transition`、`thm:pg-det-global-coefficient-lift` | 固定変数分解の全係数空間×h内で、全零切断を含む開上の偶な中心元。遷移はΩ'=aΩ+c | 任意底変更、通常の中心との差、偶principal開、忠実平坦下降、UFD/Pic=0、単元補正、Hesseのイデアル不一致、covarianceを独立に再点検 |
 | `thm:pg-quantization`、`thm:pg-ad-all-poisson` | 全Poisson構造について原点を含むZariski開上のAS-regular ambientと中心正則三次商 | 中心三次配分、PBW、Koszul tensor、中心元の正則性、AS-Gorenstein change of rings |
 | `thm:pg-all-dimensions`、`cor:pg-ad-whole-pencil`、`prop:pg-ad-intrinsic-hessian` | 各純active三次が滑らかな場合は独立多変数底と短い多項式中心公式 | 係数環上の自由性、全パラメータでの多項式中心性、交差補正がないこと |
 | `thm:pg-fermat-relative-count`、`fermat_relative_poisson_components.tex` | Fermat固定space、固定stack、全cubic相対stackの位相的既約成分 | Hessianによるブロック復元、有限群軌道、被約rank層、同時スカラー作用、閉包の非包含 |
-| `ne:main`、`nonelliptic_poisson_components.tex` | 二つの固定された滑らかなcubic fivefoldに2次元の非楕円Poisson成分 | 整数証明書と直接Schouten線形化を再実行、接空間から成分性への議論 |
+| `ne:main`、`nonelliptic_poisson_components.tex` | 二つの固定された滑らかなcubic fivefoldに2次元の非楕円Poisson成分 | 現行コードによる整数証明書・直接Schouten線形化の検証結果、接空間から成分性への議論 |
 | `thm:pg-ambient-recovery-general`、`thm:pg-ambient-recovery-polarized`、`ambient_recovery_general.tex` | 二次包絡と三次核。圏からの復元には本文のnoetherian・AS-Gorenstein条件 | 低次数積、section algebra、飽和のExt消滅 |
 | `prop:pg-ambient-even`、`cor:pg-ambient-derived-threefold` | C上、二変数中心、中心上自由性、左右noetherian性、所定のSerre関手を仮定 | conicからの中心復元、局所化と交叉、次数の再設定、必要仮定の明示 |
 
@@ -81,10 +86,33 @@ $K(P)$ の基点自由性からVとsupport Wの両方に非退化なBを取る�
 可解根基の作用が既約加群上スカラーとなるだけでは零とはいえず、$W=[W,W]$ によるtrace零性を併用する。
 最高根が単純根ではないことは、隣接単純根のroot stringを使って正当化する。
 
+半単純性を得た後の二次形式の核はDerdzinski--Gal Theorem Bの直接の帰結でもある。
+本稿の追加の還元は、Hessianの基点自由性から可解根基を排除する段階である。
+Cartan三形式によるブロックの復元も同論文Lemma 7.1(a)で述べられるが、
+公開PDFの補助主張(e)の最小像の説明にはsl₂⊕sl₂の混合rank 1+2による反例がある。
+これはLemma 7.1(a)の結論への反例ではなく、本稿は`ne:blocks`の独立証明を用いる。
+詳細と一次資料の所在は `notes/bondal_cubic.md` に整理する。
+
 rank 2rの二重ベクトルを一次元Lで割ったときのrankは、
 $L\subset\operatorname{im}b$ なら2r-2、それ以外なら2rである。
 この線形代数補題を明示して、join上でEuler線が像に入ることとBondalのrank評価を結ぶ。
 本文の一般証明と一具体例の外積計算は別である。詳細は `notes/bondal_cubic.md`。
+
+### 分離型三次四様体と非連結曲線の持上げ
+
+F=f(x)+g(y)ではD=V(f,g)が正規な(3,3)完全交叉で、
+特異集合は互いに素な楕円曲線E_f、E_gとなる。
+E_f近傍でπ=A∂w∧E_v+q_g、(1/2)π²=3Agν⁻¹、
+modular場はE_f上で−3A∂w≠0である。
+Poisson零点スキームは被約だが、Dの特異スキームは各曲線の横断方向に長さ8を持つ。
+Pym arXiv:1507.05668v1 Definition 4.2の全条件を満たす。
+
+同版Theorem 1.3のcubic非存在、Proposition 5.7の非正規性とは両立しない。
+Lemma 5.5の証明が使うH¹(I_C)=0はC=E_f⊔E_gでは誤りで、H¹(I_C)=H¹(I_C²)=Cとなる。
+g|_Xのambient liftはλf+(1+λ)gで、E_fでの三重消滅はλ=0、E_gではλ=−1を要求する。
+比較対象はこのv1に限定する。刊行版の書誌とOxford accepted manuscript登録は確認したが、
+刊行本文・accepted本文は取得できず、訂正状況の確定も未了である。
+独立な反例証明と一般階数四の分類は本文に保持し、未取得資料の内容を推測しない。
 
 ## 代数的中心元の証明の依存
 
@@ -97,10 +125,13 @@ $L\subset\operatorname{im}b$ なら2r-2、それ以外なら2rである。
    その後fを動かして普遍恒等式とする。Hesse座標の代数的な同時選択は仮定しない。
 4. `thm:pg-universal-determinant`：古典rankの非零小行列を局所化し、Cramer法で $\Omega_0=f$ を規格化する。
    語の反転と $h\mapsto-h$ により係数は $h^2$ の有理関数となり、分母は原点で消えない。
-5. `lem:pg-central-splitting-smooth`：純中心三次を各ブロックへ配分する。
+5. `thm:pg-det-global-coefficient-lift`：固定した全係数空間の零切断全体を含む偶principal開へ縮める。
+   割った交換子行列をτ=h²へ降ろし、factorial係数環のPic=0と特殊化の単元補正で全係数に正則な中心元を得る。
+   規格化変更のaffine遷移は同じ中心イデアルを保証しない。実例と同変降下の条件は `notes/universal_casimir.md`。
+6. `lem:pg-central-splitting-smooth`：純中心三次を各ブロックへ配分する。
    $u=0$ は全体Xの滑らかさ、$u\ne0$ は基点自由な線形系のBertiniを用いる。
    射影線形系のうち元のブロックの係数が非零のchartで係数を1に規格化し、必要なアフィン配分空間に戻る。
-6. `thm:pg-quantization`、`thm:pg-ad-all-poisson`：各中心元の和、共有中心上のPBW/Koszul性、
+7. `thm:pg-quantization`、`thm:pg-ad-all-poisson`：各中心元の和、共有中心上のPBW/Koszul性、
    一つのactive blockのfiltrationによる正則性から、全Poisson構造と固定正規形のpencilを量子化する。
    非可換domainのtensor積が常にdomainである、という一般には誤る命題は使わない。
 
@@ -115,6 +146,9 @@ $L\subset\operatorname{im}b$ なら2r-2、それ以外なら2rである。
 
 | 文献 | 確認した所在・適用範囲 | 本稿との関係 |
 | --- | --- | --- |
+| Bondal, MPIM 93-67 (1993) | §4、印刷pp.11–12の無番号Lemma/Theorem | 射影Poissonの一意な斉次divergence-free持上げは既知。本稿はcubic上のJacobiatorの延長へ適用 |
+| Derdzinski–Gal, DOI 10.1007/s12188-013-0085-z、arXiv:1304.2801 | 著者PDF (1.4) p.2、Theorem B p.3・§5、Lemma 7.1(a) p.10 | 式の符号・係数まで同じ核計算。半単純性への還元は別。ブロック復元は本稿の独立証明を使用 |
+| Pym, DOI 10.1112/S0010437X16008174、arXiv:1507.05668v1 | 確認したv1 Definition 4.2、Theorem 1.3、Lemma 5.5、Prop.5.7 | 分離型例との不整合と非連結曲線の持上げ障害。刊行版本文・訂正状況は未確認 |
 | Loray--Pereira--Touzet, arXiv:1112.3871v3 | Theorems 7.1, 9.1 | 三次三様体の分類は既知。本稿は高次元の複数Jacobianブロックを扱う |
 | Mayanskiy, arXiv:1303.5916 | Theorem 1 | GrassmannスキームのJacobi方程式による記述とPoisson cohomology |
 | Gualtieri--Pym, DOI 10.1112/plms/pds090 | Theorem 7.13 | Fano四次元のBondal予想は既知 |
@@ -128,22 +162,28 @@ $L\subset\operatorname{im}b$ なら2r-2、それ以外なら2rである。
 | Etingof--Ginzburg, arXiv:0709.3593v4 | Prop.8.1.1(i)、§8.3 | potentialのrankと特殊化の既知手法。本稿の規格化された有限Cramer構成と比較 |
 | Dolgushev, Selecta Math. 14 (2009), 199--228, DOI 10.1007/s00029-008-0062-z | 本文確認はarXiv:math/0612288v3 Prop.1 p.9、Thm.3 pp.15--16 | 条件は全形式Poisson classのunimodularity。本稿の代数化の証明には用いない |
 | Fu--Hwang, arXiv:1608.00846v2 | Lemma 4.1 p.13：完全交叉Zで1<=r<=dim Z-1、p<=rならH^0(Ω_Z^r(p))=0 | Brückmann型消滅の明示的定理文と適用条件を確認 |
-| SGA 2 XII Cor.3.7、Stacks Tag 06FI、Artin--Zhang | Picard群、商stack、section algebra | モジュライ・偏極付き復元の既知の一般原理 |
+| SGA 2 XII Cor.3.7、Stacks Tags 06FI/0BCH、Artin--Zhang | Picard群、商stack、UFDのPic=0、section algebra | モジュライ・係数空間上の中心元・偏極付き復元の既知の一般原理 |
 
 文献URL・DOIと現在の引用キーは専用参考文献にある。
 Brückmannの1976年論文はMath. Nachr.71,203--210、DOI 10.1002/mana.19760710116で書誌を確認した。
 1977年続編はFu--Hwangの書誌でMath. Nachr.77,307--318。
 **原証明（1976年Satz 3、1977年Satz 6）は未取得であり、読了と報告しない。**
+必要な低twist範囲には本文`lem:ci-low-twist-vanishing`で独立証明を与えたので、
+現行の完全交叉の存在判定は未取得の原証明に依存しない。
 高次元の正規形・Bondalのjoin証明・相対成分数・量子化の包括的結論と同一の先行定理は調査範囲で確認できていないが、初出は未確定である。
 刊行書誌を確認したことと、その刊行版の定理番号・証明全文を再照合したことも区別する。
 
 ## 実行済みの厳密計算と限界
 
-以下は現行のスクリプトを作業環境で実行した結果であり、GitHub Actionsによる実行ではない。
+以下は現行スクリプトの作業環境での実行状態であり、GitHub Actionsによる実行ではない。
+新しい分離型四様体の検算を本改訂で実行した。
+既存七本はA-v52監査時のPASSを、スクリプトと証明書のハッシュ一致を確認して保持し、
+本改訂での再実行とは区別する。
 スクリプトハッシュと最終状態は `validation_paper_a.json`。
 
 | スクリプト（computations/） | 結果と範囲 |
 | --- | --- |
+| `verify_split_cubic_fourfold.py` | 分離型Fermat例のambient 20 Jacobi成分とCasimir、射影10括弧・10 Jacobi・接性、暗黙消去後の4 Jacobi、Pfaffian、modular場の二通りの計算がPASS |
 | `verify_poisson_article_A.py` | 滑らかな一具体例、56 Jacobi成分と56 Euler外積成分が厳密に零 |
 | `verify_nonelliptic_components.py --direct` | nodal/cuspidal両例でHessian線形化と直接Schouten線形化のrank 33。保存した整数小行列証明書を照合 |
 | `verify_poisson_stack_component_counts.py` | n=3,...,10の三種類の成分数、全8行一致 |
@@ -168,6 +208,7 @@ cuspidal: $-4565043429507072=-2^{33}3^{12}$。
 python3 scripts/check_layout.py
 python3 scripts/build.py --only paper_a
 python3 scripts/verify_bundle.py --only paper_a --require-pdfs
+python3 computations/verify_split_cubic_fourfold.py
 python3 computations/verify_poisson_article_A.py
 python3 computations/verify_nonelliptic_components.py --direct
 python3 computations/verify_poisson_stack_component_counts.py
@@ -180,7 +221,9 @@ python3 computations/verify_nonelliptic_quantization.py
 大きな記号行列のスクリプトは一つずつ実行する。
 組版の成功、PDF表示の確認、数学的証明の監査、遠隔保存は別々に記録する。
 
-優先課題は、Brückmann原証明の入手、先行研究の初出照合、Cramer中心のチャート間変換である。
+優先課題は、Pym刊行本文・訂正状況の照合、包括的な結果の初出照合、
+中心直線の分裂affine束への座標変換作用と同変な降下条件である。
+Brückmann原証明の入手は帰属の補充として残るが、本文の消滅証明の未解決箇所ではない。
 相対残余圏と全閉パラメータの滑らかさは独立の研究課題として扱い、原稿Aの確立した結果の仮定へ曖昧に混ぜない。
 公表価値は主要結果の正確さと既知結果との差から判断し、形式検証・外部査読・初出確定が済んだとは断定しない。
 

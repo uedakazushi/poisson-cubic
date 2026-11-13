@@ -90,6 +90,9 @@ S_2\otimes\bigwedge^2V\xrightarrow{\iota_{dF}}S_4\otimes V
 \end{proof}
 
 \subsection{Jacobi 恒等式の延長}
+射影空間上のPoisson構造の一意な斉次divergence-free持上げと、
+Euler外積・divergenceの恒等式はBondal\cite[\S4, pp.~11--12]{PBondal93}による。
+以下では同じ機構を、三次超曲面上で零となるJacobiatorに適用する。
 \begin{proposition}\label{prop:pg-jacobi-extension}
 $q=\iota_{dF}P$ の $X$ 上の射影化が Poisson ならば $[q,q]=0$ である。
 従って射影空間上の一意な延長も Poisson である。
@@ -212,6 +215,14 @@ $w=\lambda(h_\alpha)^{-1}[f_\alpha,v]\in I$ とおくと
 \eqref{eq:pg-lie-H}に $(a,b,c,d)=(h_\alpha,v,e_\alpha,w)$ を代入すると
 $\lambda(h_\alpha)H(v,v)=0$ が全 $H$ に対して成立する。
 これは基点自由性に反する。従って $W$ は半単純である。
+
+この半単純な場合、\eqref{eq:pg-lie-H}はDerdzinski--Gal
+\cite[(1.4), Theorem~B]{PDerdzinskiGal}の作用素$\Lambda$の核を定める式である。
+同定理によれば、$\mathfrak{sl}_2$以外の複素単純因子上では
+この核はKilling形式の一次元空間である。
+従ってその等方ベクトルは全$H$の基点となり、
+すべての単純因子が$\mathfrak{sl}_2$であることが従う。
+以下に、この帰結の短い根分解による証明も記す。
 
 階数二以上の単純因子があるとする。
 その最高根 $\theta$ は単純根ではない。
@@ -630,6 +641,192 @@ $X$ の滑らかさも非空開条件である。
 正次元の射影完全交叉の Koszul resolution と線束の中間コホモロジー消滅から $H^0(\OO)=\CC$。
 よって連結であり、滑らかならば既約である。
 \end{proof}
+
+\subsection{三次四様体の純楕円退化因子}
+\label{subsec:pg-split-elliptic}
+四次元の場合には、正規形から一般点で非退化な構造を完全に記述できる。
+まず、正規形定理に依存しない具体的な構成を与える。
+
+\begin{proposition}[分離型三次四様体の対数symplectic構造]
+\label{prop:pg-split-elliptic}
+$f\in\CC[x_0,x_1,x_2]_3$と$g\in\CC[y_0,y_1,y_2]_3$が
+滑らかな平面三次曲線を定めるとし、
+\begin{equation}
+ \begin{aligned}
+ X&=V(f+g)\subset\PP^5,\\
+ E_f&=V(f,y_0,y_1,y_2),\qquad
+ E_g=V(x_0,x_1,x_2,g)
+ \end{aligned}
+ \label{eq:pg-split-fourfold}
+\end{equation}
+とおく。$X$は滑らかであり、
+二つのJacobian双ベクトル
+$q_f=\iota_{df}(\partial_{x_0}\wedge\partial_{x_1}\wedge\partial_{x_2})$、
+$q_g=\iota_{dg}(\partial_{y_0}\wedge\partial_{y_1}\wedge\partial_{y_2})$
+の和は、$X$上の一般階数四のPoisson構造$\pi$へ降りる。
+その退化因子は
+\begin{equation}
+ D=V(f,g)=\operatorname{Join}(E_f,E_g)\subset X,
+ \qquad
+ (\operatorname{Sing}D)_{\mathrm{red}}=E_f\sqcup E_g
+ \label{eq:pg-split-elliptic-divisor}
+\end{equation}
+である。$D$は被約・既約・正規な反標準因子であり、
+各楕円曲線に沿って重複度三を持つ。
+Poisson零点スキームは被約な$E_f\sqcup E_g$で、
+各点でmodularベクトル場が零でない。
+従ってこの構造はPym\cite[Definition~4.2]{PPymElliptic}の意味で
+\emph{purely elliptic log symplectic}である。
+\end{proposition}
+\begin{proof}
+$f$と$g$の勾配はそれぞれ原点以外では同時に零とならないので、
+$f+g$の全偏微分の共通零点は原点だけであり、$X$は滑らかである。
+各Jacobian括弧はPoissonであり、変数が分離しているため互いに可換する。
+$f+g$はそのCasimirで、係数次数が二なのでEuler作用に関する重みは零である。
+従って$q_f+q_g$は$X$上へ降りる。
+
+$V(f,g)$のアフィン錐は二つの既約な平面三次錐の積である。
+従って$D$は既約被約な型$(3,3)$の完全交叉であり、Cohen--Macaulayである。
+$x,y$がともに非零の点では$(df,dg)$の階数は二である。
+$x=0$または$y=0$でのみ階数が一となるので、
+特異集合の被約構造は$E_f\sqcup E_g$であり、$D$内で余次元二である。
+Serreの$R_1$と$S_2$により$D$は正規である。
+
+$E_f$の任意の点の近傍で局所形を計算する。
+$x$側に行列式一の線形座標変換を行って
+$x_0\ne0$、$f_{x_2}\ne0$とできる。
+$x_0=1$のチャートで
+$w=x_1/x_0$、$b=x_2/x_0$、$v_i=y_i/x_0$とおき、
+$f(1,w,b)+g(v)=0$から$b=b(w,v)$を局所的に解く。
+$A=f_{x_2}(1,w,b(w,v))$は単元である。
+次数零の関数の括弧を直接計算すると
+\begin{equation}
+ \begin{aligned}
+ \{w,v_i\}&=A v_i,&
+ \{v_0,v_1\}&=g_{v_2},&
+ \{v_1,v_2\}&=g_{v_0},&
+ \{v_2,v_0\}&=g_{v_1},\\
+ \pi&=A\,\partial_w\wedge E_v+q_g(v),&
+ E_v&=\sum_{i=0}^2v_i\partial_{v_i}
+ \end{aligned}
+ \label{eq:pg-split-local-poisson}
+\end{equation}
+となる。$\nu=dw\wedge dv_0\wedge dv_1\wedge dv_2$とすれば、
+Euler等式$\sum_i v_i g_{v_i}=3g$から
+\begin{equation}
+ \frac12\pi^{\wedge2}=3A g(v)\,\nu^{-1}
+ \label{eq:pg-split-pfaffian}
+\end{equation}
+を得る。$E_g$では役割を交換した同じ計算を用いる。
+$x,y\ne0$では射影化の階数計算
+（補題\ref{lem:pg-projective-rank}）により、
+階数が四から二へ下がる条件は$f=g=0$である。
+したがって$D$が退化因子全体であり、
+\eqref{eq:pg-split-pfaffian}からその重複度は一である。
+随伴公式は$K_X^{-1}\simeq\OO_X(3)$を与え、
+$D$はその切断$g|_X$の零因子である。
+
+$D$の局所方程式は$g(v)=0$なので、
+$E_f=(v_0,v_1,v_2)$に沿う重複度は三である。
+四次元の歪行列の逆行列公式から$\omega=\pi^{-1}$の極は高々単純であり、
+Jacobi恒等式により$d\omega=0$である。
+また最高外積は$K_X(D)$の消えない切断を与えるので、
+$\omega$は対数symplectic形式である。
+
+$A$が単元なので\eqref{eq:pg-split-local-poisson}の成分が生成する
+零点イデアルは$(v_0,v_1,v_2)$であり、Poisson零点スキームはここで被約である。
+縮約の規約を
+$\iota_\alpha(U\wedge V)=\alpha(U)V-\alpha(V)U$とする。
+$\nu$に対するmodularベクトル場$Z_\nu=\delta_\nu\pi$は
+\begin{equation}
+ Z_\nu=\frac{\iota_{d(Ag)}\pi}{Ag}
+       =\iota_{d\log A}\pi-3A\,\partial_w,
+ \qquad
+ Z_\nu|_{E_f}=-3A(w,0)\partial_w\ne0.
+ \label{eq:pg-split-modular}
+\end{equation}
+例えば第一の等式は各成分の微分から直接得られる。
+$A$の$v$依存は$b(w,v)$を介し、
+$d_vb=-d_vg/A$なので、$q_g$と$d_vA$の縮約は零である。
+体積形式の変更はmodularベクトル場にHamilton場を加えるだけで、
+$\pi=0$の点での値は変わらない。
+$E_g$上でも同様に零でない。
+各特異点を通るsymplectic leafは点で$X$内の余次元が四であり、
+$D$の正規性と上記の非消滅からpurely ellipticの全条件が従う。
+\end{proof}
+
+\begin{remark}[二つの特異スキーム]
+\label{rem:pg-split-singular-schemes}
+被約なPoisson零点スキームと、退化因子の特異スキームは異なる。
+後者は$E_f$近傍では$(g_{v_0},g_{v_1},g_{v_2})$で定まり、
+横断方向の長さは$2^3=8$である。$E_g$でも同じである。
+これは滑らかな平面三次の三つの二次偏微分が正則列をなすことによる。
+Fermatの具体例について、Jacobi、Casimir、局所Pfaffianおよび
+modular場の上の符号は
+\path{computations/verify_split_cubic_fourfold.py}で厳密に検算できる。
+一般の$f,g$についての証明は前命題の局所計算である。
+\end{remark}
+
+\begin{corollary}[一般階数四の三次四様体の分類]
+\label{cor:pg-cubic-fourfold-elliptic}
+滑らかな三次四様体が一般階数四の正則Poisson構造を持つための
+必要十分条件は、射影座標を選んで
+$F=f(x_0,x_1,x_2)+g(y_0,y_1,y_2)$と書けることである。
+ここで$f,g$はいずれも滑らかな平面三次を定める。
+一般階数四の全ての構造は、適当なこの表示で前命題の形となり、
+purely elliptic log symplecticである。
+\end{corollary}
+\begin{proof}
+正規形定理\ref{thm:pg-normal}で$N=6$、$2k=4$とすると、
+$k=2$、$m=0$であり、$F=f+g$となる。
+一方の平面三次に特異点があれば、他方の座標を零とすることで
+$X$の特異点が得られるため、両方とも滑らかである。
+逆向きと最後の主張は命題\ref{prop:pg-split-elliptic}による。
+\end{proof}
+
+\begin{remark}[非連結な曲線に沿う三重消滅の持上げ]
+\label{rem:pg-split-elliptic-lift-obstruction}
+命題\ref{prop:pg-split-elliptic}は、
+Pym\cite[arXiv v1, Theorem~1.3, Proposition~5.7]{PPymElliptic}の
+三次四様体に関する非存在・非正規性の記述と両立しない。
+問題となる持上げを、この例で具体的に確認できる。
+$D$を定める切断$g|_X\in H^0(X,\OO_X(3))$の周囲の射影空間への持上げは
+\begin{equation}
+ H_\lambda=g+\lambda(f+g)
+           =\lambda f+(1+\lambda)g,\qquad\lambda\in\CC
+ \label{eq:pg-split-ambient-lift}
+\end{equation}
+に限られる。
+$\PP^5$内のイデアル冪で測ると、
+$E_f$沿いでは$f$は一次、$g$は三次の消滅を持つので、
+$H_\lambda$が三重に消えるには$\lambda=0$が必要である。
+$E_g$沿いの同じ条件は$\lambda=-1$を要求する。
+従って、$D$は$X$内で両曲線沿いに三重に消えるが、
+この性質を両方で保つ周囲の三次超曲面は存在しない。
+
+同版Lemma~5.5の証明で用いられる消滅も、
+$C=E_f\sqcup E_g$のイデアル層$\mathcal I_C$については
+\begin{equation}
+ H^1(\PP^5,\mathcal I_C)
+ \simeq H^0(C,\OO_C)/\CC
+ \simeq\CC
+ \label{eq:pg-split-disconnected-cohomology}
+\end{equation}
+となり成立しない。
+各$E=E_f,E_g$は$\PP^5$内の型$(1,1,1,3)$の完全交叉なので、
+\begin{equation}
+ N_{E/\PP^5}^{\vee}\simeq\OO_E(-1)^{\oplus3}\oplus\OO_E(-3),
+ \qquad H^0(C,N_{C/\PP^5}^{\vee})=0.
+ \label{eq:pg-split-conormal}
+\end{equation}
+$\mathcal I_C^2$が定める厚み$2C$も二つの非交和となる。
+完全列$0\to N_{C/\PP^5}^{\vee}\to\OO_{2C}\to\OO_C\to0$で、
+両成分の定数が持ち上がるため、$H^0(2C,\OO_{2C})=\CC^2$である。
+従って$H^1(\PP^5,\mathcal I_C^2)\simeq\CC$でもある。
+従って同補題の持上げの議論を非連結な$C$へ適用できない。
+ここでの比較は確認したarXiv:1507.05668v1についてであり、
+刊行版本文と訂正文の最終照合は未了である。
+\end{remark}
 
 \section{代数的な次数付き量子化}\label{sec:pg-quantization}
 本節では、原点を含む\emph{代数的な}開集合上の量子化を構成する。
