@@ -146,20 +146,101 @@ $k=\mathbb C(h)$のときも$G$の係数が$h=0$で正則、あるいは$G_0=F$�
 特殊点を含む代数的な相対同値は本定理の結論には含めない。
 \end{remark}
 
+\subsection{積分空間と基礎体上の方程式の曖昧さ}
+
+積分の線形解空間の次元には、Sebastiani--Thom分解による意味がある。
+次の命題は補題\ref{ej:lem:symmetrizer-algebra}と
+Hwang\cite[Proposition~2.6, Corollary~2.7]{HwangSymmetrizer}のfiber記述を
+基礎体上で用いるために書き直したものである。
+
+\begin{proposition}[symmetrizerによる積分空間の記述]
+\label{gcd:prop:integrability-symmetrizer}
+$k$を標数零の体、$V$を$N$次元$k$-線形空間とし、
+$F\in\operatorname{Sym}^3_kV$は幾何学的に滑らかな射影超曲面を定めるとする。
+その勾配空間を$Q\subset\operatorname{Sym}^2V$とし、
+\[
+ \mathcal I_Q=\{G\in\operatorname{Sym}^3V:\partial_iG\in Q\text{ for all }i\}
+\]
+と置く。ここで$x_i$は$V$の基底であり、この条件は基底に依らない。
+$F(x)=T(x,x,x)$を$V^*$上の対称三重線形形式で表し、
+補題\ref{ej:lem:symmetrizer-algebra}の代数を$E_F\subset\operatorname{End}_k(V^*)$とする。
+このとき
+\begin{equation}\label{gcd:eq:integrability-symmetrizer}
+ E_F\xrightarrow{\sim}\mathcal I_Q,\qquad
+ a\longmapsto F^a,\qquad F^a(x)=T(ax,x,x)
+\end{equation}
+は$k$-線形同型である。
+式\eqref{gcd:eq:integrability}の$\mathcal L_Q$も$\mathcal I_Q$と線形同型で、
+\[
+ \dim_k\mathcal L_Q=\dim_kE_F
+ =\text{$F_{\overline k}$の最細Sebastiani--Thom分解の成分数}
+\]
+となる。
+
+勾配空間がちょうど$Q$である三次式全体は$E_F^\times$に対応し、全て幾何学的に滑らかである。
+この集合に対し、$b\in E_F^\times$による座標変換$x\mapsto bx$と
+$k^\times$による方程式の定数倍だけを許すと、その軌道集合は
+\begin{equation}\label{gcd:eq:symmetrizer-form-quotient}
+ E_F^\times/\bigl(k^\times(E_F^\times)^3\bigr)
+\end{equation}
+である。これは全ての射影線形座標変換による同型類の分類ではなく、
+圏同値核の降下障害を分類するものでもない。
+\end{proposition}
+\begin{proof}
+$\partial_iF$は$Q$の基底なので、$G\in\mathcal I_Q$に対して
+$\nabla G=A\nabla F$となる行列$A$が一意に存在する。
+対称三重線形形式へ偏極すると、$G$の対称性は$a=A^{\mathsf t}\in E_F$と同値であり、
+$G=F^a$となる。逆に$a\in E_F$なら$F^a$は対称三次式で
+$\nabla F^a=a^{\mathsf t}\nabla F$を満たす。これで式\eqref{gcd:eq:integrability-symmetrizer}を得る。
+任意の基底$q_a$について、$G\mapsto A$を$\nabla G=A(q_a)_a$で定めると、
+可積分性と式\eqref{gcd:eq:model}により$\mathcal I_Q\simeq\mathcal L_Q$である。
+次元と分解の関係は補題\ref{ej:lem:symmetrizer-algebra}から従う。
+
+勾配が$Q$の基底となる条件は$a$の可逆性である。
+この場合、勾配の共通射影零点は$F$と同じく存在しないので$F^a$も幾何学的に滑らかである。
+$a,b\in E_F^\times$に対して、symmetrizer条件と可換性から
+\[
+ F^a(bx)=T(abx,bx,bx)=T(ab^3x,x,x)=F^{ab^3}(x)
+\]
+である。従って座標変換と定数倍は$a\mapsto c\,ab^3$、$c\in k^\times$として作用し、
+その軌道は式\eqref{gcd:eq:symmetrizer-form-quotient}で与えられる。
+\end{proof}
+
+\begin{corollary}[幾何学的に直和分解不能な場合]
+\label{gcd:cor:indecomposable-equation}
+前命題で$F_{\overline k}$が非自明なSebastiani--Thom分解を持たなければ、
+$E_F=k$、$\dim_k\mathcal L_Q=1$である。
+従って、同じ勾配空間$Q$を持つ$k$上の三次式は全て$F$の$k^\times$倍である。
+\end{corollary}
+\begin{proof}
+補題\ref{ej:lem:symmetrizer-algebra}と
+命題\ref{gcd:prop:integrability-symmetrizer}を適用する。
+\end{proof}
+
+この系は、固定した勾配空間から積分した方程式の一意性を述べる。
+定理\ref{gcd:thm:field-model}の圏同値が$k$上へ降下することまでは意味しない。
+
 \begin{example}[同じ勾配空間を持つ異なる基礎体上のform]
 \label{gcd:ex:forms}
-$k=\mathbb C(h)$、$N\ge5$とし、
+$R=\mathbb C[h]_{(h)}$、$k=\mathbb C(h)$、$L=\mathbb C((h))$、$N\ge5$とし、
 \begin{equation}\label{gcd:eq:forms}
  F=\sum_{i=1}^Nx_i^3,\qquad
- G=h x_1^3+\sum_{i=2}^Nx_i^3
+ G=(1+h)x_1^3+\sum_{i=2}^Nx_i^3
 \end{equation}
 と置く。両者の勾配空間は$\langle x_1^2,\ldots,x_N^2\rangle$であり、
-幾何学的には射影同型であるが、$k$上では射影同型でない。
+$R$上で滑らかな射影超曲面族を定め、特殊ファイバーは一致する。
+二項級数$(1+h)^{1/3}\in\mathbb C[[h]]^\times$で$x_1$を拡大すれば
+$F$を$G$へ移せるので、完備底上、従って$L$上では射影同型である。
+しかし、$k$上では射影同型でない。
 実際、両者のHessian行列式の零集合は座標超平面の和である。
 射影線形同型があればこの配置を保つので、その行列は置換行列と対角行列の積となる。
-すると$h$と$1$の係数比は$k$内の三乗でなければならないが、
-$h$進付値が$1$であることに矛盾する。
-従って勾配空間の復元だけから$k$上の射影同型類の一意性を結論できない。
+すると$1+h$と$1$の係数比は$k$内の三乗でなければならないが、
+$h+1$に沿う離散付値が$1$であることに矛盾する。
+従って勾配空間の復元だけから$k$上の射影同型類の一意性を結論できず、
+完備底上の同型から$k$上の同型を結論することもできない。
+この例では$E_F\simeq k^N$であり、$G$はその単元$(1+h,1,\ldots,1)$に対応する。
+式\eqref{gcd:eq:symmetrizer-form-quotient}での非自明性に加え、上のHessianの議論により
+全ての射影線形座標変換を許しても両者は同型でないことを確認している。
 これは二つの方程式のformの例であり、圏同値核の降下障害が非零であることを
 証明する例ではない。
 \end{example}

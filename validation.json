@@ -1,9 +1,9 @@
 {
-  "version": "nc-cubic-v81",
+  "version": "nc-cubic-v82",
   "date": "2026-11-13",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; expected-parent fast-forward updates; no Actions or force push.",
-  "scope": "Current paper A-v51 and publication-oriented mathematical audit of paper B-v56. Paper A mathematics and all recursive TeX inputs are unchanged in this review.",
+  "scope": "Current paper A-v51 and publication-oriented mathematical audit of paper B-v57, including precise prior-work comparison and arithmetic of gradient integration. All recursive paper A inputs are unchanged.",
   "papers": {
     "A": {
       "entry": "papers/paper_a.tex",
@@ -14,7 +14,7 @@
     },
     "B": {
       "entry": "papers/paper_b.tex",
-      "version": "B-v56",
+      "version": "B-v57",
       "audit": "notes/paper_b_proof_audit.md",
       "validation": "validation_paper_b.json",
       "proof_chain_reaudited_this_review": true,

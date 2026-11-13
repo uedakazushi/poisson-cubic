@@ -1,5 +1,5 @@
 % !TEX root = paper_b.tex
-% 2026-11-13 / B-v56. Publication-oriented proof and literature audit.
+% 2026-11-13 / B-v57. Prior-work comparison and arithmetic of gradient integration.
 \makeatletter
 \def\input@path{{papers/support/}}
 \makeatother
@@ -9,9 +9,9 @@
 \hypersetup{pdftitle={中心三次非可換変形の一般点における可換復元}}
 \title{中心三次非可換変形の一般点における可換復元}
 \author{}
-\date{2026年11月13日・論文B（研究草稿 v56）}
+\date{2026年11月13日・論文B（研究草稿 v57）}
 \fancyhead[L]{\small 中心三次非可換変形の一般点可換復元}
-\fancyhead[R]{\small 2026-11-13 / B-v56}
+\fancyhead[R]{\small 2026-11-13 / B-v57}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -60,32 +60,58 @@ BFKの生成定理\cite{GCDBFK}で本質的全射性を得る。
 本稿は$N=n+2\ge5$変数の任意の指定された中心三次変形を扱い、
 rotationと周期比較を備えた一般点の残余圏を構成する。
 
-曲率付き変形をpotentialの変形として扱う一般原理も既存のものである。
-Kontsevichのformality\cite{PKontsevich}を曲率付きの状況へ拡張する
+曲率付き変形をpotentialの変形として扱う形式的存在原理は、
+Kontsevichのformality\cite{PKontsevich}とその曲率付き拡張に基づく。
 Carqueville--Kay\cite[Theorem~3.1, Proposition~3.4]{CK}は、
-polyvector場と曲率付きHochschild変形問題の比較を与える。
-同論文の第二種cochainはarityについての直和であり、その極大イデアル進完備化では
-各Artin次数に有限個のarityだけが現れる。この性質は、冪零でない有限MF行列へ
-ゲージ写像を評価するための基礎となる。
-本稿の完備比較は、この既知原理を三次・次数付き状況で明示的に実現するものと位置付ける。
-この形式的存在原理は孤立potential一般に通じる。
-通常のformalityを曲率導入前に使い、三次の次数制約からarity一・三だけのflowと
-$F_{2r+1}\in\mathfrak m^r$という一様な評価を得て、その後の移送を
-行列上の挿入公式で構成する。
+多項式曲率代数および固定MFのendomorphism代数の第二種変形複体を
+polyvector場と比較する。同論文の第二種cochainはarityについての直和であり、
+その極大イデアル進完備化では各Artin次数に有限個のarityだけが現れる。
+本稿ではこの原理を指定された中心三次変形へ適用するため、
+単位・二重次数を保つゲージを構成し、全有限rank graded MF上での評価と逆関手を証明する。
+通常のformalityを曲率導入前に使い、定数trivectorによる一段の経路から
+arity一・三だけのflowと$F_{2r+1}\in\mathfrak m^r$という一様な評価を得る。
 Căldăraru--Tuのtwisted complexによるMFの記述\cite[Section~2]{CT}と合わせ、
-完備底上の有限rank、単位、内部次数、指定三次周期性を確認する。
-一般的な曲率付きformality、あるいは適切な完備化で有限rank MFにゲージを
-評価する原理自体を本稿の新規結果とはしない。
+固定rank、内部shift、指定三次周期性を確認する。
+この次数の確認により、一般の形式係数環$\mathbb C[x][[h]]$ではなく、
+次数別の$\mathbb C[[h]][x]$に値を持つ行列を得る。
+注意\ref{cft:rem:prior-formality}で既知の比較と本稿で行う追加構成を区別する。
 
-三つのshiftによる生成とその一様な上界は
-Ballard--Favero--Katzarkov\cite[Theorem~5.15]{GCDBFK}の帰結である。
-rotation付きの滑らかなFano超曲面の幾何学的一意性も
-Lin--Zhang\cite[Theorem~5.1]{LZ}により既知である。
-本稿ではその三次の場合を、低次数の対称積の核と勾配空間を用いて直接説明し、
-既に存在する可換模型の方程式を元の体へ降ろすために使う。
-本稿の中心となる組合せは、上記の完備MF比較を固定三対象上で局所化し、
-有限降下と全coherent圏への飽和を経て、代数的変形の一般点で可換模型を得ることである。
-各既知定理の適用と、この組合せに必要な構成を証明中で区別する。
+形式変形から一般点へ進む際には、用いるMorita同値の種類も重要である。
+Lowen--Van den Bergh\cite[Theorem~5.4]{LowenVdBCurvature}は、
+曲率の先頭項に関する冪零性の下で形式Hochschild変形をtorsion Morita変形と比較する。
+またBlanc--Katzarkov--Pandit\cite[Theorems~1.1, 1.2]{BKPGenerators}は、
+自己Extが高い正次数で消えるcompact generatorを持つ線形圏について、
+一変数形式変形の非曲率模型と両立するcompact generatorの存在を示している。
+本稿で必要なのは、$h$を反転した通常のHom複体と残余圏の同値である。
+そのため、完備MF関手を固定した有限対象へ制限してから局所化し、
+一般点の関手を構成する。これは形式的なMC同値やtorsion Morita同値だけから
+一般点の同値を結論する議論ではない。
+
+可換斉次次数$d$の場合に、原点のstabilizationを含む$d$個の連続した内部shiftが
+graded MF圏を生成することはTu\cite[Theorems~1.4, 6.2]{TuKoszul}による。
+本稿で得る像$\Phi(K)$を可換側の原点stabilizationと同定する必要はない。
+非零Eulerベクトルによりその像が非零であることを示し、
+任意の非零対象の三つのshiftを扱う
+Ballard--Favero--Katzarkov\cite[Theorem~5.15]{GCDBFK}を用いる。
+有限降下はToënのsmooth proper dg代数の有限表示
+\cite[Th\'eor\`eme~1]{ROGToenDefinition}と
+Toën--Vaquiéのperfect核の降下・同値判定\cite[Lemmas~2.10, 3.25]{ROGTV}に基づく。
+全coherent圏への飽和には、同論文のpseudo-perfect加群のperfect性と
+Perryのadmissibility・smoothnessの貼合せ\cite[Lemmas~4.13, 4.15]{CRSPerry}を使う。
+これらの原理を適用するため、相対windowのproper Hom、
+降下核と単位・余単位のcone、rotationと指定周期の図式を具体的に確認する。
+
+rotation付きFano超曲面の幾何学的一意性と低rotation積の計算は
+Lin--Zhang\cite[Theorems~3.5, 5.1]{LZ}による。
+勾配空間とSebastiani--Thom分解の関係は
+Ueda--Yoshinaga\cite[Lemma~3]{UedaYoshinaga}、
+Wang\cite[Theorem~1.1]{WangJacobian}、
+Hwang\cite{HwangSymmetrizer}のsymmetrizer理論に従う。
+本稿では低次数積から得られる勾配空間を元の体上で積分し、
+方程式を定義する体と圏同値の核を定義する体を分ける。
+さらにsymmetrizer代数の有限\'etale性を用い、積分空間の次元と
+最細の幾何学的Sebastiani--Thom分解のブロック数の一致、
+固定した勾配空間に対する基礎体上の方程式の曖昧さを記述する。
 
 本文は一般次元の主定理とその証明に必要な結果のみを収める。
 変形接空間、三次三様体のPl\"ucker障害、独立の相対形式・étale理論、

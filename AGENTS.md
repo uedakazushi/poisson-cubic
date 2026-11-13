@@ -1,10 +1,12 @@
 # Codex実行指示 — nc-cubic
 
-2026-11-13 / v81。最初に `00_research_plan.md` と `notes/paper_b_scope_and_transfer.md` を読む。GitHub mainが正本。
+2026-11-13 / v82。最初に `00_research_plan.md` と `notes/paper_b_scope_and_transfer.md` を読む。GitHub mainが正本。
 
 ## 公表向け監査と担当境界
 
-論文BはB-v56。ユーザーの公表向け精査・修正依頼に基づき、主要証明の数学的再点検と必要な補強を行った。状態は `notes/paper_b_proof_audit.md` と `validation_paper_b.json`。一般点の存在定理は保持する。可換模型の一意性はrotation付きpairの幾何学的射影同型類についてであり、基礎体上のformの一意性と混同しない。曲率付きformalityの一般原理は既知としてCarqueville--Kayを引用し、組合せの初出は未確定とする。
+論文BはB-v57。ユーザーの公表向け精査・修正依頼に基づき、主要証明の数学的再点検と必要な補強を行った。状態は `notes/paper_b_proof_audit.md` と `validation_paper_b.json`。一般点の存在定理は保持する。可換模型の一意性はrotation付きpairの幾何学的射影同型類についてであり、基礎体上のformの一意性と混同しない。曲率付きformalityの一般原理は既知としてCarqueville--Kayを引用し、組合せの初出は未確定とする。
+
+CKが直接述べる第二種変形複体の比較と、本稿の全有限rank graded MF上の実関手・指定周期の保存を区別する。BKPの形式生成子の存在、Toën/TVの有限降下、Hwangのsymmetrizer理論も既知の原理である。固定勾配空間の積分は有限étale代数E_Fで記述し、E_F=kなら方程式は基礎体上でスカラー倍まで一意。ただし同値核のKへの降下は未解決。`gcd:ex:forms` の係数は1+hで、特殊・完備ファイバーが一致する例である。
 
 ### 完了した移管
 
@@ -14,7 +16,7 @@ Chat側の担当はAのPoisson正規形・量子化、Bの完備MF比較・一�
 
 ## 厳格な保護
 
-- 移管整理では `papers/paper_a.tex`（A-v51）、`papers/paper_b.tex`（B-v56）、両者の再帰的な全入力、`papers/generic_recovery/`、`papers/support/papers/common.tex`、共通設定を保護する。ユーザーが依頼した数学的監査によるBの修正はこの移管保護とは区別する。必要証明を移管先へのリンクだけで代用しない。
+- 移管整理では `papers/paper_a.tex`（A-v51）、`papers/paper_b.tex`（B-v57）、両者の再帰的な全入力、`papers/generic_recovery/`、`papers/support/papers/common.tex`、共通設定を保護する。ユーザーが依頼した数学的監査によるBの修正はこの移管保護とは区別する。必要証明を移管先へのリンクだけで代用しない。
 - パスだけで移管可否を決めず、input/include・論理参照・引用・ノート・コードの実依存を確認する。共有する文献・証明書・検算を消さない。
 - 数学的問題は具体的な仮定・反例・依存先とともに監査ノートへ記し、主定理を迂回して強化・弱化しない。
 - 全次数MF存在と条件付き移送、全coherentと線束生成圏、有限Artinと一般Artin、形式と代数的同値、相対smooth properの仮定を区別する。

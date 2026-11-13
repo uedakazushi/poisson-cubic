@@ -1,10 +1,10 @@
 {
   "date": "2026-11-13",
-  "paper_version": "B-v56",
-  "repository_version": "nc-cubic-v81",
-  "reviewed_remote_base_commit": "99b45fe4999fa89471fb274fced07a1b772927f1",
+  "paper_version": "B-v57",
+  "repository_version": "nc-cubic-v82",
+  "reviewed_remote_base_commit": "7f782fcb08e9f7ab4b1e86211f7eb08ebcf083ed",
   "entry": "papers/paper_b.tex",
-  "scope": "Publication-oriented review of the complete generic reconstruction proof chain and cited primary results; corrections and proof expansions are in the current manuscript.",
+  "scope": "Publication-oriented proof review, precise comparison with primary precedents, and arithmetic description of gradient integration. Current mathematical content is in the manuscript and audit note.",
   "mathematical_review": {
     "proof_chain_reread": true,
     "sections": [
@@ -24,56 +24,83 @@
       "A finite graded projective presentation explicitly produces the stabilization factorization.",
       "The t/weight calculation verifies that the bar flow preserves ordinary finite-rank graded MF."
     ],
-    "added_counterexample": "gcd:ex:forms: identical gradient spaces need not determine the same K-projective form; this is not an example of a nonzero kernel descent obstruction.",
+    "added_counterexample": "gcd:ex:forms: F=sum x_i^3 and G=(1+h)x_1^3+sum_{i>1}x_i^3 are smooth over C[h]_(h), agree on the special fiber and are projectively isomorphic over C[[h]], but not over C(h). This is not an example of a nonzero equivalence-kernel descent obstruction.",
     "conclusion": "No additional input hypothesis or withdrawal of the generic existence conclusion was required by the issues found in this review.",
     "theorem_scope": "A cubic equation is defined over K=C(h); the full coherent residual equivalence preserving rotation and the specified cubic periodicity is obtained over some finite K-prime/K. Geometric projective uniqueness is among rotation-compatible models.",
     "not_claimed": [
       "uniqueness of the K-form",
       "descent of the equivalence kernel to K",
       "an algebraic relative equivalence including the special point",
-      "equivalence of the entire noncommutative projective category with the entire commutative cubic category"
+      "equivalence of the entire noncommutative projective category with the entire commutative cubic category",
+      "a new general curved-formality or finite-descent theorem",
+      "a new Jacobian Torelli theorem",
+      "a full arithmetic PGL classification by the symmetrizer-unit quotient"
     ],
     "final_statement_consistency_review": true,
     "formal_proof_assistant_verification": false,
     "external_referee_review": false,
-    "prior_work": "Carqueville--Kay gives the general curved-formality/potential principle; finite-rank evaluation in the arity-sum completion is also a known principle. Etingof--Ginzburg supplies an elliptic precedent; BFK generation and Lin--Zhang rotation Torelli are known inputs.",
-    "novelty_status": "The cubic explicit flow and its combination with algebraic generic descent, coherent saturation and field descent are described precisely; first occurrence and publication-level novelty of the combination remain unconfirmed."
+    "prior_work": "Carqueville--Kay Proposition 3.4 directly compares second-kind deformation cochains and polyvectors; it does not itself state the required full graded MF equivalence preserving rotation. Lowen--Van den Bergh and Blanc--Katzarkov--Pandit provide formal deformation/generator principles. Toën/Toën--Vaquié provide finite descent, perfectness and open equivalence criteria. BFK generation, Lin--Zhang rotation Torelli, and Ueda--Yoshinaga/Wang/Hwang gradient theory are known inputs. The manuscript specifies its relative, bigraded, normalized, coefficient-complete and finite-rank constructions separately.",
+    "novelty_status": "The completed MF construction, fixed three-object localization and their combination with algebraic generic reconstruction are presented precisely. No identical theorem was located in the checked primary sources; first occurrence and publication-level novelty of the combination remain unconfirmed.",
+    "current_review_focus": [
+      "Direct scope of Carqueville--Kay formality versus the complete graded finite-rank MF construction",
+      "Toën/Toën--Vaquié descent and saturation; Lowen--Van den Bergh and Blanc--Katzarkov--Pandit deformation/generator precedents",
+      "Ueda--Yoshinaga, Wang and Hwang gradient/symmetrizer precedents",
+      "Finite étale symmetrizer algebra, integration-space dimension, restricted arithmetic orbit set and the formally trivial nontrivial K-form example"
+    ],
+    "added_results": {
+      "symmetrizer_algebra": "ej:lem:symmetrizer-algebra: finite étale E_F, field extension compatibility and unique finest geometric Sebastiani--Thom decomposition. These are organized as basic consequences of Hwang, not a new Jacobian Torelli theorem.",
+      "integration": "gcd:prop:integrability-symmetrizer: E_F is linearly isomorphic to I_Q and L_Q; its dimension is the number of finest geometric ST blocks. Exact gradient Q corresponds to units.",
+      "restricted_orbits": "Only the E_F-unit coordinate transformations and equation scalars are classified by E_F^*/[k^*(E_F^*)^3]; no full PGL or equivalence-kernel classification is claimed.",
+      "indecomposable": "gcd:cor:indecomposable-equation: geometric ST indecomposability implies scalar uniqueness over k for a fixed gradient space; not kernel descent."
+    },
+    "independent_targeted_reread": {
+      "completed": true,
+      "scope": [
+        "Finite étale symmetrizer proof and primitive idempotents",
+        "Transpose convention a=A^t in the integration identification",
+        "Cubic action formula and restricted unit quotient",
+        "Geometric indecomposability corollary",
+        "1+h form example using the Hessian and valuation"
+      ],
+      "substantive_error_found": false,
+      "formal_verification": false
+    }
   },
   "static_source_check": {
-    "executed_for_version": "B-v56",
+    "executed_for_version": "B-v57",
     "command": "python3 scripts/verify_bundle.py --only paper_b --require-pdfs",
     "exit_code": 0,
     "tex_files": 11,
-    "labels": 110,
-    "references": 98,
-    "citation_occurrences": 43,
-    "bibliography_entries": 15,
+    "labels": 116,
+    "references": 114,
+    "citation_occurrences": 59,
+    "bibliography_entries": 22,
     "unresolved_references": 0,
     "unresolved_citations": 0,
     "duplicate_labels": 0,
     "source_blobs": {
-      "papers/generic_recovery/coherent_saturation.tex": "c7f266efc54dab301bb3c1b06dd4e548c911903a",
-      "papers/generic_recovery/curved_transport.tex": "8c61c70239efcda7e11a7cfcff725a28791e01c4",
-      "papers/generic_recovery/field_model.tex": "39c41e3c342d23bc4db6be49441c24e8a0f3909a",
-      "papers/generic_recovery/generic_descent.tex": "762a8132a66b25d72a6344463f5d3128f93f7583",
-      "papers/generic_recovery/gradient_recovery.tex": "083349fbc05cf3669b3f33c8262cd3397352ea0d",
+      "papers/generic_recovery/coherent_saturation.tex": "79eeb6c1d4b30d6cb129cadf37081e671efe349b",
+      "papers/generic_recovery/curved_transport.tex": "ac66ca529eaf6b4f47ef80620856a5e258b355ec",
+      "papers/generic_recovery/field_model.tex": "287faddeaa0201192c82ae9ae03248da0576d1d1",
+      "papers/generic_recovery/generic_descent.tex": "d0841a09794c13bf29af4b7d9e94f5011565a21e",
+      "papers/generic_recovery/gradient_recovery.tex": "a53542d40a8cfb8d2fa17ec2bbd4ce554b4f4ad8",
       "papers/generic_recovery/local_model.tex": "9f6b76413f6cb3b53d9bed29906b8a386bdfc58c",
       "papers/generic_recovery/main_result.tex": "e104eb6ab6a8927201665e0ed80ae3b6fca11606",
-      "papers/generic_recovery/references.tex": "15c40d47aacc16b6e69394382c151eb936e0dba5",
+      "papers/generic_recovery/references.tex": "30d00634d36cb75b7893b87e78e027804fca14e7",
       "papers/generic_recovery/window.tex": "01008e7384da4ff62bfa82fec7a53ba26c086243",
-      "papers/paper_b.tex": "2b4816c921eabec7f0ec826e959b83c3630c3741",
+      "papers/paper_b.tex": "c320116611985662b1f410033e15b437d827cd39",
       "papers/support/papers/common.tex": "e53e7220975a65e301ddc9a38ea87c8449f180ec"
     }
   },
   "build": {
-    "executed_for_version": "B-v56",
+    "executed_for_version": "B-v57",
     "execution_date": "2026-11-13",
     "command": "python3 scripts/build.py --only paper_b",
-    "environment_note": "The initial system invocation lacked lualatex.fmt. The successful invocation used isolated TEXMF variables with an available LuaLaTeX/LuaTeX-ja runtime; repository TeX configuration was unchanged. A normal complete TeX installation can run the documented command directly.",
+    "environment_note": "Built successfully using isolated TEXMF variables with an available LuaLaTeX/LuaTeX-ja runtime; repository TeX configuration was unchanged. A complete TeX installation can run the documented command directly.",
     "exit_code": 0,
     "engine": "This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)",
     "complete_paper_build_executed": true,
-    "pages": 30,
+    "pages": 33,
     "undefined_references_and_citations": 0,
     "overfull_boxes": 0,
     "missing_characters": 0,
@@ -82,17 +109,17 @@
       "all_pages_rendered": true,
       "all_pages_contact_sheets_inspected": true,
       "detail_pages_inspected": [
-        3,
         15,
-        18,
-        28
+        26,
+        30,
+        31
       ],
       "observed_clipping_or_overlap": false
     },
-    "pdf_sha256": "433c5a7a570457f5306db8156c98266ce20b43d30f1ccc545ded61fd83ef20b0",
+    "pdf_sha256": "8408c3edb43ab048253689ff8e65b1257aa9a82cc71e33de6ffbfdfe4d4ddc86",
     "pdf_git_tracked": false,
     "receipt": "build/paper_b.receipt.json",
-    "receipt_sha256": "df402e9ec36f6a533e29f4a44fdc55b51b28b0774a7266f7a407305dbc8e439a",
+    "receipt_sha256": "150f1ff952047e13cc9deef3d28fabc522ae605d3b4192065e07fa2a652d0bff",
     "current_source_pdf_hash_parity": true,
     "latexmkrc_blob": "ab3ca75d9e516a01e44bcb555e0a8e5801867310"
   },
@@ -135,7 +162,11 @@
           "odd_arity_filtration": true,
           "object_substitution_inverse": true
         }
-      }
+      },
+      "executed_for_version": "B-v56",
+      "rerun_in_current_revision": false,
+      "script_unchanged_in_current_revision": true,
+      "execution_date": "2026-11-13"
     },
     {
       "script": "computations/verify_three_object_window.py",
@@ -165,15 +196,19 @@
           15,
           16
         ]
-      }
+      },
+      "executed_for_version": "B-v56",
+      "rerun_in_current_revision": false,
+      "script_unchanged_in_current_revision": true,
+      "execution_date": "2026-11-13"
     },
     {
       "script": "computations/verify_generic_cubic_descent.py",
       "command": "python3 computations/verify_generic_cubic_descent.py --output build/verify_generic_cubic_descent.json",
       "exit_code": 0,
-      "script_sha256": "af0152bcd0f67e55c721458164cbd56b77fefbfc388b846c55a2fdadbb3d7ef7",
+      "script_sha256": "33c7687a19bbec41e564ad183dfb6e29393bf3ab6784e07d71c4544241b00be7",
       "output": "build/verify_generic_cubic_descent.json",
-      "output_sha256": "9cc0c338db13cc403d31484cd76f99a402981056afb7bb230242e3821c9693ac",
+      "output_sha256": "667151b5ca27b06c83b62e23250f057e040ebe071bb296651ecf4315055aca0e",
       "output_git_tracked": false,
       "scope": "Exact commutative linear algebra over Q(t); no nc natural transformations computed.",
       "result": {
@@ -203,13 +238,30 @@
             "all_gradient_identities_zero": true
           }
         ],
+        "nonsplit_symmetrizer": {
+          "field": "Q(t)",
+          "variables": 5,
+          "polynomial": "3*t*x0*x1**2 + x0**3 + x2**3 + x3**3 + x4**3",
+          "integrability_dimension": 5,
+          "symmetrizer_algebra": "Q(t)[u]/(u^2-t) x Q(t)^3",
+          "quadratic_discriminant": "4*t",
+          "nonsplit_reason": "The t-adic valuation of t is 1, so t is not a square in Q(t).",
+          "smoothness_input": "At t=1, the binary summand is a sum of two independent cubes.",
+          "geometric_ST_blocks": 5,
+          "matrix_span_and_multiplication_verified": true,
+          "one_slot_gradient_identities": 5,
+          "cubic_action_identity_Fa_bx_equals_Fab3": true
+        },
         "not_tested": [
           "BFK theorem",
           "categorical (L)/(CF)",
           "equivalence kernel",
           "finite extension degree"
         ]
-      }
+      },
+      "executed_for_version": "B-v57",
+      "rerun_in_current_revision": true,
+      "execution_date": "2026-11-13"
     }
   ],
   "calculation_environment": {

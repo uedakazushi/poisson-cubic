@@ -1,10 +1,10 @@
 # 研究方針：中心三次変形の量子化と一般点可換復元
 
-2026-11-13 / v81。再開時は本ファイルを最初に読む。GitHub mainが正本。
+2026-11-13 / v82。再開時は本ファイルを最初に読む。GitHub mainが正本。
 
 ## 現在の目標と達成基準
 
-論文A `papers/paper_a.tex`（A-v51）は一般次元のPoisson幾何・代数的量子化・ambient復元を扱う。論文B `papers/paper_b.tex`（B-v56）は、次数別有限自由な代数的中心三次変形の一般点可換復元を扱う。公表の達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、使用する既知定理の適用範囲と新規性が具体的に説明され、全文を再生成できることである。
+論文A `papers/paper_a.tex`（A-v51）は一般次元のPoisson幾何・代数的量子化・ambient復元を扱う。論文B `papers/paper_b.tex`（B-v57）は、次数別有限自由な代数的中心三次変形の一般点可換復元を扱う。公表の達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、使用する既知定理の適用範囲と新規性が具体的に説明され、全文を再生成できることである。
 
 Bでは n>=3、R=C[h]_(h)、K=C(h) とし、A_R/hA_R が N=n+2 変数多項式環、中心三次元の剰余が滑らかな三次式であることを仮定する。可換方程式はK上、全coherent残余圏のrotation・指定三次周期付き同値はある有限拡大上に構成する。模型の一意性はrotation付きpairを実現する模型の幾何学的射影同型類についてである。K上のformの一意性・同値核のKへの降下・特殊点を含む代数的相対同値は結論に含めない。
 
@@ -12,17 +12,19 @@ Bでは n>=3、R=C[h]_(h)、K=C(h) とし、A_R/hA_R が N=n+2 変数多項式�
 
 Bの証明は `papers/generic_recovery/` だけで完結する。`local_model.tex` と `window.tex` が局所proper模型と三対象window、`curved_transport.tex` が実際の完備A_infty比較、`generic_descent.tex` がEuler非消滅・BFK生成・有限降下、`coherent_saturation.tex` が全coherent圏への飽和、`gradient_recovery.tex` と `field_model.tex` が勾配空間の積分と方程式の基礎体降下を与える。
 
-B-v56ではこの証明連鎖を数学的に再点検した。対称積の核という定義、rotation付き一意性の範囲、降下核と随伴coneのperfect性、残余成分のadmissibility、graded stabilizationの構成、曲率移送が有限rank MFを保つ次数を本文に明記した。主定理の入力への追加仮定や、一般点の存在結論の撤回を要する問題は今回の点検では見つかっていない。これはLean等の形式検証・外部査読・包括的新規性確認とは異なる。正確な監査範囲は `notes/paper_b_proof_audit.md`、組版・有限検算の実行状態は `validation_paper_b.json` を参照する。
+B-v57ではこの証明連鎖を数学的に再点検した。対称積の核という定義、rotation付き一意性の範囲、降下核と随伴coneのperfect性、残余成分のadmissibility、graded stabilizationの構成、曲率移送が有限rank MFを保つ次数を本文に明記した。主定理の入力への追加仮定や、一般点の存在結論の撤回を要する問題は今回の点検では見つかっていない。これはLean等の形式検証・外部査読・包括的新規性確認とは異なる。正確な監査範囲は `notes/paper_b_proof_audit.md`、組版・有限検算の実行状態は `validation_paper_b.json` を参照する。
 
-Carqueville--Kayの曲率付きformalityと、Etingof--Ginzburgの非可換楕円特異点のMF同値を序論で比較する。BFKの生成定理およびLin--Zhangのrotation付きTorelliは既知の入力であり、本研究の新規定理とは扱わない。比較構成・代数的一般点降下を組み合わせた結論の初出はなお未確定である。
+先行研究との比較は、CKの第二種変形複体、Lowen--Van den BerghとBlanc--Katzarkov--Panditの形式変形・生成子、Toën/Toën--Vaquiéの有限表示と同値判定、TVのpseudo-perfect性とPerryの貼合せ、Ueda--Yoshinaga/Wang/Hwangの勾配空間まで具体化した。一般的なcurved formality・生成子の存在・有限降下・Jacobian Torelliは既知の原理である。本稿では相対window、単位・二重次数・有限rankを保つ完備MF関手、固定三対象の通常Homの局所化を具体的に証明し、一般点復元へ結びつける。この包括的結論と明示構成の初出は調査範囲で同一の定理を確認できていないが、確定はしていない。
+
+方程式の積分には、Hwangの理論の基本的帰結として有限étaleなsymmetrizer代数E_Fを用いる。可積分行列空間の次元は最細の幾何学的Sebastiani--Thom分解のブロック数に等しく、幾何学的に分解不能なら固定した勾配空間からの方程式は基礎体上でもスカラー倍まで一意である。証明は `ej:lem:symmetrizer-algebra`、`gcd:prop:integrability-symmetrizer`、`gcd:cor:indecomposable-equation`。これは同値核の基礎体降下を意味しない。
 
 独立な点スキーム・Jacobian・一次変形・Artin・étale・相対模型の成果はnc-cubic2へ移管済みである。現在の入口は `notes/paper_b_scope_and_transfer.md`。Bの必要証明を移管先へのリンクだけで代用しない。
 
 ## 優先する次の課題
 
-1. 公表前の新規性比較を詰める。まずCarqueville--Kay Theorem 3.1 / Proposition 3.4の第二種Hochschild変形問題と、本稿の実際のgraded MF同値・指定周期・代数的一般点の全coherent残余圏の結論を対照する。主結果の説明はその差分に合わせ、一般的なcurved formalityの初出を主張しない。
-2. Bの存在定理を具体的入力で有効化する。非可換入力から V=H^0RHom(Delta,P)、U=H^0RHom(Delta,P^2)、対称積を計算し、Q=ker(Sym^2 V→U)を積分する。既知の可換勾配空間を入力する補助計算と、実際の非可換圏からの抽出を区別する。
-3. 有限拡大の必要性・次数と同値核の明示式を検討する。基礎体上で同じ勾配空間を持つ異なるformの例は `gcd:ex:forms`。この例だけを核の降下障害の例とは扱わない。
+1. Bの存在定理を一つの具体的な非可換入力で有効化する。rotation核Pと対角Deltaの有限表示から V=H^0RHom(Delta,P)、U=H^0RHom(Delta,P^2)、積を算出し、Q=ker(Sym^2 V→U)を積分する。まず既存のstabilization模型の有限Homへ戻り、構造写像のどの係数までがV,Uに必要かを特定する。可換勾配空間を入力する補助計算を、非可換圏からの抽出の代用にしない。
+2. 公表上の貢献を、完備比較と相対windowの具体的構成、および包括的な一般点復元に絞る。既知の一般原理と本稿の適用条件の対照は監査ノートにある。新たな引用が必要になれば一次資料で範囲を確かめ、同一の定理の初出が判明すれば序論・方針を修正する。
+3. 同値核のGalois降下を調べる。E_F=kという方程式の一意性と、rotation付き同値核の降下を分け、まずその自己同値群・自己同型群を同定する。`gcd:ex:forms` は特殊ファイバーも完備化も一致するがK上非同型の例である。TsenによるBrauer群消滅や形式点の存在だけでK'=Kを結論しない。
 4. Aは専用監査ノートに従って正規形・PBW/AS・全中心恒等式の検証を継続する。今回のB監査はAの数学的再監査を意味しない。
 
 ## 一般原則と保存許可

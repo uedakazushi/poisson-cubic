@@ -1,6 +1,6 @@
 # 論文B：証明監査・先行研究・有効な障害
 
-2026-11-13 / B-v56。最初に `../00_research_plan.md` を読む。主定理は `papers/generic_recovery/main_result.tex` の `gdr:thm:generic`。本ノートのファイル名は、特に指定しない限り `papers/generic_recovery/` 内を指す。全稿入口は `papers/paper_b.tex`。
+2026-11-13 / B-v57。最初に `../00_research_plan.md` を読む。主定理は `papers/generic_recovery/main_result.tex` の `gdr:thm:generic`。本ノートのファイル名は、特に指定しない限り `papers/generic_recovery/` 内を指す。全稿入口は `papers/paper_b.tex`。
 
 ## 主張の状態と監査の結論
 
@@ -16,11 +16,19 @@
 
 `gcd:thm:field-model` の第三項と主定理の一意性は **pair (C,rho) のrotation付き模型** に限定する。証明で使うV、U、積はrhoに依存する。圏のみのTorelliを全次元で別途示したことにはしない。K上のformの一意性まで強められない理由は本文の `gcd:ex:forms` に示す。
 
+### 積分空間と有限étale代数
+
+`ej:lem:symmetrizer-algebra` は、滑らかな三次式Fのsymmetrizer代数E_Fが有限étaleで、その形成が体拡大と可換であることを示す。代数閉包上の原始冪等元が最細のSebastiani--Thom分解を与え、dim E_Fがそのブロック数である。これはHwangの基本的結果を任意の標数零体上で使うために整理したもので、新しいJacobian Torelliとは扱わない。
+
+`gcd:prop:integrability-symmetrizer` は、固定勾配空間Qを含む勾配を持つ三次式の線形空間I_Q、可積分行列空間L_Q、E_Fの線形同型を与える。勾配空間がちょうどQとなる式はE_Fの単元に対応する。E_Fの単元による座標変換と全体スカラーだけを許す軌道は E_F^×/[k^×(E_F^×)^3]。これは全PGLによるform分類でも、圏同値核の降下障害の分類でもない。幾何学的に分解不能ならE_F=kであり、同じQからのk上の式はスカラー倍まで一意（`gcd:cor:indecomposable-equation`）。
+
 ### 残余のadmissibility
 
 `crs:prop:residual-smooth` では、例外部分のadmissibilityだけで残余部分の両側admissibilityを済ませない。残余は仮定によりsmooth、ambientの線束生成部分がproperなのでproperでもある。その包含にPerry Lemma 4.13を適用して左右随伴を得た後、Lemma 4.15(3)でsmoothnessを貼り合わせる。全coherent圏がsmoothであることを先取りしない。
 
 ### 有限降下の核・cone
+
+有限表示による降下はToën Théorème 1、perfect核の降下はTV Lemma 2.10、二つのconeによる同値判定と開性はTV Lemma 3.25に先行する一般原理がある。本稿では片側smoothnessから始め、rotationと指定周期の有限図式を付加するため、次のperfect性を直接確認する。一般的な新しい代数化理論とは位置づけない。
 
 `rog:lem:descent` で、C_Dをsmooth proper、Gamma_Dをproperとし、P_DをC_D--Gamma_D同値核の降下とする。C_Dのproper性からP_Dは右Gamma_D-perfect。Q_D=RHom_Gamma(P_D,Gamma_D)は底D上perfectであり、C_DのsmoothnessとToën--Vaquié Lemma 2.8から右C_D-perfectでもある。この順序により単位・余単位の両テンソル積とconeがD-perfectであることを確認する。
 
@@ -69,12 +77,27 @@ windowの生成性は有限長加群 T_j=B(j)_{<1-a} の実際のfiltrationに�
 | [Toën--Vaquié v5](https://arxiv.org/abs/math/0503269v5) | Lemmas 2.8, 2.10 | smooth対角とpseudo-perfect性、perfect核・射の有限降下 |
 | [Perry v2](https://arxiv.org/abs/1804.00132v2) | Lemmas 4.13, 4.15 | 左右随伴の存在とadmissible分解のsmoothness |
 | [Lin--Zhang v2](https://arxiv.org/abs/2310.09927v2) | Theorem 3.5, Remark 3.6, §5, Theorem 5.1 | 低rotation積のsector計算と既知のrotation付きTorelli |
+| [Toën著者稿](https://www.math.univ-toulouse.fr/~btoen/defdgalg.pdf) | Théorème 1 | smooth proper dg代数と射のfiltered-colimit降下。Bull. London Math. Soc. 40 (2008), 642–650, DOI 10.1112/blms/bdn043 |
+| [Tu v2](https://arxiv.org/abs/1009.4151v2) | Theorems 1.1, 1.4, 6.2 | 可換孤立斉次MFのd個のstabilization shiftによる生成。Compos. Math. 150 (2014), 1549–1578 |
+| [Lowen--Van den Bergh v2](https://arxiv.org/abs/1505.03698v2) | Theorem 5.4, §4.1 | 形式MCとtorsion Morita変形、通常の一般点同値との区別 |
+| [Blanc--Katzarkov--Pandit v1](https://arxiv.org/abs/1705.00655v1) | Theorems 1.1/4.27, 1.2/4.29 | 有界な自己Extを持つcompact generatorの下での非曲率形式模型と生成子。Compos. Math. 154 (2018), 2055–2089 |
+| [Ueda--Yoshinaga公刊PDF](https://www.math.sci.hokudai.ac.jp/hmj/page/38-3/pdf/HMJ38_0409-0415.pdf) | Lemma 3, pp.412–414 | 同一Jacobian idealとST型。Hokkaido Math. J. 38 (2009), 409–415 |
+| [Wang v2](https://arxiv.org/abs/1402.3810v2) | Theorem 1.1, Corollary 1.3 | 勾配イデアルによる復元のST例外。Manuscripta Math. 146 (2015), 559–574 |
+| [Hwang v1](https://arxiv.org/html/2501.08633v1) | Propositions 2.2, 2.6, 3.1, 3.2, Corollary 2.7 | symmetrizer代数、同一勾配空間のfiber、ST分解と冪零元。J. Math. Soc. Japan 78 (2026), 55–62, DOI 10.2969/jmsj/93469346 |
+
 
 書誌の正本は `references.tex`。LZは Math. Ann. 391 (2025), 163–177、BFKは Invent. Math. 189 (2012), 359–430とし、使用したarXiv版の定理番号も指定する。Kontsevichの定理番号は上記著者最終稿に従う。Crainicのhomological perturbation formula、Dyckerhoffの原点stabilizationのClifford計算は本文の引用と直接計算を併用する。外部文献の全証明を再証明したという監査ではない。
 
-**CFの一般的存在原理は既知。** Carqueville--Kayの第二種cochainはarityについて直和であり、そのm進完備化では各Artin次数で有限arityとなる。基点b_F=mu_0−tFの微分に大きい曲率を含め、delta=(mu_A−mu_0)−t(Omega−F)∈mをMC変形として扱う。[-tF,−]の勾配Koszul cohomologyはJac(F)に集中し、関数の斉次代表は互いにSchouten可換なので、曲率変形は関数potentialの変形へgaugeで移る。weightを保つt-relative比較と有限arity評価により、graded有限rank MFへの適用も標準原理の範囲にある。この一般的な存在論やMFへの評価を、本稿独自の発見とは扱わない。
+文献上の注意：Ueda--YoshinagaのabstractにはST型の条件にnotが欠けるが、本文Theorem 1とLemma 3を参照する。Wangの[Erratum](https://doi.org/10.1007/s00229-022-01447-2)（Manuscripta Math. 171 (2023), 369–370）はCorollary 6.1の証明中のST locusの閉性を訂正する。本稿が使うTheorem 1.1 / Corollary 1.3は訂正対象ではなく、ST locusが全射影空間で閉であることは使わない。Hwangの公刊書誌は出版社で確認し、命題番号の実読はarXiv v1による。
 
-三次の定数trivectorによる一段経路、arity1/3、F_(2r+1)∈m^rの定量的実現は本文に明示する。主題として残るのは、これを代数的中心三次変形の一般点・有限降下・全coherent飽和・基礎体上の方程式へ結びつける結論である。この組合せおよび明示的実現の初出は未確定。新規性の評価では「curved formalityが新しい」「一般的にMFをpotentialで記述できることが新しい」という説明を用いない。
+
+**既知の形式原理と実関手の構成を区別する。** CK Proposition 3.4は多項式曲率代数の第二種変形複体、Theorem 3.1は固定MFのendomorphism代数を扱う。第二種cochainはarity直和で、各arityは全多重線形Homであるため、非微分的な変形積も対象となる。基点の大きい曲率を微分に含める形式的MC比較と、孤立potentialの変形による記述は既知である。
+
+本稿ではt-relativeな二重次数付き複体へ移る必要があり、勾配Koszul cohomologyは Jac(F)⊗C[t,t^(-1)]、Lie次数1・内部weight0の部分は t Jac(F)_3 となる。normalized単位、一般の完備底、arity直和のm進完備化、全MF対象上の挿入公式と逆関手は、本稿のmodel/arity/flowの補題で別に構成・確認する。各Artin次数の有限arityは有限rank行列への評価に必要だが、一般の非斉次potentialではC[x][[h]]とC[[h]][x]の差が残る。本稿が次数別直和上の通常MFに値を持つことは、固定bigdegreeの有限自由係数空間での極限と二成分行列のt冪計算に依存する。CKだけを引用してこの実関手の結論を省略しない。
+
+Lowen--Van den Bergh Theorem 5.4は先頭曲率の冪零性の下で形式MCとtorsion Morita変形を比較する。Blanc--Katzarkov--Pandit Theorems 1.1/1.2は高次自己Extが消えるcompact generatorを持つ線形圏について一変数形式変形の非曲率模型と両立するcompact generatorを与える。従って、形式変形論一般がtorsion Moritaまでしか与えないと述べるのも不正確である。これらは指定三対象上の有限rank graded MF関手、rotation・周期比較、通常HomのLaurent局所化と可換cubicの同定をそのまま述べるものではない。本稿の固定対象への制限を先に行う構成は、この最後の段階を明示する。
+
+三次の定数trivectorによる一段経路、arity1/3、F_(2r+1)∈m^rの定量的実現は本文に明示する。主題として残るのは、これを代数的中心三次変形の一般点・有限降下・全coherent飽和・基礎体上の方程式へ結びつける結論である。後半の有限降下と抽象飽和は既知の一般原理の応用である。明示的な完備比較・相対windowと包括的な一般点結論を成果の中心とする。同一の一般点定理を述べる一次文献は調査範囲では確認できていないが、この組合せおよび明示的実現の初出は未確定。新規性の評価では「curved formalityが新しい」「一般的にMFをpotentialで記述できることが新しい」という説明を用いない。
 
 Etingof--Ginzburgの通常次数三次例はN=3の楕円Sklyanin型である。本稿のN>=5・任意の指定された中心三次変形・一般点のrotation付き残余圏を、同文献がそのまま述べているわけではない。LZの一意性とBFKの生成上界は既知結果の利用であり、存在定理の初出を確定する資料でもない。
 
@@ -82,8 +105,27 @@ Etingof--Ginzburgの通常次数三次例はN=3の楕円Sklyanin型である。�
 
 - **CasimirとJacobiは別。** F=sum_(i=0)^4 x_i^3/3、Xi=partial_0∧partial_1∧partial_2+partial_0∧partial_3∧partial_4、pi=[Xi,F]では[pi,F]=0だが[Xi,pi]と[pi,pi]は非零である。`verify_complete_curved_transport.py` にnegative controlを保持する。
 - **特殊生成性だけの持上げは偽。** P^1上のcone(O(−1) --h s--> O)はh=0でOとO(−1)[1]を含み生成するが、hを反転すると非零section sの零点に支持された対象となり、全導来圏を生成しない。windowの実際のfiltrationと一般点のEuler非消滅が必要である。
-- **同じ勾配空間は基礎体上の同型を意味しない。** `gcd:ex:forms` のsum x_i^3とh x_1^3+sum_(i>1)x_i^3はK上で射影非同型。本文にHessianと付値による証明を収める。核の降下障害の非零例としては使わない。
+- **同じ勾配空間と形式同型は基礎体上の同型を意味しない。** `gcd:ex:forms` のsum x_i^3と(1+h)x_1^3+sum_(i>1)x_i^3はR上smoothで特殊ファイバーが同じ、C[[h]]上同型だがK上では射影非同型。本文にHessianとh+1に沿う付値による証明を収める。核の降下障害の非零例としては使わない。
 - **有限可積分性は圏同値を証明しない。** 方程式抽出は幾何学的模型の存在を得た後の段階である。特定のlambda=1の明示方程式を模型と同定するには、実際の非可換低積との追加比較が必要。
+
+## 基礎体降下と非分裂例
+
+K=C(h)、L=C((h))について、z^3=1+hはL-点を持つがK-点を持たない。有限型K空間に形式点があるだけではK有理点は得られない。Brauer群消滅を同値核の降下に使うには、まずその核のGalois不変な同型類と自己同型群を同定する必要がある。非空開の閉点を選ぶ現在の有限降下は、その情報を与えない。有限拡大除去は未解決である。
+
+有限étale代数を分裂代数k^sと混同しないための例として、k=Q(t)上の
+
+`F=x0^3+3t x0 x1^2+x2^3+x3^3+x4^3`
+
+を用いる。t=1で最初の二変数部分は ((x0+x1)^3+(x0-x1)^3)/2 なので一般点はsmooth。二次拡大で五つのcubeに分かれ、E_F=Q(t)[u]/(u^2-t)×Q(t)^3。最初の二変数でuは行列[[0,t],[1,0]]として作用し、u^2=tを満たす。tの付値が奇数なので二次因子はQ(t)上非分裂である。
+
+`verify_generic_cubic_descent.py` は可積分行列の転置空間がこの5次元代数に等しいこと、積の関係、F^a(bx)=F^(ab^3)(x)を厳密に検算する。元からの三例のdim L_Q=5,1,1は、最細幾何学的STブロック数として解釈できる。この計算は既知の可換Fを入力するもので、非可換圏からV,U,積を抽出したものではない。
+
+## 近接する結果との境界
+
+- Efimov--Positselski, [Coherent analogues of matrix factorizations and relative singularity categories](https://msp.org/ant/2015/9-5/ant-v9-n5-p04-s.pdf), Algebra Number Theory 9 (2015), 1159–1292, DOI 10.2140/ant.2015.9.1159, Theorem 2.7と§3.3。coherent MFの比較・局所化と、有限rank locally-free MFの局所化を区別する。§3.3の反例は特異なambient上のもので、本稿の可換Rhat[x]への直接の反例ではない。本稿は固定対象の通常Homの平坦底変更を使う。
+- Tu, [Categorical Saito theory, I](https://arxiv.org/abs/1902.04596), Theorems 3.2, 1.6/4.4は与えられた可換Wのcyclic模型・VSHS比較。Segal, [The closed state space of affine Landau--Ginzburg B-models](https://arxiv.org/abs/0904.1339), Theorem 2.14 / Corollary 3.4はHochschild不変量の比較であり、任意の非可換中心商からの圏同値の定理ではない。
+- Positselski, [Two kinds of derived categories, Koszul duality, and comodule--contramodule correspondence](https://arxiv.org/abs/0905.2621), §6.4はcoderived/contraderivedの比較。完備化と無限対象を含む圏の種類を区別して使う。
+- Lehmann, [Hochschild cohomology parametrizes curved Morita deformations](https://arxiv.org/abs/2406.04945v2), Propositions 2.4/2.5は一次曲率Morita変形とHH^2の全単射、Proposition 3.3は有限Artin底のn-derived categoryの比較である。完備底から通常のLaurent一般点への復元をそのまま与える定理ではない。
 
 ## 独立成果との境界
 
@@ -93,6 +135,6 @@ Plückerの二次障害、全Artin window、相対étale、明示混合族・高
 
 ## 再現と未解決の核心
 
-`verify_complete_curved_transport.py` は5/7変数のSchouten恒等式、定数trivector contraction、negative control、および有限次数の非自律coalgebra flowの逆・coproduct・arity評価を検査する。`verify_three_object_window.py` は有限行列の摂動縮約と三角的filtration、`verify_generic_cubic_descent.py` は既知の可換勾配空間の可積分性を厳密体Q(t)上で検査する。いずれもKontsevichグラフ積分や実際の非可換MFの全Hom/高次積の計算機証明ではない。
+`verify_complete_curved_transport.py` は5/7変数のSchouten恒等式、定数trivector contraction、negative control、および有限次数の非自律coalgebra flowの逆・coproduct・arity評価を検査する。`verify_three_object_window.py` は有限行列の摂動縮約と三角的filtration、`verify_generic_cubic_descent.py` は既知の可換勾配空間の可積分性と非分裂symmetrizerの例を厳密体Q(t)上で検査する。いずれもKontsevichグラフ積分や実際の非可換MFの全Hom/高次積の計算機証明ではない。
 
 再現コマンドは研究方針に記載し、最新の終了コード・出力ハッシュ・組版・画面確認の状態は `validation_paper_b.json` に置く。生成PDFと計算出力はbuild/で非追跡。次に必要なのは、上述の既知原理に対する一般点結論の新規性の確定と、具体的非可換入力からのV,U,積の算出である。有限拡大の必要性・次数、同値核の具体行列、特殊点を含む代数的模型、全モジュライ上の接着は引き続き独立の未解決課題である。

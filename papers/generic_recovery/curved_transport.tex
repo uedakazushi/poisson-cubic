@@ -49,17 +49,37 @@ Kontsevichの既知結果は、affine formality、HKR、Maurer--Cartan変形問�
 
 \begin{remark}[既知の曲率付きformalityとの比較]\label{cft:rem:prior-formality}
 Carqueville--Kay\cite[Proposition~2.3, Remark~2.4, Proposition~3.4]{CK}の
-曲率付きformalityは、基点$b_F=\mu_0-tF$の第二種Hochschild複体を
-$[-tF,-]$を微分とするpolyvector複体と比較する。
-孤立特異点の勾配Koszul複体のコホモロジーは関数のJacobian空間に集中し、
-その斉次代表同士のSchouten括弧は零である。
-従って、基点の曲率を微分に含めて
-$\delta=(\mu_A-\mu_0)-t(\Omega-F)\in\mathfrak m$に
-各Artin商のMC比較を適用することが、potentialによる形式的存在原理を与える。
-第二種cochainのarity直和を$\mathfrak m$進完備化すれば、各Artin次数で有限arityとなる。
-内部weightを保ち、$t$を係数とする比較が次数付きの場合に対応する。
-以下の証明はこの存在原理に対し、三次特有の定数trivector、
-一段のゲージ経路、式\eqref{cft:eq:bound}の一様評価を与える。
+Proposition~3.4は、$S=\mathbb C[x_1,\ldots,x_N]$上の曲率付き代数と
+$[-F,-]$を微分とするpolyvector場の変形複体を比較する。
+用いられる第二種cochainはarityについての直和であり、各arityでは
+全多重線形写像を許すので、変形積がbidifferentialであることを入力条件とはしない。
+同論文のTheorem~3.1はさらに固定したMFのendomorphism代数を扱う。
+本稿の全graded MF圏の同値や指定周期比較は、同定理の主張そのものではない。
+
+本稿の状況には、$\deg t=(2,-3)$の周期変数を係数として扱い、$t$を微分しない
+relativeな比較、二重次数とnormalizedな単位を保つ構成、
+$\mathfrak m$進完備化を加える必要がある。
+第二種cochainをこの位相で完備化すると、各$R/\mathfrak m^{q+1}$では有限arityとなる。
+これは初めからarityの任意の無限直積を許すこととは異なる。
+$t$-relativeなpolyvector複体では、勾配Koszul複体により
+\begin{equation}\label{cft:eq:prior-jacobian}
+ H\bigl(T_{\rm poly}\otimes_{\mathbb C}\mathbb C[t,t^{-1}],[-tF,-]\bigr)
+ \simeq\operatorname{Jac}(F)\otimes_{\mathbb C}\mathbb C[t,t^{-1}].
+\end{equation}
+右辺の関数のLie次数は$-1$であるため、Lie次数一・内部weight零の成分は
+$t\operatorname{Jac}(F)_3$である。関数の斉次代表同士のSchouten括弧は零であり、
+基点$b_F=\mu_0-tF$の曲率を微分に含めて
+$\delta=(\mu_A-\mu_0)-t(\Omega-F)\in\mathfrak m$を扱うことが、
+potentialによる形式的存在原理に対応する。
+
+一般の孤立potentialでは、形式係数の極限は多項式次数について有界とは限らず、
+例えば$\mathbb C[x][[h]]$と$\mathbb C[[h]][x]$は異なる。
+従って、形式的なMC同値だけで本稿の次数別直和上の有限rank同値を結論しない。
+以下では補題\ref{cft:lem:model}で元の全cochainから始め、
+補題\ref{cft:lem:arity}、\ref{cft:lem:flow}で単位・二重次数と有限評価を確認し、
+式\eqref{cft:eq:two-block-matrix}で固定rank・内部shiftのMFに留まることを証明する。
+三次特有の定数trivector、一段のゲージ経路、式\eqref{cft:eq:bound}の一様評価は、
+この一般原理の本稿での明示的な実現である。
 通常のMF圏のHochschild複体と第二種複体を無条件に同一視する必要はない。
 \end{remark}
 

@@ -2,7 +2,7 @@
 
 2026-11-13。現行の独立成果の移管と元側の専用重複整理を完了した。
 
-論文A `papers/paper_a.tex`（A-v51）と論文B `papers/paper_b.tex`（B-v56）はnc-cubicに保持する。Bの必要証明は `papers/generic_recovery/` 内で自立し、外部参照だけで代用しない。公表向け数学監査の現状は `paper_b_proof_audit.md` と `../validation_paper_b.json` にまとめる。以下の移管時入力照合は `validation_transfer.json` が指定する移管時の版についての記録である。
+論文A `papers/paper_a.tex`（A-v51）と論文B `papers/paper_b.tex`（B-v57）はnc-cubicに保持する。Bの必要証明は `papers/generic_recovery/` 内で自立し、外部参照だけで代用しない。公表向け数学監査の現状は `paper_b_proof_audit.md` と `../validation_paper_b.json` にまとめる。以下の移管時入力照合は `validation_transfer.json` が指定する移管時の版についての記録である。
 
 ## 移管先の現行入口
 
