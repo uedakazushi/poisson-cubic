@@ -1,11 +1,11 @@
 {
-  "version": "A-v57",
-  "bundle_version": "nc-cubic-v89",
+  "version": "A-v58",
+  "bundle_version": "nc-cubic-v90",
   "date": "2026-11-14",
   "manuscript": "papers/paper_a.tex",
   "audit_note": "notes/poisson_article_submission_audit.md",
-  "scope": "Continued A-v54 referee revision: full-parameter full-G covariant PBW centre on zero ternary restriction; compatible general G_0 choice; support-plane-contained stratum and whole-line character descent. Structural PBW/AS/regular-quotient, coefficient-kernel and Reynolds proofs read independently. Mathematical reading, universal exact computation, typesetting, visual inspection and persistence are separate states.",
-  "source_base_commit": "6edea1d37d61cc0497c732d4b639daba6cb59b93",
+  "scope": "Continued referee revision: regular orbitwise full-G centering for nodal/cuspidal ternary restrictions; singular-point-line cancellation of scalar degree weights and actual graded-algebra descent for every m in the stated moduli range; smooth strata and gerbe neutralization. The obstruction to a g-only retraction across irreducible types is stated precisely. Proof reading, exact symbolic checks, typesetting, visual inspection and persistence are separate states.",
+  "source_base_commit": "3f78fac837cac5260b9216b03c25f9637fbb39e0",
   "mathematical_review": {
     "proof_chains_read": [
       "Euler/Koszul representation, divergence and Hessian condition",
@@ -33,7 +33,9 @@
       "Effective quotient-group and fppf stabilizer exact sequences; character-twisted degree-one bundle, classical cubic line and relative Proj of the descended commutative limit.",
       "Zero ternary restriction: affine-linear Jacobian bracket over central coefficients, free rank-four Lie algebra with central e0, PBW after e0=1, exact symmetrization/commutator identity, full-t cubic divided kernel O*sym(f) plus pure-central cubics.",
       "General G_0-equivariant choice prescribed on the reduced union (t=0) union (g=0), with Q=1 there and agreement with sym(f); Reynolds lifting and the second invariant shrinking preserve both conditions.",
-      "Support-plane-contained rank-two stratum: nonempty exactly for m>=3; smooth irreducible codimension ten in the reduced rank-two stratum; dimension binom(m+5,3)-m^2-3m-18; scalar gerbe and whole-line character descent when gcd(m,3)=1."
+      "Support-plane-contained rank-two stratum: nonempty exactly for m>=3; smooth irreducible codimension ten in the reduced rank-two stratum; dimension binom(m+5,3)-m^2-3m-18; scalar gerbe and whole-line character descent when gcd(m,3)=1.",
+      "Nodal and cuspidal ternary cubics: complete stabilizers, explicit stabilizer-equivariant left inverses, regular descent along the orbit map and extension of the parabolic centering theorem; codimension-two obstruction to a single g-only retraction on the irreducible locus.",
+      "Nodal/cuspidal reduced rank-two Poisson strata: smooth nonempty irreducible loci of codimension one/two, dimensions, tautological singular-point line with pullback weight minus one, neutral scalar gerbe, graded multiplicative descent for every m>=2, and the classical relative Proj and Poisson pair."
     ],
     "material_corrections": [
       "The relative forgetful scheme morphism is affine of finite type, not a closed immersion into the base.",
@@ -47,25 +49,26 @@
       "The fixed-coordinate coefficient-family existence theorem does not assert a coefficient-independent parameter open or equivariant descent to the full Poisson moduli stack.",
       "Uncorrected scalar-weight equivariance gives a gerbe family. When gcd(m,3)=1, the character theta=(det N)^r lambda^s with mr-3s=1 removes degree weights, giving actual graded-algebra descent to the stated reduced Poisson stratum open.",
       "The abstract, introduction and ambient-recovery discussion distinguish the 17-dimensional reduced Poisson base from the unproved dimension of the fixed-nonzero-h noncommutative moduli image.",
-      "Full-G equivariance generally requires dropping the pure-central-coefficient gauge. Zero restriction is an exception: sym(f) retains that gauge for every t. Nonzero singular restrictions and general multi-block changes remain unresolved.",
+      "Full-G equivariance generally requires dropping the pure-central-coefficient gauge. Zero restriction is an exception: sym(f) retains that gauge for every t. Nodal and cuspidal restrictions are now treated orbitwise; reducible/nonreduced restrictions, compatibility across type boundaries and general multi-block changes remain unresolved.",
       "Pointwise existence of a non-scalar central element is explicitly credited to Etingof--Ginzburg. Mixed quadratic coefficients by themselves are not claimed as new: for invertible Hesse t they can be translated to the existing presentation.",
       "The general lifting obstruction is independent of any literature-error claim and is C^{pi_0(C)}/C; connectedness gives vanishing, while disconnectedness alone does not assert that every section has a nonzero obstruction.",
       "The ambient recovery appendix uses A for the ambient algebra and B for its central quotient, consistently with the quantization part.",
       "The cubic-fourfold Hessian plane lies in ambient P^5, not in X. Hessian reducibility by itself does not imply a rank-four Poisson structure, as shown by the smooth (1,1,4) example.",
       "For every r>=2 the lifting obstruction has the component-constant description only at the defining degree d; for another twist e the relevant group is H^1(I_C^(r-1)(e-d)).",
       "The descended centre is a cubic line subbundle and its homogeneous ideal; a globally chosen generator on the reduced Poisson stack is not asserted.",
-      "Tor in the central-linear-extension display uses the right/left module convention. The u variables form a regular sequence in ambient A, not necessarily in its quotient B; on zero restriction Omega mod(u)=0."
+      "Tor in the central-linear-extension display uses the right/left module convention. The u variables form a regular sequence in ambient A, not necessarily in its quotient B; on zero restriction Omega mod(u)=0.",
+      "The singular-point line uses pullback M^-1, hence scalar weight -1; tensoring degree d with its d-th power removes the algebra weight d. This uses an equivariant line over each stratum, not a character splitting of the constant group. No congruence condition on m is needed on these two strata."
     ],
     "formal_verification": false,
     "external_referee_review": false,
     "comprehensive_priority_established": false,
     "independent_reading_this_revision": [
-      "Main editor and one collaborating reviewer: all-degree relative PBW, central regular sequence, Koszul/AS extension, regular quotient and flatness; Mori-Smith v2 and published Berger-Taillefer hypotheses.",
-      "Main editor and a second collaborating reviewer: coefficient kernels, UFD trivialization, invariant principal opens and Reynolds lifting, including the prescribed union of the zero section and zero-restriction stratum.",
-      "Main editor and two collaborating reviewers: new affine-linear Lie/PBW proof, exact symmetrization identity, full-t kernel, regularity, support-plane incidence, dimensions and character descent.",
-      "A third collaborating reviewer implemented the universal QQ normalizer; the main editor inspected and executed it. Its scope is symbolic identities, not AS conditions or geometric descent.",
-      "Split-fourfold proof reread against Pym v1 Definition 4.2 and Remark 4.4. Published/accepted full text was not obtained by the bounded public-source search, so the comparison remains v1-only.",
-      "Unchanged geometric proofs and earlier heavy computations were not completely reaudited or rerun. Their scopes and current hashes are retained; no formal verification or external acceptance is claimed."
+      "Main editor and two collaborating reviewers: complete node/cusp stabilizers, the coefficient formulas for the retractions, regular orbit transport, the extended centering proof and the codimension-two non-gluing obstruction.",
+      "Main editor and two collaborating reviewers: smooth total examples, incidence quotients, dimensions, pullback sign of the singular-point line, neutralization by its dual frame stack, weight-zero multiplicative descent, classical limit and restrictions of scope.",
+      "A third collaborating reviewer implemented the exact orbit-centering verifier. The main editor inspected and executed it: independent lower coefficients and shifts, stabilizer covariance, the tangent-conic-line obstruction and exact Groebner checks of two smooth examples.",
+      "Official Milne and published Bergh-Schnuerer statements checked for orbit quotients and weight-zero quasi-coherent descent. These are known principles, separate from their present application.",
+      "Bounded public-source checks of the publisher route and Oxford accepted-manuscript record did not yield Pym published/accepted full text. The comparison remains restricted to the previously checked arXiv v1 passages.",
+      "Unchanged proof chains and twelve earlier exact computations were not completely reaudited or rerun. Existing scopes and matching current hashes are retained; no formal verification or external acceptance is claimed."
     ],
     "primary_source_comparison": [
       {
@@ -119,13 +122,21 @@
       {
         "source": "Etingof, MIT 2024 course notes, Corollaries 13.7-13.8 and preceding adjoint-equivariance statement, p.75",
         "scope": "Official PDF checked for the known PBW symmetrization principle. The affine-linear identity over a coefficient ring is proved directly in the manuscript; the principle itself is not claimed as new."
+      },
+      {
+        "source": "J.S. Milne, Algebraic Groups, author public 2022 text: Propositions 7.12 and 7.17, pp.142-143; https://www.jmilne.org/math/Books/iAG2022.pdf",
+        "scope": "Official full text checked for orbit quotients and the faithfully flat orbit map. The explicit stabilizers and transported retractions are proved in the manuscript; orbit affineness is not assumed."
+      },
+      {
+        "source": "D. Bergh and O.M. Schnuerer, Decompositions of derived categories of gerbes and of families of Brauer-Severi varieties, Documenta Mathematica 26 (2021), 1465-1500, Proposition 4.10 p.1487, DOI 10.4171/DM/846; https://ems.press/content/serial-article-files/26626?nt=1",
+        "scope": "Published full text checked: the pullback functor from the base identifies quasi-coherent sheaves with the weight-zero part on the gerbe. The line twist, algebra multiplication and neutralization are spelled out in the manuscript."
       }
     ],
     "reviewed_in_this_revision": [
-      "prop:pg-PBW, lem:pg-central-linear, lem:pg-central-cubic, regularity/flatness in thm:pg-quantization; the Tor display was clarified.",
-      "Coefficient rank/Cramer/global-selection proofs; lem:pg-equivariant-affine-lifting and the strengthened thm:pg-equivariant-levi-center.",
-      "thm:pg-equivariant-zero-center; cor:pg-equivariant-central-quotient; prop:pg-equivariant-zero-stratum.",
-      "New universal verifier; introduction, current policy, notes, bibliography, validation scopes and preserved paper B hashes."
+      "lem:pg-equivariant-singular-retractions; thm:pg-equivariant-parabolic-center; rem:pg-equivariant-stratumwise-centering; affected cor:pg-equivariant-central-quotient.",
+      "prop:pg-equivariant-singular-strata; interaction with prop:pg-equivariant-poisson-gerbe and cor:pg-equivariant-character-descent; the degree-weight scope remark.",
+      "New exact verifier and current universal-Casimir research notes, including the tangent conic-line non-splitting and two additional reducible-orbit retractions.",
+      "Abstract/introduction, policy, audit, bibliography and validation scopes; preserved paper B and shared preamble hashes."
     ],
     "proof_chains_read_scope": "The list describes the current proof chains with recorded mathematical readings. This revision independently checks the new or reorganized arguments listed below; it is not a new complete audit of every unchanged proof.",
     "supplied_referee_report": {
@@ -134,9 +145,9 @@
       "version": "v1",
       "reviewed_manuscript": "A-v54",
       "reviewed_commit": "f4c8fb131f346099ed2fb8af29429574861b505e",
-      "scope": "User-supplied independent report about the identified A-v54 commit. It is not journal acceptance of the revised A-v57; its independent code was not supplied or rerun here."
+      "scope": "User-supplied independent report about the identified A-v54 commit. It is not journal acceptance of the revised A-v58; its independent code was not supplied or rerun here."
     },
-    "external_referee_review_scope": "No journal referee acceptance or external review of A-v57 is claimed; the supplied independent A-v54 report is identified separately."
+    "external_referee_review_scope": "No journal referee acceptance or external review of A-v58 is claimed; the supplied independent A-v54 report is identified separately."
   },
   "static_checks": {
     "status": "PASS",
@@ -148,11 +159,11 @@
       "git diff --check"
     ],
     "tex_input_count": 20,
-    "equation_environments": 364,
-    "labels": 396,
-    "references": 393,
-    "bibliography_items": 28,
-    "citations": 82,
+    "equation_environments": 382,
+    "labels": 417,
+    "references": 411,
+    "bibliography_items": 30,
+    "citations": 87,
     "missing_or_duplicate_labels_or_citations": false,
     "unnumbered_display_math": false,
     "repository_distinct_tex_inputs_A_and_B": 31,
@@ -161,19 +172,19 @@
   },
   "typesetting": {
     "status": "PASS",
-    "executed_for_version": "A-v57",
+    "executed_for_version": "A-v58",
     "execution_date": "2026-11-14",
     "command": "python3 scripts/build.py --only paper_a",
     "exit_code": 0,
     "complete_paper_build_executed": true,
     "engine": "This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)",
-    "pages": 93,
+    "pages": 97,
     "environment_note": "Japanese LuaLaTeX using isolated user-owned TEXMF paths with a compatible LuaTeX-ja 2024 final runtime and HaranoAji fonts. Repository build configuration and shared preamble are unchanged.",
     "pdf": "build/paper_a.pdf",
-    "pdf_sha256": "32d63d507c8c4a806d8f74584af9c6e037a58c9d54aeec913e1607e671f8e40b",
-    "pdf_bytes": 1155169,
+    "pdf_sha256": "48d63b410a92b071ee5da23f3f8ddd9a5f263ba428e8b68e6209ee7cad5b49ac",
+    "pdf_bytes": 1186931,
     "receipt": "build/paper_a.receipt.json",
-    "receipt_sha256": "b1aec309bfa8f5729730b8aa1bc73cba42d5049a2d8e25c396a84110ba642f09",
+    "receipt_sha256": "dc3c31deb2862a8d35e0311c799842cebdaf21693a2aa040105da526265539b5",
     "current_source_pdf_hash_parity": true,
     "typesetting_failures": {
       "undefined_references": false,
@@ -182,32 +193,31 @@
       "overfull_boxes": false
     },
     "pdf_git_tracked": false,
-    "scope": "The complete A-v57 PDF was compiled and its current source hashes checked. The later v89 receipt refresh records the integrated repository metadata; its PDF hash is identical to the visually inspected PDF. B-v58 was not rebuilt in this A review."
+    "scope": "The complete A-v58 PDF was compiled with current TeX inputs and v90 repository metadata. Source/PDF hashes match. B-v58 was not rebuilt in this A review."
   },
   "visual_inspection": {
     "status": "PASS",
     "all_pages_rendered": true,
-    "pages": 93,
+    "pages": 97,
     "all_pages_contact_sheets_inspected": true,
     "detail_pages_inspected": [
       1,
       6,
       9,
       10,
-      41,
-      65,
-      66,
       67,
       68,
       69,
-      72,
-      73,
-      91
+      74,
+      75,
+      76,
+      77,
+      97
     ],
     "contact_sheet_dpi": 55,
     "detail_dpi": 120,
     "observed_clipping_or_overlap": false,
-    "scope": "All 93 pages inspected in contact sheets; title, revised introduction, proof-dependency table, Tor convention, zero-restriction theorem, prescribed-union Reynolds proof, regular quotient, support-plane stratum and bibliography additionally inspected at page resolution. This records layout review, not a new mathematical proof audit."
+    "scope": "All 97 pages inspected in contact sheets. Title/abstract, revised introduction and dependency table, complete new orbit-retraction proof, extended centering theorem, non-gluing remark, complete singular-stratum/descent proposition, scope remark and new bibliography additionally inspected at page resolution. This records layout review, separate from mathematical proof reading."
   },
   "exact_computations": [
     {
@@ -350,9 +360,25 @@
       "exit_code": 0,
       "executed_for_revision": "A-v57",
       "execution_date": "2026-11-14",
-      "rerun_in_this_revision": true,
+      "rerun_in_this_revision": false,
       "current_script_hash_matches": true,
       "result": "Universal QQ identities with ten independent potential coefficients and t: decreasing monic rules, only critical overlap zyx, all three central commutators, three translated relations and centre translation covariance (already in the free algebra), with three independent shifts. No specialization, parameter inversion or truncation. General linear/scalar covariance, smoothness, AS conditions and stack descent are not computationally checked here."
+    },
+    {
+      "command": "python3 computations/verify_singular_orbit_centering.py --output build/verify_singular_orbit_centering.json",
+      "script": "computations/verify_singular_orbit_centering.py",
+      "script_sha256": "bcb14a4b4ab58defb0a9b64f89683c59568f69b7356b08d593d862ac9068716d",
+      "status": "PASS",
+      "exit_code": 0,
+      "executed_for_revision": "A-v58",
+      "execution_date": "2026-11-14",
+      "rerun_in_this_revision": true,
+      "current_script_hash_matches": true,
+      "sympy_version": "1.14.0",
+      "result": "Exact QQ/Laurent/cyclotomic identities with all ten lower coefficients and three shifts independent: sigma*delta=I, displayed node/cusp stabilizer covariance, B_prime=M*B-D and covariance of the centered cubic. The tangent conic-line equivariant-left-inverse system has coefficient/augmented ranks 18/19, independently 4/5 after torus restriction. Exact Groebner reductions put a positive power of each variable in both example gradient ideals. Full stabilizer classification, orbit regularity, quantum centrality and moduli descent are mathematical proofs outside this computation.",
+      "output": "build/verify_singular_orbit_centering.json",
+      "output_sha256": "28fbdf8f06e94285b22e123da3209901af76355d70c65b72f9332e5907b2630d",
+      "output_git_tracked": false
     }
   ],
   "certificate_inputs": {
@@ -361,7 +387,7 @@
   },
   "preserved_paper_B": {
     "version": "B-v58",
-    "preserved_from_remote_commit": "438fd73abce6eb37fa3a18943405571ac1d0ceec",
+    "preserved_from_remote_commit": "3f78fac837cac5260b9216b03c25f9637fbb39e0",
     "tex_input_count": 12,
     "tex_inputs_sha256": {
       "papers/generic_recovery/coherent_saturation.tex": "8ffb2eb73b7baaab0591c385a1877ab1ab2c864d50e4dd905843207b222a19e7",
@@ -382,21 +408,21 @@
     "re_built_in_this_A_review": false,
     "validation": "validation_paper_b.json",
     "validation_unchanged_from_preserved_remote_commit": true,
-    "scope": "The concurrent B-v58 source closure and B-specific validation are preserved; that validation records its separate B review and build. Only shared research documents were reconciled with the present A revision."
+    "scope": "The current B-v58 source closure and B-specific validation are preserved byte-for-byte; that validation records its separate B review and build. Shared research documents are reconciled with the present A-v58 revision."
   },
   "remaining_limits": [
     "The Pym comparison is restricted to checked arXiv:1507.05668v1. Published metadata, the accepted-manuscript repository record and ordinary public access routes were checked, but published/accepted full text was not obtained; no claim is made about an unverified correction or its absence.",
     "Brueckmann original proofs (1976 Satz 3 / 1977 Satz 6) were not obtained; Fu--Hwang Lemma 4.1 and its attribution were verified. The needed low-twist vanishing is proved self-containedly in the manuscript, so these unavailable proofs are no longer a mathematical dependency of that criterion.",
     "Originality of the all-dimensional normal form, relative component theorem and full quantization combination is not exhaustively established. Bondal, Derdzinski--Gal, Reynolds averaging, projective bundles and character corrections are separated from the present application.",
-    "Full-G equivariance for nonzero singular ternary restrictions and general changes of multi-block decomposition/pure-central allocation remain unresolved. Zero restriction is solved on the whole parameter line; sym(F) is allocation-independent in a fixed all-zero-block presentation.",
-    "When gcd(m,3)=1, descent is proved on a zero-section-containing open of the smooth-ternary rank-two stratum, and on the entire line over the zero-ternary support-plane-contained stratum. For 3|m the stated character method is unavailable; this proves neither gerbe nonneutrality nor absence of other descent methods.",
+    "Full-G centering is proved separately for smooth, nodal and cuspidal restrictions, and for zero restriction on the entire parameter line. Compatibility across type boundaries, reducible/nonreduced restrictions and general multi-block decomposition/pure-central allocation remain unresolved. A single regular g-only retraction on the irreducible locus is impossible; this does not disprove a mixed-coefficient construction or central-line gluing.",
+    "On node/cusp strata, the singular-point-line twist gives neutral gerbes and actual graded-algebra descent for every m>=2 on zero-section-containing opens. For the smooth and zero-restriction strata, the character method still assumes gcd(m,3)=1; its failure when 3 divides m proves no nonneutrality or nonexistence theorem.",
     "For cubic threefolds, 17 is the dimension of the reduced Poisson base. Generic finiteness or a 17-dimensional image for the abstract noncommutative algebras at fixed nonzero h is not proved.",
     "Quantization over the full Poisson moduli stack, qgr smoothness for all closed parameters and relative residual equivalence through the commutative special point are not claimed.",
-    "Only the new zero-restriction-centre verifier was executed for A-v57. Eleven earlier results are retained without rerun, with current script and certificate hashes checked. Universal identities, finite examples, proof reading and formal verification have distinct scopes."
+    "Only the new singular-orbit-centering verifier was executed for A-v58. Twelve earlier results are retained without rerun, with current script and certificate hashes checked. Universal identities, finite examples, proof reading and formal verification have distinct scopes."
   ],
   "persistence": {
     "authoritative": "GitHub uedakazushi/nc-cubic main",
     "policy": "Expected-parent fast-forward only; confirm remote ref, parent and changed blobs separately after saving. The containing Git commit identifies the saved sources. Also save the current lightweight research bundle and revised PDF at this milestone under the user standing instruction. Artifact creation, verification and confirmed persistence are separate states; this policy is not an upload receipt."
   },
-  "publication_base_commit": "438fd73abce6eb37fa3a18943405571ac1d0ceec"
+  "publication_base_commit": "3f78fac837cac5260b9216b03c25f9637fbb39e0"
 }

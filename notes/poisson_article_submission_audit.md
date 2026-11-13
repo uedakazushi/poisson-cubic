@@ -1,6 +1,6 @@
 # 論文Aの公表準備：主張・依存・検証の範囲
 
-**2026-11-14 / A-v57・nc-cubic-v89。** 再開時は `00_research_plan.md` を先に読む。
+**2026-11-14 / A-v58・nc-cubic-v90。** 再開時は `00_research_plan.md` を先に読む。
 本文は `papers/paper_a.tex`、専用文献は `papers/support/papers/references_poisson_cubic.tex`。
 以下の節ファイルはすべて `papers/support/papers/sections/` にある。
 計算・組版・入力ハッシュの実行記録はルートの `validation_paper_a.json` に集約する。
@@ -12,12 +12,16 @@
 具体的な四次元の帰結として、一般階数四の構造の分離型分類、ambient Hessian階数軌跡による存在判定と純楕円退化因子を扱う。Hessianの可約性だけでは不十分な滑らかな例も含める。
 中心元は固定した変数分解の全滑らかな係数空間上で同時選択できる。
 単一ブロックではreductive群に関して全係数空間上で同変に選べ、
-三変数制限が滑らかな部分では中心平行移動を含む群にも拡張できる。
+三変数制限が滑らかな開と、節点・尖点の各軌道では、中心平行移動を含む群にも型ごとに拡張できる。
 零制限ではPBW対称化したΩ=sym(f)が全パラメータの全G共変な正則中心元となり、
 一般のG_0同変選択もこの零層の元に一致させられる。
 線形群の商上の中心Gm-gerbeを同定し、gcd(m,3)=1では指標で次数線形化を補正して、
 階数二のPoisson対の被約層内の開へ代数族を降ろす。
-零制限のsupport平面を含む層では、同じ降下を全h直線上で行える。
+support平面がXに含まれる零制限層では、同じ指標による降下を全h直線上で行える。
+節点・尖点層では唯一の特異点の直線束で次数重みを補正するため、gcd(m,3)=1を仮定せず、
+本稿の範囲m>=2の全てでgerbeが中立となり、実際の次数付き代数と中心商が零h近傍へ降りる。
+三次三様体での底の次元は節点型16、尖点型15である。
+これらは各層上の結論であり、全hへの延長や型の境界をまたぐ貼合せを含まない。
 ambientの二次包絡、偏極付き圏からの復元、三次三様体の条件付き導来復元は付録に収める。本文・付録を通じてambientはA、中心商はBとする。
 要約・序論はこの依存順に整理し、Fermatのspace・固定stack・相対stackの三種類の成分数を区別する。
 表示式には数値の式番号を付ける。
@@ -32,9 +36,12 @@ Aの一般定理の証明を移管先へのリンクで代用していない。
 
 次の証明連鎖を本文と外部入力の適用条件に沿って点検している。
 「点検」は独立な数学的読み直しを意味し、Lean等の形式検証や外部査読を意味しない。
-既存の有効な証明監査を保持し、現改訂では全次数PBWからAS条件・正則中心商への構造的依存、
-係数環上のrank/Cramer構成とReynolds持上げ、新しい零制限の全パラメータ構成と降下を独立に読み直した。
-Hesse恒等式の既存の大きな計算と、既存の正規形・幾何の全証明を今回再実行・再監査したという意味ではない。
+既存の有効な証明監査を保持し、現改訂では節点・尖点の安定化群と方向微分の左逆、
+軌道上の正則な移送、全G中心調整、特異点直線によるgerbe中立化と代数の降下を独立に読み直した。
+不可約三次式全域での左逆の貼合せ障害と、層の非空性・余次元・次元も点検した。
+全次数PBWからAS条件・正則中心商への依存、rank/Cramer構成、Reynolds持上げ、
+零制限の全パラメータ構成については既存の有効な監査を保持する。
+既存の大きなHesse計算や、正規形・幾何・量子化の全証明を今回再実行・再監査したという意味ではない。
 これは添付査読報告をすべて再実行・形式検証したという意味ではない。
 主定理の記載済み証明、有限計算、初出の確認は区別する。
 
@@ -51,12 +58,15 @@ Hesse恒等式の既存の大きな計算と、既存の正規形・幾何の全
 | `prop:pg-PBW`、`lem:pg-center-parity`、`prop:pg-universal-casimir-jet`、`quantization_foundations.tex` | 一ブロックの相対PBW・偶性・有限jet | 既知PBW入力と係数環への拡張。全次数PBWを有限次数の中心性検算とは区別 |
 | `thm:pg-universal-determinant`、`universal_casimir_determinant.tex` | 全体三次fが滑らかなら、active制限が特異・零でも、原点近傍に代数的中心三次元 | gcd、古典核、普遍行列、局所自由性、稠密Hesse開、Cramer規格化、偶性 |
 | `lem:pg-det-divided-kernel`、`prop:pg-det-normalization-transition`、`thm:pg-det-global-coefficient-lift` | 固定変数分解の全係数空間×h内で、全零切断を含む開上の偶な中心元。遷移はΩ'=aΩ+c | 任意底変更、通常の中心との差、偶principal開、忠実平坦下降、UFD/Pic=0、単元補正、Hesseのイデアル不一致、covarianceを独立に再点検 |
-| `thm:pg-equivariant-levi-center`、`equivariant_central_lifts.tex` | 全滑らかなfでG_0同変な偶中心元。定義開も不変で全零切断を含む | stable idealへのReynolds平均、twistした古典切断の持上げ、商線束の零点除去 |
-| `thm:pg-equivariant-parabolic-center` | g=f(x,0)も滑らかなら、中心平行移動を含む全G同変中心元 | δ_gの同変左逆、B_fの変換則、中心調整した三次式と開集合の引戻し |
+| `thm:pg-equivariant-levi-center`、`equivariant_central_lifts.tex` | 全滑らかなfでG_0同変な偶中心元。定義開は零切断とg=0の全t層を含み、零制限ではsym(f)に一致 | stable idealへのReynolds平均、指標twist、Z₀=(t=0)∪(g=0)上の指定値の持上げ、商線束の零点除去 |
+| `lem:pg-equivariant-singular-retractions` | 節点・尖点の各軌道上にδ_gの正則なL同変左逆。軌道の次元は9、8 | 方程式scale込みの全安定化群Gm×S₃、Gm²、明示σ、L/Hへの正則な移送。各型の標準形を係数比較で確認 |
+| `thm:pg-equivariant-parabolic-center` | gが滑らかな開、節点軌道、尖点軌道のそれぞれで、零t切断全体を含む開上の全G同変中心元 | smooth gではaffine底の分裂、節点・尖点では軌道上のσを使用。B_fの変換則、fの滑らかさ、Q(f⁰,0)=1を保つ定義開の引戻し。型をまたぐ整合は未主張 |
+| `rem:pg-equivariant-stratumwise-centering` | 不可約ternary cubicの全開には、gだけに依存する単一の正則なδ_g左逆は存在しない | 可約式の錐の余次元2、正規性による行列成分の延長、g=0での矛盾。同変性なしでも成立し、中心元自体の貼合せ不存在は意味しない |
 | `thm:pg-equivariant-zero-center` | g=0なら全t・全係数でPBW、Ω=sym(f)は全G共変。f smoothなら三次の割った交換子核はOΩ⊕C_m | 中心e₀を足したLie代数、monic PBW、対称化と交換子の厳密一致、全tの定階数核。中心性にはf smooth不要。一般のG_0族を(t=0)∪(g=0)上の指定値へ持ち上げる補強も点検 |
 | `cor:pg-equivariant-central-quotient` | 線形群の商上の次数別平坦なAS-Gorenstein中心商族 | t=ηhでhを固定、domainと正則性、各次数の局所自由性、スカラーの重み |
 | `prop:pg-equivariant-poisson-gerbe`、`cor:pg-equivariant-character-descent`、`rem:pg-equivariant-classical-family` | gcd(m,3)=1なら次数線形化を補正して階数二の被約Poisson層内の開へ降下。n=3で底は17次元 | GLの付随束表示、二つのスカラーの群完全列、fppf安定化群完全列、mr−3s=1の分裂、古典極限Sym(E_θ)と三次直線、相対Projを点検。大域中心生成元と固定h≠0での像の次元は未主張 |
 | `prop:pg-equivariant-zero-stratum` | P(W_P)⊂Xのrank2層はm>=3でのみ非空、滑らか既約・余次元10。全hのgerbe族、gcd(m,3)=1なら層自体へ降下 | m個の法方向二次式、滑らかな例、共通incidence上のrank10制限束、Gbar商と次元D−m²−3m−18。m=3で指標法の適用は主張しない |
+| `prop:pg-equivariant-singular-strata` | m>=2、節点・尖点の被約rank2層は非空・滑らか・既約、余次元c=1、2、次元D−m²−3m−8−c。全mでgerbe中立、零h近傍の次数付き代数が層自体へ降下 | 滑らかな全fの例、共通incidenceの局所閉制限、Gbar商。特異点直線ℓのpullback M⁻¹と重み−1、A_d⊗ℓ^d、frameによる中立化、重み零の積・中心イデアルの下降、古典Proj。n=3では16・15次元 |
 | `thm:pg-quantization`（`algebraic_quantization.tex`）、`thm:pg-ad-all-poisson` | 全Poisson構造について原点を含むZariski開上のAS-regular ambientと中心正則三次商 | 中心三次配分、PBW、Koszul tensor、中心元の正則性、AS-Gorenstein change of rings |
 | `thm:pg-all-dimensions`、`cor:pg-ad-whole-pencil`、`prop:pg-ad-intrinsic-hessian` | 各純active三次が滑らかな場合は独立多変数底と短い多項式中心公式 | 係数環上の自由性、全パラメータでの多項式中心性、交差補正がないこと |
 | `thm:pg-fermat-relative-count`、`fermat_relative_poisson_components.tex` | Fermat固定space、固定stack、全cubic相対stackの位相的既約成分 | Hessianによるブロック復元、有限群軌道、被約rank層、同時スカラー作用、閉包の非包含 |
@@ -83,6 +93,29 @@ $\mathcal E=\Lambda^3V\otimes\mathcal O_{U_N}(-1)$ の全空間に閉埋め込�
 射影化のための $\mathbb G_m$ が次元を1下げる。スタビライザーの次元は $8k+3km+m^2$。
 この規約を落とすと相対次元と成分数の議論が不正確になる。
 詳細は `notes/fermat_relative_poisson_components.md`。
+
+### 特異制限の軌道と中心スカラーの除去
+
+節点・尖点では、方程式scaleを含む安定化群に同変な明示左逆を標準形で作る。
+σ_{(M,λ)g_*}=Mσ_*ρ₂(M,λ)⁻¹は右安定化群作用に不変なので、
+軌道L/H上の正則な写像へ降りる。各gの標準形への座標変換を大域的に選ぶ必要はない。
+このσを中心調整に使うと、各係数層の全零切断を含む不変principal開が得られる。
+各軌道での分裂と、不可約三次式全域での単一の分裂は区別する。
+後者は可約式の錐の余次元2による正則関数の延長とδ_0=0に反する。
+
+各gの唯一の特異点は、軌道上の正則な同変射O_γ→P(W)を与える。
+そのtautological直線ℓの点の順方向の写像はMだが、代数のΦと同じ向きの引戻しデータはM⁻¹である。
+従ってℓの中心スカラー重みは−1であり、A_d⊗ℓ^d、J⊗ℓ³、B_d⊗ℓ^dの重みが零になる。
+重み+1の双対線束をLと書くなら同じ補正はA_d⊗L⁻ᵈである。
+積と中心イデアルも整合して降りるため、代数そのものの降下である。
+重み一の線束にframeを付けたスタックが底とfppf局所的に同型となる直接証明から、gerbeも中立となる。
+この方法は群の指標による分裂と異なり、mに合同条件を課さない。
+
+support平面とXの交わりが節点・尖点曲線である条件は、support平面そのものがXに含まれる零制限条件とは異なる。
+節点・尖点層の余次元1・2および底の次元16・15は、固定したh≠0での非可換同型類の像の次元ではない。
+全hへの延長、型の境界をまたぐ中心元の一致、大域中心生成元の存在は主張しない。
+接線とconicの軌道でのδの同変非分裂は `notes/universal_casimir.md` §2(VIII) に独立な障害として記録する。
+この非分裂や不可約全域の障害から、混合係数を使った全G共変な中心元の不存在を結論しない。
 
 ### 中心二変数とambient復元
 
@@ -173,10 +206,13 @@ Oxfordの2016年受理原稿の本文は取得できなかった。訂正文の�
    規格化変更のaffine遷移は同じ中心イデアルを保証しない。実例と同変降下の条件は `notes/universal_casimir.md`。
 6. `thm:pg-equivariant-levi-center`、`thm:pg-equivariant-parabolic-center`：
    affine底上でReynolds平均を定義開・中心元・方向微分の左逆へ適用する。
-   滑らかなgでは混合二次項からB_fを作り、B_f'=(MB_f−C)N^-1を用いて全G同変に戻す。
+   滑らかなgではこの左逆を、節点・尖点では`lem:pg-equivariant-singular-retractions`の軌道上の左逆を用いる。
+   混合二次項からB_fを作り、B_f'=(MB_f−C)N^-1を用いて全G同変に戻す。
    純中心係数の固定は全平行移動との同変性に一般には両立しないため、この規格化を外す。
    g=0は`thm:pg-equivariant-zero-center`のPBW対称化で全tの全G共変性を別途証明する。
    G_0選択では指定閉部分を(t=0)∪(g=0)として、この標準元への一致も保てる。
+   節点・尖点層のモジュライ降下は、特異点直線による重み補正を別途用いる。
+   同変な中心元の選択、gerbe上の族、底のPoisson層への代数の降下はそれぞれ区別する。
 7. `lem:pg-central-splitting-smooth`：純中心三次を各ブロックへ配分する。
    $u=0$ は全体Xの滑らかさ、$u\ne0$ は基点自由な線形系のBertiniを用いる。
    射影線形系のうち元のブロックの係数が非零のchartで係数を1に規格化し、必要なアフィン配分空間に戻る。
@@ -211,6 +247,8 @@ Oxfordの2016年受理原稿の本文は取得できなかった。訂正文の�
 | Smith--Tate; De Laet--Le Bruyn | 後者arXiv:1405.1158v1 §2 p.3 | 純Sklyanin中心公式は既知。本稿は固定係数環の無極な規格化、普遍恒等式、Cramer構成を扱う。表示の誤植注意は中心ノートに記載 |
 | Etingof--Ginzburg, JEMS 12 (2010), 1371–1416, DOI 10.4171/JEMS/235 | 刊行Thm.3.3.2(ii) p.1385、§8.3 pp.1410–1411、§9 p.1414 | 一ブロックの非スカラー中心元存在・特殊化・Rains公式は既知。本稿は指定Casimirへの正則な相対選択、全係数・全ブロック・同変降下を制御 |
 | Derksen, Advances in Mathematics 141 (1999), 366–384 | 著者公開PDF §2, p.369 | Reynolds射影とstable部分加群を保つ性質は既知。本稿は不変開・中心lift・方向微分の分裂へ適用 |
+| Milne, *Algebraic Groups*, CUP 2022 | [著者PDF](https://www.jmilne.org/math/Books/iAG2022.pdf)、Props.7.12, 7.17 pp.142–143 | 軌道L/Hと忠実平坦な軌道写像は既知。標準形での同変左逆を軌道上へ正則に移送するために用い、軌道のaffine性を追加仮定しない |
+| Bergh–Schnürer, Doc. Math. 26 (2021), 1465–1500, DOI 10.4171/DM/846 | [刊行PDF](https://ems.press/content/serial-article-files/26626?nt=1)、Prop.4.10 p.1487 | gerbe上の重み零の準連接層の降下は既知。次数付き代数・積・中心イデアルへ適用。重み一の直線によるgerbe中立化は本文のframeを用いる直接証明であり、同命題へ誤帰属しない |
 | Dolgushev, Selecta Math. 14 (2009), 199--228, DOI 10.1007/s00029-008-0062-z | 本文確認はarXiv:math/0612288v3 Prop.1 p.9、Thm.3 pp.15--16 | 条件は全形式Poisson classのunimodularity。本稿の代数化の証明には用いない |
 | Fu--Hwang, arXiv:1608.00846v2 | Lemma 4.1 p.13：完全交叉Zで1<=r<=dim Z-1、p<=rならH^0(Ω_Z^r(p))=0 | Brückmann型消滅の明示的定理文と適用条件を確認 |
 | SGA 2 XII Cor.3.7、Stacks Tags 06FI/0BCH/06PD/06WT、Artin--Zhang | Picard群、商stack、UFDのPic=0、gerbe判定、同変準連接層の降下、section algebra | モジュライ・係数空間上の中心元・偏極付き復元の既知の一般原理 |
@@ -231,18 +269,22 @@ Brückmannの1976年論文はMath. Nachr.71,203--210、DOI 10.1002/mana.19760710
 必要な低twist範囲には本文`lem:ci-low-twist-vanishing`で独立証明を与えたので、
 現行の完全交叉の存在判定は未取得の原証明に依存しない。
 高次元の正規形・Bondalのjoin証明・相対成分数・量子化の包括的結論と同一の先行定理は調査範囲で確認できていないが、初出は未確定である。
+節点・尖点層についても、軌道への移送と重み零降下の原理自体は既知として扱う。
+本稿の明示的な左逆、係数族の中心調整、特異点直線を用いた中心商族の下降という包括的な適用の初出は未確定である。
 刊行書誌を確認したことと、その刊行版の定理番号・証明全文を再照合したことも区別する。
 
 ## 実行済みの厳密計算と限界
 
-今回直接実行したのは、零制限の普遍中心元・PBW重なり・中心並進共変性の厳密検算である。
-他の十一件の既存計算は現在のコード・証明書のハッシュを照合して実行済みの証拠を保持し、
+今回の新しい実行対象は `verify_singular_orbit_centering.py` の一本であり、PASSした。
+節点・尖点の中心調整、接線とconicの同変左逆の非存在、二つの滑らかな拡張例を厳密係数で検算する。
+零制限の検算を含む他の十二件は、現在のコード・証明書のハッシュを照合して実行済みの証拠を保持し、
 今回の再実行とは区別する。添付査読報告の独立実装そのものは添付されておらず、再実行したとは扱わない。
 実行対象、以前の検算の適用可能性、現在の入力ハッシュは `validation_paper_a.json` に集約する。
 
 | スクリプト（computations/） | 結果と範囲 |
 | --- | --- |
-| `verify_zero_restriction_center.py --json` | 今回PASS。QQ上の独立10係数とt、独立3並進係数でzyxの重なり、全3中心交換子、関係式と中心元の並進共変性が恒等的に零。数値特殊化・t打切り・分母なし。一般線形変換・AS条件・幾何・降下の検算ではない |
+| `verify_singular_orbit_centering.py --json` | 今回PASS。独立10係数と3並進係数、nodeの全生成子・cuspの対角torusでσδ=id、B_fと中心調整式の共変性を検算。接線とconicでは左逆・Lie同変性の線形系のrank18/拡大rank19、torus制限後rank4/拡大rank5。二つの拡張例の勾配イデアルへの純冪の所属をQQ Groebnerで確認。安定化群の完全分類、一般GLの軌道移送、quantum中心性・モジュライ降下の計算機証明ではない |
+| `verify_zero_restriction_center.py --json` | 実施済み結果を引継ぎ、今回未再実行。QQ上の独立10係数とt、独立3並進係数でzyxの重なり、全3中心交換子、関係式と中心元の並進共変性が恒等的に零。数値特殊化・t打切り・分母なし。一般線形変換・AS条件・幾何・降下の検算ではない |
 | `verify_hessian_split_obstruction.py` | 実施済み結果を引継ぎ、今回未再実行。単一の具体例でHessian行列・行列式を照合。QQ上90方程式・36未知数のrank33、核dim3、冪等元の可能rank0,1,2,4,5,6。滑らかさ・一般分解判定・Poisson分類の証明ではない |
 | `verify_hesse_translation.py` | 実施済み結果を引継ぎ、今回未再実行。独立全係数で平行移動後の三次式を定数項まで照合し、三つの交換関係を自由語の有理係数で照合。中心性・PBW性の検証ではない |
 | `verify_equivariant_centering.py` | 25混合係数を記号のまま保持。二組の座標変換で左逆、B_fの変換、中心調整した三次式、三つのJacobian括弧がPASS。Reynolds存在や全群定理の計算機証明ではない |
@@ -271,6 +313,7 @@ cuspidal: $-4565043429507072=-2^{33}3^{12}$。
 python3 scripts/check_layout.py
 python3 scripts/build.py --only paper_a
 python3 scripts/verify_bundle.py --only paper_a --require-pdfs
+python3 computations/verify_singular_orbit_centering.py --json
 python3 computations/verify_zero_restriction_center.py --json
 python3 computations/verify_equivariant_centering.py
 python3 computations/verify_split_cubic_fourfold.py
@@ -289,10 +332,12 @@ python3 computations/verify_nonelliptic_quantization.py
 組版の成功、PDF表示の確認、数学的証明の監査、遠隔保存は別々に記録する。
 
 優先課題は、Pym刊行本文・訂正状況の照合、包括的な結果の初出照合、
-非零の特異な三変数制限での全G同変選択、および複数ブロックの一般の配分・相対規格化の整合性である。
-smooth gでの中心調整、g=0での全パラメータPBW中心元と、それに整合するG_0平均は本文で解決した範囲として扱う。
-gcd(m,3)=1では指標補正により中心スカラーを除いたPoissonモジュライへの
-次数付き代数の下降まで得た。3|mの場合と、全モジュライでのカテゴリーの降下は区別する。
+未処理の特異型での全G同変選択、型をまたぐ中心直線の整合、および複数ブロックの一般の配分・相対規格化の整合性である。
+滑らか・節点・尖点の各型での中心調整、g=0での全パラメータPBW中心元と、それに整合するG_0平均は本文で解決した範囲として扱う。
+節点・尖点層では特異点直線により、mの合同条件なしでgerbeの中立性と零h近傍の次数付き代数の下降を得た。
+滑らか・零の層ではgcd(m,3)=1の指標補正による降下を得ており、これらの層の3|mの場合は別の課題である。
+不可約全域でのσの貼合せと接線・conic軌道でのσの分裂には障害があるため、
+次は混合係数も使う中心直線の構成を検討する。全モジュライでのカテゴリーの降下はさらに区別する。
 Brückmann原証明の入手は帰属の補充として残るが、本文の消滅証明の未解決箇所ではない。
 相対残余圏と全閉パラメータの滑らかさは独立の研究課題として扱い、原稿Aの確立した結果の仮定へ曖昧に混ぜない。
 公表価値は主要結果の正確さと既知結果との差から判断し、形式検証・外部査読・初出確定が済んだとは断定しない。

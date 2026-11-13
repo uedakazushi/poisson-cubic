@@ -1,6 +1,6 @@
 # 現行A/Bの入力と文献
 
-2026-11-14 / v89。論文AはA-v57、論文BはB-v58。全体の入口は[研究方針](../../../00_research_plan.md)。
+2026-11-14 / v90。論文AはA-v58、論文BはB-v58。全体の入口は[研究方針](../../../00_research_plan.md)。
 
 [論文A](../../paper_a.tex)はこのディレクトリの `sections/` と専用参考文献を読み込む。[論文B](../../paper_b.tex)の必要証明・参考文献は [generic_recovery/](../../generic_recovery/) にあり、A/Bはここにある `common.tex` を共用する。
 

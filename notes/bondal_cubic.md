@@ -1,6 +1,6 @@
 # 滑らかなcubic n-foldに対するBondal予想
 
-**2026-11-14 / A-v57・nc-cubic-v89。最初に `00_research_plan.md` を読む。**
+**2026-11-14 / A-v58・nc-cubic-v90。最初に `00_research_plan.md` を読む。**
 証明全文は `papers/support/papers/sections/bondal_cubic.tex` の `thm:pg-bondal`。
 正規形、射影化の補題、分離型三次四様体の分類は
 `papers/support/papers/sections/poisson_geometry.tex` にある。

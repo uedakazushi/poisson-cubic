@@ -1,17 +1,17 @@
 {
-  "version": "nc-cubic-v89",
+  "version": "nc-cubic-v90",
   "date": "2026-11-14",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; expected-parent fast-forward updates; no Actions or force push.",
-  "scope": "Paper A-v57 continued referee revision: canonical full-parameter equivariant PBW centre for zero ternary restriction, compatibility with the general reductive-family choice, support-plane stratum and character descent; structural PBW/AS and divided-kernel proof audit. Concurrent B-v58 and shared preamble preserved.",
+  "scope": "Paper A-v58 continued referee revision: orbitwise full-G central lifts for nodal/cuspidal ternary restrictions, all-m singular-point-line descent, smooth rank-two strata and the precise g-only gluing obstruction. Current B-v58 and shared preamble preserved.",
   "papers": {
     "A": {
       "entry": "papers/paper_a.tex",
-      "version": "A-v57",
+      "version": "A-v58",
       "audit": "notes/poisson_article_submission_audit.md",
       "validation": "validation_paper_a.json",
       "typeset_and_rendered_this_review": true,
-      "current_review_scope": "Independent reading of the all-degree PBW/AS/regular-quotient chain, rank/Cramer and Reynolds arguments, the zero-restriction theorem and support-plane descent; existing geometric results retained.",
+      "current_review_scope": "Independent reading of nodal/cuspidal stabilizers, regular orbit transport, centering, stratum geometry, scalar gerbe neutralization and actual graded descent; exact independent-coefficient verification. Prior proof chains retained with their recorded scopes.",
       "current_changes_independently_read": true,
       "complete_reaudit_of_unchanged_proofs_this_revision": false
     },
@@ -55,6 +55,6 @@
   "concurrent_main_preserved": {
     "commit": "438fd73abce6eb37fa3a18943405571ac1d0ceec",
     "paper_B": "B-v58",
-    "scope": "B-v58 source closure, its exact computation and validation retained byte-for-byte; shared research documents reconciled with A-v57."
+    "scope": "B-v58 source closure, its exact computation and validation retained byte-for-byte; shared research documents reconciled with A-v58."
   }
 }

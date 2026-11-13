@@ -10,9 +10,9 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月14日・論文A（投稿準備稿 v57）}
+\date{2026年11月14日・論文A（投稿準備稿 v58）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-14 / A-v57}
+\fancyhead[R]{\small 2026-11-14 / A-v58}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -31,10 +31,13 @@ Koszul Artin--Schelter正則代数と、その正則中心三次商に量子化�
 この構成は三変数制限が特異または零の場合も含み、
 固定した変数分解の全滑らかな係数空間上に中心元を選べる。
 さらに、変数分解を保つ一般線形群に関して同変な中心元を選び、
-三変数制限が滑らかな部分では中心変数による平行移動との整合性も得る。
+三変数制限が滑らか、節点型または尖点型の各層では中心平行移動との整合性も得る。
 制限が恒等的零の層では、PBW対称化した三次式自体が
 全パラメータで全ブロック群に共変な正則中心元となる。
-三次三様体では、この構成をPoisson対の被約モジュライの稠密開上へ降ろし、
+節点・尖点層では特異点直線によって次数重みを除き、
+中心変数の個数によらず、Poisson対の各層と変形直線の積の零切断近傍へ量子化族を降ろす。
+三変数制限が滑らかな層については、三次三様体で
+Poisson対の被約モジュライの稠密開と変形直線の積の零切断近傍に、
 変形変数を固定した代数的量子化の族を得る。
 また、固定した正規形のPoisson線形族を同時に量子化する。
 さらに、固定超曲面上のPoissonスキームとその自己同型群による商、
@@ -176,12 +179,14 @@ $G_0=(\mathrm{GL}_3\times\mathrm{GL}_m)\times\mathbb G_m$
 （定理\ref{thm:pg-equivariant-levi-center}）。
 証明には既知のReynolds平均を用い、
 中心元だけでなく、その定義域と古典極限も同変に保つ。
-さらに$g=f(x,0)$が滑らかな部分では、
+さらに$g=f(x,0)$が滑らかな部分、および節点・尖点の各軌道上では、
 $g$の方向微分が張る二次式の部分束を同変に分裂し、
 混合二次項を用いてactive座標の中心を選ぶ。
 この操作により$X=Mx+Cu,\ U=Nu$という
 中心変数による平行移動を含む群に対しても同変な中心元を得る
 （定理\ref{thm:pg-equivariant-parabolic-center}）。
+特異な二軌道では、基準形の安定化群と同変な左逆を明示し、
+軌道上へ正則に移す（補題\ref{lem:pg-equivariant-singular-retractions}）。
 Poisson係数と変形変数を分けると、変形変数を固定したまま
 対応する商スタック上に中心商の族が降りる
 （系\ref{cor:pg-equivariant-central-quotient}）。
@@ -194,8 +199,8 @@ PBW対称化の随伴同変性から
 を得る。この場合は全$t\in\mathbb A^1$でPBW性と全ブロック群への共変性が成り立ち、
 例外パラメータの除去も純中心係数の変更も不要である
 （定理\ref{thm:pg-equivariant-zero-center}）。
-一般の同変選択の一意性、非零の特異な$g$における全座標群への拡張、
-複数ブロックの配分との整合性は、この同変性定理の結論に含めない。
+一般の同変選択の一意性、可約・非被約な$g$での全座標群への拡張、
+型の境界をまたぐ貼合せ、複数ブロックの配分との整合性は結論に含めない。
 $g$が滑らかな場合、全ブロック群$G$による商は、
 階数二のPoisson対の被約層内の対応する開部分上の
 $\mathbb G_m$-gerbeである
@@ -211,6 +216,21 @@ $\gcd(m,3)=1$なら指標を用いて次数線形化を補正でき、
 この層でも同じgerbeと指標補正を用い、$\gcd(m,3)=1$なら
 全変形直線上の代数族をPoissonモジュライへ降ろせる
 （命題\ref{prop:pg-equivariant-zero-stratum}）。
+
+節点・尖点の各層は階数二層内でそれぞれ余次元$1,2$である。
+ここでは一意な特異点の直線$\ell_g\subset W$が正則に動く。
+引戻しの線形化で$K_{\mathrm{sc}}$が$\ell_g$に重み$-1$で作用するため、
+\begin{equation}\label{eq:intro-singular-point-descent}
+ \mathcal A_d^{\mathrm{sp}}=\mathcal A_d\otimes\ell_g^{\otimes d},
+ \qquad
+ \mathcal B_d^{\mathrm{sp}}=\mathcal B_d\otimes\ell_g^{\otimes d}
+\end{equation}
+は重み零になる。
+従ってこの二層では$\gcd(m,3)=1$という条件を要せず、
+各層と変形直線の積の零切断近傍へ実際の次数付き代数族が降りる
+（命題\ref{prop:pg-equivariant-singular-strata}）。
+三次三様体ではその底の次元はそれぞれ$16,15$である。
+これらは層ごとの構成であり、滑らかな制限の族や互いの境界での整合を主張しない。
 
 固定した正規形では、独立なパラメータ$\eta_1,\ldots,\eta_k$を導入し、
 各ブロックの中心元を加えることで
@@ -236,7 +256,8 @@ Poisson線形族の全方向を一つの相対代数族で量子化できる
 この量子化は各構造、固定した正規形の線形族、および固定した変数分解の
 係数空間上での構成を含み、上記の範囲では座標変換との同変性も備える。
 次数付き代数を載せる商スタックでは、次数$d$に重み$d$で作用する
-スカラーの$\mathbb G_m$をまず保持し、上の指標補正が可能な範囲でこれを除く。
+スカラーの$\mathbb G_m$をまず保持し、指標補正または特異点直線による捻りで
+上記の範囲においてこれを除く。
 全Poissonモジュライ上の大域的な量子化射や、
 全閉点での$\operatorname{qgr}B_\hbar$のsmoothnessは結論に含めない。
 
@@ -419,7 +440,13 @@ Etingof--Ginzburg\cite[\S9, p.~1414]{EG}には、
 同変性については定理\ref{thm:pg-equivariant-levi-center}、
 \ref{thm:pg-equivariant-parabolic-center}、\ref{thm:pg-equivariant-zero-center}で
 所定の群への同変な選択を、系\ref{cor:pg-equivariant-character-descent}と
-命題\ref{prop:pg-equivariant-zero-stratum}で所定の条件下の降下を証明する。
+命題\ref{prop:pg-equivariant-zero-stratum}、\ref{prop:pg-equivariant-singular-strata}で
+所定の条件下の降下を証明する。
+節点・尖点軌道への移送には既知の軌道商の理論
+\cite[Propositions~7.12, 7.17]{PMilneGroups}を、
+特異点直線の捻りにはgerbe上の重み零の層の既知の降下
+\cite[Proposition~4.10, p.~1487]{PBerghSchnurerGerbes}を用いる。
+これらの一般原理自体を新規性の根拠とはしない。
 これらの相対的な規格化と降下は、点ごとの非スカラー中心元の存在定理から
 直ちに従う主張ではない。
 一般の形式的量子化とunimodularityに関する
@@ -480,8 +507,8 @@ Serre関手からの復元には中心・自由性・滑らかさ等の追加仮
 指定した古典極限を持つ相対中心元。有限次数検算と全次数PBW性を分離 \\
 全ブロック & 中心項の配分、中心元の和、最高記号の正則性 &
 定理\ref{thm:pg-quantization}、\ref{thm:pg-ad-all-poisson}。商の平坦性まで証明 \\
-同変化・降下 & 不変開、Reynolds作用素、centering、PBW対称化、指標補正 &
-滑らかな制限と零制限上の所定の降下。零制限では全パラメータを扱う \\
+同変化・降下 & 不変開、Reynolds作用素、軌道上のcentering、PBW対称化、重みの補正 &
+滑らかな制限・零制限・節点・尖点の各層。零制限では全パラメータ、節点・尖点では全$m$ \\
 \bottomrule
 \end{tabular}
 \end{center}

@@ -3,8 +3,8 @@
 本節では単一のJacobianブロックを扱う。
 定階数核の構成を同変に行うことで、固定したactive・中心変数の分解を保つ
 還元的群について、古典極限を指定した中心元を同時に選べる。
-さらに三変数制限が滑らかな部分では、二次混合項の規格化によって
-中心変数による平行移動も処理できる。
+さらに三変数制限が滑らかな部分、および節点・尖点の各軌道上では、
+二次混合項の規格化によって中心変数による平行移動も処理できる。
 三変数制限が恒等的零の場合には、PBW対称化そのものが
 全パラメータ上で全ブロック群に共変な中心元を与える。
 平均化そのものは既知のReynolds作用素の性質であり、
@@ -272,15 +272,102 @@ $Q|_{Z_0}=1$を満たす不変な偶関数のprincipal開として取れる。
 同時に\eqref{eq:pg-equivariant-levi-zero-compatibility}が保たれる。
 \end{proof}
 
-\begin{theorem}[滑らかな三変数制限上の全ブロック群に関する選択]
+\begin{lemma}[節点・尖点軌道上の方向微分の同変分裂]
+\label{lem:pg-equivariant-singular-retractions}
+$L=\mathrm{GL}(W)\times\mathbf G_m$を、
+$(M,\lambda)\cdot g=\lambda^{-1}g(M^{-1}x)$によって作用させる。
+次の二つの被約軌道を考える：
+\begin{equation}
+ \begin{aligned}
+ g_{\mathrm{nod}}&=x^3+y^3+xyz,&
+ \mathcal O_{\mathrm{nod}}&=L\cdot g_{\mathrm{nod}},\\
+ g_{\mathrm{cusp}}&=y^2z-x^3,&
+ \mathcal O_{\mathrm{cusp}}&=L\cdot g_{\mathrm{cusp}}.
+ \end{aligned}
+ \label{eq:pg-equivariant-singular-orbits}
+\end{equation}
+それぞれは既約な節点平面三次式、尖点平面三次式の軌道で、
+滑らかかつ既約、次元はそれぞれ$9,8$である。
+各軌道上で$\delta_g(v)=\partial_vg$は単射であり、
+正則な$L$-同変左逆$\sigma_g:\operatorname{Sym}^2W^*\to W$を持つ。
+二次式への作用は$\rho_2(M,\lambda)q=\lambda^{-1}q(M^{-1}x)$とする。
+\end{lemma}
+\begin{proof}
+$S_{xy}$を$x,y$の交換行列、$\zeta$を原始三乗根とし、
+$\Gamma=\langle\operatorname{diag}(\zeta,\zeta^{-1},1),S_{xy}\rangle$とおく。
+基準形の安定化群は
+\begin{equation}
+ \begin{aligned}
+ H_{\mathrm{nod}}&=\{(aT,a^{-3}):a\in\mathbf G_m,\ T\in\Gamma\},\\
+ H_{\mathrm{cusp}}&=\{(\operatorname{diag}(a,b,a^3b^{-2}),a^{-3}):
+                      a,b\in\mathbf G_m\}
+ \end{aligned}
+ \label{eq:pg-equivariant-singular-stabilizers}
+\end{equation}
+である。実際、両方の唯一の特異点は$[0:0:1]$である。
+節点ではその二つの接線を保つので、必要なら$x,y$を交換した後、
+$M(x,y,z)=(ax,by,ex+fy+cz)$と書ける。
+$g_{\mathrm{nod}}(Mx)$が$g_{\mathrm{nod}}(x)$のスカラー倍となる条件は、
+$e=f=0$、$a^3=b^3=abc$であり、上の群を得る。
+尖点では接線$y=0$も保つので、
+$M(x,y,z)=(ax+by,dy,ex+fy+hz)$と書ける。
+$y^2z-x^3$の係数を比較すると$b=e=f=0$、$d^2h=a^3$となる。
+これが第二の群である。
+
+二次単項式$r$の係数を$[r]q$と書けば、基準形での左逆は
+\begin{equation}
+ \begin{aligned}
+ \sigma_{\mathrm{nod}}(q)
+   &=\bigl([x^2]q/3,\ [y^2]q/3,\ [xy]q\bigr),\\
+ \sigma_{\mathrm{cusp}}(q)
+   &=\bigl(-[x^2]q/3,\ [yz]q/2,\ [y^2]q\bigr)
+ \end{aligned}
+ \label{eq:pg-equivariant-singular-retractions}
+\end{equation}
+で与えられる。
+それぞれの勾配$(3x^2+yz,3y^2+xz,xy)$、$(-3x^2,2yz,y^2)$に
+適用すると$\sigma_\gamma\delta_{g_\gamma}=\mathrm{id}_W$である。
+\eqref{eq:pg-equivariant-singular-stabilizers}の対角行列の重みと
+$x,y$の交換を調べれば、$\sigma_\gamma$は$H_\gamma$-同変である。
+
+従って$\ell=(M,\lambda)\in L$に対して
+\begin{equation}
+ \sigma_{\ell\cdot g_\gamma}
+   =M\sigma_\gamma\rho_2(\ell)^{-1}
+ \label{eq:pg-equivariant-singular-transport}
+\end{equation}
+と置くと、右$H_\gamma$作用に不変な正則写像となる。
+軌道写像$L\to L/H_\gamma\simeq\mathcal O_\gamma$は忠実平坦であり、
+この写像は軌道上の正則な左逆へ降りる
+\cite[Propositions~7.12, 7.17, pp.~142--143]{PMilneGroups}。
+これは各軌道上の構成であり、軌道のアフィン性を仮定しない。
+安定化群の次元が$1,2$なので、軌道の次元は$10-1,10-2$である。
+
+標準形の範囲も直接確認できる。
+既約な特異平面三次の特異点を$[0:0:1]$へ移すと、式は
+$zq_2(x,y)+q_3(x,y)$となる。
+$q_2=0$なら二変数の三次式となって可約なので、$q_2\ne0$である。
+節点では$q_2=xy$とでき、$z$の線形置換で$x^2y,xy^2$を消せる。
+残る$x^3,y^3$の係数は既約性により非零なので、スカラー変換で節点の基準形を得る。
+尖点では$q_2=y^2$とでき、$x^3$の非零係数を使った$x$の置換で$x^2y$を消し、
+$z$の置換で残る$xy^2,y^3$を消せば尖点の基準形となる。
+\end{proof}
+
+\begin{theorem}[各三変数制限層上の全ブロック群に関する選択]
 \label{thm:pg-equivariant-parabolic-center}
 \begin{equation}
+ \begin{aligned}
  \mathcal T_m^{\mathrm{ell}}
- =\{f\in\mathcal T_m:g(x)=f(x,0)\text{ が滑らかな平面三次を定める}\}
+ &=\{f\in\mathcal T_m:g(x)=f(x,0)\text{ が滑らかな平面三次を定める}\},\\
+ \mathcal T_m^\gamma
+ &=\{f\in\mathcal T_m:f(x,0)\in\mathcal O_\gamma\}
+       \qquad(\gamma=\mathrm{nod},\mathrm{cusp})
+ \end{aligned}
  \label{eq:pg-equivariant-elliptic-base}
 \end{equation}
 とおく。
-$\mathcal T_m^{\mathrm{ell}}\times\mathbb A^1_t$には、零切断全体を含む
+各$\gamma=\mathrm{ell},\mathrm{nod},\mathrm{cusp}$について、
+$\mathcal T_m^\gamma\times\mathbb A^1_t$には、零切断全体を含む
 $G$-不変なprincipal開$\mathcal W_m^G$と、そこに正則な中心元
 $\Omega^G_{f,t}$が存在し、
 \begin{equation}
@@ -293,6 +380,7 @@ $\Omega^G_{f,t}$が存在し、
 を満たす。
 商線束$\mathcal K/\mathcal C_m$への像も基底となる。
 純中心係数を$f_{\mathrm{cent}}$に固定する条件は課さない。
+選択は三つの層でそれぞれ行い、型の境界をまたぐ整合は結論しない。
 \end{theorem}
 \begin{proof}
 滑らかな三変数三次式$g$のアフィン係数空間を$\mathcal T_0$とする。
@@ -309,13 +397,15 @@ $\Omega^G_{f,t}$が存在し、
 二次形式側の作用に$\lambda^{-1}$を含めれば
 \eqref{eq:pg-equivariant-gradient-embedding}は
 $\mathrm{GL}(W)\times\mathbf G_m$-同変である。
-補題\ref{lem:pg-equivariant-affine-lifting}(3)によって、
+滑らかな制限上では補題\ref{lem:pg-equivariant-affine-lifting}(3)によって、
 正則な同変左逆$\sigma_g$を一つ選ぶ：
 \begin{equation}
  \sigma_g:\operatorname{Sym}^2W^*\longrightarrow W,
  \qquad \sigma_g\delta_g=\mathrm{id}_W.
  \label{eq:pg-equivariant-gradient-retraction}
 \end{equation}
+節点・尖点の各軌道では、補題\ref{lem:pg-equivariant-singular-retractions}の
+左逆を用いる。以下の構成はこの三場合で共通である。
 
 $f$のactive次数二の部分を$q_f(x,u)=\sum_\alpha q_\alpha(x)u_\alpha$と書き、
 \begin{equation}
@@ -325,7 +415,7 @@ $f$のactive次数二の部分を$q_f(x,u)=\sum_\alpha q_\alpha(x)u_\alpha$と�
  \label{eq:pg-equivariant-centering}
 \end{equation}
 と定める。
-全ての係数は$\mathcal T_m^{\mathrm{ell}}$上で正則であり、
+全ての係数は対応する$\mathcal T_m^\gamma$上で正則であり、
 $f^0$の二次混合部分には$\sigma_g$を適用すると零になる。
 $G$の作用下での変換を計算すると、
 \begin{equation}
@@ -360,6 +450,20 @@ $\sigma_g\delta_g=\mathrm{id}$を用いた。
 古典極限は$f^0(x+B_fu,u)=f(x,u)$である。
 \end{proof}
 
+\begin{remark}[層ごとの選択と貼合せの限界]
+\label{rem:pg-equivariant-stratumwise-centering}
+上の三つの層を合わせた不可約三次式の開全体には、
+$g$だけに依存する一つの正則な左逆$\sigma_g$を選べない。
+実際、可約三次式の射影的な閉集合は、一次式と二次式の積による
+$\PP^2\times\PP^5$の像であり、一般の分解は一意なので次元は$7$である。
+従って$\mathbb A^{10}$内の可約式の錐の余次元は$2$である。
+その補集合上の正則関数は$\mathbb A^{10}$へ延長するので、
+左逆の行列成分が存在すれば$\sigma_g\delta_g=\mathrm{id}_W$が
+全空間上の多項式恒等式となり、$g=0$で矛盾する。
+これはこのcenteringの方法の限界であり、混合係数も用いる別の中心元選択や、
+中心直線そのものの貼合せの不存在を意味しない。
+\end{remark}
+
 \subsection{中心商の族と規格化の条件}
 
 \begin{corollary}[同変な正則中心商族]
@@ -389,11 +493,12 @@ AS-Gorenstein代数である。
  \left[(\mathcal T_m\times\mathbb A^1_\eta)/G_0\right]
        \times\mathbb A^1_\hbar,
  \qquad
- \left[(\mathcal T_m^{\mathrm{ell}}\times\mathbb A^1_\eta)/G\right]
+ \left[(\mathcal T_m^\gamma\times\mathbb A^1_\eta)/G\right]
        \times\mathbb A^1_\hbar
  \label{eq:pg-equivariant-quotient-stacks}
 \end{equation}
 の、$\hbar=0$全体を含む開部分上に次数付き代数の族として降りる。
+第二の式では$\gamma=\mathrm{ell},\mathrm{nod},\mathrm{cusp}$をそれぞれ取る。
 零制限の場合は縮小を要せず、
 \begin{equation}
  \left[(\mathcal T_m^{\mathrm z}\times\mathbb A^1_\eta)/G\right]
@@ -477,11 +582,11 @@ $(x^3+y^3+z^3)/3-2t^2\sym(xyz)/3$であり、
 Weyl基底の独立性から$(x^3+y^3+z^3)/3$はこの直線に入らない。
 従って定理\ref{thm:pg-equivariant-parabolic-center}で
 純中心係数の固定を課さないことは必要である。
-同定理は滑らかな三変数制限の上で全$G$を扱う。
+同定理は滑らかな三変数制限に加え、節点・尖点の各層でも全$G$を扱う。
 一方、三変数制限が零の場合には定理\ref{thm:pg-equivariant-zero-center}により
 $P_f=f$そのものが中心であり、全$G$への共変性と純中心係数の固定は両立する。
-非零の特異な三変数制限については、
-定理\ref{thm:pg-equivariant-levi-center}の$G_0$-同変選択までを結論している。
+節点・尖点の各軌道についても、定理\ref{thm:pg-equivariant-parabolic-center}の
+全$G$同変選択を得るが、可約・非被約制限を含む一般の場合と型の境界の整合は残る。
 \end{remark}
 
 \subsection{階数二のPoissonモジュライへの降下}
@@ -829,6 +934,218 @@ $\gcd(m,3)=1$なら、系\ref{cor:pg-equivariant-character-descent}の証明の
 この場合には上記の指標条件を満たさないので、その方法による代数族の降下は結論しない。
 \end{proof}
 
+\begin{proposition}[節点・尖点層の中心商と特異点直線による降下]
+\label{prop:pg-equivariant-singular-strata}
+$m\ge2$、$n=m+1$、$D=\binom{m+5}{3}$とし、
+$\gamma\in\{\mathrm{nod},\mathrm{cusp}\}$、
+$c_{\mathrm{nod}}=1$、$c_{\mathrm{cusp}}=2$とする。
+$\mathfrak P_{n,1}^{\gamma}$を、一般階数二の被約Poisson層のうち、
+support平面上の切断$V(F|_{W_P})$が$\gamma$型の既約平面三次曲線となる
+局所閉部分に被約構造を入れたものとする。
+これは非空、滑らかかつ既約であり、一般階数二の層の中で余次元$c_\gamma$を持つ。
+その次元は
+\begin{equation}
+ \dim\mathfrak P_{n,1}^{\gamma}
+ =D-m^2-3m-8-c_\gamma
+ \label{eq:pg-equivariant-singular-stratum-dimension}
+\end{equation}
+である。特に三次三様体では節点層と尖点層の次元はそれぞれ$16$、$15$である。
+
+$\mathscr S_m^\gamma=\mathcal T_m^\gamma\times\mathbf G_{m,\eta}$とし、
+$G$、$K_{\mathrm{sc}}$、$\overline G$を
+\eqref{eq:pg-equivariant-gerbe-parameter}のものとする。このとき
+\begin{equation}
+ [\mathscr S_m^\gamma/\overline G]\simeq\mathfrak P_{n,1}^{\gamma},
+ \qquad
+ \mathcal G_\gamma:=[\mathscr S_m^\gamma/G]
+ \longrightarrow\mathfrak P_{n,1}^{\gamma}
+ \quad\text{は中立な}\ \mathbf G_m\text{-gerbe}
+ \label{eq:pg-equivariant-singular-gerbe}
+\end{equation}
+である。この中立性には$\gcd(m,3)=1$を仮定しない。
+
+具体的には、$g=f(x,0)$の唯一の特異点を表す直線
+$\ell_g\subset W$が$\mathscr S_m^\gamma$上の正則な$G$-同変直線部分束をなす。
+本文の引戻し規約ではその同変写像は
+$M^{-1}:\ell_{g'}\to\ell_g$であり、$K_{\mathrm{sc}}$の元$k(a)$は
+$\ell$に$a^{-1}$で作用する。
+定理\ref{thm:pg-equivariant-parabolic-center}の$\gamma$型上の中心元を用い、
+$t=\eta\hbar$とおいて得る代数、中心三次直線、商を
+$\mathcal A$、$\mathcal J\subset\mathcal A_3$、$\mathcal B$とする。
+次数ごとに
+\begin{equation}
+ \widetilde{\mathcal A}_d=\mathcal A_d\otimes\ell^{\otimes d},
+ \qquad
+ \widetilde{\mathcal J}=\mathcal J\otimes\ell^{\otimes3},
+ \qquad
+ \widetilde{\mathcal B}_d=\mathcal B_d\otimes\ell^{\otimes d}
+ \label{eq:pg-equivariant-singular-line-twist}
+\end{equation}
+と捻ると、これらは
+\begin{equation}
+ \mathfrak P_{n,1}^{\gamma}\times\{0\}
+ \ \subset\ \mathcal U_\gamma
+ \ \subset\ \mathfrak P_{n,1}^{\gamma}\times\mathbb A^1_\hbar
+ \label{eq:pg-equivariant-singular-descended-base}
+\end{equation}
+という開部分上の次数付き代数、中心三次イデアルと商へ降りる。
+各次数部分は局所自由で、幾何学的ファイバーのHilbert級数とAS条件は
+系\ref{cor:pg-equivariant-central-quotient}のものと同じである。
+古典極限の相対$\operatorname{Proj}$は元の普遍三次超曲面族であり、
+一次Poisson括弧も元のPoisson対のものとなる。
+これらは型$\gamma$ごとの主張であり、全$\hbar$直線上への延長や、
+節点型から尖点型への退化をまたぐ選択の整合性は結論しない。
+\end{proposition}
+\begin{proof}
+補題\ref{lem:pg-equivariant-singular-retractions}の軌道
+$\mathcal O_{\mathrm{nod}}$、$\mathcal O_{\mathrm{cusp}}$は、
+三変数三次式の十次元空間内の滑らかな既約局所閉部分で、
+次元はそれぞれ$9$、$8$である。
+制限$\operatorname{Sym}^3V^*\to\operatorname{Sym}^3W^*$は全射なので、
+その$\mathcal O_\gamma$の逆像は
+$\mathcal O_\gamma\times\mathbb A^{D-10}$と同型である。
+$\mathcal T_m^\gamma$はこの逆像のうち全三次式が滑らかである開部分である。
+
+この開部分の非空性は、$m\ge1$について次の例から分かる：
+\begin{equation}
+ \begin{aligned}
+  g_{\mathrm{nod}}&=x^3+y^3+xyz,&
+  g_{\mathrm{cusp}}&=y^2z-x^3,\\
+  f_\gamma&=g_\gamma+u_1z^2+\sum_{\alpha=1}^m u_\alpha^3.
+ \end{aligned}
+ \label{eq:pg-equivariant-singular-smooth-examples}
+\end{equation}
+全偏微分の共通零点では$\alpha>1$について$u_\alpha=0$である。
+$u=u_1$と書く。節点型の残る四つの勾配方程式は
+\begin{equation}
+ 3x^2+yz=3y^2+xz=xy+2uz=z^2+3u^2=0
+ \label{eq:pg-equivariant-nodal-example-gradient}
+\end{equation}
+である。$u=0$なら直ちに$x=y=z=0$となる。
+$u\ne0$なら$z\ne0$かつ$xy\ne0$であり、最初の二式を掛けると
+$z^2=9xy=-18uz$となる。
+最後の式と合わせると$z=u/6$を得るが、これは$z^2=-3u^2$に反する。
+尖点型では
+\begin{equation}
+ -3x^2=2yz=y^2+2uz=z^2+3u^2=0
+ \label{eq:pg-equivariant-cuspidal-example-gradient}
+\end{equation}
+であり、$x=0$、$yz=0$から$y=z=u=0$を得る。
+従っていずれも錐の原点以外に勾配の共通零点を持たず、滑らかである。
+なお$m=0$なら全三次式が$g$自身となるので、この係数空間は空である。
+以上から$\mathcal T_m^\gamma$は非空、滑らかかつ既約で、次元$D-c_\gamma$を持つ。
+
+共通のincidenceに制限の型を課した部分を
+\begin{equation}
+ \widetilde{\mathscr R}^{\gamma}
+ =\left\{(F,P)\ \middle|\,
+ \begin{gathered}
+ V(F)\text{は滑らか},\quad P\ne0\text{は分解可能},\\
+ F|_{W_P}\in\mathcal O_\gamma
+ \end{gathered}\right\}
+ \label{eq:pg-equivariant-singular-incidence}
+\end{equation}
+と書く。ここで最後の条件はsupportの枠に依存しない。
+非零Pl\"ucker錐上のsupport部分束への制限は、階数十のベクトル束への全射である。
+supportの枠を局所的に取ると上記の軌道への制限条件となるので、
+$\widetilde{\mathscr R}^{\gamma}$は滑らかな余次元$c_\gamma$の局所閉部分であり、
+適合枠による表示は
+\begin{equation}
+ \mathrm{GL}(V)\times^{\mathsf P_W}\mathscr S_m^\gamma
+ \simeq\widetilde{\mathscr R}^{\gamma}
+ \label{eq:pg-equivariant-singular-associated-incidence}
+\end{equation}
+である。これは既約性も示す。
+命題\ref{prop:pg-equivariant-poisson-gerbe}の証明で用いた
+方程式代表の自由なスカラー作用、中心部分群$K_{\mathrm{sc}}$、
+および二つの商の同定はこの不変局所閉部分へ制限できる。
+従って\eqref{eq:pg-equivariant-singular-gerbe}の商表示とgerbeの主張、
+ならびに底の滑らかさ、既約性、余次元を得る。
+次元は
+\begin{equation}
+ \begin{aligned}
+ \dim[\mathscr S_m^\gamma/\overline G]
+ &=(D-c_\gamma)+1-(9+m^2+3m)\\
+ &=D-m^2-3m-8-c_\gamma,\\
+ \dim\mathcal G_\gamma
+ &=D-m^2-3m-9-c_\gamma
+ \end{aligned}
+ \label{eq:pg-equivariant-singular-dimension-count}
+\end{equation}
+となる。
+
+次に、各基準形$g_\gamma$の唯一の特異点は$[0:0:1]$である。
+その安定化群はこの点を保つので、軌道表示から正則な同変射
+\begin{equation}
+ \nu_\gamma:\mathcal O_\gamma\longrightarrow\PP(W),
+ \qquad g\longmapsto\operatorname{Sing}(V(g))_{\mathrm{red}},
+ \qquad
+ \ell=\nu_\gamma^*\OO_{\PP(W)}(-1)\subset W\otimes\OO
+ \label{eq:pg-equivariant-singular-point-line}
+\end{equation}
+が得られる。正則性は軌道へのfppf射からの降下で従い、
+特異点スキームの長さを一定にする主張を用いていない。
+全$G$の作用でも$u=0$上では$X=Mx$であるから、
+点の順方向の写像は$M:\ell_g\to\ell_{g'}$となる。
+代数の$\Phi$と同じ向きの引戻しデータはその逆であり、
+\begin{equation}
+ \ell_{g'}\xrightarrow{\ M^{-1}\ }\ell_g,
+ \qquad k(a)|_\ell=a^{-1},
+ \qquad k(a)|_{\mathcal A_d\otimes\ell^{\otimes d}}
+ =a^d a^{-d}=1
+ \label{eq:pg-equivariant-singular-line-weights}
+\end{equation}
+となる。
+
+$L=\ell^\vee$は$\mathcal G_\gamma$上の重み一の可逆層である。
+$L$のframeを付けた対象のスタックを考える。
+gerbeをfppf局所的に$B\mathbf G_m$と同定すれば、
+重み一の線束のframeを指定することで相対自己同型群が消え、
+このスタックは底と同型になる。
+この局所同型は降下するので、frame付きスタックは
+$\mathfrak P_{n,1}^\gamma$そのものである。
+frameを忘れる射がgerbeの切断を与え、中立性が従う。
+ここでは$G$を一定の直積$K_{\mathrm{sc}}\times H$へ分裂させていない。
+
+補題\ref{lem:pg-equivariant-singular-retractions}と
+定理\ref{thm:pg-equivariant-parabolic-center}により、各型の全零切断を含む
+$G$-不変開上で中心元と中心商族を得る。
+中心調整写像で既存の不変関数を引き戻した$Q(f^0,t)$は
+$t=0$で常に$1$なので、この段階で係数底の一部を除く必要はない。
+$t=\eta\hbar$と引き戻せば、定義開は$\hbar=0$全体を含む。
+\eqref{eq:pg-equivariant-singular-line-weights}によって
+\eqref{eq:pg-equivariant-singular-line-twist}の各次数は$K_{\mathrm{sc}}$に自明であり、
+$\overline G$の同変層として降下する。
+これは商スタック上の準連接層の降下
+\cite[Proposition~96.14.3, Tag~\texttt{06WT}]{PStacks}であり、
+gerbe上の重み零の層による記述では
+\cite[Proposition~4.10, p.~1487]{PBerghSchnurerGerbes}の特別な場合である。
+積に対しては$\ell^{\otimes d}\otimes\ell^{\otimes e}
+\simeq\ell^{\otimes(d+e)}$を用いるので、単位、積、
+中心三次直線の包含と生成イデアルも同時に降りる。
+従って実際の次数付き代数とその中心商を
+\eqref{eq:pg-equivariant-singular-descended-base}上に得る。
+可逆層による次数ごとの捻りは局所的に元の代数と同型であるため、
+系\ref{cor:pg-equivariant-central-quotient}の左右正則性、次数別局所自由性、
+Hilbert級数およびAS条件が保たれる。
+
+降下した古典次数一束を$E_\gamma$とすると、そのatlasへの引戻しは
+$V^*\otimes\ell$であり、古典中心三次直線を$\mathcal J_{\gamma,0}$と書けば
+\begin{equation}
+ \widetilde{\mathcal A}|_{\hbar=0}
+ \simeq\operatorname{Sym}(E_\gamma),\qquad
+ \widetilde{\mathcal B}|_{\hbar=0}
+ \simeq\operatorname{Sym}(E_\gamma)/(\mathcal J_{\gamma,0})
+ \label{eq:pg-equivariant-singular-classical-family}
+\end{equation}
+である。可逆層による一様な次数捻りは相対$\operatorname{Proj}$を変えない。
+従ってこの射影族は元の普遍三次族であり、局所表示$t=\eta\hbar$から
+一次括弧も元の$\eta\{-,-\}_f$に戻る。
+底上の中心三次直線の大域生成元の存在は主張しない。
+また、構成に用いた左逆と特異点直線は型ごとの軌道上で定義されているので、
+異なる型の境界をまたぐ貼合せはこの証明には含まれない。
+\end{proof}
+
 \begin{remark}[次数重みと十七次元の意味]
 \label{rem:pg-equivariant-gerbe-degree-weights}
 \eqref{eq:pg-equivariant-fixed-parameter}によって$\hbar$を固定したときも、
@@ -846,6 +1163,8 @@ $3\mid m$なら、$G$の任意の指標の$K_{\mathrm{sc}}$上の重みは$3$の
 それらの重みはそれぞれ$3,m,-3$である。
 この場合は上の指標による分裂は得られないが、
 gerbeが非中立であることや別の降下法の不存在までは結論しない。
+実際、命題\ref{prop:pg-equivariant-singular-strata}の節点・尖点層では、
+特異点直線による捻りが全$m$で重みを除き、gerbeの中立性も与える。
 
 十七という数は$n=3$での底Poissonスタックの次元である。
 固定した$\hbar\ne0$における抽象的な非可換代数のモジュライへの写像が
