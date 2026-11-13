@@ -1,10 +1,10 @@
 # Codex実行指示 — nc-cubic
 
-2026-11-13 / v84。最初に `00_research_plan.md` と `notes/paper_b_scope_and_transfer.md` を読む。GitHub mainが正本。
+2026-11-14 / v85。最初に `00_research_plan.md` と `notes/paper_b_scope_and_transfer.md` を読む。GitHub mainが正本。
 
 ## 公表向け監査と担当境界
 
-論文AはA-v53。ユーザーの追加依頼により、正規形・Bondal・量子化・固定相対モジュライ・ambient復元を公表向けに監査・推敲した。現行状態は `notes/poisson_article_submission_audit.md` と `validation_paper_a.json`。相対忘却射はアフィン、階数層では同時スカラー作用と被約構造を用いる。導来ambient復元のnoetherian仮定、中心上自由性の十分条件を明示する。全Poisson代数中心の証明に形式的Dolgushev理論を再導入しない。固定変数分解の全係数空間では中心元を同時選択できるが、規格化遷移はΩ'=aΩ+cで、中心イデアルや同変降下は自動ではない。完全交叉の消滅には独立証明を加えた。分離型三次四様体の純楕円構造はPym arXiv v1の非存在記述と両立せず、非連結な曲線の持上げ障害を本文で示す。刊行版・訂正文、包括的初出、全モジュライ降下は未確認・未解決として区別する。Bの一般点復元と全閉パラメータでの相対同値を混同しない。
+論文AはA-v54。ユーザーの追加依頼により、正規形・Bondal・量子化・固定相対モジュライ・ambient復元を公表向けに監査・推敲した。現行状態は `notes/poisson_article_submission_audit.md` と `validation_paper_a.json`。相対忘却射はアフィン、階数層では同時スカラー作用と被約構造を用いる。導来ambient復元のnoetherian仮定、中心上自由性の十分条件を明示する。全Poisson代数中心の証明に形式的Dolgushev理論を再導入しない。固定変数分解の全係数空間では中心元を同時選択できるが、規格化遷移はΩ'=aΩ+cで、中心イデアルや同変降下は自動ではない。完全交叉の消滅には独立証明を加えた。分離型三次四様体の純楕円構造はPym arXiv v1の非存在記述と両立せず、非連結な曲線の持上げ障害を本文で示す。刊行版・訂正文、包括的初出、全モジュライ降下は未確認・未解決として区別する。Bの一般点復元と全閉パラメータでの相対同値を混同しない。
 
 論文BはB-v57。ユーザーの公表向け精査・修正依頼に基づき、主要証明の数学的再点検と必要な補強を行った。状態は `notes/paper_b_proof_audit.md` と `validation_paper_b.json`。一般点の存在定理は保持する。可換模型の一意性はrotation付きpairの幾何学的射影同型類についてであり、基礎体上のformの一意性と混同しない。曲率付きformalityの一般原理は既知としてCarqueville--Kayを引用し、組合せの初出は未確定とする。
 
@@ -16,9 +16,13 @@ CKが直接述べる第二種変形複体の比較と、本稿の全有限rank g
 
 Chat側の担当はAのPoisson正規形・量子化、Bの完備MF比較・一般点降下、一次文献・新規性の独立監査と改良。Codexの新しい主担当は **nc-cubic2の統合稿の公表向け再構成と、移管で文脈調整された9数学的環境・共有証明の重点監査** である。Codexは本リポジトリのA/B・再帰入力を編集せず、必要な数学的指摘は根拠と参照を付して伝える。ファイル移管のやり直しをしない。移管完了と全数学的監査の完了を混同しない。
 
+### 同変中心元の現在の範囲
+
+Aの同変性では、全滑らかなfでG_0=(GL3×GLm)×Gmに関する平均化を完了し、滑らかなg=f(x,0)では混合二次項の中心調整により全ブロック群Gへ拡張した。さらにgcd(m,3)=1ならθ=(det N)^rλ^s、mr−3s=1によって次数線形化を補正し、階数二のPoisson対の被約層内の開へ中心商族を降ろせる。三次三様体m=2では底が17次元となるが、固定h≠0の非可換代数の同型類の像の次元を結論しない。特異・零のgに対する全G同変性、複数ブロックの分解・配分を変えた整合、3|mでの別の降下法は残る。全平行移動との同変性を課すときに純中心係数固定を再導入しない。補正前の中心Gm-gerbeと、補正後のPoissonモジュライ上の族を区別する。詳細は `papers/support/papers/sections/equivariant_central_lifts.tex` と `notes/universal_casimir.md`。
+
 ## 厳格な保護
 
-- 移管整理では `papers/paper_a.tex`（A-v53）、`papers/paper_b.tex`（B-v57）、両者の再帰的な全入力、`papers/generic_recovery/`、`papers/support/papers/common.tex`、共通設定を保護する。ユーザーが依頼した公表向け監査によるA/Bの修正はこの移管保護とは区別する。A-v53の改訂ではB-v57と共通preambleを変更していない。必要証明を移管先へのリンクだけで代用しない。
+- 移管整理では `papers/paper_a.tex`（A-v54）、`papers/paper_b.tex`（B-v57）、両者の再帰的な全入力、`papers/generic_recovery/`、`papers/support/papers/common.tex`、共通設定を保護する。ユーザーが依頼した公表向け監査によるA/Bの修正はこの移管保護とは区別する。A-v54の改訂ではB-v57と共通preambleを変更していない。必要証明を移管先へのリンクだけで代用しない。
 - パスだけで移管可否を決めず、input/include・論理参照・引用・ノート・コードの実依存を確認する。共有する文献・証明書・検算を消さない。
 - 数学的問題は具体的な仮定・反例・依存先とともに監査ノートへ記し、主定理を迂回して強化・弱化しない。
 - 全次数MF存在と条件付き移送、全coherentと線束生成圏、有限Artinと一般Artin、形式と代数的同値、相対smooth properの仮定を区別する。

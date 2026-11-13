@@ -1,6 +1,6 @@
 # 固定FermatのPoisson space・商スタックと相対Poissonモジュライ
 
-**2026-11-13 / v4（論文A-v53、nc-cubic-v84）。再開時は最初に `00_research_plan.md` を読む。**
+**2026-11-14 / v5（論文A-v54、nc-cubic-v85）。再開時は最初に `00_research_plan.md` を読む。**
 現行公表原稿は `papers/paper_a.tex`、
 定義・代数性の証明は
 `papers/support/papers/sections/poisson_moduli_stacks.tex`、

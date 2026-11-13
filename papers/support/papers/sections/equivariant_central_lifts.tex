@@ -1,0 +1,561 @@
+\section{中心三次元の同変選択と中心商族}
+\label{sec:pg-equivariant-central-lifts}
+本節では単一のJacobianブロックを扱う。
+定階数核の構成を同変に行うことで、固定したactive・中心変数の分解を保つ
+還元的群について、古典極限を指定した中心元を同時に選べる。
+さらに三変数制限が滑らかな部分では、二次混合項の規格化によって
+中心変数による平行移動も処理できる。
+平均化そのものは既知のReynolds作用素の性質であり、
+ここで用いるのはその定階数核への適用である
+\cite[\S2, p.~369]{PDerksenInvariants}。
+
+$W=\CC^3$、$Z=\CC^m$とし、$x=(x,y,z)$と$u$をそれぞれの座標とする。
+変形パラメータを一旦$t$と書き、
+\eqref{eq:pg-det-quantum}の$\hbar$を$t$に置き換えた代数を$A_{f,t}$とする。
+群とその作用を
+\begin{equation}
+ \begin{aligned}
+ G_0&=(\mathrm{GL}(W)\times\mathrm{GL}(Z))\times\mathbf G_m,\\
+ G&=\left\{
+ \begin{pmatrix}M&C\\0&N\end{pmatrix}
+ :M\in\mathrm{GL}(W),\ N\in\mathrm{GL}(Z),\ C\in\operatorname{Hom}(Z,W)
+ \right\}\times\mathbf G_m,\\
+ X&=Mx+Cu,\qquad U=Nu,\\
+ f'(X,U)&=\lambda^{-1}
+ f\bigl(M^{-1}(X-CN^{-1}U),N^{-1}U\bigr),\qquad
+ t'=\lambda\det(M)t
+ \end{aligned}
+ \label{eq:pg-equivariant-groups}
+\end{equation}
+で定める。$G_0\subset G$は$C=0$の部分群である。
+代入による同型を$\Phi:A_{f',t'}\to A_{f,t}$とする。
+注意\ref{rem:pg-det-block-covariance}により、Weyl同型、割った交換子の核
+$\mathcal K$、純中心部分$\mathcal C_m$および商線束
+$\mathcal K/\mathcal C_m$は$G$と両立する。
+純中心部分への射影$\rho(p)=p(0,u)$は$G_0$と両立する。
+
+\subsection{不変開と中心元の同変持上げ}
+
+\begin{lemma}[アフィン底上の同変持上げ]
+\label{lem:pg-equivariant-affine-lifting}
+$H$を複素還元的線形代数群、$Y$をアフィン$H$-スキームとする。
+次が成り立つ。
+\begin{enumerate}
+\item $Z_0\subset Y$を$H$-安定閉部分、$V\subset Y$を$Z_0$を含む
+$H$-安定開部分とする。
+ある$H$-不変関数$q\in\Gamma(Y,\OO_Y)$について、
+$q|_{Z_0}=1$かつ$D(q)\subset V$とできる。
+\item $\mathcal E$を$Y$上の同変ベクトル束とする。
+$\mathcal E|_{Z_0}$の不変切断は$\mathcal E$の不変切断へ持ち上がる。
+任意の指標で線形化をtwistした場合も同じである。
+\item $Y$上の同変ベクトル束の短完全列は同変に分裂する。
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+アフィン底上の同変準連接層の大域切断は有理$H$-加群であり、
+各元の軌道の線形包は有限次元である。
+その有限次元部分において、Zariski稠密な最大compact部分群で平均すれば
+Reynolds射影が得られる。
+これは$H$-安定部分加群を保ち、同変線形写像と可換する。
+
+第一の主張では、$Y\setminus V$のイデアルを$I$、$Z_0$のイデアルを$J$とすると
+$I+J=\Gamma(Y,\OO_Y)$である。
+$p\in I$、$p\equiv1\pmod J$を選び、平均して$q$とすればよい。
+第二の主張では、アフィン性による全射
+\begin{equation}
+ \Gamma(Y,\mathcal E)\longrightarrow
+ \Gamma(Z_0,\mathcal E|_{Z_0})
+ \label{eq:pg-equivariant-restriction-surjection}
+\end{equation}
+において任意の持上げを平均する。
+第三の主張では、商ベクトル束が有限射影加群に対応するので、
+まず$\OO_Y$-線形な分裂を選べる。
+Hom加群におけるその平均も$\OO_Y$-線形であり、
+合成が恒等写像であるという条件を保つ。
+\end{proof}
+
+\begin{theorem}[還元的部分群に関する中心元の同変選択]
+\label{thm:pg-equivariant-levi-center}
+$\mathcal T_m$を全三次式$f$が滑らかな射影超曲面を定める係数空間とする。
+$G_0$-不変な偶関数$Q(f,t)$、$Q(f,0)=1$を用いたprincipal開
+\begin{equation}
+ \mathcal W_m^0=D(Q)\subset\mathcal T_m\times\mathbb A^1_t
+ \label{eq:pg-equivariant-levi-open}
+\end{equation}
+上で、Weyl係数が正則な中心元$\Omega^0_{f,t}$を、
+\begin{equation}
+ \begin{aligned}
+ \mathcal D\Omega^0_{f,t}&=0,&
+ \Omega^0_{f,0}&=f,&
+ \rho(\Omega^0_{f,t})&=f_{\mathrm{cent}},\\
+ \Omega^0_{f,-t}&=\Omega^0_{f,t},&
+ \Phi(\Omega^0_{f',t'})&=\lambda^{-1}\Omega^0_{f,t}\qquad(C=0)
+ \end{aligned}
+ \label{eq:pg-equivariant-levi-center}
+\end{equation}
+となるように選べる。
+ここで偶性はWeyl係数についての等式である。
+さらに$\Omega^0_{f,t}$の$\mathcal K/\mathcal C_m$への像は
+この線束の基底となる。
+この選択は一般に一意ではない。
+\end{theorem}
+\begin{proof}
+命題\ref{prop:pg-PBW}と
+補題\ref{lem:pg-det-divided-kernel}で用いた開集合を、
+三変数斉次代数のAS-regular条件、次数三・四のWeyl同型、
+および割った交換子の階数$r_m$という条件で定める。
+これらの条件は座標変換と両立するので、得られる開集合$\mathcal V_m$は
+$G$-安定であり、$\mathcal T_m\times\{0\}$を含む。
+$t\mapsto-t$は代数を反対代数へ移し、これらの条件も保つ。
+
+$\mathcal T_m$は判別式を可逆にしたアフィン空間である。
+補題\ref{lem:pg-equivariant-affine-lifting}(1)を
+$H=G_0\times\boldsymbol\mu_2$と零切断に適用すると、
+$\mathcal V_m$内に、不変かつ偶な$Q$による
+\eqref{eq:pg-equivariant-levi-open}を取れる。
+$t$は$G_0$の指標$\lambda\det(M)$で変換するが、
+イデアル$(t)$は安定であるから、$Q(f,0)=1$という条件は平均で保たれる。
+
+このアフィン開上で$\mathcal K$は同変ベクトル束である。
+Weyl表示における$\mathcal D$は$t$について偶なので、
+$\boldsymbol\mu_2$はWeyl記号を変えずに$\mathcal K$へ作用する。
+補題\ref{lem:pg-det-classical-kernel}より、
+零切断上の$f$は$\mathcal K|_{t=0}$の切断である。
+引戻しの線形化を$\lambda\Phi$へtwistしてこの切断を不変とみなし、
+補題\ref{lem:pg-equivariant-affine-lifting}(2)で持ち上げる。
+得られた切断を$\widetilde\Omega$とし、
+\begin{equation}
+ \Omega^0=\widetilde\Omega-\rho(\widetilde\Omega)+f_{\mathrm{cent}}
+ \label{eq:pg-equivariant-pure-center-adjustment}
+\end{equation}
+と置く。
+$\rho$は$G_0$および$\boldsymbol\mu_2$と両立し、
+純中心三次式は$\mathcal D$で消えるので、
+\eqref{eq:pg-equivariant-levi-center}を得る。
+
+商線束における$\Omega^0$の像は零切断上で消えない。
+その零点集合を除いた安定開に同補題(1)を再適用する。
+必要なら不変な分母を払えば、元のアフィン底でも
+$Q(f,0)=1$を満たす不変な偶関数のprincipal開として取れる。
+この開では商線束への像が基底となる。
+\end{proof}
+
+\begin{theorem}[滑らかな三変数制限上の全ブロック群に関する選択]
+\label{thm:pg-equivariant-parabolic-center}
+\begin{equation}
+ \mathcal T_m^{\mathrm{ell}}
+ =\{f\in\mathcal T_m:g(x)=f(x,0)\text{ が滑らかな平面三次を定める}\}
+ \label{eq:pg-equivariant-elliptic-base}
+\end{equation}
+とおく。
+$\mathcal T_m^{\mathrm{ell}}\times\mathbb A^1_t$には、零切断全体を含む
+$G$-不変なprincipal開$\mathcal W_m^G$と、そこに正則な中心元
+$\Omega^G_{f,t}$が存在し、
+\begin{equation}
+ \mathcal D\Omega^G_{f,t}=0,\qquad
+ \Omega^G_{f,0}=f,\qquad
+ \Omega^G_{f,-t}=\Omega^G_{f,t},\qquad
+ \Phi(\Omega^G_{f',t'})=\lambda^{-1}\Omega^G_{f,t}
+ \label{eq:pg-equivariant-parabolic-center}
+\end{equation}
+を満たす。
+商線束$\mathcal K/\mathcal C_m$への像も基底となる。
+純中心係数を$f_{\mathrm{cent}}$に固定する条件は課さない。
+\end{theorem}
+\begin{proof}
+滑らかな三変数三次式$g$のアフィン係数空間を$\mathcal T_0$とする。
+方向微分の写像
+\begin{equation}
+ \delta_g:W\longrightarrow\operatorname{Sym}^2W^*,
+ \qquad v\longmapsto\partial_vg
+ \label{eq:pg-equivariant-gradient-embedding}
+\end{equation}
+は各点で単射である。
+実際、非零方向で$\partial_vg=0$なら、$g$はその方向の変数に依存せず、
+その座標点が平面三次の特異点となる。
+従って余核もベクトル束である。
+二次形式側の作用に$\lambda^{-1}$を含めれば
+\eqref{eq:pg-equivariant-gradient-embedding}は
+$\mathrm{GL}(W)\times\mathbf G_m$-同変である。
+補題\ref{lem:pg-equivariant-affine-lifting}(3)によって、
+正則な同変左逆$\sigma_g$を一つ選ぶ：
+\begin{equation}
+ \sigma_g:\operatorname{Sym}^2W^*\longrightarrow W,
+ \qquad \sigma_g\delta_g=\mathrm{id}_W.
+ \label{eq:pg-equivariant-gradient-retraction}
+\end{equation}
+
+$f$のactive次数二の部分を$q_f(x,u)=\sum_\alpha q_\alpha(x)u_\alpha$と書き、
+\begin{equation}
+ B_f(u)=\sum_\alpha\sigma_g(q_\alpha)u_\alpha,
+ \qquad
+ f^0(X,u)=f(X-B_f(u),u)
+ \label{eq:pg-equivariant-centering}
+\end{equation}
+と定める。
+全ての係数は$\mathcal T_m^{\mathrm{ell}}$上で正則であり、
+$f^0$の二次混合部分には$\sigma_g$を適用すると零になる。
+$G$の作用下での変換を計算すると、
+\begin{equation}
+ B_{f'}=(MB_f-C)N^{-1},\qquad
+ X+B_{f'}U=M(x+B_fu),\qquad
+ (f')^0(X,U)=\lambda^{-1}f^0(M^{-1}X,N^{-1}U)
+ \label{eq:pg-equivariant-centering-covariance}
+\end{equation}
+となる。
+第一の等式では、$g$を$x\mapsto x-Cu$で移すと
+二次混合項が$-\delta_g(Cu)$だけ変わることと
+$\sigma_g\delta_g=\mathrm{id}$を用いた。
+従って$(f,t)\mapsto(f^0,t)$は中心平行移動に関して不変で、
+残る群$G_0$について同変である。
+
+定理\ref{thm:pg-equivariant-levi-center}の開と中心元を用いて
+\begin{equation}
+ \begin{aligned}
+ \mathcal W_m^G
+ &=\{(f,t):(f^0,t)\in\mathcal W_m^0\},\\
+ \Omega^G_{f,t}(x,u)
+ &=\Omega^0_{f^0,t}(x+B_f(u),u)
+ \end{aligned}
+ \label{eq:pg-equivariant-centered-quantization}
+\end{equation}
+と置く。
+開集合は不変関数$Q(f^0,t)$で定まり、$Q(f^0,0)=1$である。
+中心変数による線形代入はWeyl対称化と可換し、代数の同型を与えるので、
+中心性、偶性および商線束の生成性が保たれる。
+\eqref{eq:pg-equivariant-centering-covariance}と
+\eqref{eq:pg-equivariant-levi-center}から全$G$に関する共変性を得る。
+古典極限は$f^0(x+B_fu,u)=f(x,u)$である。
+\end{proof}
+
+\subsection{中心商の族と規格化の条件}
+
+\begin{corollary}[同変な正則中心商族]
+\label{cor:pg-equivariant-central-quotient}
+前二定理のそれぞれの底と群について、
+$\mathcal J=\OO\Omega\subset\mathcal A_3$は同変な中心直線部分束である。
+各幾何学的ファイバーで$\Omega$は左右正則であり、
+中心商$\mathcal B=\mathcal A/(\mathcal J)$の各次数部分は底上局所自由である。
+そのファイバーは
+\begin{equation}
+ \operatorname{Hilb}_{\mathcal B}(z)
+ =\frac{1-z^3}{(1-z)^{m+3}}
+ \label{eq:pg-equivariant-quotient-hilbert}
+\end{equation}
+を持ち、左右injective dimension $m+2$、AS parameter $m$の
+AS-Gorenstein代数である。
+
+変形パラメータを群作用から独立に固定するには、
+\begin{equation}
+ t=\eta\hbar,\qquad
+ \eta'=\lambda\det(M)\eta,\qquad \hbar'=\hbar
+ \label{eq:pg-equivariant-fixed-parameter}
+\end{equation}
+とおく。
+この代入による引戻しは、それぞれ
+\begin{equation}
+ \left[(\mathcal T_m\times\mathbb A^1_\eta)/G_0\right]
+       \times\mathbb A^1_\hbar,
+ \qquad
+ \left[(\mathcal T_m^{\mathrm{ell}}\times\mathbb A^1_\eta)/G\right]
+       \times\mathbb A^1_\hbar
+ \label{eq:pg-equivariant-quotient-stacks}
+\end{equation}
+の、$\hbar=0$全体を含む開部分上に次数付き代数の族として降りる。
+特殊ファイバーは$\CC[x,u]/(f)$であり、一次括弧は
+$\eta\{-,-\}_f$である。
+\end{corollary}
+\begin{proof}
+共変性は$\mathcal J$およびその生成する両側イデアルを保つ。
+命題\ref{prop:pg-PBW}により、各ファイバーで
+\begin{equation}
+ \operatorname{gr}_x A_{f,t}
+ \simeq S_{g,t}\otimes_\CC\CC[u_1,\ldots,u_m]
+ \label{eq:pg-equivariant-fiber-domain}
+\end{equation}
+はdomainであるから、$A_{f,t}$もdomainである。
+商線束を生成する$\Omega$は零ではなく、従って左右正則である。
+各次数の乗法写像
+\begin{equation}
+ \mathcal J\otimes\mathcal A_{d-3}\longrightarrow\mathcal A_d
+ \label{eq:pg-equivariant-regular-multiplication}
+\end{equation}
+は全ファイバーで単射なので、ベクトル束の写像として局所的に分裂する。
+その余核$\mathcal B_d$は局所自由であり、Hilbert級数も従う。
+$u_1,\ldots,u_m$はPBW性による中心正則列で、
+その商$S_{g,t}$は三次元Koszul AS-regularである。
+補題\ref{lem:pg-central-linear}を$m$回適用し、
+さらに補題\ref{lem:pg-central-cubic}を適用するとAS条件を得る。
+
+\eqref{eq:pg-equivariant-fixed-parameter}は群作用と両立する。
+元の開は$t=0$全体を含むので、引戻した開は$\hbar=0$全体を含む。
+同変代数と同変イデアルの降下により
+\eqref{eq:pg-equivariant-quotient-stacks}上の族が得られる。
+その平坦性はアフィンatlas上で示した次数別局所自由性から従う。
+定義関係式を$\hbar$で割って特殊化すれば一次括弧は
+$\eta\{-,-\}_f$となる。
+\end{proof}
+
+\begin{remark}[純中心部分がない単一ブロック]
+\label{rem:pg-equivariant-line-and-gerbe}
+$m=0$では$\mathcal C_m=0$なので、定階数核$\mathcal K$自身が
+正準な同変中心直線である。
+従って同変な中心イデアル$(\mathcal K)$とその商には、
+中心元の基底やReynolds平均の選択は不要である。
+これは単一ブロックについての主張であり、複数ブロックの中心元の和の
+相対規格化を定めるものではない。
+
+座標スカラーの作用と射影座標のモジュライへの降下は、後の命題
+\ref{prop:pg-equivariant-poisson-gerbe}と系
+\ref{cor:pg-equivariant-character-descent}で区別して扱う。
+\end{remark}
+
+\begin{remark}[純中心係数の固定と平行移動]
+\label{rem:pg-equivariant-pure-center-obstruction}
+$m\geq1$では、零切断全体を含む$G$-不変開上で、全$G$に関する共変性と
+$\rho(\Omega_f)=f_{\mathrm{cent}}$を同時に要求することは一般にできない。
+実際、中心平行移動$X=x+Cu$とこの規格化を全ての$C$に適用すると、
+$\Omega_f$のWeyl記号$P_f(x,u)$について
+\begin{equation}
+ P_f(-Cu,u)=f(-Cu,u)\qquad\text{for all }C
+ \label{eq:pg-equivariant-pure-center-evaluation}
+\end{equation}
+を得る。
+$u\ne0$なら$Cu$は任意の$x\in W$を動くので、$P_f=f$が強制される。
+しかし例えば
+\begin{equation}
+ f=\frac{x^3+y^3+z^3}{3}+\sum_{\alpha=1}^m u_\alpha^3
+ \label{eq:pg-equivariant-pure-center-fermat}
+\end{equation}
+について、$t\ne0$の適切な開上では$\sym(f)$は中心元ではない。
+定理\ref{thm:explicit-hesse-center}のFermat公式が与える商線束の基底は
+$(x^3+y^3+z^3)/3-2t^2\sym(xyz)/3$であり、
+Weyl基底の独立性から$(x^3+y^3+z^3)/3$はこの直線に入らない。
+従って定理\ref{thm:pg-equivariant-parabolic-center}で
+純中心係数の固定を課さないことは必要である。
+同定理は滑らかな三変数制限の上で全$G$を扱う。
+三変数制限が特異または零の場合を含む全$\mathcal T_m$については、
+定理\ref{thm:pg-equivariant-levi-center}の$G_0$-同変選択までを結論している。
+\end{remark}
+
+\subsection{階数二のPoissonモジュライへの降下}
+
+\begin{proposition}[階数二のPoissonスタックと座標スカラーのgerbe]
+\label{prop:pg-equivariant-poisson-gerbe}
+$m\ge2$、$n=m+1$、$V=W\oplus Z$、$\dim W=3$、$\dim Z=m$とする。
+\eqref{eq:pg-equivariant-elliptic-base}の係数空間と
+\eqref{eq:pg-equivariant-groups}の群$G$について、
+\begin{equation}
+ \begin{aligned}
+ \mathscr S_m&=\mathcal T_m^{\mathrm{ell}}\times\mathbf G_{m,\eta},\\
+ K_{\mathrm{sc}}&=
+ \{(aI_3,aI_m,0,a^{-3}):a\in\mathbf G_m\}\subset G,
+ \qquad \overline G=G/K_{\mathrm{sc}}
+ \end{aligned}
+ \label{eq:pg-equivariant-gerbe-parameter}
+\end{equation}
+とおく。$G$は$f$に\eqref{eq:pg-equivariant-groups}で、
+$\eta$に$\eta'=\lambda\det(M)\eta$で作用する。
+
+$\mathfrak P_{n,1}^{\mathrm{ell}}$を、相対Poissonスタック
+$\mathfrak{Pois}^{\mathrm{rel}}_n$の一般階数二の
+\emph{被約な局所閉層}のうち、表示$\pi=\iota_{dF}P$の
+support三次元空間$W_P$への制限$F|_{W_P}$が
+滑らかな平面三次を定める非空稠密開部分とする。
+このとき
+\begin{equation}
+ [\mathscr S_m/\overline G]\simeq
+ \mathfrak P_{n,1}^{\mathrm{ell}},\qquad
+ [\mathscr S_m/G]\longrightarrow
+ \mathfrak P_{n,1}^{\mathrm{ell}}
+ \quad\text{は}\ \mathbf G_m\text{-gerbe}
+ \label{eq:pg-equivariant-poisson-gerbe}
+\end{equation}
+である。ここで開部分という条件は階数二の層の中での条件であり、
+一般には相対Poissonスタック全体の開部分ではない。
+特に$n=3$では底スタックの次元は
+$\dim\mathfrak P_{3,1}^{\mathrm{ell}}=17$であり、
+$[\mathscr S_2/G]$の次元は$16$である。
+\end{proposition}
+\begin{proof}
+$\mathsf P_W\subset\mathrm{GL}(V)$を$W$を保つ放物部分群とする。
+従って$G=\mathsf P_W\times\mathbf G_{m,\lambda}$である。
+$P_0=e_1\wedge e_2\wedge e_3\in\bigwedge^3W$を固定し、
+\begin{equation}
+ \widetilde{\mathscr R}^{\mathrm{ell}}
+ =\{(F,P):V(F)\text{は滑らか},\quad
+ P\ne0\text{は分解可能},\quad
+ F|_{\operatorname{supp}P}\text{は滑らかな平面三次を定める}\}
+ \label{eq:pg-equivariant-decomposable-incidence}
+\end{equation}
+とおく。これは滑らかな三次式のアフィン係数空間と
+非零Pl\"ucker錐の積の開部分である。
+非零の分解可能三重ベクトルはsupportの三次元空間と
+その最高外積の非零元を一意に定める。
+$\mathrm{GL}(V)$は三次元部分空間全体に推移的に作用するので、
+\begin{equation}
+ \mathrm{GL}(V)\times^{\mathsf P_W}\mathscr S_m
+ \xrightarrow{\ \sim\ }\widetilde{\mathscr R}^{\mathrm{ell}},\qquad
+ [g,(f,\eta)]\longmapsto
+ \bigl(f\circ g^{-1},\eta(\bigwedge^3g)P_0\bigr)
+ \label{eq:pg-equivariant-associated-incidence}
+\end{equation}
+を得る。ここでは$\mathsf P_W$の作用は$\lambda=1$の作用である。
+この同型は任意の底の上でも成立する。
+実際、supportの部分束に適合する枠を局所的に選べば逆写像を構成でき、
+枠の違いはちょうど$\mathsf P_W$の作用となる。
+
+階数層のスキーム構造についても確認する。
+縮約写像$\bigwedge^2V^*\to V$が階数三である局所閉条件を課すと、
+その像は階数三の部分束$\mathcal W\subset V\otimes\OO$となる。
+全ての二重縮約が$\mathcal W$に入ることから、
+$P\in\bigwedge^3\mathcal W$である。
+像の階数が三なので、この最高外積の係数は局所的に単元である。
+従ってこの行列式的な階数三の層は、非零Pl\"ucker錐と
+スキームとして同型である。
+その上では$\iota_{dF}P$は三変数Jacobian括弧であり、
+任意の$F$に対してJacobi恒等式を満たす。
+よってJacobi方程式は追加条件を課さない。
+正規形定理による一般階数二との対応と合わせると、
+\eqref{eq:pg-equivariant-decomposable-incidence}は
+本稿の被約な階数二の層のアフィン三次式による表示である。
+全Jacobiスキームの他の層やその厚みについての同定は用いない。
+滑らかな三次超曲面の一般の平面切断はBertiniの定理により滑らかなので、
+この開条件は各滑らかな三次式の上で非空である。
+非零Pl\"ucker錐と滑らかな三次式の係数空間は既約であり、
+その開部分の商である上記の層でも稠密となる。
+
+三次式の代表を忘れる自由な作用は
+\begin{equation}
+ \lambda\cdot(F,P)=(\lambda^{-1}F,\lambda P)
+ \label{eq:pg-equivariant-equation-scalar}
+\end{equation}
+である。その商を$\mathscr R^{\mathrm{ell}}$と書けば、
+$\mathscr R^{\mathrm{ell}}$は
+$\bigwedge^3V\otimes\OO_{U_N}(-1)$内の上記の局所閉部分であり、
+$\mathfrak P_{n,1}^{\mathrm{ell}}
+ =[\mathscr R^{\mathrm{ell}}/\mathrm{PGL}(V)]$である。
+一方、\eqref{eq:pg-equivariant-associated-incidence}から
+\begin{equation}
+ [\mathscr S_m/G]
+ \simeq
+ [\widetilde{\mathscr R}^{\mathrm{ell}}/
+       (\mathrm{GL}(V)\times\mathbf G_{m,\lambda})]
+ \label{eq:pg-equivariant-two-quotients}
+\end{equation}
+を得る。右辺の作用では
+$(aI_V,a^{-3})$が$(F,P)$を固定する。
+この中心部分群で割り、さらに自由な
+\eqref{eq:pg-equivariant-equation-scalar}の作用で割れば、
+残る群は$\mathrm{PGL}(V)$である。
+これが\eqref{eq:pg-equivariant-poisson-gerbe}の第一の同型を与える。
+$K_{\mathrm{sc}}$は$G$の中心にあり$\mathscr S_m$に自明に作用するので、
+第二の射はこの$K_{\mathrm{sc}}\simeq\mathbf G_m$をbandとするgerbeである。
+
+$n=3$、$m=2$では、三次式の係数空間の次元は$35$なので、
+\begin{equation}
+ \dim\mathfrak P_{3,1}^{\mathrm{ell}}
+ =35+1-(9+4+6+1)+1=17.
+ \label{eq:pg-equivariant-threefold-stack-dimension}
+\end{equation}
+$\overline G$の代わりに$G$で割るgerbeの次元は一小さい。
+\end{proof}
+
+\begin{corollary}[指標による次数線形化の降下]
+\label{cor:pg-equivariant-character-descent}
+$\gcd(m,3)=1$とする。整数$r,s$を$mr-3s=1$となるように選び、
+\begin{equation}
+ \theta:G\longrightarrow\mathbf G_m,
+ \qquad \theta(M,N,C,\lambda)=(\det N)^r\lambda^s,
+ \qquad H=\ker\theta
+ \label{eq:pg-equivariant-scalar-character}
+\end{equation}
+とおく。この選択により$G\simeq K_{\mathrm{sc}}\times H$、
+$H\simeq\overline G$となり、
+\eqref{eq:pg-equivariant-poisson-gerbe}のgerbeは中立になる。
+
+系\ref{cor:pg-equivariant-central-quotient}の族を
+$\eta\ne0$へ制限する。各次数$d$の線形化を指標$\theta^{-d}$で
+twistすると、周囲代数、中心三次イデアルおよびその商は、
+\begin{equation}
+ \mathcal U\subset
+ \mathfrak P_{n,1}^{\mathrm{ell}}\times\mathbb A^1_\hbar,
+ \qquad
+ \mathfrak P_{n,1}^{\mathrm{ell}}\times\{0\}\subset\mathcal U
+ \label{eq:pg-equivariant-rigidified-family-base}
+\end{equation}
+上の次数付き$\OO$-代数の族へ降りる。
+その各次数部分は局所自由で、幾何学的ファイバーのHilbert級数、
+AS-Gorenstein性、古典極限および一次Poisson括弧は
+系\ref{cor:pg-equivariant-central-quotient}のものと同じである。
+この族の選択は、先の中心元の選択と指標$\theta$に依存してよい。
+特に$m=2$、$n=3$では
+\begin{equation}
+ \theta=(\det N)^2\lambda
+ \label{eq:pg-equivariant-threefold-character}
+\end{equation}
+を取れるため、上の十七次元の底スタック上でこの代数族を得る。
+\end{corollary}
+\begin{proof}
+$k(a)=(aI_3,aI_m,0,a^{-3})$と書くと、
+$\theta(k(a))=a^{mr-3s}=a$である。
+$K_{\mathrm{sc}}$は中心部分群なので、
+\begin{equation}
+ K_{\mathrm{sc}}\times H\xrightarrow{\ \sim\ }G,
+ \qquad (k,h)\longmapsto kh,
+ \qquad
+ g\longmapsto
+ \bigl(k(\theta(g)),k(\theta(g))^{-1}g\bigr)
+ \label{eq:pg-equivariant-character-splitting}
+\end{equation}
+は群スキームの同型である。
+$K_{\mathrm{sc}}$が底に自明に作用することから、
+$[\mathscr S_m/G]\simeq[\mathscr S_m/H]\times B\mathbf G_m$であり、
+$[\mathscr S_m/H]\simeq\mathfrak P_{n,1}^{\mathrm{ell}}$を得る。
+
+元の次数$d$の線形化を$\rho_d(g)$と書き、
+\begin{equation}
+ \rho_d^{\theta}(g)=\theta(g)^{-d}\rho_d(g)
+ \label{eq:pg-equivariant-character-twist}
+\end{equation}
+へ換える。
+$K_{\mathrm{sc}}$の元$k(a)$は元の代数の次数$d$部分に$a^d$で作用するので、
+新しい線形化では自明に作用する。
+従って$\rho_d^{\theta}$は$\overline G$を通じて作用する。
+積は次数を加えるため
+$\theta^{-d}\theta^{-e}=\theta^{-(d+e)}$となり、積と単位の同変性は保たれる。
+中心三次直線の線形化も$\theta^{-3}$でtwistすれば、
+その包含および生成するイデアルの乗法写像は同変である。
+従って代数と商は$\overline G$による商へ降りる。
+
+底の開集合は$G$-不変であり$K_{\mathrm{sc}}$が底に自明に作用するので、
+\eqref{eq:pg-equivariant-rigidified-family-base}へ降りる。
+線形化の変更はアフィンatlas上の代数、中心イデアル、乗法を変えない。
+従って次数別局所自由性と各ファイバーの主張は前の系から従う。
+$m=2$では$r=2,s=1$が所要の等式を満たす。
+\end{proof}
+
+\begin{remark}[次数重みと十七次元の意味]
+\label{rem:pg-equivariant-gerbe-degree-weights}
+\eqref{eq:pg-equivariant-fixed-parameter}によって$\hbar$を固定したときも、
+$K_{\mathrm{sc}}$は$(f,\eta,\hbar)$に自明に作用する。
+しかし座標代入は各次数一生成元を$a$倍するので、
+周囲代数$\mathcal A_d$および中心商$\mathcal B_d$には$a^d$で作用する。
+中心三次直線には$a^3$で作用するため、そのイデアルは同変であるが、
+次数付き代数のこの非自明な重みは消えない。
+従って元の線形化のままの代数はgerbe上の族である。
+前の系は$\gcd(m,3)=1$のとき、この次数重みを指標によって取り除いている。
+$3\mid m$なら、$G$の任意の指標の$K_{\mathrm{sc}}$上の重みは$3$の倍数である。
+実際、指標は$\det M,\det N,\lambda$の整数冪の積であり、
+それらの重みはそれぞれ$3,m,-3$である。
+この場合は上の指標による分裂は得られないが、
+gerbeが非中立であることや別の降下法の不存在までは結論しない。
+
+十七という数は$n=3$での底Poissonスタックの次元である。
+固定した$\hbar\ne0$における抽象的な非可換代数のモジュライへの写像が
+generically finiteであることや、その像の次元が十七であることは主張しない。
+一方、$\hbar$を保つ次数付き変形族全体の同型は、
+特殊ファイバーの可換代数と$\hbar^{-1}[-,-]\bmod\hbar$を保つ。
+従ってその射影化から元のPoisson対$(X,\pi)$が回復される。
+これは一般ファイバーだけからの回復とは異なる。
+\end{remark}

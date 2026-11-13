@@ -804,15 +804,29 @@ $E_g$沿いの同じ条件は$\lambda=-1$を要求する。
 従って、$D$は$X$内で両曲線沿いに三重に消えるが、
 この性質を両方で保つ周囲の三次超曲面は存在しない。
 
-同版Lemma~5.5の証明で用いられる消滅も、
-$C=E_f\sqcup E_g$のイデアル層$\mathcal I_C$については
+同版Lemma~5.5の証明で用いられる消滅を、持上げ列で確認する。
+$C=E_f\sqcup E_g$とし、$i:X\hookrightarrow\PP^5$を包含、
+$\mathcal I=\mathcal I_C\subset\OO_{\PP^5}$と
+$\mathcal J\subset\OO_X$をそれぞれの空間内での$C$のイデアル層とする。
+$X$と$C$が滑らかなので、$F=f+g$の局所方程式は
+$\mathcal I$を生成する正則列の一要素に取れる。
+従って局所的に$\mathcal I^3\cap(F)=F\mathcal I^2$であり、
+$\PP^5$上の完全列
+\begin{equation}
+ 0\longrightarrow\mathcal I^2
+   \xrightarrow{\ \cdot F\ }\mathcal I^3(3)
+   \longrightarrow i_*\bigl(\mathcal J^3(3)\bigr)
+   \longrightarrow0
+ \label{eq:pg-split-lifting-sequence}
+\end{equation}
+を得る。一方、
 \begin{equation}
  H^1(\PP^5,\mathcal I_C)
  \simeq H^0(C,\OO_C)/\CC
  \simeq\CC
  \label{eq:pg-split-disconnected-cohomology}
 \end{equation}
-となり成立しない。
+となり、$H^1(\PP^5,\mathcal I_C)=0$という消滅は成立しない。
 各$E=E_f,E_g$は$\PP^5$内の型$(1,1,1,3)$の完全交叉なので、
 \begin{equation}
  N_{E/\PP^5}^{\vee}\simeq\OO_E(-1)^{\oplus3}\oplus\OO_E(-3),
@@ -823,7 +837,19 @@ $\mathcal I_C^2$が定める厚み$2C$も二つの非交和となる。
 完全列$0\to N_{C/\PP^5}^{\vee}\to\OO_{2C}\to\OO_C\to0$で、
 両成分の定数が持ち上がるため、$H^0(2C,\OO_{2C})=\CC^2$である。
 従って$H^1(\PP^5,\mathcal I_C^2)\simeq\CC$でもある。
-従って同補題の持上げの議論を非連結な$C$へ適用できない。
+$g|_X$は$H^0(X,\mathcal J^3(3))$の切断である。
+先に示した同時持上げの非存在と\eqref{eq:pg-split-lifting-sequence}の長完全列から、
+接続準同型について
+\begin{equation}
+ \begin{aligned}
+ \delta&:H^0(X,\mathcal J^3(3))
+        \longrightarrow H^1(\PP^5,\mathcal I^2),\\
+ 0&\ne\delta(g|_X)\in H^1(\PP^5,\mathcal I^2)\simeq\CC
+ \end{aligned}
+ \label{eq:pg-split-obstruction-class}
+\end{equation}
+となる。従って$\delta(g|_X)$が一次元の障害空間を生成し、
+同補題の持上げの議論を非連結な$C$へ適用できない。
 ここでの比較は確認したarXiv:1507.05668v1についてであり、
 刊行版本文と訂正文の最終照合は未了である。
 \end{remark}

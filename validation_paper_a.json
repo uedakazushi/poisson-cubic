@@ -1,11 +1,11 @@
 {
-  "version": "A-v53",
-  "bundle_version": "nc-cubic-v84",
-  "date": "2026-11-13",
+  "version": "A-v54",
+  "bundle_version": "nc-cubic-v85",
+  "date": "2026-11-14",
   "manuscript": "papers/paper_a.tex",
   "audit_note": "notes/poisson_article_submission_audit.md",
-  "scope": "Publication-oriented mathematical proof reading, primary-source comparison, exact computation, source consistency and PDF inspection. A-v53 adds the split cubic fourfold theorem, a global coefficient-family central lift, affine normalization transitions and a self-contained low-twist vanishing proof; these verification states remain distinct.",
-  "source_base_commit": "f180e6d93d7415d58a7cbc66eddfbaaf1f86599e",
+  "scope": "Publication-oriented mathematical proof reading, primary-source comparison, exact computation, source consistency and PDF inspection. A-v54 proves equivariant central lifts, full block covariance on smooth ternary restrictions, central quotient families and character-corrected descent to an open in the reduced rank-two Poisson stratum; the split-fourfold lifting obstruction is expressed as a nonzero cohomology class. These verification states remain distinct.",
+  "source_base_commit": "aca196334df7d8acc32574e3cb166fc8e1ea6cba",
   "mathematical_review": {
     "proof_chains_read": [
       "Euler/Koszul representation, divergence and Hessian condition",
@@ -19,7 +19,15 @@
       "Split cubic fourfolds: normal join divisor, reduced Poisson zero scheme, distinct singular scheme, local Pfaffian and modular field, pure ellipticity and generic-rank-four classification.",
       "Nonconnected elliptic double curves: ambient cubic lifting obstruction, H^1(I_C)=C and H^1(I_C^2)=C, compared specifically with Pym arXiv:1507.05668v1.",
       "Constant-rank divided-commutator kernel, actual-centre distinction under base change, affine Cramer transitions, global even central lift on a coefficient-dependent principal open containing the entire zero section.",
-      "Hesse example of different degree-three central ideals under the ambient identity, coordinate covariance and the remaining equivariant complement-line descent problem."
+      "Hesse example of different degree-three central ideals under the ambient identity; coordinate covariance, equivariant complement-line selection on the stated opens, and its remaining full-moduli scope.",
+      "Affine reductive equivariant lifting: invariant principal neighborhoods of a stable closed subscheme, lifting invariant sections with character twists, and splitting equivariant vector-bundle exact sequences.",
+      "All smooth full cubics: a G_0-invariant even good open containing the whole zero section and a G_0-covariant regular central lift whose image generates the central quotient line.",
+      "Smooth ternary restriction: a regular equivariant left inverse to directional differentiation, the centring law B_f_prime=(M B_f-C)N^-1, and the full parabolic block-group central lift.",
+      "The incompatibility, in general, of fixing pure-central coefficients with all central translations; the Fermat Weyl-symbol obstruction does not assert nonexistence of equivariant lifts.",
+      "Fiberwise central regularity, locally split degreewise multiplication, flat central quotient families and AS-Gorenstein invariants; t=eta*h fixes the deformation parameter under group action.",
+      "Reduced rank-two Poisson stratum via a nonzero decomposable-trivector incidence and a parabolic associated bundle; the central scalar gerbe and its character splitting when gcd(m,3)=1. For m=2 the base has dimension 17, without a claim about the fixed-nonzero-h image in noncommutative algebra moduli.",
+      "Split-fourfold obstruction: 0->I_C^2->I_C^3(3)->i_*J_C^3(3)->0 and the nonzero connecting class delta(g|X) generating H^1(I_C^2)=C.",
+      "Research notes: multi-block central-kernel projectivization, regularity using one active filtration and R-freeness, group-equivariant tautological quotients, classical-line dilatation and its restriction to h-regular test bases; the obstruction to a global retraction depending only on a noncone ternary cubic."
     ],
     "material_corrections": [
       "The relative forgetful scheme morphism is affine of finite type, not a closed immersion into the base.",
@@ -30,15 +38,18 @@
       "Pym arXiv v1 Theorem 1.3 / Proposition 5.7 are contradicted by the proved split cubic fourfold example. The disconnected-centre failure of Lemma 5.5 is exhibited explicitly; no assertion is made about an unverified published or corrected text.",
       "The divided-commutator kernel commutes with arbitrary base change on the constant-rank open, whereas the ordinary centre can enlarge at h-torsion or at h=0.",
       "Two normalized central lifts have transition Omega_j=a_ij Omega_i+c_ij; equality of their classical limits does not force a_ij=1 or equality of their central ideals.",
-      "The fixed-coordinate coefficient-family existence theorem does not assert a coefficient-independent parameter open or equivariant descent to the full Poisson moduli stack."
+      "The fixed-coordinate coefficient-family existence theorem does not assert a coefficient-independent parameter open or equivariant descent to the full Poisson moduli stack.",
+      "Uncorrected scalar-weight equivariance gives a gerbe family. When gcd(m,3)=1, the character theta=(det N)^r lambda^s with mr-3s=1 removes degree weights, giving actual graded-algebra descent to the stated reduced Poisson stratum open.",
+      "The abstract, introduction and ambient-recovery discussion distinguish the 17-dimensional reduced Poisson base from the unproved dimension of the fixed-nonzero-h noncommutative moduli image.",
+      "All-group equivariance does not retain the pure-central-coefficient gauge. The singular or zero ternary restriction and changes of multi-block decomposition or pure-central allocation remain separate questions."
     ],
     "formal_verification": false,
     "external_referee_review": false,
     "comprehensive_priority_established": false,
     "independent_reading_this_revision": [
-      "The split cubic fourfold proof and its Pym-v1 comparison were read independently by the main reviewer and two collaborating reviewers.",
-      "The new coefficient-family, normalization and descent-scope arguments were independently read by the main reviewer and a collaborating reviewer.",
-      "The low-twist vanishing proof was independently read by the main reviewer after its construction by a collaborating reviewer."
+      "The affine equivariant-lifting lemma, reductive central lift, smooth-ternary centring, pure-central gauge obstruction and central quotient proof were independently read by the main reviewer and collaborating reviewers.",
+      "The reduced Poisson-stratum incidence, scalar gerbe, character splitting, 17-dimensional-base scope and integrated multi-block research-note arguments were independently read by the main reviewer and a collaborating reviewer.",
+      "The split-fourfold exact sequence and nonzero obstruction class, the manuscript summaries and the Derksen attribution were independently checked by the main reviewer and a collaborating reviewer."
     ],
     "primary_source_comparison": [
       {
@@ -56,18 +67,36 @@
       {
         "source": "Stacks Project, Tag 0BCH",
         "scope": "Vanishing of Picard group for a UFD; used after descending the even matrix to the coefficient ring with tau=h^2."
+      },
+      {
+        "source": "Harm Derksen, Computation of Invariants for Reductive Groups, Advances in Mathematics 141 (1999), 366-384; author PDF, section 2, printed p. 369",
+        "scope": "Reynolds operator, invariant-linear behavior and preservation of stable subspaces; the bundle applications are proved in the manuscript. No originality is claimed for averaging."
+      },
+      {
+        "source": "Stacks Project, Tags 01OA, 06WT and 0806",
+        "scope": "Projective-bundle convention, equivariant quasi-coherent sheaves on quotient stacks and blowup universal property; used for the current multi-block research-note construction, whose extra h-regularity restriction and local coordinates are stated explicitly."
       }
+    ],
+    "reviewed_in_this_revision": [
+      "Affine reductive equivariant lifting: invariant principal neighborhoods of a stable closed subscheme, lifting invariant sections with character twists, and splitting equivariant vector-bundle exact sequences.",
+      "All smooth full cubics: a G_0-invariant even good open containing the whole zero section and a G_0-covariant regular central lift whose image generates the central quotient line.",
+      "Smooth ternary restriction: a regular equivariant left inverse to directional differentiation, the centring law B_f_prime=(M B_f-C)N^-1, and the full parabolic block-group central lift.",
+      "The incompatibility, in general, of fixing pure-central coefficients with all central translations; the Fermat Weyl-symbol obstruction does not assert nonexistence of equivariant lifts.",
+      "Fiberwise central regularity, locally split degreewise multiplication, flat central quotient families and AS-Gorenstein invariants; t=eta*h fixes the deformation parameter under group action.",
+      "Reduced rank-two Poisson stratum via a nonzero decomposable-trivector incidence and a parabolic associated bundle; the central scalar gerbe and its character splitting when gcd(m,3)=1. For m=2 the base has dimension 17, without a claim about the fixed-nonzero-h image in noncommutative algebra moduli.",
+      "Split-fourfold obstruction: 0->I_C^2->I_C^3(3)->i_*J_C^3(3)->0 and the nonzero connecting class delta(g|X) generating H^1(I_C^2)=C.",
+      "Research notes: multi-block central-kernel projectivization, regularity using one active filtration and R-freeness, group-equivariant tautological quotients, classical-line dilatation and its restriction to h-regular test bases; the obstruction to a global retraction depending only on a noncone ternary cubic."
     ]
   },
   "static_checks": {
     "command": "python3 scripts/verify_bundle.py --only paper_a --require-pdfs",
     "status": "PASS",
-    "tex_files": 16,
-    "labels": 306,
-    "references": 267,
-    "bibitems": 26,
-    "citations": 70,
-    "equation_environments": 291,
+    "tex_files": 17,
+    "labels": 349,
+    "references": 312,
+    "bibitems": 27,
+    "citations": 71,
+    "equation_environments": 324,
     "align_environments": 6,
     "duplicate_or_unresolved_labels": 0,
     "duplicate_or_unresolved_citation_keys": 0,
@@ -78,17 +107,17 @@
     "status": "PASS",
     "exit_code": 0,
     "runtime_note": "Executed with an isolated TeX environment supplying installed LuaTeX-ja packages and a compatible format; the repository build scripts and .latexmkrc were unchanged.",
-    "pages": 77,
     "pdf_tracked_in_git": false,
-    "version": "nc-cubic-v84",
+    "version": "nc-cubic-v85",
     "source": "papers/paper_a.tex",
     "tex_inputs": {
-      "papers/paper_a.tex": "6133b9868297c5d0edbd0eeb78235198df5f7224422d37299d09b8e1ec4aa648",
+      "papers/paper_a.tex": "8db5c9816d284c028f171106964c405bbc75da39e811ecaa88be33fba73b74d9",
       "papers/support/papers/common.tex": "0933403982627adcb2f0c70849a86a618c5410961f7cdd65e17d24edaf616580",
-      "papers/support/papers/references_poisson_cubic.tex": "087fed140456338f6a8f1a20211b583ff22f5ee363427e2ea9fedf7da7be8a1d",
-      "papers/support/papers/sections/ambient_recovery_general.tex": "5ea7e1954e83af8341a368c9c6dd3ac1e1cd16ab924d4ed28e1723a9d20fc6aa",
+      "papers/support/papers/references_poisson_cubic.tex": "593996bff20768f46ba6afd76b4274ee8bbb1bb2b243bd224bae6236ef4c4f65",
+      "papers/support/papers/sections/ambient_recovery_general.tex": "984057e85eb0d82980113f5c15b2ce0c6735344471c6357e5e85f953bd78ea59",
       "papers/support/papers/sections/bondal_cubic.tex": "a91f2db24022ee91481cc7b1feb4afde4aac1fcf8bf9b7e2d389234c90893a4e",
       "papers/support/papers/sections/complete_intersections.tex": "e620d35be4f838a1c955e85a9205fb9df26b5d6fc8e5b4e9c44543d5708e4bb7",
+      "papers/support/papers/sections/equivariant_central_lifts.tex": "82d02f1cb23a5cfb3e695ebc6739bf78942ebaea82145c7e148059b45cad5ec9",
       "papers/support/papers/sections/explicit_hesse_center.tex": "b273057d34fa2d69540ca5fa2140d9e7f5f92a1fcb5cd75bf07433109535c9b9",
       "papers/support/papers/sections/fermat_mixed_universal_center.tex": "8a9f12c96734a263c2b3bed413bd634760a13ff8ddff01e0bcf363785248b2c3",
       "papers/support/papers/sections/fermat_relative_poisson_components.tex": "6528a2da29665a825c1bbab20cc255ba9aa6afc1443b3dccce5f1e138528e7f0",
@@ -96,13 +125,13 @@
       "papers/support/papers/sections/hesse_mixed_universal_center.tex": "7768ff8f1134819549c76c220c00080900453985769773168e5c265fa0f66d38",
       "papers/support/papers/sections/nonelliptic_poisson_components.tex": "d5ae5186ce2d5b16b0ea73fb2bb39ae0babecd38c57a8d321347d947bc5c304b",
       "papers/support/papers/sections/nonelliptic_quantization.tex": "0a3d1580273437ca95378a009a13f49a217ede342ecf371e6fec99e87e702ba6",
-      "papers/support/papers/sections/poisson_geometry.tex": "3ed6121467efd9e225f3fbb25eb93bc0e7e7c2be14271f99b14c3fb5e43af469",
+      "papers/support/papers/sections/poisson_geometry.tex": "ac17b30b96a3ce88e87b574f27bb901f6743d2657a989a5082777ba38892f7cc",
       "papers/support/papers/sections/poisson_moduli_stacks.tex": "3ff96414a693bb7c8e6f7de18e656612d752d1f7a9aea5a4a2d279376e43a6c3",
-      "papers/support/papers/sections/universal_casimir_determinant.tex": "db1f6dd08e177b3ce8e752b1aa595e9fb4e43987fae54ae6556c0df8ac490c70"
+      "papers/support/papers/sections/universal_casimir_determinant.tex": "5f17e83669bdef56ff00250437ea8bbd8e3683a45935cb11cdd2fc6897a2bd7b"
     },
     "build_config_sha256": "834ec2488a63445af9f1da72f461bef24397e1c2ba229988c4f9ed9128de60d2",
     "pdf": "build/paper_a.pdf",
-    "pdf_sha256": "a93a32775b8f0127b6ef9de59f71a2f67d39c7cd3f5efcd2e1cb7da0e72ddea0",
+    "pdf_sha256": "aec9c089da268830e868ebd7b410634e18c1919475119d79b26109106317cb5f",
     "engine": "This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)",
     "source_date_epoch": "1794441600",
     "typesetting_failures": {
@@ -111,22 +140,30 @@
       "missing_glyphs": false,
       "overfull_boxes": false
     },
-    "scope": "Typesetting and file parity only; not independent mathematical verification."
+    "scope": "Typesetting and file parity only; not independent mathematical verification.",
+    "pages": 83
   },
   "visual_inspection": {
     "status": "PASS",
-    "all_pages_rendered": 77,
+    "all_pages_rendered": 83,
     "all_pages_overview_inspected": true,
     "detail_pages": [
-      9,
-      22,
+      1,
+      5,
+      6,
       23,
-      40,
-      41,
-      42,
-      75
+      24,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      57,
+      83
     ],
-    "scope": "All 77 pages inspected in seven contact sheets. Full-size inspection of the new complete-intersection proof, split-fourfold local calculation and lifting obstruction, coefficient-family theorem, normalization example, descent qualifications and bibliography. No visible clipping or overlap in the inspected rendering."
+    "scope": "All 83 pages inspected in seven contact sheets. Full-size inspection of the abstract and introduction, split-fourfold obstruction sequence, the entire new equivariant-centre and descent section, the ambient-recovery scope statement, and the new bibliography entry. No visible clipping or overlap in the inspected rendering."
   },
   "exact_computations": [
     {
@@ -222,10 +259,23 @@
       "exit_code": 0,
       "executed_for_revision": "A-v53",
       "execution_date": "2026-11-13",
-      "rerun_in_this_revision": true,
+      "rerun_in_this_revision": false,
       "current_script_hash_matches": true,
       "result": "One split Fermat example over QQ: 20 ambient Jacobi triples and Casimir identity; all 10 projective brackets and 10 Jacobi triples; implicit-chart derivations and four Jacobi triples; Pfaffian/determinant, modular field and independent logarithmic-Pfaffian formula. This is a finite example, not the general smooth-f,g proof.",
       "output_log": "build/verify_split_cubic_fourfold.log (untracked, regenerable)"
+    },
+    {
+      "command": "python3 computations/verify_equivariant_centering.py",
+      "script": "computations/verify_equivariant_centering.py",
+      "script_sha256": "e561064b8576ce0c8b175079091959fb32840cff7be1a6c6041e14cfadfd3cb9",
+      "status": "PASS",
+      "exit_code": 0,
+      "executed_for_revision": "A-v54",
+      "execution_date": "2026-11-14",
+      "rerun_in_this_revision": true,
+      "current_script_hash_matches": true,
+      "result": "Fermat active cubic with all 25 mixed coefficients independent over QQ; two explicit rational block coordinate changes, of positive and negative active determinant. Checks the left inverse, extraction of B_f_prime=(M B_f-C)N^-1, covariance of the centred cubic, and all three Jacobian brackets with t_prime=lambda*det(M)*t. This is finite in the coordinate changes, not a computational proof of Reynolds existence or full-group equivariance.",
+      "output_log": "build/verify_equivariant_centering.log (untracked, regenerable)"
     }
   ],
   "certificate_inputs": {
@@ -252,14 +302,18 @@
     "shared_preamble_unchanged": true,
     "re_audited_in_this_A_review": false,
     "re_built_in_this_A_review": false,
-    "validation": "validation_paper_b.json"
+    "validation": "validation_paper_b.json",
+    "validation_unchanged": true
   },
   "remaining_limits": [
-    "The Pym comparison is restricted to the checked arXiv v1; the published/accepted full text and possible corrections still require final comparison.",
-    "Brueckmann original proofs (1976 Satz 3 / 1977 Satz 6) were not obtained; Fu--Hwang Lemma 4.1 and its attribution were verified. The needed low-twist vanishing is now proved self-containedly in the manuscript, so these unavailable proofs are no longer a mathematical dependency of that criterion.",
-    "Originality of the all-dimensional normal form, relative component theorem and the full quantization combination has not been exhaustively established. The known Derdzinski--Gal and Bondal statements are explicitly separated from the current contribution.",
-    "Global equivariant descent of quantization to the Poisson moduli stack, qgr smoothness for all closed parameters and relative residual equivalence through the commutative special point are not claimed.",
-    "A successful finite example does not prove the all-dimensional theorems; the universal symbolic identity has a different scope from specialized examples. The seven unchanged earlier computations were not rerun in A-v53; their A-v52 execution receipts are retained with current script and certificate hashes checked."
+    "The Pym comparison is restricted to checked arXiv:1507.05668v1. Published metadata, the accepted-manuscript repository record and ordinary public access routes were checked, but published/accepted full text was not obtained; no claim is made about an unverified correction or its absence.",
+    "Brueckmann original proofs (1976 Satz 3 / 1977 Satz 6) were not obtained; Fu--Hwang Lemma 4.1 and its attribution were verified. The needed low-twist vanishing is proved self-containedly in the manuscript, so these unavailable proofs are no longer a mathematical dependency of that criterion.",
+    "Originality of the all-dimensional normal form, relative component theorem and full quantization combination is not exhaustively established. Bondal, Derdzinski--Gal, Reynolds averaging, projective bundles and character corrections are separated from the present application.",
+    "Full block-group equivariance when the ternary restriction is singular or zero, and compatibility under changes of multi-block decomposition and pure-central allocation, remain unresolved. The multi-block note retains the display data and the choice of a central line.",
+    "For gcd(m,3)=1, descent is proved on a zero-section-containing open over the stated reduced rank-two Poisson stratum. If 3 divides m, the given group has no character of scalar weight one; this does not prove nonneutrality of the gerbe or nonexistence of another descent method.",
+    "For cubic threefolds, 17 is the dimension of the reduced Poisson base. Generic finiteness or a 17-dimensional image for the abstract noncommutative algebras at fixed nonzero h is not proved.",
+    "Quantization over the full Poisson moduli stack, qgr smoothness for all closed parameters and relative residual equivalence through the commutative special point are not claimed.",
+    "One new exact verifier was executed in A-v54. The eight earlier computations were not rerun; their A-v52/A-v53 execution records are retained with current script and certificate hashes checked. Finite coordinate changes, universal symbolic coefficient identities, mathematical proof reading and formal proof verification have different scopes."
   ],
   "persistence": {
     "authoritative": "GitHub uedakazushi/nc-cubic main",

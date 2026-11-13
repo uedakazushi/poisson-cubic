@@ -10,9 +10,9 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月13日・論文A（投稿準備稿 v53）}
+\date{2026年11月14日・論文A（投稿準備稿 v54）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-13 / A-v53}
+\fancyhead[R]{\small 2026-11-14 / A-v54}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -30,6 +30,10 @@ Koszul Artin--Schelter正則代数と、その正則中心三次商に量子化�
 古典Casimir核および普遍交換子行列の階数を用いて代数的に構成する。
 この構成は三変数制限が特異または零の場合も含み、
 固定した変数分解の全滑らかな係数空間上に中心元を選べる。
+さらに、変数分解を保つ一般線形群に関して同変な中心元を選び、
+三変数制限が滑らかな部分では中心変数による平行移動との整合性も得る。
+三次三様体では、この構成をPoisson対の被約モジュライの稠密開上へ降ろし、
+変形変数を固定した代数的量子化の族を得る。
 また、固定した正規形のPoisson線形族を同時に量子化する。
 さらに、固定超曲面上のPoissonスキームとその自己同型群による商、
 超曲面自身を動かす相対モジュライを区別し、
@@ -151,6 +155,35 @@ $\Omega'=a\Omega+c$（$a$は単元、$c$は純中心三次式）である。
 （例\ref{ex:pg-det-distinct-normalized-ideals}）。
 従って、係数空間上の存在とモジュライへの同変な降下は区別する。
 
+同変な選択については、まず
+$G_0=(\mathrm{GL}_3\times\mathrm{GL}_m)\times\mathbb G_m$
+という変数分解を保つ群に対し、零切断全体を含む不変開上で
+中心元を選べることを証明する
+（定理\ref{thm:pg-equivariant-levi-center}）。
+証明には既知のReynolds平均を用い、
+中心元だけでなく、その定義域と古典極限も同変に保つ。
+さらに$g=f(x,0)$が滑らかな部分では、
+$g$の方向微分が張る二次式の部分束を同変に分裂し、
+混合二次項を用いてactive座標の中心を選ぶ。
+この操作により$X=Mx+Cu,\ U=Nu$という
+中心変数による平行移動を含む群に対しても同変な中心元を得る
+（定理\ref{thm:pg-equivariant-parabolic-center}）。
+Poisson係数と変形変数を分けると、変形変数を固定したまま
+対応する商スタック上に中心商の族が降りる
+（系\ref{cor:pg-equivariant-central-quotient}）。
+この選択の一意性、特異な$g$における全座標群への拡張、
+複数ブロックの配分との整合性は、この同変性定理の結論に含めない。
+線形群の商は、階数二のPoisson対の被約層内の対応する開部分上の
+$\mathbb G_m$-gerbeである
+（命題\ref{prop:pg-equivariant-poisson-gerbe}）。
+$\gcd(m,3)=1$なら指標を用いて次数線形化を補正でき、
+次数付き代数の族がこの被約層へ降りる
+（系\ref{cor:pg-equivariant-character-descent}）。
+特に三次三様体では$m=2$なので、十七次元の被約Poissonモジュライの稠密開上に
+この族を得る。
+ここで十七は底の次元であり、固定した非零変形パラメータでの
+非可換代数の同型類の像の次元を主張するものではない。
+
 固定した正規形では、独立なパラメータ$\eta_1,\ldots,\eta_k$を導入し、
 各ブロックの中心元を加えることで
 \begin{equation}\label{eq:intro-independent-center}
@@ -172,7 +205,9 @@ Poisson線形族の全方向を一つの相対代数族で量子化できる
 二次jetの普遍恒等式とHesse表示での全次数中心公式は、異なる主張である。
 
 この量子化は各構造、固定した正規形の線形族、および固定した変数分解の
-係数空間上での構成である。
+係数空間上での構成を含み、上記の範囲では座標変換との同変性も備える。
+次数付き代数を載せる商スタックでは、次数$d$に重み$d$で作用する
+スカラーの$\mathbb G_m$をまず保持し、上の指標補正が可能な範囲でこれを除く。
 全Poissonモジュライ上の大域的な量子化射や、
 全閉点での$\operatorname{qgr}B_\hbar$のsmoothnessは結論に含めない。
 
@@ -334,6 +369,7 @@ Fermat・Hesse型の普遍中心公式、有限行列式による一般中心元
 \input{papers/sections/fermat_mixed_universal_center}
 \input{papers/sections/hesse_mixed_universal_center}
 \input{papers/sections/universal_casimir_determinant}
+\input{papers/sections/equivariant_central_lifts}
 \input{papers/sections/general_dimension_universal_quantization}
 \input{papers/sections/ambient_recovery_general}
 \input{papers/sections/poisson_moduli_stacks}

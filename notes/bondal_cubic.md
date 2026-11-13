@@ -1,6 +1,6 @@
 # 滑らかなcubic n-foldに対するBondal予想
 
-**2026-11-13 / A-v53・nc-cubic-v84。最初に `00_research_plan.md` を読む。**
+**2026-11-14 / A-v54・nc-cubic-v85。最初に `00_research_plan.md` を読む。**
 証明全文は `papers/support/papers/sections/bondal_cubic.tex` の `thm:pg-bondal`。
 正規形、射影化の補題、分離型三次四様体の分類は
 `papers/support/papers/sections/poisson_geometry.tex` にある。
@@ -79,7 +79,7 @@ python3 computations/verify_split_cubic_fourfold.py
 ```
 
 `verify_poisson_article_A.py` は前回の監査で次のPASSを確認済みであり、
-現行コードはその実行時と同一である。A-v53の今回の検証では再実行していない。
+現行コードはその実行時と同一である。A-v54の今回の検証では再実行していない。
 
 ```text
 PASS: smooth test cubic, 56 Jacobi and 56 Euler-wedge identities
@@ -169,7 +169,7 @@ Compositio Math. 153 (2017), no.4, 717–744、
 [DOI・刊行情報](https://doi.org/10.1112/S0010437X16008174)、
 [arXiv:1507.05668v1](https://arxiv.org/abs/1507.05668v1)、[確認したPDF](https://arxiv.org/pdf/1507.05668)。
 定義・主張・証明の比較はarXiv v1による。
-Definition 4.2（pp.16–17）の条件を分離型構成が満たすことを直接確認した。
+Definition 4.2とRemark 4.4（p.17）の条件を分離型構成が満たすことを直接確認した。
 この構成は同版Theorem 1.3（p.4）の三次四様体での非存在と、
 Proposition 5.7（p.30）の二本の楕円平面三次に沿う非正規性の記述とは両立しない。
 
@@ -178,13 +178,29 @@ C=E_f⊔E_gは非連結で、H¹(P⁵,I_C)≅ℂ、さらにH¹(P⁵,I_C²)≅�
 具体的にもg|_Xのambient三次持上げg+λ(f+g)に対し、
 E_f沿いの三重消滅はλ=0、E_g沿いではλ=−1を要求する。
 各連結成分で選べる持上げを同時には選べないことが本質である。
+持上げ列の接続準同型によるδ(g|_X)は、一次元のH¹(P⁵,I_C²)の生成元となる。
 詳細は `rem:pg-split-elliptic-lift-obstruction`、
-`eq:pg-split-ambient-lift`、`eq:pg-split-disconnected-cohomology` にまとめている。
+`eq:pg-split-lifting-sequence`、`eq:pg-split-obstruction-class` にまとめている。
 
 **刊行版本文およびaccepted manuscript本文は未取得であり、刊行版・訂正文との最終照合は未了。**
 [Oxfordの公開登録](https://ora.ox.ac.uk/objects/uuid:a457621f-f733-41b0-99c7-fa475b8e807e)には
-accepted manuscript `ell-log-symp.pdf` と受理日2016-07-18の情報があるが、本文を実読した資料とは区別する。
-訂正文の不存在を確認したという意味ではなく、刊行版にも同じ記述があると推測しない。
+accepted manuscript `ell-log-symp.pdf`（444 KB、受理日2016-07-18）の登録がある。
+[具体的な公開ファイルURL](https://ora.ox.ac.uk/objects/uuid:a457621f-f733-41b0-99c7-fa475b8e807e/files/m9ef175dec65308db41a9059fb7ac8247)は特定できたが、通常取得は403である。
+[著者の現行論文一覧](https://www.math.mcgill.ca/bpym/papers-bib.html)はDOIとarXivへのリンクを案内し、
+[Crossrefの当該DOI登録](https://api.crossref.org/works/10.1112/S0010437X16008174)にも訂正を結ぶrelation・update情報は確認できない。
+この範囲で訂正案内を確認できていないという状態であり、訂正文の不存在や刊行版にも同じ記述があることを推測しない。
+
+後続文献については、次の二つを区別する。
+
+- Pym, *Constructions and classifications of projective Poisson varieties*,
+  Lett. Math. Phys. 108 (2018), no.3, 573–632、
+  [刊行本文・DOI](https://doi.org/10.1007/s11005-017-0984-5)。
+  §5.2のTheorem 5.12直後は、元論文が他のいくつかのFano四様体でも非存在を示すと概括する。
+  三次四様体の場合の訂正や、非連結な曲線の持上げ障害の指摘ではない。
+- Harder, *Mixed Hodge structures in log symplectic geometry*,
+  [arXiv:2005.11367v1](https://arxiv.org/abs/2005.11367v1)、[PDF](https://arxiv.org/pdf/2005.11367v1)。
+  §4.2、Theorem 4.3（p.17）は特異曲線Cがconnectedであることを明示的に仮定する。
+  従って本稿のC=E_f⊔E_gへそのまま適用できず、Pymの三次四様体非存在を訂正する記述でもない。
 
 ## 継続する課題
 

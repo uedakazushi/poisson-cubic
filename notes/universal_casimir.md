@@ -1,11 +1,13 @@
 # 全Poisson構造の代数的中心三次元と一般次元量子化：現行研究ノート
 
-**2026-11-13 / v8（論文A-v53・論文B-v57、bundle nc-cubic-v84）。再開時はまず `00_research_plan.md` を読む。**
+**2026-11-14 / v9（論文A-v54・論文B-v57、bundle nc-cubic-v85）。再開時はまず `00_research_plan.md` を読む。**
 正本はGitHub `uedakazushi/nc-cubic` の `main`。
 現行公表原稿は `papers/paper_a.tex`（論文A）。
 主要証明の所在：
 `papers/support/papers/sections/universal_casimir_determinant.tex`
 （任意のsmoothな全体三次式の代数的Casimir）、
+`papers/support/papers/sections/equivariant_central_lifts.tex`
+（reductive群と滑らかな三変数制限上の全ブロック座標群に対する同変性）、
 `papers/support/papers/sections/poisson_geometry.tex`
 （全Poisson構造の量子化）、
 `papers/support/papers/sections/general_dimension_universal_quantization.tex`
@@ -50,7 +52,12 @@ k次元Poisson線形族の全方向を一つの代数的族で量子化できる
 全特異制限に共通する低次数の短い\(\eta_s\)-多項式を
 示したわけではない。
 全Poissonモジュライへの同変な大域量子化は未構成である。
-ただし、固定したactive・中心変数の分解では、
+単一ブロックでは、変数分解を保つreductive群に関する同変性を
+全滑らかな全体三次式で得た。三変数制限が滑らかなら、
+中心変数によるactive座標の平行移動を含む群についても同変に選べる。
+さらにgcd(m,3)=1なら中心スカラーの次数重みを指標で補正でき、
+階数二のPoisson対の被約層内の開へ代数族が降りる（§2(VI)）。
+固定したactive・中心変数の分解では、
 全滑らかな三次式の係数空間と変形直線の積の中で、
 零切断全体を含む一つの開集合上に中心元を同時に選べる。
 これは係数と無関係な一つのh開集合を得る主張ではない。
@@ -214,9 +221,123 @@ K、純中心部分、商線束も共通定義開で変換と両立するが、
 選択の空間は \(\mathcal Hom(\mathcal L,\mathcal C_m)\) のaffine束となる。
 全モジュライへの降下には、座標変換・中心三次配分に同変な分裂、
 零切断での \(\mathbb C f\) との一致、およびcocycle条件が必要である。
-その存在は未解決である（`rem:pg-det-global-descent-scope`）。
+単一ブロックについては次項の範囲で同変選択を構成した。
+特異な三変数制限を含む全座標群への拡張と、
+複数ブロックの配分の変化との整合性は残る。
 
-## 3. 複数ブロックに対する中心三次の配分
+### (VI) 同変な中心元と中心平行移動の処理
+
+量子交換子の係数をtと書き、
+\[
+G_0=(\mathrm{GL}_3\times\mathrm{GL}_m)\times\mathbb G_m,\qquad
+X=Mx,\quad U=Nu,\quad
+f'=\lambda^{-1}f\circ(M^{-1},N^{-1}),\quad
+t'=\lambda\det(M)t
+\]
+とする。`thm:pg-equivariant-levi-center` は、
+全零切断を含むG_0不変開上に、tについて偶な中心元を選び、
+\[
+\Phi(\Omega_{f',t'})=\lambda^{-1}\Omega_{f,t},\qquad
+\Omega_{f,0}=f,\qquad \rho(\Omega_{f,t})=f_{\mathrm{cent}}
+\]
+とできることを示す。これは選択の存在であり、一意性・正準性は主張しない。
+
+証明の要点は次の二つの平均化である。悪い閉集合のstable ideal Iには
+t=0で1となる元pが存在し、Reynolds平均後もp∈Iとp|_{t=0}=1を保つ。
+p(t)p(−t)で偶な不変principal開が得られる。
+そのaffine開ではKの切断をt=0のCasimirへ制限する写像が全射である。
+fのλ-characterを補正してReynolds平均し、t↦−tで偶化する。
+商線束中での零点はstable closed setなので、
+再び不変principal開へ縮めてその像を基底にできる。
+使うReynolds原理は既知であり、各元が属する有限次元表現上の
+最大コンパクト部分群による平均としても説明できる。
+この議論は固定係数空間のUFDによる証明とは独立の、同変性を保つ存在証明である。
+
+三変数制限g=f(x,0)が滑らかな開では、中心平行移動も処理できる。
+微分写像
+\[
+\delta_g:\mathbb C^3\longrightarrow\operatorname{Sym}^2(\mathbb C^3)^*,
+\qquad v\longmapsto D_vg
+\]
+は単射である。滑らかな三変数三次式のaffine係数空間上で
+この部分束のleft inverse σ_gを取り、Reynolds平均でG_0同変に選ぶ。
+fの中心変数について一次の項を \(\sum_i q_i(x)u_i\) と書き、
+\[
+B_f=(\sigma_g(q_1),\ldots,\sigma_g(q_m)),\qquad
+f^\circ(X,u)=f(X-B_fu,u)
+\]
+と置く。一般の \(X=Mx+Cu,\ U=Nu\) について
+\[
+B_{f'}=(MB_f-C)N^{-1},\qquad
+X+B_{f'}U=M(x+B_fu)
+\]
+なので、中心を調整した式f^\circはreductive群だけで変換される。
+f^\circに対する同変中心元をx+B_fuへ代入することで、
+平行移動も含む全ブロック座標群Gに関する同変中心元が得られる。
+定義開もこの調整写像で引き戻すのでG不変であり、零切断全体を含む。
+詳細は`thm:pg-equivariant-parabolic-center`。
+この段階では \(\rho\Omega=f_{\mathrm{cent}}\) の規格化は一般に保持しない。
+
+変形変数hを固定するにはt=ηhとし、ηを
+\(\eta'=\lambda\det(M)\eta\) で動かす。
+すると対応する係数空間の商スタックとh直線の積の開上へ、
+中心商の次数別平坦な族が降りる（`cor:pg-equivariant-central-quotient`）。
+各閉ファイバーの中心元は非零で左右正則であり、
+商のAS-Gorenstein性とHilbert級数は既存の中心商の議論から従う。
+
+商スタックではスカラーを落とす位置に注意する。
+\((M,N,C,\lambda)=(aI_3,aI_m,0,a^{-3})\) は係数f,ηを固定するが、
+次数dの代数成分にはa^dで作用する。
+従って次数付き代数の族はこの \(\mathbb G_m\) を保持する商に載る。
+非零ηに制限すると、この商は階数二の被約層内の滑らかな三変数制限の開
+\(\mathfrak P_{n,1}^{\mathrm{ell}}\) 上の \(\mathbb G_m\)-gerbeである
+（`prop:pg-equivariant-poisson-gerbe`）。
+さらにgcd(m,3)=1ならmr−3s=1となる整数を選び、
+\[
+\theta=(\det N)^r\lambda^s,\qquad
+\rho_d^\theta=\theta^{-d}\rho_d
+\]
+で次数dの線形化を補正できる。
+θの中心スカラーへの制限はaなので、G=K_sc×kerθとなる。
+補正した代数と中心商は \(\mathfrak P_{n,1}^{\mathrm{ell}}\) とh直線の積の
+零切断を含む開へ降りる（`cor:pg-equivariant-character-descent`）。
+m=2、n=3ではθ=(det N)²λであり、底Poissonスタックの次元は17である。
+指標による中立化と次数線形化の補正は一般的な操作であり、
+本研究ではこれを同変な中心商の族に適用した。
+
+17は底の次元であり、固定したh≠0の非可換代数の同型類の像が17次元とは主張しない。
+hを保つ変形族全体からは特殊ファイバーと一次括弧により元のPoisson対を回復できる。
+3|mでは上の群の全指標のスカラー重みが3の倍数なので、この手段では補正できない。
+それだけでgerbeが非中立である、または別の降下法が存在しないとは結論しない。
+
+残る核心は、特異・零のgでの同変な中心平行移動の処理と、
+複数ブロックでの配分・相対規格化の整合性である。
+g=0ではδ_g=0なので、上のleft inverseによる方法はそのまま延長できない。
+これは量子化そのものの不存在を意味しない。
+
+**同じ方法を広げる際の二つの障害。**
+第一に、全中心平行移動との共変性と
+\(\rho\Omega=f_{\mathrm{cent}}\) を同時に課すと、Weyl記号P_fは
+\(P_f(-Cu,u)=f(-Cu,u)\) を全Cについて満たす。
+u≠0でCuは任意のactive座標を動くためP_f=fとなるが、
+Fermatの非自明なt²補正がこれに反する。
+したがって全G同変性の定理では純中心係数の規格化を外す必要がある。
+
+第二に、δ_gが単射である全三次式の開上へ、
+gだけに依存する正則なleft inverseを延ばすこと自体が不可能である。
+三変数三次式の空間は10次元で、δ_gが非単射となる三次式は、
+ある一方向に依存しない式である。その閉集合は
+\(\mathbb P^2\)上の階数4のベクトル束からの像なので次元は高々6である。
+実際 \(g=x^3+y^3\) では消去方向が一意なので一般ファイバーは零次元となり、次元は6である。
+補集合Uの境界の余次元は4である。
+U上の正則関数は全アフィン10次元空間へ延長する。
+従ってU上のleft inverseの行列成分も全空間へ延長し、
+\(\sigma_g\delta_g=I\) が多項式恒等式となるが、g=0で矛盾する。
+滑らかな三次式の開では判別式の逆を許すため、この障害はない。
+これは全fの混合係数にも依存する別の同変構成や、
+中心直線そのものの延長を排除する議論ではない。
+
+## 3. 複数ブロックの中心三次：配分と直線の選択
 
 正規形を
 \(F=\sum_s\widetilde f_s(x_s,u)+c(u)\)とし、
@@ -236,6 +357,199 @@ k=1ではf_1=Fが既に滑らか。m=0では各純active f_sが
 Fの滑らかさから滑らか。
 \(\partial_{x_s}c_s=0\)だからPoisson構造は不変。
 これは**全Poisson構造**へ一ブロック定理を適用する鍵となる。
+
+### 中心三次束とその底
+
+固定した分解
+
+\[
+V=\bigoplus_{s=1}^kW_s\oplus U,\qquad \dim W_s=3,\quad \dim U=m,
+\qquad N=3k+m
+\]
+
+を使う。各ブロックの三次式を \(f_s(x_s,u)\)、全体を \(F=\sum_sf_s\) とする。係数空間では各 \(V(f_s)\subset\mathbf P(W_s\oplus U)\) と \(V(F)\subset\mathbf P(V)\) の滑らかさを課す。純中心三次の配分もこの表示データに含める。非零Poisson係数 \(\nu_s\in\mathbf G_m\) と共通の変形変数 \(h\) を用い、各ブロックの量子化パラメータを \(t_s=\nu_sh\) とする。
+
+この係数空間と \(h\) 直線の積内で、以下を満たす零切断全体の開近傍 \(S\) を取る。
+
+- 各ブロックの斉次三変数代数はKoszul AS-regular domainであり、中心変数上の相対PBW性が成立する。
+- 全体の代数 \(\mathcal A=\bigotimes_{\mathcal O_S[u]}\mathcal A_s\) の次数三・四のWeyl写像が同型である。
+- 各ブロックの割った交換子の次数三核 \(\mathcal K_s\) は階数 \(d_m+1\)、\(d_m=\dim\mathbf C[u]_3=\binom{m+2}{3}\) である。
+
+これらは本文の有限rank条件で与えられる。固定した座標分解を保つ座標群について不変な条件なので、不変な開として取れる。任意に選んだCramer分母のprincipal開の不変性を仮定する必要はない。
+
+各 \(\mathcal K_s\) は同じ純中心部分 \(\mathcal C=\mathbf C[u]_3\otimes\mathcal O_S\) を含む。これらを \(\mathcal A_3\) 内で足し合わせ、
+
+\[
+\mathcal E=\sum_s\mathcal K_s\subset\mathcal A_3,
+\qquad
+0\longrightarrow\mathcal C\longrightarrow\mathcal E
+\longrightarrow\bigoplus_s\mathcal L_s\longrightarrow0,
+\qquad \mathcal L_s=\mathcal K_s/\mathcal C
+\]
+
+とする。\(\mathcal E\) は階数 \(d_m+k\) の部分束である。固定した座標では純中心項への射影を使い、\(\mathcal E\simeq\mathcal C\oplus\bigoplus_s\mathcal L_s\) と書ける。異なるactiveブロックのWeyl単項式の支持が異なるため、これは \(\mathcal A_3\) 内でも直和である。全座標群に対して自然なのは上の完全列であり、固定した射影による分裂ではない。
+
+必要なら開をさらに縮め、\(\mathcal E\) を全生成元との割った交換子の核そのものにできる。実際、古典次数三のCasimirは
+
+\[
+\ker D_0=\mathbf C[u]_3\oplus\bigoplus_s\mathbf C f_s.
+\]
+
+これを示すには、各 \(s\) について \(d_{x_s}p\wedge d_{x_s}f_s=0\) を使う。active偏微分のgcdが1なので比例係数は全変数の多項式であり、全次数を比較すると定数となる。従って \(p-\sum_sc_sf_s\) は純中心三次式である。量子側にはすでに階数 \(d_m+k\) の部分束 \(\mathcal E\) が核として入るので、全体の交換子行列が古典階数を持つ開集合上では等号となる。この開集合も零切断全体を含む。以後 \(\mathcal E\) の形成は非被約な底も含めて任意の底変更と両立する。
+
+### 中心直線を追加した普遍商
+
+直線を表す規約で
+
+\[
+p:Y=\mathbf P_{\mathrm{lin},S}(\mathcal E)
+ =\operatorname{Proj}_S\operatorname{Sym}(\mathcal E^\vee)\longrightarrow S
+\]
+
+とおく。tautological部分束 \(\mathcal N=\mathcal O_Y(-1)\hookrightarrow p^*\mathcal E\subset p^*\mathcal A_3\) を使い、
+
+\[
+\mathcal B_Y=p^*\mathcal A/(\mathcal N)
+\]
+
+を定める。ここで \((\mathcal N)\) は直線の局所生成元が生成する両側イデアルであり、生成元を単元倍しても変わらない。\(\mathcal N\) は中心に入る。
+
+**\(Y\) の全幾何学的ファイバーで、\(\mathcal N\) の非零生成元は左右正則である。** この構成では無限個の次数の単射条件を開条件として同時に課す必要がない。
+
+証明：一つの幾何学的ファイバーの代数閉体を \(\kappa\) とし、\(0\ne\gamma\in E\) を取る。純中心式だけなら \(\kappa[u]\) 上のPBW自由性から左右正則である。そうでなければ、\(\gamma\) が正のactive次数を持つ一つのブロック \(s\) を選ぶ。そのブロックだけのactive次数でfilterすると、\(\gamma\) の最高記号は
+
+\[
+0\ne a_s\in S_{s,t_s}\otimes_\kappa\kappa[u]
+\]
+
+に属する。他ブロックの成分と純中心項はこのfiltrationの次数零である。\(S_{s,t_s}\) はdomainなので、その中心多項式拡大における \(a_s\) の左右乗法は単射である。残りのブロックのテンソル積は \(\kappa[u]\) 上自由なので、それとテンソルしても単射が保たれる。最高次数の比較によって元の \(\gamma\) の左右正則性を得る。非可換domainのテンソル積がdomainであるとは仮定していない。
+
+従って各内部次数で
+
+\[
+0\longrightarrow\mathcal N\otimes p^*\mathcal A_{d-3}
+\longrightarrow p^*\mathcal A_d
+\longrightarrow(\mathcal B_Y)_d\longrightarrow0
+\]
+
+はベクトル束の局所的に分裂する完全列となる。全ファイバーで単射な有限階数行列には最大小行列式が可逆な近傍があるためである。よって \((\mathcal B_Y)_d\) は有限局所自由であり、商の形成は任意の底変更と両立する。全ファイバーで
+
+\[
+\operatorname{Hilb}_{B}(z)=\frac{1-z^3}{(1-z)^N},\qquad
+\operatorname{injdim}B=N-1,\qquad
+\text{AS parameter}=N-3
+\]
+
+となる。ambientのKoszul AS-regular性は既存のPBW・中心一次拡大の議論、商のAS-Gorenstein性は `lem:pg-central-cubic` による。ここからqgrの滑らかさや相対残余圏のsmooth proper性までは結論しない。
+
+### 古典切断と忘却射のファイバー
+
+\(S_0=V(h)\subset S\) 上では
+
+\[
+\mathcal E_0=\mathbf C[u]_3\otimes\mathcal O_{S_0}
+             +\sum_s\mathcal O_{S_0}f_s.
+\]
+
+元の方程式 \(F=\sum_sf_s\) は自然な切断
+
+\[
+\sigma_0:S_0\longrightarrow Y_0,\qquad (f_s,\nu_s)\longmapsto[F]
+\]
+
+を与え、この切断に沿う \(\mathcal B_Y\) の制限は \(\operatorname{Sym}(V^*)/(F)\) である。**\(h=0\) の全 \(Y_0\) 上で元の \(F\) に戻るわけではない。** 他の直線は一般に \(c(u)+\sum_sa_sf_s\) という別の方程式を定める。元のPoisson対の量子化族を得るには、\(\sigma_0\) を延長する中心直線の族へ普遍商を引き戻す必要がある。その切断の同変な存在・正準性は、普遍商の構成と別問題である。
+
+\(\mathcal E\to\mathcal L_s\) の全てへの射影が零でない直線の開部分を \(Y^\times\subset Y\) とすると、その忘却射の幾何学的二ファイバーは
+
+\[
+\mathbf A^{d_m}\times(\mathbf G_m)^{k-1}.
+\]
+
+局所的に各 \(\mathcal L_s\) の基底を選び、第一成分を1にすれば、残る \(k-1\) 個の非零係数と \(d_m\) 個の純中心係数が座標となる。従って \(Y^\times\to S\) は滑らかなアフィン射である。基底を選ばない大域記述は、\(\bigoplus_s\mathcal L_s\) 内の全射影非零の射影束の開部分と、その上の \(\mathcal Hom(\mathcal N,\mathcal C)\) のaffine束による。
+
+ここで二ファイバーとは、忘れた表示データへの同型も固定したファイバーである。残余gerbe上でさらに自己同型群により割る非枠付きファイバーとは区別する。
+
+### 中心変数がない場合の相対規格化
+
+\(m=0\) なら \(\mathcal C=0\) で、各 \(\mathcal K_s\) は正準な中心三次直線である。しかし総中心直線の選択は
+
+\[
+\mathbf P_{\mathrm{lin}}\left(\bigoplus_s\mathcal K_s\right)
+\]
+
+に値を取り、\(k\ge2\) なら一点にはならない。全ブロック成分が非零の部分は \((\mathbf G_m)^{k-1}\)-torsorである。各ブロックの直線だけを保持しても、総和に使う相対同一視は定まらない。
+
+偶な局所基底 \(\Omega_s\bmod h=f_s\) を選んだとき、\(\Omega_s\mapsto a_s\Omega_s\)、\(a_s\in\mathcal O_S^\times\)、\(a_s\equiv1\pmod h\) という変更は各ブロックの中心イデアルを保つ。しかし総和の直線を保つためには、全ての \(a_s\) が共通でなければならない。例えば二ブロックでは
+
+\[
+\Omega=\Omega_1+\Omega_2,\qquad
+\Omega'=(1+h^2)\Omega_1+\Omega_2
+\]
+
+が同じ古典極限と偶性を持つ。\(h\ne0\)、\(1+h^2\ne0\) の開では、自然なambientの同一視の下で生成する中心イデアルは異なる。次数三部分を比較すれば、共通倍数は第二成分から1であり、第一成分から矛盾する。この例は中心商の抽象的な非同型や、同変な選択そのものの不存在を主張しない。
+
+\(m=0\) での \(Y_0^\times\) は、\(Y_0\) のうち滑らかな古典超曲面を定める部分と一致する。実際、全係数が非零なら各 \(f_s\) の滑らかさから \(\sum_sa_sf_s\) は滑らかであり、いずれかが零ならそのブロックの射影空間に特異点を持つ。\(m>0\) では、全active成分の非零性だけでは古典超曲面の滑らかさは保証しない。必要なら \(Y_0\) 上で判別式非零の開を取り、その補集合を \(Y\) から除けば、\(\sigma_0(S_0)\) を含み全ての古典超曲面が滑らかな開が得られる。
+
+\(k=1,m=0\) では \(\mathbf P_{\mathrm{lin}}(\mathcal K_1)=S\) であり、中心商は基底の選択なしに定まる。ただしこの場合 \(n=N-2=1\) なので、論文Aの \(n\ge3\) の定理の内部の特別例ではなく、三生成元代数側の補助的な場合である。\(k=1,m\ge2\) では、直線選択の開 \(\mathbf P(\mathcal K_1)\setminus\mathbf P(\mathcal C)\) は相対次元 \(d_m\) のaffine束となる。
+
+### 表示を保持した商スタックへの降下
+
+各ブロックの座標変換、共通中心変数の変換、中心変数によるactive座標の平行移動、ブロックの置換、および方程式の共通スカラーを保つ表示群を用いる。順序を固定した部分では
+
+\[
+X_s=M_sx_s+C_su,\qquad U=Nu,\qquad
+f_s'=\lambda^{-1}f_s\circ\Phi^{-1},\qquad
+\nu_s'=\lambda\det(M_s)\nu_s,
+\]
+
+とし、\(h\) は固定する。この群は選択した表示データの係数空間に作用し、上記のgood openも不変に取れる。\(\mathcal E\)、その射影束、tautological部分束 \(\mathcal N\) は同変である。従って普遍商は
+
+\[
+[Y/G]\longrightarrow[S/G]
+\]
+
+上の次数付き代数の族として自然に降下する。忘却射は階数 \(d_m+k\) のベクトル束の射影化であり、表現可能な滑らかな射影射である。\(Y^\times\) への制限は表現可能な滑らかなアフィン射となる。必要なのは同変なtautological直線であって、\(\mathcal E\) の同変な基底や \(\sigma_0\) の同変な延長ではない。
+
+この商はブロック分解・純中心三次の配分を表示データとして保持する。これらを全て忘れたPoissonモジュライとの同値を、この構成だけから結論しない。
+
+さらに、共通座標スカラー
+
+\[
+M_s=aI_3,\quad N=aI_m,\quad C_s=0,\quad\lambda=a^{-3}
+\]
+
+は \((f_s,\nu_s,h)\) と \(Y\) に自明に作用するが、\(\mathcal A_d\) と \(\mathcal B_d\) に \(a^d\)、tautological中心直線に \(a^3\) で作用する。従って元の線形化のままの次数付き代数は、この中心 \(\mathbf G_m\) を保持するgerbeに載る。中心イデアルの同変性だけでは次数重みは消えない。
+
+ただし \(\gcd(m,3)=1\) なら \(mr-3s=1\) を満たす整数を選び、\(\theta=(\det N)^r\lambda^s\) とおくと、\(\theta\) はこの中心 \(\mathbf G_m\) 上で恒等指標になる。各次数 \(d\) の線形化を \(\theta^{-d}\) でtwistすれば中心作用が消え、積と中心イデアルを保ったまま \([Y/(G/\mathbf G_m)]\) へ代数が降りる。この指標はブロックの置換に対しても不変である。\(G\simeq\mathbf G_m\times\ker\theta\) なので、gerbeもこの選択により中立になる。これは単一ブロックの `cor:pg-equivariant-character-descent` と同じ証明である。\(3\mid m\) ではこの群の指標のスカラー重みは全て3の倍数なので同じ指標手段は使えないが、gerbeの非中立性や別の降下法の不存在は結論しない。特に中心変数のない満階数層 \(m=0\) はこの後者の場合に含まれる。
+
+### 元の古典方程式を固定する族の補助底
+
+\(Y^\times\) の普遍商と古典切断 \(\sigma_0\) だけで、元の方程式を持つ量子化族は「\(\sigma_0\) を延長する直線の族への引戻し」と記述できる。これを一つの追加パラメータ空間にしたい場合には、\(Y^\times\) を \(\sigma_0(S_0)\) に沿ってblow upし、\(\sigma_0(S_0)\) の定義イデアルの引戻しが \((h)\) で生成されるchartを取るdilatationが使える。
+
+局所的に \(\ell_s\bmod h=f_s-f_{s,\mathrm{cent}}\) となる \(\mathcal L_s\) の基底を選び、第一active成分を1に規格化する。このとき直線は
+
+\[
+\ell_1+\sum_{s=2}^ka_s\ell_s+c(u)
+\]
+
+で表され、古典切断への一致条件は \(a_s\equiv1\pmod h\)、\(c\equiv F_{\mathrm{cent}}\pmod h\) である。dilatationの局所座標は
+
+\[
+a_s=1+hr_s,\qquad c=F_{\mathrm{cent}}+h c',
+\]
+
+であり、\(1+hr_s\) を可逆にする。この空間は底上滑らかで、\(h\ne0\) では \(Y^\times\)、\(h=0\) では相対次元 \(d_m+k-1\) のaffine束となる。その普遍中心商は全ての特殊ファイバーで元の \(F\) に戻る。
+
+ただし、このdilatationが「特殊化した直線が \([F]\) となる」というfunctorそのものを表すのは、試験底で \(h\) が非零因子の場合である。\(h\)-torsionを持つ試験底では割った係数 \(r_s,c'\) は一意でなく、追加データを記録する。特殊ファイバーのaffine方向も直線 \([F]\) 自体の自由度ではなく、持上げの第一係数を記録している。偶な係数を扱う場合には、核が \(\tau=h^2\) へ降りる底で同じ構成を \(\tau\) に対して行い、\(h\) の底へ引き戻せる。
+
+### この構成の文献と確実性
+
+- 本文の入力：`prop:pg-PBW`、`lem:pg-det-divided-kernel`、`thm:pg-universal-determinant`、`lem:pg-central-cubic`、`thm:pg-ad-all-poisson`。
+- 射影束の規約とtautological線：Stacks Project [Tag 01OA](https://stacks.math.columbia.edu/tag/01OA)。Stacksの標準規約は一次元商なので、ここでは双対を取って一次元部分束を表す。
+- 同変準連接層の商スタックへの降下：Stacks Project [Tag 06WT](https://stacks.math.columbia.edu/tag/06WT)。積・単位・イデアルの射も同変なので代数へ適用できる。
+- dilatationに使うblowupの普遍性：Stacks Project [Tag 0806](https://stacks.math.columbia.edu/tag/0806)。上の局所座標で、必要な追加条件と滑らかさを直接確認できる。
+
+中心直線のパラメータ化とtautological商の降下自体は標準的な構成である。ここで個別に証明した点は、複数Jacobianブロックの \(\mathcal E\) 内の全非零元に対する正則性、底変更に耐える平坦商、および複数ブロックの相対規格化自由の明示である。同一の組合せの初出調査は未実施であり、新規性を確定したとは扱わない。
 
 ## 4. 特異・零の三変数制限での独立検算
 
@@ -399,7 +713,7 @@ PBWの族への拡張、Koszul AS-regular中央一次元拡大、
 重い記号計算は一本ずつ実行する。
 LuaLaTeXによる再生成コマンドは`latexmk papers/paper_a.tex`で、
 PDFと中間生成物は`build/`へ出力される。
-**A-v53全体の組版・参照検査・PDF確認および計算の最終実施状態は、
+**A-v54全体の組版・参照検査・PDF確認および計算の最終実施状態は、
 リポジトリルートの[`validation_paper_a.json`](../validation_paper_a.json)を参照する。**
 本文の証明監査、計算の実行、PDFの確認、配布物の生成・保存は別の状態として扱う。
 
@@ -462,9 +776,12 @@ Proposition 1では、先頭項が至る所非零の形式的最高次形式
 
 優先する未解決問題は次の通りである。
 
-1. 中心直線の同変選択と、相対Poissonモジュライ上の大域量子化。
-   固定係数空間の存在と局所affine遷移は解決済みであり、
-   次は上記の分裂affine束への中心平行移動・ブロック配分の作用とcocycleを計算する。
+1. 特異・零のgにおける全G同変選択と、複数ブロックの分解・配分を変えた間の整合。
+   全fでのG_0平均、滑らかなgでの中心調整、gcd(m,3)=1での
+   階数二の被約Poisson層への代数族の降下は解決済みである。
+   次はfの混合係数も使った同変な中心直線の構成と、§3の射影束で保持した
+   追加データを忘れる条件を検討する。3|mでの別の降下法、
+   固定h≠0での代数の同型類の像の次元、全モジュライでの圏の降下は別の問題である。
 2. 特異・零の三変数制限に対する短い普遍多項式表示の存在。
    Cramer式の分母と特異型ごとの有限関係式を調べ、単なる可逆な中心元の再規格化で除去できる分母を区別する。
 3. 全閉パラメータにおけるqgrの滑らかさ、可換特殊点を含む一変数・多変数底全体での相対残余圏の比較。
