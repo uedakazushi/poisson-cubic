@@ -206,6 +206,74 @@ Sklyanin中心元を回復する。
 それらは既知の入力・先行研究上の貢献と区別する。
 \end{remark}
 
+\begin{remark}[Etingof--Ginzburgの中心公式との関係]
+\label{rem:pg-hesse-eg-translation}
+Etingof--Ginzburg\cite[\S9, p.~1414]{EG}には、
+一変数ごとの二次・一次項を含む三生成元代数に対する
+Rainsの中心元公式が記載されている。
+式\eqref{eq:pg-hm-F}でも$t\ne0$なら、中心係数による平行移動
+\begin{equation}
+ \begin{aligned}
+ X&=x+\frac Bt,\qquad Y=y+\frac Ct,\qquad Z=z+\frac At,\\
+ F^{\flat}(X,Y,Z)
+ &=F\left(X-\frac Bt,Y-\frac Ct,Z-\frac At\right).
+ \end{aligned}
+ \label{eq:pg-hm-eg-coordinates}
+\end{equation}
+により混合二次項を除ける。具体的には
+\begin{equation}
+ \begin{aligned}
+ F^{\flat}={}&g_t(X,Y,Z)
+ -\frac BtX^2-\frac CtY^2-\frac AtZ^2\\
+ &+\widetilde D X+\widetilde E Y+\widetilde H Z+\widetilde G,
+ \end{aligned}
+ \label{eq:pg-hm-eg-polynomial}
+\end{equation}
+ただし
+\begin{equation}
+ \begin{aligned}
+ \widetilde D&=D+\frac{B^2}{t^2}-\frac{AC}{t},\\
+ \widetilde E&=E+\frac{C^2}{t^2}-\frac{AB}{t},\\
+ \widetilde H&=H+\frac{A^2}{t^2}-\frac{BC}{t},\\
+ \widetilde G&=G-\frac{BD+CE+AH}{t}
+ +\frac{2ABC}{t^2}-\frac{A^3+B^3+C^3}{3t^3}.
+ \end{aligned}
+ \label{eq:pg-hm-eg-coefficients}
+\end{equation}
+これらは三次式の展開による恒等式である。
+平行移動の係数は中心かつ次数一なので、
+Jacobian交換子を保つ次数付き代数の同型となる。
+さらに$1-\hbar t/2$を可逆にして
+\begin{equation}
+ q_{\mathrm{EG}}=\frac{1+\hbar t/2}{1-\hbar t/2},\qquad
+ \mu_{\mathrm{EG}}=\frac{\hbar}{1-\hbar t/2}
+ \label{eq:pg-hm-eg-parameters}
+\end{equation}
+とおけば、交換関係は
+\begin{equation}
+ \begin{aligned}
+ XY-q_{\mathrm{EG}}YX
+ &=\mu_{\mathrm{EG}}\left(Z^2-\frac{2A}{t}Z+\widetilde H\right),\\
+ YZ-q_{\mathrm{EG}}ZY
+ &=\mu_{\mathrm{EG}}\left(X^2-\frac{2B}{t}X+\widetilde D\right),\\
+ ZX-q_{\mathrm{EG}}XZ
+ &=\mu_{\mathrm{EG}}\left(Y^2-\frac{2C}{t}Y+\widetilde E\right)
+ \end{aligned}
+ \label{eq:pg-hm-eg-relations}
+\end{equation}
+となり、同文献の表示に一致する。
+ここで$q_{\mathrm{EG}}$は定理中の$q=\hbar^2$とは異なる。
+従って$t$が可逆な範囲では、混合項を含むこと自体を
+既知中心公式から独立な新規性の根拠にすることはできない。
+本節の公式は、固定したHesse座標と独立な中心係数を保ったまま、
+$t=0$も含む多項式係数で$\Omega_{F,0}=F$という規格化を実現する。
+上の座標変換が$t=0$で定義されないことは、
+別の座標変換による既存表示への帰着を排除するものではない。
+式\eqref{eq:pg-hm-eg-polynomial}--\eqref{eq:pg-hm-eg-relations}の
+係数恒等式は\texttt{computations/verify\_hesse\_translation.py}で
+独立係数のまま再現できる。
+\end{remark}
+
 \subsection{対角二次混合と任意の滑らかな三変数三次式}
 
 \begin{corollary}[全ての中心混合項を含むHesse型]
@@ -319,7 +387,7 @@ $\Omega_\hbar$の左右正則性、
 中心三次商のAS-Gorenstein性の証明はそのまま適用できる。
 \end{proof}
 
-\begin{remark}[範囲と新規性]
+\begin{remark}[中心性・平坦性・座標依存性の範囲]
 本定理は、非可換量子化の中心性を\emph{全係数の恒等式}として
 証明するものであって、各閉ファイバーのAS正則性・domain性や
 中心商の平坦性をこの有限次数の検算のみから結論しない。
@@ -335,5 +403,11 @@ $\Omega_\hbar$の左右正則性、
 有限Cramer有理式で中心三次元を与える。
 従ってそれらの特異制限についても
 代数的中心元の\emph{存在}は証明済みである。
-公式自体の先行研究上の完全な新規性は未確認である。
+最高active次数のpotentialが三次元Calabi--Yau代数を定める範囲では、
+一ブロックの非スカラー中心元の存在は既に
+Etingof--Ginzburg\cite[Theorem~3.3.2(ii), p.~1385]{EG}の範囲に含まれる。
+本節は、注意\ref{rem:pg-hesse-eg-translation}の既存公式との関係の下で、
+指定された古典元への規格化と独立な中心係数上の恒等式を明示する。
+全係数空間での正則な選択、複数ブロックへの組立て、
+座標変換についての同変降下は、それぞれ後続の定理で扱う。
 \end{remark}

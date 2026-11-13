@@ -1,0 +1,298 @@
+\section{一ブロックの相対量子化とPBW性}
+\label{sec:pg-quantization-foundations}
+ここから代数的量子化を構成する。周囲の二次代数を$A$、
+その正則中心三次商を$B=A/(\Omega)$と書く。
+まず一ブロックの全次数PBW性と中心正則拡大の入力を準備する。
+中心公式の有限次数の検算、全次数のPBW性、および
+中心元の左右正則性は、それぞれ別の主張として証明する。
+
+\subsection{次数付き量子化とAS条件}
+
+\begin{definition}
+連結次数付き可換代数 $C$ に次数零の Poisson 括弧があるとする。
+$0\in U\subset\mathbb A^1_\hbar$、$K=\OO(U)$ 上の次数付き量子化とは、
+$\deg\hbar=0$、$\mathcal C_0=K$、各 $\mathcal C_d$ が有限自由な
+次数付き代数 $\mathcal C$ と $\mathcal C/(\hbar)\simeq C$ であって、
+\begin{equation}
+\frac{[\widetilde a,\widetilde b]}\hbar\bmod\hbar=\{a,b\}
+\end{equation}
+を満たすものをいう。特殊 fiber の可換性と平坦性により持上げの選択に依存しない。
+\end{definition}
+連結次数付き代数 $A$ が Koszul であるとは、自明加群 $\CC=A/A_{\geq1}$ が線形自由分解をもつことをいう。
+左右の injective dimension が $d$ で、左右それぞれ
+\begin{equation}
+\Ext_A^i(\CC,A)=
+\begin{cases}\CC(\ell)&i=d,\\0&i\neq d\end{cases}
+\end{equation}
+ならば、次元 $d$、AS parameter $\ell$ の AS-Gorenstein 代数という。
+さらに大域次元 $d$ と有限 GK 次元をもてば AS-regular という。
+次数移動は $M(\ell)_j=M_{j+\ell}$ とする。
+以下の Ext は全内部次数を含み、injective/global dimension は通常の左右加群圏で取る。
+
+\subsection{ブロック代数と PBW 性}
+$R=\CC[u_1,\ldots,u_m]$ とし、$\sym_R$ は中心係数を外へ出して active 変数の語を平均する対称化である。
+一ブロック $f(x_1,x_2,x_3,u)$ に対し
+\begin{equation}
+A_f=R[\hbar]\langle x_1,x_2,x_3\rangle/
+\bigl([x_2,x_3]-\hbar\sym_R(f_{x_1}),\ [x_3,x_1]-\hbar\sym_R(f_{x_2}),\
+[x_1,x_2]-\hbar\sym_R(f_{x_3})\bigr).\label{eq:pg-block-algebra}
+\end{equation}
+これは相対 cyclic potential
+\begin{equation}
+W=x_1x_2x_3-x_2x_1x_3-\hbar\sym_R(f)\label{eq:pg-potential}
+\end{equation}
+の active cyclic derivatives で定まる。
+cyclic word は自由代数を交換子の線形包で割った類であり、
+$\partial_i^{\mathrm{cyc}}(a_1\cdots a_r)
+=\sum_{a_j=x_i}a_{j+1}\cdots a_ra_1\cdots a_{j-1}$ とする。
+
+\begin{proposition}\label{prop:pg-PBW}
+有限個のブロックに共通な $0\in U_{\mathrm{reg}}\subset\mathbb A^1$ を選び、以下を満たせる。
+$g_s(x_s)=f_s(x_s,0)$ とおくと、全 $\lambda\in U_{\mathrm{reg}}$ で
+\begin{equation}
+S_{s,\lambda}=\CC\langle x_{s1},x_{s2},x_{s3}\rangle/
+([x_{s2},x_{s3}]-\lambda\sym((g_s)_{x_{s1}}),\text{循環置換})
+\end{equation}
+は三次元 Koszul AS-regular domain であり、3-Calabi--Yau である。
+その Hilbert 級数は $(1-t)^{-3}$。
+active 次数で filter し、$u_\alpha$ の filtration degree を零にすると
+\begin{equation}
+\operatorname{gr}_xA_{f_s,\lambda}\simeq S_{s,\lambda}\otimes_\CC R.
+\end{equation}
+族全体にも対応する同型があり、$A_{f_s}|_{U_{\mathrm{reg}}}$ は
+$R_{\mathrm{reg}}=\OO(U_{\mathrm{reg}})[u]$ 上自由である。
+\end{proposition}
+\begin{proof}
+一つの $g$ について関係式の列は $M_\lambda x$ で表される。ただし
+\begin{equation}
+M_\lambda=
+\begin{pmatrix}
+-\frac\lambda2g_{11}&-x_3-\frac\lambda2g_{12}&x_2-\frac\lambda2g_{13}\\
+x_3-\frac\lambda2g_{21}&-\frac\lambda2g_{22}&-x_1-\frac\lambda2g_{23}\\
+-x_2-\frac\lambda2g_{31}&x_1-\frac\lambda2g_{32}&-\frac\lambda2g_{33}
+\end{pmatrix}.
+\end{equation}
+反対称成分が三つの交換子を与えるので関係式は独立である。
+potential 由来の表示は\cite[Corollary 2.7]{PMoriSmith}の意味で standard であり、
+同論文 Theorem 1.4に再掲されたArtin--Tate--Van den Berghの判定により、AS-regular 性は全 $\PP^2$ 上で $\rank M_\lambda\geq2$ と同値である。
+階数一以下の incidence は $\mathbb A^1\times\PP^2$ の閉集合で、その底への像も閉じている。
+$M_0$ は全 $\PP^2$ 上で階数二の交代行列なので、像を除けば原点を含む開集合を得る。
+有限個のブロックについて交わりを取る。
+3-CY 性と domain 性は\cite[Corollary 2.9]{PMoriSmith}による。
+三生成元三二次関係式の三次元 AS-regular 代数では、最小分解を双対化すると最後の shift は三となり、
+\begin{equation}
+0\longrightarrow S_{s,\lambda}(-3)\longrightarrow S_{s,\lambda}(-2)^3
+\longrightarrow S_{s,\lambda}(-1)^3\longrightarrow S_{s,\lambda}
+\longrightarrow\CC\longrightarrow0.
+\end{equation}
+これが Koszul 性と Hilbert 級数を与える。
+
+$\lambda$ を固定する。$u=a$ への特殊化では、\eqref{eq:pg-potential}は
+$g$ の三次 potential に active 次数二以下の項を加えたものである。
+\cite[Theorem 1.1(i)]{PBergerTaillefer}により、その代数は $S_{s,\lambda}$ の PBW 変形である。
+$S_{s,\lambda}$ の斉次基底を語の線形結合として持ち上げる。
+最高 active 次数の関係式から次数帰納法で、これらは $A_{f_s,\lambda}$ を $R$ 上生成する。
+線形関係があれば全 $u=a$ で PBW 基底間の関係となり、係数多項式が全点で零だから元の関係も零となる。
+従って所要の PBW 性と自由性を得る。
+
+族の斉次 $S_{s,U_{\mathrm{reg}}}$ の各次数部分は底上有限生成で、全 fiber の次元が一定である。
+底環は $\CC[\hbar]$ の局所化で PID なので、各部分は有限自由である。
+torsion があればその台で fiber 次元が増えるからである。
+その各次数の基底を自由代数へ持ち上げ、同じ帰納法と全 $(\lambda,a)$ への特殊化を使えば、族上の自由性も従う。
+\end{proof}
+\begin{remark}\label{rem:pg-regular-all}
+$g_s$ が滑らかな平面三次曲線を定めるとき、
+\cite[Theorem 4.2(1)]{PMoriSmith}により $S_{s,\lambda}$ の AS-regular 性のために除く $\lambda$ はない。
+$g_s=0$ の場合も常に多項式環である。
+中心元の代数化・正則性のためには、以下でさらに開集合を縮める。
+ambient の AS-regular 性は、その中心超曲面商の圏論的滑らかさとは別条件である。
+\end{remark}
+以下
+$A_{\mathrm{reg}}=A_{f_1}\otimes_{R_{\mathrm{reg}}}\cdots\otimes_{R_{\mathrm{reg}}}A_{f_k}$
+とする。異なるブロックは可換で、各全次数部分は底上有限自由であり、
+$A_{\mathrm{reg}}/(\hbar)\simeq S$。関係式の一次項は\eqref{eq:pg-bracket}である。
+
+\subsection{代数的中心元の規格化と正則中心拡大}
+任意の滑らかな三次ブロックにおける中心元の存在とCramer表示は、
+後の定理\ref{thm:pg-universal-determinant}で証明する。
+同定理が使う古典的Casimir核の計算は、
+三変数制限が特異・零の場合も成立する。
+さらに複数ブロックを持つ滑らかな$F$では
+補題\ref{lem:pg-central-splitting-smooth}によって
+中心変数だけの三次項を配分し、各ブロックを
+\emph{全変数に関して滑らかな三次式}に選べる。
+これらを合わせれば全Poisson構造に対して
+有限次数の行列式演算で代数的中心三次元を得る。
+
+\begin{lemma}[中心三次元の偶性]\label{lem:pg-center-parity}
+命題\ref{prop:pg-PBW}の代数的族$A_f$について、
+$\hbar\mapsto-\hbar$で不変な$0$を含む開集合へ必要なら縮める。
+生成元に
+\begin{equation}
+ x_i^\dagger=x_i,\qquad u_\alpha^\dagger=u_\alpha,\qquad
+ \hbar^\dagger=-\hbar,\qquad(ab)^\dagger=b^\dagger a^\dagger
+\end{equation}
+を指定すると、$\CC$-線形の反自己同型$\dagger$が定まる。
+中心元$\Omega\in Z(A_f)_3$、$\Omega\bmod\hbar=f$があれば、
+同じ剰余をもつ中心元を$\Omega^\dagger=\Omega$となるように選べる。
+特に形式的中心元も同様に選べ、Weyl対称化表示では
+\begin{equation}
+ \widehat\Omega
+ =\sym_R\bigl(f+\hbar^2 f_2+\hbar^4 f_4+\cdots\bigr),
+ \qquad f_{2r}\in R[x_1,x_2,x_3]_3
+\end{equation}
+である。ここで添字$3$は中心変数$u_\alpha$も次数一と
+数えた全次数を意味する。
+\end{lemma}
+\begin{proof}
+定義関係式
+$r_i=[x_j,x_k]-\hbar\sym_R(f_{x_i})$に対し、
+$r_i^\dagger=-r_i$である。したがって反自己同型が商へ降り、
+中心を保つ。$\dagger^2=1$なので
+$(\Omega+\Omega^\dagger)/2$は中心であり、$\hbar=0$では$f$に一致する。
+完備化でも同じ操作が可能である。
+
+全次数三のWeyl対称化
+$\sym_R:R[x_1,x_2,x_3]_3[[\hbar]]\to\widehat A_{f,3}$
+は$\hbar=0$で恒等写像となり、
+PBW性と完備Nakayamaにより同型である。
+代数的族についてもこの有限自由加群間の写像は
+原点で可逆なので、さらに開集合を縮めれば同型となる。
+対称化した単語は反転で不変であるから、
+$\dagger$はその係数の$\hbar\mapsto-\hbar$に対応する。
+したがって不変な中心元の対称化係数は$\hbar$の偶冪だけを含む。
+\end{proof}
+
+\begin{proposition}[普遍的なCasimirの二次補正]\label{prop:pg-universal-casimir-jet}
+$f\in R[x_1,x_2,x_3]$を全次数三の任意の多項式とし、
+\begin{equation}
+ H_f=\det\left(\frac{\partial^2f}
+ {\partial x_i\partial x_j}\right)_{i,j=1}^3,\qquad
+ \Theta_f=\sym_R\left(f-\frac{\hbar^2}{12}H_f\right)\in A_f
+\end{equation}
+とおく。命題\ref{prop:pg-PBW}の開集合上で
+\begin{equation}
+ [\Theta_f,x_i]\in\hbar^5 A_f\qquad(i=1,2,3),
+ \qquad [\Theta_f,u_\alpha]=0.
+ \label{eq:pg-casimir-jet}
+\end{equation}
+従って$\Theta_f$は$\hbar^5$を法として中心元であり、
+法$\hbar$で$f$となる。
+さらに補題\ref{lem:pg-center-parity}で正規化した
+任意の形式的中心元について、$\hbar^2$係数$f_2$は
+\begin{equation}
+ \left\{f_2+\frac1{12}H_f,x_i\right\}_f=0\quad(i=1,2,3)
+ \label{eq:pg-jet-casimir-condition}
+\end{equation}
+を満たす。
+最後の条件は$f_2=-H_f/12$が
+\emph{全次数で厳密な中心元に延長する}ことを主張しない。
+\end{proposition}
+\begin{proof}
+まず$\hbar^4$を法とした恒等式を示す。
+係数が代数的に独立な二十個の不定元である
+\begin{equation}
+ f_{\mathrm{univ}}=\sum_{a+b+c\le3}
+ t_{abc}x_1^a x_2^b x_3^c
+\end{equation}
+を考える。これは中心係数環を任意に特殊化できる普遍式である。
+自由語では、隣り合った逆順の文字を
+\begin{equation}
+ x_2x_1\rightsquigarrow x_1x_2-\hbar\sym(f_{x_3}),\quad
+ x_3x_1\rightsquigarrow x_1x_3+\hbar\sym(f_{x_2}),\quad
+ x_3x_2\rightsquigarrow x_2x_3-\hbar\sym(f_{x_1})
+ \label{eq:pg-jet-reductions}
+\end{equation}
+で置き換える。各置換は代数の定義関係式そのものである。
+$\hbar$次数が三以下の範囲では、
+逆転数が減るか$\hbar$次数が増えるため、還元は必ず停止する。
+$\sym(f_{\mathrm{univ}}-\hbar^2H_{f_{\mathrm{univ}}}/12)$と
+各$x_i$との交換子を展開して\eqref{eq:pg-jet-reductions}で還元すると、
+次数三以下の各係数が$\mathbb Q[t_{abc}]$内で零になる。
+これを古典Jacobian括弧$\{-,-\}_f$で書き直すと、
+より明示的な普遍恒等式
+\begin{equation}
+ [\sym_R(f),x_i]\equiv
+ \frac{\hbar^3}{12}\sym_R(\{H_f,x_i\}_f)
+ \pmod{\hbar^4 A_f}
+ \label{eq:pg-jet-hessian-identity}
+\end{equation}
+を得る。実際、$\sym_R(H_f)$の$x_i$との交換子の一次項は
+$\hbar\sym_R(\{H_f,x_i\}_f)$なので、
+この恒等式は$\Theta_f$の可換性の計算と同値である。
+二十個の独立係数を保持して全係数を厳密に展開する
+再現可能な検算コードは
+\texttt{computations/verify\_cubic\_casimir\_jet.py}である。
+数値の特殊化や標本点での検査ではない。
+よって任意の中心係数環への特殊化で
+$[\Theta_f,x_i]\in\hbar^4A_f$となる。
+
+一方、$\Theta_f^\dagger=\Theta_f$であり、
+$[\Theta_f,x_i]^\dagger=-[\Theta_f,x_i]$である。
+PBW性により$\hbar$は非零因子なので、
+$[\Theta_f,x_i]=\hbar^4b_i$と書くと
+$b_i^\dagger=-b_i$となる。
+法$\hbar$では反転は可換多項式環の恒等写像だから
+$b_i\bmod\hbar=0$、従って$b_i\in\hbar A_f$。
+これで法$\hbar^5$の結論を得る。
+中心変数との可換性は定義から従う。
+
+最後に$\widehat\Omega=\sym_R(f+\hbar^2f_2+O(\hbar^4))$
+との交換子を比較する。
+前二段の恒等式および量子化の一次Poisson条件から
+$\hbar^3\{f_2+H_f/12,x_i\}_f=0\bmod\hbar^4$
+となり、PBW性から\eqref{eq:pg-jet-casimir-condition}が従う。
+\end{proof}
+\begin{remark}[Hesse公式との照合]
+$f=(x_1^3+x_2^3+x_3^3)/3+t x_1x_2x_3$なら
+\begin{equation}
+ H_f=2(t^3+4)x_1x_2x_3-2t^2(x_1^3+x_2^3+x_3^3).
+\end{equation}
+したがって$-\hbar^2H_f/12$は
+定理\ref{thm:explicit-hesse-center}の
+中心式の$\hbar^2$係数と一致する。
+これは既知のSklyanin公式との整合性チェックであって、
+一般$f$の全高次中心公式が同じ形になるという主張ではない。
+\end{remark}
+
+\begin{lemma}\label{lem:pg-central-linear}
+$D$ を連結次数付き代数、$z\in D_1$ を中心正則元とする。
+$C=D/(z)$ が次元 $d$、AS parameter $d$ の Koszul AS-regular なら、
+$D$ は次元 $d+1$、AS parameter $d+1$ の Koszul AS-regular である。
+\end{lemma}
+\begin{proof}
+$0\to D(-1)\xrightarrow{z}D\to C\to0$ より、
+$\operatorname{Tor}^D_q(C,\CC)$ は $q=0,1$ でそれぞれ $\CC,\CC(-1)$、他は零である。
+change-of-rings spectral sequence
+\begin{equation}
+E^2_{p,q}=\operatorname{Tor}^C_p(\operatorname{Tor}^D_q(C,\CC),\CC)
+\Longrightarrow\operatorname{Tor}^D_{p+q}(\CC,\CC)
+\end{equation}
+の各項は内部次数 $p+q$ に集中する。
+微分は内部次数を保ち全ホモロジー次数を一減らすため全て零であり、
+$D$ は Koszul、$j>d+1$ で $\operatorname{Tor}^D_j(\CC,\CC)=0$、$j=d+1$ では非零である。
+$D^!$ を二次双対とすると、Koszul 双加群複体の項は $D\otimes(D_i^!)^*\otimes D$。
+全内部次数を固定し右の $D$ 次数で filter すれば有限 filtration となり、
+随伴複体の正ホモロジーは左 Koszul 分解で消える。
+よって増大双加群複体は長さ $d+1$ の完全列であり、右加群として分裂完全なので
+任意の左加群とテンソルしても完全である。従って通常の大域次元も $d+1$。
+さらに $\RHom_D(C,D)\simeq C(1)[-1]$ と導来随伴から
+\begin{equation}
+\Ext_D^{i+1}(\CC,D)\simeq\Ext_C^i(\CC,C)(1).
+\end{equation}
+右加群でも同様で、左右 AS 条件と parameter を得る。
+$\operatorname{Hilb}_D=\operatorname{Hilb}_C/(1-t)$ なので GK 次元も有限である。
+\end{proof}
+\begin{lemma}\label{lem:pg-central-cubic}
+$A$ を次元 $N$、AS parameter $N$ の AS-regular 代数、$\eta\in A_3$ を中心正則元とする。
+$B=A/(\eta)$ は左右 injective dimension $N-1$、AS parameter $N-3$ の AS-Gorenstein 代数で、
+$\operatorname{Hilb}_B=(1-t^3)\operatorname{Hilb}_A$ である。
+\end{lemma}
+\begin{proof}
+$0\to A(-3)\xrightarrow{\eta}A\to B\to0$ が Hilbert 級数を与える。
+導来随伴により任意の左 $B$-加群 $M$ について
+$\Ext_B^i(M,B)\simeq\Ext_A^{i+1}(M,A)(-3)$。
+右辺は $i\geq N$ で零、$M=\CC$、$i=N-1$ で $\CC(N-3)$ となる。
+よって injective dimension はちょうど $N-1$ で AS 条件も成立する。右側も同様。
+\end{proof}
+

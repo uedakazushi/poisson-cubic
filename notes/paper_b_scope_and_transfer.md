@@ -1,10 +1,14 @@
-# 論文Bの独立成果：移管完了と現在の所在
+# 現行A/Bと独立成果の所在・担当境界
 
-2026-11-13。現行の独立成果の移管と元側の専用重複整理を完了した。
+2026-11-14 / v86。論文AはA-v55、論文BはB-v57。再開は[研究方針](../00_research_plan.md)から。
 
-論文A `papers/paper_a.tex`（A-v54）と論文B `papers/paper_b.tex`（B-v57）はnc-cubicに保持する。Bの必要証明は `papers/generic_recovery/` 内で自立し、外部参照だけで代用しない。公表向け数学監査の現状は `paper_b_proof_audit.md` と `../validation_paper_b.json` にまとめる。以下の移管時入力照合は `validation_transfer.json` が指定する移管時の版についての記録である。
+## nc-cubicで扱う研究
 
-## 移管先の現行入口
+[論文A](../papers/paper_a.tex)はPoisson正規形・退化軌跡・代数的量子化・固定相対モジュライを扱い、ambient復元を付録に置く。[論文B](../papers/paper_b.tex)は中心三次変形の一般点可換復元を扱う。Bの必要証明は `papers/generic_recovery/` 内で完結し、A/Bの主張を読むために独立原稿の取得を必要としない。
+
+現行A/Bの編集・公表準備では、本文とその再帰入力、専用ノート、必要な計算・証明書を一体として更新する。Aの確認範囲は[投稿準備監査](poisson_article_submission_audit.md)と [validation](../validation_paper_a.json)、Bは[証明監査](paper_b_proof_audit.md)と [validation](../validation_paper_b.json)を参照する。
+
+## nc-cubic2に置く独立成果
 
 - [点スキーム](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/mixed_cubic_point_schemes.tex)
 - [有限Jacobian復元](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/cubic_jacobian_recovery.tex)
@@ -13,14 +17,12 @@
 - [étale局所実現](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/relative_cubic_realization.tex)
 - [相対復元・有限対角・明示模型](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/relative_reconstruction_models.tex)
 
-最後の統合稿は残る41支持節、ノート固有の相対proper模型・PI生成子・有限bar判定・perfect性反例、普遍二次jetを論理順に収める。既存稿とArtin・étale・Hochschild・反例・混合中心式を同じTeXから共用する。`am:cor:formal-residual` は全次数MF存在の証明とともに保持し、条件付き移送だけで置き換えない。
+相対復元の統合稿には、相対proper模型、PI生成子、有限対角、有限bar判定、perfect性の反例、普遍二次jet、および楕円ブロックの明示模型を収める。Artin・étale・Hochschildの比較と全次数MF存在の証明を保持し、各構成の追加仮定を区別する。これらの成果を追究するときは、同リポジトリの[現行研究ノート](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/relative_reconstruction_models.md)を読む。
 
-## 検証と保存
+## 担当と未解決の核心
 
-統合稿244頁、54TeX入力、708ラベル、724参照、266引用、143文献項目。未解決・重複・文字欠落・overfullなし。全頁を描画してレイアウトを概観し、追加した末尾部分も表示確認した。29本の有限検算を実行し、対応する既存証明書は数学データが一致する。証明書の参照パスと末尾改行を正規化した。Artin稿も現行共有反例で再組版・有限dg検算を行った。
+nc-cubicではAの正規形・量子化とBの完備比較・一般点降下を進め、nc-cubic2では上記独立成果の公表向け構成と証明を整える。各リポジトリの本文と必要証明をその現在の入口に維持し、共有する主張の仮定や参照を変更するときは両側への影響を確認する。
 
-移管元の621数学的環境のうち612は空白・局所名前空間以外の本文を保持、9件は既存共有稿の参照整理・局所証明補足を照合した。これは全数学的証明の独立監査・形式検証・新規性の確定ではない。
+独立構成で追究する課題には、有限模型からのrotation積・比較核の有効な計算、同変な高次係数、有限bar右逆、二つ以上の無限位数ブロックの生成性、Artinから完備底へのperfect性の制御がある。一般点で得られる同値と全閉パラメータでの相対同値は別の主張であり、これらの個別課題をBの一般点存在定理の未証明部分として扱わない。
 
-先に移管先mainの内容コミット `8ca6ccae84413d88fcaa4fc7062f0b23750ddfc5` と遠隔blobを確認し、その後142専用ファイルを整理した。A・Bの26入力のSHA-256一致と参照閉包を再検査する。A/Bの検算、混合研究監査TeXが使う文献、保護対象と共有する計算は残す。旧候補資料は今回の現行B支持節の移管対象ではなく、既存の照合資料として保持する。
-
-全対応は [manifest](https://github.com/uedakazushi/nc-cubic2/blob/main/validation_reconstruction_manifest.json)、今回の範囲は [validation](https://github.com/uedakazushi/nc-cubic2/blob/main/validation_relative_reconstruction_models.json)、再開は [専用方針](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/relative_reconstruction_models.md)。残るkernel比較・多ブロック生成・高次係数・新規性は数学の研究課題であり、移管未了とは分ける。
+各主張の証明記載・独立点検・有限検算・新規性は、対応する現行原稿と専用ノートで確かめる。A/Bの再開用bundleは、研究方針、上記の専用ノート、A/Bの全TeX入力と再現資産から構成する。

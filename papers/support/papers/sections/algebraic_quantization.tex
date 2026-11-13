@@ -1,0 +1,97 @@
+\section{全Poisson構造の代数的量子化}
+\label{sec:pg-quantization}
+ここでは全体の記法に戻り、$X=V(F)\subset\PP(V)$を滑らかな三次超曲面、
+$S=\operatorname{Sym}(V^*)$、$N=\dim V=n+2\ge5$とする。
+非零構造では正規形\eqref{eq:pg-normal}を固定し、$N=3k+m$とする。
+前節までに、一ブロックのPBW性、普遍Hesse中心公式、
+および特異・零の三変数制限を含む有限Cramer構成を準備した。
+本節では正規形の全ブロックを組み立て、
+中心三次元の左右正則性と中心商の平坦性を証明する。
+三変数potential代数の非スカラー中心元の存在は
+Etingof--Ginzburg\cite[Theorem~3.3.2(ii), p.~1385]{EG}に含まれる。
+ここで用いるのは、指定した$f_s$への古典極限と原点での正則性を備えた、
+定理\ref{thm:pg-universal-determinant}の相対的な中心元である。
+
+\begin{theorem}[代数的量子化]\label{thm:pg-quantization}\label{pthm:quantization}
+任意の Poisson 構造 $\pi_X$ に対し、$0\in U\subset\mathbb A^1_\hbar$、
+$K=\OO(U)$ 上の二次関係式で定まる次数付き代数 $A$、および三次の中心元 $\Omega$ が存在して次を満たす。
+\begin{enumerate}
+\item $A$ は $S$ 上の $q$ の量子化であり、全ての閉点 $\lambda\in U$ で
+$A_\lambda$ は Koszul AS-regular、
+$\operatorname{gldim}A_\lambda=N$、$\operatorname{Hilb}_{A_\lambda}(t)=(1-t)^{-N}$、AS parameter $N$ である。
+\item $\Omega\bmod\hbar=F$ で、各 $\Omega_\lambda$ は左右正則元である。
+\item $B=A/(\Omega)$ は $S/(F)$ の量子化であり、各 $B_\lambda$ は AS-Gorenstein で、
+\begin{equation}
+\operatorname{Hilb}_{B_\lambda}(t)=\frac{1-t^3}{(1-t)^N},\qquad
+\operatorname{injdim}B_\lambda=N-1,\qquad
+\text{AS parameter}=N-3=n-1.
+\end{equation}
+\item $U$ を$\hbar\mapsto-\hbar$で不変に取れ、
+語の反転と$\hbar$の符号反転による反自己同型に関して
+$\Omega^\dagger=\Omega$と選べる。
+そのWeyl対称化表示には$\hbar$の奇数次の項が現れない。
+\end{enumerate}
+\end{theorem}
+
+\subsection{代数的量子化定理の証明}
+\begin{proof}[定理\ref{thm:pg-quantization}の証明]
+零構造は $A=S[\hbar]$、$\Omega=F$ でよい。
+非零構造に対して $A_{\mathrm{reg}}$ を構成する。
+PBW 基底により各 fiber で $u_1,\ldots,u_m$ は中心正則列で、
+\begin{equation}
+A_\lambda/(u_1,\ldots,u_m)\simeq\bigotimes_{s=1}^kS_{s,\lambda}.
+\end{equation}
+右辺の自明加群の分解、双加群分解およびその双対は各因子のもののテンソル積で得られる。
+従って次元 $3k$、AS parameter $3k$ の Koszul AS-regular 代数である。
+補題\ref{lem:pg-central-linear}を $m$ 回適用して $A_\lambda$ の次元 $N=3k+m$ と AS parameter $N$ を得る。
+Hilbert 級数は PBW 基底から $(1-t)^{-N}$ である。
+
+最初に$F$の純中心三次部分を
+補題\ref{lem:pg-central-splitting-smooth}に従って各ブロックへ分配する。
+これにより各$V(f_s)\subset\PP(x_s,u)$は滑らかになり、
+active偏微分とPoisson構造は変化しない。
+定理\ref{thm:pg-universal-determinant}を各$f_s$に適用すると、
+\emph{三変数制限$f_s(x_s,0)$が特異または恒等的零でも}、
+ある原点を含むZariski開集合上に
+有限Cramer式で表せる厳密中心三次元
+$\Omega_s\in Z(A_{f_s}|_U)_3$、
+$\Omega_s\bmod\hbar=f_s$を得る。
+有限個のブロックについて開集合を共通に縮める。
+異なるブロックは可換なので $\Omega=\sum_s\Omega_s$ は $A$ の中心元で、residue は $F$。
+さらに$U$を$\hbar\mapsto-\hbar$で不変な開集合へ縮め、
+補題\ref{lem:pg-center-parity}の反自己同型で各$\Omega_s$を平均する。
+これにより$\Omega^\dagger=\Omega$と選べ、
+次数三のWeyl対称化係数は$\hbar$に関し偶関数となる。
+この正規化は中心性・剰余・正則性の証明を損なわない。
+
+少なくとも一つの $f_s$ は active 変数に依存する。
+そうでなければ $F$ は中心変数だけに依存し、active 座標点に特異点をもつ。
+その $s$ を固定し、PBW 基底での $\Omega_s$ の active 成分のうち原点で非零の係数が消えないようさらに縮める。
+各 $\lambda$ で $\Omega_{s,\lambda}$ の active 次数は正となる。
+最高次数が $\lambda$ によらず一定である必要はない。
+$\lambda$ を固定し $x_s$ 次数だけで filter すると
+\begin{equation}
+\operatorname{gr}_sA_\lambda\simeq
+(S_{s,\lambda}\otimes_\CC R)\otimes_R A_{\mathrm{rest},\lambda},
+\qquad A_{\mathrm{rest},\lambda}=\bigotimes_{t\neq s,R}A_{f_t,\lambda}.
+\end{equation}
+他の $\Omega_t$ は filtration degree 零なので、$\Omega_\lambda$ の最高記号は
+$\Omega_{s,\lambda}$ の非零最高記号 $a_s\in S_{s,\lambda}\otimes R$ である。
+$S_{s,\lambda}$ は domain だから多項式拡大も domain で、$a_s$ の左右乗法は単射。
+$R$-自由な $A_{\mathrm{rest},\lambda}$ とテンソルしても単射なので、最高次数を比較して
+$\Omega_\lambda$ の左右正則性が従う。非可換 domain のテンソル積が domain であるとは仮定していない。
+
+従って各 fiber に
+$0\to A_\lambda(-3)\xrightarrow{\Omega_\lambda}A_\lambda\to B_\lambda\to0$
+があり、所要の Hilbert 級数を得る。
+各次数の余核は PID $\OO(U)$ 上で全 fiber 次元が一定なので有限自由である。
+法 $\hbar$ での商は $S\to S/(F)$ で、交換子の一次項もその商の括弧と一致する。
+補題\ref{lem:pg-central-cubic}が残りの AS-Gorenstein の主張を与える。
+\end{proof}
+二次関係式は各生成元対に一つで、反対称成分により独立なので個数は $\binom N2$ である。
+\begin{remark}\label{rem:pg-quantization-scope}
+定理\ref{thm:pg-quantization}は、個々の Poisson 構造に対する量子化の存在定理である。
+代数の同型分類、中心全体の記述、$\qgr B_\lambda$ の滑らかさは含まない。
+とくに本定理だけを根拠に全パラメータの Kuznetsov 成分の smooth proper 性や可換復元を結論することはできない。
+\end{remark}
+

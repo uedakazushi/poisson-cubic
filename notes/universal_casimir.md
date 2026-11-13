@@ -1,6 +1,6 @@
 # 全Poisson構造の代数的中心三次元と一般次元量子化：現行研究ノート
 
-**2026-11-14 / v9（論文A-v54・論文B-v57、bundle nc-cubic-v85）。再開時はまず `00_research_plan.md` を読む。**
+**2026-11-14 / v10（論文A-v55・論文B-v57、bundle nc-cubic-v86）。再開時はまず `00_research_plan.md` を読む。**
 正本はGitHub `uedakazushi/nc-cubic` の `main`。
 現行公表原稿は `papers/paper_a.tex`（論文A）。
 主要証明の所在：
@@ -8,7 +8,10 @@
 （任意のsmoothな全体三次式の代数的Casimir）、
 `papers/support/papers/sections/equivariant_central_lifts.tex`
 （reductive群と滑らかな三変数制限上の全ブロック座標群に対する同変性）、
-`papers/support/papers/sections/poisson_geometry.tex`
+`papers/support/papers/sections/quantization_foundations.tex`
+（PBW性・偶性・二次jet）と
+`papers/support/papers/sections/algebraic_quantization.tex`
+（全ブロックの主定理・正則性・平坦性）
 （全Poisson構造の量子化）、
 `papers/support/papers/sections/general_dimension_universal_quantization.tex`
 （全次元・全k変数pencil）、
@@ -703,7 +706,7 @@ PBWの族への拡張、Koszul AS-regular中央一次元拡大、
 | `python3 computations/verify_singular_cubic_classical_kernel.py` | exit 0、PASS | §4の零三変数制限の例。378×56行列の階数45、核は\(\mathbb C f\oplus\mathbb C[u,v,w]_3\)、次元11。 |
 | `python3 computations/verify_nonelliptic_quantization.py` | exit 0、PASS | 二つのmonic Diamond系と重なり、六つの普遍中心交換子、古典極限、potential syzygy、分母の範囲、二つの非中心な比較例、17項Fermat恒等式を確認。再計算した結果は保存証明書と完全一致。残余圏のsaturationの計算検証ではない。 |
 
-非楕円型の実行出力は`build/verify_nonelliptic_quantization.log`。
+非楕円型の現在有効な計算証拠は保存JSONである。検証時には
 `--write`を付けずに実行し、再計算した結果全体と
 `computations/nonelliptic_quantization_certificate.json`の一致を確認した。
 公開本文の還元式、中心三次元、重なりの正規形、Fermat恒等式も実装と照合している。
@@ -713,7 +716,7 @@ PBWの族への拡張、Koszul AS-regular中央一次元拡大、
 重い記号計算は一本ずつ実行する。
 LuaLaTeXによる再生成コマンドは`latexmk papers/paper_a.tex`で、
 PDFと中間生成物は`build/`へ出力される。
-**A-v54全体の組版・参照検査・PDF確認および計算の最終実施状態は、
+**A-v55全体の組版・参照検査・PDF確認および計算の最終実施状態は、
 リポジトリルートの[`validation_paper_a.json`](../validation_paper_a.json)を参照する。**
 本文の証明監査、計算の実行、PDFの確認、配布物の生成・保存は別の状態として扱う。
 
@@ -734,10 +737,13 @@ PDFと中間生成物は`build/`へ出力される。
   三条件を\(\gamma_j=0\)で満たす。
 - Etingof–Ginzburg, *Noncommutative del Pezzo surfaces and Calabi–Yau algebras*,
   JEMS 12 (2010), 1371–1416,
-  [arXiv:0709.3593v4](https://arxiv.org/abs/0709.3593v4), §8.3、印刷p.32：
-  potentialの中心元をrank一定性と射影的閉性で特殊化する議論は既存の原理である。
+  [刊行本文](https://ems.press/content/serial-article-files/31746), Theorem 3.3.2(ii), p.1385、§8.3, pp.1410–1411：
+  同次三変数CY potentialの低次変形の非スカラー中心元存在と、rank・射影的閉性による特殊化は既知である。
   本稿では全体の滑らかさによるactive gradientの互いに素性と固定次数の普遍小行列式を用い、
   Cramer表示で原点の規格化を制御する。
+  また§9, p.1414は一変数低次項付きRains公式を与える。混合Hesse式もt可逆なら中心平行移動でこの表示へ移る。
+  具体式・定数項・自由語関係は `rem:pg-hesse-eg-translation` と `verify_hesse_translation.py` に保持し、
+  今回その普遍有理恒等式を実行確認した。固定係数環上での正則な規格化と全係数への延長を、既知の点ごとの存在から区別する。
 - De Laet–Le Bruyn, *The geometry of representations of 3-dimensional Sklyanin algebras*,
   [arXiv:1405.1158v1](https://arxiv.org/abs/1405.1158v1), **§2、p.3**：
   \(3c_3\)の式が本稿の純Hesse中心公式の入力である。

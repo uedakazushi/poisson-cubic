@@ -1,6 +1,6 @@
 # 滑らかなcubic n-foldに対するBondal予想
 
-**2026-11-14 / A-v54・nc-cubic-v85。最初に `00_research_plan.md` を読む。**
+**2026-11-14 / A-v55・nc-cubic-v86。最初に `00_research_plan.md` を読む。**
 証明全文は `papers/support/papers/sections/bondal_cubic.tex` の `thm:pg-bondal`。
 正規形、射影化の補題、分離型三次四様体の分類は
 `papers/support/papers/sections/poisson_geometry.tex` にある。
@@ -79,7 +79,7 @@ python3 computations/verify_split_cubic_fourfold.py
 ```
 
 `verify_poisson_article_A.py` は前回の監査で次のPASSを確認済みであり、
-現行コードはその実行時と同一である。A-v54の今回の検証では再実行していない。
+現行コードは同一であり、A-v55の今回の検証でも再実行してPASSを確認した。
 
 ```text
 PASS: smooth test cubic, 56 Jacobi and 56 Euler-wedge identities
@@ -163,6 +163,8 @@ cubic threefoldのGrassmann記述とも区別する。
 六次元以上のcubicに対する全退化階数の結論と明示的join構成の初出は未確定である。
 
 ### Pymの公開原稿との不整合と非連結性の障害
+
+一般次数の命題 `prop:pg-triple-lifting-obstruction` は、滑らかな超曲面X内の滑らかな非空Cの全連結成分が正次元のとき、H¹(P^N,I_C²)=C^{π₀(C)}/Cを与える。三重消失を保つ次数dの持上げの障害はこの群に入り、存在時は一意。分離型のδ(g_X)は[(0,1)]で非零である。証明は現行本文にあり、ここで全文を重複しない。
 
 Pym, *Elliptic singularities on log symplectic manifolds and Feigin–Odesskii Poisson brackets*,
 Compositio Math. 153 (2017), no.4, 717–744、

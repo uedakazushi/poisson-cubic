@@ -1,10 +1,16 @@
 # Codex実行指示 — nc-cubic
 
-2026-11-14 / v85。最初に `00_research_plan.md` と `notes/paper_b_scope_and_transfer.md` を読む。GitHub mainが正本。
+2026-11-14 / v86。最初に `00_research_plan.md` と `notes/paper_b_scope_and_transfer.md` を読む。GitHub mainが正本。
 
 ## 公表向け監査と担当境界
 
-論文AはA-v54。ユーザーの追加依頼により、正規形・Bondal・量子化・固定相対モジュライ・ambient復元を公表向けに監査・推敲した。現行状態は `notes/poisson_article_submission_audit.md` と `validation_paper_a.json`。相対忘却射はアフィン、階数層では同時スカラー作用と被約構造を用いる。導来ambient復元のnoetherian仮定、中心上自由性の十分条件を明示する。全Poisson代数中心の証明に形式的Dolgushev理論を再導入しない。固定変数分解の全係数空間では中心元を同時選択できるが、規格化遷移はΩ'=aΩ+cで、中心イデアルや同変降下は自動ではない。完全交叉の消滅には独立証明を加えた。分離型三次四様体の純楕円構造はPym arXiv v1の非存在記述と両立せず、非連結な曲線の持上げ障害を本文で示す。刊行版・訂正文、包括的初出、全モジュライ降下は未確認・未解決として区別する。Bの一般点復元と全閉パラメータでの相対同値を混同しない。
+論文AはA-v55。添付の独立査読報告（対象f4c8fb131f346099ed2fb8af29429574861b505e）に基づき、既知結果との差分、Pymとの比較範囲、証明の順序と記号を整理した。中心成果は全次元正規形であり、Lie代数の根基排除を `lem:pg-basepoint-free-lie` として独立させた。EG Theorem 3.3.2(ii)の一ブロック中心元存在と§9のRains公式は既知である。Hesse混合項はt可逆なら平行移動でその表示へ移る。本稿の追加を指定Casimirへの規格化、係数環上の正則な選択、全ブロック・独立パラメータ・同変降下として記述する。
+
+本文順は、正規形と幾何→固定・相対モジュライ→一ブロックのPBW・中心元→全ブロック→同変化・降下→例。`quantization_foundations.tex`、`algebraic_quantization.tex`、`special_poisson_blocks.tex` が旧一体節の現行支持ファイルである。ambientはA、中心商はBに統一し、ambient復元と完全交叉背景は付録に置く。既存の主定理・必要証明・仮定は保持する。
+
+非連結中心Cの三重消失の持上げは `prop:pg-triple-lifting-obstruction` で独立に証明し、全連結成分正次元・滑らかという条件の下でH¹(I_C²)=C^{π₀(C)}/Cを得る。分離型では障害δ(g|X)=[(0,1)]が非零。Pymとの比較は確認したarXiv v1の番号・頁に固定し、刊行版本文・関連訂正文は未照合である。未取得資料の内容や包括的な初出を推測しない。
+
+現行の仮定・証明所在・文献比較は `notes/poisson_article_submission_audit.md`、実行確認は `validation_paper_a.json` に集約する。相対忘却射のアフィン性、被約rank層、中心核と通常の中心の違い、Ω'=aΩ+cによるイデアルの不一致、全モジュライ降下の未解決性を保持する。17は構成した底の次元であり、固定h≠0の非可換同型類の像の次元ではない。Bの一般点復元と全閉パラメータでの相対同値を混同しない。
 
 論文BはB-v57。ユーザーの公表向け精査・修正依頼に基づき、主要証明の数学的再点検と必要な補強を行った。状態は `notes/paper_b_proof_audit.md` と `validation_paper_b.json`。一般点の存在定理は保持する。可換模型の一意性はrotation付きpairの幾何学的射影同型類についてであり、基礎体上のformの一意性と混同しない。曲率付きformalityの一般原理は既知としてCarqueville--Kayを引用し、組合せの初出は未確定とする。
 
@@ -22,14 +28,14 @@ Aの同変性では、全滑らかなfでG_0=(GL3×GLm)×Gmに関する平均化
 
 ## 厳格な保護
 
-- 移管整理では `papers/paper_a.tex`（A-v54）、`papers/paper_b.tex`（B-v57）、両者の再帰的な全入力、`papers/generic_recovery/`、`papers/support/papers/common.tex`、共通設定を保護する。ユーザーが依頼した公表向け監査によるA/Bの修正はこの移管保護とは区別する。A-v54の改訂ではB-v57と共通preambleを変更していない。必要証明を移管先へのリンクだけで代用しない。
+- 移管整理では `papers/paper_a.tex`（A-v55）、`papers/paper_b.tex`（B-v57）、両者の再帰的な全入力、`papers/generic_recovery/`、`papers/support/papers/common.tex`、共通設定を保護する。ユーザーが依頼した公表向け監査によるA/Bの修正はこの移管保護とは区別する。A-v55の改訂ではB-v57と共通preambleを変更していない。必要証明を移管先へのリンクだけで代用しない。
 - パスだけで移管可否を決めず、input/include・論理参照・引用・ノート・コードの実依存を確認する。共有する文献・証明書・検算を消さない。
 - 数学的問題は具体的な仮定・反例・依存先とともに監査ノートへ記し、主定理を迂回して強化・弱化しない。
 - 全次数MF存在と条件付き移送、全coherentと線束生成圏、有限Artinと一般Artin、形式と代数的同値、相対smooth properの仮定を区別する。
 
 ## 検証と保存
 
-変更前・push前に最新mainを取得する。通常のfast-forward pushと遠隔ref/blob確認を行い、force push・Actions・不要なPR・旧版ZIP・バックアップ複製を作らない。生成PDF・中間物はbuild/で非追跡。Libraryは実際のGitHub保存失敗時だけの緊急退避。節目のmain保存に追加承諾は不要。
+変更前・push前に最新mainを取得する。通常のfast-forward pushと遠隔ref/blob確認を行い、force push・Actions・不要なPR・旧版ZIP・バックアップ複製を作らない。生成PDF・中間物はbuild/で非追跡。GitHub mainを正本とし、節目ごとの保存に追加承諾は不要とする。現在の利用者指示に従い、研究の区切りでは現行の方針・ノート・原稿・必要な再現資産だけからなる軽量bundleも、承諾を求めずLibraryへ保存する。生成PDF・中間物はGitで追跡しない。Library上の既存ファイルの削除はこの許可に含めない。
 
 重要な証明・例・反例・書誌・再現入力を落とさず、移管先へ統合して参照・必要な全文組版・厳密計算・保存を確認してから元の真の重複を除く。旧ZIP・旧PDF・旧コミットを現行証明の代用にしない。有限体での零を特性零の恒等式の証明と混同しない。証明記載・有限検算・独立監査・形式検証・新規性を区別する。
 

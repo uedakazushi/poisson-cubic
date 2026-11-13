@@ -1,18 +1,19 @@
 {
-  "version": "nc-cubic-v85",
+  "version": "nc-cubic-v86",
   "date": "2026-11-14",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; expected-parent fast-forward updates; no Actions or force push.",
-  "scope": "Current A-v54 publication review: equivariant central lifts, centring on smooth ternary restrictions, central quotient families and scalar descent; the split-fourfold lifting obstruction is made cohomological. B-v57 and shared preamble preserved.",
+  "scope": "Paper A-v55 revision addressing the independent referee report: theorem-level prior-work comparison; standalone basepoint-free Lie lemma and disconnected lifting obstruction; geometry-to-quantization proof order; uniform ambient A and quotient B notation. B-v57 and shared preamble preserved.",
   "papers": {
     "A": {
       "entry": "papers/paper_a.tex",
-      "version": "A-v54",
+      "version": "A-v55",
       "audit": "notes/poisson_article_submission_audit.md",
       "validation": "validation_paper_a.json",
-      "major_proof_chains_reaudited": true,
       "typeset_and_rendered_this_review": true,
-      "current_review_scope": "New equivariant-centre and descent arguments plus the split-fourfold obstruction sequence; earlier proof audits retained."
+      "current_review_scope": "Referee-requested literature, exposition and proof-dependency revision; independent reading of the extracted Lie lemma and the general lifting obstruction. No general theorem is weakened.",
+      "current_changes_independently_read": true,
+      "complete_reaudit_of_unchanged_proofs_this_revision": false
     },
     "B": {
       "entry": "papers/paper_b.tex",
@@ -27,8 +28,8 @@
   "independent_results": {
     "authoritative_repository": "uedakazushi/nc-cubic2",
     "scope_note": "notes/paper_b_scope_and_transfer.md",
-    "transfer_validation": "validation_transfer.json",
-    "role": "Independent results and their certificates; not inputs to the current paper B proof."
+    "role": "Independent results and their certificates; not inputs to the current paper B proof.",
+    "current_research_note": "https://github.com/uedakazushi/nc-cubic2/blob/main/notes/relative_reconstruction_models.md"
   },
   "reproducibility": {
     "build": [

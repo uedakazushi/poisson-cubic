@@ -10,9 +10,9 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月14日・論文A（投稿準備稿 v54）}
+\date{2026年11月14日・論文A（投稿準備稿 v55）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-14 / A-v54}
+\fancyhead[R]{\small 2026-11-14 / A-v55}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -39,18 +39,23 @@ Koszul Artin--Schelter正則代数と、その正則中心三次商に量子化�
 超曲面自身を動かす相対モジュライを区別し、
 Fermat超曲面の成分を集合分割で記述するとともに、
 相対モジュライの既約成分数が$\lfloor(n+2)/3\rfloor$であることを示す。
-最後に、偏極付きの量子超曲面から二次ambientと中心方程式の直線を復元する。
+付録では、偏極付きの量子超曲面からの二次ambientの復元と、
+関連する一般的な存在判定を整理する。
 \end{abstract}
 \tableofcontents
 
 \section{序論}\label{sec:paperA-introduction}
 
 三次超曲面のPoisson構造は、その可換幾何と次数付き非可換変形を結ぶ。
-本稿の目的は、任意次元の滑らかな三次超曲面について、
-Poisson構造の正規形、退化軌跡、代数的量子化を一つの証明体系にまとめ、
-固定した超曲面と相対モジュライの双方でその帰結を記述することである。
+本稿の中心結果は、任意次元の滑らかな三次超曲面の全Poisson構造を
+三変数Jacobianブロックへ還元する正規形定理である。
+この構造定理から退化軌跡とモジュライの成分を記述し、
+各Poisson構造を正則中心三次商による代数族として量子化する。
 以下では$X=V(F)\subset\mathbb P(V)$、$\dim V=N=n+2\ge5$とし、
 基礎体は$\mathbb C$とする。
+量子化では周囲の二次代数を$A$（族では$\mathcal A$）、
+中心商を$B=A/(\Omega)$（族では$\mathcal B$）と書き、
+ambient復元の付録でもこの記法を保つ。
 
 \subsection*{正規形と退化軌跡}
 三次式$F$を固定すると、大域双ベクトル場は
@@ -71,8 +76,10 @@ $\dim W_s=3$となる分解を選んで
  \partial_{x_{s1}}\wedge\partial_{x_{s2}}\wedge\partial_{x_{s3}}
 \end{equation}
 と書ける。$u$はPoisson中心の座標であり、一般Poisson階数は$2k$である。
-証明の核心は補題\ref{lem:pg-quadratic-lie}で、
-対応する二次Lie代数の非中心部分が$\mathfrak{sl}_2$の直和となることを示す。
+証明の核心は補題\ref{lem:pg-basepoint-free-lie}である。
+基点自由な四項恒等式の形式系を持つ完全・中心なしLie代数について、
+可解根基を排除し、全単純因子が$\mathfrak{sl}_2$となることを示す。
+補題\ref{lem:pg-quadratic-lie}が三重ベクトルからこの状況への還元を与える。
 個々の座標や純中心三次項のブロックへの配分の一意性は必要としない。
 
 $n=3$では$k=1$となり、既知のGrassmann記述を回復する。
@@ -303,80 +310,169 @@ $k$個の部分を持つ成分の一般Poisson階数は$2k$となる。
 （系\ref{cor:pg-ambient-derived-threefold}）。
 一般次元でSerre関手から得られるVeroneseが元の代数を決定するかは別の問題である。
 
-\subsection*{先行研究との関係}
+\subsection*{先行研究との関係と各定理の位置づけ}
+以下では、証明に用いる既知の入力と、本稿で証明する追加部分を
+定理ごとに区別する。既知の中心元の存在や低次元の分類自体は、
+本稿の新規成果として数えない。
+
+\paragraph{正規形：射影的持上げ、半単純核計算、根基排除。}
 射影空間上のPoisson構造の斉次divergence-free持上げは
-Bondal\cite[\S4]{PBondal93}による。
-本稿では同じEuler--divergenceの議論を三次超曲面上のJacobiatorへ適用して、
-周囲の射影空間への延長がPoissonとなることを示す。
-正規形のLie代数的部分では、半単純Lie代数上の式
-\eqref{eq:pg-lie-H}の核の記述はDerdzinski--Gal
-\cite[Theorem~B]{PDerdzinskiGal}に含まれる。
-Cartan三形式からの単純ブロックの内在性も
-同論文のLemma~7.1(a)で述べられている。
-本稿では、滑らかな三次式のHessianの基点自由性から可解根基を排除して
-半単純な場合へ還元し、この構造をPoisson幾何と退化軌跡へ適用する。
-ブロックの内在性には、補題\ref{ne:blocks}の縮約階数による直接証明を与える。
+Bondal\cite[\S4, pp.~11--12]{PBondal93}による。
+本稿の命題\ref{prop:pg-represent}とその後のJacobiatorの議論では、
+三次超曲面上での消滅をEuler--Koszul表示と低次数syzygyの消滅により
+周囲の錐上での消滅へ移す。
+半単純Lie代数について、式\eqref{eq:pg-lie-H}の核の記述は
+Derdzinski--Gal\cite[(1.4), Theorem~B]{PDerdzinskiGal}に含まれ、
+Cartan三形式からの単純ブロックの内在性も同論文Lemma~7.1(a)にある。
+定理\ref{thm:pg-normal}で追加されるのは、
+滑らかな三次式のHessianが基点を持たないことを使い、
+\emph{半単純性を仮定する前に}可解根基を排除する段階と、
+これを全Poisson構造の三変数ブロック分解へ結びつける段階である。
+この根基排除は補題\ref{lem:pg-basepoint-free-lie}として独立に述べ、
+用いる表現論の仮定と参照箇所をそこでまとめる。
 
-三次三様体のPoisson構造の分類は
-Loray--Pereira--Touzet\cite[Theorems~7.1, 9.1]{LPTPoissonCubic}による。
-Mayanskiy\cite[Theorem~1]{PMayanskiy}はJacobi方程式からGrassmannスキームの
-記述を与え、Poisson cohomologyを計算している。
-本稿の正規形はこの三次元の場合を含み、高次元の複数Jacobianブロックを扱う。
-Bondal予想について、Gualtieri--Pym\cite[Theorem~7.13]{BondalGualtieriPym}は
-Fano四次元の場合を証明し、
-Druel--Pereira--Pym--Touzet\cite[Corollary~1.3]{BondalDruelPereiraPymTouzet}は
-Fano五次元の場合を証明した。
-Aza\cite[Theorem~1.3]{BondalAza}は、一般のFano多様体で隣接する退化軌跡が
-真に異なるとき、少なくとも一方がBondalの次元下界を満たすことを示している。
-本稿では滑らかな三次超曲面というクラスについて任意次元の全退化階数を扱う。
+\paragraph{低次元の既知分類と高次元の幾何学的帰結。}
+三次三様体の分類はLoray--Pereira--Touzet
+\cite[Theorems~7.1, 9.1]{LPTPoissonCubic}による。
+Mayanskiy\cite[Theorem~1]{PMayanskiy}はこの帰属を明記し、
+Jacobi方程式によるGrassmannスキームの記述とPoisson cohomologyの計算を与える。
+本稿の追加は、高次元で現れる複数ブロックも含む必要十分な正規形、
+固定した特殊超曲面の成分、および相対モジュライの成分の記述である。
+Bondal予想については、Gualtieri--Pym
+\cite[Theorem~7.13]{BondalGualtieriPym}のFano四次元の場合と、
+Druel--Pereira--Pym--Touzet
+\cite[Corollary~1.3]{BondalDruelPereiraPymTouzet}のFano五次元の場合は既知である。
+Aza\cite[Theorem~1.3]{BondalAza}の結果は、隣接する退化軌跡の
+真包含の下で少なくとも一方が次元下界を満たすという選言である。
+本稿の定理\ref{thm:pg-bondal}は三次超曲面というクラスについて
+\emph{任意次元の全退化階数}を同時に扱い、下界を担うjoinを具体的に構成する。
 
-分離型三次四様体の構成は、Pymの公開原稿
-\cite[arXiv v1, Theorem~1.3]{PPymElliptic}にある
-三次四様体の純楕円構造の非存在という記述とは両立しない。
-注意\ref{rem:pg-split-elliptic-lift-obstruction}で、
-同版Lemma~5.5の持上げの議論における非連結な曲線の障害を明示する。
-この比較は確認したarXiv版に限定し、刊行版本文・訂正文との最終照合は残している。
+\paragraph{一ブロックの量子化：既知の存在定理と相対的規格化。}
+三生成元同次代数のAS正則性・3-Calabi--Yau性の判定には
+Mori--Smith\cite[Theorems~1.4, 4.2]{PMoriSmith}を用いる。
+このうちTheorem~1.4はArtin--Tate--Van den Berghの判定の再掲である。
+低次potentialによるPBW変形はBerger--Taillefer
+\cite[Theorem~1.1(i), p.~242]{PBergerTaillefer}の結果であり、
+命題\ref{prop:pg-PBW}では中心係数環とactive次数の濾過に即して適用する。
 
-量子化では、Mori--Smithの三生成元Calabi--Yau代数の判定、
-Berger--TailleferのpotentialによるPBW変形、
-中心正則拡大の理論を用いる\cite{PMoriSmith,PBergerTaillefer,LBSVNE12}。
-Sklyanin中心元の基本公式は既知であり\cite{SmithTate,DeLaetLeBruyn}、
-本稿ではそのPoissonパラメータ表示、全混合係数の普遍恒等式、
-および特異制限へ進むための交換子行列の階数の議論を与える。
-一般の形式的量子化とCalabi--Yau双対性には
-Kontsevich、Dolgushev、Etingof--Ginzburgの理論がある
-\cite{PKontsevich,PDolgushev,EG}。
-本稿の代数的中心元の存在証明は、前述の有限次元の構成による。
-完全交叉の存在判定はBr\"uckmann型消滅の既知の帰結
-\cite[Lemma~4.1]{FuHwangCI}であり、必要な低twistの消滅は
-補題\ref{lem:ci-low-twist-vanishing}で独立に証明する。
+さらに、三変数Calabi--Yau最高次potentialに低次項を加えた代数に
+非スカラー中心元が存在することは、Etingof--Ginzburg
+\cite[Theorem~3.3.2(ii), p.~1385]{EG}が既に証明している。
+その証明は同論文\S8.3, pp.~1410--1411で、形式的量子化、Rees構成と特殊化を用いる。
+従って、一ブロックに中心元が存在することや、一般点から特殊な係数へ
+中心元を延長するという原理自体を本稿独自の結果とはしない。
+本稿の定理\ref{thm:pg-universal-determinant}と
+定理\ref{thm:pg-det-global-coefficient-lift}が与えるのは、
+\emph{指定した古典Casimir $f$}を極限に持つ中心元の、
+独立な中心混合係数を含む係数環上の選択と、$\hbar=0$における正則性である。
+その証明では、古典核の一定次元性と普遍交換子行列の小行列式を用い、
+三変数制限が特異・零の場合も同じ有限線形代数で扱う。
+中心元の存在、左右正則性、および中心商の平坦性は別々に証明する。
+
+\paragraph{明示中心公式と全ブロックへの組立て。}
+純Sklyanin中心元の基本公式は既知である
+\cite{SmithTate,DeLaetLeBruyn}。
+Etingof--Ginzburg\cite[\S9, p.~1414]{EG}には、
+一変数低次項を許す中心元の明示公式も収められている。
+一般Hesse表示の混合二次項は、Hesse係数を可逆にすると
+中心平行移動でこの表示へ移せる
+（注意\ref{rem:pg-hesse-eg-translation}）。
+従って、混合係数を含むという事実だけを公式の新規性の根拠とはしない。
+定理\ref{thm:pg-universal-hesse-mixed}では固定した係数環のまま、
+この平行移動による極を導入しない規格化と普遍恒等式を与える。
+有限の次数四線形代数が証明する中心性と、
+全次数のPBW性を明確に区別する。
+
+全次元の構成は、この一ブロックの入力を正規形定理と組み合わせるものである。
+定理\ref{thm:pg-quantization}では中心項の配分、ブロックの組立て、
+最高active記号による中心正則性を証明し、
+定理\ref{thm:pg-all-dimensions}と\ref{thm:pg-ad-all-poisson}では
+独立な多パラメータを保持する。
+同変性については定理\ref{thm:pg-equivariant-levi-center}、
+\ref{thm:pg-equivariant-parabolic-center}で所定の群への同変な選択を、
+系\ref{cor:pg-equivariant-character-descent}で所定の条件下の降下を証明する。
+これらの相対的な規格化と降下は、点ごとの非スカラー中心元の存在定理から
+直ちに従う主張ではない。
+一般の形式的量子化とunimodularityに関する
+Kontsevich・Dolgushevの理論\cite{PKontsevich,PDolgushev}は背景であり、
+本稿の有限Cramer構成の証明入力ではない。
+
+\paragraph{分離型四様体と持上げ障害。}
+分離型三次四様体の直接計算
+（命題\ref{prop:pg-split-elliptic}）と、
+非連結な中心の三重消失を保つ持上げ障害
+（命題\ref{prop:pg-triple-lifting-obstruction}、
+系\ref{cor:pg-split-lifting-obstruction}）を独立に証明する。
+文献との比較は、本文を確認したPym
+\cite{PPymElliptic}のarXiv:1507.05668v1に限定する。
+同版のDefinition~4.2, p.~17、Lemma~5.5, pp.~28--29、
+Proposition~5.7, p.~30との関係は
+注意\ref{rem:pg-split-elliptic-lift-obstruction}で詳述する。
+刊行版・関連訂正文の本文との最終照合は残るため、
+刊行済み定理の訂正を確定したとは述べない。
+
+\paragraph{付録の位置づけ。}
+二次包絡によるambient復元は低次数の核の議論であり、
 偏極付き圏のsection algebra復元はArtin--Zhangの理論
 \cite{PAZAmbient}の適用として記す。
+Serre関手からの復元には中心・自由性・滑らかさ等の追加仮定が必要である。
+完全交叉の存在判定はBr\"uckmann型消滅の既知の帰結
+\cite[Lemma~4.1]{FuHwangCI}であり、必要な低twist消滅は
+補題\ref{lem:ci-low-twist-vanishing}で独立にも証明する。
+これらは応用と背景を整理するための付録とし、中心的な新規性とは位置づけない。
 
-\subsection*{本文の構成}
-第\ref{sec:general-poisson-existence}節で完全交叉と斉次多様体の背景を述べる。
-第\ref{sec:pg-extension}--\ref{sec:pg-degeneracy}節で表示・正規形・葉・退化スキームを扱い、
-第\ref{sec:pg-quantization}節で量子化の主定理を証明する。
-Fermat・Hesse型の普遍中心公式、有限行列式による一般中心元、
-多変数量子化は第\ref{sec:pg-fermat-mixed-universal}--\ref{sec:pg-all-dimensions}節に置く。
-第\ref{sec:pg-ambient-recovery}節がambient復元、
-第\ref{sec:pg-poisson-stacks}--\ref{sec:pg-fermat-relative-components}節がモジュライを扱う。
-第\ref{sec:pg-bondal}節でBondal予想の帰結を示し、
-第\ref{ne:examples}節以降に非楕円成分と明示量子化の例を収める。
+\subsection*{証明の依存関係と本文の構成}
+主要な依存関係は次の通りである。表の各行で、追加仮定を要する帰結は
+それを用いない主定理と区別する。
+\begin{center}
+\small
+\begin{tabular}{p{.14\linewidth}p{.36\linewidth}p{.38\linewidth}}
+\toprule
+段階 & 入力と証明 & 結論と範囲 \\
+\midrule
+正規形 & Euler--Koszul表示、Hessianの基点自由性、
+補題\ref{lem:pg-basepoint-free-lie} &
+定理\ref{thm:pg-normal}。全三次式の滑らかさを仮定 \\
+幾何学的帰結 & 正規形、射影化後の階数、joinと階数層 &
+全退化階数の下界、固定・相対成分。critical coverには三変数制限の追加仮定 \\
+一ブロック & 命題\ref{prop:pg-PBW}、普遍Hesse恒等式、古典核とCramer公式 &
+指定した古典極限を持つ相対中心元。有限次数検算と全次数PBW性を分離 \\
+全ブロック & 中心項の配分、中心元の和、最高記号の正則性 &
+定理\ref{thm:pg-quantization}、\ref{thm:pg-ad-all-poisson}。商の平坦性まで証明 \\
+同変化・降下 & 不変開、Reynolds作用素、centering、指標補正 &
+所定の群と滑らかな制限上の降下。全Poissonモジュライへの無条件な降下は含めない \\
+\bottomrule
+\end{tabular}
+\end{center}
 
-\input{papers/sections/complete_intersections}
+第\ref{sec:pg-extension}--\ref{sec:pg-normal}節で正規形を証明し、
+第\ref{sec:pg-leaves}--\ref{sec:pg-bondal}節で幾何学的帰結を扱う。
+第\ref{sec:pg-poisson-stacks}--\ref{ne:examples}節に
+固定・相対モジュライと非楕円成分を置く。
+量子化は第\ref{sec:pg-quantization-foundations}節の一ブロックの入力から始め、
+第\ref{sec:pg-fermat-mixed-universal}--\ref{sec:pg-universal-determinant}節で
+具体的・普遍的な中心元を構成する。
+第\ref{sec:pg-quantization}--\ref{sec:pg-all-dimensions}節で全ブロックへ組み立て、
+第\ref{sec:pg-equivariant-central-lifts}節で同変化と降下を扱う。
+その後に具体例を置き、付録に既知中心公式、ambient復元、完全交叉の背景を収める。
+
 \input{papers/sections/poisson_geometry}
+\input{papers/sections/bondal_cubic}
+\input{papers/sections/poisson_moduli_stacks}
+\input{papers/sections/fermat_relative_poisson_components}
+\input{papers/sections/nonelliptic_poisson_components}
+\input{papers/sections/quantization_foundations}
 \input{papers/sections/fermat_mixed_universal_center}
 \input{papers/sections/hesse_mixed_universal_center}
 \input{papers/sections/universal_casimir_determinant}
-\input{papers/sections/equivariant_central_lifts}
+\input{papers/sections/algebraic_quantization}
 \input{papers/sections/general_dimension_universal_quantization}
-\input{papers/sections/ambient_recovery_general}
-\input{papers/sections/poisson_moduli_stacks}
-\input{papers/sections/fermat_relative_poisson_components}
-\input{papers/sections/bondal_cubic}
-\input{papers/sections/nonelliptic_poisson_components}
+\input{papers/sections/equivariant_central_lifts}
+\input{papers/sections/special_poisson_blocks}
 \input{papers/sections/nonelliptic_quantization}
+\appendix
 \input{papers/sections/explicit_hesse_center}
+\input{papers/sections/ambient_recovery_general}
+\input{papers/sections/complete_intersections}
 \input{papers/references_poisson_cubic}
 \end{document}
