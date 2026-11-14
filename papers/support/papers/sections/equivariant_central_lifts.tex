@@ -450,6 +450,135 @@ $\sigma_g\delta_g=\mathrm{id}$を用いた。
 古典極限は$f^0(x+B_fu,u)=f(x,u)$である。
 \end{proof}
 
+\begin{remark}[節点型の既知の明示中心元との関係]
+\label{rem:pg-cmr-nodal-comparison}
+Chekhov--Mazzocco--Rubtsov~\cite{PCMR}は、一般化Etingof--Ginzburg代数の
+$\gamma=0$の場合に中心三次元の明示式を与えている。
+以下で用いるのは、著者がaccepted versionと明記した
+arXiv:1905.02772v2のLemma~4.6、式~(4.39)、p.~22であり、
+対応する関係式は式~(4.38)、p.~21にある。
+同版Table~5、p.~41には、古典式$xyz+x^3+y^3$に
+対角二次項・一般一次項・定数項を加えた場合との対応も記されている。
+従って節点型における中心三次元の存在と、この基準座標での明示式は既知結果に帰属する。
+
+まず、この既知の式は節点型の一般の下位係数にも適用できる。
+$g=x^3+y^3+xyz$に対して
+\begin{equation}
+ \widetilde\sigma_g(q)
+   =\bigl([yz]q,[xz]q,[xy]q\bigr),
+ \qquad
+ \delta_g(v)=v_1(3x^2+yz)+v_2(3y^2+xz)+v_3xy
+ \label{eq:pg-cmr-alternative-centering}
+\end{equation}
+と置けば$\widetilde\sigma_g\delta_g=\mathrm{id}$である。
+この左逆も節点型の安定化群に同変であり、
+核$\langle x^2,y^2,z^2\rangle$は安定化群で保たれる。
+一般の二次項を
+\begin{equation}
+ q=q_{xx}x^2+q_{xy}xy+q_{xz}xz+q_{yy}y^2+q_{yz}yz+q_{zz}z^2
+ \label{eq:pg-cmr-general-quadratic}
+\end{equation}
+と書くと、$B=\widetilde\sigma_g(q)$による$f^0(X)=f(X-B)$の二次項は
+\begin{equation}
+ (q_{xx}-3q_{yz})X^2+(q_{yy}-3q_{xz})Y^2+q_{zz}Z^2
+ \label{eq:pg-cmr-diagonal-quadratic}
+\end{equation}
+となる。一次項・定数項もこの同じ三次式全体の並進で変換する。
+従って、以下では独立な中心係数を用いて
+\begin{equation}
+ f^0=x^3+y^3+xyz+A_1x^2+A_2y^2+A_3z^2
+       +\ell_1x+\ell_2y+\ell_3z+\kappa
+ \label{eq:pg-cmr-diagonal-potential}
+\end{equation}
+を扱えばよい。斉次三次式$f(x,u)$への適用では、$A_i$を$u$の一次式、
+$\ell_i$を二次式、$\kappa$を三次式とする。
+
+$p=1+t/2$、$s=1-t/2$と置き、$sp$を可逆にする。
+本稿の対称Jacobian関係式
+\begin{equation}
+ [x,y]=t\,\operatorname{sym}(f^0_z),\qquad
+ [y,z]=t\,\operatorname{sym}(f^0_x),\qquad
+ [z,x]=t\,\operatorname{sym}(f^0_y)
+ \label{eq:pg-cmr-jacobian-relations}
+\end{equation}
+は、CMRの式~(4.38)に
+\begin{equation}
+ \begin{gathered}
+ q_{\mathrm{CMR}}=p/s,\qquad
+ \alpha=\beta=3t/s,\qquad \gamma=0,\\
+ (a_1,b_1,c_1)=-2t(A_1,A_2,A_3)/s,\qquad
+ (a_2,b_2,c_2)=-t(\ell_1,\ell_2,\ell_3)/s
+ \end{gathered}
+ \label{eq:pg-cmr-parameter-comparison}
+\end{equation}
+を代入したものと一致する。
+実際、CMRの三関係式をそれぞれ$s$倍すると
+\begin{equation}
+ \begin{gathered}
+ sxy-pyx-2tA_3z-t\ell_3=0,\\
+ syz-pzy-3tx^2-2tA_1x-t\ell_1=0,\\
+ szx-pxz-3ty^2-2tA_2y-t\ell_2=0
+ \end{gathered}
+ \label{eq:pg-cmr-comparison-relations}
+\end{equation}
+を得る。
+
+CMRの式~(4.39)の中心元を$\Omega_{\mathrm{CMR}}$とする。
+上の代入後、その全係数は$t$で割れ、
+$\Omega_{\mathrm{CMR}}/(6t)$は$t=0$で正則である。
+また$s^5$を掛ければ係数の分母を除ける。従って
+\begin{equation}
+ Q=s^5\frac{\Omega_{\mathrm{CMR}}}{6t}+\kappa
+ \label{eq:pg-cmr-normalized-center}
+\end{equation}
+は$t,A_i,\ell_i,\kappa$の多項式を係数とする語の有限和であり、
+$Q\bmod t=f^0$である。
+ここで$t$で割る操作は係数ごとの可除性によるものであり、
+最終的な係数環で$t$を可逆にしているわけではない。
+中心性はCMRの公式から従い、$t=0$への延長はPBWによる$t$-torsionの消滅から従う。
+
+この規格化を安定化群に正確に共変にする純中心補正も明示できる。
+$x,y$の交換に伴って
+\begin{equation}
+ A_1\leftrightarrow A_2,\qquad
+ \ell_1\leftrightarrow\ell_2,\qquad t\longmapsto-t
+ \label{eq:pg-cmr-swap-action}
+\end{equation}
+と変換する。最後の符号は$t'=\lambda\det(M)t$による。
+変換した式を元の代数に引き戻したものを$Q^{\mathrm{sw}}$と書く。
+CMRの公式に上のパラメータを代入し、$\nu=1+t^2/12$と置くと
+\begin{equation}
+ \begin{aligned}
+ Q^{\mathrm{sw}}-Q
+ &=\nu z(sxy-pyx)+A_3\nu(s^2-p^2)z^2
+      +6A_3t^2(pyx-sxy)\\
+ &\quad+\bigl((s-p)\nu\ell_3+6(s+p)A_3^2t^3\bigr)z.
+ \end{aligned}
+ \label{eq:pg-cmr-swap-computation}
+\end{equation}
+\eqref{eq:pg-cmr-comparison-relations}の第一式と$s+p=2$、$s-p=-t$を用いて
+\begin{equation}
+ Q^{\mathrm{sw}}-Q=-6A_3\ell_3t^3
+ \label{eq:pg-cmr-swap-discrepancy}
+\end{equation}
+を得る。従って
+\begin{equation}
+ \widehat Q=Q-3A_3\ell_3t^3
+ \label{eq:pg-cmr-equivariant-center}
+\end{equation}
+はこの交換に正確に共変である。
+他の生成子$rI$と$\operatorname{diag}(\zeta,\zeta^{-1},1)$、$\zeta^3=1$については、
+各単項式がそれぞれ次数重み$3$、$\mu_3$重み$0$を持つことから共変性が従う。
+こうしてCMRの既知の公式から、節点基準形上の安定化群に共変な中心元を得る。
+
+一般の下位係数への復帰は$\widehat Q_{f^0,t}(x+B)$で与えられる。
+中心化の変換則と軌道上への正則な移送を組み合わせれば、本稿で用いる全ブロック群との
+整合性へ接続する。この接続、相対的な係数選択、およびPoisson層への降下の主張は、
+CMRの点ごとの明示式と区別して述べる。
+多項式表示\eqref{eq:pg-cmr-equivariant-center}だけから、$t=\pm2$でのPBW性・平坦性や
+型の境界を越える同変な貼合せは結論しない。
+\end{remark}
+
 \begin{remark}[層ごとの選択と貼合せの限界]
 \label{rem:pg-equivariant-stratumwise-centering}
 上の三つの層を合わせた不可約三次式の開全体には、
@@ -586,7 +715,10 @@ Weyl基底の独立性から$(x^3+y^3+z^3)/3$はこの直線に入らない。
 一方、三変数制限が零の場合には定理\ref{thm:pg-equivariant-zero-center}により
 $P_f=f$そのものが中心であり、全$G$への共変性と純中心係数の固定は両立する。
 節点・尖点の各軌道についても、定理\ref{thm:pg-equivariant-parabolic-center}の
-全$G$同変選択を得るが、可約・非被約制限を含む一般の場合と型の境界の整合は残る。
+全$G$同変選択を得る。
+可約・非被約制限も含めた型をまたぐ一つの選択は、
+定理\ref{thm:pg-intrinsic-rank-two-center}で中心核を直接扱って構成する。
+この選択と本節の各明示式との一致は課していない。
 \end{remark}
 
 \subsection{階数二のPoissonモジュライへの降下}

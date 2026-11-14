@@ -10,9 +10,9 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月14日・論文A（投稿準備稿 v58）}
+\date{2026年11月14日・論文A（投稿準備稿 v59）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-14 / A-v58}
+\fancyhead[R]{\small 2026-11-14 / A-v59}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -30,15 +30,17 @@ Koszul Artin--Schelter正則代数と、その正則中心三次商に量子化�
 古典Casimir核および普遍交換子行列の階数を用いて代数的に構成する。
 この構成は三変数制限が特異または零の場合も含み、
 固定した変数分解の全滑らかな係数空間上に中心元を選べる。
-さらに、変数分解を保つ一般線形群に関して同変な中心元を選び、
-三変数制限が滑らか、節点型または尖点型の各層では中心平行移動との整合性も得る。
+階数二の場合には、supportの三平面を全て動かし、三変数制限の型によらず、
+全座標群に共変な中心元を零切断近傍に選ぶ。
+証明にはGrassmann多様体上の純中心束のコホモロジー消滅と、
+有限中心核のNoetherian完備化を用いる。
+従って$\gcd(n+2,3)=1$なら、被約な階数二のPoisson対の全モジュライと
+変形直線の積の零切断近傍へ量子化族を降ろせる。
+特に三次三様体では、全ての非零Poisson対を同時に扱う。
 制限が恒等的零の層では、PBW対称化した三次式自体が
 全パラメータで全ブロック群に共変な正則中心元となる。
 節点・尖点層では特異点直線によって次数重みを除き、
 中心変数の個数によらず、Poisson対の各層と変形直線の積の零切断近傍へ量子化族を降ろす。
-三変数制限が滑らかな層については、三次三様体で
-Poisson対の被約モジュライの稠密開と変形直線の積の零切断近傍に、
-変形変数を固定した代数的量子化の族を得る。
 また、固定した正規形のPoisson線形族を同時に量子化する。
 さらに、固定超曲面上のPoissonスキームとその自己同型群による商、
 超曲面自身を動かす相対モジュライを区別し、
@@ -199,8 +201,9 @@ PBW対称化の随伴同変性から
 を得る。この場合は全$t\in\mathbb A^1$でPBW性と全ブロック群への共変性が成り立ち、
 例外パラメータの除去も純中心係数の変更も不要である
 （定理\ref{thm:pg-equivariant-zero-center}）。
-一般の同変選択の一意性、可約・非被約な$g$での全座標群への拡張、
-型の境界をまたぐ貼合せ、複数ブロックの配分との整合性は結論に含めない。
+これらの層ごとの構成とは別に、階数二の全supportにわたる共変な選択を
+定理\ref{thm:pg-intrinsic-rank-two-center}で証明する。
+その証明は中心調整を経由せず、可約・非被約・零の三変数制限も含む。
 $g$が滑らかな場合、全ブロック群$G$による商は、
 階数二のPoisson対の被約層内の対応する開部分上の
 $\mathbb G_m$-gerbeである
@@ -230,7 +233,40 @@ $\gcd(m,3)=1$なら指標を用いて次数線形化を補正でき、
 各層と変形直線の積の零切断近傍へ実際の次数付き代数族が降りる
 （命題\ref{prop:pg-equivariant-singular-strata}）。
 三次三様体ではその底の次元はそれぞれ$16,15$である。
-これらは層ごとの構成であり、滑らかな制限の族や互いの境界での整合を主張しない。
+これらの明示的な層ごとの選択が互いに一致するとは限らない。
+型の境界をまたぐ一つの族は、次の内在的な構成によって選ぶ。
+
+$C_3^\times(V)\subset\bigwedge^3V$を非零分解可能三重ベクトルの錐とし、
+$\mathcal T_N$を全三次式が滑らかな係数空間とする。
+$\mathcal S_N=\mathcal T_N\times C_3^\times(V)$では
+support $W_P$が三平面の全体を動く。
+古典Casimir核は自然に
+\begin{equation}\label{eq:intro-intrinsic-classical-kernel}
+ \mathcal K_0=\OO_{\mathcal S_N}F\oplus
+ \operatorname{Sym}^3(V/W_P)^*
+\end{equation}
+と分裂する。Grassmann多様体上のBorel--Weil--Bott計算により
+$H^1(\mathcal S_N,\mathcal K_0)=0$であるため、$F$を
+$\hbar$進の中心核へ順次持ち上げられる。
+Stiefel開上の正則関数の延長によって係数を有限生成の不変式環に置き、
+有限加群の完備化の完全性を用いて、同じ古典極限を持つ\emph{代数的な}中心元を得る。
+最後に還元的群$\mathrm{GL}(V)\times\mathbb G_m$で平均する。
+この方法で全$\mathcal S_N\times\{0\}$を含む不変開上の共変な中心元と、
+次数別局所自由な正則中心商族を構成する
+（定理\ref{thm:pg-intrinsic-rank-two-center}）。
+形式的級数の全体を代数的な式と同一視するのではなく、
+中心性と指定された古典極限を持つ有限核の元を選ぶ点が要となる。
+
+さらに$\gcd(N,3)=1$なら、$Nr-3s=1$を満たす整数を使った
+指標$\theta(L,\lambda)=(\det L)^r\lambda^s$で次数重みを補正し、
+被約な階数二のPoisson対の\emph{全}モジュライと変形直線の積の
+零切断近傍へ代数族を降ろす
+（系\ref{cor:pg-intrinsic-rank-two-descent}）。
+三次三様体では$N=5$なので、十七次元の非零Poisson対の全被約モジュライが底となる。
+これは変形原点の近傍における存在であり、全変形直線への延長や一意性は主張しない。
+全係数での補空間の同変選択は実際には不可能である
+（命題\ref{prop:pg-equivariant-global-centering-obstruction}）が、
+この障害は中心核そのものの持上げを妨げない。
 
 固定した正規形では、独立なパラメータ$\eta_1,\ldots,\eta_k$を導入し、
 各ブロックの中心元を加えることで
@@ -258,7 +294,7 @@ Poisson線形族の全方向を一つの相対代数族で量子化できる
 次数付き代数を載せる商スタックでは、次数$d$に重み$d$で作用する
 スカラーの$\mathbb G_m$をまず保持し、指標補正または特異点直線による捻りで
 上記の範囲においてこれを除く。
-全Poissonモジュライ上の大域的な量子化射や、
+複数ブロックも含む全Poissonモジュライ上の量子化族や、
 全閉点での$\operatorname{qgr}B_\hbar$のsmoothnessは結論に含めない。
 
 \subsection*{固定・相対モジュライとFermatの成分}
@@ -402,6 +438,13 @@ Mori--Smith\cite[Theorems~1.4, 4.2]{PMoriSmith}を用いる。
 非スカラー中心元が存在することは、Etingof--Ginzburg
 \cite[Theorem~3.3.2(ii), p.~1385]{EG}が既に証明している。
 その証明は同論文\S8.3, pp.~1410--1411で、形式的量子化、Rees構成と特殊化を用いる。
+またProposition~8.1.1(i), pp.~1407--1408は、正の重み$(a,b,c)$、$d=a+b+c$と
+$\deg\Phi_j\le d$を満たす$\Phi=xyz-yxz+\sum_{j\ge1}\hbar^j\Phi_j$に対し、
+古典剰余$(\Phi_1)^{\mathrm{ab}}$を持つ次数$d$以下の形式中心元を与える。
+この項には孤立特異点の仮定はなく、その仮定は同命題(ii), (iii)で追加される。
+証明には相対係数環と還元群の作用に対応した形式性も既に現れる。
+従って、指定した古典剰余の形式中心の存在や、相対的・同変な形式構成自体も
+本稿の新規性の根拠とはしない。
 従って、一ブロックに中心元が存在することや、一般点から特殊な係数へ
 中心元を延長するという原理自体を本稿独自の結果とはしない。
 本稿の定理\ref{thm:pg-universal-determinant}と
@@ -432,6 +475,16 @@ Etingof--Ginzburg\cite[\S9, p.~1414]{EG}には、
 有限の次数四線形代数が証明する中心性と、
 全次数のPBW性を明確に区別する。
 
+節点型についても、Chekhov--Mazzocco--Rubtsov
+\cite[Lemma~4.6, 式(4.39), p.~22]{PCMR}が、
+一般化Etingof--Ginzburg代数の$\gamma=0$の場合の中心三次元を明示している。
+同じaccepted versionのTable~5, p.~41には、$xyz+x^3+y^3$に
+対角二次項・一般一次項を加えた古典式との対応がある。
+注意\ref{rem:pg-cmr-nodal-comparison}では、一般の二次混合項をこの表示へ移す
+安定化群同変な左逆、対称Jacobian関係とのパラメータ対応、
+古典極限を$f$にする規格化と純中心補正を明示する。
+節点型の中心元の存在と基準座標での公式を本稿の新規成果とはしない。
+
 全次元の構成は、この一ブロックの入力を正規形定理と組み合わせるものである。
 定理\ref{thm:pg-quantization}では中心項の配分、ブロックの組立て、
 最高active記号による中心正則性を証明し、
@@ -447,8 +500,16 @@ Etingof--Ginzburg\cite[\S9, p.~1414]{EG}には、
 特異点直線の捻りにはgerbe上の重み零の層の既知の降下
 \cite[Proposition~4.10, p.~1487]{PBerghSchnurerGerbes}を用いる。
 これらの一般原理自体を新規性の根拠とはしない。
-これらの相対的な規格化と降下は、点ごとの非スカラー中心元の存在定理から
-直ちに従う主張ではない。
+定理\ref{thm:pg-intrinsic-rank-two-center}では、既知のBorel--Weil--Bott消滅、
+不変式環の有限生成、Noetherian完備化の完全性を、
+全support上のCasimir核と有限量子交換子行列に適用する。
+追加されるのは、三変数制限の型を限定しない共変な中心元の選択と、
+系\ref{cor:pg-intrinsic-rank-two-descent}の範囲での全階数二層への降下である。
+ここでは、点ごとの非スカラー中心元や所定の形式中心の存在に加えて、
+全supportを動かす底の上で古典剰余を固定した代数的な大域切断を選び、
+全$\mathrm{GL}_N\times\mathbf G_m$への共変性を課している。
+今回確認した上記文献の箇所から、この同時選択と降下が直接与えられるわけではない。
+ただし、関連文献全体に対する新規性の最終確認は残る。
 一般の形式的量子化とunimodularityに関する
 Kontsevich・Dolgushevの理論\cite{PKontsevich,PDolgushev}は背景であり、
 本稿の有限Cramer構成の証明入力ではない。
@@ -507,8 +568,10 @@ Serre関手からの復元には中心・自由性・滑らかさ等の追加仮
 指定した古典極限を持つ相対中心元。有限次数検算と全次数PBW性を分離 \\
 全ブロック & 中心項の配分、中心元の和、最高記号の正則性 &
 定理\ref{thm:pg-quantization}、\ref{thm:pg-ad-all-poisson}。商の平坦性まで証明 \\
-同変化・降下 & 不変開、Reynolds作用素、軌道上のcentering、PBW対称化、重みの補正 &
-滑らかな制限・零制限・節点・尖点の各層。零制限では全パラメータ、節点・尖点では全$m$ \\
+層ごとの構成 & 不変開、Reynolds作用素、軌道上のcentering、PBW対称化、重みの補正 &
+零制限では全パラメータ、節点・尖点では全$m$の層への降下 \\
+階数二の全体 & 純中心束のBott消滅、有限核の完備化、全座標群の平均 &
+型をまたぐ中心商族。$\gcd(N,3)=1$なら全被約階数二モジュライへ降下 \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -521,7 +584,8 @@ Serre関手からの復元には中心・自由性・滑らかさ等の追加仮
 第\ref{sec:pg-fermat-mixed-universal}--\ref{sec:pg-universal-determinant}節で
 具体的・普遍的な中心元を構成する。
 第\ref{sec:pg-quantization}--\ref{sec:pg-all-dimensions}節で全ブロックへ組み立て、
-第\ref{sec:pg-equivariant-central-lifts}節で同変化と降下を扱う。
+第\ref{sec:pg-equivariant-central-lifts}節で層ごとの同変化と降下を扱い、
+第\ref{sec:pg-intrinsic-rank-two-center}節で階数二の全supportへ拡張する。
 その後に具体例を置き、付録に既知中心公式、ambient復元、完全交叉の背景を収める。
 
 \input{papers/sections/poisson_geometry}
@@ -536,6 +600,7 @@ Serre関手からの復元には中心・自由性・滑らかさ等の追加仮
 \input{papers/sections/algebraic_quantization}
 \input{papers/sections/general_dimension_universal_quantization}
 \input{papers/sections/equivariant_central_lifts}
+\input{papers/sections/intrinsic_rank_two_center}
 \input{papers/sections/special_poisson_blocks}
 \input{papers/sections/nonelliptic_quantization}
 \appendix

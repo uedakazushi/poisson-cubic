@@ -1,0 +1,706 @@
+\section{階数二の全係数空間における中心直線}
+\label{sec:pg-intrinsic-rank-two-center}
+前節の中心調整は、三変数制限の型ごとに適した座標を選ぶ構成であった。
+本節ではsupportの三次元部分空間を動かし、中心核そのものを扱う。
+Grassmann多様体上の一次コホモロジーの消滅と有限加群の完備化を用いることで、
+三変数制限の型を区別せず、全線形群に共変な中心三次元を同時に選ぶ。
+形式的中心元の存在自体は、所定の古典剰余を持つ場合を含め、
+Etingof--Ginzburg\cite[Proposition~8.1.1(i), pp.~1407--1408]{EG}の既知の結果である。
+ここで証明するのは、動く全support上での代数的な同時選択である。
+形式的持上げには補題\ref{lem:pg-det-divided-kernel}の局所核を用い、
+その大域化に必要なコホモロジーを直接計算する。
+
+$N\ge5$、$m=N-3$、$V=\CC^N$とし、
+$\mathcal T_N\subset\operatorname{Sym}^3V^*$を、
+滑らかな射影超曲面を定める三次式の係数空間とする。
+これは判別式を可逆にしたアフィンスキームである。
+次の底と群を用いる：
+\begin{equation}
+ \begin{aligned}
+ C_3^\times(V)&=
+ \{0\ne P\in\Lambda^3V:P\text{ は分解可能}\},\\
+ \mathcal S_N&=\mathcal T_N\times C_3^\times(V),
+ &H_N&=\mathrm{GL}(V)\times\mathbf G_{m,\lambda},\\
+ F'(X)&=\lambda^{-1}F(L^{-1}X),
+ &P'&=\lambda(\Lambda^3L)P,\qquad \hbar'=\hbar.
+ \end{aligned}
+ \label{eq:pg-intrinsic-rank-two-parameters}
+\end{equation}
+ここで$(L,\lambda)\in H_N$、$X=Lv$である。
+座標$v_1,\ldots,v_N$で$P$の交代成分を$P^{ijk}$と書き、
+\begin{equation}
+ \mathcal A_{F,P,\hbar}
+ =\CC\langle v_1,\ldots,v_N\rangle\Big/
+ \left(
+ [v_i,v_j]-\hbar\sum_{k=1}^N
+ P^{ijk}\sym\left(\frac{\partial F}{\partial v_k}\right)
+ \right)_{i,j}
+ \label{eq:pg-intrinsic-rank-two-algebra}
+\end{equation}
+とする。係数を動かす場合には同じ表示を構造層上で読む。
+代入$X=Lv$は同型
+$\Phi:\mathcal A_{F',P',\hbar}\to\mathcal A_{F,P,\hbar}$を与える。
+$P$のsupportに適合する基底では、この代数は中心変数$m$個を持つ
+一ブロック代数である。
+
+\begin{theorem}[全階数二係数空間上の同変中心元]
+\label{thm:pg-intrinsic-rank-two-center}
+$H_N$および$\hbar\mapsto-\hbar$で不変なZariski開
+\begin{equation}
+ \mathcal W_N\subset\mathcal S_N\times\mathbb A^1_\hbar,
+ \qquad \mathcal S_N\times\{0\}\subset\mathcal W_N
+ \label{eq:pg-intrinsic-rank-two-open}
+\end{equation}
+と、その上でWeyl係数が正則な中心三次元$\Omega_{F,P,\hbar}$が存在し、
+次を満たす。
+\begin{enumerate}
+\item 古典極限、偶性および全線形群に関する共変性は
+\begin{equation}
+ \Omega_{F,P,0}=F,\qquad
+ \Omega_{F,P,-\hbar}=\Omega_{F,P,\hbar},\qquad
+ \Phi(\Omega_{F',P',\hbar})
+       =\lambda^{-1}\Omega_{F,P,\hbar}
+ \label{eq:pg-intrinsic-rank-two-covariance}
+\end{equation}
+である。偶性の等号はWeyl表示での等号を表す。
+\item $W_P\subset V$を$P$のsupportとする。
+割った交換子の三次核$\mathcal K$と、
+純中心三次式の部分束$\mathcal C$について
+\begin{equation}
+ \mathcal C_{(F,P,\hbar)}
+   =\operatorname{Sym}^3(V/W_P)^*,\qquad
+ \mathcal K=\mathcal C\oplus\OO_{\mathcal W_N}\Omega
+ \label{eq:pg-intrinsic-rank-two-kernel-splitting}
+\end{equation}
+が成り立つ。従って$\mathcal J=\OO_{\mathcal W_N}\Omega$は
+$H_N$-同変な中心直線である。
+\item $\mathcal A$と中心商$\mathcal B=\mathcal A/(\mathcal J)$の各次数部分は
+$\mathcal W_N$上で有限局所自由である。
+各閉ファイバーの$\mathcal A$は次元$N$、AS parameter $N$の
+Koszul AS-regular domainであり、$\Omega$は左右正則である。
+各閉ファイバーの$\mathcal B$は左右injective dimension $N-1$、
+AS parameter $N-3$のAS-Gorenstein代数で、
+\begin{equation}
+ \operatorname{Hilb}_{\mathcal A}(z)=(1-z)^{-N},\qquad
+ \operatorname{Hilb}_{\mathcal B}(z)=\frac{1-z^3}{(1-z)^N},\qquad
+ \mathcal B/(\hbar)\simeq
+ \operatorname{Sym}(V^*)\otimes\OO_{\mathcal S_N}/(F)
+ \label{eq:pg-intrinsic-rank-two-quotient}
+\end{equation}
+である。特殊ファイバーの一次Poisson括弧は
+$\{v_i,v_j\}=\sum_kP^{ijk}\partial_kF$である。
+\end{enumerate}
+三変数制限が可約、非被約または恒等的零となる点も含め、
+$\mathcal S_N$の全零切断を一つの開集合で扱う。
+全$\hbar$直線上での存在や、既に選んだ型別の中心式との一致は主張しない。
+\end{theorem}
+
+証明で使うコホモロジーの消滅を先に示す。
+$\mathbf G=\operatorname{Gr}(3,V)$上のtautological完全列を
+\begin{equation}
+ 0\longrightarrow\mathcal W\longrightarrow V\otimes\OO_{\mathbf G}
+ \longrightarrow\mathcal Q\longrightarrow0,\qquad
+ \OO_{\mathbf G}(1)=\det\mathcal W^*
+ \label{eq:pg-rank-two-tautological-sequence}
+\end{equation}
+と書く。
+
+\begin{lemma}[中心三次束の一次コホモロジー]
+\label{lem:pg-rank-two-bott-vanishing}
+任意の整数$j$について
+\begin{equation}
+ H^1(\mathbf G,\OO_{\mathbf G}(j))=0,\qquad
+ H^1\left(\mathbf G,
+ \operatorname{Sym}^3\mathcal Q^*\otimes\OO_{\mathbf G}(j)\right)=0.
+ \label{eq:pg-rank-two-bott-vanishing}
+\end{equation}
+従ってsupportを取る写像
+$\pi:C_3^\times(V)\to\mathbf G$について
+\begin{equation}
+ H^1(C_3^\times(V),\OO)=0,\qquad
+ H^1(C_3^\times(V),\pi^*\operatorname{Sym}^3\mathcal Q^*)=0.
+ \label{eq:pg-rank-two-cone-cohomology}
+\end{equation}
+\end{lemma}
+\begin{proof}
+Borel--Weil--Bottの計算規則を用いる
+\cite[Theorem~5, p.~3]{PLurieBWB}。
+Grassmann多様体上での重みの規約は
+\cite[\S2.2, Theorem~2.3, pp.~5--6]{PGuoLuSharpe}のものとする。
+$\operatorname{Sym}^3\mathcal Q^*\otimes\OO(j)$に対応する重みと、
+$\rho=(N-1,N-2,\ldots,0)$を加えた列は
+\begin{equation}
+ \begin{aligned}
+ \alpha_j&=(j,j,j,3,0,\ldots,0),\\
+ \alpha_j+\rho
+   &=(j+N-1,j+N-2,j+N-3,N-1,N-5,N-6,\ldots,0).
+ \end{aligned}
+ \label{eq:pg-rank-two-bott-weights}
+\end{equation}
+$j=0,1,2$では$N-1$が重複するため全コホモロジーが消える。
+$j\ge3$では既に狭義単調減少なので、非零となり得るのは$H^0$だけである。
+$j<0$では第四成分$N-1$が最初の三成分のいずれよりも大きい。
+従って重複がなければ、狭義単調減少に並べ替える置換の長さは少なくとも三である。
+重複がある場合にもコホモロジーは零なので、いずれも$H^1$は消える。
+
+$\OO(j)$では重みは$(j,j,j,0,\ldots,0)$である。
+$j\ge0$では$H^0$だけが可能であり、$-N<j<0$では
+$\rho$を加えた最初の三成分の少なくとも一つが後続成分と重複する。
+$j\le-N$では、重複のない列を並べ替える長さは$3(N-3)>1$である。
+これが\eqref{eq:pg-rank-two-bott-vanishing}を示す。
+
+$C_3^\times(V)$は$\det\mathcal W=\OO_{\mathbf G}(-1)$の
+零切断を除いた全空間であり、$\pi$はアフィンな$\mathbf G_m$-torsorである。
+従って
+\begin{equation}
+ \pi_*\OO_{C_3^\times(V)}
+    =\bigoplus_{j\in\mathbb Z}\OO_{\mathbf G}(j),\qquad
+ \pi_*\pi^*\operatorname{Sym}^3\mathcal Q^*
+    =\bigoplus_{j\in\mathbb Z}
+      \operatorname{Sym}^3\mathcal Q^*\otimes\OO_{\mathbf G}(j).
+ \label{eq:pg-rank-two-cone-direct-images}
+\end{equation}
+有限アフィン被覆の\v{C}ech複体を用いれば、ここでのコホモロジーは
+直和と可換する。よって\eqref{eq:pg-rank-two-cone-cohomology}を得る。
+\end{proof}
+
+\begin{proof}[定理\ref{thm:pg-intrinsic-rank-two-center}の証明]
+\emph{局所核と形式的持上げ。}
+$C_3^\times(V)$上で局所的に$W_P$の基底と補空間を選び、
+$P=\eta\,\partial_{x_1}\wedge\partial_{x_2}\wedge\partial_{x_3}$と書く。
+ここで$\eta$は単元である。
+\eqref{eq:pg-intrinsic-rank-two-algebra}は
+$t=\eta\hbar$とした一ブロック代数となる。
+命題\ref{prop:pg-PBW}の係数も動かした開
+\eqref{eq:pg-det-universal-open}と、
+補題\ref{lem:pg-det-divided-kernel}を適用する。
+これらの条件は代数、Weyl写像、割った交換子および$W_P$から定まるので、
+基底の変更と両立する。
+従って全零切断を含む$H_N$-不変開上で、
+各次数の代数は局所自由であり、次数三、四のWeyl写像は同型である。
+また割った交換子
+\begin{equation}
+ \mathcal D(p)=
+ \left(\hbar^{-1}[\sym(p),v_i]\right)_{i=1}^N,
+ \qquad \mathcal K=\ker\mathcal D
+ \label{eq:pg-intrinsic-rank-two-divided-map}
+\end{equation}
+の核・像・余核は局所自由で、任意の底変更と両立する。
+この開を$\mathcal U_{\mathrm{loc}}$と書く。
+$\hbar\mapsto-\hbar$と反対代数の同型を併用すれば、
+$\mathcal U_{\mathrm{loc}}$をこの対称性でも不変に取れる。
+
+以下、$\pi^*\operatorname{Sym}^3\mathcal Q^*$を
+$\mathcal S_N$へ引き戻した束も$\mathcal C$と書く。
+補題\ref{lem:pg-det-classical-kernel}により、零切断上では
+\begin{equation}
+ \mathcal K_0:=\mathcal K/(\hbar)
+     =\OO_{\mathcal S_N}F\oplus\mathcal C,
+ \qquad H^1(\mathcal S_N,\mathcal K_0)=0.
+ \label{eq:pg-intrinsic-rank-two-classical-splitting}
+\end{equation}
+後半は補題\ref{lem:pg-rank-two-bott-vanishing}と
+$\mathcal T_N$のアフィン性から従う。
+ここでは$F$は普遍三次式であり、$F$が純中心式となることは滑らかさに反する。
+
+各$\hbar$進厚みは$\mathcal U_{\mathrm{loc}}$に含まれる。
+$\mathcal K_r=\mathcal K/\hbar^{r+1}\mathcal K$とおけば、
+局所自由性により$\mathcal S_N$上の完全列
+\begin{equation}
+ 0\longrightarrow\mathcal K_0
+ \xrightarrow{\ \hbar^{r+1}\ }\mathcal K_{r+1}
+ \longrightarrow\mathcal K_r\longrightarrow0
+ \qquad(r\ge0)
+ \label{eq:pg-intrinsic-rank-two-formal-sequences}
+\end{equation}
+を得る。\eqref{eq:pg-intrinsic-rank-two-classical-splitting}から
+大域切断上の右の写像は全射である。
+$F\in\Gamma(\mathcal S_N,\mathcal K_0)$を逐次持ち上げると、
+Weyl表示で
+\begin{equation}
+ \widehat\Omega\in
+ \Gamma(\mathcal S_N,\OO)[[\hbar]]
+       \otimes_\CC\operatorname{Sym}^3V^*,
+ \qquad \widehat\Omega\bmod\hbar=F,
+ \qquad \mathcal D\widehat\Omega=0
+ \label{eq:pg-intrinsic-rank-two-formal-center}
+\end{equation}
+を得る。この段階では同変性を課さない。
+
+\emph{アフィン係数環への延長。}
+Stiefel開部分$\operatorname{St}(3,V)\subset\operatorname{Mat}_{N\times3}$から
+列の外積を取る写像は、$C_3^\times(V)$上の
+Zariski局所自明な$\mathrm{SL}_3$-torsorである。
+実際、非零の三次小行列を固定した開では、指定された外積を持つ基底を正則に選べる。
+階数二以下の行列の閉集合は余次元$N-2\ge2$なので、
+\begin{equation}
+ \Gamma(\operatorname{St}(3,V),\OO)
+      =\CC[\operatorname{Mat}_{N\times3}],\qquad
+ \Gamma(C_3^\times(V),\OO)
+      =\CC[\operatorname{Mat}_{N\times3}]^{\mathrm{SL}_3}=:B_N.
+ \label{eq:pg-intrinsic-rank-two-stiefel-functions}
+\end{equation}
+最初の等号は次の初等的な延長による。
+正則関数を多項式環の分数体の既約分数として書いたとき、
+分母の既約因子があればその零点因子の一般点はStiefel開に属し、
+そこで極を持つことになる。従って分母は定数である。
+第二の等号はtorsorに沿う正則関数の降下である。
+Hilbertの有限生成定理
+\cite[Theorem~2.1, pp.~368--369]{PDerksenInvariants}により$B_N$は有限生成であり、
+\begin{equation}
+ A_N=\Gamma(\mathcal T_N,\OO)\otimes_\CC B_N
+     =\Gamma(\mathcal S_N,\OO),\qquad
+ \overline{\mathcal S}_N=\operatorname{Spec}A_N
+ \label{eq:pg-intrinsic-rank-two-affine-base}
+\end{equation}
+は有限型の整域で定義される。
+群作用はこのアフィン化へ延長する。
+外積の成分$P^{ijk}$は三次小行列式で与えられる不変式なので、
+\eqref{eq:pg-intrinsic-rank-two-algebra}は$A_N[\hbar]$上でも定義される。
+ここでは不変式環とPl\"ucker方程式の商環の同定や、錐の正規性を必要としない。
+
+\emph{有限次数のWeyl開。}
+$d=3,4$について、語長$d$の自由加群と二次関係式の倍数からなる
+有限表示行列$R_d$を取る。
+$\hbar=0$でその余核は
+$\operatorname{Sym}^dV^*\otimes A_N$である。
+また$\mathcal U_{\mathrm{loc}}$上のPBW性から、一般点の余核の次元も
+$a_d=\binom{N+d-1}{d}$である。
+従って$r_d=N^d-a_d$とおくと、$R_d$の全ての$(r_d+1)$次小行列式は
+整域$A_N[\hbar]$において恒等的に零である。
+
+$\hbar=0$で独立な$r_d$本の関係式の列を固定する。
+これらと標準単項式のWeyl対称化$a_d$本とを並べた正方行列の行列式は、
+$\hbar=0$で非零定数である。
+これを規格化した関数$q_d$は$q_d\bmod\hbar=1$を満たす。
+$q_d$を可逆にすると、選んだ関係式の列とWeyl列が基底になる。
+上の高次小行列式の消滅により、残りの関係式も選んだ関係式の列で生成される。
+従って次数$d$のWeyl写像は同型である。
+
+次数三、四のWeyl写像が同型となる開は
+$H_N\times\boldsymbol\mu_2$-不変で、
+$\overline{\mathcal S}_N\times\{0\}$全体を含む。
+ここで$\boldsymbol\mu_2$は$\hbar\mapsto-\hbar$と語の順序反転で作用する。
+補題\ref{lem:pg-equivariant-affine-lifting}(1)により、
+この開に含まれるprincipal開を
+\begin{equation}
+ D(q),\qquad q\in A_N[\hbar]^{H_N\times\boldsymbol\mu_2},
+ \qquad q\bmod\hbar=1
+ \label{eq:pg-intrinsic-rank-two-uniform-weyl-open}
+\end{equation}
+と取れる。
+これは中心性を有限行列で扱うための二つの次数だけの主張であり、
+全次数のPBW性は別に$\mathcal U_{\mathrm{loc}}$から用いる。
+
+\emph{有限核の完備化による代数的持上げ。}
+\begin{equation}
+ R=A_N[\hbar,q^{-1}],\qquad
+ \widehat R=A_N[[\hbar]],\qquad
+ D:R\otimes\operatorname{Sym}^3V^*
+     \longrightarrow R\otimes(\operatorname{Sym}^4V^*)^{\oplus N},
+ \qquad K=\ker D
+ \label{eq:pg-intrinsic-rank-two-finite-kernel}
+\end{equation}
+とする。$D$は\eqref{eq:pg-intrinsic-rank-two-divided-map}のWeyl行列である。
+次数四部分が自由で、交換子は$\hbar=0$で零となるため、
+$\hbar$で割った行列も$R$上で定義される。
+$R$はNoether環なので$K$は有限加群である。
+\eqref{eq:pg-intrinsic-rank-two-formal-center}の各係数は
+\eqref{eq:pg-intrinsic-rank-two-affine-base}により$A_N$に属する。
+中心性の各係数等式もこの環で成立するから、
+$\widehat\Omega\in\ker\widehat D$である。
+
+有限加群の完備化の完全性
+\cite[Lemmas~10.97.1--10.97.2, Tags~00MA--00MB]{PStacks}から
+\begin{equation}
+ \widehat K=\ker\widehat D,\qquad
+ \widehat K/\hbar\widehat K\simeq K/\hbar K
+ \label{eq:pg-intrinsic-rank-two-completion}
+\end{equation}
+となる。従って$\widehat\Omega$の$\hbar$を法とする剰余類の代表を
+$\Omega\in K$として選べる。
+有限自由加群への包含と剰余写像の可換性により
+\begin{equation}
+ D\Omega=0,\qquad \Omega\bmod\hbar=F
+ \label{eq:pg-intrinsic-rank-two-algebraic-lift}
+\end{equation}
+である。指定した形式級数全体の代数化を要求しているのではなく、
+古典極限が同じである一つの代数的中心元を得ている。
+特に$P=0$で$K$の階数が跳ぶことは、有限加群に対する
+\eqref{eq:pg-intrinsic-rank-two-completion}の適用を妨げない。
+
+アフィン底$D(q)$上の$K$は有理$H_N$-加群であり、
+その引戻しdatumを$\lambda\Phi$でtwistすれば$F$は不変切断になる。
+$\Omega$をReynolds作用素で平均する。
+平均は$K$と剰余条件\eqref{eq:pg-intrinsic-rank-two-algebraic-lift}を保ち、
+\eqref{eq:pg-intrinsic-rank-two-covariance}の共変性を与える。
+さらに$\boldsymbol\mu_2$について平均すればWeyl係数は偶になる。
+この平均化には$K$の局所自由性は不要である。
+各切断の軌道の線形包が有限次元であることと、
+Reynolds作用素が同変線形写像と可換することだけを用いる。
+
+\emph{全次数の性質と中心商。}
+$D(q)$を$\mathcal S_N\times\mathbb A^1_\hbar$へ引き戻し、
+$\mathcal U_{\mathrm{loc}}$と交わらせる。
+この上で$\mathcal K/\mathcal C$は線束であり、
+$\Omega$の像は零切断の全点で生成元である。
+その像が零となる閉集合を除いて$\mathcal W_N$を得る。
+これは$H_N$と$\hbar\mapsto-\hbar$で不変で、全零切断を含む。
+$\Omega$の像が商線束を自明化することから
+\eqref{eq:pg-intrinsic-rank-two-kernel-splitting}が従う。
+
+各閉点でsupportに適合する基底を選ぶと、
+命題\ref{prop:pg-PBW}により
+\begin{equation}
+ \operatorname{gr}_x\mathcal A_{F,P,\hbar}
+   \simeq S_{g,\eta\hbar}\otimes_\CC\CC[u_1,\ldots,u_m],
+ \qquad g=F|_{W_P}
+ \label{eq:pg-intrinsic-rank-two-fiber-domain}
+\end{equation}
+はdomainである。従って$\mathcal A_{F,P,\hbar}$もdomainであり、
+非零な中心元$\Omega$は左右正則である。
+同じPBW性により、周囲代数の$u_1,\ldots,u_m$は中心正則列となる。
+その商$S_{g,\eta\hbar}$は三次元Koszul AS-regularなので、
+補題\ref{lem:pg-central-linear}を$m$回適用すると
+周囲代数のAS条件と次元を得る。
+$g$の滑らかさは使わず、$g=0$もこの議論に含まれる。
+
+各次数$d$での乗法写像は完全列
+\begin{equation}
+ 0\longrightarrow\mathcal J\otimes\mathcal A_{d-3}
+ \xrightarrow{\ \mathrm{mult}\ }\mathcal A_d
+ \longrightarrow\mathcal B_d\longrightarrow0
+ \label{eq:pg-intrinsic-rank-two-flat-quotient-sequence}
+\end{equation}
+を与える。左の写像は全閉ファイバーで単射なので、
+有限局所自由加群の写像として局所的に分裂する。
+従って$\mathcal B_d$は有限局所自由である。
+Hilbert級数、特殊化および一次括弧は
+\eqref{eq:pg-intrinsic-rank-two-algebra}と
+\eqref{eq:pg-intrinsic-rank-two-covariance}から従い、
+AS-Gorenstein条件は補題\ref{lem:pg-central-cubic}による。
+\end{proof}
+
+\begin{remark}[型別の選択と大域的選択]
+\label{rem:pg-intrinsic-rank-two-choice}
+定理\ref{thm:pg-intrinsic-rank-two-center}は、supportの補空間を
+同変に選ぶことなく、一つの中心直線を全ての三変数制限の型にわたって構成する。
+純中心係数を固定する規格化や、前節の型別の中心式との一致は課していない。
+特に零制限上での全$\hbar$直線にわたる式
+$\Omega^{\mathrm z}=\sym(F)$の結果は、その強い範囲を持つ別の選択として保持される。
+命題\ref{prop:pg-equivariant-global-centering-obstruction}の中心調整の非存在は、
+この中心直線の存在と両立する。
+\end{remark}
+
+\subsection{全階数二層への降下}
+
+\begin{corollary}[階数二の被約Poisson層全体への次数付き代数の降下]
+\label{cor:pg-intrinsic-rank-two-descent}
+$N\ge5$、$n=N-2$、$V=\CC^N$とする。
+滑らかな全三次式の係数空間を$\mathcal T_N$、
+非零の分解可能三重ベクトルの空間を$C_3^\times(V)$とし、
+\begin{equation}
+ \begin{aligned}
+ \mathcal S_N&=\mathcal T_N\times C_3^\times(V),\\
+ H_N&=\mathrm{GL}(V)\times\mathbf G_{m,\lambda},\\
+ (L,\lambda)\cdot(F,P)
+   &=\bigl(\lambda^{-1}F\circ L^{-1},
+            \lambda(\bigwedge^3L)P\bigr),\\
+ K_{\mathrm{sc}}&=\{(cI_V,c^{-3}):c\in\mathbf G_m\},
+ \qquad \overline H_N=H_N/K_{\mathrm{sc}}
+ \end{aligned}
+ \label{eq:pg-intrinsic-descent-base}
+\end{equation}
+とおく。$\mathfrak P_{n,1}$を、相対Poissonスタックのうち
+一般階数が二である局所閉層に被約構造を入れたものとする。
+このとき
+\begin{equation}
+ [\mathcal S_N/\overline H_N]\simeq\mathfrak P_{n,1},
+ \qquad
+ [\mathcal S_N/H_N]\longrightarrow\mathfrak P_{n,1}
+ \quad\text{は}\ \mathbf G_m\text{-gerbe}
+ \label{eq:pg-intrinsic-descent-gerbe}
+\end{equation}
+である。
+
+定理\ref{thm:pg-intrinsic-rank-two-center}の族は、
+このgerbeと$\mathbb A^1_\hbar$の積の零切断近傍に定義される。
+さらに$\gcd(N,3)=1$なら、$Nr-3s=1$となる整数$r,s$を選び、
+\begin{equation}
+ \theta(L,\lambda)=(\det L)^r\lambda^s
+ \label{eq:pg-intrinsic-descent-character}
+\end{equation}
+とおく。次数$d$の線形化を$\theta^{-d}$でtwistすることにより、
+周囲代数、中心三次直線とその生成イデアル、および中心商は、
+\begin{equation}
+ \mathcal U_N\subset\mathfrak P_{n,1}\times\mathbb A^1_\hbar,
+ \qquad
+ \mathfrak P_{n,1}\times\{0\}\subset\mathcal U_N
+ \label{eq:pg-intrinsic-descended-open}
+\end{equation}
+上の実際の次数付き$\OO$-代数の族へ降りる。
+各次数部分の局所自由性、左右正則な中心三次元による商、
+Hilbert級数とAS条件、古典極限および一次Poisson括弧は、
+同定理のatlas上の族から保たれる。
+上記のgerbeもこの指標の選択により中立になる。
+
+特に$N=5$では$\mathfrak P_{3,1}$は非零Poisson対の被約層全体であり、
+\begin{equation}
+ \theta(L,\lambda)=(\det L)^2\lambda^3,
+ \qquad \dim\mathfrak P_{3,1}=17
+ \label{eq:pg-intrinsic-threefold-descent}
+\end{equation}
+を用いることができる。
+\end{corollary}
+\begin{proof}
+非零の分解可能な$P$に対して$\pi=\iota_{dF}P$は
+三変数Jacobian型のPoisson構造であり、
+正規形定理により一般階数二のPoisson構造はちょうどこの形である。
+階数層の被約構造と非零Pl\"ucker錐との対応は、
+命題\ref{prop:pg-equivariant-poisson-gerbe}の証明と同じである。
+そこでは$F|_{\operatorname{supp}P}$の滑らかさを
+対応する開部分を指定するためだけに用いたので、
+その条件を外すとここでの全階数二の層を得る。
+
+方程式の代表を忘れる作用
+$(F,P)\mapsto(\lambda^{-1}F,\lambda P)$は自由である。
+また$K_{\mathrm{sc}}$は$\mathcal S_N$に自明に作用し、
+\begin{equation}
+ 1\longrightarrow\mathbf G_{m,\lambda}
+ \longrightarrow\overline H_N
+ \longrightarrow\mathrm{PGL}(V)\longrightarrow1
+ \label{eq:pg-intrinsic-effective-group}
+\end{equation}
+は完全である。左の射は$\lambda\mapsto[(I_V,\lambda)]$である。
+従って方程式の自由なスカラーを先に除き、次に
+$\mathrm{PGL}(V)$で割ることで第一の商同型を得る。
+$K_{\mathrm{sc}}$が中心にあり底に自明に作用することから、
+第二の射はこの群をbandとするgerbeである
+\cite[Lemma~78.27.1, Tag~\texttt{06PD}]{PStacks}。
+定理\ref{thm:pg-intrinsic-rank-two-center}の
+$H_N$-不変開と共変な代数・中心三次直線を商に移せば、
+まずこのgerbe上の族を得る。
+
+$k(c)=(cI_V,c^{-3})$と書けば$\theta(k(c))=c$である。
+従って
+\begin{equation}
+ H_N\simeq K_{\mathrm{sc}}\times\ker\theta,
+ \qquad
+ h\longmapsto
+ \bigl(k(\theta(h)),k(\theta(h))^{-1}h\bigr),
+ \qquad
+ \ker\theta\simeq\overline H_N
+ \label{eq:pg-intrinsic-character-splitting}
+\end{equation}
+となり、gerbeは中立である。
+元の代数の次数$d$部分には$k(c)$が$c^d$で作用するため、
+$\theta^{-d}$によるtwist後にはこの作用が自明となる。
+積の次数加法性により、これらのtwistは乗法と単位を保つ。
+中心三次直線にも$\theta^{-3}$を用いると、
+その包含と生成イデアルの乗法写像も降下する。
+したがって商スタック上の同変準連接層の降下
+\cite[Proposition~96.14.3, Tag~\texttt{06WT}]{PStacks}
+を次数別に適用すれば、所要の代数族を得る。
+この操作はatlas上の代数を変えないので、
+局所自由性およびファイバーごとの主張は元の族から従う。
+
+$N=5$では正規形に現れる互いに独立な三次元ブロックは一つだけであり、
+非零Poisson構造の一般階数は必ず二である。
+係数空間の次元は$35$、$C_3^\times(\CC^5)$の次元は$7$、
+$\overline H_5$の次元は$25$なので、底スタックの次元は$17$である。
+\end{proof}
+
+\begin{remark}[降下の範囲と中心三次直線]
+\label{rem:pg-intrinsic-descent-scope}
+この系の底は$P\ne0$の階数二の層であり、零Poisson構造は含めていない。
+零切断は変形パラメータ$\hbar=0$を意味する。
+降下した次数一の束を$E_\theta$、中心三次直線の古典極限を
+$\mathcal J_0\subset\operatorname{Sym}^3(E_\theta)$とすれば、
+\begin{equation}
+ \mathcal A^\theta|_{\hbar=0}\simeq\operatorname{Sym}(E_\theta),
+ \qquad
+ \mathcal B^\theta|_{\hbar=0}
+ \simeq\operatorname{Sym}(E_\theta)/(\mathcal J_0)
+ \label{eq:pg-intrinsic-descended-classical-fibre}
+\end{equation}
+であり、その相対$\operatorname{Proj}$は元の普遍三次超曲面族となる。
+中心三次直線の一つの大域生成元を底スタック上で選ぶことは、
+この降下の主張には含まれない。
+また、各制限型で先に構成した明示中心元との一致、
+零制限の全$\hbar$にわたる明示族との一致、
+あるいは全$\mathbb A^1_\hbar$への延長も主張していない。
+$3\mid N$の場合、$H_N$の指標の$K_{\mathrm{sc}}$上の重みは
+$Nr-3s\in3\mathbb Z$なので、上記の重み一の指標は存在しない。
+これはこの指標による降下法の限界であり、
+gerbeの非中立性や他の方法による降下の不存在を意味しない。
+\end{remark}
+
+\subsection{中心調整による方法の限界}
+
+\begin{proposition}[全係数空間における中心調整の障害]
+\label{prop:pg-equivariant-global-centering-obstruction}
+$m\ge1$、$N_V=m+3$、$V=W\oplus Z$、$\dim W=3$、$\dim Z=m$とし、
+$\mathcal T_m\subset\operatorname{Sym}^3V^*$を滑らかな全三次式の係数空間とする。
+群$G$と$f$への作用は\eqref{eq:pg-equivariant-groups}のものとし、
+\begin{equation}
+ \mathcal S_m=\mathcal T_m\times\mathbf G_{m,\eta},\qquad
+ \eta'=\lambda\det(M)\eta,\qquad \hbar'=\hbar
+ \label{eq:pg-global-centering-parameter-action}
+\end{equation}
+とする。次が成り立つ。
+\begin{enumerate}
+\item $\mathcal S_m\times\{0\}$全体を含む$G$-不変開
+$\mathcal U\subset\mathcal S_m\times\mathbb A^1_\hbar$上に、
+正則写像$B:\mathcal U\to\operatorname{Hom}(Z,W)$で
+\begin{equation}
+ B(f',\eta',\hbar)=(M B(f,\eta,\hbar)-C)N^{-1}
+ \label{eq:pg-global-centering-desired-covariance}
+\end{equation}
+を満たすものは存在しない。
+従って、混合係数を含む$f$全体に依存させても、
+$\mathcal T_m$全体の中心調整$B_f$はこの変換則を満たすように選べない。
+同じ非存在は、$t'=\lambda\det(M)t$と変換する$t$に依存し、
+$t=0$全体の近傍で正則である選択にも適用される。
+\item 中心平行移動の加法群
+\begin{equation}
+ U=\operatorname{Hom}(Z,W),\qquad
+ u_C\cdot f=f(x-Cu,u)
+ \label{eq:pg-global-centering-unipotent-action}
+\end{equation}
+は$\mathcal T_m$に自由に作用する。
+商$Y=[\mathcal T_m/U]$は代数空間で、
+$\mathcal T_m\to Y$は非自明な$U$-torsorであり、$Y$はアフィンではない。
+\end{enumerate}
+本命題は、全ブロック群に共変な中心直線や中心イデアルの不存在を主張しない。
+定理\ref{thm:pg-intrinsic-rank-two-center}は中心核を直接扱うことで、この障害を回避する。
+\end{proposition}
+\begin{proof}
+第一の主張について、仮に$B$が存在すれば、$\hbar=0$に制限して
+$\mathcal S_m$全体で\eqref{eq:pg-global-centering-desired-covariance}を満たす写像を得る。
+滑らかな三次式$F_0\in\operatorname{Sym}^3V^*$を一つ固定し、
+Stiefel開部分
+\begin{equation}
+ \operatorname{St}(3,V)
+ =\{A\in\operatorname{Mat}_{N_V\times3}:\operatorname{rank}A=3\}
+ \label{eq:pg-global-centering-stiefel-open}
+\end{equation}
+を考える。
+その上で局所的に$A$の列を基底へ延ばし、
+$T_A=(A,D)\in\mathrm{GL}(V)$、$D\in\operatorname{Mat}_{N_V\times m}$と書く。
+例えば非零の三次小行列を固定した開では、残りの列に所定の座標ベクトルを選べる。
+\begin{equation}
+ f_A(x,u)=F_0(T_A(x,u)),\qquad
+ B_A=B(f_A,1,0),\qquad
+ R_A=(I_3\ \ B_A)T_A^{-1}
+ \label{eq:pg-global-centering-stiefel-retraction}
+\end{equation}
+と置けば、$R_A$は局所的に正則な$3\times N_V$行列であり、$R_AA=I_3$である。
+
+基底への延長を変えると、重なり上で
+\begin{equation}
+ T'_A=T_Ap,\qquad
+ p=\begin{pmatrix}I_3&C_0\\0&N_0\end{pmatrix},\qquad
+ N_0\in\mathrm{GL}(Z)
+ \label{eq:pg-global-centering-frame-transition}
+\end{equation}
+となる。
+$f'_A=f_A\circ p$は、\eqref{eq:pg-equivariant-groups}における
+群要素$(p^{-1},1)$の作用である。
+この要素のactive部分は$I_3$なので、$\eta=1$と$\hbar=0$は変わらない。
+従って\eqref{eq:pg-global-centering-desired-covariance}から
+\begin{equation}
+ B'_A=B_AN_0+C_0,\qquad
+ (I_3\ \ B'_A)p^{-1}=(I_3\ \ B_A),\qquad R'_A=R_A
+ \label{eq:pg-global-centering-left-inverse-gluing}
+\end{equation}
+を得る。
+こうして$R_A$は$\operatorname{St}(3,V)$全体の正則行列$R(A)$へ貼り合い、
+\begin{equation}
+ R(A)A=I_3
+ \label{eq:pg-global-centering-impossible-left-inverse}
+\end{equation}
+を満たす。
+これは、非零三重ベクトル$\bigwedge^3A$に依存する補空間選択を、
+その枠$A$に引き戻した左逆である。
+
+しかし、階数二以下の行列の閉集合の余次元は
+\begin{equation}
+ \operatorname{codim}_{\operatorname{Mat}_{N_V\times3}}
+       \{\operatorname{rank}A\le2\}=N_V-2=m+1\ge2
+ \label{eq:pg-global-centering-rank-boundary-codimension}
+\end{equation}
+である。
+実際、二本の独立な列を固定するchartでは、その二本と第三の列の二つの係数が
+自由に動くので、階数二の部分の次元は$2N_V+2$となる。
+階数一以下の部分はこれより小さい。
+多項式環はUFDであり、余次元二以上の閉集合を除いた開の正則関数は全空間へ延長する。
+具体的には、その有理式の分母に残る既約因子があれば、対応する余次元一の因子は
+この開と交わるため、そこに極が生じて正則性に反する。
+従って$R(A)$の全成分が多項式へ延長する。
+\eqref{eq:pg-global-centering-impossible-left-inverse}は稠密開で成立するので
+全行列空間上の多項式恒等式となるが、$A=0$への代入で$0=I_3$となり矛盾する。
+この議論は$\eta$への依存を許したままであり、$\hbar=0$での制限だけを用いた。
+変数$t$を使う場合は$t=\eta\hbar$によってこの場合へ帰着する。
+
+次に$U$作用の自由性を示す。
+滑らかな$f$の全偏微分$f_{v_1},\ldots,f_{v_{N_V}}$は二次式で、
+その共通零点は錐の原点だけである。
+従ってこれらは多項式環の正則列をなし、Koszul完全性により
+一次係数のsyzygyを持たない。すなわち
+\begin{equation}
+ \sum_{i=1}^{N_V} a_i(v)f_{v_i}=0,\quad \deg a_i=1
+ \quad\Longrightarrow\quad a_1=\cdots=a_{N_V}=0
+ \label{eq:pg-global-centering-linear-syzygy-vanishing}
+\end{equation}
+である。
+この写像は各閉点で単射な有限階数の行列なので、係数空間上で局所的に分裂し、
+任意の底変更の後にも単射である。
+$D_C=\sum_{i=1}^3(Cu)_i\partial_{x_i}$と書くと、
+三次式上で$D_C^4=0$であり、$u_C$の作用は$\exp(-D_C)$である。
+$u_C\cdot f=f$なら
+\begin{equation}
+ 0=(\exp(-D_C)-1)f
+   =-D_C\left(1-\frac{D_C}{2}+\frac{D_C^2}{6}\right)f
+ \label{eq:pg-global-centering-nilpotent-stabilizer}
+\end{equation}
+となる。括弧内は可逆で$D_C$と可換するため$D_Cf=0$を得る。
+\eqref{eq:pg-global-centering-linear-syzygy-vanishing}より$C=0$である。
+任意底変更後にも同じ議論が成立するので、安定化群スキームも自明である。
+従って自由作用の商スタックは代数空間$Y$であり、
+$\mathcal T_m\to Y$は$U$-torsorとなる
+\cite[Lemma~80.11.7, Tag~\texttt{06PH}]{PStacks}。
+
+このtorsorが自明であると仮定する。
+すると正則写像$\beta:\mathcal T_m\to U$を
+\begin{equation}
+ \beta(u_C\cdot f)=\beta(f)-C
+ \label{eq:pg-global-centering-hypothetical-slice}
+\end{equation}
+となるように取れる。
+還元的部分群$G_0$は$U$に$(M,N,\lambda)\cdot C=MCN^{-1}$で作用する。
+$\mathcal T_m$は判別式を可逆にしたアフィン空間なので、
+その正則関数と$U$のテンソル積は有理$G_0$-加群である。
+従って補題\ref{lem:pg-equivariant-affine-lifting}の証明と同じく、
+$\beta$の軌道の有限次元線形包でReynolds平均を取れる。
+最大compact部分群$K_0\subset G_0$による表示では
+\begin{equation}
+ \overline\beta(f)
+ =\int_{K_0} h^{-1}\!\cdot\beta(h\cdot f)\,dh
+ \label{eq:pg-global-centering-reynolds-slice}
+\end{equation}
+であり、これは正則な$G_0$-同変写像である。
+$h u_C h^{-1}=u_{h\cdot C}$を使えば、被積分関数は全て
+$u_C$の作用で$-C$だけ変わる。
+従って\eqref{eq:pg-global-centering-hypothetical-slice}は平均後にも成立する。
+$G=U\rtimes G_0$なので、$\overline\beta$は
+\eqref{eq:pg-global-centering-desired-covariance}を満たす全$G$-共変な中心調整となり、
+第一の主張に反する。
+よってこの$U$-torsorは非自明である。
+
+もし$Y$がアフィンなら、加法群$U\simeq\mathbf G_a^{3m}$のtorsorは
+$H^1(Y,\OO_Y)^{3m}=0$により自明になる
+\cite[Theorem~59.22.4, Tag~\texttt{03OY}]{PStacks}。
+従って$Y$はアフィンではない。
+この結論は、自由な中心平行移動を商した後にアフィン底上の平均化を
+全係数空間へ適用する方法にも障害を与える。
+\end{proof}

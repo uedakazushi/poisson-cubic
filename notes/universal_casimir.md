@@ -1,13 +1,15 @@
 # 全Poisson構造の代数的中心三次元と一般次元量子化：現行研究ノート
 
-**2026-11-14 / v13（論文A-v58・論文B-v58、bundle nc-cubic-v90）。再開時はまず `00_research_plan.md` を読む。**
+**2026-11-14 / v14（論文A-v59・論文B-v59、bundle nc-cubic-v92）。再開時はまず `00_research_plan.md` を読む。**
 正本はGitHub `uedakazushi/nc-cubic` の `main`。
 現行公表原稿は `papers/paper_a.tex`（論文A）。
 主要証明の所在：
 `papers/support/papers/sections/universal_casimir_determinant.tex`
 （任意のsmoothな全体三次式の代数的Casimir）、
 `papers/support/papers/sections/equivariant_central_lifts.tex`
-（reductive群、および滑らか・節点・尖点・零の各三変数制限上の全ブロック座標群に対する同変性と降下）、
+（各層の明示的な同変構成・降下とCMR公式との対応）、
+`papers/support/papers/sections/intrinsic_rank_two_center.tex`
+（階数二の全supportでの共変中心元、gcd(N,3)=1での全被約層への降下、補空間選択の障害）、
 `papers/support/papers/sections/quantization_foundations.tex`
 （PBW性・偶性・二次jet）と
 `papers/support/papers/sections/algebraic_quantization.tex`
@@ -45,8 +47,9 @@ Hilbert \((1-z^3)/(1-z)^N\)。
 \(\eta_s=\lambda_s\hbar\)によって固定Fの
 k次元Poisson線形族の全方向を一つの代数的族で量子化できる。
 零Poisson構造は可換多項式環と中心Fで扱う。
-**形式的中心元、Kontsevich formality、Dolgushevのunimodularity判定は
-この存在証明の入力ではない。**
+**この固定正規形の存在証明には、外部の形式的中心元存在定理、Kontsevich formality、
+Dolgushevのunimodularity判定を用いない。**
+全supportでの同変選択には、既存の定階数核をh冪厚化へ持ち上げる別の議論を用いる（§2(IX)）。
 
 **明示性の限界**：
 \(g_s\)が滑らかならHesse標準形による\(\eta_s^4\)までの
@@ -55,7 +58,8 @@ k次元Poisson線形族の全方向を一つの代数的族で量子化できる
 \(g_s=0\)ではPBW対称化した\(\operatorname{sym}(f_s)\)が全パラメータで中心となる。
 全特異制限に共通する低次数の短い\(\eta_s\)-多項式を
 示したわけではない。
-全Poissonモジュライへの同変な大域量子化は未構成である。
+階数二の全被約Poisson層については、gcd(N,3)=1のとき全supportにわたる代数族を構成した。
+複数ブロックも含む全Poissonモジュライへの一般の同変降下は残る。
 単一ブロックでは、変数分解を保つreductive群に関する同変性を
 全滑らかな全体三次式で得た。三変数制限が滑らかな開と、節点・尖点の各軌道では、
 中心変数によるactive座標の平行移動を含む群についても、型ごとに同変に選べる。
@@ -63,12 +67,12 @@ k次元Poisson線形族の全方向を一つの代数的族で量子化できる
 代数族が降りる（§2(VI)）。節点・尖点では唯一の特異点が定める直線束で次数重みを補正でき、
 mによらず、それぞれのPoisson層とh直線の積の零切断近傍へ降りる（§2(VIII)）。
 零制限では全hの族があり、gcd(m,3)=1なら同じ指標法で降りる（§2(VII)）。
-これらの族の型をまたぐ貼合せや、節点・尖点型での全hへの延長は結論していない。
+型をまたぐ族は§2(IX)で別に選ぶ。各層で先に選んだ式との一致や、節点・尖点型での全hへの延長は結論していない。
 固定したactive・中心変数の分解では、
 全滑らかな三次式の係数空間と変形直線の積の中で、
 零切断全体を含む一つの開集合上に中心元を同時に選べる。
 これは係数と無関係な一つのh開集合を得る主張ではない。
-一変数一般点での全coherent残余圏の可換復元は論文B-v58が扱い、
+一変数一般点での全coherent残余圏の可換復元は論文B-v59が扱い、
 有限体拡大後の同値を証明している。
 全閉パラメータでのqgrの滑らかさや、可換特殊点を含む相対残余圏の比較は
 この一般点の結果とは別の問題である（§7参照）。
@@ -228,9 +232,9 @@ K、純中心部分、商線束も共通定義開で変換と両立するが、
 選択の空間は \(\mathcal Hom(\mathcal L,\mathcal C_m)\) のaffine束となる。
 全モジュライへの降下には、座標変換・中心三次配分に同変な分裂、
 零切断での \(\mathbb C f\) との一致、およびcocycle条件が必要である。
-単一ブロックについては次項の範囲で同変選択を構成した。
-節点・尖点以外の特異型での全座標群への拡張、型をまたぐ選択の整合性、
-複数ブロックの配分の変化との整合性は残る。
+単一ブロックの層別の具体的選択は次項以降に保持し、
+全ての制限型と動くsupportにわたる一つの同変選択は§2(IX)で構成した。
+その選択と既存の層別公式との一致、および複数ブロックの配分の変化との整合性は残る。
 
 ### (VI) 同変な中心元と中心平行移動の処理
 
@@ -322,8 +326,9 @@ hを保つ変形族全体からは特殊ファイバーと一次括弧により�
 それだけでgerbeが非中立である、または別の降下法が存在しないとは結論しない。
 実際、節点・尖点の各層では群の指標によらない特異点直線を用いて全mで降下できる（§2(VIII)）。
 
-残る核心は、各型の族を境界をまたいで整合させること、未処理の特異型での同変選択、
-および複数ブロックでの一般の配分・相対規格化の整合性である。
+階数二については、§2(IX)の別の構成で全ての制限型を含む一つの共変中心元を得た。
+残るのは、この選択と各型で別に選んだ明示式との一致、全hへの延長、
+3|Nの場合の別の降下、および複数ブロックでの一般の配分・相対規格化の整合性である。
 g=0ではδ_g=0なので上のleft inverseは使えないが、次項のPBW対称化によって
 全パラメータで別途解決する。
 
@@ -348,8 +353,9 @@ U上の正則関数は全アフィン10次元空間へ延長する。
 \(\sigma_g\delta_g=I\) が多項式恒等式となるが、g=0で矛盾する。
 滑らかな三次式の開では判別式の逆を許すため、この障害はない。
 不可約三次式の全開だけでも同様の障害があることを§2(VIII)に記す。
-これは全fの混合係数にも依存する別の同変構成や、
-中心直線そのものの延長を排除する議論ではない。
+これはgだけに依存する左逆についての障害である。
+全fに依存する補空間選択にも別の障害があるが、中心核そのものを扱う構成は可能である。
+両者の区別と証明の所在は§2(IX)に記す。
 
 ### (VII) 零制限の全パラメータ中心元とsupport平面の層
 
@@ -514,7 +520,8 @@ t=ηhを代入した族の定義域は各Poisson層とA¹_hの積の零切断近
 σ_gδ_g=id_Wも多項式恒等式になる。g=0ではδ_0=0なので矛盾する。
 この不存在は同変性を仮定しなくても成立する。
 したがって滑らか・節点・尖点の各層のσを、不可約三次式全域の単一のσへ貼ることはできない。
-全fの混合係数を使う別の構成、中心直線や中心イデアル自体の貼合せの不存在は意味しない。
+この議論自体はgだけに依存する左逆を排除する。
+全fに依存するBの障害は§2(IX)で別に証明しており、中心直線の存在定理とは両立する。
 
 **一つの軌道にも残る非分裂：接線とconic。**
 g=x²z−xy²ではδ_g=(2xz−y²,−2xy,x²)は単射だが、全安定化群に同変な左逆はない。
@@ -532,7 +539,7 @@ M_a:(x,y,z)↦(x,y+ax,z+2ay+a²x)、λ=1が含まれる。
 同変性によりσ(xz+2y²)=0、続いてσ(xy)=0となり、σδ_g(e_y)=e_yに矛盾する。
 これはδに基づくcenteringの、この固定軌道における障害である。
 全G共変なquantum中心元そのものが存在しないとは結論しない。
-今後はf全体の混合係数や中心直線の分裂を直接扱う必要がある。
+中心核を直接扱う§2(IX)の方法により、全supportでの共変な中心元の存在は得られる。
 
 **他の分解型で使える直接の左逆。**
 triangle g=xyzの安定化群はmonomial行列M=diag(a,b,c)Pとλ=(abc)⁻¹からなり、
@@ -551,6 +558,120 @@ M=diag(a,b,c)またはそのx,y交換との積、ab=c²、λ=c⁻³で、Gm²⋊
 実行状態は `validation_paper_a.json` を正本とする。
 任意GL変換に関する軌道降下、安定化群の完全分類、quantum中心性・AS条件・モジュライ降下は
 この有限計算の検証範囲ではなく、本文の証明と区別する。
+
+**CMRの既知の節点中心公式との具体的対応。**
+`rem:pg-cmr-nodal-comparison` はChekhov–Mazzocco–Rubtsovの
+*Quantised Painlevé monodromy manifolds, Sklyanin and Calabi–Yau algebras*、
+Adv. Math. 376 (2021), 107442、
+[DOI 10.1016/j.aim.2020.107442](https://doi.org/10.1016/j.aim.2020.107442)を引用する。
+実際に本文を照合した版は[accepted arXiv:1905.02772v2](https://arxiv.org/pdf/1905.02772v2)であり、
+式(4.38), p.21、Lemma 4.6・式(4.39), p.22、Table 5, p.41を用いる。
+刊行書誌の確認と刊行レイアウトの本文照合を混同しない。
+
+節点の標準形では別の安定化群同変左逆
+\(\widetilde\sigma(q)=([yz]q,[xz]q,[xy]q)\)も使える。
+\(B=\widetilde\sigma(q)\) として \(f^\circ(X)=f(X-B)\) と置くと、
+二次項は \((q_{xx}-3q_{yz})X^2+(q_{yy}-3q_{xz})Y^2+q_{zz}Z^2\) となる。
+一次項・定数項も同じ三次式全体の並進で変換する。
+従って
+\[
+ f^\circ=x^3+y^3+xyz+A_1x^2+A_2y^2+A_3z^2
+              +\ell_1x+\ell_2y+\ell_3z+\kappa
+\]
+に対し、\(p=1+t/2,\ s=1-t/2\) として
+\[
+ q_{\mathrm{CMR}}=p/s,\quad \alpha=\beta=3t/s,\quad\gamma=0,\qquad
+ (a_1,b_1,c_1)=-2t(A_1,A_2,A_3)/s,\quad
+ (a_2,b_2,c_2)=-t(\ell_1,\ell_2,\ell_3)/s
+\]
+を代入すれば、CMRの関係式は本稿の対称Jacobian関係式に一致する。
+CMRの中心元を \(\Omega_{\mathrm{CMR}}\) とすると、
+\[
+ Q=s^5\Omega_{\mathrm{CMR}}/(6t)+\kappa,\qquad
+ Q^{\mathrm{sw}}-Q=-6A_3\ell_3t^3,\qquad
+ \widehat Q=Q-3A_3\ell_3t^3
+\]
+となる。\(t\) で割る前の全係数は \(t\) で割り切れ、\(Q\) は全係数と \(t\) の多項式で、
+\(Q\bmod t=f^\circ\) である。swはx,yと対応する係数を交換し、tを−tへ送る操作である。
+最後の純中心補正により、この交換を含む全安定化群への共変性が得られる。
+一般の二次項へは \(\widehat Q_{f^\circ,t}(x+B)\) で戻る。
+
+`python3 computations/verify_cmr_nodal_center.py --json` は本改訂の新しい厳密実行でPASSした。
+出力は `build/verify_cmr_nodal_center.json` で、一般の独立QQ係数のまま、唯一の語重なりzyx、
+三中心交換子、関係式の対応、古典極限、上の交換差と純中心補正、スカラー・μ₃重みを確認した。
+検算の定義開は \(sp\ne0\) であり、多項式表示だけから \(t=\pm2\) のPBW性・平坦性は結論しない。
+Weyl表示での偶性、安定化群の完全分類、軌道上の正則移送、モジュライ降下はこの計算の対象外である。
+節点型の中心元の存在・基準座標での公式は既知として扱い、
+本稿の係数・規格化・同変族への適用と区別する。
+
+### (IX) 階数二の全supportにわたる共変な中心元
+
+詳細証明は `intrinsic_rank_two_center.tex` の `thm:pg-intrinsic-rank-two-center` と
+`lem:pg-rank-two-bott-vanishing`、降下は `cor:pg-intrinsic-rank-two-descent` に置く。
+全三次式Fは滑らか、N>=5、Pは非零分解可能とする。三変数制限の型には条件を課さない。
+全supportを動かす底S=T_smooth×C₃^×では、古典核は自然に K₀=OF⊕Sym³Q*、Q=V/W_P と分裂する。
+
+Gr(3,N)上でO(j)とSym³Q*⊗O(j)のH¹は全整数jについて消える。
+後者のBott列は (j+N−1,j+N−2,j+N−3,N−1,N−5,…,0) である。
+j=0,1,2では重複、j>=3ではH⁰のみ、j<0で重複がなければ第4項が最初の三項を越え、
+非零コホモロジーの次数は少なくとも3となる。非零Plücker錐からGrへのGm-torsorの
+押出しは全twistの直和なので、H¹(S,K₀)=0を得る。
+
+局所Cramer核は全零h切断の近傍で定階数のベクトル束であり、
+各h冪厚化には 0→K₀→K_(r+1)→K_r→0 がある。
+H¹の消滅からFを整合する大域形式中心元へ持ち上げられる。
+Stiefel開St_(N,3)→C₃^×はSL3-torsorで、補集合の余次元N−2>=2より
+Γ(C₃^×,O)=C[Mat_(N,3)]^(SL3) となる。
+従って A_N=Γ(T_smooth,O)⊗C[Mat_(N,3)]^(SL3) はHilbert有限生成によりNoetherianであり、
+形式中心元の各Weyl係数はA_Nに属する。Plücker錐の射影正規性を追加の入力としない。
+
+次数三・四の有限表示行列はh=0で共通の可換関係式行列となる。
+generic PBWから上位小行列式は恒等的に零であり、古典時に独立な関係式列とWeyl列の
+固定行列式で、全h=0を含む有限次数Weyl開を取れる。
+そのgood locus内の不変principal開D(q)、q|_(h=0)=1を取り、R=A_N[h,q⁻¹]上の
+割った交換子を有限行列M、有限核をK=ker Mとする。
+Noetherian完備化の完全性から Khat=ker Mhat、Khat/hKhat≅K/hK であり、
+形式中心元の剰余類の代表をKから選べば Ω mod h=F を保つ代数解を得る。
+K/hKから自由加群のmod hへの写像が単射であるとは仮定しない。
+**形式級数全体とその代数解の一致を主張しているのではない。**
+P=0での核の階数跳躍はこの有限加群の議論を妨げないが、最終的な族はP≠0で述べる。
+
+H_N=GL(V)×Gm,λの作用は F′=λ⁻¹F∘L⁻¹、P′=λ(Λ³L)P、h′=hである。
+引戻しdatumをλでtwistした有理H_N加群KのReynolds平均により
+Φ(Ω′)=λ⁻¹Ωを得て、反対代数の対合による平均でWeyl係数をhについて偶にする。
+平均化にはKの局所自由性を使わない。
+全次数のPBW/AS開とK/Cへの像が非零となる開へ制限すると、
+全零h切断を保ったまま K=C⊕OΩ、左右正則な中心元、次数別局所自由な商族を得る。
+有限次数のWeyl開だけから全次数PBWを結論するわけではない。
+
+K_sc={(cI,c⁻³)}は(F,P)を固定し、代数の次数dに重みdで作用する。
+[S/(H_N/K_sc)]は全階数二の被約Poisson層、[S/H_N]はその上の中央Gm-gerbeである。
+gcd(N,3)=1ならNr−3s=1を満たすθ=(det L)^rλ^sを選び、次数dをθ⁻ᵈでtwistする。
+H_N=K_sc×kerθとなるためgerbeは中立で、中心三次直線・イデアル・商を含む
+実際の次数付き代数族が全被約階数二Poisson層×A¹_hの零切断近傍へ降りる。
+N=5ではθ=(det L)²λ³、底の次元17であり、全非零Poisson対を含む。
+中心直線の大域生成元、固定h≠0の同型類像の次元は結論しない。
+零Poisson構造と変形のh=0切断を区別する。3|Nの別の降下、全hへの延長、
+既存層別公式との一致は残る。特にg=0の全h公式sym(F)は、別の強い範囲を持つ選択として保持する。
+
+**補空間を選ぶ方法の限界。** `prop:pg-equivariant-global-centering-obstruction` はm=N−3>=1で、
+全f・非零Poisson係数η・hへの依存を許しても、B'=(MB−C)N⁻¹を全零h切断近傍で満たす
+正則Bが存在しないことを示す。固定smooth FをStiefel開へ引き戻すと、
+このBから正則行列R(A)でR(A)A=I₃が得られ、その成分の全行列空間への延長はA=0で矛盾する。
+またU=Hom(Z,W)はsmooth fのアフィン係数空間に自由に作用する。
+自由性はgradient正則列の一次係数syzygyの消滅から、任意の底変更後にも従う。
+Y=[T_m/U]は代数空間、T_m→YはU-torsorである。
+仮にこのtorsorが自明なら、その切断に対応するβのLevi平均はUのaffine変換則を保ち、
+全GのBを与えて上記障害に反する。従ってtorsorは非自明である。
+Yがアフィンなら加法群torsorのH¹が消えて自明になるので、Yは非アフィンである。
+自由商をアフィンとみなして平均化する経路は利用できない。
+中心核を直接持ち上げる構成と、補空間選択の非存在は両立する。
+
+指定古典剰余を持つ形式中心元の存在と、相対的・還元群に対応したformalityは既知である。
+本稿で区別すべき追加内容は、動く全supportと全smooth Fの係数空間における
+同時の**代数的**選択、その全H_N共変性、および上記の被約層への代数族の降下である。
+EG Proposition 8.1.1(i)との比較、BWB・不変式・完備化・自由商の確認した一次資料は§7にまとめる。
+包括的な初出の確認は未完了である。
 
 ## 3. 複数ブロックの中心三次：配分と直線の選択
 
@@ -785,7 +906,7 @@ a_s=1+hr_s,\qquad c=F_{\mathrm{cent}}+h c',
 次数3の古典Casimir行列は
 \(S_3\to S_4^{\oplus3}\)で378×56、
 rank=45、核の次元=11=1+\(\dim\mathbb C[u,v,w]_3\)。
-現行スクリプトをSymPyの有理数演算で**実行してPASS**（§7の計算表）。
+SymPyの有理数演算による実行済みPASSを保持しており、本改訂では再実行していない（§7の計算表）。
 再現コード
 `computations/verify_singular_cubic_classical_kernel.py`。
 この例ではさらに
@@ -861,7 +982,7 @@ Q(h,t)上の行列rank144、三交換子の余り0の
 \(\hbar=0\)でのrankも144であり原点を含む開上へ降下。
 コード `computations/verify_universal_hesse_mixed_center.py`。
 現行スクリプトをそのまま実行し、記載した二つの階数と
-三交換子の消滅を全不定元のまま確認してPASS（§7）。
+三交換子の消滅を全不定元のまま確認したPASSの証拠を保持する。本改訂では再実行していない（§7）。
 GL3のHesse変換と中心平行移動は
 滑らかな三変数制限の場合の**短い**中心式を与える。
 
@@ -910,34 +1031,48 @@ PBWの族への拡張、Koszul AS-regular中央一次元拡大、
 全零切断を含む偶principal開、τへの下降、Picard群消滅、
 大域基底の単元補正、Ann(h)による通常の中心との差、
 規格化遷移・イデアル不一致例・座標変換も独立に読み直して確認した。
+全supportの同変選択については、全整数twistのBWB計算、h冪厚化の完全列、
+Stiefel開上の正則関数の延長、有限次数Weyl開の一様性、有限核の完備化からの剰余の持上げ、
+Reynolds平均と指標による次数補正を独立に読解した。
+全f・η・hに依存する補空間選択の障害と、U作用の自由性・非自明torsor・非アフィン商も点検した。
+CMRのaccepted versionとの関係式・中心公式の対応は、本文照合と独立な記号計算を区別して扱う。
 これは数学的な証明監査であり、定理全体の形式証明器による検証ではない。
 正規形・Lie代数・退化幾何等を含むA全体の監査は
 `notes/poisson_article_submission_audit.md`を参照する。
 
-以下は2026-11-13のA-v52監査で現行スクリプトを直接実行した結果である。
-本改訂ではコードと証明書のハッシュ一致を確認して保持し、これらの重い計算は再実行していない。
+本改訂の新しい厳密計算はCMR節点公式の一本であり、実行済み出力を確認した。
+それ以外の十三件は以前の実行証拠とコード・証明書のハッシュ照合を引き継ぎ、再実行していない。
+全十四件の一覧は `notes/poisson_article_submission_audit.md` に置く。
+以下の四つの既存計算の実行証拠は2026-11-13のA-v52監査に由来し、版番号は実行時の記録である。
 コマンドはリポジトリのルートで実行し、Python 3とSymPyを用いる。
 
 | コマンド | 最終状態 | 検証の内容と限界 |
 | --- | --- | --- |
-| `python3 computations/verify_universal_hesse_mixed_center.py` | exit 0、PASS | 339基底語・162関係倍数。階数は\(\hbar=0\)と\(\mathbb Q(\hbar,t)\)でともに144。六混合係数を独立に保ち三交換子が厳密に消滅。 |
-| `python3 computations/verify_cubic_casimir_jet.py` | exit 0、PASS | 二十自由係数を保ち、各生成元について125個の語・次数係数が消滅。計算が直接示すのは\(\hbar^4\)を法とした恒等式。 |
-| `python3 computations/verify_singular_cubic_classical_kernel.py` | exit 0、PASS | §4の零三変数制限の例。378×56行列の階数45、核は\(\mathbb C f\oplus\mathbb C[u,v,w]_3\)、次元11。 |
-| `python3 computations/verify_nonelliptic_quantization.py` | exit 0、PASS | 二つのmonic Diamond系と重なり、六つの普遍中心交換子、古典極限、potential syzygy、分母の範囲、二つの非中心な比較例、17項Fermat恒等式を確認。再計算した結果は保存証明書と完全一致。残余圏のsaturationの計算検証ではない。 |
+| `python3 computations/verify_cmr_nodal_center.py --json` | 本改訂でPASS、SymPy 1.14.0 | 独立QQ係数によるCMRのγ=0公式、zyx重なり、三中心交換子、関係式の対応、古典極限、安定化群の生成子に関する補正を検証。Weyl偶性・軌道降下・モジュライ降下は対象外。 |
+| `python3 computations/verify_universal_hesse_mixed_center.py` | 既存exit 0・PASSを保持、未再実行 | 339基底語・162関係倍数。階数は\(\hbar=0\)と\(\mathbb Q(\hbar,t)\)でともに144。六混合係数を独立に保ち三交換子が厳密に消滅。 |
+| `python3 computations/verify_cubic_casimir_jet.py` | 既存exit 0・PASSを保持、未再実行 | 二十自由係数を保ち、各生成元について125個の語・次数係数が消滅。計算が直接示すのは\(\hbar^4\)を法とした恒等式。 |
+| `python3 computations/verify_singular_cubic_classical_kernel.py` | 既存exit 0・PASSを保持、未再実行 | §4の零三変数制限の例。378×56行列の階数45、核は\(\mathbb C f\oplus\mathbb C[u,v,w]_3\)、次元11。 |
+| `python3 computations/verify_nonelliptic_quantization.py` | 既存exit 0・PASSを保持、未再実行 | 二つのmonic Diamond系と重なり、六つの普遍中心交換子、古典極限、potential syzygy、分母の範囲、二つの非中心な比較例、17項Fermat恒等式を確認。実行時の再計算結果は保存証明書と完全一致。残余圏のsaturationの計算検証ではない。 |
 
 非楕円型の現在有効な計算証拠は保存JSONである。検証時には
 `--write`を付けずに実行し、再計算した結果全体と
 `computations/nonelliptic_quantization_certificate.json`の一致を確認した。
 公開本文の還元式、中心三次元、重なりの正規形、Fermat恒等式も実装と照合している。
 
-実行対象と証明書のSHA-256は `validation_paper_a.json` に集約する。
+CMRの出力保存コマンドは
+`python3 computations/verify_cmr_nodal_center.py --json --output build/verify_cmr_nodal_center.json`。
+出力中のstatusはPASS、コードSHA-256は
+`f3ca63fcf5e5f66ed6d7aad45c2c853bd162c86074980a8b1e915ee998d3a503`で現行ファイルと一致した。
+実行対象、引き継いだ計算と証明書のSHA-256は `validation_paper_a.json` に集約する。
+この有限計算はBWB・大域中心元・商モジュライ降下の一般証明を代替しない。
 
 重い記号計算は一本ずつ実行する。
 LuaLaTeXによる再生成コマンドは`latexmk papers/paper_a.tex`で、
 PDFと中間生成物は`build/`へ出力される。
-**A-v58全体の組版・参照検査・PDF確認および計算の最終実施状態は、
+**A-v59全体の組版・参照検査・PDF確認および計算の最終実施状態は、
 リポジトリルートの[`validation_paper_a.json`](../validation_paper_a.json)を参照する。**
 本文の証明監査、計算の実行、PDFの確認、配布物の生成・保存は別の状態として扱う。
+本ノートからA-v59の組版・視覚確認・Library保存の完了を推定しない。
 
 ### 確認した一次文献と本稿の位置
 
@@ -963,6 +1098,39 @@ PDFと中間生成物は`build/`へ出力される。
   また§9, p.1414は一変数低次項付きRains公式を与える。混合Hesse式もt可逆なら中心平行移動でこの表示へ移る。
   具体式・定数項・自由語関係は `rem:pg-hesse-eg-translation` と `verify_hesse_translation.py` に保持し、
   実行済みの普遍有理恒等式の検算は現行コードのハッシュと共に保持する。固定係数環上での正則な規格化と全係数への延長を、既知の点ごとの存在から区別する。
+  **Proposition 8.1.1(i), p.1407、証明pp.1407–1408**は、
+  重みa,b,c、d=a+b+cの三生成元potential
+  \(\Phi=xyz-yxz+\sum_{j\ge1}\hbar^j\Phi_j\)、\(\deg\Phi_j\le d\)について、
+  古典剰余 \((\Phi_1)^{\mathrm{ab}}\) を持つ次数d以下の形式中心元を与える。
+  (i)には孤立特異点の仮定がなく、この仮定は(ii),(iii)で追加される。
+  証明はR=C[u]を基底とする相対議論を用い、還元群作用に対応するformalityも明記する。
+  したがって、指定古典剰余の形式中心元存在や相対・同変な形式構成自体を本稿の新規性とはしない。
+  §2(IX)の比較対象は、全smooth Fと動く全support上での代数的な同時選択である。
+- Chekhov–Mazzocco–Rubtsov, *Quantised Painlevé monodromy manifolds, Sklyanin and Calabi–Yau algebras*,
+  Adv. Math. 376 (2021), 107442、
+  [DOI](https://doi.org/10.1016/j.aim.2020.107442)。
+  本文確認は[accepted arXiv:1905.02772v2](https://arxiv.org/pdf/1905.02772v2)の
+  式(4.38), p.21、Lemma 4.6・式(4.39), p.22、Table 5, p.41。
+  節点型の点ごとの中心元と公式は既知。現行稿の具体的な対応・無極な規格化・純中心補正は§2(VIII)を参照する。
+- Guo–Lu–Sharpe, *Classical sheaf cohomology rings on Grassmannians*,
+  [arXiv:1605.01410v2](https://arxiv.org/pdf/1605.01410v2), §2.2, Theorem 2.3, pp.5–6。
+  Grassmann多様体上の束の重みの規約を本文で確認した。
+  Theorem 2.4の証明は負の最高重みも明示しており、全整数twistへの適用を確認できる。
+- Lurie, *A proof of the Borel–Weil–Bott theorem*,
+  [著者公開ノート](https://www.math.harvard.edu/~lurie/papers/bwb.pdf), Theorem 5と証明, p.3。
+  PDFに刊行年の記載はない。一般のBWB定理の確認に用いた。
+  **Bott原論文やWeyman原書を直接読了したとはしない。**
+- Derksen, *Computation of Invariants for Reductive Groups*,
+  Adv. Math. 141 (1999), 366–384、
+  [著者公開刊行PDF](https://sites.lsa.umich.edu/hderksen/wp-content/uploads/sites/614/2018/05/A.I.a.4.pdf)。
+  Theorem 2.1, pp.368–369のHilbert有限生成と、p.369のReynolds射影・安定部分加群の性質を確認した。
+- Stacks Project [00MA](https://stacks.math.columbia.edu/tag/00MA)・
+  [00MB](https://stacks.math.columbia.edu/tag/00MB), Lemmas 10.97.1–10.97.2：
+  Noetherian環上の有限加群の完備化の完全性、テンソル積との一致と平坦性。
+  [06PH](https://stacks.math.columbia.edu/tag/06PH), Lemma 80.11.7：
+  flat・局所有限表示の群による自由作用の商は代数空間で、商写像はfppf torsorとなる。
+  [03OY](https://stacks.math.columbia.edu/tag/03OY), §59.22のTheorem 59.22.4：
+  準連接層のZariski・fppfコホモロジー比較。アフィン底上の加法群torsorの自明性へ適用する。
 - De Laet–Le Bruyn, *The geometry of representations of 3-dimensional Sklyanin algebras*,
   [arXiv:1405.1158v1](https://arxiv.org/abs/1405.1158v1), **§2、p.3**：
   \(3c_3\)の式が本稿の純Hesse中心公式の入力である。
@@ -970,7 +1138,10 @@ PDFと中間生成物は`build/`へ出力される。
 
 PBW/AS-regular性の一般原理と純Sklyanin中心元は既知の入力である。
 全混合係数の有限中心公式、普遍rank恒等式への使用、規格化したCramer中心元と
-正規形を組み合わせた全Poisson量子化についても、初出の網羅的確認が完了したとは主張しない。
+正規形を組み合わせた全Poisson量子化、全support上の同時代数的選択についても、
+初出の網羅的確認が完了したとは主張しない。
+Pymとの比較は `poisson_article_submission_audit.md` の公開arXiv v1に限り、
+刊行版本文・accepted manuscript本文は引き続き未取得である。
 
 ### 形式的Poisson構造を経由する方法の注意
 
@@ -987,11 +1158,15 @@ Proposition 1では、先頭項が至る所非零の形式的最高次形式
 従ってこの方法を相対係数環・完備双加群へ使うには、
 星積の全形式class、基底環、完備化と双対性の仮定を個別に確認する必要がある。
 また、形式的中心元の存在から原点近傍の代数的中心元を得ることも別の論点である。
-これらを省略した形式的CY論法は、現行の全Poisson量子化定理の証明に用いない。
+EG Proposition 8.1.1(i)は相対係数環を用いた形式中心の存在を既に与えるので、
+この一般原理の適用自体を新しい成果とはしない。
+現行の固定正規形の存在証明は外部の形式中心存在を使わず、
+全supportの同変選択は既存の代数的定階数核の形式的持上げを有限Noetherian核へ戻す。
+これらを省略した形式的CY論法は証明の代用にしない。
 
 ### 一般点での復元と残る問題
 
-論文B-v58 `papers/paper_b.tex` は、滑らかな可換三次超曲面を特殊ファイバーに持つ
+論文B-v59 `papers/paper_b.tex` は、滑らかな可換三次超曲面を特殊ファイバーに持つ
 次数別有限自由な代数的中心三次対について、任意の\(n\ge3\)で
 **一変数一般ファイバーの全coherent残余圏**を、有限体拡大後に
 滑らかな可換三次超曲面のKuznetsov成分として復元する。
@@ -1001,18 +1176,16 @@ Proposition 1では、先頭項が至る所非零の形式的最高次形式
 
 優先する未解決問題は次の通りである。
 
-1. 未処理の特異型での全G同変選択、型をまたぐ中心直線の整合、
-   および複数ブロックの分解・配分を変えた間の整合。
-   全fでのG_0平均、滑らか・節点・尖点の各型での中心調整、零制限での全tのPBW中心元は得た。
-   節点・尖点では特異点直線により全mでgerbeが中立となり、実際の次数付き代数が零h近傍で降りる。
-   滑らか・零の層ではgcd(m,3)=1による降下を得ている。
-   接線とconicの軌道ではδだけの同変分裂がなく、不可約三次式全域でも正則な左逆を貼れない。
-   次はfの混合係数も使った同変な中心直線の構成と、§3の射影束で保持した
-   追加データを忘れる条件を検討する。滑らか・零の層で3|mとなる場合の別の降下法、
-   固定h≠0での代数の同型類の像の次元、全モジュライでの圏の降下は別の問題である。
+1. 複数ブロックの分解・配分を忘れた同変構成。階数二の全supportの共変中心元と、gcd(N,3)=1の全被約層への降下は得た。
+   次は§3の中心核の射影束で保持した追加データを忘れる条件を調べる。
+   古典核の自然な線と純中心束のコホモロジー、ブロック置換作用から着手する。
+   3|Nの全階数二層では、特異点直線に代わる重み一線束の有無を検討する。
+   全supportで選んだ中心元と零制限の全h公式・既存層別式との一致、
+   固定h≠0での同型類像、全モジュライでの圏の降下は別問題である。
 2. 非零の特異な三変数制限に対する短い普遍多項式表示の存在。
    Cramer式の分母と特異型ごとの有限関係式を調べ、単なる可逆な中心元の再規格化で除去できる分母を区別する。
 3. 全閉パラメータにおけるqgrの滑らかさ、可換特殊点を含む一変数・多変数底全体での相対残余圏の比較。
    一般点の結果を特殊点へ延長する際のproperness・対角のperfect性・底変更を確認する。
 
-形式的存在証明への変更は、これらの問題を解くための前提ではない。
+階数二の全supportの証明では、形式的持上げを有限核の代数的持上げに結びつけた。
+複数ブロックでも同じ手順が自動的に適用できるとは仮定せず、古典核とコホモロジーを先に確認する。

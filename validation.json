@@ -1,26 +1,26 @@
 {
-  "version": "nc-cubic-v91",
+  "version": "nc-cubic-v92",
   "date": "2026-11-14",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; expected-parent fast-forward updates; no Actions or force push.",
-  "scope": "Paper B-v59: harmonic-angle second jet, all-order Hesse normalization and exact rational model via relative elliptic curves, with fixed-target period-compatible generic descent. Concurrent A-v58 preserved.",
+  "scope": "Paper A-v59: simultaneous algebraic equivariant central lift over all nonzero rank-two supports; Bott vanishing, finite completion and full reduced rank-two descent when gcd(N,3)=1; global centering obstruction and explicit CMR nodal comparison. Concurrent B-v59 is preserved.",
   "papers": {
     "A": {
       "entry": "papers/paper_a.tex",
-      "version": "A-v58",
+      "version": "A-v59",
       "audit": "notes/poisson_article_submission_audit.md",
       "validation": "validation_paper_a.json",
-      "preserved_from_remote_commit": "9bbba3f4977d92d99c65e1e22d98ac993d73c301",
-      "modified_in_current_B_revision": false,
-      "re_audited_in_current_B_revision": false,
-      "re_built_in_current_B_revision": false
+      "current_review_scope": "New full-support central-kernel proof, descent and obstruction independently read; known formal-centre and nodal-formula overlap clarified from primary sources. Unchanged main proofs retain their earlier review scopes. Build and exact-computation states are recorded separately in paper-specific validation."
     },
     "B": {
       "entry": "papers/paper_b.tex",
       "version": "B-v59",
       "audit": "notes/paper_b_proof_audit.md",
       "validation": "validation_paper_b.json",
-      "current_review_scope": "New second-jet and rational-model proofs independently read; primary sources checked. Unchanged main proof not wholly reaudited. Build and finite-check states are recorded in paper-specific validation."
+      "preserved_from_remote_commit": "3feaf9b3dcc098317794e119d71f28350edae657",
+      "modified_in_current_A_revision": false,
+      "re_audited_in_current_A_revision": false,
+      "re_built_in_current_A_revision": false
     }
   },
   "independent_results": {
@@ -49,8 +49,8 @@
     "No claim of formal proof verification, external referee acceptance, or comprehensive originality determination."
   ],
   "concurrent_main_preserved": {
-    "commit": "9bbba3f4977d92d99c65e1e22d98ac993d73c301",
-    "paper_A": "A-v58",
-    "scope": "A-v58 source closure, A-only research notes, computations and validation retained byte-for-byte; shared research documents reconciled with B-v59."
+    "commit": "3feaf9b3dcc098317794e119d71f28350edae657",
+    "paper_B": "B-v59",
+    "scope": "The complete current B-v59 TeX input closure, B-specific validation and shared preamble remain byte-for-byte as on this main commit. Shared research documents are reconciled with A-v59."
   }
 }
