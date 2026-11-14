@@ -10,9 +10,9 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月14日・論文A（投稿準備稿 v60）}
+\date{2026年11月14日・論文A（投稿準備稿 v61）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-14 / A-v60}
+\fancyhead[R]{\small 2026-11-14 / A-v61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -38,8 +38,13 @@ Koszul Artin--Schelter正則代数と、その正則中心三次商に量子化�
 変形直線の積の零切断近傍へ量子化族を降ろせる。
 特に三次三様体では、全ての非零Poisson対を同時に扱う。
 一般次元でも三次Veroneseは全階数二層へ降下する。
-対応する中心スカラーgerbeの位数は$\gcd(n+2,3)$であり、
+全ての非零階数の被約層で、中心スカラーgerbeの位数は$\gcd(n+2,3)$であり、
 これが次数一を保つ線束補正による降下の障害を測る。
+中心変数が残らない満support層でも、ブロックの順序を底に加えずに、
+指定二次jetを持つ共変な中心元を零切断近傍に選べる。
+この場合は係数空間のアフィン性により有限jetを直接持ち上げ、
+三次Veroneseを被約Poissonモジュライへ降ろす。
+特に三次四様体の階数四の全Poisson対を同時に扱う。
 制限が恒等的零の層では、PBW対称化した三次式自体が
 全パラメータで全ブロック群に共変な正則中心元となる。
 ただし$n\ge4$では、この標準中心直線を全support上の選択と一致させることは
@@ -312,12 +317,42 @@ Poisson線形族の全方向を一つの相対代数族で量子化できる
 \ref{prop:pg-ad-intrinsic-hessian}）。
 二次jetの普遍恒等式とHesse表示での全次数中心公式は、異なる主張である。
 
+中心変数が残らない$N=3k$の満support層では、固定した正規形を離れても
+一つの共変な中心元を選べる
+（定理\ref{thm:pg-intrinsic-full-support-center}）。
+まず、三重ベクトルから復元される順序のない$k$個のブロックを
+有限\'etale被覆として相対化する
+（補題\ref{lem:pg-intrinsic-block-cover}）。
+満supportの三重ベクトルの軌道は
+$\mathrm{GL}_N/(\mathrm{SL}_3^k\rtimes\mathfrak S_k)$であり、
+既知のアフィン商の定理によってアフィンである。
+適合する滑らかな三次式の係数空間も、ベクトル束の判別式主開としてアフィンになる。
+この底上で割った交換子の核を階数$k$の束とし、
+$\sym(F-\hbar^2\mathscr H(P,F)/12)$を法$\hbar^3$の切断として直接持ち上げる。
+還元群と偶性による平均はこのjetを保ち、
+全零切断を含む不変開上に代数的な中心元を与える。
+ブロックごとの次数によるfiltrationから正則性を示すので、
+テンソル積代数全体のdomain性を仮定しない。
+得られる三次Veroneseと中心商は、実際の被約Poisson層へ降下する
+（系\ref{cor:pg-full-support-veronese-descent}）。
+満supportの底の次元は$2k$であり、三次四様体の階数四では四次元となる。
+これはPoisson対の底の次元であり、固定した非零$\hbar$での
+非可換同型類の像の次元ではない。
+
+また、中心スカラーgerbeの位数$\gcd(N,3)$は階数二に限らない。
+命題\ref{prop:pg-intrinsic-all-rank-gerbe}では、各非零階数$2k$の全被約層で
+これを証明する。$3\mid N$の場合、Fermat点の安定化群内の二つの元の交換子が
+中心の三乗根となることから、全ての同変可逆層の中心重みが三の倍数だと分かる。
+この証明は底のPicard群の消滅を必要としない。
+従って満support層の三次Veronese降下は、
+元の次数一の族の可逆層による補正とは区別される。
+
 この量子化は各構造、固定した正規形の線形族、および固定した変数分解の
 係数空間上での構成を含み、上記の範囲では座標変換との同変性も備える。
 次数付き代数を載せる商スタックでは、次数$d$に重み$d$で作用する
 スカラーの$\mathbb G_m$をまず保持し、指標補正・特異点直線による捻り、または三次Veroneseによって
 上記の範囲においてこれを除く。
-複数ブロックも含む全Poissonモジュライ上の量子化族や、
+中心変数を残す一般の複数ブロック層での同時選択や、
 全閉点での$\operatorname{qgr}B_\hbar$のsmoothnessは結論に含めない。
 
 \subsection*{固定・相対モジュライとFermatの成分}
@@ -534,8 +569,17 @@ Etingof--Ginzburg\cite[\S9, p.~1414]{EG}には、
 今回確認した上記文献の箇所から、この同時選択と降下が直接与えられるわけではない。
 また、重み零の降下、Veronese同値、および底の可逆層による次数別の捩りは
 既知の一般原理である\cite{PBerghSchnurerGerbes,PSmithVeronese,PVdBNoncommP1Bundles}。
-本稿ではそれらを全supportの族へ適用し、さらに同変Picard群によるgerbeの位数と、
-零制限の標準中心直線への非延長を計算する。
+本稿ではそれらを全supportの族へ適用し、さらに階数二の同変Picard群と、
+全非零階数層の安定化群を用いてgerbeの位数を決定する。
+零制限の標準中心直線への非延長も別に計算する。
+満supportの構成では、既知の還元群によるアフィン商の定理
+\cite[\S2, Proposition~2.2, Theorem~2.1]{PArzhantsevMatsushima}と
+有限射影加群の切断の持上げを用いる。
+ブロックの点ごとの内在性は補題\ref{ne:blocks}に既に含まれ、
+補題\ref{lem:pg-intrinsic-block-cover}はその族としての表示である。
+定理\ref{thm:pg-intrinsic-full-support-center}で加わる内容は、
+順序を選ばない全満support層における指定二次jet付きの代数的な同時選択と、
+系\ref{cor:pg-full-support-veronese-descent}の中心商族である。
 ただし、関連文献全体に対する新規性の最終確認は残る。
 一般の形式的量子化とunimodularityに関する
 Kontsevich・Dolgushevの理論\cite{PKontsevich,PDolgushev}は背景であり、
@@ -599,6 +643,8 @@ Serre関手からの復元には中心・自由性・滑らかさ等の追加仮
 零制限では全パラメータ、節点・尖点では全$m$の層への降下 \\
 階数二の全体 & 純中心束のBott消滅、有限核の完備化、全座標群の平均 &
 型をまたぐ中心商族。三次Veroneseは全次元で降下し、次数一の障害は位数$\gcd(N,3)$ \\
+満supportの全体 & 有限\'etaleブロック被覆、還元安定化群のアフィン商、有限jetの持上げ &
+順序を選ばない共変中心商族と三次Veronese降下。全階数層のgerbeの位数は別に安定化群で計算 \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -613,6 +659,8 @@ Serre関手からの復元には中心・自由性・滑らかさ等の追加仮
 第\ref{sec:pg-quantization}--\ref{sec:pg-all-dimensions}節で全ブロックへ組み立て、
 第\ref{sec:pg-equivariant-central-lifts}節で層ごとの同変化と降下を扱い、
 第\ref{sec:pg-intrinsic-rank-two-center}節で階数二の全supportへ拡張する。
+第\ref{sec:pg-full-support-quantization}節では全階数層のgerbeと、
+中心変数が残らない全満support層の同時量子化を扱う。
 その後に具体例を置き、付録に既知中心公式、ambient復元、完全交叉の背景を収める。
 
 \input{papers/sections/poisson_geometry}
@@ -628,6 +676,7 @@ Serre関手からの復元には中心・自由性・滑らかさ等の追加仮
 \input{papers/sections/general_dimension_universal_quantization}
 \input{papers/sections/equivariant_central_lifts}
 \input{papers/sections/intrinsic_rank_two_center}
+\input{papers/sections/full_support_quantization}
 \input{papers/sections/special_poisson_blocks}
 \input{papers/sections/nonelliptic_quantization}
 \appendix

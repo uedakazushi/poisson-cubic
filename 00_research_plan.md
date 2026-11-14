@@ -1,10 +1,10 @@
 # 研究方針：中心三次変形の量子化と一般点可換復元
 
-2026-11-14 / v93。再開時は本ファイルを最初に読む。GitHub mainが正本。
+2026-11-14 / v94。再開時は本ファイルを最初に読む。GitHub mainが正本。
 
 ## 現在の目標と達成基準
 
-論文A `papers/paper_a.tex`（A-v60）は全次元Poisson正規形を中心に、その幾何学的帰結・代数的量子化を扱う。ambient復元と完全交叉の背景は付録に置く。論文B `papers/paper_b.tex`（B-v59）は、次数別有限自由な代数的中心三次変形の一般点可換復元を扱う。公表の達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、使用する既知定理の適用範囲と新規性が具体的に説明され、全文を再生成できることである。
+論文A `papers/paper_a.tex`（A-v61）は全次元Poisson正規形を中心に、その幾何学的帰結・代数的量子化を扱う。ambient復元と完全交叉の背景は付録に置く。論文B `papers/paper_b.tex`（B-v59）は、次数別有限自由な代数的中心三次変形の一般点可換復元を扱う。公表の達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、使用する既知定理の適用範囲と新規性が具体的に説明され、全文を再生成できることである。
 
 Bでは n>=3、R=C[h]_(h)、K=C(h) とし、A_R/hA_R が N=n+2 変数多項式環、中心三次元の剰余が滑らかな三次式であることを仮定する。可換方程式はK上、全coherent残余圏のrotation・指定三次周期付き同値はある有限拡大上に構成する。模型の一意性はrotation付きpairを実現する模型の幾何学的射影同型類についてである。K上のformの一意性・同値核のKへの降下・特殊点を含む代数的相対同値は結論に含めない。
 
@@ -26,7 +26,9 @@ Aの量子化は、全三次式の滑らかさ→active gradientのgcd=1→三�
 
 `cor:pg-intrinsic-rank-two-descent` は gcd(N,3)=1 のときθ=(det L)^rλ^s、Nr−3s=1で全被約階数二Poissonモジュライ×A¹_hの零切断近傍へ元の次数付き代数と中心商を降ろす。N=5では全非零Poisson対が対象で、底の次元は17である。一般のNでも `cor:pg-intrinsic-third-veronese-descent` により A^[3]_d=A_(3d)⊗λ^d と中心商が降下し、Ωは新次数一の大域中心元になる。古典Projは元の普遍三次族、新偏極は各fiber上のO(3)である。元のAS-regular性をVeroneseへそのまま移さず、qgr同値は左右noetherianな閉fiberについて述べる。Smithの訂正文が要求するTor¹のtorsion条件も本文で直接確認する。
 
-全階数二層のgerbeについては `prop:pg-intrinsic-gerbe-period` で Pic(S_N)=0、同変可逆層の中心重みの像=gcd(N,3)Z を証明し、gerbeの位数をgcd(N,3)と決定した。3|Nでは全零切断近傍にも重み±1の可逆層がなく、既存の次数一の族を可逆層の次数冪で補正して降ろす方法は不可能である。これは別ambient・Morita模型・カテゴリーの不存在ではない。
+中心変数が残らない満support層N=3kでも、`full_support_quantization.tex` の `thm:pg-intrinsic-full-support-center` により、ブロックの順序を底に加えずに指定Hessian二次jet付きの共変な代数的中心元を選べる。三重ベクトルからのブロック復元を有限étale被覆として相対化し、安定化群(SL3)^k⋊S_kが還元的なので軌道も適合する滑らかな係数空間もアフィンとなる。割った交換子の階数kの核へ、法h³の切断を直接持ち上げ、Reynolds平均と偶平均でjetを保つ。各ブロック成分を非零にすると、一ブロック次数によるfiltrationから正則性が従い、次数別局所自由な中心商を得る。`cor:pg-full-support-veronese-descent` は A^[3]_d=A_(3d)⊗λ^d、中心線J⊗λ≃Oを用いて新次数一の大域中心元と商を実際の被約Poisson層へ降ろす。全零h切断を含む開近傍での存在であり、全hや一意性は主張しない。底の次元は2k、三次四様体のrank4では4である。固定h≠0での同型類像の次元は未決定である。アフィン商にはArzhantsevのMatsushima基準の公開原稿§2を一次資料として用いる。
+
+全非零階数2kの被約層で、中心スカラーgerbeの位数はgcd(N,3)である（`prop:pg-intrinsic-all-rank-gerbe`）。3|NのFermat点で、安定化群の二元の交換子が中心の三乗根になるため、全ての同変可逆層の中心重みは三の倍数となる。指標による上界と合わせたこの証明はPicard群の消滅を要しない。階数二のPic(S_N)=0を用いる既存証明は `prop:pg-intrinsic-gerbe-period` に保持する。3|Nでは全零切断近傍にも重み±1の可逆層がなく、既存の次数一の族を可逆層の次数冪で補正して降ろす方法は不可能である。これは別ambient・Morita模型・カテゴリーの不存在でも、任意の稠密開や一般点でのperiod決定でもない。
 
 零制限層Z_Nでの標準中心直線O sym(F)への一致には、`prop:pg-intrinsic-zero-matching-obstruction` の別の障害がある。任意の大域偶中心元は二次係数を −H/12+aF+c と書けるが、全supportの純中心束CにはP重み2の大域切断がない。一方Z_N上のHは純中心で非零になり得るため、N>=6ではOΩをO sym(F)へ全層で一致させられない。相対障害は0≠∂(H|Z/12)∈H¹(S_N,I_Z C)_2である。指定ambient下の中心ideal不一致と、商の抽象非同型・qgr非同値は区別する。全係数の補空間の同変選択も不可能で、中心平行移動Uの自由商は非アフィンである。
 
@@ -63,7 +65,7 @@ Bの公表上の核心は、任意の完備noetherian局所C代数上での実�
 ## 優先する次の課題
 
 1. Aの公表上の中心を全次元正規形・Bondal・全Poisson代数的量子化・相対成分数に置き、三次四様体の純楕円分類を具体的帰結として示す。Pym論文の刊行版または著者のaccepted manuscriptを通常の公開経路で入手し、v1との該当箇所・訂正状況を最優先で照合する。Oxfordの登録メタデータは確認できたが本文は取得できていない。独立な反例証明は現行本文にある。Bondal・Derdzinski--Gal・LPT/Mayanskiy・Gualtieri--Pym等との比較を踏まえ、包括的な正規形・成分定理の初出も引き続き調べる。
-2. 階数二では全support上の二次jetを指定した共変中心元、全次元での三次Veronese降下、およびgerbeの位数gcd(N,3)を決定した。次は複数ブロックの分解・純中心配分を忘れた同変構成を調べる。`notes/universal_casimir.md` §3の中心核の射影束から、古典核の自然な線、ブロック置換、中心重みを確認する。零制限標準中心直線への全support一致はN>=6で不可能なので、その一致を目標とせず、得られる中心商の抽象的同型・Morita/qgr比較や基底の変更との関係を調べる。3|Nの元の次数一族の線束補正による降下も不可能であり、三次偏極の族を基準に別のambient表示を比較する。全hへの延長、短い共変多項式表示、固定h≠0での同型類像、全閉パラメータでのqgr滑らかさは別の課題とする。
+2. 階数二の全supportと、中心変数のない満support層N=3kでは、指定二次jetを持つ共変中心元と三次Veroneseの降下が得られた。全非零階数層のgerbeの位数もgcd(N,3)と決定した。次の存在問題は中心変数を残すm>0、k>=2の層に絞る。`notes/universal_casimir.md` §3の自然な完全列 0→Sym³(V/W_P)*→K_0→E_perm→0 から始め、古典Fの対角切断、H¹と有限アフィン模型への延長を調べる。補空間と純中心配分の大域的分裂は仮定しない。三重ベクトルの軌道の非アフィン性だけから係数incidenceの非アフィン性や中心元不存在を結論しない。零制限標準中心直線への全support一致はN>=6で不可能であり、次は中心商の抽象的同型・Morita/qgr比較や基底変更との関係を調べる。3|Nでは三次偏極の族を基準に別ambient表示を比較する。全hへの延長、短い共変多項式表示、固定h≠0での同型類像、全閉パラメータでのqgr滑らかさは別の課題とする。
 3. Bでは二次補正と、このHesse--Sklyanin例の全次数の有理K方程式が決定したため、次は比較核と低rotation積の有効化に進む。rotation核Pと対角Deltaの有限表示から V=H^0RHom(Delta,P)、U=H^0RHom(Delta,P^2)、積を算出する。まずstabilization模型の有限Homと三対象dg代数へ戻り、どの構造写像がV,Uに寄与するかを特定し、得られた核を既知の明示方程式の勾配空間と照合する。一般点の固定模型への核の有限降下は証明済みだが、核の具体行列と拡大次数は未計算である。楕円曲線を用いた方程式の同定を、非可換圏から低積全体を直接抽出したことの代用にしない。
 4. 公表上の貢献を、完備比較と相対windowの具体的構成、および包括的な一般点復元に絞る。既知の一般原理と本稿の適用条件の対照は監査ノートにある。新たな引用が必要になれば一次資料で範囲を確かめ、同一の定理の初出が判明すれば序論・方針を修正する。
 5. 同値核のGalois降下を調べる。E_F=kという方程式の一意性と、rotation付き同値核の降下を分け、まずその自己同値群・自己同型群を同定する。`gcd:ex:forms` は特殊ファイバーも完備化も一致するがK上非同型の例である。TsenによるBrauer群消滅や形式点の存在だけでK'=Kを結論しない。
@@ -88,6 +90,7 @@ python3 computations/verify_equivariant_centering.py
 python3 computations/verify_split_cubic_fourfold.py
 python3 computations/verify_hesse_translation.py
 python3 computations/verify_hessian_split_obstruction.py
+python3 -B computations/verify_general_dimension_multiblock.py
 python3 scripts/build.py --only paper_b
 python3 scripts/verify_bundle.py --only paper_b --require-pdfs
 python3 computations/verify_complete_curved_transport.py --output build/verify_complete_curved_transport.json
@@ -98,4 +101,4 @@ python3 computations/verify_recovery_example.py --output build/verify_recovery_e
 
 `scripts/check_layout.py` はGit checkoutでの追跡対象検査であり、Git管理情報のない再開用ZIPでは省略する。その他のソース・組版検査はZIPの展開先でも実行できる。
 
-日本語LuaLaTeX、LuaTeX-ja、latexmk、Pythonと `requirements.txt` の依存を用いる。Aの厳密計算は `validation_paper_a.json` のコマンドで再現する。大きな記号行列を扱うスクリプトは一つずつ実行する。PDF・SyncTeX・中間物・再生成可能な出力はbuild/で非追跡。生成、検証、遠隔保存を別の状態として記録し、有限検算を一般定理や圏同値の計算機証明とは報告しない。本改訂はA-v60を対象とし、B-v59の全TeX入力・専用検証記録と共通preambleを保持する。Bの再組版・再監査は今回の実行範囲に含めない。
+日本語LuaLaTeX、LuaTeX-ja、latexmk、Pythonと `requirements.txt` の依存を用いる。Aの厳密計算は `validation_paper_a.json` のコマンドで再現する。大きな記号行列を扱うスクリプトは一つずつ実行する。PDF・SyncTeX・中間物・再生成可能な出力はbuild/で非追跡。生成、検証、遠隔保存を別の状態として記録し、有限検算を一般定理や圏同値の計算機証明とは報告しない。本改訂はA-v61を対象とし、B-v59の全TeX入力・専用検証記録と共通preambleを保持する。Bの再組版・再監査は今回の実行範囲に含めない。

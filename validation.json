@@ -1,23 +1,23 @@
 {
-  "version": "nc-cubic-v93",
+  "version": "nc-cubic-v94",
   "date": "2026-11-14",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/nc-cubic main; expected-parent fast-forward updates; no Actions or force push.",
-  "scope": "Paper A-v60: prescribed universal second jet of the all-support central lift; exact period gcd(N,3) of the rank-two scalar gerbe; unconditional third-Veronese descent; and a second-jet obstruction to extending the standard zero-restriction central line. Concurrent B-v59 is preserved.",
+  "scope": "Paper A-v61: intrinsic finite-etale block covers and exact scalar-gerbe period gcd(N,3) on every nonzero reduced rank stratum; a covariant algebraic central lift with prescribed Hessian second jet on the whole full-support stratum N=3k, and its third-Veronese descent. Earlier rank-two results and current B-v59 are preserved.",
   "papers": {
     "A": {
       "entry": "papers/paper_a.tex",
-      "version": "A-v60",
+      "version": "A-v61",
       "audit": "notes/poisson_article_submission_audit.md",
       "validation": "validation_paper_a.json",
-      "current_review_scope": "New jet-preserving algebraization, equivariant Picard/gerbe period, third-Veronese descent with conditional fibrewise qgr comparison, and zero-stratum non-extension independently read. Unchanged proof scopes and computations are retained distinctly."
+      "current_review_scope": "Intrinsic block cover, full stabilizer, reduced incidence, all-rank gerbe period by a Fermat stabilizer commutator, full-support affine finite-jet lifting, regular central quotient and third-Veronese descent independently read. One six-example exact computation was run; fourteen earlier computations are retained distinctly."
     },
     "B": {
       "entry": "papers/paper_b.tex",
       "version": "B-v59",
       "audit": "notes/paper_b_proof_audit.md",
       "validation": "validation_paper_b.json",
-      "preserved_from_remote_commit": "fb0083cd32dfe6994a5e64e7a26caeef8062ecc0",
+      "preserved_from_remote_commit": "71d1a755c601bbc2a46a1a898842de610df36496",
       "modified_in_current_A_revision": false,
       "re_audited_in_current_A_revision": false,
       "re_built_in_current_A_revision": false
@@ -49,8 +49,8 @@
     "No claim of formal proof verification, external referee acceptance, or comprehensive originality determination."
   ],
   "concurrent_main_preserved": {
-    "commit": "fb0083cd32dfe6994a5e64e7a26caeef8062ecc0",
+    "commit": "71d1a755c601bbc2a46a1a898842de610df36496",
     "paper_B": "B-v59",
-    "scope": "The complete current B-v59 TeX input closure, B-specific validation and shared preamble remain byte-for-byte as on this main commit. Shared research documents are reconciled with A-v60."
+    "scope": "The complete current B-v59 TeX input closure, B-specific validation and shared preamble remain byte-for-byte as on this main commit. Shared research documents are reconciled with A-v61."
   }
 }
