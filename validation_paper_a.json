@@ -1,11 +1,11 @@
 {
-  "version": "A-v59",
-  "bundle_version": "nc-cubic-v92",
+  "version": "A-v60",
+  "bundle_version": "nc-cubic-v93",
   "date": "2026-11-14",
   "manuscript": "papers/paper_a.tex",
   "audit_note": "notes/poisson_article_submission_audit.md",
-  "scope": "Continued referee revision: full GL_N x equation-scalar equivariant algebraic central lift over all nonzero decomposable rank-two supports, without restriction on the ternary cubic type; Bott-H1 formal lifting, invariant finite Weyl open and finite-kernel completion preserving the classical residue; actual graded descent over the entire reduced rank-two Poisson stratum when gcd(N,3)=1. Global mixed-coefficient centering is impossible and the free translation quotient is nonaffine. Known EG formal centres and CMR nodal centres are credited precisely. Proof reading, exact computation, typesetting, visual inspection and persistence are distinct.",
-  "source_base_commit": "3feaf9b3dcc098317794e119d71f28350edae657",
+  "scope": "Continued referee revision: the all-support central lift preserves the universal Hessian second jet by lifting from K/h^3K and algebraizing that finite jet. Pic(S_N)=0 and the central weight image gcd(N,3)Z give the exact scalar-gerbe period; third-Veronese algebras descend in every N>=5. For N>=6 the standard sym(F) central line on zero restriction cannot extend as a matching global even central line, already at the second jet. General descent/Veronese inputs are credited, with the Smith corrigendum condition checked directly. Proof reading, exact computation, typesetting, visual inspection and persistence are distinct.",
+  "source_base_commit": "fb0083cd32dfe6994a5e64e7a26caeef8062ecc0",
   "mathematical_review": {
     "proof_chains_read": [
       "Euler/Koszul representation, divergence and Hessian condition",
@@ -55,30 +55,32 @@
       "The fixed-coordinate coefficient-family existence theorem does not assert a coefficient-independent parameter open or equivariant descent to the full Poisson moduli stack.",
       "Uncorrected scalar-weight equivariance gives a gerbe family. When gcd(m,3)=1, the character theta=(det N)^r lambda^s with mr-3s=1 removes degree weights, giving actual graded-algebra descent to the stated reduced Poisson stratum open.",
       "The abstract, introduction and ambient-recovery discussion distinguish the 17-dimensional reduced Poisson base from the unproved dimension of the fixed-nonzero-h noncommutative moduli image.",
-      "Full-G equivariance generally requires dropping the pure-central-coefficient gauge. The all-support construction now includes reducible, nonreduced and zero restrictions near h=0. Agreement with independently chosen layerwise explicit formulas is not asserted. Multi-block changes remain open. Zero restriction separately has sym(f) for all t.",
+      "Full-G equivariance generally requires dropping the pure-central-coefficient gauge. All-support existence includes every ternary restriction type near h=0, with the universal second jet. Standard zero-restriction matching is obstructed for N>=6; other stratumwise comparisons and multiple-block changes remain separate.",
       "Pointwise existence of a non-scalar central element is explicitly credited to Etingof--Ginzburg. Mixed quadratic coefficients by themselves are not claimed as new: for invertible Hesse t they can be translated to the existing presentation.",
       "The general lifting obstruction is independent of any literature-error claim and is C^{pi_0(C)}/C; connectedness gives vanishing, while disconnectedness alone does not assert that every section has a nonzero obstruction.",
       "The ambient recovery appendix uses A for the ambient algebra and B for its central quotient, consistently with the quantization part.",
       "The cubic-fourfold Hessian plane lies in ambient P^5, not in X. Hessian reducibility by itself does not imply a rank-four Poisson structure, as shown by the smooth (1,1,4) example.",
       "For every r>=2 the lifting obstruction has the component-constant description only at the defining degree d; for another twist e the relevant group is H^1(I_C^(r-1)(e-d)).",
-      "The descended centre is a cubic line subbundle and its homogeneous ideal; a globally chosen generator on the reduced Poisson stack is not asserted.",
+      "In the original degree-one grading, the descended centre is a cubic line subbundle and its homogeneous ideal, without a chosen global generator. In the lambda-twisted third Veronese the central element has weight zero and does descend as a global degree-one generator.",
       "Tor in the central-linear-extension display uses the right/left module convention. The u variables form a regular sequence in ambient A, not necessarily in its quotient B; on zero restriction Omega mod(u)=0.",
       "The singular-point line uses pullback M^-1, hence scalar weight -1; tensoring degree d with its d-th power removes the algebra weight d. This uses an equivariant line over each stratum, not a character splitting of the constant group. No congruence condition on m is needed on these two strata.",
       "EG Proposition 8.1.1(i), published pp.1407-1408, already supplies a formal centre with prescribed classical residue and does not assume isolated singularities. Its relative and reductive-compatible formal argument is credited; none of those general facts is claimed as new.",
-      "Finite completion algebraizes the mod-h residue of a formal kernel element; it does not identify an arbitrarily chosen whole formal series with a rational algebraic expression.",
+      "Finite completion Khat/h^ell Khat=K/h^ell K algebraizes a prescribed finite jet; choosing ell=3 preserves the universal Hessian second jet. It does not identify an arbitrary whole formal series with a rational expression.",
       "The global centering obstruction permits dependence on every coefficient of the smooth full cubic, nonzero eta and h; it does not contradict the direct full-support central-kernel construction.",
-      "The new full-support selection does not assert agreement with earlier stratumwise centres, including sym(F) on zero restriction, nor extension over all h. The descended object is a cubic line and its ideal, not a selected global generator on the stack."
+      "For N>=6, any global even centre cannot match the standard zero-restriction central line on the whole zero stratum, already formally. In the original grading the descended centre is a line; in the lambda-twisted third Veronese it has an actual global degree-one generator. No extension over all h or quotient nonisomorphism is concluded.",
+      "The scalar gerbe has exact order gcd(N,3), so for 3|N the obstruction is to every weight-one invertible sheaf, not only to characters. Its lambda-twisted third Veronese nevertheless descends in every dimension. No nonexistence of other ambient or Morita models is asserted.",
+      "The third Veronese retains degreewise local freeness and a regular degree-one centre, but AS-regularity is not transferred to it. Its fibre polarization is O(3); fibrewise qgr equivalence is stated with noetherian hypotheses and is not a claim of global relative category descent."
     ],
     "formal_verification": false,
     "external_referee_review": false,
     "comprehensive_priority_established": false,
     "independent_reading_this_revision": [
-      "Main editor and two collaborating mathematical reviewers: Bott vanishing, formal lifting, Stiefel global functions, finite Weyl open, finite-kernel completion, Reynolds covariance, nonvanishing and flat central quotients. A third reviewer independently checked the BWB weight calculation against actual-read sources.",
-      "Main editor and two collaborating reviewers: full reduced rank-two stack and scalar weights, character splitting and multiplicative descent; all-coefficient centering obstruction and scheme-theoretic freeness/nonaffine translation quotient.",
-      "CMR accepted-version (4.38)-(4.39), Lemma 4.6 and Table 5 were read. Main editor inspected and executed the exact nodal-centre verifier, with independent coefficients, all three central commutators, critical overlap, parameter map, classical normalization and corrected swap covariance.",
-      "Published EG Proposition 8.1.1(i) and proof pp.1407-1408, Guo-Lu-Sharpe BWB convention, Lurie author proof, Derksen Hilbert finite generation/Reynolds and Stacks completion/free-quotient/cohomology statements were checked.",
-      "Pym published or accepted target text remains unobtained despite bounded public-source checks. The claim about the specific earlier preprint remains version-restricted. Original Bott/Weyman text is not claimed as read.",
-      "Unchanged proofs and thirteen earlier exact computations were not wholly reaudited or rerun. Their current script/certificate hashes were checked. No formal proof-assistant verification or external acceptance is claimed."
+      "Main editor and two collaborating mathematical reviewers: universal Hessian covariance, prescribed initial K/h^3K section, iterative H1 lifting, finite-kernel completion modulo h^3, Reynolds/parity preservation of the second jet.",
+      "Main editor and collaborating mathematical reviewer: factorial Stiefel cover, SL3 and H_N units, Pic(S_N)=0, equivariant-character central weight image, gerbe class order on a stack base via a cocycle argument, and restriction to the full zero section.",
+      "Main editor and collaborating reviewers: degree-3d lambda^d twist, equivariant central-line factor in the quotient sequence, classical O(3) fibre polarization, chi=lambda*theta^3 comparison, and the conditional noetherian-fibre Veronese qgr equivalence including the Tor condition in the Smith corrigendum.",
+      "Main editor and two mathematical reviewers: closed zero-restriction incidence, nonzero pure-central Hessian example, weight-2 Bott vanishing, global second-coefficient splitting and relative H1 obstruction. This rules out matching central lines in the fixed ambient family, not abstract quotient isomorphisms or qgr equivalences.",
+      "One earlier universal 20-coefficient jet verifier was rerun for A-v60 and passed. The other thirteen computations were not rerun, with unchanged current script/certificate hashes checked.",
+      "Unchanged proofs are not claimed to have received a new complete audit; Pym published/accepted full text and comprehensive priority remain unresolved. No formal proof-assistant verification or external referee acceptance is claimed."
     ],
     "primary_source_comparison": [
       {
@@ -138,8 +140,8 @@
         "scope": "Official full text checked for orbit quotients and the faithfully flat orbit map. The explicit stabilizers and transported retractions are proved in the manuscript; orbit affineness is not assumed."
       },
       {
-        "source": "D. Bergh and O.M. Schnuerer, Decompositions of derived categories of gerbes and of families of Brauer-Severi varieties, Documenta Mathematica 26 (2021), 1465-1500, Proposition 4.10 p.1487, DOI 10.4171/DM/846; https://ems.press/content/serial-article-files/26626?nt=1",
-        "scope": "Published full text checked: the pullback functor from the base identifies quasi-coherent sheaves with the weight-zero part on the gerbe. The line twist, algebra multiplication and neutralization are spelled out in the manuscript."
+        "source": "D. Bergh and O.M. Schnuerer, Decompositions of derived categories of gerbes and of families of Brauer-Severi varieties, Documenta Mathematica 26 (2021), 1465-1500, Theorem 3.11 pp.1484-1485, Proposition 4.10 p.1487, Corollary 4.11 p.1488, DOI 10.4171/DM/846; https://ems.press/content/serial-article-files/26626?nt=1",
+        "scope": "Published full text checked for gerbe classes over algebraic stacks, weight-zero descent and character/weight change. The exact period computation, centre twist and finite-jet construction are proved separately in the manuscript."
       },
       {
         "source": "Chekhov--Mazzocco--Rubtsov, Quantised Painleve monodromy manifolds, Sklyanin and Calabi-Yau algebras, arXiv:1905.02772v2 (accepted version): (4.38) p.21, Lemma 4.6/(4.39) p.22, Table 5 p.41; published Adv. Math. 376 (2021), 107442, DOI 10.1016/j.aim.2020.107442",
@@ -152,91 +154,95 @@
       {
         "source": "Stacks Project: Lemmas 10.97.1-10.97.2, Tags 00MA/00MB; Lemma 80.11.7, Tag 06PH; Theorem 59.22.4 in Section 59.22, Tag 03OY",
         "scope": "Finite completion exactness and reduction modulo the completion ideal; free flat finite-presentation group quotient as algebraic space and torsor; quasi-coherent cohomology comparison, used with affine H1 vanishing. Checked primary statements."
+      },
+      {
+        "source": "Max Lieblich, Twisted sheaves and the period-index problem, Compositio Math.144 (2008),1-31, DOI 10.1112/S0010437X07003144, Lemma3.1.1.8 p.7",
+        "scope": "Published text checked: invertible weight-r twisted sheaf iff r times the gerbe class vanishes. The section has algebraic-space base; the manuscript supplies the local cocycle proof for its algebraic-stack base."
+      },
+      {
+        "source": "S.P. Smith, Maps between non-commutative spaces, Trans. AMS356 (2004),2927-2944, Theorem4.1 p.2934, Proposition4.8 pp.2940-2941 and degree-one specialization p.2941; Corrigendum, Trans. AMS368 (2016),8295-8302, DOI10.1090/tran/6908, actual-read arXiv:1507.02497v2 Lemma1.1 pp.1-4",
+        "scope": "Author-hosted original published PDF and the public corrigendum v2 were read. The missing derived-functor condition in the earlier lemma is not ignored: V Tor_1=0 and torsion are proved directly for the current degree-one-generated Veronese application."
+      },
+      {
+        "source": "M. Van den Bergh, Non-commutative P^1-bundles over commutative schemes, Trans. AMS364 (2012),6279-6313, DOI10.1090/S0002-9947-2012-05469-9; actual-read arXiv:math/0102005v3 section4.2 p.9, paragraph after Lemma4.2.3",
+        "scope": "The read v3 states the invertible sheaf-bimodule twist of sheaf Z-algebras and graded-module equivalence. The specified section/page belongs to v3, not the published layout. The base-line degree twist here is this known operation."
       }
     ],
     "reviewed_in_this_revision": [
-      "lem:pg-rank-two-bott-vanishing; thm:pg-intrinsic-rank-two-center and all five proof stages; interaction with lem:pg-det-divided-kernel and prop:pg-PBW.",
-      "cor:pg-intrinsic-rank-two-descent; rem:pg-intrinsic-descent-scope; prop:pg-equivariant-global-centering-obstruction.",
-      "rem:pg-cmr-nodal-comparison and computations/verify_cmr_nodal_center.py; EG/CMR and BWB/completion attribution.",
-      "Abstract, introduction, research policy, research notes, bibliography, audit and validation scopes; B-v59 source closure and shared preamble hashes."
+      "thm:pg-intrinsic-rank-two-center with prescribed-second-jet and completion modulo h^3; prop:pg-universal-casimir-jet and its universal coefficient verifier.",
+      "prop:pg-intrinsic-gerbe-period; rem:pg-intrinsic-gerbe-obstruction-scope; cor:pg-intrinsic-third-veronese-descent; rem:pg-intrinsic-veronese-qgr.",
+      "prop:pg-intrinsic-zero-matching-obstruction; rem:pg-intrinsic-zero-relative-obstruction; compatibility of zero-restriction and all-support scopes.",
+      "Abstract, introduction, research policy, current notes, primary-source attribution, bibliography and validation scopes; B-v59 input closure and shared preamble hashes."
     ],
-    "proof_chains_read_scope": "The list describes the current proof chains with recorded mathematical readings. This revision independently checks the new or reorganized arguments listed below; it is not a new complete audit of every unchanged proof.",
+    "proof_chains_read_scope": "Current proof chains retain their recorded mathematical readings. A-v60 independently checks the new or strengthened arguments listed below; unchanged statements are not newly audited in full.",
     "supplied_referee_report": {
       "title": "論文Aの独立査読報告：滑らかな三次超曲面のPoisson構造",
       "date": "2026-11-14",
       "version": "v1",
       "reviewed_manuscript": "A-v54",
       "reviewed_commit": "f4c8fb131f346099ed2fb8af29429574861b505e",
-      "scope": "User-supplied independent report about the identified A-v54 commit. It is not journal acceptance or external review of revised A-v59; its independent code was not supplied or rerun here."
+      "scope": "User-supplied independent report about the identified A-v54 commit. It is not journal acceptance or external review of revised A-v60; its independent code was not supplied or rerun here."
     },
-    "external_referee_review_scope": "No journal referee acceptance or external review of A-v59 is claimed; the supplied independent A-v54 report is identified separately."
+    "external_referee_review_scope": "No journal referee acceptance or external review of A-v60 is claimed; the supplied independent A-v54 report is identified separately."
   },
   "static_checks": {
     "status": "PASS",
     "commands": [
-      "python3 scripts/verify_bundle.py --only paper_a --require-pdfs",
-      "python3 scripts/verify_article_a_numbering.py",
       "python3 scripts/check_layout.py",
+      "python3 scripts/verify_article_a_numbering.py",
+      "python3 scripts/verify_bundle.py --only paper_a --require-pdfs",
       "git diff --check"
     ],
-    "scope": "Current source closure, numbering, references, citations, file layout and A PDF/source parity; these checks do not verify mathematical proofs.",
-    "executed_on": "2026-11-14",
-    "tex_inputs": 21,
-    "equation_environments": 439,
-    "labels": 482,
-    "references": 462,
-    "bibliography_items": 33,
-    "citations": 98,
-    "union_A_B_tex_inputs": 32,
+    "scope": "Source closure, numbering, references, citations, file layout and source/PDF parity; not mathematical verification.",
+    "tex_input_count": 21,
+    "equation_environments": 475,
+    "labels": 524,
+    "refs": 494,
+    "bibitems": 36,
+    "citations": 106,
+    "distinct_A_B_tex_inputs": 32,
     "tracked_pdfs": 0,
-    "undefined_references": 0,
-    "undefined_citations": 0,
-    "duplicate_labels": 0,
-    "unnumbered_display_equations": 0
+    "source_pdf_receipt_parity": "PASS"
   },
   "typesetting": {
     "status": "PASS",
-    "executed_for_version": "A-v59",
+    "executed_for_version": "A-v60",
     "complete_paper_build_executed": true,
-    "environment_note": "Japanese LuaLaTeX using isolated user-owned TEXMF paths with a compatible LuaTeX-ja 2024 final runtime and HaranoAji fonts. Repository build configuration and shared preamble are unchanged.",
-    "executed_on": "2026-11-14",
+    "environment_note": "Japanese LuaLaTeX using isolated user-owned TEXMF with LuaTeX-ja 2024 final and HaranoAji fonts. Shared preamble and build configuration are unchanged.",
     "command": "python3 scripts/build.py --only paper_a",
-    "pages": 108,
-    "pdf": "build/paper_a.pdf",
-    "pdf_bytes": 1268455,
-    "pdf_sha256": "470625a84f6fda080d71af6537708d7b2554e1e263f2033670951b6ecd4780fd",
-    "receipt": "build/paper_a.receipt.json",
-    "receipt_sha256": "d766b7404a1eb0c03a7818ca3008825f876cc1e58623243596eed4015eeb1724",
     "engine": "This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)",
-    "tex_inputs_match_current_sources": true,
+    "page_count": 116,
+    "pdf": "build/paper_a.pdf",
+    "pdf_sha256": "5d040f46f5e8cdcbe47216d4737dddaf8576ae953fd4040bbbd5a1fcbe60392c",
+    "receipt": "build/paper_a.receipt.json",
+    "receipt_sha256": "5e998a47bd8eea2e0494f9855857dda18e806278996a0cb351239cb6ba0862f9",
+    "tex_input_count": 21,
     "typesetting_failures": {
       "undefined_references": false,
       "undefined_citations": false,
       "missing_glyphs": false,
       "overfull_boxes": false
     },
-    "nonfatal_warnings": "Some microtype font-size warnings remain; no missing glyphs, undefined references/citations or overfull boxes were detected."
+    "scope": "Complete Japanese LuaLaTeX build and current source/PDF receipt parity; not mathematical proof verification."
   },
   "visual_inspection": {
     "status": "PASS",
-    "executed_on": "2026-11-14",
-    "pdf_sha256": "470625a84f6fda080d71af6537708d7b2554e1e263f2033670951b6ecd4780fd",
-    "pages": 108,
+    "pdf_sha256": "5d040f46f5e8cdcbe47216d4737dddaf8576ae953fd4040bbbd5a1fcbe60392c",
+    "page_count": 116,
     "all_pages_rendered": true,
-    "all_pages_contact_sheets_inspected": true,
+    "renderer": "Poppler pdftoppm",
     "contact_sheet_dpi": 55,
-    "detail_dpi": 120,
-    "detail_pages_inspected": [
+    "contact_sheet_count": 10,
+    "all_pages_contact_sheets_inspected": true,
+    "detail_dpi": 125,
+    "detail_pages": [
       1,
-      6,
       7,
+      8,
       9,
       10,
       11,
-      70,
-      71,
-      72,
-      80,
+      12,
       81,
       82,
       83,
@@ -245,21 +251,18 @@
       86,
       87,
       88,
-      106,
-      107,
-      108
+      89,
+      90,
+      91,
+      92,
+      93,
+      112,
+      113,
+      114,
+      115,
+      116
     ],
-    "final_rebuild_changed_pages": [
-      6,
-      7,
-      9,
-      10,
-      11
-    ],
-    "final_changed_pages_reinspected": true,
-    "other_pages_pixel_identical_to_inspected_render": 103,
-    "findings": "No clipping, text overlap, missing glyphs or unreadable equation numbering observed. The introduction, new section 17, CMR comparison and bibliography were also inspected at higher resolution.",
-    "scope": "Rendered layout review by the primary assistant and delegated reviewers; distinct from mathematical proof verification."
+    "scope": "Primary assistant inspected all 116 pages in 10 contact sheets; two separate assistant reviewers inspected all 25 detail pages covering title, changed introduction and proof-dependency table, Section 17 through page 93, and bibliography. No overlap, clipping, missing glyphs or unreadable mathematical displays found. Visual inspection is distinct from mathematical reading and external referee review."
   },
   "exact_computations": [
     {
@@ -311,16 +314,20 @@
       "current_script_hash_matches": true
     },
     {
-      "command": "python3 computations/verify_cubic_casimir_jet.py",
+      "command": "python3 -B computations/verify_cubic_casimir_jet.py",
       "script": "computations/verify_cubic_casimir_jet.py",
       "script_sha256": "d7faf1134403d3e99a569af9e64c399cc4703200b58cfa33e6faba72b7a850e2",
       "status": "PASS",
       "exit_code": 0,
       "result": "20 independent coefficients, 125 word/order coefficients for each of x,y,z; finite jet only.",
-      "executed_for_revision": "A-v52",
-      "execution_date": "2026-11-13",
-      "rerun_in_this_revision": false,
-      "current_script_hash_matches": true
+      "executed_for_revision": "A-v60",
+      "execution_date": "2026-11-14",
+      "rerun_in_this_revision": true,
+      "current_script_hash_matches": true,
+      "output": "build/a60_verify_cubic_casimir_jet.txt",
+      "output_sha256": "0c15fcdb2fb5593011dd0c542b73be654ac7486dce1b2e3a26a7b67468337c15",
+      "output_git_tracked": false,
+      "sympy_version": "1.14.0"
     },
     {
       "command": "python3 computations/verify_singular_cubic_classical_kernel.py",
@@ -430,7 +437,7 @@
       "exit_code": 0,
       "executed_for_revision": "A-v59",
       "execution_date": "2026-11-14",
-      "rerun_in_this_revision": true,
+      "rerun_in_this_revision": false,
       "current_script_hash_matches": true,
       "sympy_version": "1.14.0",
       "result": "Exact QQ/Laurent identities for the known general CMR nodal formula: decreasing monic rewrite rules, only critical overlap zyx, all three central commutators, symmetric-Jacobian parameter map, regular polynomial normalization at t=0, prescribed classical residue, scalar/mu3 weights, corrected node-swap covariance and alternative centering. No PBW or flatness at t=+/-2, full stabilizer classification, global support equivariance or moduli descent is certified by this finite computation.",
@@ -445,7 +452,7 @@
   },
   "preserved_paper_B": {
     "version": "B-v59",
-    "preserved_from_remote_commit": "3feaf9b3dcc098317794e119d71f28350edae657",
+    "preserved_from_remote_commit": "fb0083cd32dfe6994a5e64e7a26caeef8062ecc0",
     "tex_input_count": 12,
     "tex_inputs_sha256": {
       "papers/generic_recovery/coherent_saturation.tex": "8ffb2eb73b7baaab0591c385a1877ab1ab2c864d50e4dd905843207b222a19e7",
@@ -466,22 +473,22 @@
     "re_built_in_this_A_review": false,
     "validation": "validation_paper_b.json",
     "validation_unchanged_from_preserved_remote_commit": true,
-    "scope": "Current B-v59 source closure and B-specific validation are preserved byte-for-byte from the remote base; its validation records a separate B review/build. Shared research documents are reconciled with A-v59."
+    "scope": "Current B-v59 source closure and B-specific validation are preserved byte-for-byte from the remote base; its validation records a separate B review/build. Shared research documents are reconciled with A-v60."
   },
   "remaining_limits": [
     "The Pym comparison is restricted to checked arXiv:1507.05668v1. Published metadata, the accepted-manuscript repository record and ordinary public access routes were checked, but published/accepted full text was not obtained; no claim is made about an unverified correction or its absence.",
     "Brueckmann original proofs (1976 Satz 3 / 1977 Satz 6) were not obtained; Fu--Hwang Lemma 4.1 and its attribution were verified. The needed low-twist vanishing is proved self-containedly in the manuscript, so these unavailable proofs are no longer a mathematical dependency of that criterion.",
-    "Comprehensive novelty of the all-dimensional normal form, component theorem, full quantization combination and all-support algebraic selection is not established. Known formal centres, explicit nodal formulas, BWB, invariant theory, completion and descent are distinguished from their current applications.",
-    "The all-support central lift includes all ternary restriction types near the full h=0 section, but no agreement with previously chosen stratumwise formulas or extension over the whole h line is asserted. A regular all-coefficient equivariant centering is impossible; the direct central-kernel construction avoids it.",
-    "Actual full reduced rank-two graded descent is proved when gcd(N,3)=1. For 3 dividing N the stated character method fails, without proving nonneutrality or impossibility of other descent methods. Node/cusp strata still have their separate singular-point-line descent in all stated dimensions.",
-    "The final full-support theorem excludes zero Poisson structure P=0; this is distinct from its inclusion of the deformation zero section h=0. Multiple-block decomposition and pure-central allocation changes remain outside the global rank-two construction.",
-    "For cubic threefolds, 17 is the dimension of the entire reduced nonzero Poisson-pair base. Generic finiteness or a 17-dimensional image for abstract noncommutative algebras at a fixed nonzero h is not proved.",
-    "Quantization over the full Poisson moduli stack including multiple blocks, qgr smoothness for all closed parameters and relative residual equivalence through the commutative special point are not claimed.",
-    "Only the new CMR nodal verifier was executed for A-v59. Thirteen earlier computations are retained without rerun with current script and certificate hashes checked; proof reading and finite exact checks are not formal verification."
+    "Comprehensive novelty of the normal form, component theorem, quantization combination, all-support prescribed-jet selection and resulting obstructions is not established. Formal centres, BWB, Picard/gerbe principles, completion, Veronese equivalence and line twists are credited as known inputs.",
+    "The all-support theorem excludes zero Poisson P=0 and is on a neighborhood of the entire deformation zero section, not the entire h line. Preserving a finite second jet does not identify an arbitrary full formal series with an algebraic expression.",
+    "For N>=6 the standard sym(F) line on the whole zero-restriction stratum cannot be matched by any global even central line in the fixed ambient family. This does not prove abstract quotient nonisomorphism, qgr inequivalence or failure on every individual point; node/cusp formula comparison remains separate.",
+    "For 3|N the scalar gerbe has period3 and no weight +/-1 line exists on the full zero-section neighborhood; the original degree-one family cannot descend by a base-line degree twist. Other ambient or Morita models and categories are not ruled out. The third Veronese descends in every N>=5.",
+    "AS-regularity is not asserted for Veronese algebras. The cited fibrewise qgr equivalence assumes left/right noetherianity and is distinct from a global relative category equivalence or smoothness at every closed parameter.",
+    "Multiple-block decomposition/allocation changes and a full Poisson-moduli construction remain open. In dimension3, 17 is the dimension of the reduced nonzero Poisson-pair base, not a proved dimension of the fixed-nonzero-h abstract noncommutative moduli image.",
+    "Only the universal 20-coefficient cubic-Casimir jet verifier was rerun for A-v60; thirteen other computations are retained with matching hashes. Mathematical reading and exact coefficient identities are not formal proof-assistant verification or referee acceptance."
   ],
   "persistence": {
     "authoritative": "GitHub uedakazushi/nc-cubic main",
     "policy": "Expected-parent fast-forward only; confirm remote ref, parent and changed blobs separately after saving. The containing Git commit identifies the saved sources. Also save the current lightweight research bundle and revised PDF at this milestone under the user standing instruction. Artifact creation, verification and confirmed persistence are separate states; this policy is not an upload receipt."
   },
-  "publication_base_commit": "3feaf9b3dcc098317794e119d71f28350edae657"
+  "publication_base_commit": "fb0083cd32dfe6994a5e64e7a26caeef8062ecc0"
 }

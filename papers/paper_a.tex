@@ -10,9 +10,9 @@
 \title{滑らかな三次超曲面のPoisson構造\\
 \large 正規形・退化軌跡・代数的量子化}
 \author{}
-\date{2026年11月14日・論文A（投稿準備稿 v59）}
+\date{2026年11月14日・論文A（投稿準備稿 v60）}
 \fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-14 / A-v59}
+\fancyhead[R]{\small 2026-11-14 / A-v60}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -31,14 +31,19 @@ Koszul Artin--Schelter正則代数と、その正則中心三次商に量子化�
 この構成は三変数制限が特異または零の場合も含み、
 固定した変数分解の全滑らかな係数空間上に中心元を選べる。
 階数二の場合には、supportの三平面を全て動かし、三変数制限の型によらず、
-全座標群に共変な中心元を零切断近傍に選ぶ。
+全座標群に共変な中心元を、普遍Hessianの二次補正まで指定して零切断近傍に選ぶ。
 証明にはGrassmann多様体上の純中心束のコホモロジー消滅と、
 有限中心核のNoetherian完備化を用いる。
 従って$\gcd(n+2,3)=1$なら、被約な階数二のPoisson対の全モジュライと
 変形直線の積の零切断近傍へ量子化族を降ろせる。
 特に三次三様体では、全ての非零Poisson対を同時に扱う。
+一般次元でも三次Veroneseは全階数二層へ降下する。
+対応する中心スカラーgerbeの位数は$\gcd(n+2,3)$であり、
+これが次数一を保つ線束補正による降下の障害を測る。
 制限が恒等的零の層では、PBW対称化した三次式自体が
 全パラメータで全ブロック群に共変な正則中心元となる。
+ただし$n\ge4$では、この標準中心直線を全support上の選択と一致させることは
+二次jetの相対コホモロジー障害によって妨げられる。
 節点・尖点層では特異点直線によって次数重みを除き、
 中心変数の個数によらず、Poisson対の各層と変形直線の積の零切断近傍へ量子化族を降ろす。
 また、固定した正規形のPoisson線形族を同時に量子化する。
@@ -246,16 +251,16 @@ support $W_P$が三平面の全体を動く。
  \operatorname{Sym}^3(V/W_P)^*
 \end{equation}
 と分裂する。Grassmann多様体上のBorel--Weil--Bott計算により
-$H^1(\mathcal S_N,\mathcal K_0)=0$であるため、$F$を
-$\hbar$進の中心核へ順次持ち上げられる。
+$H^1(\mathcal S_N,\mathcal K_0)=0$であるため、
+普遍二次Hessian補正を初期値として$\hbar$進の中心核へ順次持ち上げられる。
 Stiefel開上の正則関数の延長によって係数を有限生成の不変式環に置き、
-有限加群の完備化の完全性を用いて、同じ古典極限を持つ\emph{代数的な}中心元を得る。
+有限加群の完備化を$\hbar^3$で還元し、指定二次jetを持つ\emph{代数的な}中心元を得る。
 最後に還元的群$\mathrm{GL}(V)\times\mathbb G_m$で平均する。
 この方法で全$\mathcal S_N\times\{0\}$を含む不変開上の共変な中心元と、
 次数別局所自由な正則中心商族を構成する
 （定理\ref{thm:pg-intrinsic-rank-two-center}）。
 形式的級数の全体を代数的な式と同一視するのではなく、
-中心性と指定された古典極限を持つ有限核の元を選ぶ点が要となる。
+中心性と指定された有限jetを持つ有限核の元を選ぶ点が要となる。
 
 さらに$\gcd(N,3)=1$なら、$Nr-3s=1$を満たす整数を使った
 指標$\theta(L,\lambda)=(\det L)^r\lambda^s$で次数重みを補正し、
@@ -264,6 +269,24 @@ Stiefel開上の正則関数の延長によって係数を有限生成の不変�
 （系\ref{cor:pg-intrinsic-rank-two-descent}）。
 三次三様体では$N=5$なので、十七次元の非零Poisson対の全被約モジュライが底となる。
 これは変形原点の近傍における存在であり、全変形直線への延長や一意性は主張しない。
+一般の$N$でも、次数$3d$部分を$\lambda^d$で捩る三次Veronese
+$\mathcal A^{[3]}_d=\mathcal A_{3d}\otimes\lambda^d$とその中心商は、
+全階数二層の零切断近傍へ降下する
+（系\ref{cor:pg-intrinsic-third-veronese-descent}）。
+その古典偏極は各ファイバー上で$\OO(3)$である。
+一方、$\operatorname{Pic}(\mathcal S_N)=0$と同変可逆層の重みを計算すると、
+中心スカラーgerbeの位数は正確に$\gcd(N,3)$となる
+（命題\ref{prop:pg-intrinsic-gerbe-period}）。
+従って$3\mid N$では、指標に限らず、可逆層の次数冪による補正によって
+元の次数一の族を降ろすことはできない。
+
+零制限層の標準中心直線との一致には、これとは別の障害がある。
+$N\ge6$では、この層上で$\mathscr H(P,F)$は非零の純中心切断になり得るが、
+全support上の純中心束の$P$重み二の大域切断はBott計算によって零である。
+従って$\Omega^{\mathrm z}=\sym(F)$への全層での一致は、
+任意の大域的な偶中心元について、同変性を要求しなくても二次jetで不可能となる
+（命題\ref{prop:pg-intrinsic-zero-matching-obstruction}）。
+これは所定の周囲代数における中心直線の比較であり、中心商の抽象的な非同型は意味しない。
 全係数での補空間の同変選択は実際には不可能である
 （命題\ref{prop:pg-equivariant-global-centering-obstruction}）が、
 この障害は中心核そのものの持上げを妨げない。
@@ -292,7 +315,7 @@ Poisson線形族の全方向を一つの相対代数族で量子化できる
 この量子化は各構造、固定した正規形の線形族、および固定した変数分解の
 係数空間上での構成を含み、上記の範囲では座標変換との同変性も備える。
 次数付き代数を載せる商スタックでは、次数$d$に重み$d$で作用する
-スカラーの$\mathbb G_m$をまず保持し、指標補正または特異点直線による捻りで
+スカラーの$\mathbb G_m$をまず保持し、指標補正・特異点直線による捻り、または三次Veroneseによって
 上記の範囲においてこれを除く。
 複数ブロックも含む全Poissonモジュライ上の量子化族や、
 全閉点での$\operatorname{qgr}B_\hbar$のsmoothnessは結論に含めない。
@@ -509,6 +532,10 @@ Etingof--Ginzburg\cite[\S9, p.~1414]{EG}には、
 全supportを動かす底の上で古典剰余を固定した代数的な大域切断を選び、
 全$\mathrm{GL}_N\times\mathbf G_m$への共変性を課している。
 今回確認した上記文献の箇所から、この同時選択と降下が直接与えられるわけではない。
+また、重み零の降下、Veronese同値、および底の可逆層による次数別の捩りは
+既知の一般原理である\cite{PBerghSchnurerGerbes,PSmithVeronese,PVdBNoncommP1Bundles}。
+本稿ではそれらを全supportの族へ適用し、さらに同変Picard群によるgerbeの位数と、
+零制限の標準中心直線への非延長を計算する。
 ただし、関連文献全体に対する新規性の最終確認は残る。
 一般の形式的量子化とunimodularityに関する
 Kontsevich・Dolgushevの理論\cite{PKontsevich,PDolgushev}は背景であり、
@@ -571,7 +598,7 @@ Serre関手からの復元には中心・自由性・滑らかさ等の追加仮
 層ごとの構成 & 不変開、Reynolds作用素、軌道上のcentering、PBW対称化、重みの補正 &
 零制限では全パラメータ、節点・尖点では全$m$の層への降下 \\
 階数二の全体 & 純中心束のBott消滅、有限核の完備化、全座標群の平均 &
-型をまたぐ中心商族。$\gcd(N,3)=1$なら全被約階数二モジュライへ降下 \\
+型をまたぐ中心商族。三次Veroneseは全次元で降下し、次数一の障害は位数$\gcd(N,3)$ \\
 \bottomrule
 \end{tabular}
 \end{center}

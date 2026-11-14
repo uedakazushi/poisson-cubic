@@ -1,6 +1,6 @@
 # 全Poisson構造の代数的中心三次元と一般次元量子化：現行研究ノート
 
-**2026-11-14 / v14（論文A-v59・論文B-v59、bundle nc-cubic-v92）。再開時はまず `00_research_plan.md` を読む。**
+**2026-11-14 / v15（論文A-v60・論文B-v59、bundle nc-cubic-v93）。再開時はまず `00_research_plan.md` を読む。**
 正本はGitHub `uedakazushi/nc-cubic` の `main`。
 現行公表原稿は `papers/paper_a.tex`（論文A）。
 主要証明の所在：
@@ -9,7 +9,7 @@
 `papers/support/papers/sections/equivariant_central_lifts.tex`
 （各層の明示的な同変構成・降下とCMR公式との対応）、
 `papers/support/papers/sections/intrinsic_rank_two_center.tex`
-（階数二の全supportでの共変中心元、gcd(N,3)=1での全被約層への降下、補空間選択の障害）、
+（普遍Hessian二次jetを持つ全supportの共変中心元、gerbeの位数、全次元の第三Veronese降下、零制限への一致と補空間選択の障害）、
 `papers/support/papers/sections/quantization_foundations.tex`
 （PBW性・偶性・二次jet）と
 `papers/support/papers/sections/algebraic_quantization.tex`
@@ -58,7 +58,10 @@ Dolgushevのunimodularity判定を用いない。**
 \(g_s=0\)ではPBW対称化した\(\operatorname{sym}(f_s)\)が全パラメータで中心となる。
 全特異制限に共通する低次数の短い\(\eta_s\)-多項式を
 示したわけではない。
-階数二の全被約Poisson層については、gcd(N,3)=1のとき全supportにわたる代数族を構成した。
+階数二の全被約Poisson層では、gcd(N,3)=1なら元の次数を保つ代数族が降り、
+全N>=5で第三Veroneseとその次数一の大域中心元・中心商が降りる。
+全supportの中心元は普遍Hessian二次jetを指定して選べる。
+gerbeの位数は正確にgcd(N,3)であり、3|Nなら重み一の線束による元の次数の補正は不可能である。
 複数ブロックも含む全Poissonモジュライへの一般の同変降下は残る。
 単一ブロックでは、変数分解を保つreductive群に関する同変性を
 全滑らかな全体三次式で得た。三変数制限が滑らかな開と、節点・尖点の各軌道では、
@@ -67,7 +70,9 @@ Dolgushevのunimodularity判定を用いない。**
 代数族が降りる（§2(VI)）。節点・尖点では唯一の特異点が定める直線束で次数重みを補正でき、
 mによらず、それぞれのPoisson層とh直線の積の零切断近傍へ降りる（§2(VIII)）。
 零制限では全hの族があり、gcd(m,3)=1なら同じ指標法で降りる（§2(VII)）。
-型をまたぐ族は§2(IX)で別に選ぶ。各層で先に選んだ式との一致や、節点・尖点型での全hへの延長は結論していない。
+型をまたぐ族は§2(IX)で別に選ぶ。N>=6では零制限の標準中心直線との全層での一致が二次jetで妨げられる。
+これは所定ambientでの一致の障害であり、抽象的な商の同型やqgr同値を否定しない。
+他の層別式との比較、節点・尖点型を含む全hへの延長は別の課題である。
 固定したactive・中心変数の分解では、
 全滑らかな三次式の係数空間と変形直線の積の中で、
 零切断全体を含む一つの開集合上に中心元を同時に選べる。
@@ -234,7 +239,8 @@ K、純中心部分、商線束も共通定義開で変換と両立するが、
 零切断での \(\mathbb C f\) との一致、およびcocycle条件が必要である。
 単一ブロックの層別の具体的選択は次項以降に保持し、
 全ての制限型と動くsupportにわたる一つの同変選択は§2(IX)で構成した。
-その選択と既存の層別公式との一致、および複数ブロックの配分の変化との整合性は残る。
+零制限の標準直線との全supportでの一致には§2(IX)の非零相対コホモロジー障害がある。
+他の層別公式との比較、および複数ブロックの配分の変化との整合性は残る。
 
 ### (VI) 同変な中心元と中心平行移動の処理
 
@@ -322,13 +328,15 @@ m=2、n=3ではθ=(det N)²λであり、底Poissonスタックの次元は17で
 
 17は底の次元であり、固定したh≠0の非可換代数の同型類の像が17次元とは主張しない。
 hを保つ変形族全体からは特殊ファイバーと一次括弧により元のPoisson対を回復できる。
-3|mでは上の群の全指標のスカラー重みが3の倍数なので、この手段では補正できない。
-それだけでgerbeが非中立である、または別の降下法が存在しないとは結論しない。
+3|mでは上の群の全指標のスカラー重みが3の倍数なので、この指標手段では補正できない。
+全階数二底では§2(IX)によりgerbeの位数が三と分かるが、その非中立性を各局所閉層への制限に自動的に引き継がない。
 実際、節点・尖点の各層では群の指標によらない特異点直線を用いて全mで降下できる（§2(VIII)）。
 
 階数二については、§2(IX)の別の構成で全ての制限型を含む一つの共変中心元を得た。
-残るのは、この選択と各型で別に選んだ明示式との一致、全hへの延長、
-3|Nの場合の別の降下、および複数ブロックでの一般の配分・相対規格化の整合性である。
+全Nで第三Veroneseの降下があり、3|Nの元の次数一構造にはgerbeの位数による障害がある。
+零制限の標準直線との全域一致も不可能である。
+残るのは、他の層別式や別ambient・Morita模型・qgr圏との比較、全hへの延長、
+複数ブロックでの一般の配分・相対規格化の整合性である。
 g=0ではδ_g=0なので上のleft inverseは使えないが、次項のPBW対称化によって
 全パラメータで別途解決する。
 
@@ -596,7 +604,8 @@ CMRの中心元を \(\Omega_{\mathrm{CMR}}\) とすると、
 最後の純中心補正により、この交換を含む全安定化群への共変性が得られる。
 一般の二次項へは \(\widehat Q_{f^\circ,t}(x+B)\) で戻る。
 
-`python3 computations/verify_cmr_nodal_center.py --json` は本改訂の新しい厳密実行でPASSした。
+`python3 computations/verify_cmr_nodal_center.py --json` のA-v59での厳密実行PASSを、
+現行コードのハッシュ照合により保持する。A-v60では再実行していない。
 出力は `build/verify_cmr_nodal_center.json` で、一般の独立QQ係数のまま、唯一の語重なりzyx、
 三中心交換子、関係式の対応、古典極限、上の交換差と純中心補正、スカラー・μ₃重みを確認した。
 検算の定義開は \(sp\ne0\) であり、多項式表示だけから \(t=\pm2\) のPBW性・平坦性は結論しない。
@@ -606,8 +615,11 @@ Weyl表示での偶性、安定化群の完全分類、軌道上の正則移送�
 
 ### (IX) 階数二の全supportにわたる共変な中心元
 
-詳細証明は `intrinsic_rank_two_center.tex` の `thm:pg-intrinsic-rank-two-center` と
-`lem:pg-rank-two-bott-vanishing`、降下は `cor:pg-intrinsic-rank-two-descent` に置く。
+詳細証明は `intrinsic_rank_two_center.tex` にある。
+中心元は `thm:pg-intrinsic-rank-two-center` と `lem:pg-rank-two-bott-vanishing`、
+元の次数を保つ降下は `cor:pg-intrinsic-rank-two-descent`、
+gerbeの位数と第三Veroneseは `prop:pg-intrinsic-gerbe-period`、
+`cor:pg-intrinsic-third-veronese-descent` を参照する。
 全三次式Fは滑らか、N>=5、Pは非零分解可能とする。三変数制限の型には条件を課さない。
 全supportを動かす底S=T_smooth×C₃^×では、古典核は自然に K₀=OF⊕Sym³Q*、Q=V/W_P と分裂する。
 
@@ -619,7 +631,10 @@ j=0,1,2では重複、j>=3ではH⁰のみ、j<0で重複がなければ第4項�
 
 局所Cramer核は全零h切断の近傍で定階数のベクトル束であり、
 各h冪厚化には 0→K₀→K_(r+1)→K_r→0 がある。
-H¹の消滅からFを整合する大域形式中心元へ持ち上げられる。
+普遍jet命題 `prop:pg-universal-casimir-jet` の
+Θ=sym(F−h²H(P,F)/12) はDΘ∈h⁴を満たす。
+核の底変更との両立からΘ mod h³はK/h³Kの大域切断となり、
+これを初期値としてH¹の消滅で整合する形式中心元へ持ち上げる。
 Stiefel開St_(N,3)→C₃^×はSL3-torsorで、補集合の余次元N−2>=2より
 Γ(C₃^×,O)=C[Mat_(N,3)]^(SL3) となる。
 従って A_N=Γ(T_smooth,O)⊗C[Mat_(N,3)]^(SL3) はHilbert有限生成によりNoetherianであり、
@@ -630,15 +645,17 @@ generic PBWから上位小行列式は恒等的に零であり、古典時に独
 固定行列式で、全h=0を含む有限次数Weyl開を取れる。
 そのgood locus内の不変principal開D(q)、q|_(h=0)=1を取り、R=A_N[h,q⁻¹]上の
 割った交換子を有限行列M、有限核をK=ker Mとする。
-Noetherian完備化の完全性から Khat=ker Mhat、Khat/hKhat≅K/hK であり、
-形式中心元の剰余類の代表をKから選べば Ω mod h=F を保つ代数解を得る。
-K/hKから自由加群のmod hへの写像が単射であるとは仮定しない。
+Noetherian完備化の完全性から Khat=ker Mhat、Khat/h³Khat≅K/h³K であり、
+指定した剰余類の代表をKから選べば Ω≡Θ mod h³ を保つ代数解を得る。
+K/h³Kから自由加群のmod h³への写像が単射であるとは仮定せず、
+包含と剰余写像の可換性を使う。
 **形式級数全体とその代数解の一致を主張しているのではない。**
 P=0での核の階数跳躍はこの有限加群の議論を妨げないが、最終的な族はP≠0で述べる。
 
 H_N=GL(V)×Gm,λの作用は F′=λ⁻¹F∘L⁻¹、P′=λ(Λ³L)P、h′=hである。
 引戻しdatumをλでtwistした有理H_N加群KのReynolds平均により
 Φ(Ω′)=λ⁻¹Ωを得て、反対代数の対合による平均でWeyl係数をhについて偶にする。
+Θも同じ共変性と偶性を持つので指定jetは保たれ、Ω=sym(F−h²H(P,F)/12+O(h⁴))となる。
 平均化にはKの局所自由性を使わない。
 全次数のPBW/AS開とK/Cへの像が非零となる開へ制限すると、
 全零h切断を保ったまま K=C⊕OΩ、左右正則な中心元、次数別局所自由な商族を得る。
@@ -650,9 +667,80 @@ gcd(N,3)=1ならNr−3s=1を満たすθ=(det L)^rλ^sを選び、次数dをθ⁻
 H_N=K_sc×kerθとなるためgerbeは中立で、中心三次直線・イデアル・商を含む
 実際の次数付き代数族が全被約階数二Poisson層×A¹_hの零切断近傍へ降りる。
 N=5ではθ=(det L)²λ³、底の次元17であり、全非零Poisson対を含む。
-中心直線の大域生成元、固定h≠0の同型類像の次元は結論しない。
-零Poisson構造と変形のh=0切断を区別する。3|Nの別の降下、全hへの延長、
-既存層別公式との一致は残る。特にg=0の全h公式sym(F)は、別の強い範囲を持つ選択として保持する。
+この元の次数を保つ降下では中心三次直線の大域生成元までを結論しない。
+零Poisson構造と変形のh=0切断を区別し、固定h≠0の同型類像の次元や全hへの延長も別問題とする。
+
+**gerbeの位数と元の次数の障害。** S上のPicard群は零である。
+証明はT_smooth×St(3,V)をfactorialアフィン空間の余次元二以上の補集合として扱い、
+SL3-torsorの自明束の線形化を単元計算で降ろす。
+H_N同変可逆層の線形化も同様に指標(det L)^aλ^bで表され、中心スカラーの重みはNa−3bである。
+従ってgerbe G=[S/H_N]について
+
+\[
+ \operatorname{im}\bigl(\operatorname{wt}:\operatorname{Pic}(G)\to\mathbb Z\bigr)
+ =\gcd(N,3)\mathbb Z,\qquad
+ \operatorname{ord}[G\to\mathfrak P_{n,1}]=\gcd(N,3).
+\]
+
+重みrの可逆層の存在とgerbe類のr倍の消滅は既知の原理であり、本文ではスタック底でも使えるcocycle証明を記す。
+3|Nではgerbeは位数三で非中立であり、全零h切断を含むどの変形近傍にも重み±1の線束はない。
+従ってA_d⊗M^dという一つの線束による補正で元の次数一構造を降ろす方法は不可能である。
+節点・尖点の特異点直線が全底へ同じ重みで延長しないことも分かる。
+別ambient、Morita同値な模型、圏の降下の不存在は主張しない。
+
+**第三Veroneseによる全Nの降下。** λの中心スカラー重みは−3なので
+
+\[
+ \mathcal A^{[3]}_d=\mathcal A_{3d}\otimes\lambda^d,\qquad
+ \mathcal B^{[3]}_d=\mathcal B_{3d}\otimes\lambda^d,\qquad
+ \omega=\Omega\otimes1
+\]
+
+は全N>=5で重み零となる。共変性λΦ(Ω′)=Ωにより、ωは降下後の次数一の**大域中心元**である。
+積・単位・正則中心商が降り、B^[3]=A^[3]/(ω)、各次数部分は有限局所自由となる。
+古典極限の相対Projは元の普遍周囲射影空間と三次超曲面であり、幾何学的ファイバーの偏極はO(3)である。
+周囲射影空間族が大域的にベクトル束の射影化であるとは仮定しない。
+gcd(N,3)=1の場合はχ=λθ³が有効商群の指標で、
+A^[3]_d≅(A^θ)_(3d)⊗L_χ^d、Bも同様である。
+
+`rem:pg-intrinsic-veronese-qgr` のqgr R≃qgr R^(3)は、
+元の代数R=AまたはBが左右noetherianである**各幾何学的ファイバー**に対する主張である。
+Smithの原論文に加え訂正文の追加条件を確認し、T=R^(3)、V(M)=M^(3)、I(N)=N⊗_T Rについて
+\(V(\operatorname{Tor}_1^T(N,R))=0\)を直接示す。次数一生成によりVで消える加群はtorsionであり、
+πIの完全性と有限生成加群の対応が得られる。全係数族のnoetherian性を無条件には主張しない。
+底の線束の次数冪によるtwistは次数付き加群の同値を与える既知のsheaf Z-algebraの操作である。
+Veronese代数のAS-regular性、qgrの滑らかさ、異なる中心直線の商のqgr同値は結論しない。
+
+**零制限の標準中心直線との非一致。**
+`prop:pg-intrinsic-zero-matching-obstruction` はN>=6で、
+Z={F|_(W_P)=0}の全体に沿って大域中心直線をO sym(F)に一致させることが、
+同変性を要求しなくても不可能であることを示す。Zは非空の滑らかな余次元十の閉部分である。
+任意の大域偶中心元Ω=sym(F+h²ω₂+…)には、普遍jet命題とK₀の大域分裂から
+
+\[
+ \omega_2=-H(P,F)/12+aF+c,\qquad
+ a\in\Gamma(S,O),\quad c\in\Gamma(S,C)
+\]
+
+という大域分解がある。Z上ではH_Zは純中心三次式でP重み二を持つ。
+直線の一致ならω₂|Z=b₂Fなのでc|Z=H_Z/12を要するが、
+Γ(S,C)の重み二部分はH⁰(Gr,Sym³Q*⊗O(2))=0により零である。
+制限と重み射影は可換し、次の滑らかな例でH_Z≠0となるので矛盾する：
+
+\[
+ F_0=\sum_{i=1}^3(u_ix_i^2+u_i^3)+\sum_{\alpha=4}^{m}u_\alpha^3,\qquad
+ P_0=\partial_{x_1}\wedge\partial_{x_2}\wedge\partial_{x_3},\qquad
+ H(P_0,F_0)=8u_1u_2u_3.
+\]
+
+勾配の式u_ix_i=x_i²+3u_i²=0はx_i=u_i=0を強制し、残りもu_α=0なのでF₀は滑らかである。
+相対完全列0→I_Z C→C→i_*C|Z→0の接続類
+∂(H_Z/12)≠0∈H¹(S,I_Z C)₂⊂H¹(S,I_Z K₀)₂が、h²で割った差の延長障害を表す。
+H¹(S,K₀)=0はこの相対消滅を意味しない。
+§3のaffine torsorやdilatationは補正係数を記録するが、所定の閉部分上の切断の延長を与えない。
+排除するのは所定ambient同一視下の中心直線・生成イデアルの全層での一致であり、
+中心商の抽象非同型やqgr非同値ではない。N=5ではZは空で、この障害の対象外である。
+零制限の全h公式sym(F)は独立した有効な族として保持する。
 
 **補空間を選ぶ方法の限界。** `prop:pg-equivariant-global-centering-obstruction` はm=N−3>=1で、
 全f・非零Poisson係数η・hへの依存を許しても、B'=(MB−C)N⁻¹を全零h切断近傍で満たす
@@ -885,6 +973,10 @@ a_s=1+hr_s,\qquad c=F_{\mathrm{cent}}+h c',
 
 ただし、このdilatationが「特殊化した直線が \([F]\) となる」というfunctorそのものを表すのは、試験底で \(h\) が非零因子の場合である。\(h\)-torsionを持つ試験底では割った係数 \(r_s,c'\) は一意でなく、追加データを記録する。特殊ファイバーのaffine方向も直線 \([F]\) 自体の自由度ではなく、持上げの第一係数を記録している。偶な係数を扱う場合には、核が \(\tau=h^2\) へ降りる底で同じ構成を \(\tau\) に対して行い、\(h\) の底へ引き戻せる。
 
+階数二の全supportで零制限の標準直線を指定すると、§2(IX)の
+∂(H_Z/12)∈H¹(S,I_Z C)が非零となる。
+従ってこの滑らかなaffine束・dilatationの存在から、指定切断の大域延長を結論しない。
+
 ### この構成の文献と確実性
 
 - 本文の入力：`prop:pg-PBW`、`lem:pg-det-divided-kernel`、`thm:pg-universal-determinant`、`lem:pg-central-cubic`、`thm:pg-ad-all-poisson`。
@@ -1007,7 +1099,9 @@ GL3のHesse変換と中心平行移動は
 \([\operatorname{sym}(f-\hbar^2H_f/12),x_i]\)を
 \(\hbar^4\)を法として厳密計算し、語の反転と\(\hbar\)の符号反転に関する
 偶奇性によって\(\hbar^5\)を法とする中心性を得る。
-これは全次数の厳密中心元への延長を単独で保証する命題ではない。
+この有限jet命題だけでは全次数の厳密中心性を保証しない。
+階数二の全supportでは、§2(IX)のBWB持上げと有限核の完備化にこのjetを初期値として組み込み、
+同じ二次係数を持つ厳密な代数的中心元への延長を証明している。
 対応する現行スクリプトの実行結果は§7に記す。
 
 具体例用のコードとして
@@ -1032,25 +1126,29 @@ PBWの族への拡張、Koszul AS-regular中央一次元拡大、
 大域基底の単元補正、Ann(h)による通常の中心との差、
 規格化遷移・イデアル不一致例・座標変換も独立に読み直して確認した。
 全supportの同変選択については、全整数twistのBWB計算、h冪厚化の完全列、
-Stiefel開上の正則関数の延長、有限次数Weyl開の一様性、有限核の完備化からの剰余の持上げ、
+Stiefel開上の正則関数の延長、有限次数Weyl開の一様性、有限核の完備化からの指定二次jetの持上げ、
 Reynolds平均と指標による次数補正を独立に読解した。
+Pic(S)=0と同変線束の中心重み、gerbe位数、第三Veroneseの乗法・正則中心商・古典Proj、
+Smith訂正文のTor条件とnoetherian閉ファイバーでのqgr同値も本文の証明と仮定を確認した。
+零制限の非一致については、Bottの重み二H⁰消滅、Hessianの非零例、相対H¹の接続類を独立に確認した。
 全f・η・hに依存する補空間選択の障害と、U作用の自由性・非自明torsor・非アフィン商も点検した。
 CMRのaccepted versionとの関係式・中心公式の対応は、本文照合と独立な記号計算を区別して扱う。
 これは数学的な証明監査であり、定理全体の形式証明器による検証ではない。
 正規形・Lie代数・退化幾何等を含むA全体の監査は
 `notes/poisson_article_submission_audit.md`を参照する。
 
-本改訂の新しい厳密計算はCMR節点公式の一本であり、実行済み出力を確認した。
-それ以外の十三件は以前の実行証拠とコード・証明書のハッシュ照合を引き継ぎ、再実行していない。
+本改訂で再実行した厳密計算は `verify_cubic_casimir_jet.py` の一本であり、
+`build/a60_verify_cubic_casimir_jet.txt` の三生成元それぞれ125係数の消滅と、二十自由係数の普遍恒等式のPASSを確認した。
+CMR節点公式を含む他の十三件は以前の実行証拠とコード・証明書のハッシュ照合を引き継ぎ、再実行していない。
 全十四件の一覧は `notes/poisson_article_submission_audit.md` に置く。
-以下の四つの既存計算の実行証拠は2026-11-13のA-v52監査に由来し、版番号は実行時の記録である。
+各検算の実行時版番号は `validation_paper_a.json` の記録に保持し、一括して現行版へ書き換えない。
 コマンドはリポジトリのルートで実行し、Python 3とSymPyを用いる。
 
 | コマンド | 最終状態 | 検証の内容と限界 |
 | --- | --- | --- |
-| `python3 computations/verify_cmr_nodal_center.py --json` | 本改訂でPASS、SymPy 1.14.0 | 独立QQ係数によるCMRのγ=0公式、zyx重なり、三中心交換子、関係式の対応、古典極限、安定化群の生成子に関する補正を検証。Weyl偶性・軌道降下・モジュライ降下は対象外。 |
+| `python3 computations/verify_cmr_nodal_center.py --json` | A-v59のPASSを保持、今回未再実行 | 独立QQ係数によるCMRのγ=0公式、zyx重なり、三中心交換子、関係式の対応、古典極限、安定化群の生成子に関する補正を検証。Weyl偶性・軌道降下・モジュライ降下は対象外。 |
 | `python3 computations/verify_universal_hesse_mixed_center.py` | 既存exit 0・PASSを保持、未再実行 | 339基底語・162関係倍数。階数は\(\hbar=0\)と\(\mathbb Q(\hbar,t)\)でともに144。六混合係数を独立に保ち三交換子が厳密に消滅。 |
-| `python3 computations/verify_cubic_casimir_jet.py` | 既存exit 0・PASSを保持、未再実行 | 二十自由係数を保ち、各生成元について125個の語・次数係数が消滅。計算が直接示すのは\(\hbar^4\)を法とした恒等式。 |
+| `python3 computations/verify_cubic_casimir_jet.py` | A-v60で再実行PASS | 二十自由係数を保ち、各生成元について125個の語・次数係数が消滅。計算が直接示すのは\(\hbar^4\)を法とした恒等式であり、偶性による\(\hbar^5\)への補強と全次数持上げは本文の証明による。 |
 | `python3 computations/verify_singular_cubic_classical_kernel.py` | 既存exit 0・PASSを保持、未再実行 | §4の零三変数制限の例。378×56行列の階数45、核は\(\mathbb C f\oplus\mathbb C[u,v,w]_3\)、次元11。 |
 | `python3 computations/verify_nonelliptic_quantization.py` | 既存exit 0・PASSを保持、未再実行 | 二つのmonic Diamond系と重なり、六つの普遍中心交換子、古典極限、potential syzygy、分母の範囲、二つの非中心な比較例、17項Fermat恒等式を確認。実行時の再計算結果は保存証明書と完全一致。残余圏のsaturationの計算検証ではない。 |
 
@@ -1064,15 +1162,17 @@ CMRの出力保存コマンドは
 出力中のstatusはPASS、コードSHA-256は
 `f3ca63fcf5e5f66ed6d7aad45c2c853bd162c86074980a8b1e915ee998d3a503`で現行ファイルと一致した。
 実行対象、引き継いだ計算と証明書のSHA-256は `validation_paper_a.json` に集約する。
-この有限計算はBWB・大域中心元・商モジュライ降下の一般証明を代替しない。
+再実行したjetコードのSHA-256は
+`d7faf1134403d3e99a569af9e64c399cc4703200b58cfa33e6faba72b7a850e2`。
+これらの有限計算はBWB・大域中心元・gerbe位数・Veronese降下・相対コホモロジー障害の一般証明を代替しない。
 
 重い記号計算は一本ずつ実行する。
 LuaLaTeXによる再生成コマンドは`latexmk papers/paper_a.tex`で、
 PDFと中間生成物は`build/`へ出力される。
-**A-v59全体の組版・参照検査・PDF確認および計算の最終実施状態は、
+**A-v60の日本語LuaLaTeX組版は116ページで完了した。全ページの一覧と、序論・新しい証明・参考文献の25ページを拡大確認した。未解決の参照・引用、欠落文字、overfullはない。組版・参照検査・PDF確認および計算の実施範囲とハッシュは、
 リポジトリルートの[`validation_paper_a.json`](../validation_paper_a.json)を参照する。**
 本文の証明監査、計算の実行、PDFの確認、配布物の生成・保存は別の状態として扱う。
-本ノートからA-v59の組版・視覚確認・Library保存の完了を推定しない。
+配布物の生成・整合性検証・Library保存は、この組版記録とは別に配布時に確認する。
 
 ### 確認した一次文献と本稿の位置
 
@@ -1124,6 +1224,22 @@ PDFと中間生成物は`build/`へ出力される。
   Adv. Math. 141 (1999), 366–384、
   [著者公開刊行PDF](https://sites.lsa.umich.edu/hderksen/wp-content/uploads/sites/614/2018/05/A.I.a.4.pdf)。
   Theorem 2.1, pp.368–369のHilbert有限生成と、p.369のReynolds射影・安定部分加群の性質を確認した。
+- Lieblich, *Twisted sheaves and the period-index problem*,
+  Compos. Math. 144 (2008), 1–31、[DOI](https://doi.org/10.1112/S0010437X07003144)。
+  Lemma 3.1.1.8, p.7の重みnの可逆層とn倍gerbe類の消滅を確認した。
+  同節は代数空間を底とするため、本文では代数スタックにも適用できるcocycle証明を添える。
+  本研究の個別計算はPic(S)=0、中心重み像gcd(N,3)Z、gerbeの正確な位数である。
+- Smith, *Maps between non-commutative spaces*, Trans. AMS 356 (2004), 2927–2944、
+  [著者公開PDF](https://sites.math.washington.edu/~smith/Research/Maps.pdf)。
+  Theorem 4.1, p.2934、Proposition 4.8, pp.2940–2941と次数一生成の場合の段落を確認した。
+  [訂正文arXiv:1507.02497v2](https://arxiv.org/abs/1507.02497v2), Lemma 1.1, pp.1–4の追加条件も確認し、
+  本文ではVeroneseの場合のTorのtorsion性を直接示す。
+  訂正文の刊行書誌はTrans. AMS 368 (2016), 8295–8302、[DOI](https://doi.org/10.1090/tran/6908)。
+- Van den Bergh, *Non-commutative P¹-bundles over commutative schemes*,
+  Trans. AMS 364 (2012), 6279–6313、[DOI](https://doi.org/10.1090/S0002-9947-2012-05469-9)。
+  実読は[arXiv:math/0102005v3](https://arxiv.org/abs/math/0102005v3), §4.2, p.9、
+  Lemma 4.2.3直後の可逆sheaf-bimoduleによるtwistと次数付き加群の同値である。
+  底の線束の次数冪をtensorする操作自体を新しい原理とはしない。
 - Stacks Project [00MA](https://stacks.math.columbia.edu/tag/00MA)・
   [00MB](https://stacks.math.columbia.edu/tag/00MB), Lemmas 10.97.1–10.97.2：
   Noetherian環上の有限加群の完備化の完全性、テンソル積との一致と平坦性。
@@ -1176,12 +1292,14 @@ EG Proposition 8.1.1(i)は相対係数環を用いた形式中心の存在を既
 
 優先する未解決問題は次の通りである。
 
-1. 複数ブロックの分解・配分を忘れた同変構成。階数二の全supportの共変中心元と、gcd(N,3)=1の全被約層への降下は得た。
+1. 複数ブロックの分解・配分を忘れた同変構成。階数二ではHessian二次jetを指定した全support中心元と、
+   gcd(N,3)=1の元の次数の降下、全Nの第三Veronese降下を得た。
    次は§3の中心核の射影束で保持した追加データを忘れる条件を調べる。
    古典核の自然な線と純中心束のコホモロジー、ブロック置換作用から着手する。
-   3|Nの全階数二層では、特異点直線に代わる重み一線束の有無を検討する。
-   全supportで選んだ中心元と零制限の全h公式・既存層別式との一致、
-   固定h≠0での同型類像、全モジュライでの圏の降下は別問題である。
+   3|Nの全階数二層では重み一線束が存在しないので、その探索を繰り返さない。
+   零制限の標準直線との全域一致にも二次jetの非零相対H¹障害がある。
+   次の比較対象は、別ambientやMorita模型、異なる中心商のqgr圏、
+   他の層別明示式と全hへの延長、固定h≠0での同型類像である。
 2. 非零の特異な三変数制限に対する短い普遍多項式表示の存在。
    Cramer式の分母と特異型ごとの有限関係式を調べ、単なる可逆な中心元の再規格化で除去できる分母を区別する。
 3. 全閉パラメータにおけるqgrの滑らかさ、可換特殊点を含む一変数・多変数底全体での相対残余圏の比較。

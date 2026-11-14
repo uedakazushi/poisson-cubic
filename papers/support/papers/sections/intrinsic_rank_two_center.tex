@@ -4,6 +4,10 @@
 本節ではsupportの三次元部分空間を動かし、中心核そのものを扱う。
 Grassmann多様体上の一次コホモロジーの消滅と有限加群の完備化を用いることで、
 三変数制限の型を区別せず、全線形群に共変な中心三次元を同時に選ぶ。
+この中心元は普遍的な二次Hessian補正まで指定できる。
+三次Veroneseでは次元の合同条件なしに全階数二層へ降下し、
+次数一の降下を妨げるgerbeの位数も計算する。
+一方、零制限層の既存中心直線との大域的一致には二次jetの障害がある。
 形式的中心元の存在自体は、所定の古典剰余を持つ場合を含め、
 Etingof--Ginzburg\cite[Proposition~8.1.1(i), pp.~1407--1408]{EG}の既知の結果である。
 ここで証明するのは、動く全support上での代数的な同時選択である。
@@ -63,6 +67,19 @@ $H_N$および$\hbar\mapsto-\hbar$で不変なZariski開
  \label{eq:pg-intrinsic-rank-two-covariance}
 \end{equation}
 である。偶性の等号はWeyl表示での等号を表す。
+さらに、命題\ref{prop:pg-ad-intrinsic-hessian}の内在的Hessian縮約
+\begin{equation}
+ \mathscr H(P,F)=\frac16\sum_{i,j,k,a,b,c}
+ P^{ijk}P^{abc}F_{ia}F_{jb}F_{kc}
+ \label{eq:pg-intrinsic-prescribed-hessian}
+\end{equation}
+を用いて、二次jetを
+\begin{equation}
+ \Omega_{F,P,\hbar}
+   =\sym\left(F-\frac{\hbar^2}{12}\mathscr H(P,F)+O(\hbar^4)\right)
+ \label{eq:pg-intrinsic-prescribed-second-jet}
+\end{equation}
+と指定できる。ここで$O(\hbar^4)$は全零切断に沿うWeyl係数の表示である。
 \item $W_P\subset V$を$P$のsupportとする。
 割った交換子の三次核$\mathcal K$と、
 純中心三次式の部分束$\mathcal C$について
@@ -215,13 +232,23 @@ $\mathcal K_r=\mathcal K/\hbar^{r+1}\mathcal K$とおけば、
 \end{equation}
 を得る。\eqref{eq:pg-intrinsic-rank-two-classical-splitting}から
 大域切断上の右の写像は全射である。
-$F\in\Gamma(\mathcal S_N,\mathcal K_0)$を逐次持ち上げると、
-Weyl表示で
+命題\ref{prop:pg-universal-casimir-jet}を$t=\eta\hbar$として適用すると、
+\begin{equation}
+ \Theta=F-\frac{\hbar^2}{12}\mathscr H(P,F),\qquad
+ \mathcal D\Theta\in\hbar^4
+       \bigl(\operatorname{Sym}^4V^*\bigr)^{\oplus N}[[\hbar]]
+ \label{eq:pg-intrinsic-initial-second-jet}
+\end{equation}
+である。Hessian縮約は基底に依存せず、$F$と同じ$\lambda^{-1}$の共変性を持つ。
+局所核の底変更との両立から、$\Theta\bmod\hbar^3$は
+$\mathcal K_2=\mathcal K/\hbar^3\mathcal K$の大域切断となる。
+この切断を初期値として\eqref{eq:pg-intrinsic-rank-two-formal-sequences}を
+$r\ge2$について順次用いると、Weyl表示で
 \begin{equation}
  \widehat\Omega\in
  \Gamma(\mathcal S_N,\OO)[[\hbar]]
        \otimes_\CC\operatorname{Sym}^3V^*,
- \qquad \widehat\Omega\bmod\hbar=F,
+ \qquad \widehat\Omega\equiv\Theta\pmod{\hbar^3},
  \qquad \mathcal D\widehat\Omega=0
  \label{eq:pg-intrinsic-rank-two-formal-center}
 \end{equation}
@@ -314,27 +341,29 @@ $\widehat\Omega\in\ker\widehat D$である。
 \cite[Lemmas~10.97.1--10.97.2, Tags~00MA--00MB]{PStacks}から
 \begin{equation}
  \widehat K=\ker\widehat D,\qquad
- \widehat K/\hbar\widehat K\simeq K/\hbar K
+ \widehat K/\hbar^\ell\widehat K\simeq K/\hbar^\ell K\quad(\ell\ge1)
  \label{eq:pg-intrinsic-rank-two-completion}
 \end{equation}
-となる。従って$\widehat\Omega$の$\hbar$を法とする剰余類の代表を
+となる。従って$\widehat\Omega$の$\hbar^3$を法とする剰余類の代表を
 $\Omega\in K$として選べる。
 有限自由加群への包含と剰余写像の可換性により
 \begin{equation}
- D\Omega=0,\qquad \Omega\bmod\hbar=F
+ D\Omega=0,\qquad \Omega\equiv\Theta\pmod{\hbar^3}
  \label{eq:pg-intrinsic-rank-two-algebraic-lift}
 \end{equation}
 である。指定した形式級数全体の代数化を要求しているのではなく、
-古典極限が同じである一つの代数的中心元を得ている。
+指定した有限二次jetを保つ一つの代数的中心元を得ている。
 特に$P=0$で$K$の階数が跳ぶことは、有限加群に対する
 \eqref{eq:pg-intrinsic-rank-two-completion}の適用を妨げない。
 
 アフィン底$D(q)$上の$K$は有理$H_N$-加群であり、
-その引戻しdatumを$\lambda\Phi$でtwistすれば$F$は不変切断になる。
+その引戻しdatumを$\lambda\Phi$でtwistすれば$\Theta\bmod\hbar^3$は不変切断になる。
 $\Omega$をReynolds作用素で平均する。
 平均は$K$と剰余条件\eqref{eq:pg-intrinsic-rank-two-algebraic-lift}を保ち、
 \eqref{eq:pg-intrinsic-rank-two-covariance}の共変性を与える。
 さらに$\boldsymbol\mu_2$について平均すればWeyl係数は偶になる。
+$\Theta$も偶なので指定jetは保たれ、差の三次係数も零となるため
+\eqref{eq:pg-intrinsic-prescribed-second-jet}を得る。
 この平均化には$K$の局所自由性は不要である。
 各切断の軌道の線形包が有限次元であることと、
 Reynolds作用素が同変線形写像と可換することだけを用いる。
@@ -386,8 +415,11 @@ AS-Gorenstein条件は補題\ref{lem:pg-central-cubic}による。
 定理\ref{thm:pg-intrinsic-rank-two-center}は、supportの補空間を
 同変に選ぶことなく、一つの中心直線を全ての三変数制限の型にわたって構成する。
 純中心係数を固定する規格化や、前節の型別の中心式との一致は課していない。
-特に零制限上での全$\hbar$直線にわたる式
-$\Omega^{\mathrm z}=\sym(F)$の結果は、その強い範囲を持つ別の選択として保持される。
+零制限上での全$\hbar$直線にわたる式
+$\Omega^{\mathrm z}=\sym(F)$は、その強い範囲を持つ別の選択である。
+$N\ge6$では、この標準中心直線への全層での一致は、
+同変性を要求しなくても二次jetで妨げられる
+（命題\ref{prop:pg-intrinsic-zero-matching-obstruction}）。
 命題\ref{prop:pg-equivariant-global-centering-obstruction}の中心調整の非存在は、
 この中心直線の存在と両立する。
 \end{remark}
@@ -531,8 +563,541 @@ $\mathcal J_0\subset\operatorname{Sym}^3(E_\theta)$とすれば、
 あるいは全$\mathbb A^1_\hbar$への延長も主張していない。
 $3\mid N$の場合、$H_N$の指標の$K_{\mathrm{sc}}$上の重みは
 $Nr-3s\in3\mathbb Z$なので、上記の重み一の指標は存在しない。
-これはこの指標による降下法の限界であり、
-gerbeの非中立性や他の方法による降下の不存在を意味しない。
+命題\ref{prop:pg-intrinsic-gerbe-period}では、指標以外の線束による補正も含めて
+このgerbeの非中立性を示す。一方、系\ref{cor:pg-intrinsic-third-veronese-descent}の
+三次Veroneseの降下は全ての$N$で成立する。
+\end{remark}
+
+\begin{proposition}[全階数二層のgerbeの位数]
+\label{prop:pg-intrinsic-gerbe-period}
+$N\ge5$とし、\eqref{eq:pg-intrinsic-descent-base}の記法を用いる。
+$K_{\mathrm{sc}}\simeq\mathbf G_m$の同一視は
+$c\mapsto(cI_V,c^{-3})$で固定する。
+\begin{equation}
+ \mathfrak G_N=[\mathcal S_N/H_N],\qquad
+ \alpha_N=[\mathfrak G_N\to\mathfrak P_{n,1}]
+ \in H^2_{\mathrm{fppf}}(\mathfrak P_{n,1},\mathbf G_m)
+ \label{eq:pg-intrinsic-gerbe-class}
+\end{equation}
+とおく。このとき
+\begin{equation}
+ \begin{aligned}
+ \operatorname{Pic}(\mathcal S_N)&=0,\\
+ \operatorname{im}\left(
+ \operatorname{wt}:\operatorname{Pic}(\mathfrak G_N)\to\mathbb Z
+ \right)&=N\mathbb Z+3\mathbb Z=\gcd(N,3)\mathbb Z,\\
+ \operatorname{ord}(\alpha_N)&=\gcd(N,3).
+ \end{aligned}
+ \label{eq:pg-intrinsic-gerbe-period}
+\end{equation}
+ここで$\operatorname{wt}(\mathcal L)=r$は、$k(c)\in K_{\mathrm{sc}}$が
+$\mathcal L$に$c^r$で作用することを意味する。
+特に$3\mid N$ならgerbeは非中立で、位数は正確に三である。
+
+さらに$3\mid N$とし、
+$\mathfrak P_{n,1}\times\{0\}$全体を含む任意の開
+$\mathcal U\subset\mathfrak P_{n,1}\times\mathbb A^1_\hbar$を取る。
+この開上の引戻しgerbe
+\begin{equation}
+ \mathfrak G_{N,\mathcal U}
+ = (\mathfrak G_N\times\mathbb A^1_\hbar)
+     \times_{\mathfrak P_{n,1}\times\mathbb A^1_\hbar}\mathcal U
+ \label{eq:pg-intrinsic-gerbe-neighborhood}
+\end{equation}
+の位数も三であり、重み$1$または$-1$の可逆層は存在しない。
+従って定理\ref{thm:pg-intrinsic-rank-two-center}の族を、
+各次数$d$で一つの可逆層の$d$乗をtensorする方法によって、
+元の次数一の構造を保った代数族へ降ろすことはできない。
+\end{proposition}
+
+\begin{proof}
+\emph{係数空間のPicard群。}
+三次式の係数を$\boldsymbol a$、判別式を$\Delta$と書き、
+\begin{equation}
+ R_N=\CC[\boldsymbol a,\Delta^{-1}],\qquad
+ X=\mathcal T_N\times\operatorname{Mat}_{N\times3},\qquad
+ Y=\mathcal T_N\times\operatorname{St}(3,V)
+ \label{eq:pg-intrinsic-gerbe-stiefel-cover}
+\end{equation}
+とおく。$X$の座標環$R_N[A_{i\beta}]$はUFDであり、
+$X\setminus Y$の余次元は$N-2\ge2$である。
+従って
+\begin{equation}
+ \Gamma(Y,\OO)=R_N[A_{i\beta}],\qquad
+ \Gamma(Y,\OO)^\times=R_N^\times,\qquad
+ \operatorname{Pic}(Y)=0.
+ \label{eq:pg-intrinsic-gerbe-stiefel-picard}
+\end{equation}
+関数の等号は\eqref{eq:pg-intrinsic-rank-two-stiefel-functions}と同じ
+余次元二以上の延長による。
+Picard群については、$Y$上の可逆層の非零有理切断を一つ選ぶ。
+その因子の各余次元一成分を$X$へ閉包するとWeil因子となり、
+$X$がfactorialなので主因子である。
+$Y$への制限から元の可逆層が自明であることが従う。
+
+列の外積を取る写像
+\begin{equation}
+ p:Y\longrightarrow\mathcal S_N,\qquad
+ (F,A)\longmapsto(F,\textstyle\bigwedge^3A)
+ \label{eq:pg-intrinsic-gerbe-sl3-torsor}
+\end{equation}
+はZariski局所自明な$\mathrm{SL}_3$-torsorである。
+その作用は行列$A$の右からの作用である。
+従って$\mathcal S_N$上の可逆層$\mathcal L$の引戻しは
+$\mathrm{SL}_3$-線形化を持つ自明束になる。
+この線形化を自明化のもとで表すと、
+$\mathrm{SL}_3\times Y$上の単元$u$で、$u(e,y)=1$を満たすものを得る。
+
+ここで$\mathrm{SL}_3\times Y$の単元を直接計算する。
+多様体としての同型
+\begin{equation}
+ \mathrm{SL}_3\times\mathbf G_m\xrightarrow{\ \sim\ }\mathrm{GL}_3,
+ \qquad (g,t)\longmapsto g\operatorname{diag}(t,1,1)
+ \label{eq:pg-intrinsic-gerbe-gl3-variety}
+\end{equation}
+を用いる。逆写像は
+$B\mapsto(B\operatorname{diag}((\det B)^{-1},1,1),\det B)$である。
+一方、$\mathrm{GL}_3\times Y$もfactorialなアフィンスキームから
+余次元二以上の閉集合を除いた開であり、その単元は
+$v(F)(\det B)^j$、$v(F)\in R_N^\times$、$j\in\mathbb Z$だけである。
+$\mathrm{SL}_3\times Y$の単元を$\mathrm{SL}_3\times\mathbf G_m\times Y$へ
+引き戻すと$t$に依存しないので、上の表示では$j=0$である。
+従って
+\begin{equation}
+ \Gamma(\mathrm{SL}_3\times Y,\OO)^\times
+      =\operatorname{pr}_Y^*R_N^\times.
+ \label{eq:pg-intrinsic-gerbe-sl3-units}
+\end{equation}
+$u(e,y)=1$から$u=1$となる。
+すなわち$p^*\mathcal L$の自明化は$\mathrm{SL}_3$-不変であり、
+torsorに沿って降下して$\mathcal L$を自明化する。
+これで$\operatorname{Pic}(\mathcal S_N)=0$を得る。
+
+\emph{同変可逆層と中心重み。}
+$\mathfrak G_N$上の可逆層は、$\mathcal S_N$上の
+$H_N$-同変可逆層と同じである。
+いま証明したPicard群の消滅により、その下にある可逆層を自明化できる。
+線形化は$H_N\times\mathcal S_N$上の単元$\varepsilon$で表され、
+$\varepsilon(e,s)=1$を満たす。
+これを$\operatorname{id}_{H_N}\times p$で$H_N\times Y$へ引き戻す。
+この操作には、$H_N$の作用を$Y$へ持ち上げる必要はない。
+
+$H_N\times Y$の関数は
+$R_N[A_{i\beta},L_{ij},(\det L)^{-1},\lambda,\lambda^{-1}]$であり、
+その単元は$R_N$の単元、$\det L$および$\lambda$の積である。
+従って引戻した線形化は
+\begin{equation}
+ \varepsilon((L,\lambda),p(F,A))
+       =v(F)(\det L)^a\lambda^b,
+ \qquad v(F)\in R_N^\times,\quad a,b\in\mathbb Z
+ \label{eq:pg-intrinsic-gerbe-linearization-character}
+\end{equation}
+と書ける。恒等元での条件により$v(F)=1$である。
+$p$は忠実平坦なので、元の線形化も指標
+$(\det L)^a\lambda^b$で与えられる。
+自明化を変えると指標の表示が変わり得るが、
+$K_{\mathrm{sc}}$は底に自明に作用するため中心重みは変わらない。
+逆に任意の指標は自明束の線形化を定め、その中心重みは
+\begin{equation}
+ (\det(cI_V))^a(c^{-3})^b=c^{Na-3b}
+ \label{eq:pg-intrinsic-gerbe-character-weight}
+\end{equation}
+である。従って中心重みの像はちょうど$N\mathbb Z+3\mathbb Z$となる。
+
+\emph{gerbeの位数。}
+一般に代数スタック$M$上の$\mathbf G_m$-gerbe
+$\mathfrak G\to M$の類を$\alpha$とすると、
+\begin{equation}
+ \mathfrak G\text{上に重み$r$の可逆層が存在する}
+ \quad\Longleftrightarrow\quad
+ r\alpha=0\text{ in }H^2_{\mathrm{fppf}}(M,\mathbf G_m).
+ \label{eq:pg-intrinsic-gerbe-weight-period-criterion}
+\end{equation}
+gerbeのコホモロジー類と重みの一般論について
+\cite[Theorem~3.11, Corollary~4.11]{PBerghSchnurerGerbes}を参照できるが、
+可逆層についての同値は代数空間を底とする場合に
+\cite[Lemma~3.1.1.8, p.~7]{PLieblichPeriodIndex}にも明記されている。
+ここでは次の\v{C}ech表示により、代数スタックを底とする場合まで確認する。
+必要ならfppf hypercoverを細分し、gerbeの局所対象とそれらの間の同型を取る。
+三重の重なりでの合成のずれを$c_{ijk}\in\mathbf G_m$とすると、
+これは$\alpha$を表す二次cocycleである。
+重み$r$の可逆層を局所的に自明化したとき、その遷移関数$b_{ij}$の条件は
+\begin{equation}
+ b_{ij}b_{jk}b_{ik}^{-1}=c_{ijk}^{\,r}
+ \label{eq:pg-intrinsic-gerbe-weight-cocycle}
+\end{equation}
+となる（cocycleの向きはこの式に合わせて固定する）。
+従ってその存在は$c^r$がcoboundaryであることと同値である。
+逆向きにも、この式を満たす$b_{ij}$で局所的な重み$r$の直線を貼り合わせればよい。
+この議論は基底がスキームであることを要求しない。
+
+\eqref{eq:pg-intrinsic-gerbe-weight-period-criterion}と
+中心重みの像の計算により、$\alpha_N$の位数は$\gcd(N,3)$である。
+特に$3\mid N$では重み一の可逆層が存在しないので$\alpha_N\ne0$であり、
+指標$\lambda^{-1}$が重み三の可逆層を与えるので$3\alpha_N=0$である。
+
+最後に零切断近傍を考える。
+$\mathfrak G_{N,\mathcal U}$上に重み一または負一の可逆層があれば、
+零切断への制限が$\mathfrak G_N$上に同じ重みの可逆層を与え、矛盾する。
+引戻し類は三で消え、その零切断への制限は非零なので、位数も三のままである。
+元の周囲代数の次数一部分には$k(c)$が$c$で作用する。
+従って$\mathcal A_d\otimes\mathcal M^{\otimes d}$の形の補正で
+中心スカラーを消すには$\operatorname{wt}(\mathcal M)=-1$が必要であり、
+そのような補正は存在しない。
+\end{proof}
+
+\begin{remark}[障害の射程]
+\label{rem:pg-intrinsic-gerbe-obstruction-scope}
+この命題は、全階数二の被約底と、その全零切断を含む変形近傍に関する主張である。
+前節の節点・尖点の各局所閉層では重み一の可逆層によってgerbeが中立になるが、
+その可逆層は全階数二底へ同じ重みの可逆層としては延長できない。
+三次Veroneseの各次数で必要となる重み$-3d$は$\lambda^d$で消せるため、
+その降下は本命題の障害を受けない。
+ここで否定したのはgerbeの中立化と、既存の次数一の族を可逆層のtensorで補正する降下である。
+別の量子化された周囲代数、Morita同値な模型、またはカテゴリーの降下の不存在は結論しない。
+\end{remark}
+
+\begin{corollary}[全次元での三次Veroneseの降下]
+\label{cor:pg-intrinsic-third-veronese-descent}
+$N\ge5$とし、定理\ref{thm:pg-intrinsic-rank-two-center}の族を取る。
+$\gcd(N,3)$によらず、全被約階数二層の零切断近傍
+$\mathcal U_N=[\mathcal W_N/\overline H_N]$上に、
+次数別有限局所自由な次数付き代数
+$\mathcal A^{[3]}$、$\mathcal B^{[3]}$と、
+$\mathcal A^{[3]}$の次数一の大域的な左右正則中心元$\omega$が存在し、
+gerbe上への引戻しは
+\begin{equation}
+ \begin{aligned}
+ \mathcal A^{[3]}_d&=\mathcal A_{3d}\otimes\lambda^d,&
+ \mathcal B^{[3]}_d&=\mathcal B_{3d}\otimes\lambda^d
+ \qquad(d\ge0),\\
+ \omega&=\Omega\otimes1,&
+ \mathcal B^{[3]}&\simeq\mathcal A^{[3]}/(\omega)
+ \end{aligned}
+ \label{eq:pg-intrinsic-third-veronese}
+\end{equation}
+で与えられる。
+その古典極限の相対$\operatorname{Proj}$は、
+それぞれ普遍の周囲射影空間族と普遍三次超曲面族であり、
+新しい次数一の偏極は各幾何学的ファイバー上で$\OO(3)$となる。
+
+$\gcd(N,3)=1$で系\ref{cor:pg-intrinsic-rank-two-descent}の
+指標$\theta$を選んだ場合、$\chi=\lambda\theta^3$は
+$\overline H_N$の指標となる。その対応する底上の可逆層を
+$\mathcal L_\chi$とすると、
+\begin{equation}
+ \mathcal A^{[3]}_d
+   \simeq(\mathcal A^\theta)_{3d}\otimes\mathcal L_\chi^{\otimes d},
+ \qquad
+ \mathcal B^{[3]}_d
+   \simeq(\mathcal B^\theta)_{3d}\otimes\mathcal L_\chi^{\otimes d}.
+ \label{eq:pg-intrinsic-veronese-character-comparison}
+\end{equation}
+従って二つの降下は、三次Veroneseを取り、底の線束の次数冪で捩る操作によって関係づけられる。
+\end{corollary}
+\begin{proof}
+$k(c)=(cI_V,c^{-3})$の$\mathcal A_{3d}$上の作用は$c^{3d}$であり、
+$\lambda^d$上の作用は$c^{-3d}$である。
+従って両者の積は重み零である。
+積の写像では次数が加わるので、これらのtwistは単位と乗法を保つ。
+gerbe上の重み零の準連接層の降下
+\cite[Proposition~4.10]{PBerghSchnurerGerbes}を次数別に適用すると、
+$\mathcal A^{[3]}$と$\mathcal B^{[3]}$を得る。
+
+共変性\eqref{eq:pg-intrinsic-rank-two-covariance}から
+$\lambda\Phi(\Omega')=\Omega$であり、$\omega$は実際の大域切断として降りる。
+元の中心元の正則性により、各$d\ge1$において
+\begin{equation}
+ 0\longrightarrow\mathcal A^{[3]}_{d-1}
+ \xrightarrow{\ \omega\ }\mathcal A^{[3]}_d
+ \longrightarrow\mathcal B^{[3]}_d\longrightarrow0
+ \label{eq:pg-intrinsic-veronese-quotient-sequence}
+\end{equation}
+は完全である。これは同変な列
+$0\to\mathcal J\otimes\mathcal A_{3d-3}\to\mathcal A_{3d}
+\to\mathcal B_{3d}\to0$に$\lambda^d$をかけ、
+$\mathcal J\otimes\lambda\simeq\OO$を用いた列である。
+従って左端は$\mathcal A_{3d-3}\otimes\lambda^{d-1}=\mathcal A^{[3]}_{d-1}$となる。
+従って\eqref{eq:pg-intrinsic-third-veronese}の商の同定と局所自由性を得る。
+
+古典極限ではatlas上で
+\begin{equation}
+ \bigl(\operatorname{Sym}(V^*)^{(3)}\bigr)_d
+     =\operatorname{Sym}^{3d}(V^*),\qquad
+ \bigl((\operatorname{Sym}(V^*)/(F))^{(3)}\bigr)_d
+     =(\operatorname{Sym}(V^*)/(F))_{3d}
+ \label{eq:pg-intrinsic-veronese-classical}
+\end{equation}
+である。Veroneseは相対$\operatorname{Proj}$を変えず、
+底の可逆層の次数冪によるtwistも相対$\operatorname{Proj}$を変えない。
+このことは線束を自明化した開上の同定が、重なりでの次数$d$の
+スカラー倍によって保たれることから従う。
+従ってこれらの同定は商上へ貼り合い、所要の普遍族と偏極を与える。
+これは周囲の射影空間族が全体としてベクトル束の射影化になることを仮定しない。
+
+最後に$\theta(k(c))=c$なので
+$\chi(k(c))=c^{-3}c^3=1$である。
+$\theta^{-3d}\chi^d=\lambda^d$という等式が
+\eqref{eq:pg-intrinsic-veronese-character-comparison}を与える。
+\end{proof}
+
+\begin{remark}[Veroneseと射影的な圏の範囲]
+\label{rem:pg-intrinsic-veronese-qgr}
+三次Veroneseの降下は、元の次数一の生成元を降ろすこととは区別する。
+特に$3\mid N$の場合、命題\ref{prop:pg-intrinsic-gerbe-period}の障害は残る。
+ここではVeronese代数のAS-regular性を主張しない。
+AS条件とHilbert級数については、元の代数の結論とその三次ごとの部分を区別する。
+
+各幾何学的ファイバーで、元の代数$R$が左右noetherianである場合には、
+既知のVeronese同値により
+\begin{equation}
+ qgr\,R\simeq qgr\,R^{(3)},\qquad
+ \pi M\longmapsto\pi(M^{(3)})
+ \label{eq:pg-intrinsic-veronese-qgr}
+\end{equation}
+を得る。これは$R=A$にも$R=B$にも、それぞれのnoetherian性の下で適用する。
+用いるのは次数一生成の場合の標準結果であり
+\cite[Theorem~4.1, Proposition~4.8, pp.~2934, 2940--2941]{PSmithVeronese}、
+一般の次数付き環の射についての議論には同文献の訂正文の条件が必要である。
+
+この場合の同値と必要な完全性は直接にも確認できる。
+$T=R^{(3)}$も左右noetherianである。例えば$T$の斉次右イデアル列$J_i$について、
+$J_iR$の安定と$(J_iR)^{(3)}=J_i$から安定性が従い、左側も同様である。
+右加群について
+$V(M)=M^{(3)}$、$I(N)=N\otimes_T R$とする。
+$I$では$N_d$を元の次数$3d$に置く。
+すると$V$は完全で$VI\simeq\mathrm{id}$であり、
+$IV(M)\to M$の核と余核は$V$によって零になる。
+$R$は次数一生成なので、$V(M)=0$なら各斉次元は$R_{\ge3}$に殺される。
+従ってこれらの核と余核はtorsionである。
+また$T$上の自由分解に$I$を施した複体の$V$像は元の分解なので
+\begin{equation}
+ V\bigl(\operatorname{Tor}^T_1(N,R)\bigr)=0.
+ \label{eq:pg-intrinsic-veronese-tor}
+\end{equation}
+従って$\pi I$はtorsionを除いた圏で完全となり、訂正文で要求される条件も満たす。
+$R$は左右とも$T$上で次数$0,1,2$部分により有限生成されるため、
+両関手は有限生成加群を保ち、torsion部分を対応させる。
+これが\eqref{eq:pg-intrinsic-veronese-qgr}を与える。
+
+底の線束$\mathcal L$による$R_d\mapsto R_d\otimes\mathcal L^{\otimes d}$のtwistは、
+$M_d\mapsto M_d\otimes\mathcal L^{\otimes d}$による次数付き加群の同値を持つ。
+これは既知のsheaf $\mathbb Z$-algebraのtwistの特別な場合である
+\cite[arXiv v3, \S4.2, p.~9]{PVdBNoncommP1Bundles}。
+本節の一般原理への追加は、全support上の中心元に対し、
+全階数二層でこの三次偏極の代数族を同時に構成した点である。
+この記述だけから、全閉パラメータの$qgr$の滑らかさや、
+異なる中心直線から得られる圏の同値は結論しない。
+\end{remark}
+
+\subsection{零制限の標準中心直線との整合性}
+
+\begin{proposition}[零制限の中心直線への大域的一致の障害]
+\label{prop:pg-intrinsic-zero-matching-obstruction}
+$N\ge6$、$m=N-3$とし、
+定理\ref{thm:pg-intrinsic-rank-two-center}の底
+$\mathcal S_N=\mathcal T_N\times C_3^\times(V)$上で
+\begin{equation}
+ \mathcal Z_N=
+ \{(F,P)\in\mathcal S_N:F|_{W_P}=0\},\qquad
+ \mathcal C=\operatorname{Sym}^3(V/W_P)^*
+ \label{eq:pg-intrinsic-zero-incidence}
+\end{equation}
+と書く。$\mathcal Z_N$は非空の滑らかな余次元十の閉部分である。
+この上では定理\ref{thm:pg-equivariant-zero-center}の中心三次元
+$\Omega^{\mathrm z}=\sym(F)$が全$\hbar$について定義される。
+
+$\mathcal S_N$の全$\hbar=0$切断の近傍で定義された中心三次元
+$\Omega$が、Weyl表示で
+\begin{equation}
+ \Omega=\sym\bigl(F+\hbar^2\omega_2+O(\hbar^4)\bigr)
+ \label{eq:pg-intrinsic-zero-comparison-jet}
+\end{equation}
+を満たすとする。
+このとき、$\mathcal Z_N\times\mathbb A^1_\hbar$の零切断に沿う形式完備化上で、
+$\OO\Omega$を$\OO\sym(F)$と一致させることはできない。
+従って、この零切断全体を含む近傍での一致も不可能である。
+この非存在は、全support上の形式的中心元にも成立し、
+$\Omega$の群同変性を仮定しない。
+従って中心生成元そのものの一致も不可能である。
+\end{proposition}
+
+\begin{proof}
+\emph{閉部分と非零のHessian切断。}
+$\mathbf G=\operatorname{Gr}(3,V)$上の普遍部分束を$\mathcal W$とする。
+全三次式の係数空間と$\mathbf G$の積上の制限写像
+\begin{equation}
+ \operatorname{Sym}^3V^*\otimes\OO_{\mathbf G}
+ \longrightarrow\operatorname{Sym}^3\mathcal W^*
+ \label{eq:pg-intrinsic-zero-restriction-surjection}
+\end{equation}
+は階数十の束への全射である。
+その核の全空間に滑らかさの開条件を課し、
+$C_3^\times(V)\to\mathbf G$へ引き戻したものが
+$\mathcal Z_N$である。
+従ってこれは$\mathcal S_N$内の滑らかな余次元十の閉部分となる。
+また$P\mapsto sP$、$s\in\mathbf G_m$で安定である。
+
+内在的Hessian三次式$\mathscr H(P,F)$を
+\eqref{eq:pg-ad-intrinsic-hessian}の縮約で定める。
+その$\mathcal Z_N$への制限を$\mathscr H_{\mathrm z}$と書く。
+supportに適合する座標では
+\begin{equation}
+ \begin{aligned}
+ P&=\eta\,\partial_{x_1}\wedge\partial_{x_2}\wedge\partial_{x_3},\\
+ F&=\tfrac12 x^{\mathsf t}H(u)x+b(u)^{\mathsf t}x+c(u),\\
+ \mathscr H_{\mathrm z}&=\eta^2\det H(u)
+       \in\mathcal C|_{\mathcal Z_N}.
+ \end{aligned}
+ \label{eq:pg-intrinsic-zero-hessian-pure-central}
+\end{equation}
+従って$\mathscr H_{\mathrm z}$は純中心三次式の束の大域切断であり、
+$P$のスカラー倍について重み二を持つ。
+
+この切断は零ではない。実際、$m\ge3$に対して
+\begin{equation}
+ F_0=\sum_{i=1}^3(u_ix_i^2+u_i^3)
+          +\sum_{\alpha=4}^m u_\alpha^3,\qquad
+ P_0=\partial_{x_1}\wedge\partial_{x_2}\wedge\partial_{x_3}
+ \label{eq:pg-intrinsic-zero-obstruction-example}
+\end{equation}
+と取る。
+全偏微分の共通零点では
+$2u_ix_i=x_i^2+3u_i^2=0$から$x_i=u_i=0$となり、
+$\alpha>3$では$3u_\alpha^2=0$から$u_\alpha=0$となる。
+従って$F_0$の射影超曲面は滑らかである。
+また$F_0|_{W_{P_0}}=0$かつ
+\begin{equation}
+ \mathscr H(P_0,F_0)=8u_1u_2u_3\ne0.
+ \label{eq:pg-intrinsic-zero-nonzero-hessian}
+\end{equation}
+この例は$\mathcal Z_N$の非空性も示す。
+なお$N=5$では残りの二つの偏微分は$\PP(W_P)=\PP^2$上の二次式であり、
+共通零点を持つため、滑らかさと両立しない。
+従って本節の$N\ge5$の範囲では$\mathcal Z_N$が非空であることと
+$N\ge6$は同値である。
+
+\emph{純中心切断の重み二成分の消滅。}
+$\mathcal Q=(V\otimes\OO_{\mathbf G})/\mathcal W$とおく。
+$\mathcal C$は$\operatorname{Sym}^3\mathcal Q^*$の引戻しである。
+ここで$P$のスカラー作用の線形化は、$W_P$を変えない作用として
+$\mathcal C$の各ファイバーを恒等的に同定するものを用いる。
+重み$j$とは、切断の係数が$P\mapsto sP$で$s^j$倍となることを意味する。
+\eqref{eq:pg-rank-two-cone-direct-images}と$\mathcal T_N$のアフィン性から
+\begin{equation}
+ \Gamma(\mathcal S_N,\mathcal C)_j
+ =\Gamma(\mathcal T_N,\OO)\otimes_\CC
+ H^0\left(\mathbf G,
+     \operatorname{Sym}^3\mathcal Q^*\otimes\OO_{\mathbf G}(j)\right).
+ \label{eq:pg-intrinsic-pure-center-weight-sections}
+\end{equation}
+補題\ref{lem:pg-rank-two-bott-vanishing}の証明で用いた
+$j=2$のBott列は
+\begin{equation}
+ (N+1,N,N-1,N-1,N-5,N-6,\ldots,0)
+ \label{eq:pg-intrinsic-pure-center-weight-two-bott}
+\end{equation}
+であり、$N-1$が重複する。
+そのため$H^1$だけでなく全コホモロジーが消え、特に
+\begin{equation}
+ \Gamma(\mathcal S_N,\mathcal C)_2=0.
+ \label{eq:pg-intrinsic-pure-center-weight-two-zero}
+\end{equation}
+この結論は$F$の全係数への正則な依存を許したものである。
+
+\emph{任意の中心元の二次係数。}
+全零切断近傍の正則なWeyl係数は、$\hbar$進展開の各次数で
+$\mathcal S_N$上の大域切断を与える。
+命題\ref{prop:pg-universal-casimir-jet}をsupportに適合する局所座標で適用し、
+$t=\eta\hbar$と置くと
+\begin{equation}
+ D_0\left(\omega_2+\frac1{12}\mathscr H(P,F)\right)=0
+ \label{eq:pg-intrinsic-any-center-second-coefficient}
+\end{equation}
+を得る。$D_0$は古典Jacobian括弧による作用素である。
+Hessian縮約と$D_0$は座標変更と両立するため、これは大域の等式である。
+さらに古典核の\emph{束としての}分裂
+\eqref{eq:pg-intrinsic-rank-two-classical-splitting}から、一意な大域切断
+\begin{equation}
+ a\in\Gamma(\mathcal S_N,\OO),\qquad
+ c\in\Gamma(\mathcal S_N,\mathcal C),\qquad
+ \omega_2=-\frac1{12}\mathscr H(P,F)+aF+c
+ \label{eq:pg-intrinsic-any-center-second-decomposition}
+\end{equation}
+を得る。点ごとの比例係数を選んでいるのではない。
+$F$は滑らかさにより純中心式ではなく、
+$\OO F\oplus\mathcal C$という大域直和の二つの射影を用いている。
+
+仮に$\mathcal Z_N$に沿って中心直線が一致すれば、形式的には
+$\Omega|_{\mathcal Z_N}=b(\hbar)\sym(F)$、$b(0)=1$となる単元が存在する。
+その$\hbar^2$係数を$b_2$とすれば
+\begin{equation}
+ \omega_2|_{\mathcal Z_N}=b_2F.
+ \label{eq:pg-intrinsic-line-matching-second-coefficient}
+\end{equation}
+式\eqref{eq:pg-intrinsic-any-center-second-decomposition}を制限し、
+$\OO F\oplus\mathcal C$の直和で比較すると
+\begin{equation}
+ c|_{\mathcal Z_N}=\frac1{12}\mathscr H_{\mathrm z}.
+ \label{eq:pg-intrinsic-zero-impossible-extension}
+\end{equation}
+制限写像は$P$のスカラー作用と可換し、
+従って各重みへの射影とも可換する。
+右辺は非零の重み二切断であるが、左辺の重み二成分は
+\eqref{eq:pg-intrinsic-pure-center-weight-two-zero}により零である。
+これは矛盾である。
+
+以上は形式的二次jetだけを用いるため、定義開を$\hbar$方向に縮めても変わらない。
+同変性を仮定せず、任意の大域切断$c$の重み二成分を取った点にも注意されたい。
+\end{proof}
+
+\begin{remark}[相対コホモロジーと中心直線の選択]
+\label{rem:pg-intrinsic-zero-relative-obstruction}
+$\mathcal Z_N$のイデアル層を$\mathcal I_{\mathrm z}$とすると、完全列
+\begin{equation}
+ 0\longrightarrow\mathcal I_{\mathrm z}\mathcal C
+ \longrightarrow\mathcal C
+ \longrightarrow i_*\bigl(\mathcal C|_{\mathcal Z_N}\bigr)
+ \longrightarrow0
+ \label{eq:pg-intrinsic-zero-relative-sequence}
+\end{equation}
+の接続写像$\partial$について
+\begin{equation}
+ 0\ne
+ \partial(\mathscr H_{\mathrm z}/12)
+ \in H^1(\mathcal S_N,\mathcal I_{\mathrm z}\mathcal C)_2
+ \subset H^1(\mathcal S_N,\mathcal I_{\mathrm z}\mathcal K_0)_2
+ \label{eq:pg-intrinsic-zero-relative-class}
+\end{equation}
+である。
+実際、左端の非零性は
+$\Gamma(\mathcal S_N,\mathcal C)_2=0$と
+$\mathscr H_{\mathrm z}\ne0$から完全性によって従う。
+最後の包含は$\mathcal K_0=\OO F\oplus\mathcal C$による直和因子である。
+従って、定理\ref{thm:pg-intrinsic-rank-two-center}に用いた
+$H^1(\mathcal S_N,\mathcal K_0)=0$を、
+零制限上の値を指定する相対消滅へ置き換えることはできない。
+
+一つの大域中心元で
+$\mathcal K=\mathcal C\oplus\OO\Omega$と分裂させても、
+$\mathbf P_{\mathrm{lin}}(\mathcal K)\setminus
+\mathbf P_{\mathrm{lin}}(\mathcal C)$上の所定の閉部分の切断が
+大域切断へ延長するとは限らない。
+この開部分は$\mathcal Hom(\mathcal K/\mathcal C,\mathcal C)$のaffine torsorであり、
+$\Omega$による自明化では中心直線は$\OO(\Omega+\gamma)$、
+$\gamma\in\mathcal C$と書ける。
+零制限で$\Omega=a_{\mathrm z}\sym(F)+c_{\mathrm z}$と書くと、
+指定直線に合わせる条件は$\gamma|_{\mathcal Z_N}=-c_{\mathrm z}$である。
+古典極限と偶性からこの差は$\hbar^2$で割れるが、
+割った差の最初の係数の接続類が
+\eqref{eq:pg-intrinsic-zero-relative-class}となる。
+$\tau=\hbar^2$に関するdilatationは、この補正係数を追加データとして記録する。
+それだけで所定の切断の延長を与えるものではない。
+
+本命題が排除するのは、指定された周囲代数の同一視の下での中心直線の一致である。
+次数三の部分で比較すれば、その生成する斉次中心イデアルの一致も排除される。
+一方、中心商の抽象的な非同型や$qgr$圏の非同値は結論していない。
+固定supportでの係数空間上の選択や、supportの適切な開部分での選択とも矛盾しない。
 \end{remark}
 
 \subsection{中心調整による方法の限界}
