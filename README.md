@@ -20,7 +20,7 @@ g=0の層では、PBW対称化したΩ=sym(f)が全変形パラメータで全�
 
 [Aの監査と文献比較](notes/poisson_article_submission_audit.md) に仮定と証明の所在を、[Aの検証記録](validation_paper_a.json) に組版・厳密計算・確認範囲をまとめた。Bondalの斉次持上げ、Derdzinski--Galの半単純Lie代数上の核計算を既知部分として明記し、完全交叉の低twist消滅は独立に証明した。三次四様体の例はPym arXiv:1507.05668v1の非存在記述と両立せず、同版の非連結曲線に沿う持上げの問題を説明している。刊行版本文・訂正文との照合、初出の網羅確認、中心変数を残す複数ブロックの一般の同変構成、全hへの延長や中心商の比較は残る。
 
-旧論文Bに相当する一般点の全coherent残余圏の可換復元、完備MF移送、指定三次周期、明示Hesse模型と必要証明は [nc-cubic-n-fold](https://github.com/uedakazushi/nc-cubic-n-fold) の主原稿へ統合した。このrepoに残す主論文はPoisson正規形・量子化を扱う一本のみである。
+旧論文Bに相当する一般点の全coherent残余圏の可換復元、完備MF移送、指定三次周期、明示Hesse模型と必要証明は [nc-cubic](https://github.com/uedakazushi/nc-cubic) の主原稿へ統合した。このrepoに残す主論文はPoisson正規形・量子化を扱う一本のみである。
 
 独立な点スキーム・Jacobian・一次変形・Artin・étale・相対模型の成果はnc-cubic2へ移管済みである。現行の入口と担当境界は [nc-cubic2の研究方針](https://github.com/uedakazushi/nc-cubic2)。
 

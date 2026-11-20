@@ -4,7 +4,7 @@
 
 ## 現在の目標と達成基準
 
-主公表原稿 `papers/poisson-cubic.tex`（旧論文A A-v61）は全次元Poisson正規形を中心に、その幾何学的帰結・代数的量子化を扱う。ambient復元と完全交叉の背景は付録に置く。完備MF移送・一般点可換復元（旧論文B）は `nc-cubic-n-fold` の主原稿へ必要な全証明と計算を統合した。公表の達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、使用する既知定理の適用範囲と新規性が具体的に説明され、全文を再生成できることである。
+主公表原稿 `papers/poisson-cubic.tex`（旧論文A A-v61）は全次元Poisson正規形を中心に、その幾何学的帰結・代数的量子化を扱う。ambient復元と完全交叉の背景は付録に置く。完備MF移送・一般点可換復元（旧論文B）は `nc-cubic` の主原稿へ必要な全証明と計算を統合した。公表の達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、使用する既知定理の適用範囲と新規性が具体的に説明され、全文を再生成できることである。
 
 
 ## 到達点と証明の所在
@@ -64,4 +64,4 @@ g=0の場合には、active次数が二以下なので既知のPBW対称化の�
 - ソース・引用検証：`python3 scripts/check_layout.py`、`python3 scripts/verify_bundle.py`、`python3 scripts/verify_article_a_numbering.py`。
 - 組版：リポジトリルートから `latexmk papers/poisson-cubic.tex` または `python3 scripts/build.py --only poisson-cubic`。TeX入力は `papers/support/papers/` 以下を明示的に指定し、`TEXINPUTS` の追加設定を要求しない。PDFとSyncTeXは`build/`。
 - 主な数値・厳密計算の依存と既存検証：`validation_paper_a.json`。改名後の稿はこの更新では再組版していない。旧検証記録のハッシュを改名後の検証と同一視しない。
-- 外部の可換復元結果は [nc-cubic-n-fold](https://github.com/uedakazushi/nc-cubic-n-fold) 内で完結する。本repoはPoissonの論文Aを正本とする。
+- 外部の可換復元結果は [nc-cubic](https://github.com/uedakazushi/nc-cubic) 内で完結する。本repoはPoissonの論文Aを正本とする。

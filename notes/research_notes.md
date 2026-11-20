@@ -18,4 +18,4 @@ g=0のΩ=sym(f)の全h公式と、節点・尖点の特異点直線ℓ_gによ�
 
 点スキーム、有限Jacobian復元、一次変形、Artin window、étale実現、相対復元の現行原稿は[nc-cubic2](https://github.com/uedakazushi/nc-cubic2)に一覧がある。[nc-cubic2の現行研究ノート](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/relative_reconstruction_models.md)には、有限模型からのrotation積の比較、未決定の同変高次係数、有限bar右逆、二つ以上の無限位数因子の生成性、Artinから完備底への障害を整理している。これらの個別構成に残る条件と、論文Bの一般点存在定理の仮定・結論を混同しない。
 
-証明記載、数学的な点検、有限計算、組版、形式検証、新規性の確認は別の状態である。現在の検証範囲は [Aのvalidation](../validation_paper_a.json) に置く。旧論文Bの現行資料は [nc-cubic-n-fold](https://github.com/uedakazushi/nc-cubic-n-fold) を正本とする。
+証明記載、数学的な点検、有限計算、組版、形式検証、新規性の確認は別の状態である。現在の検証範囲は [Aのvalidation](../validation_paper_a.json) に置く。旧論文Bの現行資料は [nc-cubic](https://github.com/uedakazushi/nc-cubic) を正本とする。

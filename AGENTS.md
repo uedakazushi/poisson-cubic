@@ -17,7 +17,7 @@
 
 ## 研究の正本と担当境界
 
-このrepositoryはPoisson正規形・Bondal下界・代数的中心三次量子化を扱う主論文一本を正本とする。旧paper Bの完備MF移送、一般点のKu比較、coherent飽和、固定有理Hesse模型の定理・証明・計算は `uedakazushi/nc-cubic-n-fold` の `papers/nc-cubic-n-fold.tex` および `papers/sections/generic_recovery/` に統合済み。比較を引用する際は同repoの現在の主張を確認し、旧Bの原稿を参照することを必須としない。
+このrepositoryはPoisson正規形・Bondal下界・代数的中心三次量子化を扱う主論文一本を正本とする。旧paper Bの完備MF移送、一般点のKu比較、coherent飽和、固定有理Hesse模型の定理・証明・計算は `uedakazushi/nc-cubic` の `papers/nc-cubic.tex` および `papers/sections/generic_recovery/` に統合済み。比較を引用する際は同repoの現在の主張を確認し、旧Bの原稿を参照することを必須としない。
 
 現行主原稿の本文と有効な証明・計算・原資料を保持する。古い原稿、歴史的な監査、検証ログやPDF、ZIPを追跡対象に残さない。必要な一次資料の内容と仮定は現行ノートに残し、新規性未確認ならその旨を記す。過去に行われた数学点検、計算、組版を今回再実行したことにしない。
 
