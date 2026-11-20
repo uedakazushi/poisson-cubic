@@ -1,23 +1,20 @@
 {
-  "version": "poisson-cubic-v96",
+  "version": "poisson-cubic-v97",
   "date": "2026-11-21",
   "current_entry": "00_research_plan.md",
-  "authoritative": "GitHub uedakazushi/poisson-cubic main; expected-parent fast-forward updates; no Actions or force push.",
-  "scope": "Poisson paper A only, renamed to papers/poisson-cubic.tex; previous mathematical review retained, rename not re-typeset or re-verified.",
+  "authoritative": "GitHub uedakazushi/poisson-cubic main",
+  "scope": "Classical Poisson geometry, degeneracy and moduli; quantization is an independent paper in nc-cubic.",
   "papers": {
     "A": {
       "entry": "papers/poisson-cubic.tex",
-      "version": "A-v61",
+      "version": "A-v62",
       "audit": "notes/poisson_article_submission_audit.md",
-      "validation": "validation_paper_a.json",
-      "current_review_scope": "Intrinsic block cover, full stabilizer, reduced incidence, all-rank gerbe period by a Fermat stabilizer commutator, full-support affine finite-jet lifting, regular central quotient and third-Veronese descent independently read. One six-example exact computation was run; fourteen earlier computations are retained distinctly."
+      "validation": "validation_paper_a.json"
     }
   },
-  "independent_results": {
-    "authoritative_repository": "uedakazushi/nc-cubic2",
-    "scope_note": "https://github.com/uedakazushi/nc-cubic2",
-    "role": "Independent point/Artin/etale results, not part of the Poisson manuscript.",
-    "current_research_note": "https://github.com/uedakazushi/nc-cubic2/blob/main/notes/relative_reconstruction_models.md"
+  "related_current_papers": {
+    "quantization": "https://github.com/uedakazushi/nc-cubic/blob/main/papers/cubic-quantization.tex",
+    "noncommutative_geometry": "https://github.com/uedakazushi/nc-cubic/blob/main/papers/nc-cubic.tex"
   },
   "reproducibility": {
     "build": [
@@ -25,49 +22,14 @@
     ],
     "source_checks": [
       "python3 scripts/check_layout.py",
-      "python3 scripts/verify_bundle.py"
+      "python3 scripts/verify_bundle.py",
+      "python3 scripts/verify_article_a_numbering.py"
     ],
-    "paper_A_checks": "validation_paper_a.json",
     "build_directory": "build/",
     "pdf_tracking": false
   },
   "status_limits": [
-    "Proof text, independent mathematical reading, finite exact computation, typesetting, and remote persistence are different states.",
-    "Each paper-specific validation records the exact scope and remaining limitations.",
-    "No claim of formal proof verification, external referee acceptance, or comprehensive originality determination.",
-    "The manuscript was renamed and its proof content retained; no new PDF, SyncTeX, exact computation or formal verification was performed for v95."
-  ],
-  "current_remote_static_check": {
-    "date": "2026-11-21",
-    "scope": "Repository rename and canonical TeX source-path integrity; checked by fetching GitHub main tree and selected source files",
-    "main_path": "papers/poisson-cubic.tex",
-    "required_direct_inputs": 21,
-    "missing_direct_inputs": [],
-    "repository_main_and_root_match": true,
-    "old_renamed_source_absent": true,
-    "latexmk_default_matches_new_name": true,
-    "build_and_source_verification_scripts_target_new_name": true,
-    "layout_checker_accepts_new_main_and_rejects_old_entries": true,
-    "readme_links_new_main": true,
-    "checked_items_all_passed": true,
-    "not_performed": [
-      "LuaLaTeX or latexmk compilation",
-      "Current PDF and SyncTeX regeneration",
-      "All recursive TeX syntax/label checks",
-      "Re-execution of exact computations",
-      "Independent proof re-verification"
-    ],
-    "historical_validation": "Earlier A-v61 audit and PDF receipts concern the pre-rename source and remain historical"
-  },
-  "current_compile_fix": {
-    "date": "2026-11-21",
-    "reason": "TeX input names depended on papers/support search path and could fail when invoked directly or from a different LaTeX Workshop recipe.",
-    "changes": [
-      "All 21 TeX inputs now use actual repository-root-relative paths",
-      "Removed input@path indirection and TEXINPUTS override",
-      "Updated equation-number audit to resolve explicit source paths"
-    ],
-    "verification": "A reduced LuaLaTeX reproduction containing the identical loading pattern succeeds without TEXINPUTS after using an explicit path; complete manuscript compilation and all-reference audit have not yet been run.",
-    "all_manuscript_pages_built": false
-  }
+    "Current source checks and LuaLaTeX compilation succeeded. Exact calculations executed during the split are listed separately from retained evidence.",
+    "No new global proof audit, formal proof execution or comprehensive novelty verification was performed."
+  ]
 }

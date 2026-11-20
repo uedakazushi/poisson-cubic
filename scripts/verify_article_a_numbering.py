@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Check article A has numbered display equations, valid citations and labels.
+"""Check Poisson article has numbered display equations, valid citations and labels.
 
 Run from repository root: python3 scripts/verify_article_a_numbering.py
 This is a STATIC source audit, not a LuaLaTeX build. It follows direct
-\\input statements in the article A entrypoint. It does not number tables.
+\\input statements in the Poisson article entrypoint. It does not number tables.
 """
 from collections import Counter
 from pathlib import Path
@@ -58,7 +58,7 @@ missing_cites = sorted(set(citations) - set(bibliography))
 assert not missing_refs, ("missing refs", missing_refs)
 assert not missing_cites, ("missing cites", missing_cites)
 assert "\\numberwithin{equation}{section}" in start.read_text(), "missing section numbering"
-print("PASS article A static audit")
+print("PASS Poisson article static audit")
 print(f"Input files: {len(paths)}, equation environments: {total}, "
       f"labels: {len(labels)}, refs: {len(refs)}, "
       f"bibitems: {len(bibliography)}, citations: {len(citations)}")

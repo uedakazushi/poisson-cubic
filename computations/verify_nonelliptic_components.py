@@ -71,25 +71,12 @@ def verify(kind,direct=False):
     assert F.subs(d)==0
     pm=s.Matrix([[pi[i,j].subs(d).subs({aa:1,bb:1}) for j in range(7)] for i in range(7)])
     assert pm.rank()==4 and pm.row_join(s.Matrix(point)).rank()==5
-    h=s.symbols('h')
-    if kind=='node':
-        B=s.Matrix([[0,-(1+h/2)*z,(1-h/2)*y],[(1-h/2)*z,-3*h*y,-(1+h/2)*x],[-(1+h/2)*y,(1-h/2)*x,-3*h*z]])
-        e=-h*((h*h+12)*x*y*z+(12-3*h*h)*(y**3+z**3))/4
-        condition='h != 0; h^2 != 4,-12'
-    else:
-        B=s.Matrix([[0,-z,y-h*z],[z,-3*h*y,-x],[-y-h*z,x,-h*x]])
-        e=-3*h*(x*z*z+y**3-h*h*y*z*z)
-        assert s.expand((x*z*z+y**3-h*h*y*z*z).subs(x,x+h*h*y))==x*z*z+y**3
-        condition='h != 0'
-    assert s.expand(B.det()-e)==0
     record={'kind':kind,'cubic':str(F),'nonzero_rows':M.rows,'columns':35,'rank':33,
        'kernel_triples':[[0,1,2],[3,4,5]],'minor_rows':[list(keys[i]) for i in rp],
        'minor_columns':[list(T[i]) for i in cp], 'minor_determinant':str(det),
        'minor_matrix':[[int(v) for v in row] for row in minor.tolist()],
        'u1_gradient_groebner_basis':['1'],'jacobi_plane':'zero over QQ[alpha,beta]',
-       'projective_rank_witness':{'point':point,'rank':4,'rank_with_euler':5},
-       'quantum_multilinear_matrix':[[str(v) for v in row] for row in B.tolist()],
-       'quantum_multilinear_determinant':str(s.factor(e)), 'determinant_curve_condition':condition}
+       'projective_rank_witness':{'point':point,'rank':4,'rank_with_euler':5}}
     if direct:
         rank=direct_rank(F); assert rank==33
         record['independent_direct_schouten_rank']=rank

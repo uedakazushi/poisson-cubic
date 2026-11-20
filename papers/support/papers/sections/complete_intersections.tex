@@ -1,3 +1,4 @@
+% !TeX root = ../../../poisson-cubic.tex
 \section{射影完全交叉と斉次多様体のPoisson構造}
 \label{sec:general-poisson-existence}
 本節は三次超曲面のPoisson構造を一般の射影多様体の中に位置づける。
@@ -205,44 +206,3 @@ $[D_1\wedge D_2,D_1\wedge D_2]=0$を満たす。
 示したわけではない。
 次元一では二重ベクトルは常に零となる。
 \end{remark}
-
-\subsection{Poisson量子化の明示性}
-\begin{proposition}\label{prop:poisson-quantization-explicit}
-本論文のPoisson正規形
-$F=\sum_{s=1}^k f_s(x_s,u)$に対し、
-量子化を定める二次関係式は明示的に
-\begin{equation}
- [x_{s2},x_{s3}]
- =\hbar\,\operatorname{sym}_R(\partial_{x_{s1}}f_s),
- \quad
- [x_{s3},x_{s1}]
- =\hbar\,\operatorname{sym}_R(\partial_{x_{s2}}f_s),
- \quad
- [x_{s1},x_{s2}]
- =\hbar\,\operatorname{sym}_R(\partial_{x_{s3}}f_s)
- \label{eq:ci-quantization-relations}
-\end{equation}
-と書ける。異なるブロックと中心変数の間の交換子は零である。
-三次中心元$\Omega_\hbar$は零のZariski近傍で存在し、
-有限自由加群間の中心性方程式
-$z\mapsto([z,x_{si}])_{s,i}$の核を解いて選べる。
-しかし任意の入力に一様な閉公式が得られたとは主張しない。
-\end{proposition}
-\begin{proof}
-二次関係式は各ブロックのcyclic potential
-$W_s=x_{s1}x_{s2}x_{s3}-x_{s2}x_{s1}x_{s3}
--\hbar\,\operatorname{sym}_R(f_s)$のcyclic derivativeである。
-中心元の存在と、核の計算を用いた代数化は
-本論文の量子化節で証明する。
-\end{proof}
-\begin{example}[Fermat型]
-$[x,y]=\hbar z^2$、$[y,z]=\hbar x^2$、
-$[z,x]=\hbar y^2$なら
-\begin{equation}
- \Omega=x^3+y^3+z^3
-      -2\hbar^2\operatorname{sym}(xyz)
- \label{eq:ci-fermat-center}
-\end{equation}
-は実際に中心元となる。直接の交換子計算は
-本論文のFermat型の補題にある。
-\end{example}

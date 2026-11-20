@@ -1,67 +1,63 @@
-# 研究方針：三次超曲面のPoisson構造と代数的量子化
+# 研究方針：三次超曲面のPoisson幾何
 
-2026-11-21 / v96。再開時は本ファイルを最初に読む。GitHub mainが正本。
+2026-11-21 / v97。再開時は本ファイルを最初に読む。GitHub mainが正本。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
 
-## 現在の目標と達成基準
+## 現在の目標と三論文の分担
 
-主公表原稿 `papers/poisson-cubic.tex`（旧論文A A-v61）は全次元Poisson正規形を中心に、その幾何学的帰結・代数的量子化を扱う。ambient復元と完全交叉の背景は付録に置く。完備MF移送・一般点可換復元（旧論文B）は `nc-cubic` の主原稿へ必要な全証明と計算を統合した。公表の達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、使用する既知定理の適用範囲と新規性が具体的に説明され、全文を再生成できることである。
+主公表原稿は `papers/poisson-cubic.tex`（A-v62、日本語LuaLaTeX）。全次元Poisson正規形を中心に、退化軌跡・Bondal下界・固定および相対Poissonモジュライを扱う。達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、既知の入力と貢献が具体的に説明され、本文を再生成できることである。
 
+量子化の構成と非可換幾何の比較では対象範囲・仮定が異なるため、公表単位を次の三つに分ける。有効な結果を削らず、各証明と再現資産の正本を一か所に置く。
 
-## 到達点と証明の所在
+| 論文 | 正本と役割 |
+| --- | --- |
+| Poisson幾何 | 本repo `papers/poisson-cubic.tex`。正規形、退化、Bondal、Poisson層・成分、四様体、完全交叉の古典的背景。 |
+| 代数的量子化 | [nc-cubic/papers/cubic-quantization.tex](https://github.com/uedakazushi/nc-cubic/blob/main/papers/cubic-quantization.tex)。PBW・AS正則性、指定Casimirの代数的中心持上げ、全ブロック・独立パラメータ、同変化・gerbe・Veronese降下、二次包絡によるambient復元。 |
+| 非可換幾何とモジュライ | [nc-cubic/papers/nc-cubic.tex](https://github.com/uedakazushi/nc-cubic/blob/main/papers/nc-cubic.tex)。一般中心三次変形の完備MF移送・一般点の可換復元、良い一ブロック型のO-markedモジュライ、残余射・Ku比較と降下障害。 |
 
-AではEuler--Koszul表示、Jacobi条件のHessian線形化、Lie代数補題、全次元正規形、退化軌跡とBondalの次元下界、代数的中心三次元とPBW/AS性、固定・相対Poisson成分、ambient復元の証明を再点検した。本文の証明を追う監査と有限計算は別々に記録している。所在・仮定・一次資料の確認範囲は `notes/poisson_article_submission_audit.md`、実行状態は `validation_paper_a.json` を参照する。
+論理的な入力は古典的正規形から量子化へ、量子化から非可換比較へ進む。Poisson論文の証明を量子化論文や非可換比較へ依存させない。量子化の多ブロック・全次元の一般性を、非可換モジュライの良い一ブロックという仮定へ狭めない。一般点の比較を全閉パラメータでの同値と読み替えない。
 
-査読の三要求に対する現行構成は、定理ごとの既知入力と追加内容の比較、版・頁を固定したPym比較、および幾何から量子化への依存順である。表現論の入力を集めた独立補題 `lem:pg-basepoint-free-lie` と、一般次数の滑らかな超曲面上の非連結中心に対する `prop:pg-triple-lifting-obstruction` を本文に置く。後者は任意の消失次数r>=2を扱い、超曲面の定義式と同じ次数dでの持上げ障害をH¹(I_C^{r−1})=C^{π₀(C)}/Cと同定する。全連結成分の正次元性が必要であり、連結なら障害消滅と持上げの一意性、分離型の二曲線ではr=3の非零障害を得る。任意のtwistに同じ群を使う主張ではない。
+## 主要到達点・仮定・証明の所在
 
-量子化の新規性は点ごとの中心元存在とは区別する。Etingof--Ginzburgの刊行版Theorem 3.3.2(ii), p.1385と§8.3, pp.1410–1411は既知の存在・特殊化を与え、§9, p.1414はRainsの公式を含む。Hesse係数tが可逆なら混合二次項を中心平行移動で既存表示へ移せる。本稿は固定係数環での無極な規格化、指定Casimirへの正則持上げ、特異・零の制限、全ブロック・多パラメータ・同変降下を制御する。旧目標の正規形・Bondal・量子化・成分数は保持され、階数二では全supportにわたる族を構成し、gcd(N,3)=1の全被約層への降下まで得た。階数二の三次Veroneseは全次元で降下し、元の次数一を線束補正で降ろす障害は位数gcd(N,3)のgerbeとして決定した。複数ブロックの一般の同変降下、固定非零変形での同型類像、および刊行版本文・初出の最終照合は残る。
+基礎体はC、X=V(F)⊂P(V)は滑らかな三次超曲面、N=dim V=n+2≥5とする。非零Poisson構造はN=3k+m、V=⊕W_s⊕U、dim W_s=3という分解を持つ複数Jacobianブロック正規形に入る。`poisson_geometry.tex` のEuler–Koszul表示、Jacobi条件のHessian線形化、`lem:pg-basepoint-free-lie` の根基排除から `thm:pg-normal` を証明する。Bondalのdivergence-free持上げとDerdzinski–Gal Theorem Bの半単純Lie代数上の核計算は既知入力であり、Hessian基点自由性からの根基排除と区別する。
 
-相対Poisson空間から三次式のパラメータ空間への忘却射は有限型アフィン射であり、閉埋め込みではない。階数層の記述には (F,P)↦(aF,a^{-1}P) の同時スカラー作用と被約構造を明記した。三次三様体の導来復元には左右noetherian性を明示し、偶数Veroneseからの復元に必要な中心二変数上の自由性はambient PBWだけでは従わないと訂正した。最高active記号の正則性が十分条件となる。正規形・Bondal・全Poisson量子化・成分数の主要結論は保持している。
+`bondal_cubic.tex` は退化軌跡のjoinによる記述と全階数のBondal次元下界を扱う。Fermat型のPoisson零点の非被約構造・横断長さ8^k、零三変数制限が起こる幾何学的条件は `special_poisson_blocks.tex` に保持する。これらは量子中心元の存在とは独立の古典的結論である。
 
-Aの量子化は、全三次式の滑らかさ→active gradientのgcd=1→三次Casimir核の一定次元→普遍交換子小行列式の恒等的消滅→Cramer中心元、という有限代数的構成による。任意の三変数制限をHesse標準形へ帰着する系では滑らかさを仮定するが、全Poisson量子化定理には不要。Kontsevich--Dolgushevの形式理論は背景であって、この存在証明の入力ではない。純中心三次項の配分、相対PBW、中心正則性、AS-Gorenstein商まで本文に証明がある。階数二の型をまたぐ同変化には、以下の中心核のコホモロジーを用いた別の議論を加える。
+固定三次上のPoissonスキーム、群作用の商、全三次を動かす相対空間を区別する。`poisson_moduli_stacks.tex`、`fermat_relative_poisson_components.tex`、`nonelliptic_poisson_components.tex` がその正本である。相対忘却射は有限型アフィン射であり閉埋め込みではない。階数層は被約構造と(F,P)↦(aF,a⁻¹P)の同時スカラー作用を明示する。Fermatの固定スキームの分割と相対成分数⌊N/3⌋を混同せず、被約階数層の記述から全スキームの被約性を結論しない。
 
-固定したactive・中心変数の分解については、全滑らかな三次式の係数空間とh直線の積に、零切断全体を含む一つの開集合を取り、偶な中心元を同時に選べる。`thm:pg-det-global-coefficient-lift` は、割った交換子の定階数核、τ=h²への下降、factorialな係数環のPicard群消滅を用いる。通常の中心はh=0で次数三全体へ増えるため、この核の底変更と混同しない。規格化の変更は Ω'=aΩ+c（aは単元、cは純中心）であり、同じ古典極限でも中心イデアルは変わり得る。具体的Hesse例と同変な中心直線を選ぶ問題は `notes/universal_casimir.md` に整理した。
+三次四様体の階数四Poisson構造は、二つの滑らかな平面三次の(3,3)分離型F=f+gに限られ、purely elliptic log symplecticとなる。退化因子は正規なjoin、零点スキームは二本の楕円曲線の被約な非交和である。`prop:pg-split-elliptic` は正規形に依存しない直接証明、`cor:pg-cubic-fourfold-elliptic` は分類からの帰結である。Bricalli–Favale–Pirola, Forum Math. Sigma 13 (2025), e80, Theorem 3.4, pp.10–12, DOI 10.1017/fms.2025.36の既知判定により、(3,3)型は周囲P⁵のHessian階数≤3軌跡が平面を含む条件と同値。平面はX内とは限らず、Hessianの可約性だけでは不十分である。`ex:pg-reducible-hessian-no-rank-four` と `computations/verify_hessian_split_obstruction.py` はその障害を与える。
 
-階数二の全supportにわたる族は `intrinsic_rank_two_center.tex` の `thm:pg-intrinsic-rank-two-center` にある。滑らかな全三次式Fと非零分解可能Pの積の上で、古典核は OF⊕Sym³(V/W_P)* である。Gr(3,N)の全整数twistのH¹消滅により、普遍二次jet Θ=F−h²H(P,F)/12 をK/h³Kの初期切断として形式中心元へ持ち上げる。Stiefel開の正則関数は有限生成のSL3不変式環へ延長し、有限中心核の完備化 Khat/h³Khat=K/h³K により、この指定jetを保つ代数解を選べる。全GL_N×Gmと偶性について平均してもjetは保たれ、Ω=sym(F−h²H/12+O(h⁴))となる。AS/PBW・中心正則性の開へ制限すると次数別局所自由な商族を得る。形式級数全体の代数性は不要である。形式中心元の存在・指定古典剰余・相対的または還元群に対応した形式構成はEG Proposition 8.1.1(i)の既知の内容と区別する。
+滑らかな超曲面上の非連結中心に対する持上げ障害を `prop:pg-triple-lifting-obstruction` に保持する。全連結成分が正次元・滑らかという条件で、任意の消失次数r≥2についてH¹(I_C^(r−1))=C^(π₀(C))/Cを用いる。持上げる式の次数は超曲面の定義式の次数dに固定する。連結なら障害消滅と一意性、分離型二曲線ではδ(g|X)=[(0,1)]≠0。任意のtwistに同じ群を使う主張ではない。
 
-`cor:pg-intrinsic-rank-two-descent` は gcd(N,3)=1 のときθ=(det L)^rλ^s、Nr−3s=1で全被約階数二Poissonモジュライ×A¹_hの零切断近傍へ元の次数付き代数と中心商を降ろす。N=5では全非零Poisson対が対象で、底の次元は17である。一般のNでも `cor:pg-intrinsic-third-veronese-descent` により A^[3]_d=A_(3d)⊗λ^d と中心商が降下し、Ωは新次数一の大域中心元になる。古典Projは元の普遍三次族、新偏極は各fiber上のO(3)である。元のAS-regular性をVeroneseへそのまま移さず、qgr同値は左右noetherianな閉fiberについて述べる。Smithの訂正文が要求するTor¹のtorsion条件も本文で直接確認する。
+Pymとの比較は確認済みarXiv:1507.05668v1のDefinition4.2 (p.17)、Theorem1.3 (p.4)、Lemma5.5 (pp.28–29)、Proposition5.7 (p.30)に限定する。同版の非存在記述と上の直接構成は両立せず、非連結曲線について用いられたH¹(I_C)=0が障害となる。刊行版本文・訂正文との照合は未了であり、それらの内容を推測しない。
 
-中心変数が残らない満support層N=3kでも、`full_support_quantization.tex` の `thm:pg-intrinsic-full-support-center` により、ブロックの順序を底に加えずに指定Hessian二次jet付きの共変な代数的中心元を選べる。三重ベクトルからのブロック復元を有限étale被覆として相対化し、安定化群(SL3)^k⋊S_kが還元的なので軌道も適合する滑らかな係数空間もアフィンとなる。割った交換子の階数kの核へ、法h³の切断を直接持ち上げ、Reynolds平均と偶平均でjetを保つ。各ブロック成分を非零にすると、一ブロック次数によるfiltrationから正則性が従い、次数別局所自由な中心商を得る。`cor:pg-full-support-veronese-descent` は A^[3]_d=A_(3d)⊗λ^d、中心線J⊗λ≃Oを用いて新次数一の大域中心元と商を実際の被約Poisson層へ降ろす。全零h切断を含む開近傍での存在であり、全hや一意性は主張しない。底の次元は2k、三次四様体のrank4では4である。固定h≠0での同型類像の次元は未決定である。アフィン商にはArzhantsevのMatsushima基準の公開原稿§2を一次資料として用いる。
+完全交叉の背景は `complete_intersections.tex` に置く。低twist消滅 `lem:ci-low-twist-vanishing` は穿孔錐とKoszul分解から独立に証明しており、未取得のBrückmann原証明には依存しない。三次元以上の存在判定と既知の二次・二次二本の例を保持する。
 
-全非零階数2kの被約層で、中心スカラーgerbeの位数はgcd(N,3)である（`prop:pg-intrinsic-all-rank-gerbe`）。3|NのFermat点で、安定化群の二元の交換子が中心の三乗根になるため、全ての同変可逆層の中心重みは三の倍数となる。指標による上界と合わせたこの証明はPicard群の消滅を要しない。階数二のPic(S_N)=0を用いる既存証明は `prop:pg-intrinsic-gerbe-period` に保持する。3|Nでは全零切断近傍にも重み±1の可逆層がなく、既存の次数一の族を可逆層の次数冪で補正して降ろす方法は不可能である。これは別ambient・Morita模型・カテゴリーの不存在でも、任意の稠密開や一般点でのperiod決定でもない。
+以上は原稿に証明がある結果である。既存の読解点検・厳密計算と今回の文書分割・参照確認・組版を区別する。仮定・文献の確認範囲は `notes/poisson_article_submission_audit.md`、実行状態は `validation_paper_a.json`、研究上の知識の入口は `notes/research_notes.md`。包括的な新規性・外部査読は未確定である。
 
-零制限層Z_Nでの標準中心直線O sym(F)への一致には、`prop:pg-intrinsic-zero-matching-obstruction` の別の障害がある。任意の大域偶中心元は二次係数を −H/12+aF+c と書けるが、全supportの純中心束CにはP重み2の大域切断がない。一方Z_N上のHは純中心で非零になり得るため、N>=6ではOΩをO sym(F)へ全層で一致させられない。相対障害は0≠∂(H|Z/12)∈H¹(S_N,I_Z C)_2である。指定ambient下の中心ideal不一致と、商の抽象非同型・qgr非同値は区別する。全係数の補空間の同変選択も不可能で、中心平行移動Uの自由商は非アフィンである。
+## 未解決の核心と次の着手
 
-節点型の明示中心元はChekhov–Mazzocco–Rubtsov、Adv. Math.376(2021),107442、accepted arXiv:1905.02772v2のLemma4.6・式(4.39),p22に帰属する。本稿との関係式の対応、t=0での無極な規格化、安定化群共変にする純中心補正を `rem:pg-cmr-nodal-comparison` に記載した。独立な厳密検算は `verify_cmr_nodal_center.py`。既知の点ごとの公式と、全係数・全supportでの族の選択を区別し、後者の包括的な初出は未確定とする。 Veronese同値、重み零のgerbe降下、底の線束による次数別twistは既知の原理としてSmith（訂正文を含む）、Bergh–Schnürer、Van den Berghに帰属する。
+1. 公表に先立ち、Pym刊行版またはaccepted manuscriptと訂正を通常の公開経路で入手し、v1との該当箇所を精密に照合する。独立した反例証明は現行原稿にある。未取得資料について結論を先取りしない。
+2. Bondal、Derdzinski–Gal、LPT/Mayanskiy、Gualtieri–Pym等との仮定・範囲を比較し、全次元正規形と相対成分定理の初出を引き続き調査する。証明監査は `lem:pg-basepoint-free-lie` とHessian線形化から再開する。
+3. 固定Poissonスキームの非被約構造と相対の被約階数層を分けて整理し、既存のFermat計算・非楕円ブロック例を一般の局所構造と比較する。詳細な証明・有限証明書は本文と計算資産へ置く。
 
-単一ブロックの層別の具体的構成は `equivariant_central_lifts.tex` に保持する。全滑らかなfについてはG_0=(GL3×GLm)×Gmに同変な中心元を、零切断全体を含む不変開上に選べる。g=f(x,0)も滑らかなら、方向微分δ_gの同変左逆から混合二次項の中心B_fを選び、B_f'=(MB_f−C)N^-1によって中心平行移動も含む全ブロック群Gと整合させられる。t=ηhとしてhを固定すると、対応する線形群の商上へ中心商族が降りる。純中心係数の固定と全平行移動の同変性は一般に両立しない。
-
-g=0の場合には、active次数が二以下なので既知のPBW対称化の随伴同変性を直接適用でき、Ω=sym(f)が全tにわたる全G共変な正則中心元となる（`thm:pg-equivariant-zero-center`）。分母・例外パラメータ・中心係数の変更を要せず、割った交換子の三次核は全tでOΩ⊕C_mである。滑らかな全fの零制限層はm>=3のときに限り非空で、support平面P(W_P)⊂Xという階数二の層内の余次元10の条件に対応する。全hのgerbe上の族があり、gcd(m,3)=1なら同じ指標補正でこの層と全h直線の積へ代数族が降りる（`prop:pg-equivariant-zero-stratum`）。m=3ではこの指標法は適用しない。PBW原理自体の新規性は主張せず、全係数・同変族への適用として扱う。
-
-節点・尖点の各軌道では、基準形の安定化群に同変なδ_gの左逆を明示し、軌道商上へ正則に移すことで全G同変な中心元を得た（`lem:pg-equivariant-singular-retractions`、`thm:pg-equivariant-parabolic-center`）。それぞれの層は階数二のPoisson層内で余次元1,2であり、三次三様体では底が16,15次元となる。唯一の特異点のtautological直線ℓ_gは、代数の引戻し線形化と同じ規約で中心スカラーの重み−1を持つ。A_d⊗ℓ_g^d、中心線J⊗ℓ_g^3を使うと重みが消え、全mでPoisson層自体の零h切断近傍へ代数族が降りる（`prop:pg-equivariant-singular-strata`）。これは定数群指標を使わない方法で、対応するgerbeも中立になる。既知の軌道商と重み零の層の降下を適用した結果であり、その一般原理の新規性は主張しない。
-
-階数二のPoisson対の被約層内でgが滑らかな開について、この線形群の商は実際のPoissonモジュライ上の中心Gm-gerbeである。gcd(m,3)=1ならmr−3s=1を満たす整数を選び、θ=(det N)^rλ^sで次数dの線形化をθ^-dだけ補正すると、中心スカラーの作用が消えて次数付き代数と中心商がPoissonモジュライへ降りる（`prop:pg-equivariant-poisson-gerbe`、`cor:pg-equivariant-character-descent`）。特に三次三様体ではm=2、θ=(det N)^2λであり、17次元のPoisson対の被約モジュライの稠密開とh直線の積の零切断近傍に量子化族を得る。17は底の次元であり、固定h≠0での非可換代数の同型類の像の次元は未解決である。この層別の系と、全階数二層におけるgerbeの位数の命題は区別する。方程式の代表を変える自由なスカラーと、係数を固定する中心スカラーは `eq:pg-equivariant-effective-group-sequence` で区別する。指標補正後の次数一束E_θと三次直線の古典商、その相対Projが元の普遍三次族であることは `rem:pg-equivariant-classical-family` に明記する。中心直線の降下は底上での大域生成元の存在を主張しない。
-
-三次四様体の一般階数四の構造は、二つの滑らかな平面三次の分離型F=f+gに限られ、全てpurely elliptic log symplecticとなる。退化因子は正規なjoin、Poisson零点スキームは被約な二本の楕円曲線の非交和である。`prop:pg-split-elliptic` は正規形に依存しない直接証明、`cor:pg-cubic-fourfold-elliptic` は正規形からの分類を与える。Pym arXiv:1507.05668v1のTheorem 1.3・Proposition 5.7とは両立せず、同版Lemma 5.5が非連結曲線で成立しないH¹(I_C)=0を用いることを具体化した。刊行版本文・訂正文との照合は未了で、比較を公開v1に限定する。Definition 4.2はp.17、Theorem 1.3はp.4、Lemma 5.5はpp.28–29、Proposition 5.7はp.30に固定する。
-
-三次四様体については、Bricalli–Favale–Pirolaの刊行版Theorem 3.4（Forum Math. Sigma 13 (2025), e80, pp.10–12; DOI 10.1017/fms.2025.36）により、上の(3,3)分離型と、周囲のP⁵のHessian階数≤3軌跡が平面を含むことが同値になる。この既知判定とPoisson正規形を結んだのが `cor:pg-cubic-fourfold-elliptic` である。平面はX内でなく周囲の空間内である。Hessianの可約性だけでは不十分であり、`ex:pg-reducible-hessian-no-rank-four` の滑らかな(1,1,4)型の例では定数symmetrizerがdiag(a,b,cI₄)で階数三の冪等元を持たない。一般の証明と、この例のQQ線形代数を確認する `verify_hessian_split_obstruction.py` を区別する。
-
-既知部分の帰属も明確にした。Bondal 1993のdivergence-free持上げ、Derdzinski--Gal Theorem Bの半単純Lie代数上の核計算と、本稿のHessian基点自由性からの根基排除を区別する。完全交叉の低twist消滅には `lem:ci-low-twist-vanishing` で穿孔錐とKoszul分解による独立証明を与えた。Brückmann原証明は未取得だが、現行の存在判定の証明依存からは外れている。
-
-## 優先する次の課題
-
-1. Aの公表上の中心を全次元正規形・Bondal・全Poisson代数的量子化・相対成分数に置き、三次四様体の純楕円分類を具体的帰結として示す。Pym論文の刊行版または著者のaccepted manuscriptを通常の公開経路で入手し、v1との該当箇所・訂正状況を最優先で照合する。Oxfordの登録メタデータは確認できたが本文は取得できていない。独立な反例証明は現行本文にある。Bondal・Derdzinski--Gal・LPT/Mayanskiy・Gualtieri--Pym等との比較を踏まえ、包括的な正規形・成分定理の初出も引き続き調べる。
-2. 階数二の全supportと、中心変数のない満support層N=3kでは、指定二次jetを持つ共変中心元と三次Veroneseの降下が得られた。全非零階数層のgerbeの位数もgcd(N,3)と決定した。次の存在問題は中心変数を残すm>0、k>=2の層に絞る。`notes/universal_casimir.md` §3の自然な完全列 0→Sym³(V/W_P)*→K_0→E_perm→0 から始め、古典Fの対角切断、H¹と有限アフィン模型への延長を調べる。補空間と純中心配分の大域的分裂は仮定しない。三重ベクトルの軌道の非アフィン性だけから係数incidenceの非アフィン性や中心元不存在を結論しない。零制限標準中心直線への全support一致はN>=6で不可能であり、次は中心商の抽象的同型・Morita/qgr比較や基底変更との関係を調べる。3|Nでは三次偏極の族を基準に別ambient表示を比較する。全hへの延長、短い共変多項式表示、固定h≠0での同型類像、全閉パラメータでのqgr滑らかさは別の課題とする。
+量子化側の未解決問題（m>0かつk≥2の同変中心元、全hへの延長、中心商の抽象同型・Morita/qgr比較、固定h≠0の同型類像）は [nc-cubicの研究方針](https://github.com/uedakazushi/nc-cubic/blob/main/00_research_plan.md) と [量子化ノート](https://github.com/uedakazushi/nc-cubic/blob/main/notes/cubic_quantization.md)を正本とする。点ごとの量子化と、全層の同変降下や全パラメータのqgr滑らかさは別の主張である。
 
 ## 一般原則と保存許可
 
-以下は個別の研究課題と区別した継続原則である。数学的重要性・新規性・理解・応用・正確性・実現可能性を総合し、方針は現在有効な内容へ書き直す。証明済、仮定付き、未完成、予想、有限計算を区別する。誤りがあれば依存先・要約も修正する。必要な証明・例・反例・再現入力を軽量化のために削らず、履歴と重複を整理する。先行研究は一次資料で仮定・適用箇所を確認し、初出未確認は明記する。原稿・ノートは研究の経緯ではなく現在の数学を理解する順に構成する。
+以下は上の研究固有の計画と区別した継続原則である。
 
-本研究はGitHub mainへの節目ごとの保存が継続して許可されており、追加承諾を求めない。保存前に最新mainを確認し、期待する親SHAを指定したfast-forward更新と遠隔ref/blob照合を行う。force push、GitHub Actions、不要なPR、旧版ZIPは作らない。GitHub管理後はLibraryへの定常的な二重保存やZIP作成を行わない。pushに失敗した場合の緊急保存または明示的な指示がある場合に限りLibraryを使用する。生成PDF・中間物はGitで追跡せず、既存Libraryファイルは明示的な指示なしには削除しない。
+- 数学的重要性、新規性、理解、応用、正確性、実現可能性を総合し、目標と方針を柔軟に更新する。重要な変更では現在の理由、元の目標の解決部分・残存部分を記し、時系列の変更履歴を蓄積しない。
+- 証明済み、追加仮定付き、証明未完成、予想、計算的観察を区別し、仮定・依存結果・証明所在・未解決箇所を記す。既知結果と本研究の成果を分け、新規性未確認を明示する。原稿内の証明、読解点検、計算、形式証明器の実行を区別する。誤りは依存する本文・要約・方針・hubにも反映し、有用な反例はノートへ残す。
+- 公表稿の重要な文献は一次資料で確認し、Introductionで仮定・範囲・貢献を具体的に比較する。未確認の内容・書誌は推測せず、必要な参照箇所・識別子・リンクを保存する。外部PDFや検索結果を大量収録しない。
+- 方針・ノート・論文と最小限の再現ソース・入力・証明書で自己完結した現行研究一式を作る。論文にある証明全文をノートへ重複せず、着想・反例・障害・再取得困難な情報を整理する。既存の有効な成果と必要な証明を軽量化のために削らない。旧版ZIP・旧稿・履歴・ログ・キャッシュを蓄積せず、過去の会話や旧bundleを再開の前提にしない。
+- 主原稿は本文を持つ `papers/poisson-cubic.tex`、日本語LuaLaTeX、著者欄は空欄。新規原稿・設定にはresearch-hubの `papers/paper-template.tex`、`papers/README.md`、`.latexmkrc`、`.vscode/`を参照し、有効な設定を保つ。改名・移動時はinput、文献、root指定、README、方針、ビルドとSyncTeXを揃える。
+- GitHub管理前は区切りごとにPDF入りの現行bundleをLibraryへ承諾なく保存する。指定repoへ移行し反映確認後はmainを正本とする。本研究はGitHub段階であり、通常コミットとmainへのfast-forward保存は追加承諾不要。15〜30分を目安に保存し、他の作業者の変更を保持する。force push、Actionsの追加・起動、不要なPRを行わない。Libraryへの定常的な二重保存やZIP作成は不要で、push不能時の緊急保存または明示指示時に限る。既存Libraryファイルを明示指示なしで削除しない。
+- 主要文書に日付・版を付け、必要な組版・計算・参照切れを確認する。PDF・中間生成物はGitで追跡しない。生成、証明点検、計算、組版、GitHub反映、Library保存、hub更新は別々に実際の確認状態を報告する。
+- 研究の区切りには本repoの原稿・ノート・方針・READMEを先に保存し、最新research-hubを読んで該当項目の到達点・確実性・未解決点・次の一手・依存・正本・資料確認日を更新する。他研究と並行変更を保ち通常コミットでmainに反映する。詳細todo・証明・履歴を重複せず、実質的変化なしの日付のみの更新は行わない。保存とhub更新の成否を別々に確認する。
 
-## 再現手順
+## 再現手順と検証状態
 
-- 主原稿：`papers/poisson-cubic.tex`（日本語LuaLaTeX、本文と全必要証明を保持）。
-- ソース・引用検証：`python3 scripts/check_layout.py`、`python3 scripts/verify_bundle.py`、`python3 scripts/verify_article_a_numbering.py`。
-- 組版：リポジトリルートから `latexmk papers/poisson-cubic.tex` または `python3 scripts/build.py --only poisson-cubic`。TeX入力は `papers/support/papers/` 以下を明示的に指定し、`TEXINPUTS` の追加設定を要求しない。PDFとSyncTeXは`build/`。
-- 主な数値・厳密計算の依存と既存検証：`validation_paper_a.json`。改名後の稿はこの更新では再組版していない。旧検証記録のハッシュを改名後の検証と同一視しない。
-- 外部の可換復元結果は [nc-cubic](https://github.com/uedakazushi/nc-cubic) 内で完結する。本repoはPoissonの論文Aを正本とする。
+- `python3 scripts/verify_bundle.py` と `python3 scripts/verify_article_a_numbering.py` で主原稿の入力・ラベル・引用を確認する。Git追跡対象は `python3 scripts/check_layout.py`。
+- repoルートで `latexmk papers/poisson-cubic.tex` または `python3 scripts/build.py --only poisson-cubic`。入力は `papers/support/papers/` 以下をルート基準で解決し、PDF・SyncTeXは `build/`。LuaLaTeX・LuaTeX-ja・latexmkが必要。
+- 有限計算は `requirements.txt` の依存を用い、`validation_paper_a.json` の対象と実行範囲を参照する。計算資産を移した事実だけを再実行とみなさない。
+- 外部論文は閲覧可能なGitHub上の現在の主原稿と定理ラベルで参照し、組版は他repoのaux/PDF取得を要求しない。保存には認証済みGitHub接続を用いる。

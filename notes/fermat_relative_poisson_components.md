@@ -174,8 +174,8 @@ Stacks Project tag 06FI、Grothendieck–Lefschetz Picard定理
 再生成・整合性検査はリポジトリのルートで行う。
 
 ```sh
-python3 scripts/build.py --only paper_a
-python3 scripts/verify_bundle.py --only paper_a --require-pdfs
+python3 scripts/build.py --only poisson-cubic
+python3 scripts/verify_bundle.py --only poisson-cubic --require-pdfs
 ```
 
 後者は入力閉包、数値式番号の規約、ラベル・参照・引用と、
@@ -198,4 +198,4 @@ Jacobi scheme全体の被約性、成分交叉のイデアル、零点の局所�
    Jacobiイデアルから着手し、被約成分の分類だけでは決まらない厚みを区別する。
 3. Fermatの最大性、一般の固定cubicの成分数、粗モジュライの構成は
    独立した問題として扱う。相対Poisson stack上への量子化の降下については
-   `notes/universal_casimir.md` と論文Aの適用範囲を参照する。
+   [量子化の現行ノート](https://github.com/uedakazushi/nc-cubic/blob/main/notes/cubic_quantization.md) と独立した量子化論文の適用範囲を参照する。

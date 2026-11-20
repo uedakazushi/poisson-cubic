@@ -1,17 +1,5 @@
-# 段階的な PDF → TeX 回復
+# 非可換補助資料の現在の参照先
 
-各ファイルはnc-cubic2で保全されている原PDFから**一部の定理と証明だけ**を復元した独立原稿である。原PDFを完全に再生成できるとは主張しない。
+2026-11-21 / v1。中心二チャートのgeneric正則性を扱う補助原稿は [nc-cubic/notes/central_cubic_generic_smoothness.tex](https://github.com/uedakazushi/nc-cubic/blob/main/notes/central_cubic_generic_smoothness.tex)、相対構成の技術的障害は [同repoの補助ノート](https://github.com/uedakazushi/nc-cubic/blob/main/notes/relative_construction_obstacles.tex) に置く。
 
-- `notes/source_recovery/dg_perfectness_counterexamples.tex`：旧有限正則性研究ノート第23節 pp.26–31 の非連結dg加群の反例・補題・適用限界。
-- `papers/support/papers/source_recovery/central_cubic_generic_smoothness.tex`：`papers/pdf-only/ambient/central_cubic_technical.pdf` に相当する比較稿第28節 pp.43–44 の中心二チャートによる判定とvery-general正則性。
-
-旧研究ノートPDFの追跡は解除済み。残る独立論文PDF5件については、各主結果・証明のTeX回復前に削除しない。全体の進捗と残作業は [PDF照合一覧](../../../../notes/source_recovery/pdf_source_checklist.md) に記す。
-
-- [nc-cubic2の中心曲面判別式TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/central_fiber_discriminant.tex)：原論文VI（`central_quotient_singularities.pdf`）第15節 pp.25–27 の中心曲面の判別式と特異点の分類。検証コードは [nc-cubic2の記号検算コード](https://github.com/uedakazushi/nc-cubic2/blob/main/computations/verify_central_fiber_discriminant.py)。Azumaya・Brauer・非可換tailsの残りはPDFに保持。
-
-
-
-
-Reye に属する部分復元 TeX・原PDF・計算コードは [uedakazushi/reye](https://github.com/uedakazushi/reye) に移行した。
-
-この中心判別式の独立TeX・検算コードは [nc-cubic2](https://github.com/uedakazushi/nc-cubic2) にGit blob一致で移管した。主研究に必要な中心チャートのgeneric正則性 `papers/support/papers/source_recovery/central_cubic_generic_smoothness.tex` はここに残す。
+未照合の外部PDF、関連する元資料の識別子、残る数学的回収範囲は [未照合資料の現行ノート](https://github.com/uedakazushi/nc-cubic/blob/main/notes/unresolved_external_sources.md) を参照する。部分復元を全原資料の照合完了と扱わず、未回収の有用な原資料を削除しない。各外部repoの現在の所在・完全性は今回再確認していない。

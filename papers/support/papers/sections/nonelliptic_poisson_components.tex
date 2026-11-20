@@ -1,3 +1,4 @@
+% !TeX root = ../../../poisson-cubic.tex
 \section{固定した滑らかなcubicの非楕円型Poisson成分}\label{ne:examples}
 座標$(x,y,z,a,b,c,u)$に対応するベクトル基底を$(e_0,\ldots,e_6)$とする。
 \begin{equation}\label{ne:F}
@@ -140,44 +141,11 @@ $f_{\mathrm C}$は$z^2+y^3$となり尖点を持つ。
 この特異性は内在的ブロックへの制限であり、座標の選択では除去できない。
 \end{proof}
 
-\subsection{同次量子ブロックの行列式曲線}
-$u=0$の三変数ブロックを、$[y,z]=h\operatorname{sym}(f_x)$とその巡回置換で量子化する。
-多重線形化した二次関係式の行列は
-\begin{equation}
- M_{\mathrm N}(h)=\begin{pmatrix}
- 0&-(1+h/2)z&(1-h/2)y\\
- (1-h/2)z&-3hy&-(1+h/2)x\\
- -(1+h/2)y&(1-h/2)x&-3hz
- \end{pmatrix},
-\end{equation}
-\begin{equation}
- M_{\mathrm C}(h)=\begin{pmatrix}0&-z&y-hz\\z&-3hy&-x\\-y-hz&x&-hx\end{pmatrix}.
-\end{equation}
-\begin{proposition}\label{ne:quantum}
-\begin{equation}\begin{aligned}
- \det M_{\mathrm N}(h)&=-\frac h4\bigl((h^2+12)xyz+(12-3h^2)(y^3+z^3)\bigr),\\
- \det M_{\mathrm C}(h)&=-3h\bigl(xz^2+y^3-h^2yz^2\bigr).
-\end{aligned}\end{equation}
-前者は$h\ne0$、$h^2\notin\{4,-12\}$で節点三次曲線、
-後者は全ての$h\ne0$で尖点三次曲線である。
-\end{proposition}
-\begin{proof}
-行列式を展開すると二公式を得る。
-節点型は二係数が非零のとき$x$の定数倍で$f_{\mathrm N}$に移り、
-尖点型は$x'=x-h^2y$により$x'z^2+y^3$となる。
-\end{proof}
-ここでの主張は多重線形化した関係式の\emph{行列式曲線}についてである。
-全point moduleのmoduliとの一致、AS-regular性、全量子化の相対smoothnessは
-この計算だけからは主張しない。
-$h=0$で行列式は恒等的に零となり、$h$を除いた極限曲線と
-可換三変数多項式環のpoint scheme $\PP^2$を区別する。
-
-\subsection{全成分復元における役割}
-この二成分は可換復元の反例ではない。
+\subsection{特異ブロックの幾何と成分の意味}
 特異ブロックの点$[1:0:0]$では全体の$u$方向微分$F_u=x^2$が非零であり、
 中心変数との混合が全体の滑らかさを保つ。
 従って、各ブロックの楕円性を必要条件とする方法ではこれらの成分を扱えない。
-全ポテンシャルの対角、中心方向の微分、その量子化との両立が課題となる。
+これらのブロックの量子化と行列式曲線は\cite{CubicQuantization}で扱う。
 
 特異曲線の一般化Jacobianにも注意が必要である。
 節点三次曲線では$\Pic^0\simeq\mathbb G_m$、尖点型では$\Pic^0\simeq\mathbb G_a$。

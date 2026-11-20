@@ -1598,25 +1598,6 @@
         "rank": 4,
         "rank_with_euler": 5
       },
-      "quantum_multilinear_matrix": [
-        [
-          "0",
-          "z*(-h/2 - 1)",
-          "y*(1 - h/2)"
-        ],
-        [
-          "z*(1 - h/2)",
-          "-3*h*y",
-          "x*(-h/2 - 1)"
-        ],
-        [
-          "y*(-h/2 - 1)",
-          "x*(1 - h/2)",
-          "-3*h*z"
-        ]
-      ],
-      "quantum_multilinear_determinant": "-h*(h**2*x*y*z - 3*h**2*y**3 - 3*h**2*z**3 + 12*x*y*z + 12*y**3 + 12*z**3)/4",
-      "determinant_curve_condition": "h != 0; h^2 != 4,-12",
       "independent_direct_schouten_rank": 33
     },
     {
@@ -3212,25 +3193,6 @@
         "rank": 4,
         "rank_with_euler": 5
       },
-      "quantum_multilinear_matrix": [
-        [
-          "0",
-          "-z",
-          "-h*z + y"
-        ],
-        [
-          "z",
-          "-3*h*y",
-          "-x"
-        ],
-        [
-          "-h*z - y",
-          "x",
-          "-h*x"
-        ]
-      ],
-      "quantum_multilinear_determinant": "-3*h*(-h**2*y*z**2 + x*z**2 + y**3)",
-      "determinant_curve_condition": "h != 0",
       "independent_direct_schouten_rank": 33
     }
   ]

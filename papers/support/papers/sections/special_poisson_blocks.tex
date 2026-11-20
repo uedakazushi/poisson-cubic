@@ -1,3 +1,4 @@
+% !TeX root = ../../../poisson-cubic.tex
 \section{特殊なブロック制限と Fermat 型}\label{sec:pg-special}
 再び正規形\eqref{eq:pg-normal}を固定する。
 \subsection{零の三変数制限}
@@ -19,44 +20,17 @@ F=\sum_{i=1}^3(u_i a_i^2+u_i^3)+b_1^3+b_2^3+b_3^3
 $a_i=u_i=0$、さらに $3b_i^2=0$ から $b_i=0$ となる。従って射影超曲面は滑らかである。
 これは $k=2,m=3$ の正規形で、$a$ ブロックの $u=0$ 制限は零である。
 \end{proof}
-この例にも正規形定理\ref{thm:pg-normal}、全退化イデアルの命題\ref{prop:pg-deg-ideal}、
-量子化定理\ref{thm:pg-quantization}を適用できる。
+この例にも正規形定理\ref{thm:pg-normal}と全退化イデアルの命題\ref{prop:pg-deg-ideal}を適用できる。
 一方、平面楕円曲線を用いた零点の非交和表示の仮定は満たさないため、
 退化スキームは一般式\eqref{eq:pg-deg-generators}から計算する必要がある。
 
-\subsection{Fermat 型の中心元}
-\begin{lemma}\label{lem:pg-fermat-center}
-結合代数において
-\begin{equation}
-[x,y]=\hbar z^2,\qquad [y,z]=\hbar x^2,\qquad [z,x]=\hbar y^2
-\end{equation}
-が成り立つとする。$S=x^3+y^3+z^3$、$T=\sym(xyz)$ とおくと $S-2\hbar^2T$ は中心元である。
-ここで $\sym(xyz)$ は六個の語の平均である。
-\end{lemma}
-\begin{proof}
-関係式と積の交換子を展開すると
-\begin{equation}
-[S,x]=\hbar(zy^2z-yz^2y)=\hbar[zy,yz]=\hbar^2[zy,x^2]
-\end{equation}
-を得る。一方、$6T$ の六個の語を関係式で並べ替えると
-$2T=xzy+zyx+\hbar x^3$ となる。従って $2[T,x]=[zy,x^2]$ であり、
-$[S-2\hbar^2T,x]=0$ を得る。循環置換により $y,z$ との交換子も零である。
-\end{proof}
-特に
+\subsection{Fermat 型の非被約な零点}
+Fermat型の三次式を正規形の座標で
 \begin{equation}\label{eq:pg-fermat}
 F=\frac13\left(\sum_{\alpha=1}^m u_\alpha^3+
 \sum_{s=1}^k\sum_{i=1}^3x_{si}^3\right)
 \end{equation}
-に対する量子化では、各ブロックで $[x_{s1},x_{s2}]=\hbar x_{s3}^2$ とその循環置換を課し、
-異なるブロックと中心変数は可換とする。このとき
-\begin{equation}\label{eq:pg-fermat-center}
-\Omega=\frac13\left[\sum_{\alpha=1}^m u_\alpha^3+
-\sum_{s=1}^k\left\{\sum_{i=1}^3x_{si}^3-2\hbar^2\sym(x_{s1}x_{s2}x_{s3})\right\}\right]
-\end{equation}
-は全パラメータで中心元であり、$\Omega|_{\hbar=0}=F$ を満たす。
-定理\ref{thm:pg-quantization}の適切な開集合上で中心正則超曲面の族を与える。
-
-\subsection{Fermat 型の非被約な零点}
+と書く。
 \begin{proposition}\label{prop:pg-fermat-thickening}
 \eqref{eq:pg-fermat}で $m>0$ ならば $\Delta=V(x_{si}^2\mid s,i)$ は
 中心線形空間 $\PP_u^{m-1}$ を台とする横断長 $8^k$ の厚化である。

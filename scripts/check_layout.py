@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the current paper A source layout and exclude tracked PDFs."""
+"""Check the current Poisson paper source layout and exclude tracked PDFs."""
 from pathlib import Path
 import subprocess
 
@@ -22,7 +22,7 @@ def main():
                              capture_output=True, check=True).stdout.split(b"\0")
     pdf = [x.decode() for x in tracked if x.lower().endswith(b".pdf")]
     assert not pdf, "Tracked PDFs: " + ", ".join(pdf)
-    print(f"PASS: paper A, {len(seen)} distinct TeX inputs, 0 tracked PDFs")
+    print(f"PASS: Poisson paper, {len(seen)} distinct TeX inputs, 0 tracked PDFs")
 
 
 if __name__ == "__main__":
