@@ -36,5 +36,21 @@
     "Each paper-specific validation records the exact scope and remaining limitations.",
     "No claim of formal proof verification, external referee acceptance, or comprehensive originality determination.",
     "The manuscript was renamed and its proof content retained; no new PDF, SyncTeX, exact computation or formal verification was performed for v95."
-  ]
+  ],
+  "current_remote_static_check": {
+    "date": "2026-11-21",
+    "method": "GitHub main tree and the TeX entrypoint inspected; local Python verification scripts not executed",
+    "main_path": "papers/nc-cubic.tex",
+    "old_entries_absent": true,
+    "direct_tex_inputs": 21,
+    "missing_direct_tex_inputs": [],
+    "build_target": "nc-cubic",
+    "paper_B_proof_blobs_and_four_exact_verifiers_previously_matched_by_git_blob_sha": true,
+    "not_performed": [
+      "Local LuaLaTeX and latexmk compilation",
+      "Full current TeX recursive source check in a local checkout",
+      "Re-running exact calculations",
+      "Independent proof audit"
+    ]
+  }
 }
