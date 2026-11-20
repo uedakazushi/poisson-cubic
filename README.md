@@ -30,6 +30,6 @@ python3 scripts/build.py --only nc-cubic
 python3 scripts/verify_bundle.py --only nc-cubic --require-pdfs
 ```
 
-Git checkoutでの追跡対象検査は `python3 scripts/check_layout.py` を用いる。この検査だけはGit管理情報を必要とする。再開用ZIPでは上記のソース・組版検査を実行する。
+Git checkoutでの追跡対象検査は `python3 scripts/check_layout.py` を用いる。この検査だけはGit管理情報を必要とする。再開はmainの現行ソースと検証資料から行う。
 
-LuaLaTeX・LuaTeX-ja・latexmkと `requirements.txt` のPython依存を用いる。厳密計算のコマンドは各論文のvalidationに記載し、大きな記号計算は一つずつ実行する。PDF・SyncTeX・中間物はbuild/で非追跡。GitHub mainに保存し、Actions・force pushを使用しない。GitHub mainを正本とし、節目ごとの保存に追加承諾は不要とする。現在の利用者指示に従い、研究の区切りでは現行の方針・ノート・原稿・必要な再現資産だけからなる軽量bundleも、承諾を求めずLibraryへ保存する。生成PDF・中間物はGitで追跡しない。Library上の既存ファイルの削除はこの許可に含めない。
+LuaLaTeX・LuaTeX-ja・latexmkと `requirements.txt` のPython依存を用いる。厳密計算のコマンドは各論文のvalidationに記載し、大きな記号計算は一つずつ実行する。PDF・SyncTeX・中間物はbuild/で非追跡。GitHub mainに保存し、Actions・force pushを使用しない。GitHub mainを正本とし、節目ごとの保存に追加承諾は不要とする。GitHub管理後はLibraryへの定常的な二重保存やZIP作成は行わず、push失敗の緊急保存または明示的指示がある場合に限りLibraryを使用する。生成PDF・中間物はGitで追跡しない。既存Libraryファイルは削除しない。
