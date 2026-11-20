@@ -1,7 +1,7 @@
 # 外部に保全したPDFの数学的内容と未照合箇所（2026-11-12 / v2）
 
 **現行状態：論文PDF5件をnc-cubic2に保持。旧資料8件は歴史的な対象数であり、研究ノート2件・Brill–Noether論文1件の追跡は解除済み。**
-以前にPDF原本8件がnc-cubic2へ移管され、現在は論文PDF5件のみがnc-cubic2のmainで追跡される。nc-cubicのmainにはPDF追跡ファイルがない。
+以前にPDF原本8件がnc-cubic2へ移管され、現在は論文PDF5件のみがnc-cubic2のmainで追跡される。poisson-cubicのmainにはPDF追跡ファイルがない。
 対応原本はLibrary内にある同一バイトサイズの版と照合し、目次を確認した。
 内容の完全一致を主張するものではない。
 

@@ -2,7 +2,7 @@
 
 ## PDF追跡解除を優先する運用（nc-cubic2）
 
-旧研究ノートの有限正則性は[現行TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/ambient_finite_smoothness_and_recovery.tex)に整理済みでPDFの追跡を解除した。論文PDFは5件がnc-cubic2に残り、独自結果と証明を保持したまま順次TeXへ統合する。nc-cubic本体のrotation付き可換復元と独立PDF整理を混同しない。
+旧研究ノートの有限正則性は[現行TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/ambient_finite_smoothness_and_recovery.tex)に整理済みでPDFの追跡を解除した。論文PDFは5件がnc-cubic2に残り、独自結果と証明を保持したまま順次TeXへ統合する。poisson-cubic本体のrotation付き可換復元と独立PDF整理を混同しない。
 
 ## 原則と現在の状態
 
@@ -23,7 +23,7 @@
 - [ ] [`papers/pdf-only/boundary/central_quotient_singularities.pdf`](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pdf-only/boundary/central_quotient_singularities.pdf)：中心商と特異圏。関連候補 `papers/support/papers/sections/rotation_models.tex`、`notes/research_notes.tex`、[nc-cubic2の独立境界TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pfaffian_brill_noether_technical.tex)。**中心曲面の完全判別式・特異点・混合パラメータへの変換は [nc-cubic2の中心曲面判別式TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/central_fiber_discriminant.tex) に証明付きで移植済み。Azumaya locus、Brauer指数6、非可換tails判別の完全証明は未収録。**有限正則性判別、Brauer・行列因子化・特異圏について未収録の補題を探索する。
 - [ ] [`papers/pdf-only/boundary/pfaffian_contact.pdf`](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pdf-only/boundary/pfaffian_contact.pdf)：Pfaffian/contact型境界。関連候補 [nc-cubic2の独立境界TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pfaffian_brill_noether_technical.tex)、`papers/support/papers/sections/all_poisson_components.tex`。接触同値・高次正規形・計算証明書を対応させる。
 - [ ] [`papers/pdf-only/quantization/sklyanin_mixed_quantization.pdf`](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pdf-only/quantization/sklyanin_mixed_quantization.pdf)：Sklyanin型の混合量子化・点加群・可換対応。関連候補 `papers/support/papers/sections/explicit_hesse_center.tex`、`papers/support/papers/sections/elliptic_reconstruction.tex`、[nc-cubic2の独立境界TeX](https://github.com/uedakazushi/nc-cubic2/blob/main/papers/pfaffian_brill_noether_technical.tex)、`sources/candidates/elliptic_v5/`。**大部な原PDF全体のTeXは未確認**。全混合項、例外値、点スキーム、同型判定を比較する。
-- [x] 有限正則性ノートPDFは追跡解除済み。[現行LuaLaTeXノート](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/ambient_finite_smoothness_and_recovery.tex)に有限中心値の判定・偏極付き復元等を整理。dg反例と有限bar検証はnc-cubicの独立TeXが正本。
+- [x] 有限正則性ノートPDFは追跡解除済み。[現行LuaLaTeXノート](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/ambient_finite_smoothness_and_recovery.tex)に有限中心値の判定・偏極付き復元等を整理。dg反例と有限bar検証はpoisson-cubicの独立TeXが正本。
 - [x] 圏論的境界の概要ノートPDFは追跡解除済み。現行Pfaffian・Brill–Noether稿と研究方針を参照。
 
 ## 今回収録・既収録のTeXに関する確認
@@ -55,7 +55,7 @@
 - [ ] 当該PDFについて章・定理・補題・系・注意・証明・計算の対応表を作り、現行TeXに欠落がないことを確認する。
 - [ ] 外部一次資料への参照、仮定、未証明の主張、重要な反例を一致させる。PDFから機械抽出した文章を未確認の「原ソース」と扱わない。
 - [ ] 必要なコード・入力・有限証明書と再現手順をGitで保持し、LuaLaTeXで実際にPDFを再生成・検査する。
-- [x] PDFのGit追跡をnc-cubic2に移し、nc-cubicの追跡例外を撤去した。TeXとの数学的照合は別途必要。
+- [x] PDFのGit追跡をnc-cubic2に移し、poisson-cubicの追跡例外を撤去した。TeXとの数学的照合は別途必要。
 - [ ] `git ls-files '*.pdf'`、ビルドとコード検証、READMEの参照先を再点検して`main`へpushする。
 
 本TODOは「対応候補を確保してから比較・統合する」という作業計画であり、現行5本のソース復旧完了を宣言するものではない。

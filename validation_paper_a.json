@@ -2,7 +2,7 @@
   "version": "A-v61",
   "bundle_version": "nc-cubic-v94",
   "date": "2026-11-14",
-  "manuscript": "papers/nc-cubic.tex",
+  "manuscript": "papers/poisson-cubic.tex",
   "audit_note": "notes/poisson_article_submission_audit.md",
   "scope": "Continued referee revision: the unordered intrinsic block cover and all-rank scalar-gerbe period gcd(N,3) are proved on reduced Poisson strata. On full support N=3k, the coefficient space is affine, and a prescribed finite second jet lifts directly to a covariant even algebraic centre on a neighborhood of the entire h=0 section. One-block filtration proves regularity; the third Veronese and its global degree-one centre descend to the actual reduced Poisson stratum. Classical base dimension is 2k (4 for rank-four cubic fourfolds). General m>0,k>=2 remains open. Proof reading, exact computation, typesetting, visual inspection and persistence are distinct.",
   "source_base_commit": "71d1a755c601bbc2a46a1a898842de610df36496",
@@ -203,7 +203,7 @@
     "commands": [
       "python3 scripts/check_layout.py",
       "python3 scripts/verify_article_a_numbering.py",
-      "python3 scripts/verify_bundle.py --only paper_a --require-pdfs",
+      "python3 scripts/verify_bundle.py --only poisson-cubic --require-pdfs",
       "git diff --check"
     ],
     "scope": "Source closure, numbering, references, citations, file layout and source/PDF parity; not mathematical verification.",
@@ -223,7 +223,7 @@
     "executed_for_version": "A-v61",
     "complete_paper_build_executed": true,
     "environment_note": "Japanese LuaLaTeX using isolated user-owned TEXMF with LuaTeX-ja 2024 final and HaranoAji fonts. Shared preamble and build configuration are unchanged.",
-    "command": "python3 scripts/build.py --only paper_a",
+    "command": "python3 scripts/build.py --only poisson-cubic",
     "scope": "Complete Japanese LuaLaTeX build and current source/PDF receipt parity; not mathematical proof verification.",
     "engine": "This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)",
     "page_count": 123,
@@ -485,11 +485,12 @@
     "Only the six-example general-dimension multiblock verifier was executed for A-v61; fourteen earlier computations are retained with matching hashes. Mathematical reading and exact coefficient identities are not formal proof-assistant verification or referee acceptance."
   ],
   "persistence": {
-    "authoritative": "GitHub uedakazushi/nc-cubic main",
+    "authoritative": "GitHub uedakazushi/poisson-cubic main",
     "policy": "Expected-parent fast-forward only; confirm remote ref, parent and changed blobs separately after saving. The containing Git commit identifies the saved sources. Also save the current lightweight research bundle and revised PDF at this milestone under the user standing instruction. Artifact creation, verification and confirmed persistence are separate states; this policy is not an upload receipt."
   },
   "publication_base_commit": "71d1a755c601bbc2a46a1a898842de610df36496",
-  "current_source_path": "papers/nc-cubic.tex",
+  "current_source_path": "papers/poisson-cubic.tex",
   "source_path_at_recorded_checks": "papers/paper_a.tex",
-  "manuscript_rename_notice": "Existing internal reading, calculations and typesetting receipts belong to the pre-rename source. The content of paper A is retained but current renamed entry is not yet re-typeset."
+  "manuscript_rename_notice": "Existing internal reading, calculations and typesetting receipts belong to the pre-rename source. The content of paper A is retained but current renamed entry is not yet re-typeset.",
+  "recorded_verification_note": "Existing checks and PDF receipts were generated for the historical papers/paper_a.tex at A-v61. The live manuscript is now papers/poisson-cubic.tex and has not been re-typeset or re-tested after the repository/file rename."
 }

@@ -1,7 +1,7 @@
 # 論文Aの公表準備：主張・依存・検証の範囲
 
 **2026-11-14 / A-v61・nc-cubic-v95。** 再開時は `00_research_plan.md` を先に読む。
-本文は `papers/nc-cubic.tex`、専用文献は `papers/support/papers/references_poisson_cubic.tex`。
+本文は `papers/poisson-cubic.tex`、専用文献は `papers/support/papers/references_poisson_cubic.tex`。
 以下の節ファイルはすべて `papers/support/papers/sections/` にある。
 計算・組版・入力ハッシュの実行記録はルートの `validation_paper_a.json` に集約する。
 
@@ -504,8 +504,8 @@ BWB消滅、満supportのアフィン性、指定jetを保つ有限核の代数�
 
 ```sh
 python3 scripts/check_layout.py
-python3 scripts/build.py --only paper_a
-python3 scripts/verify_bundle.py --only paper_a --require-pdfs
+python3 scripts/build.py --only poisson-cubic
+python3 scripts/verify_bundle.py --only poisson-cubic --require-pdfs
 python3 computations/verify_general_dimension_multiblock.py
 python3 computations/verify_cmr_nodal_center.py --json --output build/verify_cmr_nodal_center.json
 python3 computations/verify_singular_orbit_centering.py --json
