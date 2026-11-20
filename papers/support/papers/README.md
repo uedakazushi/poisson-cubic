@@ -1,9 +1,7 @@
-# 現行A/Bの入力と文献
+# nc-cubic の主原稿と分割入力
 
-2026-11-14 / v94。論文AはA-v61、論文BはB-v59。全体の入口は[研究方針](../../../00_research_plan.md)。
+2026-11-21 / v95。主論文は [papers/nc-cubic.tex](../../nc-cubic.tex) 一本。ここにある `common.tex`、`sections/` と `references_poisson_cubic.tex` を再帰的に読み込む。
 
-[論文A](../../paper_a.tex)はこのディレクトリの `sections/` と専用参考文献を読み込む。[論文B](../../paper_b.tex)の必要証明・参考文献は [generic_recovery/](../../generic_recovery/) にあり、A/Bはここにある `common.tex` を共用する。
+ルートで `latexmk papers/nc-cubic.tex` または `python3 scripts/build.py --only nc-cubic` を実行する。LuaLaTeX・LuaTeX-jaとSyncTeXを使い、生成PDF・中間物はGitで追跡せず `build/` に置く。
 
-再生成はリポジトリルートから `python3 scripts/build.py --only paper_a` または `--only paper_b` で行う。`scripts/build.py` の `source_closure` が各入口の再帰的な全TeX入力を求め、`scripts/verify_bundle.py` がラベル・引用と必要な入力の整合性を確認する。再開用bundleにはこのA/B依存閉包を元のパスのまま収録する。
-
-独立した点スキーム・Jacobian・Artin・étale・相対復元の現行原稿と担当境界は [専用ノート](../../../notes/paper_b_scope_and_transfer.md)、その研究の入口は [nc-cubic2の現行研究ノート](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/relative_reconstruction_models.md) にある。
+ソースの参照・引用・数式番号を `scripts/verify_bundle.py` と `scripts/verify_article_a_numbering.py` で検査する。旧論文Bの完全な証明と検算資産は `nc-cubic-n-fold` に統合済み。独立の相対復元の研究は `nc-cubic2` を正本とする。

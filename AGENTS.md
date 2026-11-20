@@ -1,6 +1,6 @@
 # Codex実行指示 — nc-cubic
 
-2026-11-14 / v94。最初に `00_research_plan.md` と `notes/paper_b_scope_and_transfer.md` を読む。GitHub mainが正本。
+2026-11-21 / v95。最初に `00_research_plan.md` を読む。GitHub mainが正本。主論文は `papers/nc-cubic.tex`（旧paper A）。
 
 ## 公表向け監査と担当境界
 
@@ -14,41 +14,17 @@
 
 現行の仮定・証明所在・文献比較は `notes/poisson_article_submission_audit.md`、実行確認は `validation_paper_a.json` に集約する。相対忘却射のアフィン性、被約rank層、中心核と通常の中心の違い、Ω'=aΩ+cによるイデアルの不一致、中心変数を残す複数ブロックの一般の同変構成と中心商の比較の未解決性を保持する。17は構成した底の次元であり、固定h≠0の非可換同型類の像の次元ではない。Bの一般点復元と全閉パラメータでの相対同値を混同しない。
 
-論文BはB-v59。添付の独立査読報告に基づき、完備曲率移送を序論の独立した中心定理として述べ、window・dg商・余核・totalization・mutationを一つの比較図式へ集約した。指定三次周期は二拡張のYoneda類からrotation正方形まで追跡する。arity評価はMF行列を挿入する前のbar写像に対するものであり、挿入後のMF関手の偶数Taylor成分の消滅と混同しない。
 
-Pirozhkov Theorem 1.2の三次の場合はn>3と明記し、Lin--Zhangの低積・Torelliとの関係を整理した。EGは既に有限rank graded MFを扱い、CKは第二種変形複体を比較する。本稿の追加は一般入力・完備実関手・指定周期・一般点降下・全coherentへの接続である。一般的なformality、BFKの上界、Jacobian Torelliを新しい結果に数えない。包括的な初出は未確定である。
+## 研究の正本と担当境界
 
-`explicit_example.tex` のHesse--Sklyanin族はAの一般量子化定理に依存しない。既知Sklyanin理論とDVRの構造定理で全次数の自由性を示す。生成元を固定するharmonic-angle比較の二次jetは W_rec=F+h xyz+(h²/3)xyz+O(h³) であり、全次数のHesse係数は λ=(h+h²/3+h⁵/12)/(1−h⁴/4)。K上の模型は (4−h⁴)(x³+y³+z³+u³+v³)+(12h+4h²+h⁵)xyz=0 と確定した。相対THCR、a=0のdg Orlov比較、properなPerf模型の底変更と楕円曲線の同定が証明を支える。三変数ではOを例外対象と扱わず、N>=5の正のaのwindow定理をそのまま流用しない。生の点スキーム方程式の共通因子h、G=−9hΩの規格化、Weyl gaugeと中心写像の同時変更を保持する。同値核の行列・拡大次数・直接抽出した低rotation積の全行列は未計算。
+このrepositoryはPoisson正規形・Bondal下界・代数的中心三次量子化を扱う主論文一本を正本とする。旧paper Bの完備MF移送、一般点のKu比較、coherent飽和、固定有理Hesse模型の定理・証明・計算は `uedakazushi/nc-cubic-n-fold` の `papers/nc-cubic-n-fold.tex` および `papers/sections/generic_recovery/` に統合済み。比較を引用する際は同repoの現在の主張を確認し、旧Bの原稿を参照することを必須としない。
 
-主定理の存在結論と仮定は保持する。方程式のK降下、核の有限拡大K'上の存在、幾何学的一意性、K-form、線束部分と全coherent圏、通常の局所化とtorsion Moritaの区別は `gdr:subsec:scope` に集約した。固定勾配空間の積分は有限étale代数E_Fで記述し、E_F=kなら方程式は基礎体上でスカラー倍まで一意。ただし同値核のKへの降下は未解決。現在の確認範囲と再現は `notes/paper_b_proof_audit.md` と `validation_paper_b.json` を参照する。
+現行主原稿の本文と有効な証明・計算・原資料を保持する。古い原稿、歴史的な監査、検証ログやPDF、ZIPを追跡対象に残さない。必要な一次資料の内容と仮定は現行ノートに残し、新規性未確認ならその旨を記す。過去に行われた数学点検、計算、組版を今回再実行したことにしない。
 
-### 完了した移管
+## 保存・組版・research-hub
 
-論文Bから独立した現行成果の移管は完了。nc-cubic2の `papers/relative_reconstruction_models.tex` と既存五稿、専用ノート・validation・manifestが正本。完了した専用ソースを再導入しない。移管先の既存研究や別担当の更新を上書きしない。
-
-Chat側の担当はAのPoisson正規形・量子化、Bの完備MF比較・一般点降下、一次文献・新規性の独立監査と改良。Codexの新しい主担当は **nc-cubic2の統合稿の公表向け再構成と、移管で文脈調整された9数学的環境・共有証明の重点監査** である。Codexは本リポジトリのA/B・再帰入力を編集せず、必要な数学的指摘は根拠と参照を付して伝える。ファイル移管のやり直しをしない。移管完了と全数学的監査の完了を混同しない。
-
-### 同変中心元の現在の範囲
-
-階数二の全supportでの共変中心元は `intrinsic_rank_two_center.tex` に証明した。古典核 OF⊕Sym³Q* のH¹消滅、h冪厚化の逐次持上げ、Stiefel開の正則関数のSL3不変式環への延長、有限核の完備化の完全性を用いる。Khat/h³Khat=K/h³Kによって指定普遍Hessian二次jetを代数的に持ち上げ、全GL_N×Gmの平均化を行う。形式級数全体の代数性を主張するものではない。gcd(N,3)=1なら全被約rank2 Poisson層×h直線の零切断近傍へ実際の代数族が降り、N=5では全非零Poisson対を扱う。三次Veronese A_(3d)⊗λ^d は全Nで降下する。Pic(S_N)=0と重みの像gcd(N,3)Zからgerbeの位数はgcd(N,3)であり、3|Nでは重み±1の可逆層による次数一の補正は不可能。N>=6では零制限標準中心直線への全support一致も二次jetの相対H¹障害で不可能である。zero Poisson、全h、一意性、商の抽象非同型やqgr非同値は結論しない。全係数・η,hを使っても補空間の正則同変選択は不可能で、自由なU商も非アフィンである。次はm>0、k>=2の複数ブロックの整合と、三次偏極の族に対する別ambient・Morita/qgr比較を調べる。CMRの節点中心公式は既知の入力として明記し、独立検算 `verify_cmr_nodal_center.py` は一般係数での中心性・規格化・安定化群共変性を扱う。
-
-満support N=3kでは `full_support_quantization.tex` に、順序を選ばない全層の共変中心元を証明した。既存のブロック復元を有限étale被覆として相対化し、還元安定化群のアフィン軌道と適合係数のベクトル束からアフィン性を得る。割った交換子の階数kの核へ法h³の切断を直接持ち上げ、Reynolds・偶平均でHessian二次jetを保つ。非零ブロック成分の一ブロックfiltrationで左右正則性を示し、次数別局所自由な中心商を得る。三次Veronese A_(3d)⊗λ^d と大域中心元は実際の被約Poisson層へ降りる。N=6のrank4では全Poisson対、底の次元は4である。全非零rank2k層のgerbeの位数gcd(N,3)はFermat安定化群の交換子から証明し、Picard群消滅を要しない。未還元Jacobiスキーム、任意稠密開のgerbe period、全hや選択の一意性は結論に含めない。残る同時選択の問題はm>0、k>=2であり、古典核の自然な完全列を `notes/universal_casimir.md` §3から調べる。
-
-以下は保持している各層の明示的構成であり、全supportの存在証明とは区別する。
-
-Aの同変性では、全滑らかなfでG_0=(GL3×GLm)×Gmに関する平均化を完了し、滑らかなg=f(x,0)では混合二次項の中心調整により全ブロック群Gへ拡張した。g=0では既知のPBW対称化の随伴同変性によりΩ=sym(f)が全tにわたり全G共変で、純中心係数の固定とも両立する。零制限の滑らかな層はm>=3でのみ非空であり、P(W_P)⊂Xの条件に対応する。gcd(m,3)=1ならθ=(det N)^rλ^s、mr−3s=1によって次数線形化を補正し、滑らかなgの層では零切断近傍へ、零制限の層では全h直線の積へ中心商族を降ろせる。三次三様体m=2では底が17次元となるが、固定h≠0の非可換代数の同型類の像の次元を結論しない。節点・尖点の各軌道でも安定化群同変なδ_gの左逆を移送して全G同変性を得た。一意な特異点直線ℓ_gは引戻しdatumで重み−1なので、A_d⊗ℓ_g^dにより全mで実際のPoisson層へ降下する。各層はrank2内の余次元1,2、n=3で16,15次元である。全hではなく零h切断近傍の結論であり、零制限標準中心直線への全層での一致はN>=6で不可能であり、節点・尖点公式との比較は別に残る。不可約全域の単一のδ_g依存左逆は余次元2の延長障害で存在せず、接線＋conicの一軌道にも非分裂がある。中心変数を残す複数ブロックの分解・配分の一般の整合、既存中心商の抽象的比較、三次偏極からの別ambient表示は残る。零制限以外で全平行移動との同変性を課すときに純中心係数固定を無条件に再導入しない。補正前の中心Gm-gerbeと、補正後のPoissonモジュライ上の族を区別する。詳細は `papers/support/papers/sections/equivariant_central_lifts.tex` と `notes/universal_casimir.md`。
-
-## 厳格な保護
-
-- 移管整理では `papers/paper_a.tex`（A-v61）、`papers/paper_b.tex`（B-v59）、両者の再帰的な全入力、`papers/generic_recovery/`、`papers/support/papers/common.tex`、共通設定を保護する。ユーザーが依頼した公表向け監査によるA/Bの修正はこの移管保護とは区別する。本A-v61改訂ではB-v59の全入力・専用検証記録と共通preambleを保持する。必要証明を移管先へのリンクだけで代用しない。
-- パスだけで移管可否を決めず、input/include・論理参照・引用・ノート・コードの実依存を確認する。共有する文献・証明書・検算を消さない。
-- 数学的問題は具体的な仮定・反例・依存先とともに監査ノートへ記し、主定理を迂回して強化・弱化しない。
-- 全次数MF存在と条件付き移送、全coherentと線束生成圏、有限Artinと一般Artin、形式と代数的同値、相対smooth properの仮定を区別する。
-
-## 検証と保存
-
-変更前・push前に最新mainを取得する。通常のfast-forward pushと遠隔ref/blob確認を行い、force push・Actions・不要なPR・旧版ZIP・バックアップ複製を作らない。生成PDF・中間物はbuild/で非追跡。GitHub mainを正本とし、節目ごとの保存に追加承諾は不要とする。現在の利用者指示に従い、研究の区切りでは現行の方針・ノート・原稿・必要な再現資産だけからなる軽量bundleも、承諾を求めずLibraryへ保存する。生成PDF・中間物はGitで追跡しない。Library上の既存ファイルの削除はこの許可に含めない。
-
-重要な証明・例・反例・書誌・再現入力を落とさず、移管先へ統合して参照・必要な全文組版・厳密計算・保存を確認してから元の真の重複を除く。旧ZIP・旧PDF・旧コミットを現行証明の代用にしない。有限体での零を特性零の恒等式の証明と混同しない。証明記載・有限検算・独立監査・形式検証・新規性を区別する。
-
-日本語LuaLaTeXと現行.latexmkrcを使い、研究方針・現在有効なノート・必要最小限のvalidationを更新する。数学的重要性・正確性・理解・応用・実現可能性を重視し、歴史ログや重複した論文を増やさない。
+- `main` を正本とし、通常コミットでfast-forward pushする。force push、GitHub Actionsの追加・起動、無用なPRを行わない。Libraryはpush不可能時の緊急保存に限る。
+- 主公表原稿は必ず `papers/nc-cubic.tex` に本文を置く。日本語LuaLaTeX、著者欄は空欄。組版は `latexmk papers/nc-cubic.tex`、出力は `build/`。VS CodeのLaTeX WorkshopとSyncTeX設定を保つ。
+- 設定変更時は research-hub の `papers/paper-template.tex`, `papers/README.md`, `.latexmkrc`, `.vscode/settings.json`, `.vscode/extensions.json` を参照する。
+- 証明、厳密計算、ソース確認、LuaLaTeX組版、GitHub保存をそれぞれ別の状態として報告する。検証不能だったことも明記する。
+- 研究の区切りには先にこのrepoの原稿・方針・ノート・README・検証状態を現状へ更新・保存し、次にresearch-hubの該当項目（到達点、主張の確実性、未解決課題、次の一手、依存関係、正本・再開先、資料確認日）を更新しmainへ通常pushする。他研究の並行変更を保持する。hubへ反映できない場合は、対象repoの保存状態と未反映理由を別に報告する。

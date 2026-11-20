@@ -2,7 +2,7 @@
   "version": "A-v61",
   "bundle_version": "nc-cubic-v94",
   "date": "2026-11-14",
-  "manuscript": "papers/paper_a.tex",
+  "manuscript": "papers/nc-cubic.tex",
   "audit_note": "notes/poisson_article_submission_audit.md",
   "scope": "Continued referee revision: the unordered intrinsic block cover and all-rank scalar-gerbe period gcd(N,3) are proved on reduced Poisson strata. On full support N=3k, the coefficient space is affine, and a prescribed finite second jet lifts directly to a covariant even algebraic centre on a neighborhood of the entire h=0 section. One-block filtration proves regularity; the third Veronese and its global degree-one centre descend to the actual reduced Poisson stratum. Classical base dimension is 2k (4 for rank-four cubic fourfolds). General m>0,k>=2 remains open. Proof reading, exact computation, typesetting, visual inspection and persistence are distinct.",
   "source_base_commit": "71d1a755c601bbc2a46a1a898842de610df36496",
@@ -473,31 +473,6 @@
     "computations/nonelliptic_components_certificate.json": "6d27516b2af32a7c68fc06dfa15f3b8f47a45a17c9abea88bf219931a2c8d798",
     "computations/nonelliptic_quantization_certificate.json": "3a68ba59926479b6b489d7ad3ed18b48542374223322a74a684703ad8e69fb13"
   },
-  "preserved_paper_B": {
-    "version": "B-v59",
-    "preserved_from_remote_commit": "71d1a755c601bbc2a46a1a898842de610df36496",
-    "tex_input_count": 12,
-    "tex_inputs_sha256": {
-      "papers/generic_recovery/coherent_saturation.tex": "8ffb2eb73b7baaab0591c385a1877ab1ab2c864d50e4dd905843207b222a19e7",
-      "papers/generic_recovery/curved_transport.tex": "cc9508f0a1ccc749a030d3a0baffcf779a1e62f7b039da7fdd92eb4bd87a6c3a",
-      "papers/generic_recovery/explicit_example.tex": "942373b7c034a1b810b011d7956c3dd81b9ca54ab482f51e1cbecf15b09e362c",
-      "papers/generic_recovery/field_model.tex": "162f2fc7cae2502f3407dadc313da08a8f9c84b04bbb13ce6c7f0d52b973d824",
-      "papers/generic_recovery/generic_descent.tex": "7e5f0b3e05b9a5e4be79d0a80ca584a94d8d5be0135f22e05f53eaf512750bfc",
-      "papers/generic_recovery/gradient_recovery.tex": "2ed88b4728368680479394e38e3b5895a9b15122499b4302791b52cfad29fec1",
-      "papers/generic_recovery/local_model.tex": "81a75991986a192de489ec6f3106ecba921568c11e5d878965b31cd5d79a1640",
-      "papers/generic_recovery/main_result.tex": "3ba1223946bee853cc553998566a2ff9048154167b8e3da12077f46d16da8978",
-      "papers/generic_recovery/references.tex": "8717db7c0377cc964f3b5524a5f1ed8f207527a8608bd7c4fde41ae2402a2d92",
-      "papers/generic_recovery/window.tex": "aae5fa0ff55ff6f7244dc018a6f8f2d6f5f2d1255372760fe642dce1807fac70",
-      "papers/paper_b.tex": "487491aa1b50132de142dacd90ef3e6c43fc71f189fb4585f0f6af89104effa3",
-      "papers/support/papers/common.tex": "0933403982627adcb2f0c70849a86a618c5410961f7cdd65e17d24edaf616580"
-    },
-    "shared_preamble_unchanged": true,
-    "re_audited_in_this_A_review": false,
-    "re_built_in_this_A_review": false,
-    "validation": "validation_paper_b.json",
-    "validation_unchanged_from_preserved_remote_commit": true,
-    "scope": "Current B-v59 source closure and B-specific validation are preserved byte-for-byte from the remote base; its validation records a separate B review/build. Shared research documents are reconciled with A-v61."
-  },
   "remaining_limits": [
     "The Pym comparison is restricted to checked arXiv:1507.05668v1. Published metadata, the accepted-manuscript repository record and ordinary public access routes were checked, but published/accepted full text was not obtained; no claim is made about an unverified correction or its absence.",
     "Brueckmann original proofs (1976 Satz 3 / 1977 Satz 6) were not obtained; Fu--Hwang Lemma 4.1 and its attribution were verified. The needed low-twist vanishing is proved self-containedly in the manuscript, so these unavailable proofs are no longer a mathematical dependency of that criterion.",
@@ -513,5 +488,8 @@
     "authoritative": "GitHub uedakazushi/nc-cubic main",
     "policy": "Expected-parent fast-forward only; confirm remote ref, parent and changed blobs separately after saving. The containing Git commit identifies the saved sources. Also save the current lightweight research bundle and revised PDF at this milestone under the user standing instruction. Artifact creation, verification and confirmed persistence are separate states; this policy is not an upload receipt."
   },
-  "publication_base_commit": "71d1a755c601bbc2a46a1a898842de610df36496"
+  "publication_base_commit": "71d1a755c601bbc2a46a1a898842de610df36496",
+  "current_source_path": "papers/nc-cubic.tex",
+  "source_path_at_recorded_checks": "papers/paper_a.tex",
+  "manuscript_rename_notice": "Existing internal reading, calculations and typesetting receipts belong to the pre-rename source. The content of paper A is retained but current renamed entry is not yet re-typeset."
 }

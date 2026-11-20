@@ -1,12 +1,11 @@
-# 研究方針：中心三次変形の量子化と一般点可換復元
+# 研究方針：三次超曲面のPoisson構造と代数的量子化
 
-2026-11-14 / v94。再開時は本ファイルを最初に読む。GitHub mainが正本。
+2026-11-21 / v95。再開時は本ファイルを最初に読む。GitHub mainが正本。
 
 ## 現在の目標と達成基準
 
-論文A `papers/paper_a.tex`（A-v61）は全次元Poisson正規形を中心に、その幾何学的帰結・代数的量子化を扱う。ambient復元と完全交叉の背景は付録に置く。論文B `papers/paper_b.tex`（B-v59）は、次数別有限自由な代数的中心三次変形の一般点可換復元を扱う。公表の達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、使用する既知定理の適用範囲と新規性が具体的に説明され、全文を再生成できることである。
+主公表原稿 `papers/nc-cubic.tex`（旧論文A A-v61）は全次元Poisson正規形を中心に、その幾何学的帰結・代数的量子化を扱う。ambient復元と完全交叉の背景は付録に置く。完備MF移送・一般点可換復元（旧論文B）は `nc-cubic-n-fold` の主原稿へ必要な全証明と計算を統合した。公表の達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、使用する既知定理の適用範囲と新規性が具体的に説明され、全文を再生成できることである。
 
-Bでは n>=3、R=C[h]_(h)、K=C(h) とし、A_R/hA_R が N=n+2 変数多項式環、中心三次元の剰余が滑らかな三次式であることを仮定する。可換方程式はK上、全coherent残余圏のrotation・指定三次周期付き同値はある有限拡大上に構成する。模型の一意性はrotation付きpairを実現する模型の幾何学的射影同型類についてである。K上のformの一意性・同値核のKへの降下・特殊点を含む代数的相対同値は結論に含めない。
 
 ## 到達点と証明の所在
 
@@ -48,27 +47,10 @@ g=0の場合には、active次数が二以下なので既知のPBW対称化の�
 
 既知部分の帰属も明確にした。Bondal 1993のdivergence-free持上げ、Derdzinski--Gal Theorem Bの半単純Lie代数上の核計算と、本稿のHessian基点自由性からの根基排除を区別する。完全交叉の低twist消滅には `lem:ci-low-twist-vanishing` で穿孔錐とKoszul分解による独立証明を与えた。Brückmann原証明は未取得だが、現行の存在判定の証明依存からは外れている。
 
-Bの証明は `papers/generic_recovery/` だけで完結する。`local_model.tex` と `window.tex` が局所proper模型と三対象window、`curved_transport.tex` が実際の完備A_infty比較、`generic_descent.tex` がEuler非消滅・BFK生成・有限降下、`coherent_saturation.tex` が全coherent圏への飽和、`gradient_recovery.tex` と `field_model.tex` が勾配空間の積分と方程式の基礎体降下を与える。
-
-Bの公表上の核心は、任意の完備noetherian局所C代数上での実際の有限rank graded MF移送（`cft:thm:complete`）と、それを代数的一般点の全coherent残余pairへ結ぶ存在定理である。前者は逆関手・固定rank・内部shift・t-relativeな指定周期を保ち、底の正則性を要求しない。正則局所底のwindowとの区別、曲率付きbar写像のarity評価とMF関手のTaylor成分の区別を序論で明示する。
-
-`tw:eq:comparison-diagram` はdg商・余核・totalization・section切断・mutationを集約し、`tw:eq:period-extension` と `tw:eq:rotation-period-square` が指定周期を追跡する。提供された独立査読報告の主要結論を踏まえ、比較図式と文献帰属の整理を保持する。今回の独立点検は具体例の二次jet・全次数Hesse係数・相対楕円比較と固定模型への降下を対象とした。未変更の全証明を今回改めて一から監査した、あるいはLean等で形式検証したとはしない。正確な範囲は `notes/paper_b_proof_audit.md` と `validation_paper_b.json` に置く。
-
-一次資料の比較では、EGが既に有限rank graded MFと楕円曲線を結んでいること、CKの結果が第二種変形複体の比較であることを区別する。Pirozhkov Theorem 1.2の三次の場合はn>3、Lin--Zhangの低積計算とpair Torelliは三次三様体も扱う。BFKの数値上界、Toën--Vaquié/Perryの有限性・飽和、Hwang等の勾配空間の構造は既知の入力である。本稿の一般点存在結論と明示的移送の包括的な初出は引き続き未確定である。
-
-具体的な非可換Hesse--Sklyanin族では、生成元を固定するharmonic-angle比較から W_rec=F+h xyz+(h²/3)xyz+O(h³) を得た。中心元のWeyl表示の二次係数−2/3と、星積への比較の補正+1を分け、inner二輪の重み零を使う。さらに全次数のHesse正規形 W_H=F+λ(h)xyz を取り、λ(h)=(h+h²/3+h⁵/12)/(1−h⁴/4) と厳密に同定した。したがってK上の可換模型は (4−h⁴)(x³+y³+z³+u³+v³)+(12h+4h²+h⁵)xyz=0 と明示できる。証明は `explicit_example.tex` にあり、正規化中心商の相対THCR表示、三変数a=0のdg比較、Perf模型の分数体への底変更、楕円曲線のjと形式分枝の比較を用いる。五変数のrotation・指定周期同値は元の完備MF比較から固定したこのK模型へ有限降下する。全次数の有理式同定は本文の圏的証明であり、有限計算の外挿ではない。
-
-方程式の積分には、Hwangの理論の基本的帰結として有限étaleなsymmetrizer代数E_Fを用いる。可積分行列空間の次元は最細の幾何学的Sebastiani--Thom分解のブロック数に等しく、幾何学的に分解不能なら固定した勾配空間からの方程式は基礎体上でもスカラー倍まで一意である。証明は `ej:lem:symmetrizer-algebra`、`gcd:prop:integrability-symmetrizer`、`gcd:cor:indecomposable-equation`。これは同値核の基礎体降下を意味しない。
-
-独立な点スキーム・Jacobian・一次変形・Artin・étale・相対模型の成果はnc-cubic2へ移管済みである。現在の入口は `notes/paper_b_scope_and_transfer.md`。Bの必要証明を移管先へのリンクだけで代用しない。
-
 ## 優先する次の課題
 
 1. Aの公表上の中心を全次元正規形・Bondal・全Poisson代数的量子化・相対成分数に置き、三次四様体の純楕円分類を具体的帰結として示す。Pym論文の刊行版または著者のaccepted manuscriptを通常の公開経路で入手し、v1との該当箇所・訂正状況を最優先で照合する。Oxfordの登録メタデータは確認できたが本文は取得できていない。独立な反例証明は現行本文にある。Bondal・Derdzinski--Gal・LPT/Mayanskiy・Gualtieri--Pym等との比較を踏まえ、包括的な正規形・成分定理の初出も引き続き調べる。
 2. 階数二の全supportと、中心変数のない満support層N=3kでは、指定二次jetを持つ共変中心元と三次Veroneseの降下が得られた。全非零階数層のgerbeの位数もgcd(N,3)と決定した。次の存在問題は中心変数を残すm>0、k>=2の層に絞る。`notes/universal_casimir.md` §3の自然な完全列 0→Sym³(V/W_P)*→K_0→E_perm→0 から始め、古典Fの対角切断、H¹と有限アフィン模型への延長を調べる。補空間と純中心配分の大域的分裂は仮定しない。三重ベクトルの軌道の非アフィン性だけから係数incidenceの非アフィン性や中心元不存在を結論しない。零制限標準中心直線への全support一致はN>=6で不可能であり、次は中心商の抽象的同型・Morita/qgr比較や基底変更との関係を調べる。3|Nでは三次偏極の族を基準に別ambient表示を比較する。全hへの延長、短い共変多項式表示、固定h≠0での同型類像、全閉パラメータでのqgr滑らかさは別の課題とする。
-3. Bでは二次補正と、このHesse--Sklyanin例の全次数の有理K方程式が決定したため、次は比較核と低rotation積の有効化に進む。rotation核Pと対角Deltaの有限表示から V=H^0RHom(Delta,P)、U=H^0RHom(Delta,P^2)、積を算出する。まずstabilization模型の有限Homと三対象dg代数へ戻り、どの構造写像がV,Uに寄与するかを特定し、得られた核を既知の明示方程式の勾配空間と照合する。一般点の固定模型への核の有限降下は証明済みだが、核の具体行列と拡大次数は未計算である。楕円曲線を用いた方程式の同定を、非可換圏から低積全体を直接抽出したことの代用にしない。
-4. 公表上の貢献を、完備比較と相対windowの具体的構成、および包括的な一般点復元に絞る。既知の一般原理と本稿の適用条件の対照は監査ノートにある。新たな引用が必要になれば一次資料で範囲を確かめ、同一の定理の初出が判明すれば序論・方針を修正する。
-5. 同値核のGalois降下を調べる。E_F=kという方程式の一意性と、rotation付き同値核の降下を分け、まずその自己同値群・自己同型群を同定する。`gcd:ex:forms` は特殊ファイバーも完備化も一致するがK上非同型の例である。TsenによるBrauer群消滅や形式点の存在だけでK'=Kを結論しない。
 
 ## 一般原則と保存許可
 
@@ -78,27 +60,8 @@ Bの公表上の核心は、任意の完備noetherian局所C代数上での実�
 
 ## 再現手順
 
-```sh
-python3 scripts/check_layout.py
-python3 scripts/verify_bundle.py
-python3 scripts/build.py --only paper_a
-python3 scripts/verify_bundle.py --only paper_a --require-pdfs
-python3 computations/verify_zero_restriction_center.py --json
-python3 computations/verify_singular_orbit_centering.py --json
-python3 computations/verify_cmr_nodal_center.py --json
-python3 computations/verify_equivariant_centering.py
-python3 computations/verify_split_cubic_fourfold.py
-python3 computations/verify_hesse_translation.py
-python3 computations/verify_hessian_split_obstruction.py
-python3 -B computations/verify_general_dimension_multiblock.py
-python3 scripts/build.py --only paper_b
-python3 scripts/verify_bundle.py --only paper_b --require-pdfs
-python3 computations/verify_complete_curved_transport.py --output build/verify_complete_curved_transport.json
-python3 computations/verify_three_object_window.py --output build/verify_three_object_window.json
-python3 computations/verify_generic_cubic_descent.py --output build/verify_generic_cubic_descent.json
-python3 computations/verify_recovery_example.py --output build/verify_recovery_example.json
-```
-
-`scripts/check_layout.py` はGit checkoutでの追跡対象検査であり、Git管理情報のない再開用ZIPでは省略する。その他のソース・組版検査はZIPの展開先でも実行できる。
-
-日本語LuaLaTeX、LuaTeX-ja、latexmk、Pythonと `requirements.txt` の依存を用いる。Aの厳密計算は `validation_paper_a.json` のコマンドで再現する。大きな記号行列を扱うスクリプトは一つずつ実行する。PDF・SyncTeX・中間物・再生成可能な出力はbuild/で非追跡。生成、検証、遠隔保存を別の状態として記録し、有限検算を一般定理や圏同値の計算機証明とは報告しない。本改訂はA-v61を対象とし、B-v59の全TeX入力・専用検証記録と共通preambleを保持する。Bの再組版・再監査は今回の実行範囲に含めない。
+- 主原稿：`papers/nc-cubic.tex`（日本語LuaLaTeX、本文と全必要証明を保持）。
+- ソース・引用検証：`python3 scripts/check_layout.py`、`python3 scripts/verify_bundle.py`、`python3 scripts/verify_article_a_numbering.py`。
+- 組版：`latexmk papers/nc-cubic.tex` または `python3 scripts/build.py --only nc-cubic`。PDFとSyncTeXは`build/`。
+- 主な数値・厳密計算の依存と既存検証：`validation_paper_a.json`。改名後の稿はこの更新では再組版していない。旧検証記録のハッシュを改名後の検証と同一視しない。
+- 外部の可換復元結果は [nc-cubic-n-fold](https://github.com/uedakazushi/nc-cubic-n-fold) 内で完結する。本repoはPoissonの論文Aを正本とする。

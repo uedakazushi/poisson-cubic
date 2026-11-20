@@ -1,7 +1,7 @@
 # 論文Aの公表準備：主張・依存・検証の範囲
 
-**2026-11-14 / A-v61・B-v59・bundle nc-cubic-v94。** 再開時は `00_research_plan.md` を先に読む。
-本文は `papers/paper_a.tex`、専用文献は `papers/support/papers/references_poisson_cubic.tex`。
+**2026-11-14 / A-v61・nc-cubic-v95。** 再開時は `00_research_plan.md` を先に読む。
+本文は `papers/nc-cubic.tex`、専用文献は `papers/support/papers/references_poisson_cubic.tex`。
 以下の節ファイルはすべて `papers/support/papers/sections/` にある。
 計算・組版・入力ハッシュの実行記録はルートの `validation_paper_a.json` に集約する。
 
