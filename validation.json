@@ -58,5 +58,16 @@
       "Independent proof re-verification"
     ],
     "historical_validation": "Earlier A-v61 audit and PDF receipts concern the pre-rename source and remain historical"
+  },
+  "current_compile_fix": {
+    "date": "2026-11-21",
+    "reason": "TeX input names depended on papers/support search path and could fail when invoked directly or from a different LaTeX Workshop recipe.",
+    "changes": [
+      "All 21 TeX inputs now use actual repository-root-relative paths",
+      "Removed input@path indirection and TEXINPUTS override",
+      "Updated equation-number audit to resolve explicit source paths"
+    ],
+    "verification": "A reduced LuaLaTeX reproduction containing the identical loading pattern succeeds without TEXINPUTS after using an explicit path; complete manuscript compilation and all-reference audit have not yet been run.",
+    "all_manuscript_pages_built": false
   }
 }

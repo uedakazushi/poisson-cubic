@@ -23,10 +23,14 @@ def visit(path):
     paths.append(path) if path != start else None
     texts.append(source)
     for ref in re.findall(r"\\input\{([^}]+)\}", source):
-        support = root / "papers/support" / (ref + ".tex")
-        if not support.is_file():
-            raise AssertionError(f"Missing input {ref} at {support}")
-        visit(support)
+        relative = Path(ref if ref.endswith(".tex") else ref + ".tex")
+        # Prefer explicit paths from the repository root; support older
+        # auxiliary inputs that were relative to papers/support/.
+        candidates = [root / relative, root / "papers/support" / relative]
+        target = next((p for p in candidates if p.is_file()), None)
+        if target is None:
+            raise AssertionError(f"Missing input {ref}; tried: {candidates}")
+        visit(target)
 
 visit(start)
 body = "\n".join(texts)

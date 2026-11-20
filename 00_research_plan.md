@@ -62,6 +62,6 @@ g=0の場合には、active次数が二以下なので既知のPBW対称化の�
 
 - 主原稿：`papers/poisson-cubic.tex`（日本語LuaLaTeX、本文と全必要証明を保持）。
 - ソース・引用検証：`python3 scripts/check_layout.py`、`python3 scripts/verify_bundle.py`、`python3 scripts/verify_article_a_numbering.py`。
-- 組版：`latexmk papers/poisson-cubic.tex` または `python3 scripts/build.py --only poisson-cubic`。PDFとSyncTeXは`build/`。
+- 組版：リポジトリルートから `latexmk papers/poisson-cubic.tex` または `python3 scripts/build.py --only poisson-cubic`。TeX入力は `papers/support/papers/` 以下を明示的に指定し、`TEXINPUTS` の追加設定を要求しない。PDFとSyncTeXは`build/`。
 - 主な数値・厳密計算の依存と既存検証：`validation_paper_a.json`。改名後の稿はこの更新では再組版していない。旧検証記録のハッシュを改名後の検証と同一視しない。
 - 外部の可換復元結果は [nc-cubic-n-fold](https://github.com/uedakazushi/nc-cubic-n-fold) 内で完結する。本repoはPoissonの論文Aを正本とする。

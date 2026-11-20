@@ -24,6 +24,13 @@ g=0の層では、PBW対称化したΩ=sym(f)が全変形パラメータで全�
 
 独立な点スキーム・Jacobian・一次変形・Artin・étale・相対模型の成果はnc-cubic2へ移管済みである。現行の入口と担当境界は [nc-cubic2の研究方針](https://github.com/uedakazushi/nc-cubic2)。
 
+LaTeX の読み込み先は実際の `papers/support/papers/` 以下を直接指定する。
+リポジトリのルートで `latexmk papers/poisson-cubic.tex` を実行する。
+VS Codeではリポジトリ全体を開き、LaTeX Workshopの `latexmk (repository root)` を使用する。
+直接 `lualatex` を呼ぶ場合もルートを作業ディレクトリとし、
+`lualatex -synctex=1 -interaction=nonstopmode -halt-on-error -output-directory=build papers/poisson-cubic.tex`
+を実行できる構成である。出力名は `build/poisson-cubic.pdf`。
+ 
 ```sh
 python3 scripts/verify_bundle.py
 python3 scripts/build.py --only poisson-cubic
