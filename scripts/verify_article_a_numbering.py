@@ -10,7 +10,7 @@ from pathlib import Path
 import re
 
 root = Path(__file__).resolve().parents[1]
-start = root / "papers/paper_a.tex"
+start = root / "papers/nc-cubic.tex"
 paths = [start]
 visited = set()
 texts = []

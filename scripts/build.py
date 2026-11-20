@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compile the two current LuaLaTeX papers and record source/PDF parity."""
+"""Compile the current LuaLaTeX paper and record source/PDF parity."""
 from pathlib import Path
 import argparse
 import hashlib
@@ -10,7 +10,7 @@ import shutil
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
-PAPERS = ("paper_a", "paper_b")
+PAPERS = ("nc-cubic",)
 SUPPORT = ROOT / "papers" / "support"
 
 
