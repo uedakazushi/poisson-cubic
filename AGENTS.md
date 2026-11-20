@@ -1,6 +1,6 @@
-# Codex実行指示 — nc-cubic
+# Codex実行指示 — poisson-cubic
 
-2026-11-21 / v95。最初に `00_research_plan.md` を読む。GitHub mainが正本。主論文は `papers/nc-cubic.tex`（旧paper A）。
+2026-11-21 / v96。最初に `00_research_plan.md` を読む。GitHub mainが正本。主論文は `papers/poisson-cubic.tex`（旧paper A）。
 
 ## 公表向け監査と担当境界
 
@@ -24,7 +24,7 @@
 ## 保存・組版・research-hub
 
 - `main` を正本とし、通常コミットでfast-forward pushする。force push、GitHub Actionsの追加・起動、無用なPRを行わない。Libraryはpush不可能時の緊急保存に限る。
-- 主公表原稿は必ず `papers/nc-cubic.tex` に本文を置く。日本語LuaLaTeX、著者欄は空欄。組版は `latexmk papers/nc-cubic.tex`、出力は `build/`。VS CodeのLaTeX WorkshopとSyncTeX設定を保つ。
+- 主公表原稿は必ず `papers/poisson-cubic.tex` に本文を置く。日本語LuaLaTeX、著者欄は空欄。組版は `latexmk papers/poisson-cubic.tex`、出力は `build/`。VS CodeのLaTeX WorkshopとSyncTeX設定を保つ。
 - 設定変更時は research-hub の `papers/paper-template.tex`, `papers/README.md`, `.latexmkrc`, `.vscode/settings.json`, `.vscode/extensions.json` を参照する。
 - 証明、厳密計算、ソース確認、LuaLaTeX組版、GitHub保存をそれぞれ別の状態として報告する。検証不能だったことも明記する。
 - 研究の区切りには先にこのrepoの原稿・方針・ノート・README・検証状態を現状へ更新・保存し、次にresearch-hubの該当項目（到達点、主張の確実性、未解決課題、次の一手、依存関係、正本・再開先、資料確認日）を更新しmainへ通常pushする。他研究の並行変更を保持する。hubへ反映できない場合は、対象repoの保存状態と未反映理由を別に報告する。

@@ -36,7 +36,7 @@ def audit(name: str, require_pdfs: bool):
         raise AssertionError(f"{name}: unresolved references {set(refs)-set(labels)}")
     if set(citations) - set(keys):
         raise AssertionError(f"{name}: unresolved citations {set(citations)-set(keys)}")
-    if name == "nc-cubic":
+    if name == "poisson-cubic":
         assert r"\numberwithin{equation}{section}" in body
         assert not re.search(
             r"\\\[|\\\]|\\(?:begin|end)\{(?:equation|align|gather|multline|flalign|alignat)\*\}|\\tag\*?\{", body)

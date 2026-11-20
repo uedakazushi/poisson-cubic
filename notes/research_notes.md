@@ -1,10 +1,10 @@
 # 三次超曲面のPoisson構造と量子化：現行研究ノート
 
-2026-11-21 / v95。主公表原稿はPoisson量子化論文（A-v61）。最初に[研究方針](../00_research_plan.md)を読む。
+2026-11-21 / v96。主公表原稿はPoisson量子化論文（A-v61）。最初に[研究方針](../00_research_plan.md)を読む。
 
 ## 正規形から量子化へ
 
-[論文A](../papers/nc-cubic.tex)に全次元Poisson正規形、Bondalの下界、代数的量子化、固定・相対成分の証明を置く。仮定と今回の確認範囲は[投稿準備監査](poisson_article_submission_audit.md)、中心元の構成と障害は[中心元ノート](universal_casimir.md)を参照する。
+[論文A](../papers/poisson-cubic.tex)に全次元Poisson正規形、Bondalの下界、代数的量子化、固定・相対成分の証明を置く。仮定と今回の確認範囲は[投稿準備監査](poisson_article_submission_audit.md)、中心元の構成と障害は[中心元ノート](universal_casimir.md)を参照する。
 
 三次四様体のrank4 Poissonは(3,3)分離型およびambient Hessian階数≤3軌跡内の平面で判定できる。後二者の同値はBricalli–Favale–Pirolaの既知定理である。可約Hessianだけでは不十分な例、全r>=2の同次数持上げ障害、および文献比較の残る範囲は[幾何ノート](bondal_cubic.md)に整理する。
 

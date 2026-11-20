@@ -7,7 +7,7 @@ from build import ROOT, PAPERS, source_closure
 
 
 def main():
-    assert (ROOT / "papers" / "nc-cubic.tex").is_file(), "Missing main paper"
+    assert (ROOT / "papers" / "poisson-cubic.tex").is_file(), "Missing main paper"
     assert not list((ROOT / "papers").glob("paper_*.tex")), "Obsolete paper_a/paper_b entrypoints"
     seen = set()
     for name in PAPERS:
@@ -16,7 +16,7 @@ def main():
                  "papers/support/papers/README.md", "notes/README.md", ".latexmkrc",
                  ".vscode/settings.json", "validation.json"):
         assert (ROOT / path).is_file(), "Required file missing: " + path
-    for path in ("papers/paper_a.tex", "papers/paper_b.tex", "papers/paper_b_old.tex"):
+    for path in ("papers/poisson-cubic.tex", "papers/paper_b.tex", "papers/paper_b_old.tex"):
         assert not (ROOT / path).exists(), "Obsolete paper entry: " + path
     tracked = subprocess.run(["git", "ls-files", "-z"], cwd=ROOT,
                              capture_output=True, check=True).stdout.split(b"\0")

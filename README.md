@@ -1,10 +1,10 @@
-# nc-cubic — 三次超曲面のPoisson構造と代数的量子化
+# poisson-cubic — 三次超曲面のPoisson構造と代数的量子化
 
-2026-11-21 / v95。再開は [研究方針](00_research_plan.md) から。
+2026-11-21 / v96。再開は [研究方針](00_research_plan.md) から。
 
 | 現行論文 | 内容 |
 | --- | --- |
-| [主論文](papers/nc-cubic.tex)（A-v61） | 全次元Poisson正規形・Bondal予想・代数的量子化・固定相対モジュライ（ambient復元は付録） |
+| [主論文](papers/poisson-cubic.tex)（A-v61） | 全次元Poisson正規形・Bondal予想・代数的量子化・固定相対モジュライ（ambient復元は付録） |
 
 主論文は、全次元正規形・Bondalの下界・全Poisson構造の代数的量子化・Fermatと相対モジュライの成分数を中心に整理している。三次四様体の一般階数四の構造を分離型F=f+gで分類し、その正規な退化因子とmodular場を直接計算して純楕円型であることを示す。Bricalli–Favale–Pirolaの既知の分解判定を合わせると、この存在は周囲のP⁵のHessian階数≤3軌跡が平面を含むことと同値になる。Hessianの可約性だけでは不十分な滑らかな具体例も証明する。固定した変数分解の全滑らかな係数空間上でも中心元を同時に選べる一方、規格化のaffine遷移と中心イデアルの不一致例により、モジュライへの降下が別条件であることを明確にしている。
 
@@ -26,8 +26,8 @@ g=0の層では、PBW対称化したΩ=sym(f)が全変形パラメータで全�
 
 ```sh
 python3 scripts/verify_bundle.py
-python3 scripts/build.py --only nc-cubic
-python3 scripts/verify_bundle.py --only nc-cubic --require-pdfs
+python3 scripts/build.py --only poisson-cubic
+python3 scripts/verify_bundle.py --only poisson-cubic --require-pdfs
 ```
 
 Git checkoutでの追跡対象検査は `python3 scripts/check_layout.py` を用いる。この検査だけはGit管理情報を必要とする。再開はmainの現行ソースと検証資料から行う。

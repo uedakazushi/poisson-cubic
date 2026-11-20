@@ -1,8 +1,8 @@
 # 全Poisson構造の代数的中心三次元と一般次元量子化：現行研究ノート
 
 **2026-11-14 / v16（論文A-v61・論文B-v59、bundle nc-cubic-v94）。再開時はまず `00_research_plan.md` を読む。**
-正本はGitHub `uedakazushi/nc-cubic` の `main`。
-現行公表原稿は `papers/paper_a.tex`（論文A）。
+正本はGitHub `uedakazushi/poisson-cubic` の `main`。
+現行公表原稿は `papers/poisson-cubic.tex`（論文A）。
 主要証明の所在：
 `papers/support/papers/sections/universal_casimir_determinant.tex`
 （任意のsmoothな全体三次式の代数的Casimir）、
@@ -1265,7 +1265,7 @@ A-v60の実行証拠を保持するjetコードのSHA-256は
 これらの有限計算はBWB・アフィン性・大域中心元・gerbe位数・Veronese降下・相対コホモロジー障害の一般証明を代替しない。
 
 重い記号計算は一本ずつ実行する。
-LuaLaTeXによる再生成コマンドは`latexmk papers/paper_a.tex`で、
+LuaLaTeXによる再生成コマンドは`latexmk papers/poisson-cubic.tex`で、
 PDFと中間生成物は`build/`へ出力される。
 **A-v61は日本語LuaLaTeXで123頁に組版し、22のTeX入力、式・参照・引用と現在のソース/PDF対応を確認した。全123頁の一覧画像と、要旨・導入・新節18・参考文献等の18頁の拡大画像を確認済みである。実施範囲とハッシュは、
 リポジトリルートの[`validation_paper_a.json`](../validation_paper_a.json)を参照する。**

@@ -1,12 +1,12 @@
 {
-  "version": "nc-cubic-v95",
+  "version": "poisson-cubic-v96",
   "date": "2026-11-21",
   "current_entry": "00_research_plan.md",
-  "authoritative": "GitHub uedakazushi/nc-cubic main; expected-parent fast-forward updates; no Actions or force push.",
-  "scope": "Poisson paper A only, renamed to papers/nc-cubic.tex; previous mathematical review retained, rename not re-typeset or re-verified.",
+  "authoritative": "GitHub uedakazushi/poisson-cubic main; expected-parent fast-forward updates; no Actions or force push.",
+  "scope": "Poisson paper A only, renamed to papers/poisson-cubic.tex; previous mathematical review retained, rename not re-typeset or re-verified.",
   "papers": {
     "A": {
-      "entry": "papers/nc-cubic.tex",
+      "entry": "papers/poisson-cubic.tex",
       "version": "A-v61",
       "audit": "notes/poisson_article_submission_audit.md",
       "validation": "validation_paper_a.json",
@@ -21,7 +21,7 @@
   },
   "reproducibility": {
     "build": [
-      "python3 scripts/build.py --only nc-cubic"
+      "python3 scripts/build.py --only poisson-cubic"
     ],
     "source_checks": [
       "python3 scripts/check_layout.py",
@@ -39,18 +39,9 @@
   ],
   "current_remote_static_check": {
     "date": "2026-11-21",
-    "method": "GitHub main tree and the TeX entrypoint inspected; local Python verification scripts not executed",
-    "main_path": "papers/nc-cubic.tex",
-    "old_entries_absent": true,
-    "direct_tex_inputs": 21,
-    "missing_direct_tex_inputs": [],
-    "build_target": "nc-cubic",
-    "paper_B_proof_blobs_and_four_exact_verifiers_previously_matched_by_git_blob_sha": true,
-    "not_performed": [
-      "Local LuaLaTeX and latexmk compilation",
-      "Full current TeX recursive source check in a local checkout",
-      "Re-running exact calculations",
-      "Independent proof audit"
-    ]
+    "scope": "Repository rename and main TeX source path updates checked against GitHub tree; local typesetting, exact calculations and the historical paper A verification receipts have not been rerun.",
+    "main_path": "papers/poisson-cubic.tex",
+    "build_target": "poisson-cubic",
+    "historical_validation": "validation_paper_a.json (pre-rename source paths and receipts remain historical)"
   }
 }

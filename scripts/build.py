@@ -10,7 +10,7 @@ import shutil
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
-PAPERS = ("nc-cubic",)
+PAPERS = ("poisson-cubic",)
 SUPPORT = ROOT / "papers" / "support"
 
 
