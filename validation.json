@@ -39,9 +39,24 @@
   ],
   "current_remote_static_check": {
     "date": "2026-11-21",
-    "scope": "Repository rename and main TeX source path updates checked against GitHub tree; local typesetting, exact calculations and the historical paper A verification receipts have not been rerun.",
+    "scope": "Repository rename and canonical TeX source-path integrity; checked by fetching GitHub main tree and selected source files",
     "main_path": "papers/poisson-cubic.tex",
-    "build_target": "poisson-cubic",
-    "historical_validation": "validation_paper_a.json (pre-rename source paths and receipts remain historical)"
+    "required_direct_inputs": 21,
+    "missing_direct_inputs": [],
+    "repository_main_and_root_match": true,
+    "old_renamed_source_absent": true,
+    "latexmk_default_matches_new_name": true,
+    "build_and_source_verification_scripts_target_new_name": true,
+    "layout_checker_accepts_new_main_and_rejects_old_entries": true,
+    "readme_links_new_main": true,
+    "checked_items_all_passed": true,
+    "not_performed": [
+      "LuaLaTeX or latexmk compilation",
+      "Current PDF and SyncTeX regeneration",
+      "All recursive TeX syntax/label checks",
+      "Re-execution of exact computations",
+      "Independent proof re-verification"
+    ],
+    "historical_validation": "Earlier A-v61 audit and PDF receipts concern the pre-rename source and remain historical"
   }
 }
