@@ -10,7 +10,7 @@
 
 | 論文 | 正本 | 内容 |
 | --- | --- | --- |
-| 三次超曲面の代数的量子化 | [nc-cubic/papers/cubic-quantization.tex](https://github.com/uedakazushi/nc-cubic/blob/main/papers/cubic-quantization.tex) | PBW・AS性、代数的中心三次、全ブロックと多パラメータ、同変中心元と降下、二次包絡。 |
+| 三次超曲面の代数的量子化 | [cubic-quantization/papers/cubic-quantization.tex](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) | PBW・AS性、代数的中心三次、全ブロックと多パラメータ、同変中心元と降下、二次包絡。 |
 | 非可換三次超曲面の可換復元とモジュライ | [nc-cubic/papers/nc-cubic.tex](https://github.com/uedakazushi/nc-cubic/blob/main/papers/nc-cubic.tex) | 完備MF移送・一般点Ku比較、良い一ブロック型のO-markedモジュライ、残余射と降下障害。 |
 
 古典的正規形から量子化へ、量子化から非可換比較へという依存を保つ。後者の一ブロック仮定を量子化全体へ課さず、一般点の比較を全パラメータでの同値と読み替えない。量子化の証明・計算・現行ノートはnc-cubic内で管理し、このrepoでは重複保持しない。

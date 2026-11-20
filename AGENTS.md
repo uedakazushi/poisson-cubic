@@ -4,7 +4,7 @@
 
 ## 公表向け監査と担当境界
 
-本repoはPoisson正規形・退化軌跡・Bondal下界・固定および相対Poissonモジュライの古典論を担当する。主原稿はA-v62。量子化の全証明と再現資産は `uedakazushi/nc-cubic` の独立論文 `papers/cubic-quantization.tex`、可換復元・モジュライは同repoの主論文 `papers/nc-cubic.tex` が正本である。三論文の対象範囲を区別し、数学的内容を削らず、重複した量子化本文を本repoへ戻さない。
+本repoはPoisson正規形・退化軌跡・Bondal下界・固定および相対Poissonモジュライの古典論を担当する。主原稿はA-v62。量子化の全証明と再現資産は `uedakazushi/cubic-quantization` の独立論文 `papers/cubic-quantization.tex`、可換復元・モジュライは `uedakazushi/nc-cubic` の主論文 `papers/nc-cubic.tex` が正本である。三論文の対象範囲を区別し、数学的内容を削らず、重複した量子化本文を本repoへ戻さない。
 
 全次元正規形の中心はEuler–Koszul表示、Hessian線形化、`lem:pg-basepoint-free-lie` のLie代数根基排除である。Bondalの持上げとDerdzinski–Gal Theorem Bは既知入力。古典論の証明を量子化または非可換比較の結果に依存させない。外部引用には現在の論文名・具体的ラベル・仮定を付け、旧paper A/Bを取得することを再開の前提にしない。
 

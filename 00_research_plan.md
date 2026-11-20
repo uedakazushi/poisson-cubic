@@ -11,7 +11,7 @@
 | 論文 | 正本と役割 |
 | --- | --- |
 | Poisson幾何 | 本repo `papers/poisson-cubic.tex`。正規形、退化、Bondal、Poisson層・成分、四様体、完全交叉の古典的背景。 |
-| 代数的量子化 | [nc-cubic/papers/cubic-quantization.tex](https://github.com/uedakazushi/nc-cubic/blob/main/papers/cubic-quantization.tex)。PBW・AS正則性、指定Casimirの代数的中心持上げ、全ブロック・独立パラメータ、同変化・gerbe・Veronese降下、二次包絡によるambient復元。 |
+| 代数的量子化 | [cubic-quantization/papers/cubic-quantization.tex](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex)。PBW・AS正則性、指定Casimirの代数的中心持上げ、全ブロック・独立パラメータ、同変化・gerbe・Veronese降下、二次包絡によるambient復元。 |
 | 非可換幾何とモジュライ | [nc-cubic/papers/nc-cubic.tex](https://github.com/uedakazushi/nc-cubic/blob/main/papers/nc-cubic.tex)。一般中心三次変形の完備MF移送・一般点の可換復元、良い一ブロック型のO-markedモジュライ、残余射・Ku比較と降下障害。 |
 
 論理的な入力は古典的正規形から量子化へ、量子化から非可換比較へ進む。Poisson論文の証明を量子化論文や非可換比較へ依存させない。量子化の多ブロック・全次元の一般性を、非可換モジュライの良い一ブロックという仮定へ狭めない。一般点の比較を全閉パラメータでの同値と読み替えない。
@@ -40,7 +40,7 @@ Pymとの比較は確認済みarXiv:1507.05668v1のDefinition4.2 (p.17)、Theore
 2. Bondal、Derdzinski–Gal、LPT/Mayanskiy、Gualtieri–Pym等との仮定・範囲を比較し、全次元正規形と相対成分定理の初出を引き続き調査する。証明監査は `lem:pg-basepoint-free-lie` とHessian線形化から再開する。
 3. 固定Poissonスキームの非被約構造と相対の被約階数層を分けて整理し、既存のFermat計算・非楕円ブロック例を一般の局所構造と比較する。詳細な証明・有限証明書は本文と計算資産へ置く。
 
-量子化側の未解決問題（m>0かつk≥2の同変中心元、全hへの延長、中心商の抽象同型・Morita/qgr比較、固定h≠0の同型類像）は [nc-cubicの研究方針](https://github.com/uedakazushi/nc-cubic/blob/main/00_research_plan.md) と [量子化ノート](https://github.com/uedakazushi/nc-cubic/blob/main/notes/cubic_quantization.md)を正本とする。点ごとの量子化と、全層の同変降下や全パラメータのqgr滑らかさは別の主張である。
+量子化側の未解決問題（m>0かつk≥2の同変中心元、全hへの延長、中心商の抽象同型・Morita/qgr比較、固定h≠0の同型類像）は [cubic-quantizationの研究方針](https://github.com/uedakazushi/cubic-quantization/blob/main/00_research_plan.md) と [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)を正本とする。点ごとの量子化と、全層の同変降下や全パラメータのqgr滑らかさは別の主張である。
 
 ## 一般原則と保存許可
 
