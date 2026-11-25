@@ -1,0 +1,78 @@
+参照版とLean形式化との対応
+
+原稿の基準版
+  https://github.com/uedakazushi/poisson-cubic
+  commit 288246bca7b703543d24cf6276894dc5467bf1d2
+  主原稿: papers/poisson-cubic.tex
+  正規形の証明: papers/support/papers/sections/poisson_geometry.tex
+
+Lean参考版
+  https://github.com/uedakazushi/nc-cubic-lean
+  commit 9736787f3a95f52bc3d233ab768a6ab6396d0c24
+
+幾何学的表示とJacobi持上げの対応
+
+  NcCubic/Geometry/CubicAmbientLift.lean
+    existsUnique_lift
+  NcCubic/Geometry/ConstantRepresentativeOfTangency.lean
+    exists_constantRepresentative_of_tangency
+  NcCubic/Geometry/PolynomialRepresentation.lean
+    horizontal_quadratic_representation
+    tangent_quadratic_representation
+  NcCubic/Geometry/ChartJacobiDivisibility.lean
+    polynomialJacobi_of_hypersurfaceChartJacobi
+  NcCubic/Geometry/EulerJacobiLift.lean
+    euler_divisibility_lift_vanishes
+    contraction_jacobi_of_euler_divisibility
+
+  Euler列による延長と接性の補正 q=B−E∧A/3、gradientのKoszul複体からの
+  定数3重ベクトル表示、E∧J=FQからNJ=3Jへ至るJacobi持上げに対応します。
+  本文ではEuler列・層コホモロジーを用いる通常の幾何学的証明にまとめています。
+
+Lie代数を用いる正規形の証明に関する対応
+
+1. 基点自由な対称形式の線形系からの非退化形式の選択
+   NcCubic/NondegenerateForm.lean
+   NcCubic.NondegenerateForm.exists_nondegenerate
+   最大階数と行列式の一次係数による議論を用いる。改稿では、この議論を三重ベクトルの支持上に直接適用した。
+
+2. 三重ベクトルの支持上のLie代数
+   NcCubic/SupportConstruction.lean
+   NcCubic.SupportConstruction.trivector_zero_of_annihilates_support
+   NcCubic.SupportConstruction.restricted_bracket_span_eq_top
+   NcCubic.SupportConstruction.support_center_zero
+   NcCubic/SupportLie.lean
+   NcCubic.SupportLie.leibniz_of_compatible
+   支持への縮約、非退化形式による括弧、四項恒等式からのJacobi、完全性と中心の消滅に対応する。Leanでは周囲の空間と支持の双方で非退化な形式を選ぶが、改稿では支持上の構成にまとめた。
+
+3. 可解根基の排除
+   NcCubic/RadicalWitness.lean
+   NcCubic.LieObstruction.radical_acts_trivially_of_perfect
+   NcCubic/PrimitiveWitness.lean
+   NcCubic.LieObstruction.nonzero_primitive_of_semisimple
+   NcCubic/RadicalElimination.lean
+   NcCubic.LieObstruction.radical_witness_of_abelian_atom
+   NcCubic.LieObstruction.radical_eq_bot_of_compatible_basepointFree
+   極小可換イデアル、根基のスカラー作用とトレース零、非零ウェイトの原始ベクトルから共通零点を構成する。改稿では原始ベクトルの存在に有限次元sl₂表現の分類と完全可約性を引用する。
+
+4. 単純因子の三次元性
+   NcCubic/RootWitness.lean
+   NcCubic.RootWitness.exists_highest_witness
+   NcCubic.RootWitness.no_high_rank_simple_compatible
+   NcCubic/SimpleFactorDimension.lean
+   NcCubic.SimpleFactorDimension.finrank_eq_three
+   最高根を二つの正根の和として表し、対応する交換子を四項恒等式に代入して階数二以上を排除する。
+
+5. 三次元ブロックの復元と係数の正規化
+   NcCubic/TrivectorBlocks.lean
+   NcCubic.TrivectorBlocks.cartan_block_decomposition
+   NcCubic.TrivectorBlocks.normalize_volume_blocks
+   NcCubic/SupportFactorBasis.lean
+   NcCubic.TrivectorBlocks.normal_form_of_support_factor_basis
+   Cartan三形式を互いに直交する単純因子に分解し、各ブロックの基底の一つを定数倍して三重ベクトルの係数を1にする。
+
+検証範囲
+
+本作業ではLeanの再ビルドと公理依存監査を実施していない。改稿は参照版の形式化ソースに基づく通常の数学的証明であり、改稿したTeX本文そのものの形式検証を意味しない。
+
+参考リポジトリの幾何学的主定理の対象は、滑らかな複素射影三次超曲面上の非零Poisson構造のブロック正規形と逆構成である。一般階数、退化スキーム、Bondal下界、固定・相対モジュライ、量子化は、その主定理の形式化された結論には含まれない。原稿のこれらの部分は、それぞれ本文の数学的証明と文献に依拠する。

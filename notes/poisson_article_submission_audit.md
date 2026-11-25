@@ -1,8 +1,8 @@
 # Poisson論文：主張・依存・一次資料の確認範囲
 
-2026-11-21 / v1（3論文構成）。最初に `00_research_plan.md` を読む。
+2026-11-25 / v2（A-v63、repo v98）。最初に `00_research_plan.md` を読む。
 この文書は現行原稿の仮定・証明所在・一次資料の確認範囲を整理する。
-以下の「点検」は移管前の有効な内部監査の範囲であり、今回の分割時に全証明を再読・形式検証したことを意味しない。
+証明の構成と引用箇所は改稿ソースに合わせた。既存の内部点検は過去の確認範囲であり、今回のソース統合による全証明の再査読・形式検証を意味しない。
 新規性・外部査読の確定と、証明記載・内部点検・有限計算・組版は別の状態である。
 
 本文は `papers/poisson-cubic.tex`、文献は `papers/support/papers/references_poisson_cubic.tex`。
@@ -24,11 +24,11 @@ Aの一般定理の証明を移管先へのリンクで代用していない。
 
 ## 主張と証明の所在
 
-| 主張・所在 | 有効な仮定と結論 | 既存の内部点検の範囲 |
+| 主張・所在 | 有効な仮定と結論 | 証明の構成・保持する確認範囲 |
 | --- | --- | --- |
 | `lem:ci-low-twist-vanishing`、`complete_intersections.tex` | 滑らかな完全交叉、n>=2、1<=p<=n-1、t<=pならH⁰(Ω^p(t))=0 | Koszulによる線束消滅、穿孔錐のconormal外積分解、水平形式とCartan公式による独立証明。既知結果である |
-| `prop:pg-represent`、`prop:pg-jacobi-extension`、`lem:pg-linearize`、`poisson_geometry.tex` | n>=3、Xが滑らかな三次。Poisson表示、Jacobi条件とHessian線形条件の対応 | Euler/Koszul、divergenceの係数、Hessianとの符号を追跡 |
-| `lem:pg-basepoint-free-lie`、`lem:pg-quadratic-lie`、`thm:pg-normal` | 全非零Poisson構造が三変数Jacobianブロックへ分解 | 非退化形式の同時選択、可解根基、最高ウェイト、rank>=2単純因子の排除、混合項の消去 |
+| `prop:pg-represent`、`prop:pg-jacobi-extension`、`lem:pg-linearize`、`poisson_geometry.tex` | n>=3、Xが滑らかな三次。Poisson表示、Jacobi条件とHessian線形条件の対応 | 現行本文はEuler列による接性の補正、gradientのKoszul複体、E∧J=FQからNJ=3Jへの持上げ、係数次数1のsyzygy消滅によるHessian線形化を展開 |
+| `lem:pg-nondegenerate-pencil`、`lem:pg-basepoint-free-lie`、`lem:pg-quadratic-lie`、`thm:pg-normal` | 全非零Poisson構造が三変数Jacobianブロックへ分解 | 現行本文は支持W上の非退化形式、完全かつ中心なしのLie代数、可換イデアル内のsl₂加群と最高根による共通零点、Cartan3形式の分解、混合項の消去を使用 |
 | `lem:pg-projective-rank`、`thm:pg-bondal`、`bondal_cubic.tex` | 全2j<nについてdim D_(2j)>=2j+1 | joinの次元、Euler線によるrank低下、ブロック数の端のケース |
 | `prop:pg-deg-ideal`、`lem:pg-critical-cover`、`prop:pg-deg-support`、`prop:pg-zero-ci` | 一般退化イデアルは全正規形。critical coverと零点完全交叉には各純active三次の滑らかさが必要 | 正規形に基づく式と仮定の使い分け |
 | `prop:pg-split-elliptic`、`cor:pg-cubic-fourfold-elliptic` | 滑らかな三次四様体の一般階数四の構造は全て(3,3)分離型で純楕円log symplectic。その存在はambient Hessian階数≤3軌跡が平面を含むことと同値 | join・Pfaffian・被約Poisson零点・modular場の既存直接証明を保持。BFP Theorem 3.4のn=5,k=2の照合を保持。Pym v1 Definition 4.2との適合を再読 |
@@ -65,16 +65,28 @@ $\mathcal E=\Lambda^3V\otimes\mathcal O_{U_N}(-1)$ の全空間に閉埋め込�
 
 ### 正規形とBondalの下界
 
-$K(P)$ の基点自由性からVとsupport Wの両方に非退化なBを取るには、二つの非空開集合の交叉を使う。
-可解根基の作用が既約加群上スカラーとなるだけでは零とはいえず、$W=[W,W]$ によるtrace零性を併用する。
-最高根が単純根ではないことは、隣接単純根のroot stringを使って正当化する。
+`prop:pg-represent` はEuler列から得る接性の補正 $q=B-E\wedge A/3$ とgradientのKoszul複体により、定数3重ベクトルPの存在・一意性を示す。
+`prop:pg-jacobi-extension` では $J=[q,q]/2$ に対し、局所座標でのJacobi恒等式を $E\wedge J=FQ$ へ移す。
+$\iota_{dF}J=0$、$\delta J=0$ と定数係数syzygyの消滅から $\delta Q=0$ を得て、Euler–divergence恒等式により $NJ=3J$、従ってN>=5でJ=0となる。
 
-半単純性を得た後の二次形式の核はDerdzinski--Gal Theorem Bの直接の帰結でもある。
-本稿の追加の還元は、Hessianの基点自由性から可解根基を排除する段階である。
+$K(P)$ を三重ベクトルの支持Wへ制限した線形系は基点を持たない。`lem:pg-nondegenerate-pencil` をこの制限系に適用してW上の非退化形式Bを選び、そのBでPの添字を下げてLie代数を構成する。周囲V上でも同時に非退化となる形式を選ぶ必要はない。
+括弧の値がWを張ることとBの不変性から、$W=[W,W]$ と $Z(W)=0$ を得る。
+可解根基内の極小可換イデアルIに対しては、根基のスカラー作用とtrace零性を併用して根基の作用を零にする。
+半単純商の根sl₂部分代数がIに非自明に作用することと有限次元sl₂表現の完全可約性から、正の最高ウェイトを持つベクトルを取る。
+本文の `eq:pg-radical-witness` を4項恒等式に代入すると全Hに共通する零点が生じ、根基を排除できる。
+階数2以上の単純因子も、最高根を二つの正根の和に表した交換子を同じ恒等式へ代入して排除する。最高根が単純根ではないことは、隣接単純根のroot stringを使って正当化する。
+
+半単純Lie代数上の二次形式の核はDerdzinski--Gal Theorem Bでも記述される。
+現行本文は必要な半単純性と単純因子の3次元性を基点自由性から直接導き、この核計算を証明の必須入力とはしない。
 Cartan三形式によるブロックの復元も同論文Lemma 7.1(a)で述べられるが、
 公開PDFの補助主張(e)の最小像の説明にはsl₂⊕sl₂の混合rank 1+2による反例がある。
 これはLemma 7.1(a)の結論への反例ではなく、本稿は`ne:blocks`の独立証明を用いる。
 詳細と一次資料の所在は `notes/bondal_cubic.md` に整理する。
+
+証明構成の参照版は `uedakazushi/nc-cubic-lean` のcommit `9736787f3a95f52bc3d233ab768a6ab6396d0c24` である。
+各Leanファイル・定理との対応は `notes/lean_proof_sources.txt` に記す。
+今回Leanの再ビルド・公理依存監査は行っておらず、TeX本文の形式検証を主張しない。
+参照版の幾何学的主定理は非零Poisson構造のブロック正規形と逆構成を扱い、一般階数・退化スキーム・Bondal下界・固定および相対モジュライはその形式化された結論に含まれない。
 
 rank 2rの二重ベクトルを一次元Lで割ったときのrankは、
 $L\subset\operatorname{im}b$ なら2r-2、それ以外なら2rである。
@@ -123,10 +135,10 @@ Lemma 5.5 pp.28–29、Proposition 5.7 p.30である。
 
 ## 一次文献と位置づけ
 
-| 文献 | 確認した所在・適用範囲 | 本稿との関係 |
+| 文献 | 原稿の引用箇所・既存の確認範囲 | 本稿との関係 |
 | --- | --- | --- |
-| Bondal, MPIM 93-67 (1993) | §4、印刷pp.11–12の無番号Lemma/Theorem | 射影Poissonの一意な斉次divergence-free持上げは既知。本稿はcubic上のJacobiatorの延長へ適用 |
-| Derdzinski–Gal, DOI 10.1007/s12188-013-0085-z、arXiv:1304.2801 | 著者PDF (1.4) p.2、Theorem B p.3・§5、Lemma 7.1(a) p.10 | 式の符号・係数まで同じ核計算。半単純性への還元は別。ブロック復元は本稿の独立証明を使用 |
+| Bondal, MPIM 93-67 (1993) | §4、印刷pp.11–12の無番号Lemma/Theorem | 射影Poissonの斉次divergence-free持上げは既知。本稿はEuler–divergence恒等式を明示し、cubic上で消えるJacobiatorを錐上へ持ち上げる |
+| Derdzinski–Gal, DOI 10.1007/s12188-013-0085-z、arXiv:1304.2801 | 著者PDF (1.4) p.2、Theorem B p.3・§5、Lemma 7.1(a) p.10 | 同じ4項恒等式の核計算との比較。現行本文は半単純性・3次元性・ブロック復元に独立の証明を用いる |
 | Bricalli–Favale–Pirola, Forum Math. Sigma 13 (2025), e80, DOI 10.1017/fms.2025.36、arXiv:2406.12024 | 刊行Theorem A p.2、Theorem B p.3、Theorem 3.4 p.10・証明pp.11–12 | Hessian階数軌跡による分離型判定は既知。本稿はn=5,k=2をrank4 Poisson存在に結び付ける |
 | Pym, DOI 10.1112/S0010437X16008174、arXiv:1507.05668v1 | 確認したv1 Definition 4.2、Theorem 1.3、Lemma 5.5、Prop.5.7 | 分離型例との不整合と非連結曲線の持上げ障害。刊行版本文・訂正状況は未確認 |
 | Loray--Pereira--Touzet, arXiv:1112.3871v3 | Theorems 7.1, 9.1 | 三次三様体の分類は既知。本稿は高次元の複数Jacobianブロックを扱う |
@@ -134,10 +146,10 @@ Lemma 5.5 pp.28–29、Proposition 5.7 p.30である。
 | Gualtieri--Pym, DOI 10.1112/plms/pds090 | Theorem 7.13 | Fano四次元のBondal予想は既知 |
 | Druel--Pereira--Pym--Touzet, arXiv:2606.03424v1 | Theorem 1.2、Corollary 1.3、著者PDF | 奇数次元のsubmaximal退化軌跡とFano五次元。本稿はcubicというクラスで全次元・全rank |
 | Darío Martín Aza, arXiv:2604.07217v1 | Theorem 1.3, p.2、証明p.10 | 隣接退化軌跡の真包含の下での選言。全Bondal予想の証明とは扱わない |
-| Etingof, MIT 2024 lecture notes | Cor.13.7–13.8 p.75、Prop.16.9 p.88、Def.21.13/Lem.21.14 p.114、Thm.25.17 p.137、§32.2 p.173 | PBW対称化の随伴同変性、可解根基、最高ウェイト、最高根の既知入力 |
+| Etingof, MIT 2024 lecture notes | 現行本文の引用：Thm.11.16 p.66、Prop.16.9 p.88、Lem.19.16 p.104、Cor.19.18/Thm.19.19 pp.105–106、Def.21.13 p.114、§32.2 | 有限次元sl₂表現の分解、既約表現上の根基のスカラー作用、根sl₂部分代数・根空間の交換子、最高根の既知入力 |
 | Fu--Hwang, arXiv:1608.00846v2 | Lemma 4.1 p.13：完全交叉Zで1<=r<=dim Z-1、p<=rならH^0(Ω_Z^r(p))=0 | Brückmann型消滅の明示的定理文と適用条件を確認 |
 
-文献URL・DOIと現在の引用キーは専用参考文献にある。
+本文で引用する文献のURL・DOIと引用キーは専用参考文献にある。上表は背景比較の記録も含み、今回新たに全ての原典を確認した記録ではない。
 Brückmannの1976年論文はMath. Nachr.71,203--210、DOI 10.1002/mana.19760710116で書誌を確認した。
 1977年続編はFu--Hwangの書誌でMath. Nachr.77,307--318。
 **原証明（1976年Satz 3、1977年Satz 6）は未取得であり、読了と報告しない。**
@@ -148,7 +160,7 @@ Pym刊行版本文・関連訂正文の照合を優先し、arXiv v1で特定し
 
 ## 有限計算と再現
 
-以下は保存済みの検算の内容であり、この移管での実行記録は `validation_paper_a.json` と `validation.json` を参照する。
+以下は保存済みの検算の内容であり、今回の実行と以前の記録は `validation_paper_a.json` で区別し、概要は `validation.json` を参照する。
 
 | スクリプト（computations/） | 保持する検算の範囲 |
 | --- | --- |

@@ -1,13 +1,13 @@
 {
-  "version": "poisson-cubic-v97",
-  "date": "2026-11-21",
+  "version": "poisson-cubic-v98",
+  "date": "2026-11-25",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/poisson-cubic main",
   "scope": "Classical Poisson geometry, degeneracy and moduli; quantization is an independent paper in nc-cubic.",
   "papers": {
     "A": {
       "entry": "papers/poisson-cubic.tex",
-      "version": "A-v62",
+      "version": "A-v63",
       "audit": "notes/poisson_article_submission_audit.md",
       "validation": "validation_paper_a.json"
     }
@@ -26,10 +26,12 @@
       "python3 scripts/verify_article_a_numbering.py"
     ],
     "build_directory": "build/",
-    "pdf_tracking": false
+    "pdf_tracking": false,
+    "dated_pdf": "python3 build_pdf.py",
+    "new_dated_pdf": "python3 build_pdf.py --new-version"
   },
   "status_limits": [
-    "Current source checks and LuaLaTeX compilation succeeded. Exact calculations executed during the split are listed separately from retained evidence.",
-    "No new global proof audit, formal proof execution or comprehensive novelty verification was performed."
+    "Canonical TeX sources match the delivered 2026-11-25 13:27:22 JST revision. Current static checks and typesetting results are recorded in validation_paper_a.json.",
+    "No new global proof audit, Lean execution, primary-source literature audit or exact-computation rerun is performed as part of this repository integration."
   ]
 }

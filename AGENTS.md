@@ -1,12 +1,14 @@
 # Codex実行指示 — poisson-cubic
 
-2026-11-21 / v97。最初に `00_research_plan.md` を読む。GitHub mainが正本。主論文は `papers/poisson-cubic.tex`（古典Poisson論文A-v62）。
+2026-11-25 / v98。最初に `00_research_plan.md` を読む。GitHub mainが正本。主論文は `papers/poisson-cubic.tex`（古典Poisson論文A-v63）。
 
 ## 公表向け監査と担当境界
 
-本repoはPoisson正規形・退化軌跡・Bondal下界・固定および相対Poissonモジュライの古典論を担当する。主原稿はA-v62。量子化の全証明と再現資産は `uedakazushi/cubic-quantization` の独立論文 `papers/cubic-quantization.tex`、可換復元・モジュライは `uedakazushi/nc-cubic` の主論文 `papers/nc-cubic.tex` が正本である。三論文の対象範囲を区別し、数学的内容を削らず、重複した量子化本文を本repoへ戻さない。
+本repoはPoisson正規形・退化軌跡・Bondal下界・固定および相対Poissonモジュライの古典論を担当する。主原稿はA-v63。量子化の全証明と再現資産は `uedakazushi/cubic-quantization` の独立論文 `papers/cubic-quantization.tex`、可換復元・モジュライは `uedakazushi/nc-cubic` の主論文 `papers/nc-cubic.tex` が正本である。三論文の対象範囲を区別し、数学的内容を削らず、重複した量子化本文を本repoへ戻さない。
 
-全次元正規形の中心はEuler–Koszul表示、Hessian線形化、`lem:pg-basepoint-free-lie` のLie代数根基排除である。Bondalの持上げとDerdzinski–Gal Theorem Bは既知入力。古典論の証明を量子化または非可換比較の結果に依存させない。外部引用には現在の論文名・具体的ラベル・仮定を付け、旧paper A/Bを取得することを再開の前提にしない。
+全次元正規形の中心はEuler–Koszul表示、Euler–divergence恒等式によるJacobi持上げ、Hessian線形化、支持上の非退化形式からのLie代数構成である。`lem:pg-basepoint-free-lie` は根基の可換イデアル内のsl₂加群と最高根のベクトルから共通零点を構成し、根基と階数2以上の単純因子を排除する。BondalのEuler–divergenceの方法とLie代数の既知定理を適用し、Derdzinski–Gal Theorem Bは独立に証明した結論との比較に用いる。古典論の証明を量子化または非可換比較の結果に依存させない。外部引用には現在の論文名・具体的ラベル・仮定を付け、旧paper A/Bを取得することを再開の前提にしない。
+
+Lean参照版は `uedakazushi/nc-cubic-lean` のcommit `9736787f3a95f52bc3d233ab768a6ab6396d0c24`、対応表は `notes/lean_proof_sources.txt`。参照版を用いた通常の証明の改稿と、Leanの再ビルド・公理依存監査・TeX本文の形式検証を区別する。今回これらの形式検証は実施していない。退化スキーム、Bondal下界、モジュライの結論は参照版の幾何学的主定理の形式化範囲に含まれない。
 
 `prop:pg-triple-lifting-obstruction` は全連結成分正次元・滑らかの条件で任意のr≥2を扱い、持上げ次数は超曲面の次数dに固定する。Pymとの比較は取得済みarXiv v1の番号・頁に限定し、刊行版本文・訂正文・包括的初出は未確認と明記する。
 

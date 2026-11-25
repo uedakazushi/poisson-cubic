@@ -1,265 +1,175 @@
 % !TeX root = ../../../poisson-cubic.tex
 \section{Poisson構造の空間とモジュライスタック}
 \label{sec:pg-poisson-stacks}
-本節では「Poisson構造の空間」と、Poisson同型で割った
-「Poisson構造のモジュライスタック」を区別する。
-全て$\CC$上で議論し、$n\ge3$の滑らかな射影三次超曲面に限る。
-特にPoisson双ベクトルのスカラーは割らず、零構造も含める。
-代数的スタックの定義と商スタックの一般論については
-Stacks Project \cite{PStacks}を用いる。
 
-\subsection{固定したcubicのspaceとmoduli stack}
-\begin{definition}[space of Poisson structures]
-\label{def:pg-pois-space}
-滑らかな三次超曲面$X$に対し
-\begin{equation}
- \boxed{\quad
- \operatorname{Pois}(X)=
- Z\!\left([\pi,\pi]:
- H^0(X,\bigwedge\nolimits^2T_X)\longrightarrow
- H^0(X,\bigwedge\nolimits^3T_X)\right).
- \quad}
- \label{eq:pg-pois-space}
+全ての対象を$\mathbb C$上で考える。Poisson構造のスカラーは割らず、零構造も含める。
+まず超曲面を固定し、次に超曲面を動かす場合を扱う。
+
+\subsection{固定した3次超曲面}
+\begin{definition}\label{def:pg-pois-space}
+滑らかな3次超曲面$X$のPoissonスキームを、2次写像の零スキーム
+\begin{equation}\label{eq:pg-pois-space}
+ \operatorname{Pois}(X)=Z\left(
+ H^0(X,\bigwedge^2T_X)\longrightarrow H^0(X,\bigwedge^3T_X),
+ \quad\pi\longmapsto[\pi,\pi]\right)
 \end{equation}
-Schouten括弧は$\pi$について二次なので、
-この零スキームは有限次元ベクトル空間の閉アフィン部分スキームである。
-これを\emph{space of Poisson structures}と呼ぶ。
-被約化だけを取るのではなくJacobi方程式の
-スキーム構造を保つ。
+と定める。
 \end{definition}
 
-\begin{definition}[moduli stack of Poisson structures]
-\label{def:pg-fixed-pois-stack}
-$\operatorname{Aut}(X)$は抽象代数多様体としての$X$の
-代数的自己同型群スキームとする。
-この群は$\operatorname{Pois}(X)$へ
-$\phi\cdot\pi=\phi_*\pi$によって作用する。
-\begin{equation}
- \boxed{\quad
- \mathfrak{Pois}(X):=
- [\,\operatorname{Pois}(X)/\operatorname{Aut}(X)\,].
- \quad}
- \label{eq:pg-fixed-pois-stack}
+\begin{definition}\label{def:pg-fixed-pois-stack}
+$\operatorname{Aut}(X)$を$X$の自己同型群スキームとし、
+$\phi\cdot\pi=\phi_*\pi$によって$\operatorname{Pois}(X)$に作用させる。
+固定モジュライスタックを
+\begin{equation}\label{eq:pg-fixed-pois-stack}
+ \mathfrak{Pois}(X)=[\operatorname{Pois}(X)/\operatorname{Aut}(X)]
 \end{equation}
-これを\emph{moduli stack of Poisson structures}と呼ぶ。
-点$(X,\pi)$の自己同型群は
-\begin{equation}
- \operatorname{Aut}(X,\pi)=
- \{\phi\in\operatorname{Aut}(X):\phi_*\pi=\pi\}
- \label{eq:pg-poisson-aut}
+と定める。点$\pi$の安定化子は
+\begin{equation}\label{eq:pg-poisson-aut}
+ \operatorname{Aut}(X,\pi)
+ =\{\phi\in\operatorname{Aut}(X):\phi_*\pi=\pi\}
 \end{equation}
-というPoisson automorphism群である。
-群の作用で商を取る際に、
-\emph{各$\pi$で変わる}群$\operatorname{Aut}(X,\pi)$を
-単一の固定した作用群と取り違えない。
+である。
 \end{definition}
 
-\begin{proposition}[固定したcubicのmoduli stackの代数性]
-\label{prop:pg-fixed-stack-algebraic}
-$n\ge3$、$X\subset\PP^{n+1}$を滑らかな三次超曲面とする。
-$\operatorname{Aut}(X)$は有限エタール群スキームであり、
-$\mathfrak{Pois}(X)$は$\CC$上有限型の
-Deligne--Mumford代数的スタックである。
-その既約成分は
-$\operatorname{Aut}(X)$が
-$\operatorname{Irr}(\operatorname{Pois}(X))$に作用してできる
-軌道と一対一に対応する：
-\begin{equation}
- \boxed{\quad
+\begin{proposition}\label{prop:pg-fixed-stack-algebraic}
+$n\ge3$の滑らかな3次超曲面$X$について、
+$\operatorname{Aut}(X)$は有限エタールであり、
+$\mathfrak{Pois}(X)$は有限型Deligne--Mumfordスタックである。また
+\begin{equation}\label{eq:pg-fixed-stack-components}
  \operatorname{Irr}(\mathfrak{Pois}(X))
- \simeq
- \operatorname{Irr}(\operatorname{Pois}(X))/
- \operatorname{Aut}(X).
- \quad}
- \label{eq:pg-fixed-stack-components}
+ \simeq\operatorname{Irr}(\operatorname{Pois}(X))/\operatorname{Aut}(X).
 \end{equation}
 \end{proposition}
+
 \begin{proof}
-Grothendieck--LefschetzのPicard定理
-\cite{PGLefschetz}により
-$\operatorname{Pic}(X)=\ZZ[\OO_X(1)]$である。
-自己同型はample generator$\OO_X(1)$を保つ。
-$H^0(\PP^{n+1},\OO(1))\simeq H^0(X,\OO_X(1))$
-なので、全ての自己同型は射影線形変換に延長する。
-従って$\operatorname{Aut}(X)$は
-$\mathrm{PGL}(V)$内の$[F]$の閉安定化子として表され、
-有限型のアフィン群スキームである。
+自己同型群に関する主張はMatsumura--Monsky\cite{PMatsumuraMonsky}の定理の特例である。
+ここではgradientのsyzygyから証明する。
+Grothendieck--Lefschetzの定理\cite{PGLefschetz}より
+$\operatorname{Pic}(X)=\mathbb Z[\mathcal O_X(1)]$である。
+従って自己同型は$\mathcal O_X(1)$を保ち、
+$H^0(\mathbb P(V),\mathcal O(1))\simeq H^0(X,\mathcal O_X(1))$を通じて
+射影線形変換に延長する。
+ゆえに$\operatorname{Aut}(X)$は$\mathrm{PGL}(V)$内の$[F]$の閉安定化子である。
 
-この群のLie代数が零であることを直接示す。
-Euler列を$\OO(-3)$で捻り、
-線束の中間コホモロジー消滅を使うと
-$H^0(T_{\PP(V)}(-3))=H^1(T_{\PP(V)}(-3))=0$である。
-ゆえに
-$H^0(T_{\PP(V)})\simeq H^0(T_{\PP(V)}|_X)$。
-$X$に接する無限小射影変換は線形ベクトル場
-$\sum_i\ell_i(z)\partial_{z_i}$で、
-\begin{equation}
- \sum_i\ell_i(z)F_i=cF
- \label{eq:pg-stack-infinitesimal}
+そのLie代数を計算する。Euler列を$-3$で捻ると
+$H^0(T_{\mathbb P(V)}(-3))=H^1(T_{\mathbb P(V)}(-3))=0$なので、
+$H^0(T_{\mathbb P(V)})\simeq H^0(T_{\mathbb P(V)}|_X)$である。
+$X$に接する無限小射影変換は、1次式$\ell_i$と定数$c$により
+\begin{equation}\label{eq:pg-stack-infinitesimal}
+ \sum_i\ell_iF_i=cF
 \end{equation}
-を満たす。Euler等式$3F=\sum_i z_iF_i$により
-$\sum_i(\ell_i-cz_i/3)F_i=0$。
-滑らかさから$F_1,\ldots,F_N$は二次式の正則列であり、
-係数が一次式であるsyzygyは存在しない
-（補題\ref{lem:pg-gradient}）。
-従って$\ell_i=cz_i/3$であり、
-これは射影ベクトル場として零となる。
-すなわち$\operatorname{Lie}\operatorname{Aut}(X)=0$。
-標数零の有限型群スキームは滑らかなので、
-$\operatorname{Aut}(X)$は零次元の有限型アフィン群スキーム、
-従って有限エタールである。
-この有限性と自己同型の線形性は
-Matsumura--Monskyの既知の一般定理
-\cite{PMatsumuraMonsky}とも整合する。
-本稿ではJacobi空間との関係を明確にするため、
-上のgradient syzygyを使う独立の証明を与えた。
+と表される。Euler等式を引けば
+$\sum_i(\ell_i-cz_i/3)F_i=0$となる。
+補題\ref{lem:pg-gradient}による1次係数のsyzygyの消滅から
+$\ell_i=cz_i/3$であり、このベクトル場は射影化すると零になる。
+従って$\operatorname{Lie}\operatorname{Aut}(X)=0$である。
+標数0の有限型群スキームは滑らかなので、
+$\operatorname{Aut}(X)$は0次元のアフィン群スキーム、従って有限エタールである。
 
-$\operatorname{Pois}(X)$は有限型のアフィンスキーム、
-$\operatorname{Aut}(X)$は有限エタールなので、
-商群oidのsource/targetは有限エタールであり、
-Stacks Projectの商スタック代数性定理
-\cite[Theorem~97.17.2, Tag~06FI]{PStacks}により
-$\mathfrak{Pois}(X)$は代数的である。
-有限エタールな群oidはDeligne--Mumfordアトラスを与える。
-有限型性も従う。
-最後に、有限群の作用する有限型スキームの商スタックの
-既約成分は、元の既約成分の群軌道で記述される。
-これは有限エタール全射
-$\operatorname{Pois}(X)\to\mathfrak{Pois}(X)$の
-基礎位相空間と既約成分を比較すれば従う。
+有限型アフィンスキーム$\operatorname{Pois}(X)$の有限エタール群による商は
+有限型Deligne--Mumfordスタックである
+\cite[Theorem~97.17.2, Tag~06FI]{PStacks}。
+商へのアトラスは有限エタール全射であり、
+一つの成分の像の逆像はその群軌道に属する成分の和である。
+従って相異なる成分の像が一致するのは同じ群軌道に属するときに限り、
+\eqref{eq:pg-fixed-stack-components}を得る。
 \end{proof}
 
-\subsection{cubicとPoisson bivectorを同時に動かすスタック}
-$N=n+2$、$V=\CC^N$、
-$\mathbb P(\operatorname{Sym}^3V^*)$の
-滑らかな三次式の非空開集合を$U_N$とし、
-その上の普遍滑らかな超曲面族を$p:\mathscr X_N\to U_N$と書く。
-$L=\OO_{U_N}(-1)$を三次式のtautological lineとする。
-命題\ref{prop:pg-represent}を相対化すると
-\begin{equation}
- \mathscr E_N:=
- p_*\bigl(\bigwedge\nolimits^2T_{\mathscr X_N/U_N}\bigr)
- \simeq \bigwedge\nolimits^3V\otimes L.
- \label{eq:pg-relative-pois-bundle}
+\subsection{超曲面を動かす相対モジュライ}
+$N=n+2$、$V=\mathbb C^N$とし、
+$U_N\subset\mathbb P(\operatorname{Sym}^3V^*)$を滑らかな3次式の開集合とする。
+普遍超曲面を$p:\mathscr X_N\to U_N$、tautological lineを
+$L=\mathcal O_{U_N}(-1)$と書く。
+命題\ref{prop:pg-represent}の相対形は
+\begin{equation}\label{eq:pg-relative-pois-bundle}
+ \mathscr E_N:=p_*\bigwedge^2T_{\mathscr X_N/U_N}
+ \simeq\bigwedge^3V\otimes L
 \end{equation}
-すなわちファイバー$[F]\in U_N$上で
-$P\otimes F$が$\iota_{dF}P$に対応する。
-$F$を$aF$に替えたとき$P$を$a^{-1}P$に替えるため
-この同型は三次式の代表の選択に依存しない。
+である。$[F]$上では$P\otimes F$を$\iota_{dF}P$に送る。
+局所代表を$F$から$aF$へ替えると$P$は$a^{-1}P$へ替わるので、
+この対応は重なりで一致する。
 
-$\mathscr E_N$の全空間上で、相対Schouten括弧の
-二次式によって定まる閉スキームを
-\begin{equation}
+この表示とJacobi条件が非被約な基底への変更とも両立することを確認する。
+$U_N$のアフィン開集合上で$F$の代表を選ぶと、各次数のgradient Koszul複体は
+有限自由加群の複体となる。全ての幾何学的ファイバーで偏微分は2次正則列をなし、
+Jacobian環のHilbert級数は
+\begin{equation}\label{eq:pg-stack-gradient-hilbert}
+ \operatorname{Hilb}_{\mathbb C[z]/(F_1,\ldots,F_N)}(t)=(1+t)^N
+\end{equation}
+である。従って正のKoszulホモロジーは全ファイバーで零で、
+次数0のホモロジーの次元も一定である。
+各複体の右端から順に次元を数えると全微分の階数が一定となる。
+$U_N$は被約なので、微分を表す行列の所要の小行列式を可逆にした開集合では
+像と核が直和因子となる。よって各次数の複体は局所的に分裂し、
+任意の底変更後も完全性を保つ。
+射影空間のEuler列に用いる線束のコホモロジーも任意の底変更と両立する。
+従って命題\ref{prop:pg-represent}の表示、および
+命題\ref{prop:pg-jacobi-extension}のEuler・divergence・低次数Koszul完全性による
+Jacobi持上げは、任意の$U_N$-スキーム上で成立する。
+ここで$F$の各次数の乗法写像も全ファイバーで単射なので局所分裂し、
+任意の底変更後に単射である。
+従って$F$による約分は可能であり、
+式\eqref{eq:pg-euler-jacobi-divisibility}は
+$0\to\OO(1)\xrightarrow{F}\OO(4)\to\OO_X(4)\to0$
+の大域切断から得られる。
+後者で現れる非零整数による除法は$\mathbb C$上で可逆である。
+
+そこで、$\operatorname{Tot}(\mathscr E_N)$上の相対Jacobi零スキームを
+\begin{equation}\label{eq:pg-relative-pois-space}
  \mathscr P_n=
- \{([F],\pi):[F]\in U_N,\ 
- \pi\in H^0(X_F,\bigwedge\nolimits^2T_{X_F}),\
- [\pi,\pi]=0\}_{\mathrm{scheme}}
- \subset \operatorname{Tot}(\mathscr E_N)
- \label{eq:pg-relative-pois-space}
+ \{([F],\pi):[\pi,\pi]=0\}
+ \subset\operatorname{Tot}(\mathscr E_N)
 \end{equation}
-と定義する。局所的に$F$を選べば
-$\pi=\iota_{dF}P$であり、Jacobi条件は
-$[\iota_{dF}P,\iota_{dF}P]=0$という
-$P$の二次斉次方程式で与えられる。
-スキーム構造の底変更について説明する。
-$U_N$の各アフィン座標チャートで三次式の普遍代表$F$を選ぶ。
-滑らかさから各幾何学的ファイバーで偏微分$F_1,\ldots,F_N$は
-正則列で、Jacobian環のHilbert級数は
-\begin{equation}
- \operatorname{Hilb}_{\CC[z]/(F_1,\ldots,F_N)}(t)
- =(1+t)^N
- \label{eq:pg-stack-gradient-hilbert}
-\end{equation}
-と一定である。
-従って各斉次次数の相対Koszul複体は有限自由
-$\OO_{U_N}$-加群の複体で、正のホモロジーは全ファイバーで零、
-次数零のホモロジーの次元は一定である。
-$U_N$は被約であり、各微分の階数は一定なので、
-この複体は局所自由なJacobian環の次数部分の分解として局所的に分裂する。
-従って任意の底変更後もこの完全性を保つ。
-命題\ref{prop:pg-represent}の次数別Koszul表示と、
-命題\ref{prop:pg-jacobi-extension}のdivergence・Eulerによる
-Jacobi延長の証明は、この分裂完全な複体と
-標数零の単元$N-3$の除法だけを用いる。
-従って任意の底変更後も、
-相対Jacobi条件がアフィン錐上の
-$[\iota_{dF}P,\iota_{dF}P]=0$と同値になる。
-これは$\operatorname{Pois}(X)$の自然な非被約scheme構造を
-各ファイバーで与え、局所三次代表を換えたときも
-方程式の零スキームは貼り合わさる。
-従って$\mathscr P_n$は$U_N$上有限型の閉スキームである。
+と定める。局所代表$F$を選べば、これは
+$[\iota_{dF}P,\iota_{dF}P]=0$の多項式係数によって定まり、
+$P$について2次の有限個の方程式である。
+上の底変更の議論により、各ファイバーは非被約構造も含めて
+$\operatorname{Pois}(X_F)$と一致する。
+代表の変更で括弧は変わらないため、これらの閉スキームは貼り合わさる。
 
-\begin{definition}[relative moduli stack of Poisson structures]
-\label{def:pg-relative-pois-stack}
-$\mathrm{PGL}(V)$は$(X_F,\pi)$に射影座標変換として作用する。
-定数スカラー行列は
-$\bigwedge^3 V\otimes L$上で互いに逆の重みを持って相殺するので、
-作用は$\mathrm{GL}(V)$から$\mathrm{PGL}(V)$へ降りる。
-\begin{equation}
- \boxed{\quad
- \mathfrak{Pois}^{\mathrm{rel}}_n:=
- [\,\mathscr P_n/\mathrm{PGL}(V)\,].
- \quad}
- \label{eq:pg-relative-pois-stack}
+\begin{definition}\label{def:pg-relative-pois-stack}
+相対モジュライスタックを
+\begin{equation}\label{eq:pg-relative-pois-stack}
+ \mathfrak{Pois}^{\mathrm{rel}}_n
+ =[\mathscr P_n/\mathrm{PGL}(V)]
 \end{equation}
-これを\emph{relative moduli stack of Poisson structures}と呼ぶ。
-その対象は、滑らかな$n$次元cubic hypersurface $X$と
-正則Poisson bivector $\pi$の組$(X,\pi)$であり、
-射はPoisson構造を保つ多様体同型である。
-零Poisson構造も含める。
+と定める。ここで$\mathrm{GL}(V)$のスカラー行列は
+$\bigwedge^3V$と$L$に逆の重みで作用するため、作用は
+$\mathrm{PGL}(V)$へ降りる。
+このスタックは滑らかな3次超曲面とPoisson構造の組を、
+Poisson構造を保つ同型で分類する。
 \end{definition}
 
-\begin{theorem}[relative moduli stackの代数性]
-\label{thm:pg-relative-stack-algebraic}
-$\mathfrak{Pois}^{\mathrm{rel}}_n$は$\CC$上有限型の
-Deligne--Mumford代数的スタックである。
-忘却射
-\begin{equation}
- \mathfrak{Pois}^{\mathrm{rel}}_n
- \longrightarrow
- \mathfrak{Cub}_n:=[U_N/\mathrm{PGL}(V)],
- \qquad (X,\pi)\longmapsto X
- \label{eq:pg-relative-forget}
+\begin{theorem}\label{thm:pg-relative-stack-algebraic}
+$\mathfrak{Pois}^{\mathrm{rel}}_n$は有限型Deligne--Mumfordスタックであり、忘却射
+\begin{equation}\label{eq:pg-relative-forget}
+ \mathfrak{Pois}^{\mathrm{rel}}_n\longrightarrow
+ \mathfrak{Cub}_n:=[U_N/\mathrm{PGL}(V)]
 \end{equation}
-は代数的スタックの射である。
-与えた$X$の同型類上の残余gerbeにわたる
-非枠付きPoissonファイバーは
-$\mathfrak{Pois}(X)$である。
-一方、$X$への同型（枠付け）まで選んだ
-二ファイバーは$\operatorname{Pois}(X)$であって、
-この二種類のファイバーを混同してはならない。
+は有限型アフィン射である。
+$X$を指定した点$\operatorname{Spec}\mathbb C\to\mathfrak{Cub}_n$に沿う
+二ファイバーは$\operatorname{Pois}(X)$であり、
+その同型類の残余gerbeに沿うファイバーは$\mathfrak{Pois}(X)$である。
 \end{theorem}
+
 \begin{proof}
-$U_N$は有限型準射影スキームで、
-$\mathscr P_n$は有限型の閉スキームである。
-$\mathrm{PGL}(V)$は滑らかな有限型代数群であり、
-作用群oidのsource/targetは
-$\mathrm{PGL}(V)$によるbase changeで、
-滑らかかつ有限表示である。
-従って商スタック代数性定理
-\cite[Theorem~97.17.2, Tag~06FI]{PStacks}
-により$\mathfrak{Pois}^{\mathrm{rel}}_n$は代数的で有限型である。
-その幾何学的点$(X,\pi)$の安定化子は
-$\operatorname{Aut}(X,\pi)\subset\operatorname{Aut}(X)$だから、
-命題\ref{prop:pg-fixed-stack-algebraic}により有限エタール。
-従って相対商スタックの対角はunramifiedであり、
-この有限型代数的スタックはDeligne--Mumfordである。
-忘却射はequivariantな有限型アフィン射
-$\mathscr P_n\to U_N$から誘導される。
-ここで閉埋込みは$\mathscr P_n\hookrightarrow\operatorname{Tot}(\mathscr E_N)$であり、
-$U_N$への射はこれとベクトル束の射影との合成である。
-ファイバーの二つの解釈は商スタックのtorsorによる
-記述から従う。
+$\mathscr P_n$は有限型スキーム、$\mathrm{PGL}(V)$は滑らかな有限型代数群なので、
+商は有限型代数的スタックである
+\cite[Theorem~97.17.2, Tag~06FI]{PStacks}。
+幾何学的点$(X,\pi)$の安定化子は有限エタール群
+$\operatorname{Aut}(X)$の閉部分群であり、標数0なので有限エタールである。
+従って対角は不分岐で、商はDeligne--Mumfordである。
+忘却射をアトラス$U_N\to\mathfrak{Cub}_n$で底変更すると
+$\mathscr P_n\to U_N$を得る。
+この射はベクトル束の閉部分スキームの射影であるから有限型アフィンであり、
+同じ性質が忘却射へ降下する。
+二つのファイバーの記述は、前者では$X$への同型を選び、
+後者ではその選択を$\operatorname{Aut}(X)$で割ることによる。
 \end{proof}
 
-\begin{remark}[成分数と商の取り方]
-\label{rem:pg-stack-component-warning}
-$\operatorname{Aut}(X)$は一般に有限だが\emph{非連結}なので、
-固定$X$の商では異なる既約成分が同一視され得る。
-一方$\mathrm{PGL}(V)$は連結であり、
-$\mathscr P_n$の既約成分を入れ替えない。
-従って
-$\mathfrak{Pois}^{\mathrm{rel}}_n$の既約成分と
-$\mathscr P_n$の既約成分は一対一に対応する。
-以下のFermat計数はこの違いを明確にする。
+\begin{remark}\label{rem:pg-stack-component-warning}
+連結群$\mathrm{PGL}(V)$は$\mathscr P_n$の各既約成分を保つので、
+$\mathfrak{Pois}^{\mathrm{rel}}_n$と$\mathscr P_n$の既約成分は一対一に対応する。
+固定した$X$の有限群$\operatorname{Aut}(X)$による商では、
+式\eqref{eq:pg-fixed-stack-components}のように成分が同一視され得る。
 \end{remark}

@@ -1,11 +1,15 @@
 # 三次超曲面のPoisson幾何：現行研究ノート
 
-2026-11-21 / v97。最初に [研究方針](../00_research_plan.md) を読む。
+2026-11-25 / v98。最初に [研究方針](../00_research_plan.md) を読む。
 
 ## 正規形・退化幾何・モジュライ
 
 [主原稿](../papers/poisson-cubic.tex) は全次元Poisson正規形、Bondal下界、固定・相対成分と退化幾何の証明を保持する。
 仮定と先行研究の確認範囲は [主張・文献の監査](poisson_article_submission_audit.md)、Bondal・三次四様体は [幾何ノート](bondal_cubic.md)、成分の区別は [相対成分ノート](fermat_relative_poisson_components.md) に整理する。
+
+正規形の改稿では、Euler列とgradientのKoszul複体から定数3重ベクトル表示を得て、Jacobiator Jに対するE∧J=FQとdivergenceの恒等式からNJ=3J、従ってJ=0を導く。Hessian条件からは三重ベクトルの支持W上で非退化形式を選んでLie代数を構成し、根基の可換イデアル内のsl₂加群と最高根のベクトルを用いてWをsl₂因子に分解する。Derdzinski–Galの核計算は比較結果であり、必要な排除とブロック復元は本文で証明する。
+
+参照した [nc-cubic-lean のcommit](https://github.com/uedakazushi/nc-cubic-lean/tree/9736787f3a95f52bc3d233ab768a6ab6396d0c24) と本文との対応は [lean_proof_sources.txt](lean_proof_sources.txt) にある。今回Leanは再ビルドしておらず、改稿したTeX本文も形式検証していない。一般階数・退化・Bondal下界・モジュライは参照版の幾何学的主定理の形式化された結論に含まれない。
 
 三次四様体のrank4 Poissonは(3,3)分離型およびambient Hessian階数≤3軌跡内の平面で判定できる。後二者の同値はBricalli–Favale–Pirolaの既知定理である。Hessianの可約性だけでは不十分である。非連結な滑らかな中心に沿う任意r>=2の同次数持上げ障害では、全連結成分が正次元である条件を保つ。Pymとの不整合は確認したarXiv v1の範囲に限定し、刊行版本文・訂正文は未照合である。
 

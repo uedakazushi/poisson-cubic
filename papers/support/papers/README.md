@@ -1,6 +1,6 @@
 # poisson-cubic の主原稿と分割入力
 
-2026-11-21 / v97。主論文は [papers/poisson-cubic.tex](../../poisson-cubic.tex) 一本。ここにある `common.tex`、`sections/` と `references_poisson_cubic.tex` を再帰的に読み込む。
+2026-11-25 / v98。主論文は [papers/poisson-cubic.tex](../../poisson-cubic.tex) 一本。ここにある `common.tex`、`sections/` と `references_poisson_cubic.tex`、および表紙日時・ファイル名の `papers/build-metadata.tex` を再帰的に読み込む。
 
 ルートで `latexmk papers/poisson-cubic.tex` または `python3 scripts/build.py --only poisson-cubic` を実行する。LuaLaTeX・LuaTeX-jaとSyncTeXを使い、生成PDF・中間物はGitで追跡せず `build/` に置く。
 

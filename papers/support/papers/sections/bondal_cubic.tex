@@ -1,115 +1,63 @@
 % !TeX root = ../../../poisson-cubic.tex
-% 2026-11-11 / Bondal's conjecture for smooth cubic hypersurfaces
 \section{Poisson正規形から従うBondal予想}
 \label{sec:pg-bondal}
 
-Bondal予想はFano多様体の退化軌跡
+Poisson構造$\pi$の退化スキームを
 \begin{equation}
- D_{2j}(\pi)=\{p:\operatorname{rank}(\pi_p)\le2j\}
- =V(\pi^{j+1})
+ D_{2j}(\pi)=V(\pi^{j+1})
 \end{equation}
-が、$0\le 2j<\dim X$ の各$j$に対して次元$2j+1$以上の
-既約成分を持つと主張する
+と書く。Bondal予想は、Fano多様体上では$0\le2j<\dim X$の各$j$について、
+このスキームが次元$2j+1$以上の既約成分を持つと主張する
 \cite[Conjecture~1.1]{BondalGualtieriPym}。
-ここでは$\S\ref{sec:pg-normal}$の正規形から、cubicに対して
-全ての退化階数を一度に扱う。高次元の一般のFano多様体に対する主張ではない。
 
-\begin{theorem}[滑らかなcubicに対するBondal予想]
+\begin{theorem}[滑らかな3次超曲面に対するBondal予想]
 \label{thm:pg-bondal}
-$X=V(F)\subset\mathbb P^{n+1}_{\mathbb C}$を$n\ge3$の滑らかな三次超曲面、
-$\pi$を任意の正則Poisson構造とする。このとき$0\le 2j<n$の各$j$について
+$X\subset\mathbb P^{n+1}_{\mathbb C}$を$n\ge3$の滑らかな3次超曲面、
+$\pi$をそのPoisson構造とする。$0\le2j<n$ならば
 \begin{equation}
- \boxed{\quad \dim D_{2j}(\pi)\ge 2j+1.\quad}
+ \dim D_{2j}(\pi)\ge2j+1.
 \end{equation}
-より強く、$\pi\ne0$の一般階数を$2k$とすると、任意の$0\le j<k$に対して
-次元がちょうど$2j+1$の既約なjoin部分多様体
-$J_{j+1}\subset D_{2j}(\pi)$を構成できる。
-従って$D_{2j}(\pi)$は次元$2j+1$以上の既約成分を持つ。
+さらに、$\pi\ne0$の一般階数を$2k$とすると、$0\le j<k$の各$j$について、
+$D_{2j}(\pi)$は次元$2j+1$の既約なjoin部分多様体を含む。
 \end{theorem}
 
 \begin{proof}
-$\pi=0$なら$D_{2j}(\pi)=X$なので結論する。
-非零の場合、定理\ref{thm:pg-normal}を使い、
-$N=n+2=3k+m$、$V=\bigoplus_{s=1}^kW_s\oplus U$、
-$\dim W_s=3$とし、
-\begin{equation}
- F=\sum_{s=1}^kf_s(x_s,u),\qquad
- q=\sum_{s=1}^k
- \iota_{dF}
- (\partial_{x_{s1}}\wedge\partial_{x_{s2}}
-  \wedge\partial_{x_{s3}})
-\end{equation}
-を取る。一般階数は$2k$である。
-$j\ge k$なら$D_{2j}(\pi)=X$、また$2j<n$から
-$\dim X=n\ge2j+1$なのでよい。
-
-$0\le j<k$とし、$r=j+1$個の相異なるブロックを選ぶ。
-その各々で$g_s(x_s):=f_s(x_s,0)$とする。
-$\mathbb P(W_s)\cong\mathbb P^2$の零軌跡$V(g_s)$は、
-$g_s\ne0$なら少なくとも一つの既約な射影曲線$C_s$を含む。
-$g_s=0$の場合も任意の直線$C_s\subset\mathbb P(W_s)$を選べる。
-従って両場合に
-\begin{equation}
- C_s\subset V(g_s)\subset\mathbb P(W_s),\qquad
- \dim C_s=1
-\end{equation}
-となる既約曲線を選べる。
-それらの射影joinを
+$\pi=0$、または$j\ge k$なら$D_{2j}(\pi)=X$なのでよい。
+以下、定理\ref{thm:pg-normal}の正規形を用い、$0\le j<k$とする。
+$r=j+1$個のブロックを選び、添字を$1,\ldots,r$とする。
+$g_s(x_s)=f_s(x_s,0)$が非零なら、$V(g_s)\subset\mathbb P(W_s)$の
+既約曲線成分$C_s$を選ぶ。$g_s=0$なら$C_s$を任意の直線とする。
+独立な座標空間にあるこれらの曲線のjoin
 \begin{equation}
  J_r=\operatorname{Join}(C_1,\ldots,C_r)
-       \subset\mathbb P\Bigl(\bigoplus_{s=1}^r W_s\Bigr)
-       \subset\mathbb P(V)
+ \subset\mathbb P(W_1\oplus\cdots\oplus W_r)
 \end{equation}
-と定める。
-各$C_s$のアフィン錐は既約で次元2、また座標空間$W_s$は直和をなす。
-従って錐の直積から得る$J_r$は既約かつ
-\begin{equation}
- \dim J_r=\sum_{s=1}^r(\dim C_s+1)-1=2r-1=2j+1.
-\end{equation}
-$J_r$の点では、選んだブロック上で各$g_s=0$、
-他のブロックおよび$u$は零なので$F=0$である。
-よって$J_r\subset X$。
+を考える。そのアフィン錐は$C_s$の錐の直積であるから、$J_r$は既約で
+$\dim J_r=2r-1=2j+1$である。
+その上では$u=0$、選ばなかったブロックの座標は零、各$g_s$も零である。
+従って$F=\sum_sf_s=0$であり、$J_r\subset X$となる。
 
-次にランクを評価する。アフィン錐の任意の非零代表
-$z=(x_1,\ldots,x_r,0,\ldots,0;u=0)$を取ると、
-$q(z)$は選んだ$r$ブロックのJacobian bivector $q_s$の和で、
-各$q_s$の階数は0または2である。
-いずれかの$q_s(z)$が零なら
-$\operatorname{rank}q(z)\le2r-2$であり、
-射影化と$X$への制限でrankは増えないから
-$\operatorname{rank}\pi_{[z]}\le2r-2$である。
-
-残りの場合、選んだ各ブロックで$q_s(z)$は階数2であり、
-その像は$\ker dg_s(x_s)\subset W_s$である。
-$g_s(x_s)=0$と三次Euler等式から
-$dg_s(x_s)(x_s)=3g_s(x_s)=0$となるので、
-各ブロックのEulerベクトル$E_s=x_s$は$q_s(z)$の像に入る。
-従って$E(z)=\sum_{s=1}^r E_s$は$q(z)$の像に入る。
-$q(z)$は$F$をCasimirに持ち、接空間$T_z(F=0)$上の双ベクトルである。
-射影接空間$T_{[z]}X=T_z(F=0)/\mathbb CE(z)$への射影により、
-像の中の非零一次元$\mathbb CE(z)$を割る。
-補題\ref{lem:pg-projective-rank}により双ベクトルの階数は2減少する。
-よって再び
+非零の錐上の点$z=(x_1,\ldots,x_r,0,\ldots,0;0)$で階数を調べる。
+この点では$q=\sum_{s=1}^rq_s$で、各$q_s$の階数は$0$または$2$である。
+いずれかが零なら$\operatorname{rank}q(z)\le2r-2$である。
+全てが階数$2$なら
 \begin{equation}
- \operatorname{rank}\pi_{[z]}\le2r-2=2j.
+ \operatorname{im}q_s(z)^\sharp=\ker dg_s(x_s),
+ \qquad dg_s(x_s)(x_s)=3g_s(x_s)=0.
 \end{equation}
-以上から$J_r\subset D_{2j}(\pi)$を得る。
-$D_{2j}(\pi)$はNoether閉集合なので、既約な$J_r$はある既約成分に含まれ、
-その次元は少なくとも$2j+1$である。
+従ってEulerベクトル$E(z)=\sum_sx_s$は$q(z)^\sharp$の像に属する。
+$F$はCasimirなので$q(z)\in\bigwedge^2T_zV(F)$であり、
+$T_zV(F)/\mathbb CE(z)=T_{[z]}X$へ移ると、
+補題\ref{lem:pg-projective-rank}により階数は$2$下がる。
+いずれの場合も$\operatorname{rank}\pi_{[z]}\le2r-2=2j$となり、
+$J_r\subset D_{2j}(\pi)$を得る。
+$J_r$を含む既約成分の次元は少なくとも$2j+1$である。
 \end{proof}
 
-\begin{remark}[証明の適用範囲と既存の退化スキーム計算]
-\label{rem:pg-bondal-scope}
-本定理は退化軌跡の\emph{台}の次元下界であって、
-各$D_{2j}$のscheme構造の被約性・primary分解を与えるものではない。
-そのような詳細は\S\ref{sec:pg-degeneracy}の退化スキームの記述と区別する。
-$C_s$が滑らかな平面三次曲線なら$J_r$はその曲線のjoinである。
-$g_s=0$や特異な場合にも上の次元証明は成立する。
-Fano四次元までの結論は既知であり\cite[Theorem~7.13]{BondalGualtieriPym}、
-Fano五次元についても一般定理\cite[Corollary~1.3]{BondalDruelPereiraPymTouzet}がある。
-六次元以上のcubicにおける結論の先行研究網羅調査は未完了であり、
-今回の証明の新規性は未確認である。
-本証明の入力は正規形定理\ref{thm:pg-normal}と
-補題\ref{lem:pg-projective-rank}であり、
-平面三次制限の滑らかさを仮定する退化スキームの詳細記述は用いていない。
+\begin{remark}\label{rem:pg-bondal-scope}
+この証明は3変数制限の滑らかさを用いない。
+滑らかな場合には$C_s$を平面3次曲線そのものに取れる。
+退化スキームのイデアルは命題\ref{prop:pg-deg-ideal}で与えられる。
+Fano4次元の場合は\cite[Theorem~7.13]{BondalGualtieriPym}、
+5次元の場合は\cite[Corollary~1.3]{BondalDruelPereiraPymTouzet}にも含まれる。
 \end{remark}

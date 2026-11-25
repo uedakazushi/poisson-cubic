@@ -1,5 +1,5 @@
 % !TeX root = ../../../poisson-cubic.tex
-\section{固定した滑らかなcubicの非楕円型Poisson成分}\label{ne:examples}
+\section{固定した滑らかな3次超曲面の非楕円型Poisson成分}\label{ne:examples}
 座標$(x,y,z,a,b,c,u)$に対応するベクトル基底を$(e_0,\ldots,e_6)$とする。
 \begin{equation}\label{ne:F}
 \begin{aligned}
@@ -13,20 +13,19 @@ $P_1=e_0\wedge e_1\wedge e_2$、$P_2=e_3\wedge e_4\wedge e_5$、
 $L=\CC P_1\oplus\CC P_2$とおく。
 
 \begin{theorem}[非楕円型を一般点に持つ既約成分]\label{ne:main}
-$X_{\mathrm N}$、$X_{\mathrm C}$は滑らかな三次五次元多様体である。
+$X_{\mathrm N}$、$X_{\mathrm C}$は滑らかな3次5次元多様体である。
 $P\mapsto\pi_P=(\iota_{dF_\epsilon}P)|_{X_\epsilon}$の下で
 $L\simeq\mathbb A^2$は$\operatorname{Pois}(X_\epsilon)$の一つの既約成分の被約構造であり、
 $P_0=P_1+P_2$でPoissonスキームそのものは滑らかである。
 各成分の一般Poisson階数は四である。
 
-$\lambda\mu\ne0$の点$\lambda P_1+\mu P_2$の三変数ブロック分解は順序を除き内在的である。
-一方のブロックの平面三次曲線は、$X_{\mathrm N}$では節点型、$X_{\mathrm C}$では尖点型であり、
-他方は滑らかなFermat三次曲線である。
+$\lambda\mu\ne0$の点$\lambda P_1+\mu P_2$の3変数ブロック分解は順序を除き内在的である。
+一方のブロックの平面3次曲線は、$X_{\mathrm N}$では節点型、$X_{\mathrm C}$では尖点型であり、
+他方は滑らかなFermat3次曲線である。
 特異なブロックを座標変換で滑らかな楕円ブロックへ取り替えることはできない。
 \end{theorem}
-一般点での被約性も主張に含むが、軸$\lambda\mu=0$や原点での他成分との交わりは別問題である。
 
-\subsection{全体のcubicの滑らかさ}
+\subsection{全体の3次超曲面の滑らかさ}
 \begin{lemma}\label{ne:smooth}
 \eqref{ne:F}の全偏微分の共通零点は原点だけである。
 \end{lemma}
@@ -52,7 +51,7 @@ $F_u=3+4r/9\ne0$となる。
 
 \subsection{全Poisson方程式の接空間}
 命題\ref{prop:pg-represent}により全双ベクトル空間は$\Lambda^3\CC^7$、次元35である。
-Jacobi延長とgradientの一次syzygy消滅の議論は固定した$F_\epsilon$に対する線形な単射・完全列を使うので、
+Jacobi延長とgradientの1次syzygy消滅の議論は固定した$F_\epsilon$に対する線形な単射・完全列を使うので、
 双対数環へのテンソル後にも成立し、以下は全Poissonスキームの接空間を与える。
 $Q=\sum_{i<j<k}q_{ijk}e_i\wedge e_j\wedge e_k$とする。
 Jacobi条件を$P_0$で線形化した整数行列$M_\epsilon$は
@@ -77,7 +76,7 @@ Jacobi条件を$P_0$で線形化した整数行列$M_\epsilon$は
 \end{equation}
 \end{lemma}
 \begin{proof}
-$\lambda P_1+\mu P_2$は、中心変数$u$を共有する二つの三変数Jacobian括弧を与える。
+$\lambda P_1+\mu P_2$は、中心変数$u$を共有する二つの3変数Jacobian括弧を与える。
 ブロック間の括弧は零で、各ブロックの係数は他方の変数に依存しない。
 よってJacobi恒等式が成り立ち、$(012)$、$(345)$の二列は零。階数は高々33である。
 
@@ -86,58 +85,32 @@ $\lambda P_1+\mu P_2$は、中心変数$u$を共有する二つの三変数Jacob
 上の二つの非零値を得る。JSONには選択行・列だけでなく小行列の全成分を記録し、
 コードはそれらを式\eqref{ne:M}から再生成して照合する。
 従って階数は33である。
-これは有限体での標本検査でなく、具体的な$F_\epsilon$の全接方程式に対する
-有理数体上の厳密計算を証明書とした論証である。
-さらに同コードに\texttt{--direct}を付けると、Hessian表示を介さず
-$[\pi,d\pi]$の三次係数を直接生成する。
-三重指数35個と三次単項式84個による全2940係数の行列についても、
-零行を省略して有理数体上の階数33を確認できる。
+計算は整数上で行い、指定された小行列の再生成と行列式の非消滅が
+階数の下界を与える。再実行方法は付属ソースのREADMEに記す。
 \end{proof}
 
 \begin{proof}[定理\ref{ne:main}の成分性と階数]
-$L$は二次元の閉既約部分スキームであり、その全点がPoissonである。
-$P_0$での接空間は二次元なので、Poissonスキームの局所環はKrull次元二、
-埋込み次元二の正則局所環となる。
+$L$は2次元の閉既約部分スキームであり、その全点がPoissonである。
+$P_0$での接空間は2次元なので、Poissonスキームの局所環はKrull次元2、
+埋込み次元2の正則局所環となる。
 これは$\CC$上有限型なので、$P_0$での滑らかさを意味する。
 同じ次元を持つ閉部分$L$はその唯一の局所既約成分であり、局所的にスキームとして一致する。
 従って$L$は大域的な既約成分で、一般点で被約である。
 
 点$[0:1:0:-1:0:0:0]$は両$X_\epsilon$に属する。
 $\lambda\mu\ne0$のとき、そこでアフィン双ベクトルの像は
-$\langle e_0,e_2,e_4,e_5\rangle$で階数四。
-Eulerベクトル$e_1-e_3$はその像に含まれないため、射影化しても階数四である。
-ブロックの内在性は次に示す。
+$\langle e_0,e_2,e_4,e_5\rangle$で階数4。
+Eulerベクトル$e_1-e_3$はその像に含まれないため、射影化しても階数4である。
+ブロックの内在性には補題\ref{ne:blocks}を用いる。
 \end{proof}
 
-\subsection{ブロックの内在性}
-Cartan三形式からの単純因子の復元は
-Derdzinski--Gal\cite[Lemma~7.1(a)]{PDerdzinskiGal}でも述べられている。
-以下では三次元ブロックの和に対し、縮約の階数による独立な証明を与える。
-\begin{lemma}[縮約二形式による復元]\label{ne:blocks}
-$W=\bigoplus_{s=1}^k W_s$、$\dim W_s=3$、
-$P=\sum_s P_s$、$0\ne P_s\in\Lambda^3 W_s$とする。
-$W^*$内のスキーム
-\begin{equation}
- D_P=\{\alpha:(\iota_\alpha P)\wedge(\iota_\alpha P)=0\}
-\end{equation}
-は$k$個の三次元線形部分空間$W_s^*$の被約な和である。
-従って$P$は順序を除き$\{W_1,\ldots,W_k\}$を決定する。
-\end{lemma}
-\begin{proof}
-$\alpha=(\alpha_s)$とし、$\beta_s=\iota_{\alpha_s}P_s$と書く。
-三次元なので$\beta_s^2=0$、異なる$s,t$の$\beta_s\wedge\beta_t$は
-互いに独立な$\Lambda^2W_s\otimes\Lambda^2W_t$成分に属する。
-$W_s^*\to\Lambda^2W_s$は同型なので、$D_P$のイデアルは異なるブロックの座標の積全てで生成される。
-これは各座標部分空間のイデアルの交叉、従って根基的である。
-その既約成分を復元すれば、他成分の和の零化空間として各$W_s$も復元できる。
-\end{proof}
 \begin{proof}[定理\ref{ne:main}の残り]
-$\lambda\mu\ne0$ではsupportは$\langle e_0,e_1,e_2\rangle\oplus\langle e_3,e_4,e_5\rangle$。
-補題\ref{ne:blocks}により二ブロックは一意である。
+$\lambda\mu\ne0$では支持は$\langle e_0,e_1,e_2\rangle\oplus\langle e_3,e_4,e_5\rangle$。
+補題\ref{ne:blocks}により2ブロックは一意である。
 $F_\epsilon$の対応する射影平面への制限は$f_\epsilon$および$a^3+b^3+c^3$である。
 $f_{\mathrm N}$は$[1:0:0]$近傍で$yz+y^3+z^3$となり節点、
 $f_{\mathrm C}$は$z^2+y^3$となり尖点を持つ。
-各式は$x$について一次で、その係数と定数項が互いに素なので既約である。
+各式は$x$について1次で、その係数と定数項が互いに素なので既約である。
 この特異性は内在的ブロックへの制限であり、座標の選択では除去できない。
 \end{proof}
 
@@ -147,15 +120,12 @@ $f_{\mathrm C}$は$z^2+y^3$となり尖点を持つ。
 従って、各ブロックの楕円性を必要条件とする方法ではこれらの成分を扱えない。
 これらのブロックの量子化と行列式曲線は\cite{CubicQuantization}で扱う。
 
-特異曲線の一般化Jacobianにも注意が必要である。
-節点三次曲線では$\Pic^0\simeq\mathbb G_m$、尖点型では$\Pic^0\simeq\mathbb G_a$。
-前者は正規化$\PP^1$上の二点のfiberを非零スカラーで接着することで、
-後者は$\CC[[t^2,t^3]]\subset\CC[[t]]$の単元商の一次係数$t$により得られる。
-従って、滑らかな楕円Picardに対して得た有理写像の障害を、これらにそのまま適用してはならない。
-一般化Jacobianの導入だけで圏比較が成立するとも主張しない。
+これらの曲線の一般化Jacobianは次のようになる。
+節点3次曲線では$\Pic^0\simeq\mathbb G_m$、尖点型では$\Pic^0\simeq\mathbb G_a$。
+前者は正規化$\PP^1$上の二点のファイバーを非零スカラーで接着することで、
+後者は$\CC[[t^2,t^3]]\subset\CC[[t]]$の単元商の1次係数$t$により得られる。
 
-\begin{remark}[固定底と動く底]
-本定理の成分は固定した$X_\epsilon$の$\operatorname{Pois}(X_\epsilon)$の成分である。
-cubic自体も動かす相対Poissonスキームでは、同じ点がより大きな成分の特殊点となる可能性がある。
-固定cubic上の全成分と、全cubicを動かす相対成分のgeneric性は区別する。
-\end{remark}
+定理\ref{thm:pg-fermat-relative-count}により、$\lambda\mu\ne0$の点は
+一般階数4の唯一の相対成分上にある。
+その階数層では、ブロック制限の滑らかさはFermat式を含む非空開条件である。
+従って本節の固定底の成分は、相対成分内の特異ブロックをもつ部分に位置する。

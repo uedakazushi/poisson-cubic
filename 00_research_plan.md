@@ -1,10 +1,10 @@
 # 研究方針：三次超曲面のPoisson幾何
 
-2026-11-21 / v97。再開時は本ファイルを最初に読む。GitHub mainが正本。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
+2026-11-25 / v98。再開時は本ファイルを最初に読む。GitHub mainが正本。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
 
 ## 現在の目標と三論文の分担
 
-主公表原稿は `papers/poisson-cubic.tex`（A-v62、日本語LuaLaTeX）。全次元Poisson正規形を中心に、退化軌跡・Bondal下界・固定および相対Poissonモジュライを扱う。達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、既知の入力と貢献が具体的に説明され、本文を再生成できることである。
+主公表原稿は `papers/poisson-cubic.tex`（A-v63、日本語LuaLaTeX）。全次元Poisson正規形を中心に、退化軌跡・Bondal下界・固定および相対Poissonモジュライを扱う。達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、既知の入力と貢献が具体的に説明され、本文を再生成できることである。
 
 量子化の構成と非可換幾何の比較では対象範囲・仮定が異なるため、公表単位を次の三つに分ける。有効な結果を削らず、各証明と再現資産の正本を一か所に置く。
 
@@ -18,7 +18,9 @@
 
 ## 主要到達点・仮定・証明の所在
 
-基礎体はC、X=V(F)⊂P(V)は滑らかな三次超曲面、N=dim V=n+2≥5とする。非零Poisson構造はN=3k+m、V=⊕W_s⊕U、dim W_s=3という分解を持つ複数Jacobianブロック正規形に入る。`poisson_geometry.tex` のEuler–Koszul表示、Jacobi条件のHessian線形化、`lem:pg-basepoint-free-lie` の根基排除から `thm:pg-normal` を証明する。Bondalのdivergence-free持上げとDerdzinski–Gal Theorem Bの半単純Lie代数上の核計算は既知入力であり、Hessian基点自由性からの根基排除と区別する。
+基礎体はC、X=V(F)⊂P(V)は滑らかな三次超曲面、N=dim V=n+2≥5とする。非零Poisson構造はN=3k+m、V=⊕W_s⊕U、dim W_s=3という分解を持つ複数Jacobianブロック正規形に入る。`poisson_geometry.tex` のEuler–Koszul表示、Jacobi恒等式の錐への持上げ、Hessian線形化、`lem:pg-basepoint-free-lie` から `thm:pg-normal` を証明する。非退化形式は三重ベクトルの支持W上で選び、Wに完全かつ中心なしのLie代数を構成する。根基の可換イデアル内のsl₂加群と最高根のベクトルを4項恒等式へ代入し、基点自由性から根基と階数2以上の単純因子を排除する。BondalのEuler–divergenceの方法とLie代数の既知定理を用いるが、Derdzinski–Gal Theorem Bの核計算は比較結果として位置づけ、必要な結論は本文で直接証明する。
+
+改稿は `nc-cubic-lean` のcommit `9736787f3a95f52bc3d233ab768a6ab6396d0c24` を参照した通常の数学的証明である。各Leanソースとの対応と対象範囲は `notes/lean_proof_sources.txt` に記す。今回Leanの再ビルド・公理依存監査およびTeX本文の形式検証は行っていない。一般階数・退化スキーム・Bondal下界・固定および相対モジュライは、参照版の幾何学的主定理の形式化された結論には含まれず、本文の証明と文献に依拠する。
 
 `bondal_cubic.tex` は退化軌跡のjoinによる記述と全階数のBondal次元下界を扱う。Fermat型のPoisson零点の非被約構造・横断長さ8^k、零三変数制限が起こる幾何学的条件は `special_poisson_blocks.tex` に保持する。これらは量子中心元の存在とは独立の古典的結論である。
 
@@ -32,12 +34,12 @@ Pymとの比較は確認済みarXiv:1507.05668v1のDefinition4.2 (p.17)、Theore
 
 完全交叉の背景は `complete_intersections.tex` に置く。低twist消滅 `lem:ci-low-twist-vanishing` は穿孔錐とKoszul分解から独立に証明しており、未取得のBrückmann原証明には依存しない。三次元以上の存在判定と既知の二次・二次二本の例を保持する。
 
-以上は原稿に証明がある結果である。既存の読解点検・厳密計算と今回の文書分割・参照確認・組版を区別する。仮定・文献の確認範囲は `notes/poisson_article_submission_audit.md`、実行状態は `validation_paper_a.json`、研究上の知識の入口は `notes/research_notes.md`。包括的な新規性・外部査読は未確定である。
+以上は原稿に証明がある結果である。既存の読解点検・厳密計算と、今回の改稿ソースの統合・参照確認・組版を区別し、実施した検査の範囲は `validation_paper_a.json` に記す。仮定・文献の確認範囲は `notes/poisson_article_submission_audit.md`、研究上の知識の入口は `notes/research_notes.md`。包括的な新規性・外部査読は未確定である。
 
 ## 未解決の核心と次の着手
 
 1. 公表に先立ち、Pym刊行版またはaccepted manuscriptと訂正を通常の公開経路で入手し、v1との該当箇所を精密に照合する。独立した反例証明は現行原稿にある。未取得資料について結論を先取りしない。
-2. Bondal、Derdzinski–Gal、LPT/Mayanskiy、Gualtieri–Pym等との仮定・範囲を比較し、全次元正規形と相対成分定理の初出を引き続き調査する。証明監査は `lem:pg-basepoint-free-lie` とHessian線形化から再開する。
+2. Bondal、Derdzinski–Gal、LPT/Mayanskiy、Gualtieri–Pym等との仮定・範囲を比較し、全次元正規形と相対成分定理の初出を引き続き調査する。証明監査は `prop:pg-jacobi-extension`、支持上のLie代数構成、`lem:pg-basepoint-free-lie` とHessian線形化から再開する。Leanの実行・公理依存確認を行う場合は、参照commitを固定して本文の検査とは別に記録する。
 3. 固定Poissonスキームの非被約構造と相対の被約階数層を分けて整理し、既存のFermat計算・非楕円ブロック例を一般の局所構造と比較する。詳細な証明・有限証明書は本文と計算資産へ置く。
 
 量子化側の未解決問題（m>0かつk≥2の同変中心元、全hへの延長、中心商の抽象同型・Morita/qgr比較、固定h≠0の同型類像）は [cubic-quantizationの研究方針](https://github.com/uedakazushi/cubic-quantization/blob/main/00_research_plan.md) と [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)を正本とする。点ごとの量子化と、全層の同変降下や全パラメータのqgr滑らかさは別の主張である。

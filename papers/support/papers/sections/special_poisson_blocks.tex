@@ -1,18 +1,18 @@
 % !TeX root = ../../../poisson-cubic.tex
 \section{特殊なブロック制限と Fermat 型}\label{sec:pg-special}
 再び正規形\eqref{eq:pg-normal}を固定する。
-\subsection{零の三変数制限}
+\subsection{零の3変数制限}
 \begin{proposition}\label{prop:pg-zero-restriction}
 $X$ が滑らかで、あるブロックの制限 $f_s(x_s,0)$ が恒等的に零ならば $m\geq3$ である。
 $m=3$ ではこのような滑らかな例が存在する。
 \end{proposition}
 \begin{proof}
-対応する座標平面 $\PP_s^2$ 上では全 active 偏微分が零であり、
-残る偏微分は高々 $m$ 個の二次式 $F_{u_\alpha}(x_s,0)$ である。
-$m\leq2$ なら三変数多項式環でこれらのイデアルの高さは高々二なので、非零の共通零点をもつ。
+対応する座標平面 $\PP_s^2$ 上では全てのブロック変数の偏微分が零であり、
+残る偏微分は高々 $m$ 個の2次式 $F_{u_\alpha}(x_s,0)$ である。
+$m\leq2$ なら3変数多項式環でこれらのイデアルの高さは高々二なので、非零の共通零点をもつ。
 そこで $F$ の全偏微分が消え、滑らかさに反する。
 
-存在について、九変数 $a_1,a_2,a_3,b_1,b_2,b_3,u_1,u_2,u_3$ の三次式
+存在について、九変数 $a_1,a_2,a_3,b_1,b_2,b_3,u_1,u_2,u_3$ の3次式
 \begin{equation}\label{eq:pg-zero-restriction-example}
 F=\sum_{i=1}^3(u_i a_i^2+u_i^3)+b_1^3+b_2^3+b_3^3
 \end{equation}
@@ -25,7 +25,7 @@ $a_i=u_i=0$、さらに $3b_i^2=0$ から $b_i=0$ となる。従って射影超
 退化スキームは一般式\eqref{eq:pg-deg-generators}から計算する必要がある。
 
 \subsection{Fermat 型の非被約な零点}
-Fermat型の三次式を正規形の座標で
+Fermat型の3次式を正規形の座標で
 \begin{equation}\label{eq:pg-fermat}
 F=\frac13\left(\sum_{\alpha=1}^m u_\alpha^3+
 \sum_{s=1}^k\sum_{i=1}^3x_{si}^3\right)
@@ -39,7 +39,7 @@ $V(\sum_\alpha u_\alpha^3)\subset\PP_u^{m-1}$ の同じ横断厚化となる。
 $m=0$ の場合には $\Delta=\varnothing$ である。
 \end{proposition}
 \begin{proof}
-active 偏微分は $A_{s,i}=x_{si}^2$ なので、その商環は
+ブロック変数の偏微分は $A_{s,i}=x_{si}^2$ なので、その商環は
 \begin{equation}
 \CC[u]\otimes_\CC\bigotimes_{s=1}^k
 \CC[x_{s1},x_{s2},x_{s3}]/(x_{s1}^2,x_{s2}^2,x_{s3}^2)

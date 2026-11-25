@@ -1,11 +1,10 @@
 % !TeX root = ../../../poisson-cubic.tex
 \section{射影完全交叉と斉次多様体のPoisson構造}
 \label{sec:general-poisson-existence}
-本節は三次超曲面のPoisson構造を一般の射影多様体の中に位置づける。
+本節は3次超曲面のPoisson構造を一般の射影多様体の中に位置づける。
 完全交叉に対する非存在の部分はBr\"uckmannの古典的消滅定理
 （Fu--Hwang \cite[Lemma 4.1]{FuHwangCI} に引用）の低twistの部分による。
-以下では、必要な消滅を錐のconormal分解から独立に証明する。
-本節の既知結果を新規な分類とみなさない。
+以下では、必要な消滅を錐の余法完全列の外積分解から独立に証明する。
 
 \subsection{滑らかな射影完全交叉の存在判定}
 \begin{lemma}[低twistの微分形式の消滅]\label{lem:ci-low-twist-vanishing}
@@ -45,7 +44,7 @@ $q_*\OO_U=\bigoplus_{\ell\in\mathbb Z}\OO_X(\ell)$だから
  \label{eq:ci-cone-cohomology}
 \end{equation}
 
-$U$は滑らかな完全交叉なので、conormal列はベクトル束の完全列
+$U$は滑らかな完全交叉なので、余法列はベクトル束の完全列
 \begin{equation}
  0\longrightarrow\mathcal N:=\bigoplus_{j=1}^c\OO_U\,dF_j
  \longrightarrow\mathcal G:=\bigoplus_{a=0}^{M}\OO_U\,dz_a
@@ -87,7 +86,7 @@ $d\alpha=0$を満たす。よってCartanの公式から
  =d(\iota_E\alpha)+\iota_E(d\alpha)=0.
  \label{eq:ci-cartan-vanishing}
 \end{equation}
-$p>0$と標数零より$\alpha=0$であり、主張が従う。
+$p>0$と標数0より$\alpha=0$であり、主張が従う。
 \end{proof}
 
 \begin{theorem}\label{thm:ci-poisson-existence}
@@ -103,7 +102,7 @@ $p>0$と標数零より$\alpha=0$であり、主張が従う。
 \item $X$は非零の正則Poisson構造を持つ。
 \item 多重次数は空列、$(2)$、$(3)$、$(2,2)$のいずれかである。
 \end{enumerate}
-空列は$\PP^n$を表す。一次式の方程式はあらかじめ除いている。
+空列は$\PP^n$を表す。1次式の方程式はあらかじめ除いている。
 \end{theorem}
 \begin{proof}
 $s=\sum_{j=1}^c(d_j-1)$とおく。随伴公式から
@@ -118,7 +117,7 @@ $s\ge3$なら$n+1-s\le n-2$ゆえ
 $H^0(X,\bigwedge^2T_X)=0$となる。
 したがって(1)なら$s\le2$であり、$d_j\ge2$より列挙した四種類に限る。
 
-逆に$s\le2$の場合、一般の独立な一次形式
+逆に$s\le2$の場合、一般の独立な1次形式
 $L_0,\ldots,L_{n-2}$を選び、射影空間のEuler場
 $E=\sum_i z_i\partial_{z_i}$を用いて
 \begin{equation}
@@ -127,6 +126,9 @@ $E=\sum_i z_i\partial_{z_i}$を用いて
  \label{eq:ci-projective-form}
 \end{equation}
 を定める。一般の選択では$\alpha|_X$は非零である。
+実際、滑らかな点$p\in X$と$L_0(p)\ne0$を固定すると、射影埋込みの微分は単射なので、
+$T_pX$上で独立な$n-2$個の$d(L_i/L_0)$を選べる。
+この独立性は1次形式の組に関する非空開条件である。
 $L_0\ne0$上では
 \begin{equation}
  \alpha=L_0^{n-1}\,
@@ -135,14 +137,16 @@ $L_0\ne0$上では
 \end{equation}
 となり、一般点でその核は有理写像
 $X\dashrightarrow\PP^{n-2}$のファイバーに接する
-階数二の可積分分布である。
+階数2の可積分分布である。
 $s=2$なら\eqref{eq:ci-forms}によって$\alpha$を
-二重ベクトルに対応させる。
-$s=1$なら非零の一次切断、$s=0$なら非零の二次切断を掛け、
+2重ベクトルに対応させる。
+$s=1$なら非零の1次切断、$s=0$なら非零の2次切断を掛け、
 同じ同型によって対応させる。
-いずれも一般階数二で非零であり、
-可積分分布を定める分解可能二重ベクトルなので
-Schouten条件$[\pi,\pi]=0$を満たす。
+いずれも一般階数2で非零であり、
+稠密開集合では$\pi=aD_1\wedge D_2$と書け、分布の可積分性から
+$[D_1,D_2]\in\langle D_1,D_2\rangle$である。
+従って$[\pi,\pi]=2a^2D_1\wedge D_2\wedge[D_1,D_2]=0$となる。
+Schouten括弧は大域的な正則切断なので、この消滅は$X$全体で成り立つ。
 これで(3)から(2)、(2)から(1)が従う。
 \end{proof}
 
@@ -165,7 +169,7 @@ $(2,2,2)$のK3完全交叉が現れる。
 \end{proposition}
 \begin{proof}
 稠密トーラス$T\simeq(\CC^*)^n$のLie代数の
-一次独立な二元が定める大域導分を$D_1,D_2$とする。
+1次独立な二元が定める大域導分を$D_1,D_2$とする。
 $T$が可換なので$[D_1,D_2]=0$であり、
 $\pi=D_1\wedge D_2$はJacobi条件を満たす。
 正規トーリックの各不変アフィンチャートで
@@ -189,20 +193,16 @@ $G/P$の最大トーラスから来る基本ベクトル場も可換である。
 $P$に含まれない単純根$\alpha$と、
 それに隣接する単純根$\beta$に対し、
 $\alpha$および$\alpha+\beta$は接空間の
-一次独立な二つのトーラスウェイトを与える。
+1次独立な二つのトーラスウェイトを与える。
 反対big cellのroot座標ではトーラス作用がこれらのウェイトで対角化されるので、
-最大トーラスの一般軌道は二次元以上である。
-階数一の非自明因子は$\PP^1$であり、
+最大トーラスの一般軌道は2次元以上である。
+階数1の非自明因子は$\PP^1$であり、
 二つ以上のそのような因子があれば同様に二方向がある。
 残る場合、$\dim X\ge2$から$A$の並進方向を
 必要な数だけ加えられる。
-以上より$X$上に一般点で一次独立な二つの
+以上より$X$上に一般点で1次独立な二つの
 可換な大域ベクトル場$D_1,D_2$が存在する。
 その外積は非零で
 $[D_1\wedge D_2,D_1\wedge D_2]=0$を満たす。
 \end{proof}
-\begin{remark}
-非射影の任意の斉次空間に対して同じことを
-示したわけではない。
-次元一では二重ベクトルは常に零となる。
-\end{remark}
+

@@ -1,289 +1,169 @@
 % !TEX root = poisson-cubic.tex
-% Supporting source files live in papers/support/papers/.
 \input{papers/support/papers/common}
-% Every displayed mathematical formula carries a numerical equation number.
+\input{papers/build-metadata}
 \numberwithin{equation}{section}
-\hypersetup{pdftitle={滑らかな三次超曲面のPoisson構造：正規形・退化軌跡・モジュライ}}
-\title{滑らかな三次超曲面のPoisson構造\\
-\large 正規形・退化軌跡・モジュライ}
-\author{}
-\date{2026年11月21日・投稿準備稿 v62}
-\fancyhead[L]{\small 滑らかな三次超曲面のPoisson構造}
-\fancyhead[R]{\small 2026-11-21 / v62}
+\hypersetup{pdftitle={滑らかな3次超曲面のPoisson構造：正規形・退化軌跡・モジュライ}}
+\fancyhead[L]{\small 3次超曲面のPoisson構造}
+\fancyhead[R]{\small \RevisionDate}
 \begin{document}
-\maketitle
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\centering
+\vspace*{22mm}
+{\LARGE\bfseries 滑らかな3次超曲面のPoisson構造\par}
+\vspace{5mm}
+{\Large 正規形・退化軌跡・モジュライ\par}
+\vspace{16mm}
+\begin{minipage}{.89\textwidth}
 \begin{abstract}
-複素数体上の滑らかな射影三次超曲面
-$X\subset\mathbb P^{n+1}$、$n\ge3$の正則Poisson構造を研究する。
-大域双ベクトル場の定数三重ベクトル表示とHessianの線形系を用い、
-全ての非零Poisson構造を三変数Jacobianブロックの直和に帰着する。
-この正規形から、全ての許される退化階数に対するBondal予想の次元下界と、
-退化スキームの方程式を導く。
-三次四様体の一般階数四の構造は二つの滑らかな平面三次の分離型に限られ、
-全て純楕円型の対数symplectic構造となる。
-非連結な滑らかな中心に沿う高次消失を保つ持上げの障害も記述する。
-さらに、固定超曲面上のPoissonスキームとその自己同型群による商、
-超曲面自身を動かす相対モジュライを区別し、
-Fermat超曲面の成分を集合分割で記述するとともに、
+複素数体上の滑らかな射影3次超曲面
+$X\subset\mathbb P^{n+1}$、$n\ge3$のPoisson構造を研究する。
+大域双ベクトル場の定数3重ベクトル表示から出発し、Jacobi恒等式を
+Hessianに関する線形条件に変換する。対応する2次形式の系の基点自由性を用いて、
+全ての非零Poisson構造が3変数Jacobianブロックの直和に分解することを示す。
+この正規形から全階数の退化スキームの方程式とBondal予想の次元下界を導く。
+3次四様体の一般階数4の構造は二つの平面3次の分離型に限られ、
+純楕円型の対数symplectic構造となる。
+さらに、Fermat超曲面のPoissonスキームの既約成分を集合分割で記述し、
 相対モジュライの既約成分数が$\lfloor(n+2)/3\rfloor$であることを示す。
-固定した滑らかな三次五次元多様体には、
-節点型・尖点型のブロックを一般点に持つ成分が現れる。
-付録では、一般の滑らかな射影完全交叉と斉次多様体に対する
-Poisson構造の存在判定を整理する。
+節点型・尖点型ブロックを一般点に持つ固定Poisson成分と、
+非連結な中心に沿う高次消失の持上げ障害も与える。
 \end{abstract}
+\end{minipage}
+\vfill
+{\small 作成日時：\CreationTime\par}
+\vspace{3mm}
+{\small 納品PDF：\texttt{\PDFFileName}\par}
+\vspace*{8mm}
+\end{titlepage}
+\pagenumbering{roman}
+\hypersetup{pageanchor=true}
 \tableofcontents
+\clearpage
+\pagenumbering{arabic}
 
 \section{序論}\label{sec:paperA-introduction}
+$V$を次元$N=n+2\ge5$の複素ベクトル空間とし、
+$F\in\operatorname{Sym}^3V^*$が滑らかな超曲面
+$X=V(F)\subset\mathbb P(V)$を定めるとする。
+本稿では$X$上のPoisson双ベクトルを分類し、
+その退化軌跡とモジュライを記述する。
 
-本稿の中心結果は、任意次元の滑らかな三次超曲面の全Poisson構造を
-三変数Jacobianブロックへ還元する正規形定理である。
-この構造定理から退化軌跡、固定超曲面上のPoissonスキーム、
-および超曲面を動かす相対モジュライの成分を記述する。
-以下では$X=V(F)\subset\mathbb P(V)$、$\dim V=N=n+2\ge5$とし、
-基礎体は$\mathbb C$とする。
-正則中心三次商による代数的量子化、同変な中心元の選択と降下は
-独立論文\cite{CubicQuantization}で扱う。
-本稿の正規形とモジュライの結果は、その幾何学的入力を与える。
-
-\subsection*{正規形と退化軌跡}
-三次式$F$を固定すると、大域双ベクトル場は
+\subsection*{正規形}
+$F$を固定すると、任意の大域双ベクトルは一意に
 \begin{equation}\label{eq:intro-bivector-representation}
- \bigwedge\nolimits^3V\xrightarrow{\sim}H^0(X,\bigwedge\nolimits^2T_X),
- \qquad P\longmapsto\pi_P=\iota_{dF}P|_X
+ \pi_P=(\iota_{dF}P)|_X,\qquad P\in\bigwedge^3V
 \end{equation}
-と一意に表示される（命題\ref{prop:pg-represent}）。
-Jacobi恒等式を$F$のHessianに関する線形条件へ変換し、
-基点を持たない二次形式の系に対応するLie代数を解析することにより、
-次の正規形を得る（定理\ref{thm:pg-normal}）。
-任意の非零Poisson構造に対し、
-$N=3k+m$および$V=W_1\oplus\cdots\oplus W_k\oplus U$、
-$\dim W_s=3$となる分解を選んで
+と表される（命題\ref{prop:pg-represent}）。ここで右辺は
+アフィン錐上の2次係数の双ベクトルを射影化したものである。
+この表示の下で、全ての非零Poisson構造は次の正規形を持つ
+（定理\ref{thm:pg-normal}）：ある$k\ge1$、$m\ge0$、$N=3k+m$と
+線形座標$x_s=(x_{s1},x_{s2},x_{s3})$、$u=(u_1,\ldots,u_m)$について
 \begin{equation}\label{eq:intro-block-normal-form}
- F=\sum_{s=1}^k f_s(x_s,u),\qquad
- P=\sum_{s=1}^k
- \partial_{x_{s1}}\wedge\partial_{x_{s2}}\wedge\partial_{x_{s3}}
+ P=\sum_{s=1}^k\partial_{x_{s1}}\wedge\partial_{x_{s2}}\wedge\partial_{x_{s3}},
+ \qquad F=\sum_{s=1}^k f_s(x_s,u)
 \end{equation}
-と書ける。$u$はPoisson中心の座標であり、一般Poisson階数は$2k$である。
-証明の核心は補題\ref{lem:pg-basepoint-free-lie}である。
-基点自由な四項恒等式の形式系を持つ完全・中心なしLie代数について、
-可解根基を排除し、全単純因子が$\mathfrak{sl}_2$となることを示す。
-補題\ref{lem:pg-quadratic-lie}が三重ベクトルからこの状況への還元を与える。
-個々の座標や純中心三次項のブロックへの配分の一意性は必要としない。
+となる。各$f_s$は全次数3であり、$u_\alpha$は共通のCasimirである。
+逆に、この表示はPoisson構造を与え、その一般階数は$2k$である。
+3変数制限$f_s(x_s,0)$の滑らかさは仮定しない。
 
-$n=3$では$k=1$となり、既知のGrassmann記述を回復する。
-一般の滑らかな$F$でも非零構造の一般階数は二であるが、
-特殊な$F$には複数ブロックの構造が現れる（系\ref{cor:pg-generic}）。
-従って、一般の超曲面上の構造と、固定した特殊超曲面のPoissonスキームの
-一般点とでは、一般階数が異なり得る。
+証明では、gradientのKoszul複体を用いて表示\eqref{eq:intro-bivector-representation}と
+Jacobi恒等式の錐への持上げを示す。
+Jacobi条件は$F$のHessianがある線形空間$K(P)$に属することと同値になる。
+3次式の対称性と$X$の滑らかさにより、$K(P)$は2次形式の系として基点を持たない。
+その中の非退化形式を使うと、$P$の支持に完全かつ中心なしのLie代数が得られる。
+4項恒等式に特定の根ベクトルを代入し、基点自由性から可解根基と
+階数2以上の単純因子を排除する。残る$\mathfrak{sl}_2$因子が3変数ブロックを与える。
 
+一般階数2の構造の射影化は$\operatorname{Gr}(3,V)$である。
+一般の滑らかな3次超曲面にはこの階数の非零構造だけが存在するが、
+特殊な超曲面では複数ブロックの構造が現れる（系\ref{cor:pg-generic}）。
+
+\subsection*{退化軌跡と4次元の場合}
 $D_{2j}(\pi)=V(\pi^{j+1})$を階数が$2j$以下となる退化スキームとする。
-正規形から、全ての$2j<n$について
+正規形を用いると、そのイデアルは各ブロックの偏微分とEuler場から
+明示的に求まる（命題\ref{prop:pg-deg-ideal}）。
+また、$j+1$個のブロックの平面曲線のjoinを構成することにより、
+全ての$0\le2j<n$について
 \begin{equation}\label{eq:intro-bondal}
  \dim D_{2j}(\pi)\ge2j+1
 \end{equation}
 を得る（定理\ref{thm:pg-bondal}）。
-$j<k$では、$j+1$個のブロック上の平面曲線の射影joinを構成し、
-Euler方向を除いた双ベクトルの階数を計算する。
-このjoinは次元$2j+1$で$D_{2j}(\pi)$に含まれる。
-三変数制限$f_s(x_s,0)$の滑らかさはこの次元下界には不要である。
+各$f_s(x_s,0)$が滑らかな場合には、零点スキームは
+互いに交わらない平面3次曲線と、次数$8^k$の有限平坦被覆から得られる
+完全交叉に分かれる（命題\ref{prop:pg-deg-support}、\ref{prop:pg-zero-ci}）。
 
-退化スキームの生成イデアルは命題\ref{prop:pg-deg-ideal}で与える。
-各$f_s(x_s,0)$が滑らかな平面三次を定める場合には、
-有限平坦critical coverと零点の完全交叉性・次数をさらに記述する
-（補題\ref{lem:pg-critical-cover}、命題\ref{prop:pg-zero-ci}）。
-この追加仮定を、正規形とBondal予想の定理の仮定から区別する。
-
-三次四様体では、一般階数四の構造を持つことと
-$F=f(x_0,x_1,x_2)+g(y_0,y_1,y_2)$という分離表示を持つことが同値である
-（系\ref{cor:pg-cubic-fourfold-elliptic}）。
-この場合、退化因子は二本の楕円曲線のjoinであり、
-正規性、零点スキームおよびmodularベクトル場を直接計算して
+3次四様体が一般階数4のPoisson構造を持つための必要十分条件は、
+その方程式が$F=f(x_0,x_1,x_2)+g(y_0,y_1,y_2)$と分離することである。
+このとき$f,g$は滑らかな平面3次を定め、退化因子は二つの楕円曲線のjoinとなる。
+局所Pfaffianとmodularベクトル場の計算により、全ての一般階数4の構造が
 purely elliptic log symplecticであることを示す
-（命題\ref{prop:pg-split-elliptic}）。
-Bricalli--Favale--Pirola\cite[Theorem~3.4]{PBricalliFavalePirola}の
-Thom--Sebastiani分解の判定を合わせると、一般階数四の構造の存在は
-周囲の$\PP^5$におけるHessianの階数が三以下となる軌跡が線形平面を含むこととも同値である。
-Hessian行列式の可約性だけでは十分でない
-（例\ref{ex:pg-reducible-hessian-no-rank-four}）。
+（命題\ref{prop:pg-split-elliptic}、系\ref{cor:pg-cubic-fourfold-elliptic}）。
+この分離条件は、周囲の$\mathbb P^5$におけるHessianの階数3以下の軌跡が
+線形平面を含むこととも同値である。この最後の同値は
+Bricalli--Favale--Pirola\cite[Theorem~3.4]{PBricalliFavalePirola}による。
 
-\subsection*{固定・相対モジュライとFermatの成分}
-固定した$X$上のJacobi零スキームと、その自己同型群による商を
-\begin{equation}\label{eq:intro-poisson-space}
- \operatorname{Pois}(X)=
- \{\pi\in H^0(X,\bigwedge\nolimits^2T_X):[\pi,\pi]=0\},
-\end{equation}
-\begin{equation}\label{eq:intro-poisson-fixed-stack}
- \mathfrak{Pois}(X)=[\operatorname{Pois}(X)/\operatorname{Aut}(X)],
- \quad \operatorname{Aut}(X,\pi)=
- \{\phi\in\operatorname{Aut}(X):\phi_*\pi=\pi\}
-\end{equation}
-と書く。前者をPoisson構造のspace、後者を固定モジュライstackと呼ぶ。
-Poisson構造のスカラーは割らず、零構造も含める。
-超曲面自身を動かす相対モジュライは
-\begin{equation}\label{eq:intro-poisson-relative-stack}
- \mathfrak{Pois}^{\mathrm{rel}}_n=[\mathscr P_n/\mathrm{PGL}_{n+2}]
-\end{equation}
-である。$\mathscr P_n$は滑らかな三次超曲面のパラメータ空間上の
-相対Jacobi零スキームである。方程式の代表を使う表示では
-$(F,P)\sim(cF,c^{-1}P)$とし、$\pi_P$を不変に保つ。
-命題\ref{prop:pg-fixed-stack-algebraic}、
-定理\ref{thm:pg-relative-stack-algebraic}により、
-両モジュライは有限型Deligne--Mumford代数的スタックとなる。
+\subsection*{固定・相対モジュライ}
+固定した$X$について、Jacobi方程式の零スキームを$\operatorname{Pois}(X)$、
+その商スタックを
+$\mathfrak{Pois}(X)=[\operatorname{Pois}(X)/\operatorname{Aut}(X)]$とする。
+超曲面も動かす相対Poissonスキームを$\mathscr P_n$と書き、
+$\mathfrak{Pois}^{\mathrm{rel}}_n=[\mathscr P_n/\mathrm{PGL}(V)]$と定める。
+いずれもPoisson構造のスカラーを保ち、零構造を含める。
+これらのスタックは有限型Deligne--Mumfordスタックである
+（第\ref{sec:pg-poisson-stacks}節）。
 
-固定した一般の滑らかなcubicではspaceも固定stackも既約だが、
-特殊な複素構造では既約成分が増える。
-定理\ref{thm:pg-fermat-relative-count}ではFermat超曲面
-\begin{equation}\label{eq:intro-fermat-equation}
- X_N=V(F_N)\subset\mathbb P^{N-1},\qquad F_N=\sum_{i=1}^Nz_i^3
-\end{equation}
-について、各部分の大きさが三以上の非順序集合分割
-$\mathcal B=\{B_1,\ldots,B_k\}$と
-$V_B=\langle e_i:i\in B\rangle$を用い、
+Fermat超曲面$X_N=V(\sum_{i=1}^Nz_i^3)$では、
+各部分の大きさが三以上の非順序集合分割
+$\mathcal B=\{B_1,\ldots,B_k\}$を用い、$V_B=\langle e_i:i\in B\rangle$とおくと
 \begin{equation}\label{eq:intro-fermat-components}
  Z_{\mathcal B}=\sum_{B\in\mathcal B}\widehat{\operatorname{Gr}}(3,V_B),
- \qquad \operatorname{Pois}(X_N)_{\mathrm{red}}
- =\bigcup_{\mathcal B}Z_{\mathcal B}
+ \qquad\operatorname{Pois}(X_N)_{\mathrm{red}}=\bigcup_{\mathcal B}Z_{\mathcal B}
 \end{equation}
-と記述する。$\widehat{\operatorname{Gr}}$は原点を含むPl\"ucker錐であり、
-$Z_{\mathcal B}$がspaceの相異なる既約成分である。
-$k$個の部分を持つ成分の一般Poisson階数は$2k$となる。
-従ってspaceの成分数は
-\begin{equation}\label{eq:intro-fermat-space-count}
- \begin{aligned}
- \#\operatorname{Irr}(\operatorname{Pois}(X_N))
- &=\sum_{k=1}^{\lfloor N/3\rfloor}
- \left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3},\\
- \sum_{N\ge0}\frac{t^N}{N!}
- \left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}
- &=\frac{(e^t-1-t-t^2/2)^k}{k!}.
- \end{aligned}
-\end{equation}
-一方、$\operatorname{Aut}(X_N)=(\mu_3^N/\mu_3)\rtimes\mathfrak S_N$は
-同じ部分の大きさを持つ集合分割を同一視する。
-固定stackの成分数は、各部分が三以上の整数分割数$p_{\ge3}(N)$となる。
-相対モジュライでは一般Poisson階数ごとに一つの成分があり、
+が既約成分分解となる。ここで$\widehat{\operatorname{Gr}}$はPl\"ucker錐である。
+$Z_{\mathcal B}$の次元は$3N-8k$、一般Poisson階数は$2k$である。
+自己同型群は同じ部分の大きさを持つ分割を同一視するので、
+固定スタックの成分は三以上の整数への分割で添字付けられる。
+これに対し、相対モジュライでは各一般階数$2k$について成分が一つであり、
 \begin{equation}\label{eq:intro-poisson-stack-counts}
- \begin{aligned}
  \#\operatorname{Irr}(\mathfrak{Pois}(X_N))
- &=p_{\ge3}(N)=[q^N]\prod_{b\ge3}(1-q^b)^{-1},\\
+ =[q^N]\prod_{b\ge3}(1-q^b)^{-1},\qquad
  \#\operatorname{Irr}(\mathfrak{Pois}^{\mathrm{rel}}_n)
- &=\left\lfloor\frac{n+2}{3}\right\rfloor.
- \end{aligned}
+ =\left\lfloor\frac{n+2}{3}\right\rfloor
 \end{equation}
-例えば次のように、三種類の成分数は異なる。
-\begin{equation}\label{eq:intro-poisson-count-table}
- \begin{array}{c|rrrrr}
- n&3&4&6&7&10\\\hline
- \#\operatorname{Irr}(\operatorname{Pois}(X_N))&1&11&92&491&60105\\
- \#\operatorname{Irr}(\mathfrak{Pois}(X_N))&1&2&3&4&9\\
- \#\operatorname{Irr}(\mathfrak{Pois}^{\mathrm{rel}}_n)&1&2&2&3&4
- \end{array}
-\end{equation}
-ここではFermatが固定超曲面の成分数を最大化するとは主張しない。
-また、滑らかなcubic fivefoldの固定Poissonスキームに、
-節点型・尖点型の三変数制限を持つ成分が現れる具体例を
-定理\ref{ne:main}に与える。
-その成分性は、直接Schouten線形化でも検証できる整数小行列式で示す。
+となる（定理\ref{thm:pg-fermat-relative-count}）。
+さらに、滑らかな3次5次元多様体の固定Poissonスキームに、
+節点型または尖点型の3変数制限を一般点に持つ成分を構成する
+（定理\ref{ne:main}）。
 
-\subsection*{先行研究との関係と各定理の位置づけ}
-以下では、証明に用いる既知の入力と、本稿で証明する追加部分を
-定理ごとに区別する。低次元の分類自体は本稿の新規成果として数えない。
-
-\paragraph{正規形：射影的持上げ、半単純核計算、根基排除。}
-射影空間上のPoisson構造の斉次divergence-free持上げは
-Bondal\cite[\S4, pp.~11--12]{PBondal93}による。
-本稿の命題\ref{prop:pg-represent}とその後のJacobiatorの議論では、
-三次超曲面上での消滅をEuler--Koszul表示と低次数syzygyの消滅により
-周囲の錐上での消滅へ移す。
-半単純Lie代数について、式\eqref{eq:pg-lie-H}の核の記述は
-Derdzinski--Gal\cite[(1.4), Theorem~B]{PDerdzinskiGal}に含まれ、
-Cartan三形式からの単純ブロックの内在性も同論文Lemma~7.1(a)にある。
-定理\ref{thm:pg-normal}で追加されるのは、
-滑らかな三次式のHessianが基点を持たないことを使い、
-\emph{半単純性を仮定する前に}可解根基を排除する段階と、
-これを全Poisson構造の三変数ブロック分解へ結びつける段階である。
-この根基排除は補題\ref{lem:pg-basepoint-free-lie}として独立に述べ、
-用いる表現論の仮定と参照箇所をそこでまとめる。
-
-\paragraph{低次元の既知分類と高次元の幾何学的帰結。}
-三次三様体の分類はLoray--Pereira--Touzet
+\subsection*{先行研究と本文の構成}
+3次三様体の分類はLoray--Pereira--Touzet
 \cite[Theorems~7.1, 9.1]{LPTPoissonCubic}による。
-Mayanskiy\cite[Theorem~1]{PMayanskiy}はこの帰属を明記し、
-Jacobi方程式によるGrassmannスキームの記述とPoisson cohomologyの計算を与える。
-本稿の追加は、高次元で現れる複数ブロックも含む必要十分な正規形、
-固定した特殊超曲面の成分、および相対モジュライの成分の記述である。
-Bondal予想については、Gualtieri--Pym
-\cite[Theorem~7.13]{BondalGualtieriPym}のFano四次元の場合と、
-Druel--Pereira--Pym--Touzet
-\cite[Corollary~1.3]{BondalDruelPereiraPymTouzet}のFano五次元の場合は既知である。
-Aza\cite[Theorem~1.3]{BondalAza}の結果は、隣接する退化軌跡の
-真包含の下で少なくとも一方が次元下界を満たすという選言である。
-本稿の定理\ref{thm:pg-bondal}は三次超曲面というクラスについて
-\emph{任意次元の全退化階数}を同時に扱い、下界を担うjoinを具体的に構成する。
+Mayanskiy\cite[Theorem~1]{PMayanskiy}はJacobi方程式からGrassmannスキームを記述した。
+射影空間のPoisson構造のdivergence-free持上げは
+Bondal\cite[\S4]{PBondal93}に始まる。
+本稿ではこのEuler--divergenceの方法を3次超曲面上で消えるJacobiatorに適用する。
+半単純Lie代数上の4項恒等式の解空間は
+Derdzinski--Gal\cite[(1.4), Theorem~B]{PDerdzinskiGal}にも現れる。
+本稿の証明は、半単純性を仮定せず根基を排除する部分を含め、
+必要なLie代数論を第\ref{sec:pg-normal}節で示す。
 
-\paragraph{分離型四様体と持上げ障害。}
-Bricalli--Favale--Pirola\cite[Theorem~BおよびTheorem~3.4]{PBricalliFavalePirola}は、
-滑らかな三次式のThom--Sebastiani分解をHessian階数軌跡内の線形空間で特徴付けた。
-系\ref{cor:pg-cubic-fourfold-elliptic}の第二項と第三項の同値はこの既知定理であり、
-第一項との同値は本稿のPoisson正規形を用いる。
-例\ref{ex:pg-reducible-hessian-no-rank-four}では、
-定数symmetrizerの階数三の冪等元が存在しないことにより、
-Hessian行列式の可約性だけでは十分でないことを具体化する。
-この線形代数の議論は、特定の座標表示で混合項がないことを調べるだけでなく、
-任意の線形座標変換による$(3,3)$分解を排除する。
-
-分離型三次四様体の直接計算
-（命題\ref{prop:pg-split-elliptic}）と、
-非連結な中心の高次消失を保つ持上げ障害
-（命題\ref{prop:pg-triple-lifting-obstruction}、
-系\ref{cor:pg-split-lifting-obstruction}）を独立に証明する。
-持上げ命題は、全連結成分が正次元の滑らかな中心と任意の消失次数$r\ge2$に対し、
-超曲面と同じ次数の切断の障害を$\mathbb C^{\pi_0(C)}/\mathbb C$として記述する。
-文献との比較は、本文を確認したPym
-\cite{PPymElliptic}のarXiv:1507.05668v1に限定する。
-同版のDefinition~4.2, p.~17、Lemma~5.5, pp.~28--29、
-Proposition~5.7, p.~30との関係は
-注意\ref{rem:pg-split-elliptic-lift-obstruction}で詳述する。
-刊行版・関連訂正文の本文との最終照合は残るため、
-刊行済み定理の訂正を確定したとは述べない。
-
-\paragraph{付録の位置づけ。}
-完全交叉の存在判定はBr\"uckmann型消滅の既知の帰結
-\cite[Lemma~4.1]{FuHwangCI}であり、必要な低twist消滅は
-補題\ref{lem:ci-low-twist-vanishing}で独立にも証明する。
-これは三次超曲面を一般の射影多様体の中に位置づけるための背景であり、
-中心的な新規性とは位置づけない。
-
-\subsection*{証明の依存関係と本文の構成}
-主要な依存関係は次の通りである。追加仮定を要する帰結は、
-それを用いない主定理と区別する。
-\begin{center}
-\small
-\begin{tabular}{p{.16\linewidth}p{.35\linewidth}p{.37\linewidth}}
-\toprule
-段階 & 入力と証明 & 結論と範囲 \\
-\midrule
-正規形 & Euler--Koszul表示、Hessianの基点自由性、
-補題\ref{lem:pg-basepoint-free-lie} &
-定理\ref{thm:pg-normal}。全三次式の滑らかさを仮定 \\
-退化幾何 & 正規形、射影化後の階数、join &
-全退化階数の下界。critical coverには三変数制限の追加仮定 \\
-モジュライ & スカラー作用、被約階数層、Fermat集合分割 &
-固定space・固定stack・相対stackの成分を区別 \\
-非楕円成分 & ブロックの内在性、全Poisson方程式の接空間 &
-節点・尖点ブロックを含む固定cubicの成分 \\
-四次元の幾何 & 正規形、分離型の直接計算、非連結中心のコホモロジー &
-rank四の分類と高次消失を保つ持上げの障害 \\
-\bottomrule
-\end{tabular}
-\end{center}
+Bondal予想のFano4次元・5次元の場合はそれぞれ
+\cite[Theorem~7.13]{BondalGualtieriPym}、
+\cite[Corollary~1.3]{BondalDruelPereiraPymTouzet}で扱われている。
+本稿のjoinによる証明は、3次超曲面の任意次元・全退化階数に適用される。
+分離型四様体とPym\cite{PPymElliptic}のarXiv v1との関係は
+注意\ref{rem:pg-split-elliptic-lift-obstruction}で述べる。
+そこでは、非連結な滑らかな中心に沿う高次消失の持上げ障害を
+命題\ref{prop:pg-triple-lifting-obstruction}で計算する。
 
 第\ref{sec:pg-extension}--\ref{sec:pg-normal}節で正規形を証明し、
-第\ref{sec:pg-leaves}--\ref{sec:pg-bondal}節で幾何学的帰結を扱う。
-第\ref{sec:pg-poisson-stacks}--\ref{ne:examples}節に
-固定・相対モジュライと非楕円成分を置き、
-第\ref{sec:pg-special}節で零の三変数制限とFermat型の厚化を記述する。
-\ref{sec:general-poisson-existence}では完全交叉と斉次多様体の存在判定を扱う。
+第\ref{sec:pg-leaves}--\ref{sec:pg-bondal}節で葉と退化軌跡を調べる。
+第\ref{sec:pg-poisson-stacks}--\ref{sec:pg-special}節では
+モジュライと特殊ブロックを扱う。
+付録\ref{sec:general-poisson-existence}には射影完全交叉・斉次多様体の
+Poisson構造の存在判定をまとめる。
+正規形を入力とする量子化は独立論文\cite{CubicQuantization}で扱う。
 
 \input{papers/support/papers/sections/poisson_geometry}
 \input{papers/support/papers/sections/bondal_cubic}
