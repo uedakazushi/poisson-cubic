@@ -1,11 +1,13 @@
 # 三次超曲面のPoisson幾何：現行研究ノート
 
-2026-11-25 / v99。最初に [研究方針](../00_research_plan.md) を読む。
+2026-11-25 / v100。最初に [研究方針](../00_research_plan.md) を読む。
 
 ## 正規形・退化幾何・モジュライ
 
 [主原稿](../papers/poisson-cubic.tex) は全次元Poisson正規形、Bondal下界、固定・相対成分と退化幾何の証明を保持する。
 仮定と先行研究の確認範囲は [主張・文献の監査](poisson_article_submission_audit.md)、Bondal・三次四様体は [幾何ノート](bondal_cubic.md)、成分の区別は [相対成分ノート](fermat_relative_poisson_components.md) に整理する。
+
+公表稿はarXiv・論文誌で人間の研究者が通読する論文として構成する。四様体の分類・Hessian判定・持上げ障害は独立した節に置き、固定・相対モジュライの記号は使用前に定義する。計算証明は階数の上界・整数小行列による下界・成分性への推論を本文に置き、固定版の公開計算資料と実行コマンドへつなぐ。文献照合や編集の作業状態はこのノート群と検証記録に保持する。
 
 正規形の改稿では、Euler列とgradientのKoszul複体から定数3重ベクトル表示を得て、Jacobiator Jに対するE∧J=FQとdivergenceの恒等式からNJ=3J、従ってJ=0を導く。Hessian条件からは三重ベクトルの支持W上で非退化形式を選んでLie代数を構成し、根基の可換イデアル内のsl₂加群と最高根のベクトルを用いてWをsl₂因子に分解する。Derdzinski–Galの核計算は比較結果であり、必要な排除とブロック復元は本文で証明する。
 
@@ -19,8 +21,8 @@
 
 ## 量子化・非可換幾何との接続
 
-量子化の主原稿は [nc-cubic/papers/cubic-quantization.tex](https://github.com/uedakazushi/nc-cubic/blob/main/papers/cubic-quantization.tex)、中心元の構成・規格化・同変降下と障害のノートは [cubic_quantization.md](https://github.com/uedakazushi/nc-cubic/blob/main/notes/cubic_quantization.md) を正本とする。
-可換復元・非可換モジュライの主原稿は同repoの [nc-cubic.tex](https://github.com/uedakazushi/nc-cubic/blob/main/papers/nc-cubic.tex)。量子化の全ブロック存在定理と、良い一ブロック上のモジュライ・比較結果の仮定を混同しない。
+量子化の主原稿は [cubic-quantization/papers/cubic-quantization.tex](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex)、中心元の構成・規格化・同変降下と障害のノートは [cubic_quantization.md](https://github.com/uedakazushi/nc-cubic/blob/main/notes/cubic_quantization.md) を参照する。
+可換復元・非可換モジュライの主原稿は `nc-cubic` の [nc-cubic.tex](https://github.com/uedakazushi/nc-cubic/blob/main/papers/nc-cubic.tex)。量子化の全ブロック存在定理と、良い一ブロック上のモジュライ・比較結果の仮定を混同しない。
 
 独立した点スキーム・有限Jacobian復元・Artin/étale構成の現行入口は [nc-cubic2](https://github.com/uedakazushi/nc-cubic2)。そこで必要な追加仮定を、`nc-cubic.tex` の一般点存在定理から自動的に満たすとは扱わない。個別の相対構成・生成性の障害は [相対構成ノート](https://github.com/uedakazushi/nc-cubic/blob/main/notes/relative_construction_obstacles.tex) に移し、本文にある有効な議論を保持する。
 

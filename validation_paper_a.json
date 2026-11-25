@@ -1,14 +1,14 @@
 {
-  "version": "A-v64",
-  "repository_version": "poisson-cubic-v99",
+  "version": "A-v65",
+  "repository_version": "poisson-cubic-v100",
   "date": "2026-11-25",
   "manuscript": "papers/poisson-cubic.tex",
   "audit_note": "notes/poisson_article_submission_audit.md",
-  "scope": "Introduction and bibliography revision: smooth projective complete intersections, all-dimensional classification scope, primary literature, and the unverified public Poisson P4 proposal. Existing body theorems and proofs are unchanged.",
+  "scope": "Publication-oriented editing of the full Japanese manuscript for human researchers, with precise local notation, section organization, conventional bibliography, reproducible nonelliptic certificates, source checks and complete PDF layout inspection. The theorem statements and mathematical arguments are retained.",
   "mathematical_review": {
     "new_full_proof_audit": false,
     "formal_verification": false,
-    "new_primary_source_literature_audit": true,
+    "new_primary_source_literature_audit": false,
     "existing_proof_scope": "Normal form, Lie radical exclusion, Bondal/degeneracy, fixed/relative Poisson moduli, cubic-fourfold splitting and disconnected-center lifting, complete-intersection vanishing. See current audit note for assumptions and prior reading.",
     "comprehensive_priority_established": false,
     "previous_revision_proof_chains_read": [
@@ -23,8 +23,8 @@
       "Published Bricalli-Favale-Pirola Theorem 3.4 with n=5,k=2: ambient rank<=3 Hessian locus containing a plane is equivalent to a (3,3) splitting, and hence by the manuscript normal form to rank-four Poisson existence.",
       "Explicit smooth cubic F=x0^3+x1^3+sum(z_i^3)-(sum z_i)^3: reducible Hessian determinant; constant symmetrizers diag(a,b,cI4); no rank-three idempotent and therefore no (3,3) splitting after any linear coordinate change."
     ],
-    "new_literature_audit_scope": "The statements and applicable hypotheses cited in the revised Introduction; see the audit note for the exact versions and locations. Cerveau-Lins Neto was checked through the journal abstract/bibliography and the original LPT restatement. No comprehensive priority proof or full re-audit of cited proofs.",
-    "independent_introduction_reading": {
+    "prior_primary_source_literature_audit_scope": "The statements and applicable hypotheses cited in the revised Introduction; see the audit note for the exact versions and locations. Cerveau-Lins Neto was checked through the journal abstract/bibliography and the original LPT restatement. No comprehensive priority proof or full re-audit of cited proofs.",
+    "prior_independent_introduction_reading": {
       "reviewer": "Independent AI reader",
       "passes": [
         "First-read accessibility",
@@ -40,6 +40,26 @@
         "Projective base of relative moduli and the set being partitioned",
         "Arbitrary-dimensional foliation theory versus its P4 Poisson application"
       ]
+    },
+    "independent_manuscript_reading": {
+      "reviewer": "Independent AI reader, given the manuscript and intended audience without suggested problems",
+      "base_commit": "1f8d4c305a9c5c4eff4c21657254255a1a6ebf51",
+      "passes": [
+        "First-read accessibility",
+        "Redundancy across the whole manuscript",
+        "Mathematical wording, notation and reference consistency"
+      ],
+      "scope": "The main manuscript and all input sections, followed by a rereading of the edited abstract, Introduction and computational-proof paragraph. This is an editorial mathematical reading, not human peer review, a comprehensive proof audit or a new primary-source literature audit.",
+      "clarifications_integrated": [
+        "Ambient projective space of the anticanonical divisor",
+        "Bivector rather than two-form in the contraction lemma heading",
+        "M for the projective dimension in the general lifting proposition",
+        "Separate section for cubic fourfolds, Hessian loci and lifting obstructions",
+        "Explicit reproduction command and fixed-version public computation link",
+        "Separate roles of the radical representation and highest-root vector in the proof outline",
+        "Third-derivative and alternating-component conventions in the integer matrix",
+        "Precise object and ambient space in the abstract lifting statement"
+      ]
     }
   },
   "static_checks": {
@@ -52,12 +72,12 @@
     ],
     "tex_input_count": 10,
     "equation_environments": 128,
-    "labels": 150,
-    "refs": 129,
+    "labels": 153,
+    "refs": 126,
     "bibitems": 25,
     "citations": 46,
-    "optional_input_check": "InputIfFileExists skips absent optional files and follows present optional files; mandatory missing inputs still fail. Verified with temporary fixtures and the metadata-free repository source.",
-    "scope": "Source closure, labels, numbering, citations, optional-input behavior and current source/PDF parity."
+    "optional_input_check": "The current manuscript compiles with papers/build-metadata.tex absent. Optional and mandatory input parser behavior was checked in A-v64; the parser scripts are unchanged in A-v65.",
+    "scope": "Source closure, preserved labels, numbering, citations, current source/PDF parity and repository layout."
   },
   "typesetting": {
     "status": "passed",
@@ -65,29 +85,61 @@
     "exit_code": 0,
     "page_count": 38,
     "pdf": "build/poisson-cubic.pdf",
-    "pdf_sha256": "d6ef229d4f03736dec46281cdab1797b25dc15d71ae8cfaba25d91e36c8de01e",
+    "pdf_sha256": "302ce8120b9406f5bebdb157d93347271c85be6155397fef2b911c8de008200b",
     "engine": "This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)",
     "synctex_present": true,
     "undefined_references": false,
     "undefined_citations": false,
     "missing_glyphs": false,
     "overfull_boxes": false,
-    "remaining_warnings": "RSFS font size 4.5 substituted by size 5. No missing glyphs or overflow.",
+    "remaining_warnings": "RSFS size substitutions: 4.5 to 5, 5.59996 to 6 and 4 to 5. No missing glyphs or overflow.",
     "visual_inspection_physical_pdf_pages": [
+      1,
       2,
       3,
       4,
       5,
       6,
       7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
       36,
       37,
       38
     ],
-    "all_pages_visually_inspected": false,
+    "all_pages_visually_inspected": true,
     "compiled_without_optional_build_metadata": true,
     "runtime": "Scratch-local TeX package, format, font-map and cache overlay.",
-    "scope": "Compilation, current source/PDF parity, table of contents, full Introduction and bibliography visual inspection; not mathematical proof verification."
+    "scope": "Compilation, current source/PDF parity and visual inspection of all 38 physical pages, including reinspection of every page whose rendering changed after page-break corrections. Not mathematical proof verification.",
+    "bookmark_count": 42,
+    "internal_link_targets_valid": true,
+    "visual_inspection_method": "Two-page renders at 110 dpi, with additional single-page inspection of long formulas, file paths, bibliography and corrected page breaks; performed by the primary agent and two AI readers."
   },
   "retained_exact_computations": [
     {
@@ -165,17 +217,17 @@
     "Pym published/accepted text and corrections remain unverified; comparison is restricted to arXiv:1507.05668v1.",
     "Comprehensive novelty and external referee confirmation are incomplete; the first-example claim is qualified to a complete-intersection family, all smooth members, all n>=3 and all generic ranks.",
     "The public poisson-p4 manuscript at commit f118dfbfc5bb9b7a394d1985b4800b6228eebaf6 claims 147 reduced irreducible components before PGL5 quotient. Human verification remains pending.",
-    "No Lean build, axiom audit, new global proof revalidation or exact-computation rerun was performed for this Introduction revision."
+    "No Lean build, axiom audit, comprehensive proof revalidation or new primary-source literature audit was performed in this editorial revision. Only the specified nonelliptic certificate command was rerun; earlier other computations retain their stated historical scope."
   ],
   "persistence": {
     "authoritative": "uedakazushi/poisson-cubic main",
     "policy": "Ordinary expected-parent fast-forward updates; no Actions, force-push or tracked PDFs.",
     "research_hub": {
       "status": "not_updated",
-      "reason": "The connected GitHub repository lookup returned 404 on 2026-11-25. No hub files were changed."
+      "reason": "The connected GitHub repository lookup returned 404 again on 2026-11-25. No hub files were changed."
     }
   },
-  "verified_at": "2026-11-25T14:49:01.397462+09:00",
+  "verified_at": "2026-11-25T15:47:10.815029+09:00",
   "prior_repository_exact_computations": [
     {
       "command": "python3 computations/verify_poisson_article_A.py",
@@ -208,7 +260,23 @@
       "rerun_in_this_revision": false
     }
   ],
-  "current_exact_computations": [],
+  "current_exact_computations": [
+    {
+      "command": "python3 computations/verify_nonelliptic_components.py",
+      "script": "computations/verify_nonelliptic_components.py",
+      "script_sha256": "8a051784db91a98ad07dc87b1ec5865e22a8709a23e1a562038722e7432f013e",
+      "status": "passed",
+      "exit_code": 0,
+      "executed_for_revision": "A-v65",
+      "execution_date": "2026-11-25",
+      "scope": "Reproduced both saved integer matrices and 33 by 33 minors over QQ/ZZ: nodal determinant 8916100448256, cuspidal determinant -4565043429507072, rank 33 and kernel the stated two-dimensional plane; the same command checks the u=1 smoothness charts, Jacobi identity of the plane and projective rank-four witness. The --direct Schouten calculation was not rerun.",
+      "output": [
+        "PASS node rank 33 det 8916100448256 u=1 smooth, projective rank 4",
+        "PASS cusp rank 33 det -4565043429507072 u=1 smooth, projective rank 4",
+        "Exact Q checks passed. The manuscript gives the u=0 smoothness proof."
+      ]
+    }
+  ],
   "previous_three_paper_split_preservation_check": {
     "source_repository": "uedakazushi/poisson-cubic",
     "source_commit": "8e6ac42a951289bb0431edb6f7dcc36281a6822b",
@@ -242,7 +310,7 @@
     "source_notes": "notes/lean_proof_sources.txt",
     "mathematical_changes_after_delivered_revision": false
   },
-  "introduction_revision": {
+  "previous_introduction_revision": {
     "base_commit": "153e59be29dfc6435fd633912fc807f423915ea7",
     "body_theorems_and_proofs_unchanged": true,
     "poisson_p4_reference_commit": "f118dfbfc5bb9b7a394d1985b4800b6228eebaf6",
@@ -257,6 +325,62 @@
       "papers/support/papers/sections/poisson_geometry.tex": "dd1addc0ee09f059efaf995d420601247e7a5d87fb3c1ea4083f3c3178f5b71a",
       "papers/support/papers/sections/poisson_moduli_stacks.tex": "a8e5b2a30672bd363bd25f7e9475152fd2de2d04844ebab64b5d05c8a4934d88",
       "papers/support/papers/sections/special_poisson_blocks.tex": "0fe2c1296dcd26fb000fa53e167003abc4de988e08d43ce04fbb8a8f975a4740"
+    }
+  },
+  "human_reader_revision": {
+    "base_commit": "1f8d4c305a9c5c4eff4c21657254255a1a6ebf51",
+    "mathematical_theorem_meanings_changed": false,
+    "all_existing_labels_preserved": true,
+    "new_labels": [
+      "sec:pg-fourfold",
+      "subsec:pg-fourfold-hessian",
+      "subsec:pg-lifting-obstruction"
+    ],
+    "displayed_formula_changes": [
+      {
+        "file": "papers/support/papers/sections/poisson_geometry.tex",
+        "display_index": 61,
+        "change": "Local projective dimension N renamed M"
+      },
+      {
+        "file": "papers/support/papers/sections/poisson_geometry.tex",
+        "display_index": 62,
+        "change": "Local projective dimension N renamed M"
+      },
+      {
+        "file": "papers/support/papers/sections/poisson_geometry.tex",
+        "display_index": 65,
+        "change": "Local projective dimension N renamed M"
+      },
+      {
+        "file": "papers/support/papers/sections/poisson_geometry.tex",
+        "display_index": 66,
+        "change": "Local projective dimension N renamed M"
+      },
+      {
+        "file": "papers/support/papers/sections/poisson_geometry.tex",
+        "display_index": 68,
+        "change": "Local projective dimension N renamed M"
+      },
+      {
+        "file": "papers/support/papers/sections/poisson_geometry.tex",
+        "display_index": 69,
+        "change": "Local projective dimension N renamed M"
+      }
+    ],
+    "computation_code_or_certificate_changed": false,
+    "computation_reference_commit": "1f8d4c305a9c5c4eff4c21657254255a1a6ebf51",
+    "tex_inputs": {
+      "papers/poisson-cubic.tex": "449b5c4c6f71fe1877fcb3e5a12dc6e3bd34aa5fb35876c9be6b9ede685d7d31",
+      "papers/support/papers/common.tex": "82c8910e7e528cc307001bc01ffd61c73da2f80c2f6c841c12a14c8eec2d1d18",
+      "papers/support/papers/references_poisson_cubic.tex": "deb05b9c84aa7d1c84ca0cd9c5371624d765ee54518cbd547c72d2ac7350bcbb",
+      "papers/support/papers/sections/poisson_geometry.tex": "aa0f05f93dda8f7f342aea95de2857eddfb8de9feb3ba5f09a34825a7d783626",
+      "papers/support/papers/sections/bondal_cubic.tex": "8a9f759efd6a7a68a031779534a100393339adc34442e24c2c0c7fbd9eb7ca6e",
+      "papers/support/papers/sections/poisson_moduli_stacks.tex": "0ce22f792cf4deedfa63342ca0783fea58f53a854197e95ca83237eff841e52e",
+      "papers/support/papers/sections/fermat_relative_poisson_components.tex": "a1955070d0502dcfb761945c24d93565bfdbf05e9b9d428ea59a85d49bca4549",
+      "papers/support/papers/sections/nonelliptic_poisson_components.tex": "12ab17ac246bde7f269782476d72bc06d4f71fd129723c2da84490d0fa05a26e",
+      "papers/support/papers/sections/special_poisson_blocks.tex": "fbcc38ce3cb6369238bc360ff34528da2bf68c70cb19548c91f7adbc1a29c405",
+      "papers/support/papers/sections/complete_intersections.tex": "c8f928522abfaeecde7ad5ed9e30a35e35c21f67cf25ed76b952602d363c9630"
     }
   }
 }

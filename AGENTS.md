@@ -1,10 +1,12 @@
 # Codex実行指示 — poisson-cubic
 
-2026-11-25 / v99。最初に `00_research_plan.md` を読む。GitHub mainが正本。主論文は `papers/poisson-cubic.tex`（古典Poisson論文A-v64）。
+2026-11-25 / v100。最初に `00_research_plan.md` を読む。GitHub mainが正本。主論文は `papers/poisson-cubic.tex`（古典Poisson論文A-v65）。
 
 ## 公表向け監査と担当境界
 
-本repoはPoisson正規形・退化軌跡・Bondal下界・固定および相対Poissonモジュライの古典論を担当する。主原稿はA-v64。量子化の全証明と再現資産は `uedakazushi/cubic-quantization` の独立論文 `papers/cubic-quantization.tex`、可換復元・モジュライは `uedakazushi/nc-cubic` の主論文 `papers/nc-cubic.tex` が正本である。三論文の対象範囲を区別し、数学的内容を削らず、重複した量子化本文を本repoへ戻さない。
+本repoはPoisson正規形・退化軌跡・Bondal下界・固定および相対Poissonモジュライの古典論を担当する。主原稿はA-v65。量子化の全証明と再現資産は `uedakazushi/cubic-quantization` の独立論文 `papers/cubic-quantization.tex`、可換復元・モジュライは `uedakazushi/nc-cubic` の主論文 `papers/nc-cubic.tex` が正本である。三論文の対象範囲を区別し、数学的内容を削らず、重複した量子化本文を本repoへ戻さない。
+
+主原稿はarXiv公開・論文誌投稿を予定し、標準的背景を持つ隣接分野の人間の研究者を読者とする。定義・主張・証明・先行研究の関係を本文の順に追えるように書く。作業管理、検査手順、自己評価、文献取得状況は研究ノートと検証記録に置く。数学的な仮定、未検証の引用結果の位置づけ、計算証明の入力・係数環・方法・証明書・再現先は本文に保持する。読みやすさのために証明の核心を削らない。
 
 全次元正規形の中心はEuler–Koszul表示、Euler–divergence恒等式によるJacobi持上げ、Hessian線形化、支持上の非退化形式からのLie代数構成である。`lem:pg-basepoint-free-lie` は根基の可換イデアル内のsl₂加群と最高根のベクトルから共通零点を構成し、根基と階数2以上の単純因子を排除する。BondalのEuler–divergenceの方法とLie代数の既知定理を適用し、Derdzinski–Gal Theorem Bは独立に証明した結論との比較に用いる。古典論の証明を量子化または非可換比較の結果に依存させない。外部引用には現在の論文名・具体的ラベル・仮定を付け、旧paper A/Bを取得することを再開の前提にしない。
 

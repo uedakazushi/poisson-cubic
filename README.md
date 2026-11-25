@@ -1,10 +1,10 @@
 # 滑らかな三次超曲面のPoisson幾何
 
-2026-11-25 / v99。再開は [研究方針](00_research_plan.md) から。GitHub mainが正本。
+2026-11-25 / v100。再開は [研究方針](00_research_plan.md) から。GitHub mainが正本。
 
 ## 公表用論文
 
-[papers/poisson-cubic.tex](papers/poisson-cubic.tex) は **正規形・退化軌跡・モジュライ** を扱う日本語LuaLaTeX論文（A-v64）である。全次元のPoisson正規形、全階数のBondal下界、固定・相対Poissonスキームと成分、Fermatの非被約零点、非楕円ブロック、三次四様体の純楕円分類、完全交叉の古典的背景を含む。
+[papers/poisson-cubic.tex](papers/poisson-cubic.tex) は **正規形・退化軌跡・モジュライ** を扱う日本語LuaLaTeX論文（A-v65）である。arXiv公開・論文誌投稿を予定し、隣接分野の研究者が通読できる論文として編集する。全次元のPoisson正規形、全階数のBondal下界、固定・相対Poissonスキームと成分、Fermatの非被約零点、非楕円ブロック、三次四様体の純楕円分類、完全交叉の古典的背景を含む。
 
 正規形の証明は [nc-cubic-lean の参照版](https://github.com/uedakazushi/nc-cubic-lean/tree/9736787f3a95f52bc3d233ab768a6ab6396d0c24)を踏まえ、Euler–Koszul表示、Jacobi恒等式の持上げ、三重ベクトルの支持上のLie代数と根ベクトルによる障害を通常の数学的証明として展開した。対応するソースと証明範囲は [参照版との対応](notes/lean_proof_sources.txt) に記す。今回Leanを再ビルドしておらず、TeX本文の形式検証も行っていない。
 
@@ -42,6 +42,14 @@ python3 scripts/verify_bundle.py --only poisson-cubic --require-pdfs
 ```
 
 `python3 scripts/build.py --only poisson-cubic` は組版と入力/PDF対応を確認する。Git追跡対象の検査は `python3 scripts/check_layout.py`。出力は `build/poisson-cubic.pdf` と同じ場所のSyncTeX。VS Codeではrepo全体を開き、LaTeX Workshopの既存のrepoルート基準レシピを使う。他repoのPDFやauxファイルは組版に不要。
+
+非楕円成分の証明に用いる整数小行列は、PythonとSymPy（`requirements.txt`）で再生成・照合できる。
+
+```sh
+python3 computations/verify_nonelliptic_components.py
+```
+
+このコマンドは節点型・尖点型の行列を本文の式から作り、有理数上で階数とピボット行を求め、整数上の33次小行列式を保存済みの証明書と照合する。成功すると両例について `PASS`、`rank 33`、それぞれ `det 8916100448256`、`det -4565043429507072` を表示する。`--direct` を付けると、Schouten括弧から直接構成した線形化の階数も追加で照合する。
 
 `papers/build-metadata.tex` はGit管理しない任意入力であり、存在しなくても `latexmk papers/poisson-cubic.tex` でコンパイルできる。`python3 build_pdf.py` はこのファイルがなければ実行時のJST日時から表紙情報と日付入りファイル名を生成し、`dist/` にPDFを保存する。既存のmetadataは保ち、同名PDFは上書きしない。本文を改訂して別版を作る場合は `python3 build_pdf.py --new-version` を使う。
 

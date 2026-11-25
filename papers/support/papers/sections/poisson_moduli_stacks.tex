@@ -2,8 +2,7 @@
 \section{Poisson構造の空間とモジュライスタック}
 \label{sec:pg-poisson-stacks}
 
-全ての対象を$\mathbb C$上で考える。Poisson構造のスカラーは割らず、零構造も含める。
-まず超曲面を固定し、次に超曲面を動かす場合を扱う。
+この節ではPoisson構造をスカラー倍で同一視せず、零構造も含むモジュライを考える。
 
 \subsection{固定した3次超曲面}
 \begin{definition}\label{def:pg-pois-space}
@@ -43,7 +42,7 @@ $\mathfrak{Pois}(X)$は有限型Deligne--Mumfordスタックである。また
 
 \begin{proof}
 自己同型群に関する主張はMatsumura--Monsky\cite{PMatsumuraMonsky}の定理の特例である。
-ここではgradientのsyzygyから証明する。
+ここでは勾配のsyzygyを用いて証明する。
 Grothendieck--Lefschetzの定理\cite{PGLefschetz}より
 $\operatorname{Pic}(X)=\mathbb Z[\mathcal O_X(1)]$である。
 従って自己同型は$\mathcal O_X(1)$を保ち、
@@ -70,7 +69,7 @@ $\operatorname{Aut}(X)$は0次元のアフィン群スキーム、従って有�
 有限型Deligne--Mumfordスタックである
 \cite[Theorem~97.17.2, Tag~06FI]{PStacks}。
 商へのアトラスは有限エタール全射であり、
-一つの成分の像の逆像はその群軌道に属する成分の和である。
+1つの成分の像の逆像はその群軌道に属する成分の和である。
 従って相異なる成分の像が一致するのは同じ群軌道に属するときに限り、
 \eqref{eq:pg-fixed-stack-components}を得る。
 \end{proof}
@@ -78,8 +77,8 @@ $\operatorname{Aut}(X)$は0次元のアフィン群スキーム、従って有�
 \subsection{超曲面を動かす相対モジュライ}
 $N=n+2$、$V=\mathbb C^N$とし、
 $U_N\subset\mathbb P(\operatorname{Sym}^3V^*)$を滑らかな3次式の開集合とする。
-普遍超曲面を$p:\mathscr X_N\to U_N$、tautological lineを
-$L=\mathcal O_{U_N}(-1)$と書く。
+普遍超曲面を$p:\mathscr X_N\to U_N$とし、
+$L=\mathcal O_{U_N}(-1)$とおく。
 命題\ref{prop:pg-represent}の相対形は
 \begin{equation}\label{eq:pg-relative-pois-bundle}
  \mathscr E_N:=p_*\bigwedge^2T_{\mathscr X_N/U_N}
@@ -89,8 +88,9 @@ $L=\mathcal O_{U_N}(-1)$と書く。
 局所代表を$F$から$aF$へ替えると$P$は$a^{-1}P$へ替わるので、
 この対応は重なりで一致する。
 
-この表示とJacobi条件が非被約な基底への変更とも両立することを確認する。
-$U_N$のアフィン開集合上で$F$の代表を選ぶと、各次数のgradient Koszul複体は
+この表示とJacobi条件は、非被約な基底への変更とも両立する。
+これを示すため、$U_N$のアフィン開集合上で$F$の代表を選ぶ。
+各次数の勾配のKoszul複体は
 有限自由加群の複体となる。全ての幾何学的ファイバーで偏微分は2次正則列をなし、
 Jacobian環のHilbert級数は
 \begin{equation}\label{eq:pg-stack-gradient-hilbert}
@@ -112,7 +112,6 @@ Jacobi持上げは、任意の$U_N$-スキーム上で成立する。
 式\eqref{eq:pg-euler-jacobi-divisibility}は
 $0\to\OO(1)\xrightarrow{F}\OO(4)\to\OO_X(4)\to0$
 の大域切断から得られる。
-後者で現れる非零整数による除法は$\mathbb C$上で可逆である。
 
 そこで、$\operatorname{Tot}(\mathscr E_N)$上の相対Jacobi零スキームを
 \begin{equation}\label{eq:pg-relative-pois-space}
@@ -148,7 +147,7 @@ $\mathfrak{Pois}^{\mathrm{rel}}_n$は有限型Deligne--Mumfordスタックであ
 \end{equation}
 は有限型アフィン射である。
 $X$を指定した点$\operatorname{Spec}\mathbb C\to\mathfrak{Cub}_n$に沿う
-二ファイバーは$\operatorname{Pois}(X)$であり、
+2-ファイバーは$\operatorname{Pois}(X)$であり、
 その同型類の残余gerbeに沿うファイバーは$\mathfrak{Pois}(X)$である。
 \end{theorem}
 
@@ -163,7 +162,7 @@ $\operatorname{Aut}(X)$の閉部分群であり、標数0なので有限エタ�
 $\mathscr P_n\to U_N$を得る。
 この射はベクトル束の閉部分スキームの射影であるから有限型アフィンであり、
 同じ性質が忘却射へ降下する。
-二つのファイバーの記述は、前者では$X$への同型を選び、
+2つのファイバーの記述は、前者では$X$への同型を選び、
 後者ではその選択を$\operatorname{Aut}(X)$で割ることによる。
 \end{proof}
 

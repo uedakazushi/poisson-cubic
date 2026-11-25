@@ -1,16 +1,18 @@
 # Poisson論文：主張・依存・一次資料の確認範囲
 
-2026-11-25 / v3（A-v64、repo v99）。最初に `00_research_plan.md` を読む。
+2026-11-25 / v4（A-v65、repo v100）。最初に `00_research_plan.md` を読む。
 この文書は現行原稿の仮定・証明所在・一次資料の確認範囲を整理する。
-証明の構成と引用箇所は改稿ソースに合わせた。既存の内部点検は過去の確認範囲であり、今回のソース統合による全証明の再査読・形式検証を意味しない。
+証明の構成と引用箇所は現行ソースに合わせている。既存の内部点検は過去の確認範囲であり、今回の通読と編集は全証明の再査読・形式検証を意味しない。
 新規性・外部査読の確定と、証明記載・内部点検・有限計算・組版は別の状態である。
 
 本文は `papers/poisson-cubic.tex`、文献は `papers/support/papers/references_poisson_cubic.tex`。
 節ファイルは `papers/support/papers/sections/` に置く。
-量子化の証明・監査は [cubic-quantization](https://github.com/uedakazushi/nc-cubic/blob/main/papers/cubic-quantization.tex) と
-[量子化監査](https://github.com/uedakazushi/nc-cubic/blob/main/notes/quantization_audit.md)、可換復元は同repoの `papers/nc-cubic.tex` が正本である。
+量子化の主原稿は [cubic-quantization](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex)、
+関連する確認記録は [量子化監査](https://github.com/uedakazushi/nc-cubic/blob/main/notes/quantization_audit.md)を参照する。可換復元は `nc-cubic` の `papers/nc-cubic.tex` が正本である。
 
 ## 公表範囲
+
+arXiv公開・論文誌投稿を予定し、標準的背景を持つ隣接分野の研究者が通読できる原稿とする。本文では数学的な仮定、論証、引用結果との関係を展開し、文献取得・作業管理・検査履歴は本ノートと検証記録に置く。未検証の公開草稿の位置づけは引用箇所に残し、計算による証明では入力、係数環、方法、出力・証明書、再現先を省かない。
 
 中心結果は全次元のJacobianブロック正規形、Bondal下界、退化軌跡、固定・相対Poisson成分と三次四様体の分離型判定である。
 Hessianの可約性だけでは不十分な滑らかな例、非連結中心に沿う同次数持上げ障害を保持する。
@@ -116,7 +118,7 @@ IをP⁵内、JをX内のCのイデアルとすると、
 独立な反例証明と一般階数四の分類は本文に保持し、未取得資料の内容を推測しない。
 
 一般次数の持上げ命題では、全連結成分が正次元なら
-余法束→Ω¹_P|C→O_C(-1)^{N+1}の部分束埋込みの対称冪から、全j>=1でH⁰(I^j/I^{j+1})=0となる。
+周囲をP^Mとし、余法束→Ω¹_P|C→O_C(-1)^{M+1}の部分束埋込みの対称冪から、全j>=1でH⁰(I^j/I^{j+1})=0となる。
 全ての厚みの大域関数は成分定数だけなので、任意r>=2でH¹(I^{r−1})=C^{π₀(C)}/Cである。
 0→I^{r−1}→I^r(d)→i_*J^r(d)→0によりr重消失の持上げ障害を得る。
 ここでd=deg Xに固定することが重要であり、次数eなら障害群はH¹(I^{r−1}(e−d))となる。
@@ -141,7 +143,7 @@ s=Σ(d_i−1)に対しΛ²T_X≅Ω_X^(n−2)(n+1−s)であり、s>=3ならFu--H
 
 「最初の例」は、射影完全交叉の一つの型に属する全ての滑らかなメンバーの全ての非零Poisson構造を、全次元n>=3・全一般階数にわたり同じ正規形で記述する、という限定付きの位置づけである。
 現行序論は「著者の知る限り」と留保する。任意次元の特定成分・特定退化条件の分類や一般構造定理には先行研究があり、包括的な優先権の確定ではない。
-今回の序論改稿における定理文・適用範囲・書誌の照合は、既存の全証明の再査読、Lean検証、Poisson P4原稿の証明検証とは区別する。
+序論の定理文・適用範囲・書誌についてはA-v64で照合した。A-v65では本文と書誌の表現・配置を整え、原稿全体に対して独立したAI読者による通読を行った。これらは既存の全証明の再査読、Lean検証、Poisson P4原稿の証明検証とは区別する。
 
 | 文献 | 原稿の引用箇所・既存の確認範囲 | 本稿との関係 |
 | --- | --- | --- |
@@ -189,6 +191,8 @@ Pym刊行版本文・関連訂正文の照合を優先し、arXiv v1で特定し
 cuspidal: $-4565043429507072=-2^{33}3^{12}$。
 その非零性と既知の2次元pencilにより接空間次元2を得る。
 元のPoissonスキームは有限型Cスキームなので、正則局所環から該当点での滑らかさを結論できる。
+
+A-v65では `python3 computations/verify_nonelliptic_components.py` を再実行し、両例の保存済み証明書との一致を確認した。本文に整数行列の係数規約、行選択の方法、固定版の公開計算資料へのリンクと実行コマンドを記す。直接Schouten線形化の追加照合（`--direct`）は今回再実行していない。
 
 
 非楕円例の量子関係行列の行列式は、独立した量子化資産 `nc-cubic/computations/quantization/verify_nonelliptic_point_curves.py` と対応JSONへ分離した。

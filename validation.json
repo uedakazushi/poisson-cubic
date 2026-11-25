@@ -1,19 +1,19 @@
 {
-  "version": "poisson-cubic-v99",
+  "version": "poisson-cubic-v100",
   "date": "2026-11-25",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/poisson-cubic main",
-  "scope": "Classical Poisson geometry, degeneracy and moduli; quantization is an independent paper in nc-cubic.",
+  "scope": "Classical Poisson geometry, degeneracy and moduli; a Japanese manuscript intended for arXiv and journal readers. Quantization is a separate paper in cubic-quantization.",
   "papers": {
     "A": {
       "entry": "papers/poisson-cubic.tex",
-      "version": "A-v64",
+      "version": "A-v65",
       "audit": "notes/poisson_article_submission_audit.md",
       "validation": "validation_paper_a.json"
     }
   },
   "related_current_papers": {
-    "quantization": "https://github.com/uedakazushi/nc-cubic/blob/main/papers/cubic-quantization.tex",
+    "quantization": "https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex",
     "noncommutative_geometry": "https://github.com/uedakazushi/nc-cubic/blob/main/papers/nc-cubic.tex"
   },
   "reproducibility": {
@@ -28,11 +28,12 @@
     "build_directory": "build/",
     "pdf_tracking": false,
     "dated_pdf": "python3 build_pdf.py",
-    "new_dated_pdf": "python3 build_pdf.py --new-version"
+    "new_dated_pdf": "python3 build_pdf.py --new-version",
+    "nonelliptic_certificate": "python3 computations/verify_nonelliptic_components.py"
   },
   "status_limits": [
-    "The Introduction places the all-dimensional cubic normal form among smooth projective complete intersections and compares it with verified primary literature. Source and typesetting checks are recorded in validation_paper_a.json.",
+    "The complete manuscript has been edited for human researchers. Independent AI reading, source checks, a rerun of the nonelliptic integer certificates, and visual inspection of all 38 PDF pages are recorded in validation_paper_a.json.",
     "The priority claim is qualified to all smooth members, all dimensions n>=3 and all generic ranks in a complete-intersection family; comprehensive priority is not established.",
-    "The cited poisson-p4 draft claims 147 reduced irreducible components before the PGL quotient; human verification is pending. No new full proof audit, Lean execution or exact-computation rerun is part of this revision."
+    "The cited poisson-p4 draft claims 147 reduced irreducible components before the PGL quotient; human verification is pending. No new full proof audit, Lean execution or primary-source literature audit is part of this editorial revision."
   ]
 }
