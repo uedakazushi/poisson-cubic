@@ -6,23 +6,25 @@
 $N=n+2\ge5$、$V=\mathbb C^N$とし、
 \begin{equation}
  F_N=\sum_{i=1}^Nz_i^3,\qquad
- X_N=V(F_N),\qquad
- \mathfrak P_N^{\mathrm{Fer}}=\operatorname{Pois}(X_N)
+ X_N=V(F_N)
 \end{equation}
 と置く。前節の相対Poissonスキームを$\mathscr P_n$、その非零部分を
 $\mathscr P_n^\times$と書く。
 $e_i$を座標$z_i$に双対な基底とし、$e_{ijk}=e_i\wedge e_j\wedge e_k$と略記する。
+$B\subset\{1,\ldots,N\}$に対して$V_B=\langle e_i:i\in B\rangle$と置く。
+以下の添字付けでは、分割の各部分$B$は座標支持を表し、
+正規形の3次元部分空間$W\subset V_B$が$\operatorname{Gr}(3,V_B)$を動く。
 $\left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}$は、
 $\{1,\ldots,N\}$を大きさ$3$以上の$k$個の部分に分ける非順序集合分割の数とする。
 
 \begin{theorem}\label{thm:pg-fermat-relative-count}
 次が成り立つ。
 \begin{enumerate}
-\item $\mathfrak P_N^{\mathrm{Fer}}$の既約成分は、
+\item $\operatorname{Pois}(X_N)$の既約成分は、
 各部分の大きさが$3$以上の集合分割で添字付けられる。$k$個の部分を持つ成分は
 次元$3N-8k$、一般Poisson階数$2k$であり、
 \begin{equation}\label{eq:pg-fermat-count}
- \#\operatorname{Irr}(\mathfrak P_N^{\mathrm{Fer}})
+ \#\operatorname{Irr}(\operatorname{Pois}(X_N))
  =\sum_{k=1}^{\lfloor N/3\rfloor}
  \left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}.
 \end{equation}
@@ -32,6 +34,7 @@ $N$の各部分が$3$以上の整数分割で添字付けられる。従って
  \#\operatorname{Irr}(\mathfrak{Pois}(X_N))
  =p_{\ge3}(N)=[q^N]\prod_{b\ge3}(1-q^b)^{-1}.
 \end{equation}
+\Needspace{12\baselineskip}
 \item 相対モジュライスタックには一般Poisson階数$2k$ごとに1つの既約成分があり、
 \begin{equation}\label{eq:pg-relative-count}
  \#\operatorname{Irr}(\mathfrak{Pois}^{\mathrm{rel}}_n)=\lfloor N/3\rfloor.
@@ -45,6 +48,10 @@ $N$の各部分が$3$以上の整数分割で添字付けられる。従って
 \end{enumerate}
 零Poisson構造を除いても、これらの成分数は変わらない。
 \end{theorem}
+
+例えば$N=6$（$n=4$）では、分割型$(6)$から階数$2$の1成分、
+分割型$(3,3)$から階数$4$の$\binom63/2=10$成分を得る。
+自己同型で割ると、これら2つの分割型に対応する2成分となる。
 
 \subsection{固定Fermat超曲面}
 \begin{proof}[第1項の証明]
@@ -63,8 +70,7 @@ $\bigwedge^2W_s\otimes\bigwedge^2W_t$という相異なる直和成分に属す�
 各$dz_i$が非零となる$W_s$は高々1つである。
 集合
 \begin{equation}
- B_s=\{i:dz_i|_{W_s}\ne0\},\qquad
- V_B=\langle e_i:i\in B\rangle
+ B_s=\{i:dz_i|_{W_s}\ne0\}
 \end{equation}
 は互いに素で、$|B_s|\ge3$、$W_s\subset V_{B_s}$を満たす。
 未使用の添字をいずれかの$B_s$に加えれば、$\{1,\ldots,N\}$の分割を得る。
@@ -79,7 +85,7 @@ $\bigwedge^2W_s\otimes\bigwedge^2W_t$という相異なる直和成分に属す�
 各点$P=\sum_BP_B$について、非零$P_B$の支持を$V_B$の基底に延長する。
 この座標では$F_N=\sum_B\sum_{i\in B}z_i^3$は異なるブロックを混ぜず、
 正規形定理の逆向きにより$P$はPoissonである。
-従って有限個の$Z_{\mathcal B}$が$\mathfrak P_N^{\mathrm{Fer}}$の被約化を覆う。
+従って有限個の$Z_{\mathcal B}$が$\operatorname{Pois}(X_N)$の被約化を覆う。
 各錐の次元は$3(|B|-3)+1$なので
 \begin{equation}
  \dim Z_{\mathcal B}=3N-8|\mathcal B|.
@@ -144,8 +150,11 @@ $U$上の可逆変換と$U\to W$の写像は任意である。
 
 $P=P_k$に対するHessian条件\eqref{eq:pg-K}は、
 異なる$W_s,W_t$間の混合2階微分の消滅と同値である。
-実際、2つずつの共変ベクトルを各ブロックから選ぶとその混合成分が得られ、
-逆向きはブロックごとのJacobian括弧から従う。
+実際、異なる2つのブロックからそれぞれ2つの共変ベクトルを選ぶと、
+式\eqref{eq:pg-K}はその混合成分の消滅を与える。
+逆に$H(W_s,W_t)=0$（$s\ne t$）を満たす対称形式$H$については、
+式\eqref{eq:pg-K}の左辺は各$W_s^*$上の交代4形式の和となり、
+$\dim W_s=3$なので零である。
 従って許される3次式の線形空間$\mathcal F_{N,k}$は
 \begin{equation}
  F=c(u)+\sum_{s=1}^k
@@ -203,13 +212,17 @@ $\mathscr P_{n,1}$の閉包に含まれる。
  \left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}
  =\frac{(e^t-1-t-t^2/2)^k}{k!}.
 \end{equation}
-これと\eqref{eq:pg-fermat-stack-count}から次の値を得る。
+これと\eqref{eq:pg-fermat-stack-count}から次表を得る。
+階数$2$から$8$までの4列は、固定Fermatスキーム$\operatorname{Pois}(X_N)$の
+階数別成分数である。右の3列は、その総成分数と、固定Fermatスタック
+$\mathfrak{Pois}(X_N)$、相対スタック$\mathfrak{Pois}^{\mathrm{rel}}_n$の成分数を比較する。
 \begin{center}
 \small
 \begin{tabular}{r|rrrr|rrr}
 \toprule
-$n$ & 階数$2$ & 階数$4$ & 階数$6$ & 階数$8$
-& 固定空間 & 固定スタック & 相対スタック \\
+$n$ & \multicolumn{4}{c|}{固定Fermatスキーム} & \multicolumn{3}{c}{総成分数} \\
+& 階数$2$ & 階数$4$ & 階数$6$ & 階数$8$
+& 固定スキーム & 固定スタック & 相対スタック \\
 \midrule
 3 & 1 & -- & -- & -- & 1 & 1 & 1 \\
 4 & 1 & 10 & -- & -- & 11 & 2 & 2 \\
@@ -222,9 +235,9 @@ $n$ & 階数$2$ & 階数$4$ & 階数$6$ & 階数$8$
 \bottomrule
 \end{tabular}
 \end{center}
-階数$2$から$8$までの4列は固定Fermat空間の階数別成分数である。
+同じ階数でも、固定スタックに複数の成分が残ることがある。
 例えば$N=9$では、階数$4$の$210$成分は$(3,6)$型の$84$個と
 $(4,5)$型の$126$個からなり、固定スタックでは2つの成分になる。
-一般の滑らかな3次超曲面の固定空間と固定スタックは、
+一般の滑らかな3次超曲面の固定Poissonスキームと固定スタックは、
 系\ref{cor:pg-generic}によりともに既約である。
 

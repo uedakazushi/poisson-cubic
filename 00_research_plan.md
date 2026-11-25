@@ -1,10 +1,10 @@
 # 研究方針：三次超曲面のPoisson幾何
 
-2026-11-25 / v100。再開時は本ファイルを最初に読む。GitHub mainが正本。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
+2026-11-25 / v101。再開時は本ファイルを最初に読む。GitHub mainが正本。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
 
 ## 現在の目標と三論文の分担
 
-主公表原稿は `papers/poisson-cubic.tex`（A-v65、日本語LuaLaTeX）。arXiv公開・論文誌投稿を予定し、標準的背景を持つ隣接分野の研究者を読者とする。全次元Poisson正規形を中心に、退化軌跡・Bondal下界・固定および相対Poissonモジュライを扱う。達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、既知の入力と貢献が具体的に説明され、本文を再生成できることである。作業報告と検証履歴は本文に含めず、研究ノートと検証記録に置く。数学的な仮定・必要な留保・計算証明の再現情報は本文に保持する。
+主公表原稿は `papers/poisson-cubic.tex`（A-v66、日本語LuaLaTeX）。arXiv公開・論文誌投稿を予定し、標準的背景を持つ隣接分野の研究者を読者とする。全次元Poisson正規形を中心に、退化軌跡・Bondal下界・固定および相対Poissonモジュライを扱う。達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、既知の入力と貢献が具体的に説明され、本文を再生成できることである。作業報告と検証履歴は本文に含めず、研究ノートと検証記録に置く。数学的な仮定・必要な留保・計算証明の再現情報は本文に保持する。
 
 量子化の構成と非可換幾何の比較では対象範囲・仮定が異なるため、公表単位を次の三つに分ける。有効な結果を削らず、各証明と再現資産の正本を一か所に置く。
 
@@ -18,7 +18,7 @@
 
 ## 主要到達点・仮定・証明の所在
 
-基礎体はC、X=V(F)⊂P(V)は滑らかな三次超曲面、N=dim V=n+2≥5とする。非零Poisson構造はN=3k+m、V=⊕W_s⊕U、dim W_s=3という分解を持つ複数Jacobianブロック正規形に入る。`poisson_geometry.tex` のEuler–Koszul表示、Jacobi恒等式の錐への持上げ、Hessian線形化、`lem:pg-basepoint-free-lie` から `thm:pg-normal` を証明する。非退化形式は三重ベクトルの支持W上で選び、Wに完全かつ中心なしのLie代数を構成する。根基の可換イデアル内のsl₂加群と最高根のベクトルを4項恒等式へ代入し、基点自由性から根基と階数2以上の単純因子を排除する。BondalのEuler–divergenceの方法とLie代数の既知定理を用いるが、Derdzinski–Gal Theorem Bの核計算は比較結果として位置づけ、必要な結論は本文で直接証明する。
+基礎体はC、X=V(F)⊂P(V)は滑らかな三次超曲面、N=dim V=n+2≥5とする。非零Poisson構造はN=3k+m、V=⊕W_s⊕U、dim W_s=3という分解を持つ複数Jacobianブロック正規形に入る。`poisson_geometry.tex` のEuler–Koszul表示、Jacobi恒等式の錐への持上げ、Hessian線形化、`lem:pg-basepoint-free-lie` から `thm:pg-normal` を証明する。非退化形式は三重ベクトルの支持W上で選び、Wに完全かつ中心なしのLie代数を構成する。根基の可換イデアル内のsl₂加群と最高根のベクトルを4変数の恒等式へ代入し、基点自由性から根基と階数2以上の単純因子を排除する。BondalのEuler–divergenceの方法とLie代数の既知定理を用いるが、Derdzinski–Gal Theorem Bの核計算は比較結果として位置づけ、必要な結論は本文で直接証明する。
 
 改稿は `nc-cubic-lean` のcommit `9736787f3a95f52bc3d233ab768a6ab6396d0c24` を参照した通常の数学的証明である。各Leanソースとの対応と対象範囲は `notes/lean_proof_sources.txt` に記す。今回Leanの再ビルド・公理依存監査およびTeX本文の形式検証は行っていない。一般階数・退化スキーム・Bondal下界・固定および相対モジュライは、参照版の幾何学的主定理の形式化された結論には含まれず、本文の証明と文献に依拠する。
 

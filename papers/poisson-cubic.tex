@@ -107,11 +107,12 @@ $P\in\bigwedge^3W$となる最小の部分空間$W\subset V$を$P$の支持と�
 $K(P)$を$W$に制限して非退化形式を選ぶと、
 $W$上に完全かつ中心なしのLie代数が得られる。
 可解根基内の可換イデアルの$\mathfrak{sl}_2$-加群を用い、
-4項恒等式と基点自由性から根基を排除する。
+4変数の恒等式と基点自由性から根基を排除する。
 さらに、単純因子の最高根ベクトルを同じ恒等式に代入して階数2以上の因子を排除する。
 残る$\mathfrak{sl}_2$因子が3変数ブロックを与える。
 
-一般階数2の構造の射影化は$\operatorname{Gr}(3,V)$である。
+一般階数2の非零構造の射影パラメータ空間は、被約構造を入れると
+$\operatorname{Gr}(3,V)$である。
 一般の滑らかな3次超曲面にはこの階数の非零構造だけが存在するが、
 特殊な超曲面では複数ブロックの構造が現れる（系\ref{cor:pg-generic}）。
 
@@ -234,7 +235,7 @@ $\mathbb P^4$のPoisson構造の空間でこの軌跡と交わる40既約成分�
 射影空間のPoisson構造のdivergence-free持上げは
 Bondal\cite[\S4]{PBondal93}に始まる。
 本稿ではこのEuler--divergenceの方法を3次超曲面上で消えるJacobiatorに適用する。
-半単純Lie代数上の4項恒等式の解空間は
+半単純Lie代数上の4変数の恒等式の解空間は
 Derdzinski--Gal\cite[(1.4), Theorem~B]{PDerdzinskiGal}にも現れる。
 第\ref{sec:pg-normal}節では、Hessianの基点自由性とこの恒等式から
 可解根基と高階数の単純因子を排除する。
@@ -243,10 +244,13 @@ Bondal予想のFano4次元・5次元の場合はそれぞれ
 \cite[Theorem~7.13]{BondalGualtieriPym}、
 \cite[Corollary~1.3]{BondalDruelPereiraPymTouzet}で扱われている。
 本稿のjoinによる証明は、3次超曲面の任意次元・全退化階数に適用される。
-分離型四様体では、非連結な零点曲線に沿う高次消失を保つ持上げに障害が現れる。
-命題\ref{prop:pg-triple-lifting-obstruction}でこの障害を計算し、
-Pym\cite{PPymElliptic}のarXiv v1の持上げ補題との関係を
-注意\ref{rem:pg-split-elliptic-lift-obstruction}で述べる。
+一方、分離型四様体が純楕円型であることは、
+Pym\cite[Theorem~1.3]{PPymElliptic}のarXiv v1に述べられた
+3次四様体上の非存在主張とは両立しない。
+命題\ref{prop:pg-triple-lifting-obstruction}では、
+非連結な零点曲線に沿う高次消失を保つ持上げの障害を計算する。
+これを用いて、同版の持上げ補題（Lemma~5.5）をこの曲線に適用できない理由を
+注意\ref{rem:pg-split-elliptic-lift-obstruction}で説明する。
 
 第\ref{sec:pg-extension}--\ref{sec:pg-normal}節で正規形を証明し、
 第\ref{sec:pg-leaves}--\ref{sec:pg-degeneracy}節で葉と退化軌跡を調べる。
@@ -265,6 +269,9 @@ Poisson構造の存在判定をまとめる。
 \input{papers/support/papers/sections/nonelliptic_poisson_components}
 \input{papers/support/papers/sections/special_poisson_blocks}
 \appendix
+\renewcommand{\theequation}{\Alph{section}.\arabic{equation}}
+\renewcommand{\thetheorem}{\Alph{section}.\arabic{theorem}}
+\renewcommand{\thesubsection}{\Alph{section}.\arabic{subsection}}
 \input{papers/support/papers/sections/complete_intersections}
 \input{papers/support/papers/references_poisson_cubic}
 \end{document}

@@ -1,5 +1,5 @@
 {
-  "version": "poisson-cubic-v100",
+  "version": "poisson-cubic-v101",
   "date": "2026-11-25",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/poisson-cubic main",
@@ -7,7 +7,7 @@
   "papers": {
     "A": {
       "entry": "papers/poisson-cubic.tex",
-      "version": "A-v65",
+      "version": "A-v66",
       "audit": "notes/poisson_article_submission_audit.md",
       "validation": "validation_paper_a.json"
     }
@@ -32,8 +32,8 @@
     "nonelliptic_certificate": "python3 computations/verify_nonelliptic_components.py"
   },
   "status_limits": [
-    "The complete manuscript has been edited for human researchers. Independent AI reading, source checks, a rerun of the nonelliptic integer certificates, and visual inspection of all 38 PDF pages are recorded in validation_paper_a.json.",
+    "The referee report on commit 1437cab has been addressed by explicit proof steps, nearby examples, precise parameter-space statements, version-specific literature comparison and an independent AI rereading. Source and final PDF checks are recorded in validation_paper_a.json.",
     "The priority claim is qualified to all smooth members, all dimensions n>=3 and all generic ranks in a complete-intersection family; comprehensive priority is not established.",
-    "The cited poisson-p4 draft claims 147 reduced irreducible components before the PGL quotient; human verification is pending. No new full proof audit, Lean execution or primary-source literature audit is part of this editorial revision."
+    "The cited poisson-p4 draft claims 147 reduced irreducible components before the PGL quotient; human verification is pending. This revision does not include human peer review, formal verification or a comprehensive priority audit. Pym published/accepted text remains unverified."
   ]
 }

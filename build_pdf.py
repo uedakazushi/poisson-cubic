@@ -43,7 +43,9 @@ def main() -> None:
     destination = root / "dist" / filename
     if destination.exists():
         raise SystemExit(f"Already exists: {destination}\nUse --new-version for a revised PDF.")
-    subprocess.run(["latexmk", "papers/poisson-cubic.tex"], cwd=root, check=True)
+    # A newly created optional input may be absent from latexmk's previous
+    # dependency list. Rebuild so the cover always uses the current metadata.
+    subprocess.run(["latexmk", "-g", "papers/poisson-cubic.tex"], cwd=root, check=True)
     destination.parent.mkdir(exist_ok=True)
     shutil.copy2(root / "build/poisson-cubic.pdf", destination)
     print(destination)

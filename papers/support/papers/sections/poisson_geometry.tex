@@ -573,18 +573,25 @@ $W_s^*\to\Lambda^2W_s$は同型なので、$D_P$のイデアルは異なるブ�
 これは各座標部分空間のイデアルの交叉、従って根基的である。
 その既約成分を復元すれば、他成分の和の零化空間として各$W_s$も復元できる。
 \end{proof}
+正規形では、この順序を除いたブロックの組に対して、補空間$U$と各空間の基底を選んでいる。
+固定した座標でも、$\sum_s h_s=0$を満たす中心変数のみの3次式$h_s(u)$を
+各$f_s$に加えれば、同じ$F=\sum_s f_s$を表す。
 
 \begin{corollary}\label{cor:pg-generic}
-固定した滑らかな $X$ 上の一般階数2の Poisson 構造の射影化は
+固定した滑らかな $X$ 上の一般階数2の Poisson 構造の被約な射影パラメータ空間は
 $\operatorname{Gr}(3,V)\subset\PP(\bigwedge^3V)$ である。
 一般の滑らかな3次超曲面上では、全ての非零 Poisson 構造が一般階数2をもつ。
 \end{corollary}
 \begin{proof}
-$k=1$と非零$P$の分解可能性が同値なので第1の主張を得る。
+命題\ref{prop:pg-represent}の線形同型の下で、$k=1$と非零$P$の分解可能性が同値なので、
+対応する被約な部分多様体はPl\"ucker埋込みの像である。
 第2の主張には$k\geq2$の族の次元を評価する。
 直和をなす順序付き $W_1,\ldots,W_k$ の空間は
 $\operatorname{Gr}(3,V)^k$ の開部分で、次元 $3k(N-3)$。
-この組を固定したときの3次式の空間の次元は
+この組を固定したとき、許される3次式は、全ての$v\in V$について
+$\operatorname{Hess}F(v)(W_s,W_t)=0$（$s\ne t$）となる線形部分空間に属する。
+この条件は$W_s$だけに依存するので、補空間$U$は次元計算のために任意に選べる。
+その座標で単項式を数えると、この線形空間の次元は
 \begin{equation}
 \binom{m+2}{3}+k\left(10+6m+3\binom{m+1}{2}\right).
 \end{equation}
@@ -599,7 +606,8 @@ $\operatorname{Gr}(3,V)^k$ の開部分で、次元 $3k(N-3)$。
 
 
 \section{Casimir、対数形式および symplectic leaf}\label{sec:pg-leaves}
-以下、\eqref{eq:pg-normal}を固定する。
+以下、正規形\eqref{eq:pg-normal}を固定し、錐上の双ベクトル$q=\iota_{dF}P$、
+その射影化$\pi$（$\PP(V)$上）と制限$\pi_X$（$X$上）を用いる。
 多項式 $G$ が Casimir であるとは $\{G,S\}=0$ を意味する。
 射影超曲面が Poisson であるとは、そのイデアル層が括弧で保たれることをいう。
 
@@ -702,25 +710,49 @@ Casimir性からHamiltonベクトル場が張る分布は$\ker d\Phi$に含ま�
 \end{proof}
 \begin{proposition}\label{prop:pg-leaf-closure}
 各 $f_{s,0}=f_s(x_s,0)$ が滑らかな平面3次曲線を定めるとする。
-$m>0$ なら一般の葉の閉包は $\PP^{3k}$ 内の型 $(3^k)$ の既約な完全交叉であり、
+$\PP(V)$上の$\pi$と$X$上の$\pi_X$の双方について、
+$m>0$ なら一般のsymplectic leafの閉包は $\PP^{3k}$ 内の型 $(3^k)$ の既約な完全交叉であり、
 $m=0$ なら $\PP^{3k-1}$ 内の型 $(3^{k-1})$ の既約な完全交叉である。
 いずれも次元は $2k$ である。
 \end{proposition}
 \begin{proof}
-$m>0$ では底の一般点で $u_\alpha=c_\alpha u_1$、$c_1=1$ とし、$t=u_1$ とおく。
-方程式$f_s(x_s,ct)-d_st^3=0$（$1\leq s\leq k$）が定める閉部分スキームを考える。
-$X$上では$\sum_sd_s=0$である。
+$m>0$とし、滑らかな開集合$U_{\PP}=\PP(V)\cap\{u_1\ne0\}$と
+$U_X=X\cap\{u_1\ne0\}$を取る。
+射$\psi_{\PP}:U_{\PP}\to\mathbb A^{m-1}\times\mathbb A^k$と
+$\psi_X:U_X\to\mathbb A^{m-1}\times\mathbb A^{k-1}$を
+\begin{equation}\label{eq:pg-affine-first-integrals}
+\begin{aligned}
+ \psi_{\PP}([x,u])&=
+ \left(\frac{u_2}{u_1},\ldots,\frac{u_m}{u_1},
+       \frac{f_1}{u_1^3},\ldots,\frac{f_k}{u_1^3}\right),\\
+ \psi_X([x,u])&=
+ \left(\frac{u_2}{u_1},\ldots,\frac{u_m}{u_1},
+       \frac{f_1}{u_1^3},\ldots,\frac{f_{k-1}}{u_1^3}\right)
+\end{aligned}
+\end{equation}
+で定める。命題\ref{prop:pg-first-integrals}の微分の独立性から両射は支配的であり、
+標数0の一般的滑らかさの定理により、それぞれの一般ファイバーは滑らかである。
+一般の底点での値を$c_\alpha=u_\alpha/u_1$、$d_s=f_s/u_1^3$と書く。
+$c_1=1$であり、$\psi_X$では$d_k=-\sum_{s<k}d_s$である。
+特に$k=1$では$\psi_X$の後半の座標はなく、$d_1=0$となる。
+$c=(c_1,\ldots,c_m)$、$t=u_1$とおき、$u=ct$で定まる$\PP^{3k}$内の方程式
+\begin{equation}\label{eq:pg-leaf-closure-equations}
+ f_s(x_s,ct)-d_st^3=0\qquad(1\leq s\leq k)
+\end{equation}
+が定める閉部分スキームを考える。
 $t=0$ の部分は独立な式 $f_{s,0}=0$ で定まり次元 $2k-1$。
 $t\neq0$ では $t=1$ と正規化すると $k$ 個のアフィン曲面の積となる。
 従ってこの閉部分スキームは純次元$2k$の完全交叉で、無限遠に含まれる成分をもたない。
-標数0の一般的滑らかさの定理により、一般の底点上のアフィン積は滑らかである。
-各因子の射影閉包は無限遠でも $\nabla f_{s,0}\neq0$ により滑らかであり、
+上で示した滑らかさから各アフィン因子も滑らかである。
+その射影閉包は無限遠でも $\nabla f_{s,0}\neq0$ により滑らかであり、
 連結な射影超曲面なので既約である。
 よってアフィンファイバーは既約である。
 完全交叉は Cohen--Macaulay で埋め込み成分をもたず、全最小成分がこの滑らかな開集合と交わる。
 従ってこの完全交叉は被約かつ既約で、葉の閉包である。
 
-$m=0$ では $f_1\neq0$ の一般底点に対して $f_s=c_sf_1$（$s\geq2$）と書ける。
+$m=0$ では $f_1\neq0$ の一般底点に対して $c_1=1$、$f_s=c_sf_1$（$s\geq2$）と書ける。
+$X$上では$\sum_sc_s=0$を課す。
+$k\geq2$なので、この底でも全ての$c_s$が非零の開集合は空でない。
 $f_1=0$ の部分は全 $f_s=0$ で定まり次元 $2k-1$。
 開部分は $\{f_1=1\}\times\prod_{s=2}^k\{f_s=c_s\}$ の同時 $\mu_3$ 作用による像である。
 $c_s\neq0$ の一般点では、各因子は滑らかな3次曲面
@@ -747,7 +779,8 @@ $q_s=\iota_{df_s}(\partial_{x_{s1}}\wedge\partial_{x_{s2}}\wedge\partial_{x_{s3}
 A_{s,i}=\frac{\partial f_s}{\partial x_{si}},\qquad
 p_s=\sum_i x_{si}A_{s,i}=3f_s-\sum_\alpha u_\alpha\frac{\partial f_s}{\partial u_\alpha}
 \end{equation}
-とおく。$D_{2j-2}(\pi)=Z(\pi^j)$ をスキームとして考える。
+とおく。$\PP(V)$上の退化スキーム$D_{2j-2}(\pi)=Z(\pi^j)$と、
+$X$上の退化スキーム$D_{2j-2}(\pi_X)$を考える。
 \begin{proposition}\label{prop:pg-deg-ideal}
 $1\leq j\leq k$ に対し、$D_{2j-2}(\pi)$ のイデアル層は、全ての
 $I\subset\{1,\ldots,k\}$、$|I|=j$ について
@@ -897,7 +930,45 @@ $X$ の滑らかさも非空開条件である。
 よって連結であり、滑らかならば既約である。
 \end{proof}
 
+\begin{example}[Fermat3次三様体の葉と零点]\label{ex:pg-fermat-threefold-leaves-zeros}
+$n=3$、$k=1$、$m=2$とし、
+\begin{equation}\label{eq:pg-fermat-threefold}
+ F=\frac{x_1^3+x_2^3+x_3^3+u_1^3+u_2^3}{3},
+ \qquad
+ P=\partial_{x_1}\wedge\partial_{x_2}\wedge\partial_{x_3}
+\end{equation}
+が定める$X=V(F)\subset\PP^4$上のPoisson構造$\pi_X$を考える。
+第一積分は$[u_1:u_2]$であり、$u_2=cu_1$、$t=u_1$とすると、
+命題\ref{prop:pg-leaf-closure}により一般の葉の閉包は
+\begin{equation}\label{eq:pg-fermat-threefold-leaf}
+ V\bigl(x_1^3+x_2^3+x_3^3+(1+c^3)t^3\bigr)\subset\PP^3
+\end{equation}
+となる。$1+c^3\ne0$なら全偏微分の共通零点はアフィン原点だけなので、
+これは滑らかな3次曲面である。
+
+一方、ブロック変数の偏微分は$x_i^2$であるから、命題\ref{prop:pg-deg-support}より
+\begin{equation}\label{eq:pg-fermat-threefold-zeros}
+ \begin{aligned}
+ D_0(\pi_X)&=E\sqcup Z,\\
+ E&=V(u_1,u_2,x_1^3+x_2^3+x_3^3),\\
+ Z&=V(x_1^2,x_2^2,x_3^2,u_1^3+u_2^3)\subset\PP^4
+ \end{aligned}
+\end{equation}
+である。$E$は平面楕円曲線で、$Z$の台は中心直線$\{x_1=x_2=x_3=0\}$上の3点である。
+各点で$u_1\ne0$であり、$1+(u_2/u_1)^3$の根は単純なので、
+$\xi_i=x_i/u_1$とおけば局所環は
+\begin{equation}\label{eq:pg-fermat-threefold-zero-ring}
+ \OO_{Z,p}\simeq
+ \CC[\xi_1,\xi_2,\xi_3]/(\xi_1^2,\xi_2^2,\xi_3^2)
+ \qquad(p\in|Z|)
+\end{equation}
+となる。従って各点の長さは$2^3=8$、$Z$の全長は$24$であり、
+命題\ref{prop:pg-zero-ci}の次数$3\cdot8^k$と一致する。
+一般のFermat型の厚みは命題\ref{prop:pg-fermat-thickening}で記述する。
+\end{example}
+
 \section{3次四様体と持上げ障害}\label{sec:pg-fourfold}
+この節では、超曲面$X$上のPoisson構造を$\pi$と書く。
 \subsection{純楕円退化因子}
 \label{subsec:pg-split-elliptic}
 4次元の場合には、正規形から一般点で非退化な構造を完全に記述できる。
@@ -907,7 +978,7 @@ $X$ の滑らかさも非空開条件である。
 $\pi$の零点における$Z_\nu$の値は$\nu$の選択に依存しない。
 体積形式の変更による差がHamiltonベクトル場だからである。
 この次元では、$D$が正規で、$\operatorname{Sing}D$上で$\pi=0$かつ
-$Z_\nu\ne0$となることが、Pym\cite[Definition~4.2, Remark~4.4]{PPymElliptic}の
+$Z_\nu\ne0$となることが、PymのarXiv初版\cite[Definition~4.2, Remark~4.4]{PPymElliptic}の
 purely elliptic条件である。以下では分離型の構造についてこれを直接確認する。
 
 \begin{proposition}[分離型3次四様体の対数symplectic構造]
@@ -1022,6 +1093,7 @@ $D$の正規性と上記の非消滅からpurely ellipticの全条件が従う�
 これは滑らかな平面3次の3つの2次偏微分が正則列をなすことによる。
 \end{remark}
 
+\Needspace{16\baselineskip}
 \subsection{一般階数4とHessian軌跡}\label{subsec:pg-fourfold-hessian}
 \begin{corollary}[3次四様体の一般階数4とHessian軌跡]
 \label{cor:pg-cubic-fourfold-elliptic}
@@ -1124,6 +1196,11 @@ $E_F$の階数3の冪等元を与えるが、そのような元はない。
 
 \Needspace{10\baselineskip}
 \subsection{高次消失の持上げ障害}\label{subsec:pg-lifting-obstruction}
+分離型の零点曲線$C=E_f\sqcup E_g$は非連結であり、
+退化因子の方程式を$C$に沿う3重消失を保って$\PP^5$へ持ち上げる際に障害が生じる。
+この障害が、PymのarXiv v1の非存在記述と命題\ref{prop:pg-split-elliptic}の
+不整合を説明する（注意\ref{rem:pg-split-elliptic-lift-obstruction}）。
+まず一般の消失次数について障害群を求め、その後この例の障害類を計算する。
 \begin{proposition}[高次消失を保つ持上げと連結成分の障害]
 \label{prop:pg-triple-lifting-obstruction}
 $X=V(F)\subset\mathbb P^M_{\mathbb C}$を滑らかな次数$d$の超曲面とし、

@@ -1,10 +1,10 @@
 # 滑らかな三次超曲面のPoisson幾何
 
-2026-11-25 / v100。再開は [研究方針](00_research_plan.md) から。GitHub mainが正本。
+2026-11-25 / v101。再開は [研究方針](00_research_plan.md) から。GitHub mainが正本。
 
 ## 公表用論文
 
-[papers/poisson-cubic.tex](papers/poisson-cubic.tex) は **正規形・退化軌跡・モジュライ** を扱う日本語LuaLaTeX論文（A-v65）である。arXiv公開・論文誌投稿を予定し、隣接分野の研究者が通読できる論文として編集する。全次元のPoisson正規形、全階数のBondal下界、固定・相対Poissonスキームと成分、Fermatの非被約零点、非楕円ブロック、三次四様体の純楕円分類、完全交叉の古典的背景を含む。
+[papers/poisson-cubic.tex](papers/poisson-cubic.tex) は **正規形・退化軌跡・モジュライ** を扱う日本語LuaLaTeX論文（A-v66）である。arXiv公開・論文誌投稿を予定し、隣接分野の研究者が通読できる論文として編集する。全次元のPoisson正規形、全階数のBondal下界、固定・相対Poissonスキームと成分、Fermatの非被約零点、非楕円ブロック、三次四様体の純楕円分類、完全交叉の古典的背景を含む。
 
 正規形の証明は [nc-cubic-lean の参照版](https://github.com/uedakazushi/nc-cubic-lean/tree/9736787f3a95f52bc3d233ab768a6ab6396d0c24)を踏まえ、Euler–Koszul表示、Jacobi恒等式の持上げ、三重ベクトルの支持上のLie代数と根ベクトルによる障害を通常の数学的証明として展開した。対応するソースと証明範囲は [参照版との対応](notes/lean_proof_sources.txt) に記す。今回Leanを再ビルドしておらず、TeX本文の形式検証も行っていない。
 
@@ -17,7 +17,7 @@
 | 三次超曲面の代数的量子化 | [cubic-quantization/papers/cubic-quantization.tex](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) | PBW・AS性、代数的中心三次、全ブロックと多パラメータ、同変中心元と降下、二次包絡。 |
 | 非可換三次超曲面の可換復元とモジュライ | [nc-cubic/papers/nc-cubic.tex](https://github.com/uedakazushi/nc-cubic/blob/main/papers/nc-cubic.tex) | 完備MF移送・一般点Ku比較、良い一ブロック型のO-markedモジュライ、残余射と降下障害。 |
 
-古典的正規形から量子化へ、量子化から非可換比較へという依存を保つ。後者の一ブロック仮定を量子化全体へ課さず、一般点の比較を全パラメータでの同値と読み替えない。量子化の証明・計算・現行ノートはnc-cubic内で管理し、このrepoでは重複保持しない。
+古典的正規形から量子化へ、量子化から非可換比較へという依存を保つ。後者の一ブロック仮定を量子化全体へ課さず、一般点の比較を全パラメータでの同値と読み替えない。量子化の主原稿と再現資産はcubic-quantization、関連する中心元のノートはnc-cubicを参照し、このrepoでは重複保持しない。
 
 ## 現行資料と未解決点
 
@@ -51,6 +51,6 @@ python3 computations/verify_nonelliptic_components.py
 
 このコマンドは節点型・尖点型の行列を本文の式から作り、有理数上で階数とピボット行を求め、整数上の33次小行列式を保存済みの証明書と照合する。成功すると両例について `PASS`、`rank 33`、それぞれ `det 8916100448256`、`det -4565043429507072` を表示する。`--direct` を付けると、Schouten括弧から直接構成した線形化の階数も追加で照合する。
 
-`papers/build-metadata.tex` はGit管理しない任意入力であり、存在しなくても `latexmk papers/poisson-cubic.tex` でコンパイルできる。`python3 build_pdf.py` はこのファイルがなければ実行時のJST日時から表紙情報と日付入りファイル名を生成し、`dist/` にPDFを保存する。既存のmetadataは保ち、同名PDFは上書きしない。本文を改訂して別版を作る場合は `python3 build_pdf.py --new-version` を使う。
+`papers/build-metadata.tex` はGit管理しない任意入力であり、存在しなくても `latexmk papers/poisson-cubic.tex` でコンパイルできる。`python3 build_pdf.py` はこのファイルがなければ実行時のJST日時から表紙情報と日付入りファイル名を生成し、表紙を確実に再組版して `dist/` にPDFを保存する。既存のmetadataは保ち、同名PDFは上書きしない。本文を改訂して別版を作る場合は `python3 build_pdf.py --new-version` を使う。
 
 生成・証明点検・厳密計算・組版・GitHub保存は別々の状態として報告する。通常コミットでmainへ保存し、Actions・force push・不要なPRは行わない。PDF・中間物は非追跡。GitHub管理後のLibrary二重保存や定常ZIPは行わず、push不能時の緊急保存か明示指示時のみ用いる。既存Libraryファイルは削除しない。研究の区切りにはこのrepoを保存した後にresearch-hubの該当項目を更新する。
