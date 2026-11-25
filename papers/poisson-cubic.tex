@@ -1,10 +1,7 @@
 % !TEX root = poisson-cubic.tex
 \input{papers/support/papers/common}
 \newif\ifbuildmetadata
-\IfFileExists{papers/build-metadata.tex}{%
-  \input{papers/build-metadata}%
-  \buildmetadatatrue
-}{\buildmetadatafalse}
+\InputIfFileExists{papers/build-metadata.tex}{\buildmetadatatrue}{\buildmetadatafalse}
 \numberwithin{equation}{section}
 \hypersetup{pdftitle={滑らかな3次超曲面のPoisson構造：正規形・退化軌跡・モジュライ}}
 \fancyhead[L]{\small 3次超曲面のPoisson構造}
@@ -51,11 +48,34 @@ Hessianに関する線形条件に変換する。対応する2次形式の系の
 \pagenumbering{arabic}
 
 \section{序論}\label{sec:paperA-introduction}
+滑らかな複素射影多様体$Y$上の代数的Poisson構造は、
+Schouten括弧について$[\pi,\pi]=0$を満たす
+大域双ベクトル$\pi\in H^0(Y,\bigwedge^2T_Y)$である。
+その分類では、Jacobi恒等式の解を求めることに加えて、
+構造の一般階数、退化軌跡、パラメータ空間の成分を記述することが問題となる。
+
+射影完全交叉の中で非零Poisson構造を持つものは強く制限される。
+通常の射影空間内の滑らかな完全交叉
+$Y=Y_{d_1,\ldots,d_c}\subset\mathbb P^{n+c}$について、
+$n\ge3$とし、一次方程式を除いて$d_i\ge2$とすると、可能な型はちょうど
+射影空間$\mathbb P^n$、2次超曲面$Q^n\subset\mathbb P^{n+1}$、
+3次超曲面$Y_3\subset\mathbb P^{n+1}$、および
+$(2,2)$完全交叉$Y_{2,2}\subset\mathbb P^{n+2}$である。
+実際、$s=\sum_i(d_i-1)$とおくと、随伴公式により
+$\bigwedge^2T_Y\simeq\Omega_Y^{n-2}(n+1-s)$であり、
+$s\ge3$なら低twistの微分形式の消滅
+\cite[Lemma~4.1]{FuHwangCI}から大域双ベクトル自体が存在しない。
+残る4型での存在と、この消滅の独立な証明は
+定理\ref{thm:ci-poisson-existence}と補題\ref{lem:ci-low-twist-vanishing}に示す。
+
+本稿は、この4型のうち3次超曲面について、全ての滑らかなメンバーの
+全ての非零Poisson構造を、次元$n\ge3$と一般階数を一様に扱う
+3変数Jacobianブロックの正規形によって記述する。
+著者の知る限り、射影完全交叉の一つの型に属する全ての滑らかな多様体について、
+全次元・全階数のPoisson構造を同じ正規形に帰着する分類は、これが最初の例である。
 $V$を次元$N=n+2\ge5$の複素ベクトル空間とし、
 $F\in\operatorname{Sym}^3V^*$が滑らかな超曲面
 $X=V(F)\subset\mathbb P(V)$を定めるとする。
-本稿では$X$上のPoisson双ベクトルを分類し、
-その退化軌跡とモジュライを記述する。
 
 \subsection*{正規形}
 $F$を固定すると、任意の大域双ベクトルは一意に
@@ -71,15 +91,19 @@ $F$を固定すると、任意の大域双ベクトルは一意に
  P=\sum_{s=1}^k\partial_{x_{s1}}\wedge\partial_{x_{s2}}\wedge\partial_{x_{s3}},
  \qquad F=\sum_{s=1}^k f_s(x_s,u)
 \end{equation}
-となる。各$f_s$は全次数3であり、$u_\alpha$は共通のCasimirである。
+となる。各$f_s$は全次数3であり、アフィン錐上の括弧$\iota_{dF}P$について
+$u_\alpha$はCasimirである。
 逆に、この表示はPoisson構造を与え、その一般階数は$2k$である。
 3変数制限$f_s(x_s,0)$の滑らかさは仮定しない。
 
 証明では、gradientのKoszul複体を用いて表示\eqref{eq:intro-bivector-representation}と
 Jacobi恒等式の錐への持上げを示す。
-Jacobi条件は$F$のHessianがある線形空間$K(P)$に属することと同値になる。
+Jacobi条件は$F$のHessianが、式\eqref{eq:pg-K}の恒等式で定まる
+2次形式の線形空間$K(P)$に属することと同値になる。
 3次式の対称性と$X$の滑らかさにより、$K(P)$は2次形式の系として基点を持たない。
-その中の非退化形式を使うと、$P$の支持に完全かつ中心なしのLie代数が得られる。
+$P\in\bigwedge^3W$となる最小の部分空間$W\subset V$を$P$の支持と呼ぶ。
+$K(P)$を$W$に制限して非退化形式を選ぶと、
+$W$上に完全かつ中心なしのLie代数が得られる。
 4項恒等式に特定の根ベクトルを代入し、基点自由性から可解根基と
 階数2以上の単純因子を排除する。残る$\mathfrak{sl}_2$因子が3変数ブロックを与える。
 
@@ -91,15 +115,17 @@ Jacobi条件は$F$のHessianがある線形空間$K(P)$に属することと同�
 $D_{2j}(\pi)=V(\pi^{j+1})$を階数が$2j$以下となる退化スキームとする。
 正規形を用いると、そのイデアルは各ブロックの偏微分とEuler場から
 明示的に求まる（命題\ref{prop:pg-deg-ideal}）。
-また、$j+1$個のブロックの平面曲線のjoinを構成することにより、
-全ての$0\le2j<n$について
+また、$j<k$では$j+1$個のブロックの平面曲線のjoinを構成し、
+$j\ge k$では$D_{2j}(\pi)=X$を用いることにより、全ての$0\le2j<n$について
 \begin{equation}\label{eq:intro-bondal}
  \dim D_{2j}(\pi)\ge2j+1
 \end{equation}
 を得る（定理\ref{thm:pg-bondal}）。
 各$f_s(x_s,0)$が滑らかな場合には、零点スキームは
-互いに交わらない平面3次曲線と、次数$8^k$の有限平坦被覆から得られる
-完全交叉に分かれる（命題\ref{prop:pg-deg-support}、\ref{prop:pg-zero-ci}）。
+互いに交わらない平面3次曲線と残余スキームの非交和になる。
+残余スキームは$m\le1$なら空であり、$m\ge2$なら
+次数$8^k$の有限平坦被覆から得られる完全交叉である
+（命題\ref{prop:pg-deg-support}、\ref{prop:pg-zero-ci}）。
 
 3次四様体が一般階数4のPoisson構造を持つための必要十分条件は、
 その方程式が$F=f(x_0,x_1,x_2)+g(y_0,y_1,y_2)$と分離することである。
@@ -115,15 +141,17 @@ Bricalli--Favale--Pirola\cite[Theorem~3.4]{PBricalliFavalePirola}による。
 固定した$X$について、Jacobi方程式の零スキームを$\operatorname{Pois}(X)$、
 その商スタックを
 $\mathfrak{Pois}(X)=[\operatorname{Pois}(X)/\operatorname{Aut}(X)]$とする。
-超曲面も動かす相対Poissonスキームを$\mathscr P_n$と書き、
+滑らかな3次式の射影パラメータ空間上で、点$([F],\pi)$を持つ
+相対Poissonスキームを$\mathscr P_n$と書き、
 $\mathfrak{Pois}^{\mathrm{rel}}_n=[\mathscr P_n/\mathrm{PGL}(V)]$と定める。
 いずれもPoisson構造のスカラーを保ち、零構造を含める。
 これらのスタックは有限型Deligne--Mumfordスタックである
 （第\ref{sec:pg-poisson-stacks}節）。
 
 Fermat超曲面$X_N=V(\sum_{i=1}^Nz_i^3)$では、
-各部分の大きさが三以上の非順序集合分割
-$\mathcal B=\{B_1,\ldots,B_k\}$を用い、$V_B=\langle e_i:i\in B\rangle$とおくと
+$\{1,\ldots,N\}$の各部分の大きさが3以上の非順序集合分割
+$\mathcal B=\{B_1,\ldots,B_k\}$を用いる。
+$e_i$を$z_i$に双対な基底とし、$V_B=\langle e_i:i\in B\rangle$とおくと
 \begin{equation}\label{eq:intro-fermat-components}
  Z_{\mathcal B}=\sum_{B\in\mathcal B}\widehat{\operatorname{Gr}}(3,V_B),
  \qquad\operatorname{Pois}(X_N)_{\mathrm{red}}=\bigcup_{\mathcal B}Z_{\mathcal B}
@@ -131,7 +159,7 @@ $\mathcal B=\{B_1,\ldots,B_k\}$を用い、$V_B=\langle e_i:i\in B\rangle$とお
 が既約成分分解となる。ここで$\widehat{\operatorname{Gr}}$はPl\"ucker錐である。
 $Z_{\mathcal B}$の次元は$3N-8k$、一般Poisson階数は$2k$である。
 自己同型群は同じ部分の大きさを持つ分割を同一視するので、
-固定スタックの成分は三以上の整数への分割で添字付けられる。
+固定スタックの成分は3以上の整数への分割で添字付けられる。
 これに対し、相対モジュライでは各一般階数$2k$について成分が一つであり、
 \begin{equation}\label{eq:intro-poisson-stack-counts}
  \#\operatorname{Irr}(\mathfrak{Pois}(X_N))
@@ -145,9 +173,65 @@ $Z_{\mathcal B}$の次元は$3N-8k$、一般Poisson階数は$2k$である。
 （定理\ref{ne:main}）。
 
 \subsection*{先行研究と本文の構成}
-3次三様体の分類はLoray--Pereira--Touzet
-\cite[Theorems~7.1, 9.1]{LPTPoissonCubic}による。
-Mayanskiy\cite[Theorem~1]{PMayanskiy}はJacobi方程式からGrassmannスキームを記述した。
+代数的Poisson幾何の基礎として、Polishchuk\cite{PPolishchuk}は
+Poissonスキーム・Poisson加群・退化軌跡を代数幾何学的に扱った。
+曲面では$\bigwedge^2T_Y=K_Y^{-1}$でJacobi条件が自動的に成り立ち、
+反標準因子と双有理幾何が分類の中心となる。
+曲面から高次元までの構成と分類の概観はPym\cite[\S\S2--5]{PPymSurvey}にある。
+3次元では、Druel\cite[Introductionの主定理]{DruelThreefold}が、
+有限個の点を除いて階数2である非零Poisson構造を持つ滑らかな射影三様体を分類し、
+その構造が実際には至る所階数2であることを示した。
+
+$\mathbb P^3$の場合には
+$\bigwedge^2T_{\mathbb P^3}\simeq\Omega^1_{\mathbb P^3}(4)$により、
+Poisson構造の分類が余次元1の葉層構造の分類に結び付く。
+Cerveau--Lins Netoの\emph{Annals of Mathematics}論文
+\cite{CerveauLinsNeto}は、$\mathbb P^n$、$n\ge3$上の次数2・余次元1の
+葉層構造の空間が6既約成分を持つことを示した。
+零点に因子成分を持つ場合を含むPoisson構造への適用と、
+Picard数1の滑らかなFano三様体への拡張は
+Loray--Pereira--Touzet\cite[\S9, Theorem~9.1]{LPTPoissonCubic}による。
+非零構造をスカラー倍で割った空間の成分数は、$\mathbb P^3$で6、$Q^3$で3である。
+3次三様体の分類は同論文のTheorem~7.1に含まれ、
+Mayanskiy\cite[Theorem~1]{PMayanskiy}はSchouten括弧の計算から、
+その射影PoissonスキームがPl\"ucker埋め込みされた
+$\operatorname{Gr}(2,5)$であることを記述した。
+
+射影空間と2次超曲面では、高次元になると分類すべき構造の種類も増える。
+両者のトーラス作用が与える可換な大域ベクトル場$v_1,\ldots,v_r$からは、
+定数$c_{ij}$に対して
+$\sum_{i<j}c_{ij}v_i\wedge v_j$というPoisson構造が得られ、
+可換性がJacobi恒等式を保証する。
+トーラスの次元とともに、この構成だけでも可能な一般階数は増加する。
+さらに射影空間の階数2の問題には、次数2の葉層構造の有理型・対数型・
+Lie代数の作用による型・線形引戻しが現れ、
+Corr\^ea--Muniz\cite[Theorem~A, Corollary~C]{CorreaMuniz}は
+任意次元の次数2葉層の構造定理を与え、$\mathbb P^4$では
+因子状の零点を持たない一般階数2のPoisson構造の一般元に適用している。
+このような複数の構成と退化の型を持つ射影空間・2次超曲面との対比において、
+3次超曲面の全構造が式\eqref{eq:intro-block-normal-form}に入ることが本稿の特徴である。
+
+任意次元での分類・構造定理には、特定の成分や退化条件を対象とする重要な先行研究がある。
+Lima--Pereira\cite[Theorems~1--2]{LimaPereiraDiagonal}は、全ての$n\ge3$で
+$\mathbb P^n$上の対角Poisson構造の閉包が1既約成分をなすことを示した。
+また、偶数次元が4以上でPicard群が$\mathbb Z$であるFano多様体上の
+generically symplectic構造について、退化因子が被約な単純正規交叉因子ならば、
+多様体は射影空間であり構造は対角型であると証明した。
+Druel--Pereira--Pym--Touzet\cite[Theorem~1.1]{GlobalWeinstein}は、
+コンパクトK\"ahler Poisson多様体が有限基本群を持つコンパクトなsymplectic leafを持つとき、
+有限\'etale被覆がその葉の普遍被覆と別のPoisson多様体の積に分解することを示した。
+
+$\mathbb P^4$については、Matviichuk--Pym--Schedler
+\cite[Theorems~1.2--1.4]{MPSLocalTorelli}が、単純正規交叉の退化因子を持つ
+log symplectic構造の変形理論を任意次元で構成し、
+$\mathbb P^4$のPoisson構造の空間でこの軌跡と交わる40既約成分を記述した。
+さらに、公開リポジトリ\texttt{uedakazushi/poisson-p4}の研究原稿
+\cite{PoissonP4Draft}は、非零Poisson構造をスカラー倍で射影化した空間の
+被約既約成分が147個であり、一般階数4の141成分と一般階数2の6成分に分かれる、
+という分類案を提示している。
+後者は$\mathrm{PGL}_5$による商を取る前の成分に関する主張であり、
+人間による証明の検証はまだ完了していない。
+
 射影空間のPoisson構造のdivergence-free持上げは
 Bondal\cite[\S4]{PBondal93}に始まる。
 本稿ではこのEuler--divergenceの方法を3次超曲面上で消えるJacobiatorに適用する。
@@ -169,7 +253,7 @@ Bondal予想のFano4次元・5次元の場合はそれぞれ
 第\ref{sec:pg-leaves}--\ref{sec:pg-bondal}節で葉と退化軌跡を調べる。
 第\ref{sec:pg-poisson-stacks}--\ref{sec:pg-special}節では
 モジュライと特殊ブロックを扱う。
-付録\ref{sec:general-poisson-existence}には射影完全交叉・斉次多様体の
+\ref{sec:general-poisson-existence}には射影完全交叉・斉次多様体の
 Poisson構造の存在判定をまとめる。
 正規形を入力とする量子化は独立論文\cite{CubicQuantization}で扱う。
 

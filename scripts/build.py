@@ -35,8 +35,16 @@ def source_closure(path: Path, seen=None) -> set[Path]:
     if path in seen:
         return seen
     seen.add(path)
-    for name in re.findall(r"\\(?:input|include)\{([^}]+)\}", path.read_text(encoding="utf-8")):
-        source_closure(resolve_input(name), seen)
+    for command, name in re.findall(
+            r"\\(input|include|InputIfFileExists)\{([^}]+)\}",
+            path.read_text(encoding="utf-8")):
+        try:
+            target = resolve_input(name)
+        except FileNotFoundError:
+            if command == "InputIfFileExists":
+                continue
+            raise
+        source_closure(target, seen)
     return seen
 
 

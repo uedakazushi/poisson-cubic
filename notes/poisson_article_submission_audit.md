@@ -1,6 +1,6 @@
 # Poisson論文：主張・依存・一次資料の確認範囲
 
-2026-11-25 / v2（A-v63、repo v98）。最初に `00_research_plan.md` を読む。
+2026-11-25 / v3（A-v64、repo v99）。最初に `00_research_plan.md` を読む。
 この文書は現行原稿の仮定・証明所在・一次資料の確認範囲を整理する。
 証明の構成と引用箇所は改稿ソースに合わせた。既存の内部点検は過去の確認範囲であり、今回のソース統合による全証明の再査読・形式検証を意味しない。
 新規性・外部査読の確定と、証明記載・内部点検・有限計算・組版は別の状態である。
@@ -135,19 +135,34 @@ Lemma 5.5 pp.28–29、Proposition 5.7 p.30である。
 
 ## 一次文献と位置づけ
 
+序論の完全交叉の4型は、複素数体上の通常の射影空間内の滑らかな完全交叉で、次元n>=3、一次方程式を除いた多重次数d_i>=2という範囲で述べる。
+s=Σ(d_i−1)に対しΛ²T_X≅Ω_X^(n−2)(n+1−s)であり、s>=3ならFu--Hwang Lemma 4.1の低twist消滅が適用できる。
+残る射影空間・2次超曲面・3次超曲面・(2,2)完全交叉での存在は本文 `thm:ci-poisson-existence` にある。曲面ではK3完全交叉も現れるため、n>=3を外さない。
+
+「最初の例」は、射影完全交叉の一つの型に属する全ての滑らかなメンバーの全ての非零Poisson構造を、全次元n>=3・全一般階数にわたり同じ正規形で記述する、という限定付きの位置づけである。
+現行序論は「著者の知る限り」と留保する。任意次元の特定成分・特定退化条件の分類や一般構造定理には先行研究があり、包括的な優先権の確定ではない。
+今回の序論改稿における定理文・適用範囲・書誌の照合は、既存の全証明の再査読、Lean検証、Poisson P4原稿の証明検証とは区別する。
+
 | 文献 | 原稿の引用箇所・既存の確認範囲 | 本稿との関係 |
 | --- | --- | --- |
 | Bondal, MPIM 93-67 (1993) | §4、印刷pp.11–12の無番号Lemma/Theorem | 射影Poissonの斉次divergence-free持上げは既知。本稿はEuler–divergence恒等式を明示し、cubic上で消えるJacobiatorを錐上へ持ち上げる |
 | Derdzinski–Gal, DOI 10.1007/s12188-013-0085-z、arXiv:1304.2801 | 著者PDF (1.4) p.2、Theorem B p.3・§5、Lemma 7.1(a) p.10 | 同じ4項恒等式の核計算との比較。現行本文は半単純性・3次元性・ブロック復元に独立の証明を用いる |
 | Bricalli–Favale–Pirola, Forum Math. Sigma 13 (2025), e80, DOI 10.1017/fms.2025.36、arXiv:2406.12024 | 刊行Theorem A p.2、Theorem B p.3、Theorem 3.4 p.10・証明pp.11–12 | Hessian階数軌跡による分離型判定は既知。本稿はn=5,k=2をrank4 Poisson存在に結び付ける |
 | Pym, DOI 10.1112/S0010437X16008174、arXiv:1507.05668v1 | 確認したv1 Definition 4.2、Theorem 1.3、Lemma 5.5、Prop.5.7 | 分離型例との不整合と非連結曲線の持上げ障害。刊行版本文・訂正状況は未確認 |
-| Loray--Pereira--Touzet, arXiv:1112.3871v3 | Theorems 7.1, 9.1 | 三次三様体の分類は既知。本稿は高次元の複数Jacobianブロックを扱う |
-| Mayanskiy, arXiv:1303.5916 | Theorem 1 | GrassmannスキームのJacobi方程式による記述とPoisson cohomology |
+| Cerveau--Lins Neto, Ann. of Math. (2) 143 (1996), 577--612, DOI 10.2307/2118537 | Annals公式の原論文要旨と書誌、LPT §6 Theorem 6.1での定理再掲を確認 | P^n、n>=3の次数2・余次元1の葉層構造の6成分。高次元の全Poisson構造の分類ではない。P³ではΛ²T≅Ω¹(4)を用い、因子零点を含む適用はLPT §9と合わせる |
+| Loray--Pereira--Touzet, Math. Nachr. 286 (2013), 921--940, DOI 10.1002/mana.201100354、arXiv:1112.3871v3 | 訂正済みv3のTheorems 7.1, 9.1とTable 1 | Picard数1の滑らかなFano三様体。非零構造をスカラー倍で割った空間ではP³は6成分、Q³は3成分。三次三様体のpencilによる分類は既知。旧版の9・4という数を使用しない |
+| Mayanskiy, J. Algebra 424 (2015), 21--45, DOI 10.1016/j.jalgebra.2014.08.049、arXiv:1303.5916 | Theorem 1（原稿p.2）と帰属の説明（p.3） | 三次三様体のPlücker埋め込みGr(2,5)をJacobi方程式から記述し、Poisson cohomologyを計算。分類自体はLPTに帰属する |
+| Druel, Bull. Soc. Math. France 127 (1999), 229--253, DOI 10.24033/bsmf.2347 | 刊行原典Introductionの主定理、p.230 | 滑らかな射影三様体の非零quasi-regular Poisson構造（有限点を除きrank 2）を分類し、至る所rank 2となることを示す。任意の特異Poisson構造の分類ではない |
+| Lima--Pereira, Bull. Lond. Math. Soc. 46 (2014), 1203--1217, DOI 10.1112/blms/bdu074、arXiv:1312.3596v2 | Theorems 1--2 | 全n>=3でP^nの対角構造の閉包は1既約成分。偶数次元>=4、Pic(X)=ZのFano、generically symplectic、被約SNC退化因子という仮定ではXが射影空間で構造が対角型となる |
+| Druel--Pereira--Pym--Touzet, Geom. Topol. 26 (2022), 2831--2853, DOI 10.2140/gt.2022.26.2831 | 刊行原典Theorem 1.1、p.2832 | compact Kähler Poisson多様体が有限基本群のcompact symplectic leaf Lを持つなら、有限étale Poisson被覆L̃×Y→Xが存在する。任意次元の構造定理であり、固定Fano上の全Poisson構造の分類ではない |
+| Corrêa--Muniz, arXiv:2207.12880v5（2026-01-19） | Theorem Aと直後の範囲説明、Corollary C、§5 | 次数2の葉層構造とrank 2 Poisson幾何。既約成分の精密記述には一般元の非代数的可積分性・接層の安定性等の限定があり、代数的場合の成分所属には未解決部分が残る。P⁴のCorollary Cも一般元・因子零点なしを仮定し、非分解型ではnormal crossing typeを扱う。全rank・全次元のPoisson分類とはしない |
+| Matviichuk--Pym--Schedler, arXiv:2010.08692v2（2021-07-15） | Theorems 1.2--1.4、§5.3 | SNC退化因子を持つlog symplectic構造の近傍の変形理論。Theorem 1.4の40成分はP⁴のSNC log symplectic軌跡と交わる成分であり、全成分の総数ではない |
+| uedakazushi/poisson-p4、2026-11-09版v73、commit `f118dfbfc5bb9b7a394d1985b4800b6228eebaf6` | `papers/poisson_p4_classification_ja.tex` の固定公開版（2026-11-25参照）。本文の引用キー `PoissonP4Draft` に固定URLを記載 | 非零Poisson構造をスカラー倍で射影化した空間の被約既約成分が147=141（一般rank 4）+6（一般rank 2）という分類案。PGL₅で割る前の成分数。人間による証明検証は未完了であり、本稿の既知定理として使用しない |
 | Gualtieri--Pym, DOI 10.1112/plms/pds090 | Theorem 7.13 | Fano四次元のBondal予想は既知 |
 | Druel--Pereira--Pym--Touzet, arXiv:2606.03424v1 | Theorem 1.2、Corollary 1.3、著者PDF | 奇数次元のsubmaximal退化軌跡とFano五次元。本稿はcubicというクラスで全次元・全rank |
 | Darío Martín Aza, arXiv:2604.07217v1 | Theorem 1.3, p.2、証明p.10 | 隣接退化軌跡の真包含の下での選言。全Bondal予想の証明とは扱わない |
 | Etingof, MIT 2024 lecture notes | 現行本文の引用：Thm.11.16 p.66、Prop.16.9 p.88、Lem.19.16 p.104、Cor.19.18/Thm.19.19 pp.105–106、Def.21.13 p.114、§32.2 | 有限次元sl₂表現の分解、既約表現上の根基のスカラー作用、根sl₂部分代数・根空間の交換子、最高根の既知入力 |
-| Fu--Hwang, arXiv:1608.00846v2 | Lemma 4.1 p.13：完全交叉Zで1<=r<=dim Z-1、p<=rならH^0(Ω_Z^r(p))=0 | Brückmann型消滅の明示的定理文と適用条件を確認 |
+| Fu--Hwang, Asian J. Math. 22 (2018), 333--354, DOI 10.4310/AJM.2018.v22.n2.a10、arXiv:1608.00846v2 | Lemma 4.1 p.13：滑らかな完全交叉Zで1<=r<=dim Z-1、p<=rならH^0(Ω_Z^r(p))=0 | Brückmann型消滅の明示的定理文と適用条件を確認。序論ではr=n−2、p=n+1−sに適用し、n>=3・s>=3で大域双ベクトルの非存在を導く |
 
 本文で引用する文献のURL・DOIと引用キーは専用参考文献にある。上表は背景比較の記録も含み、今回新たに全ての原典を確認した記録ではない。
 Brückmannの1976年論文はMath. Nachr.71,203--210、DOI 10.1002/mana.19760710116で書誌を確認した。

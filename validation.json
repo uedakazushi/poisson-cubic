@@ -1,5 +1,5 @@
 {
-  "version": "poisson-cubic-v98",
+  "version": "poisson-cubic-v99",
   "date": "2026-11-25",
   "current_entry": "00_research_plan.md",
   "authoritative": "GitHub uedakazushi/poisson-cubic main",
@@ -7,7 +7,7 @@
   "papers": {
     "A": {
       "entry": "papers/poisson-cubic.tex",
-      "version": "A-v63",
+      "version": "A-v64",
       "audit": "notes/poisson_article_submission_audit.md",
       "validation": "validation_paper_a.json"
     }
@@ -31,7 +31,8 @@
     "new_dated_pdf": "python3 build_pdf.py --new-version"
   },
   "status_limits": [
-    "Canonical TeX sources match the delivered 2026-11-25 13:27:22 JST revision. Current static checks and typesetting results are recorded in validation_paper_a.json.",
-    "No new global proof audit, Lean execution, primary-source literature audit or exact-computation rerun is performed as part of this repository integration."
+    "The Introduction places the all-dimensional cubic normal form among smooth projective complete intersections and compares it with verified primary literature. Source and typesetting checks are recorded in validation_paper_a.json.",
+    "The priority claim is qualified to all smooth members, all dimensions n>=3 and all generic ranks in a complete-intersection family; comprehensive priority is not established.",
+    "The cited poisson-p4 draft claims 147 reduced irreducible components before the PGL quotient; human verification is pending. No new full proof audit, Lean execution or exact-computation rerun is part of this revision."
   ]
 }

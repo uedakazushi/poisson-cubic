@@ -3,7 +3,8 @@
 
 Run from repository root: python3 scripts/verify_article_a_numbering.py
 This is a STATIC source audit, not a LuaLaTeX build. It follows direct
-\\input statements in the Poisson article entrypoint. It does not number tables.
+\\input, \\include and available \\InputIfFileExists statements in the
+Poisson article entrypoint. It does not number tables.
 """
 from collections import Counter
 from pathlib import Path
@@ -22,13 +23,15 @@ def visit(path):
     source = path.read_text(encoding="utf-8")
     paths.append(path) if path != start else None
     texts.append(source)
-    for ref in re.findall(r"\\input\{([^}]+)\}", source):
+    for command, ref in re.findall(r"\\(input|include|InputIfFileExists)\{([^}]+)\}", source):
         relative = Path(ref if ref.endswith(".tex") else ref + ".tex")
         # Prefer explicit paths from the repository root; support older
         # auxiliary inputs that were relative to papers/support/.
         candidates = [root / relative, root / "papers/support" / relative]
         target = next((p for p in candidates if p.is_file()), None)
         if target is None:
+            if command == "InputIfFileExists":
+                continue
             raise AssertionError(f"Missing input {ref}; tried: {candidates}")
         visit(target)
 

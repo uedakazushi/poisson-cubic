@@ -1,10 +1,10 @@
 # 研究方針：三次超曲面のPoisson幾何
 
-2026-11-25 / v98。再開時は本ファイルを最初に読む。GitHub mainが正本。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
+2026-11-25 / v99。再開時は本ファイルを最初に読む。GitHub mainが正本。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
 
 ## 現在の目標と三論文の分担
 
-主公表原稿は `papers/poisson-cubic.tex`（A-v63、日本語LuaLaTeX）。全次元Poisson正規形を中心に、退化軌跡・Bondal下界・固定および相対Poissonモジュライを扱う。達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、既知の入力と貢献が具体的に説明され、本文を再生成できることである。
+主公表原稿は `papers/poisson-cubic.tex`（A-v64、日本語LuaLaTeX）。全次元Poisson正規形を中心に、退化軌跡・Bondal下界・固定および相対Poissonモジュライを扱う。達成基準は、主要定理の仮定から結論までの証明が現行原稿内で閉じ、既知の入力と貢献が具体的に説明され、本文を再生成できることである。
 
 量子化の構成と非可換幾何の比較では対象範囲・仮定が異なるため、公表単位を次の三つに分ける。有効な結果を削らず、各証明と再現資産の正本を一か所に置く。
 
@@ -37,6 +37,8 @@ Pymとの比較は確認済みarXiv:1507.05668v1のDefinition4.2 (p.17)、Theore
 以上は原稿に証明がある結果である。既存の読解点検・厳密計算と、今回の改稿ソースの統合・参照確認・組版を区別し、実施した検査の範囲は `validation_paper_a.json` に記す。仮定・文献の確認範囲は `notes/poisson_article_submission_audit.md`、研究上の知識の入口は `notes/research_notes.md`。包括的な新規性・外部査読は未確定である。
 
 ## 未解決の核心と次の着手
+
+序論の文献比較では、次元3以上の完全交叉4型、Cerveau–Lins NetoのAnnals論文、訂正済みLPT v3のFano三様体分類、任意次元の対角型・大域分解・log symplectic変形理論を整理した。全次元の先行結果が扱う仮定と、本稿の全ての滑らかな三次・全階数の正規形を区別する。「最初」はこの限定の下での著者の主張であり、包括的な先取権確認は継続する。`poisson-p4` の固定版commit `f118dfbfc5bb9b7a394d1985b4800b6228eebaf6` が主張する147被約既約成分は、人間による検証未了の公開分類案として引用する。一次資料と適用範囲は公表監査ノートに集約する。
 
 1. 公表に先立ち、Pym刊行版またはaccepted manuscriptと訂正を通常の公開経路で入手し、v1との該当箇所を精密に照合する。独立した反例証明は現行原稿にある。未取得資料について結論を先取りしない。
 2. Bondal、Derdzinski–Gal、LPT/Mayanskiy、Gualtieri–Pym等との仮定・範囲を比較し、全次元正規形と相対成分定理の初出を引き続き調査する。証明監査は `prop:pg-jacobi-extension`、支持上のLie代数構成、`lem:pg-basepoint-free-lie` とHessian線形化から再開する。Leanの実行・公理依存確認を行う場合は、参照commitを固定して本文の検査とは別に記録する。
