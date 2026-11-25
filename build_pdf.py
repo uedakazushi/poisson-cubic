@@ -2,7 +2,8 @@
 """Build the complete manuscript from the source bundle.
 
 Use --new-version after editing to create fresh JST cover metadata and a new
-dated filename. Without it, the delivered version's cover metadata is preserved.
+dated filename. Without it, existing cover metadata is preserved; missing
+metadata is generated automatically.
 """
 
 from __future__ import annotations
@@ -22,7 +23,7 @@ def main() -> None:
     args = parser.parse_args()
     root = Path(__file__).resolve().parent
     metadata = root / "papers/build-metadata.tex"
-    if args.new_version:
+    if args.new_version or not metadata.exists():
         now = datetime.now(ZoneInfo("Asia/Tokyo"))
         filename = "poisson_cubic_revised_" + now.strftime("%Y%m%d_%H%M%S") + ".pdf"
         metadata.write_text(

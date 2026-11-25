@@ -1,10 +1,16 @@
 % !TEX root = poisson-cubic.tex
 \input{papers/support/papers/common}
-\input{papers/build-metadata}
+\newif\ifbuildmetadata
+\IfFileExists{papers/build-metadata.tex}{%
+  \input{papers/build-metadata}%
+  \buildmetadatatrue
+}{\buildmetadatafalse}
 \numberwithin{equation}{section}
 \hypersetup{pdftitle={滑らかな3次超曲面のPoisson構造：正規形・退化軌跡・モジュライ}}
 \fancyhead[L]{\small 3次超曲面のPoisson構造}
-\fancyhead[R]{\small \RevisionDate}
+\ifbuildmetadata
+  \fancyhead[R]{\small \RevisionDate}
+\fi
 \begin{document}
 \hypersetup{pageanchor=false}
 \begin{titlepage}
@@ -31,9 +37,11 @@ Hessianに関する線形条件に変換する。対応する2次形式の系の
 \end{abstract}
 \end{minipage}
 \vfill
-{\small 作成日時：\CreationTime\par}
-\vspace{3mm}
-{\small 納品PDF：\texttt{\PDFFileName}\par}
+\ifbuildmetadata
+  {\small 作成日時：\CreationTime\par}
+  \vspace{3mm}
+  {\small 納品PDF：\texttt{\PDFFileName}\par}
+\fi
 \vspace*{8mm}
 \end{titlepage}
 \pagenumbering{roman}

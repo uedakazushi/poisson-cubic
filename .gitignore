@@ -29,3 +29,4 @@ build_receipt.json
 build_receipt_components.json
 reconstruction_build_receipt.json
 SHA256SUMS
+/papers/build-metadata.tex
