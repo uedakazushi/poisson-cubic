@@ -1,207 +1,169 @@
 % !TeX root = ../../../poisson-cubic.tex
 \section{射影完全交叉と斉次多様体のPoisson構造}
 \label{sec:general-poisson-existence}
-完全交叉のPoisson構造の存在を、微分形式の消滅と線形射影から判定する。
-必要な消滅はBr\"uckmannの定理
-（Fu--Hwang\cite[Lemma~4.1]{FuHwangCI}に引用）の一部である。
-以下では、錐の余法完全列の外積分解を用いてこの消滅を証明する。
+
+本付録では、序論で述べた「次元3以上の滑らかな射影完全交叉のうち、非零Poisson構造を持つものは $\PP^n$、2次超曲面、3次超曲面、$(2,2)$型完全交叉の4種類にちょうど限られる」という事実を自足的に証明し、あわせてトーリック多様体および滑らかな射影斉次多様体における非零Poisson構造の存在をまとめる。
+
+完全交叉における非存在部分の要となる微分形式の低次数消滅は、Br\"uckmannの定理（Fu--Hwang \cite[Lemma~4.1]{FuHwangCI} に引用）の一部である。以下では、アフィン錐上の余法完全列の外積分解を用いる初等的かつ直接的な証明を与える。
 
 \subsection{滑らかな射影完全交叉の存在判定}
+まず、大域双ベクトル場の非存在を導くための微分形式の消滅補題を示す。
+
 \begin{lemma}[微分形式の低次数消滅]\label{lem:ci-low-twist-vanishing}
-$X\subset\PP^M_{\CC}$を次元$n\ge2$の滑らかな射影完全交叉とする。
-このとき
+$X\subset\PP^M_{\CC}$ を次元 $n\ge2$ の滑らかな射影完全交叉とする。このとき
 \begin{equation}
- H^0(X,\Omega_X^p(t))=0
- \qquad(1\le p\le n-1,\ t\le p).
- \label{eq:ci-vanishing}
+H^0(X,\Omega_X^p(t))=0
+\qquad(1\le p\le n-1,\ t\le p)
+\label{eq:ci-vanishing}
 \end{equation}
+が成り立つ。
 \end{lemma}
 \begin{proof}
-$c=M-n$とし、$X$を定める斉次正則列を$F_1,\ldots,F_c$とする。
-斉次座標環と頂点を除いたアフィン錐を
+余次元を $c=M-n$ とし、$X$ を定める斉次正則列を $F_1,\ldots,F_c$ とする。$X$ の斉次座標環および頂点を除いたアフィン錐を
 \begin{equation}
- S=\CC[z_0,\ldots,z_M],\qquad
- R=S/(F_1,\ldots,F_c),\qquad
- U=\Spec R\setminus\{R_+\}
- \label{eq:ci-punctured-cone}
+S=\CC[z_0,\ldots,z_M],\qquad
+R=S/(F_1,\ldots,F_c),\qquad
+U=\Spec R\setminus\{R_+\}
+\label{eq:ci-punctured-cone}
 \end{equation}
-とおく。射影空間の線束の中間コホモロジー消滅
-\cite[III, Theorem 5.1]{PHartshorne}を$X$のKoszul分解に適用すると、
-すべての$\ell\in\mathbb Z$に対して
-\begin{equation}
- H^0(X,\OO_X(\ell))=R_\ell,\qquad
- H^i(X,\OO_X(\ell))=0\quad(1\le i\le n-1)
- \label{eq:ci-line-bundle-cohomology}
-\end{equation}
-を得る。ここで$\ell<0$では$R_\ell=0$とする。
-実際、長さ$c$のKoszul分解で現れる中間コホモロジーの次数は
-$1$以上$n-1+c=M-1$以下である。
-射影$q:U\to X$はアフィンな$\mathbb G_m$-torsorであり、
-$q_*\OO_U=\bigoplus_{\ell\in\mathbb Z}\OO_X(\ell)$だから
-\begin{equation}
- \Gamma(U,\OO_U)=R,\qquad
- H^i(U,\OO_U)=0\quad(1\le i\le n-1).
- \label{eq:ci-cone-cohomology}
-\end{equation}
+とおく。
 
-$U$は滑らかな完全交叉なので、余法列はベクトル束の完全列
+\paragraph{ステップ1：錐 $U$ の構造層コホモロジー}
+射影空間 $\PP^M$ 上の線束の中間コホモロジー消滅 \cite[III, Theorem~5.1]{PHartshorne} を $X$ のKoszul分解へ適用すると、すべての $\ell\in\mathbb Z$ に対して
 \begin{equation}
- 0\longrightarrow\mathcal N:=\bigoplus_{j=1}^c\OO_U\,dF_j
- \longrightarrow\mathcal G:=\bigoplus_{a=0}^{M}\OO_U\,dz_a
- \longrightarrow\Omega_U^1\longrightarrow0
- \label{eq:ci-conormal-sequence}
+H^0(X,\OO_X(\ell))=R_\ell,\qquad
+H^i(X,\OO_X(\ell))=0\quad(1\le i\le n-1)
+\label{eq:ci-line-bundle-cohomology}
 \end{equation}
-である。これに付随する外積の分解は
+を得る（ただし $\ell<0$ では $R_\ell=0$ と規約する）。実際、長さ $c$ のKoszul分解のスペクトル系列で現れる中間コホモロジーの次数は $1$ 以上 $n-1+c=M-1$ 以下であり、すべて消滅する。射影 $q:U\to X$ はアフィンな $\mathbb G_m$-torsor であり、$q_*\OO_U=\bigoplus_{\ell\in\mathbb Z}\OO_X(\ell)$ が成り立つから、
 \begin{equation}
- \begin{gathered}
- \mathcal C_j=\operatorname{Sym}^j\mathcal N
-              \otimes\bigwedge^{p-j}\mathcal G\quad(0\le j\le p),\\
- 0\longrightarrow\mathcal C_p\longrightarrow\cdots
- \longrightarrow\mathcal C_0\longrightarrow\Omega_U^p\longrightarrow0.
- \end{gathered}
- \label{eq:ci-exterior-conormal-resolution}
-\end{equation}
-各$\mathcal C_j$は、同変構造を忘れれば$\OO_U$の有限直和である。
-$p\le n-1$と\eqref{eq:ci-cone-cohomology}により
-$H^i(U,\mathcal C_j)=0$が$1\le i\le p$で成り立つ。
-したがって\eqref{eq:ci-exterior-conormal-resolution}の長完全列を順に用いると、
-$\Gamma(U,\bigwedge^p\mathcal G)\to\Gamma(U,\Omega_U^p)$は全射となる。
-この全射は錐のスカラー作用と可換であり、$dz_a$の重さは$1$なので、
-重さ$t$の成分について
-\begin{equation}
- R_{t-p}\otimes\bigwedge^p(\CC^{M+1})^{\vee}
- \twoheadrightarrow\Gamma(U,\Omega_U^p)_t
- \label{eq:ci-cone-form-surjection}
+\Gamma(U,\OO_U)=R,\qquad
+H^i(U,\OO_U)=0\quad(1\le i\le n-1)
+\label{eq:ci-cone-cohomology}
 \end{equation}
 を得る。
 
-$H^0(X,\Omega_X^p(t))$の切断は、$U$上の重さ$t$の水平形式
-$\alpha$に対応する。すなわちEuler場$E=\sum_a z_a\partial_{z_a}$に対して
-$\iota_E\alpha=0$かつ$\mathcal L_E\alpha=t\alpha$である。
-$t<p$なら\eqref{eq:ci-cone-form-surjection}の左辺が零なので$\alpha=0$である。
-$t=p$なら$R_0=\CC$であるため、$\alpha$は定数係数$p$形式の制限であり、
-$d\alpha=0$を満たす。よってCartanの公式から
+\paragraph{ステップ2：余法完全列の外積分解}
+$U$ は滑らかな完全交叉であるため、余法完全列はベクトル束の短完全列
 \begin{equation}
- p\alpha=\mathcal L_E\alpha
- =d(\iota_E\alpha)+\iota_E(d\alpha)=0.
- \label{eq:ci-cartan-vanishing}
+0\longrightarrow\mathcal N:=\bigoplus_{j=1}^c\OO_U\,dF_j
+\longrightarrow\mathcal G:=\bigoplus_{a=0}^{M}\OO_U\,dz_a
+\longrightarrow\Omega_U^1\longrightarrow0
+\label{eq:ci-conormal-sequence}
 \end{equation}
-$p>0$と標数0より$\alpha=0$であり、主張が従う。
+をなす。これに付随する $p$ 次外積の局所自由分解は
+\begin{equation}
+\begin{gathered}
+\mathcal C_j=\operatorname{Sym}^j\mathcal N
+        \otimes\bigwedge^{p-j}\mathcal G\quad(0\le j\le p),\\
+0\longrightarrow\mathcal C_p\longrightarrow\cdots
+\longrightarrow\mathcal C_0\longrightarrow\Omega_U^p\longrightarrow0
+\end{gathered}
+\label{eq:ci-exterior-conormal-resolution}
+\end{equation}
+である。各 $\mathcal C_j$ は同変構造を忘れれば $\OO_U$ の有限直和であるため、仮定 $p\le n-1$ と式\eqref{eq:ci-cone-cohomology}より $1\le i\le p$ に対して $H^i(U,\mathcal C_j)=0$ が成り立つ。従って\eqref{eq:ci-exterior-conormal-resolution}を短完全列に切ってコホモロジー長完全列を順に追えば、制限写像 $\Gamma(U,\bigwedge^p\mathcal G)\to\Gamma(U,\Omega_U^p)$ は全射である。この全射は錐のスカラー作用と可換であり、各 $dz_a$ の重みは $1$ なので、重み $t$ の成分を取り出すと全射
+\begin{equation}
+R_{t-p}\otimes\bigwedge^p(\CC^{M+1})^{\vee}
+\twoheadrightarrow\Gamma(U,\Omega_U^p)_t
+\label{eq:ci-cone-form-surjection}
+\end{equation}
+を得る。
+
+\paragraph{ステップ3：水平形式への制限とCartanの公式}
+$H^0(X,\Omega_X^p(t))$ の大域切断は、$U$ 上の重み $t$ の水平 $p$-形式 $\alpha$、すなわちEulerベクトル場 $E=\sum_{a=0}^M z_a\partial_{z_a}$ に対して $\iota_E\alpha=0$ かつ $\mathcal L_E\alpha=t\alpha$ を満たす切断に対応する。
+\begin{itemize}
+  \item $t<p$ のとき：$R_{t-p}=0$ なので式\eqref{eq:ci-cone-form-surjection}の左辺が零となり、$\alpha=0$ である。
+  \item $t=p$ のとき：$R_0=\CC$ なので、\eqref{eq:ci-cone-form-surjection}により $\alpha$ は定数係数 $p$-形式の $U$ への制限であり、特に閉形式 $d\alpha=0$ である。よってCartanの魔法公式から
+  \begin{equation}
+    p\alpha=\mathcal L_E\alpha
+    =d(\iota_E\alpha)+\iota_E(d\alpha)=0
+    \label{eq:ci-cartan-vanishing}
+  \end{equation}
+  を得る。$p>0$ かつ標数 $0$ なので $\alpha=0$ である。
+\end{itemize}
+以上より主張が従う。
 \end{proof}
+
+この消滅補題と一般の線形射影を組み合わせることで、完全交叉のPoisson構造の存在判定が完成する。
 
 \begin{theorem}\label{thm:ci-poisson-existence}
-複素数体上の滑らかな射影完全交叉
+複素数体上の次元 $n\ge3$ の滑らかな射影完全交叉
 \begin{equation}
- X=X_{d_1,\ldots,d_c}\subset\PP^{n+c},
- \qquad n\ge3,\quad d_j\ge2
- \label{eq:ci-poisson-setup}
+X=X_{d_1,\ldots,d_c}\subset\PP^{n+c},
+\qquad n\ge3,\quad d_j\ge2
+\label{eq:ci-poisson-setup}
 \end{equation}
-について、以下は同値である。
+（ただし1次方程式はあらかじめ除いている）について、次の3条件は同値である。
 \begin{enumerate}[label=(\arabic*)]
 \item $H^0(X,\bigwedge^2T_X)\ne0$。
-\item $X$は非零の正則Poisson構造を持つ。
-\item 多重次数は空列、$(2)$、$(3)$、$(2,2)$のいずれかである。
+\item $X$ は非零の正則Poisson構造を持つ。
+\item 多重次数 $(d_1,\ldots,d_c)$ は空列（すなわち $X=\PP^n$）、$(2)$、$(3)$、$(2,2)$ のいずれかである。
 \end{enumerate}
-空列は$\PP^n$を表す。1次式の方程式はあらかじめ除いている。
 \end{theorem}
 \begin{proof}
-$s=\sum_{j=1}^c(d_j-1)$とおく。随伴公式から
-\begin{equation}
- \omega_X\simeq\OO_X(-(n+1-s)),\qquad
- \bigwedge^2T_X\simeq\Omega_X^{n-2}(n+1-s)
- \label{eq:ci-forms}
-\end{equation}
-である。補題\ref{lem:ci-low-twist-vanishing}に
-$n\ge3$から$p=n-2\ge1$を取り、
-$s\ge3$なら$n+1-s\le n-2$ゆえ
-$H^0(X,\bigwedge^2T_X)=0$となる。
-したがって(1)なら$s\le2$であり、$d_j\ge2$より列挙した4種類に限る。
+$(2)\Rightarrow(1)$ は定義より明らかである。
 
-逆に$s\le2$の場合、一般の独立な1次形式
-$L_0,\ldots,L_{n-2}$を選び、射影空間のEuler場
-$E=\sum_i z_i\partial_{z_i}$を用いて
+\paragraph{$(1)\Rightarrow(3)$ の証明}
+$s=\sum_{j=1}^c(d_j-1)$ とおくと、随伴公式により
 \begin{equation}
- \alpha=\iota_E(dL_0\wedge\cdots\wedge dL_{n-2})
-       \in H^0(X,\Omega_X^{n-2}(n-1))
- \label{eq:ci-projective-form}
+\omega_X\simeq\OO_X(-(n+1-s)),\qquad
+\bigwedge^2T_X\simeq\Omega_X^{n-2}\otimes\omega_X^{-1}\simeq\Omega_X^{n-2}(n+1-s)
+\label{eq:ci-forms}
 \end{equation}
-を定める。一般の選択では$\alpha|_X$は非零である。
-実際、滑らかな点$x\in X$と$L_0(x)\ne0$を固定すると、射影埋込みの微分は単射なので、
-$T_xX$上で独立な$n-2$個の$d(L_i/L_0)$を選べる。
-この独立性は1次形式の組に関する非空開条件である。
-$L_0\ne0$上では
+が成り立つ。$n\ge3$ なので $p=n-2$ は $1\le p\le n-1$ を満たす。もし $s\ge3$ ならば $t=n+1-s\le n-2=p$ となり、補題\ref{lem:ci-low-twist-vanishing}から $H^0(X,\bigwedge^2T_X)=0$ が従う。従って(1)が成り立つには $s\le2$ が必要であり、各 $d_j\ge2$ と合わせて多重次数は空列、$(2)$、$(3)$、$(2,2)$ の4種類に限られる。
+
+\paragraph{$(3)\Rightarrow(2)$ の証明}
+$s\le2$ と仮定し、一般の1次独立な1次形式 $L_0,\ldots,L_{n-2}$ を選ぶ。Euler場 $E=\sum_i z_i\partial_{z_i}$ を用いて、水平な $(n-2)$-形式
 \begin{equation}
- \alpha=L_0^{n-1}\,
- d(L_1/L_0)\wedge\cdots\wedge d(L_{n-2}/L_0)
- \label{eq:ci-local-form}
+\alpha=\iota_E(dL_0\wedge\cdots\wedge dL_{n-2})
+  \in H^0(X,\Omega_X^{n-2}(n-1))
+\label{eq:ci-projective-form}
 \end{equation}
-となり、一般点でその核は有理写像
-$X\dashrightarrow\PP^{n-2}$のファイバーに接する
-階数2の可積分分布である。
-$s=2$なら\eqref{eq:ci-forms}によって$\alpha$を
-2重ベクトルに対応させる。
-$s=1$なら非零の1次切断、$s=0$なら非零の2次切断を掛け、
-同じ同型によって対応させる。
-いずれも一般階数2で非零であり、
-稠密開集合では$\pi=aD_1\wedge D_2$と書け、分布の可積分性から
-$[D_1,D_2]\in\langle D_1,D_2\rangle$である。
-従って$[\pi,\pi]=2a^2D_1\wedge D_2\wedge[D_1,D_2]=0$となる。
-Schouten括弧は大域的な正則切断なので、この消滅は$X$全体で成り立つ。
-これで(3)から(2)、(2)から(1)が従う。
+を定義する。一般の選択に対して $\alpha|_X\ne0$ である。実際、滑らかな点 $x\in X$ と $L_0(x)\ne0$ を固定すると、射影埋込みの微分は単射なので $T_xX$ 上で1次独立な $n-2$ 個の微分 $d(L_i/L_0)$ を選ぶことができ、これは1次形式の組に関する非空開条件である。開集合 $\{L_0\ne0\}$ 上では
+\begin{equation}
+\alpha=L_0^{n-1}\,
+d(L_1/L_0)\wedge\cdots\wedge d(L_{n-2}/L_0)
+\label{eq:ci-local-form}
+\end{equation}
+と表され、一般点における $\alpha$ の核は線形射影 $X\dashrightarrow\PP^{n-2}$ のファイバーに接する階数2の可積分分布を定める。
+
+ここで式\eqref{eq:ci-forms}のtwistの差 $2-s\ge0$ を補うため、$s=2$ ならそのまま $\alpha$ を、$s=1$ なら非零の1次切断を掛けたものを、$s=0$ なら非零の2次切断を掛けたものを、同型\eqref{eq:ci-forms}によって大域双ベクトル場 $\pi\in H^0(X,\bigwedge^2T_X)$ へ移す。いずれの場合も $\pi$ は一般階数2で非零であり、稠密開集合上では局所的に $\pi=a\,D_1\wedge D_2$ と書ける（$D_1,D_2$ は上の可積分分布の局所基底）。分布の可積分性から $[D_1,D_2]\in\langle D_1,D_2\rangle$ であるため、
+\[
+  [\pi,\pi]=2a^2\,D_1\wedge D_2\wedge[D_1,D_2]=0
+\]
+がこの稠密開集合上で成り立つ。Schouten括弧は大域的正則切断なので $X$ 全体で $[\pi,\pi]=0$ となり、非零Poisson構造を得る。
 \end{proof}
 
-\begin{remark}[曲線と曲面]\label{rem:ci-small-dimension}
-曲線では$\bigwedge^2T_X=0$。
-曲面では$\bigwedge^2T_X=\omega_X^{-1}$で
-Schouten条件は自動的に成立する。
-滑らかな完全交叉曲面の非零Poisson構造の存在条件は
-$s\le3$であり、上記に加えて$(4)$、$(2,3)$、
-$(2,2,2)$のK3完全交叉が現れる。
+\begin{remark}[低次元：曲線と曲面の場合]\label{rem:ci-small-dimension}
+曲線（$n=1$）では $\bigwedge^2T_X=0$ であり、非零Poisson構造は存在しない。曲面（$n=2$）では $\bigwedge^2T_X=\omega_X^{-1}$ かつSchouten条件 $[\pi,\pi]=0$ が自動的に成立する。従って滑らかな完全交叉曲面が非零Poisson構造を持つ条件は $s\le3$ に緩み、上の4型に加えて $(4)$、$(2,3)$、$(2,2,2)$ のK3完全交叉曲面が現れる。
 \end{remark}
 
 \subsection{トーリック多様体}
+完全交叉から離れて対称性の高い多様体に目を向けると、2次元以上の可換なトーラス作用を持つ多様体では、可換な基本ベクトル場の外積によって直ちに非零Poisson構造が構成できる。
+
 \begin{proposition}\label{prop:toric-poisson}
-次元2以上の複素正規トーリック多様体には
-非零の代数的Poisson括弧がある。
-滑らかなら$\pi\in H^0(X,\bigwedge^2T_X)$で与えられる。
+次元 $2$ 以上の複素正規トーリック多様体 $X$ には非零の代数的Poisson括弧が存在する。特に $X$ が滑らかならば、それは大域双ベクトル場 $\pi\in H^0(X,\bigwedge^2T_X)$ で与えられる。
 \end{proposition}
 \begin{proof}
-稠密トーラス$T\simeq(\CC^*)^n$のLie代数の
-1次独立な2つの元が定める大域導分を$D_1,D_2$とする。
-$T$が可換なので$[D_1,D_2]=0$であり、
-$\pi=D_1\wedge D_2$はJacobi条件を満たす。
-正規トーリックの各不変アフィンチャートで
-$\{f,g\}=D_1(f)D_2(g)-D_2(f)D_1(g)$
-は正則で、貼り合わさる。
-稠密トーラス上では2つの導分は独立なので非零である。
+$X$ に含まれる稠密トーラス $T\simeq(\CC^*)^n$（$n\ge2$）のLie代数から1次独立な2元を取り、それらが誘導する大域導分を $D_1,D_2$ とする。$T$ は可換なので $[D_1,D_2]=0$ であり、$\pi=D_1\wedge D_2$ は自動的にJacobi条件 $[\pi,\pi]=0$ を満たす。$X$ を覆う各 $T$-不変アフィン開集合上で括弧 $\{f,g\}=D_1(f)D_2(g)-D_2(f)D_1(g)$ は正則かつ貼り合わさり、稠密トーラス上では $D_1,D_2$ が1次独立なので非零である。
 \end{proof}
 
 \subsection{滑らかな射影斉次多様体}
+同じ可換ベクトル場の構成は、一般の滑らかな射影斉次多様体にも適用できる。
+
 \begin{theorem}\label{thm:homogeneous-poisson}
-$\CC$上の滑らかな連結射影斉次多様体$X$で
-$\dim X\ge2$ならば、$X$は非零の正則Poisson構造を持つ。
+$\CC$ 上の次元 $2$ 以上の滑らかな連結射影斉次多様体 $X$ は、常に非零の正則Poisson構造を持つ。
 \end{theorem}
 \begin{proof}
-Borel--Remmertの定理\cite[Theorem~I]{BorelRemmert}により
-$X\simeq A\times G/P$と分解できる。
-$A$はアーベル多様体、$G/P$は半単純群の旗多様体の直積である。
-$A$の並進ベクトル場は可換であり、
-$G/P$の最大トーラスから来る基本ベクトル場も可換である。
-後者で非自明な単純因子の階数が2以上ならば、
-$P$に含まれない単純根$\alpha$と、
-それに隣接する単純根$\beta$に対し、
-$\alpha$および$\alpha+\beta$は接空間の
-1次独立な2つのトーラスの重みを与える。
-反対のBorel部分群の開軌道では、根部分群による座標に関して
-トーラス作用がこれらの重みで対角化されるので、
-最大トーラスの一般軌道は2次元以上である。
-階数1の非自明因子は$\PP^1$であり、
-2つ以上のそのような因子があれば同様に2方向がある。
-残る場合、$\dim X\ge2$から$A$の並進方向を
-必要な数だけ加えられる。
-以上より$X$上に一般点で1次独立な2つの
-可換な大域ベクトル場$D_1,D_2$が存在する。
-その外積は非零で
-$[D_1\wedge D_2,D_1\wedge D_2]=0$を満たす。
+Borel--Remmertの定理 \cite[Theorem~I]{BorelRemmert} により、$X$ はアーベル多様体 $A$ と半単純代数群の旗多様体の直積 $G/P$ の積
+\[
+  X\simeq A\times G/P
+\]
+に分解される。$A$ の並進ベクトル場同士、および $G/P$ の最大トーラスが誘導する基本ベクトル場同士は互いに可換であり、異なる因子間のベクトル場も可換である。従って一般点で1次独立な2本の大域可換ベクトル場 $D_1,D_2$ を選べれば、$\pi=D_1\wedge D_2$ が求める非零正則Poisson構造を与える。その存在を因子ごとに確認しよう。
+\begin{itemize}
+  \item $G/P$ に階数 $2$ 以上の非自明な単純因子が含まれる場合：$P$ に含まれない単純根 $\alpha$ と、Dynkin図でそれに隣接する単純根 $\beta$ を選ぶと、$\alpha$ と $\alpha+\beta$ は接空間に現れる1次独立な2つのトーラス重みを与える。反対のBorel部分群の開軌道上では、根部分群が与える座標に関してトーラス作用がこれらの重みで対角化されるため、最大トーラスの一般軌道は2次元以上となり、独立な2本の基本ベクトル場が得られる。
+  \item $G/P$ の非自明な単純因子がすべて階数 $1$（すなわち $\PP^1$）の場合：そのような因子が2個以上あれば、それぞれのトーラス作用から独立な2方向が得られる。
+  \item 残る場合（$G/P$ が点または単一の $\PP^1$ のとき）：$\dim X\ge2$ より $\dim A\ge1$（$G/P$ が点なら $\dim A\ge2$）であるため、$A$ の並進ベクトル場から必要な数だけ独立な方向を補える。
+\end{itemize}
+いずれの場合も一般点で1次独立な可換大域ベクトル場 $D_1,D_2$ が存在し、$\pi=D_1\wedge D_2$ は非零かつ $[\pi,\pi]=0$ を満たす。
 \end{proof}
-
