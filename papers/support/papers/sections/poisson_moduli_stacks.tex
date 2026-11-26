@@ -44,7 +44,7 @@ $n\ge3$ の滑らかな3次超曲面は有限個の自己同型しか持たな�
 \begin{proof}
 自己同型群の有限性はMatsumura--Monsky \cite{PMatsumuraMonsky} の一般定理の特例であるが、ここでは本稿の勾配syzygy（補題\ref{lem:pg-gradient}）を用いて直接示す。
 
-\paragraph{ステップ1：$\operatorname{Aut}(X)$ の有限エタール性}
+\par\medskip\noindent\textbf{ステップ1：$\operatorname{Aut}(X)$ の有限エタール性}\par\nobreak\smallskip
 $n\ge3$ なので、Grothendieck--Lefschetzの定理 \cite{PGLefschetz} より $\operatorname{Pic}(X)=\mathbb Z[\mathcal O_X(1)]$ が成り立つ。任意の自己同型は豊富な生成元 $\mathcal O_X(1)$ を保つため、自然な同型 $H^0(\mathbb P(V),\mathcal O(1))\simeq H^0(X,\mathcal O_X(1))$ を通じて周囲の $\mathbb P(V)$ の射影線形変換へ一意に延長する。よって $\operatorname{Aut}(X)$ は $\mathrm{PGL}(V)$ 内の点 $[F]$ の閉安定化子に一致する。
 
 次に、そのLie代数 $\operatorname{Lie}\operatorname{Aut}(X)$ を求める。Euler列を $-3$ で捻ると $H^0(T_{\mathbb P(V)}(-3))=H^1(T_{\mathbb P(V)}(-3))=0$ が従うため、制限写像 $H^0(T_{\mathbb P(V)})\xrightarrow{\sim} H^0(T_{\mathbb P(V)}|_X)$ は同型である。$X$ に接する無限小射影変換は、1次式 $\ell_i$ と定数 $c\in\mathbb C$ によって
@@ -57,7 +57,7 @@ $n\ge3$ なので、Grothendieck--Lefschetzの定理 \cite{PGLefschetz} より $
 \]
 を得る。補題\ref{lem:pg-gradient}（1次係数の勾配syzygyの消滅）により $\ell_i=(c/3)z_i$ となるが、これはEuler場の定数倍にほかならず、射影化すれば零ベクトル場である。従って $\operatorname{Lie}\operatorname{Aut}(X)=0$ である。標数0の有限型群スキームは滑らかなので、$\operatorname{Aut}(X)$ は0次元のアフィン群スキーム、すなわち有限エタール群スキームである。
 
-\paragraph{ステップ2：スタックの性質と既約成分の対応}
+\par\medskip\noindent\textbf{ステップ2：スタックの性質と既約成分の対応}\par\nobreak\smallskip
 有限型アフィンスキーム $\operatorname{Pois}(X)$ を有限エタール群スキーム $\operatorname{Aut}(X)$ で割った商は、有限型Deligne--Mumfordスタックである \cite[Theorem~97.17.2, Tag~06FI]{PStacks}。商へのアトラス $\operatorname{Pois}(X)\to\mathfrak{Pois}(X)$ は有限エタール全射であるため、$\mathfrak{Pois}(X)$ の1つの既約成分の逆像は $\operatorname{Pois}(X)$ の既約成分の1つの $\operatorname{Aut}(X)$-軌道に一致する。従って2つの既約成分の像が一致するのは同じ軌道に属するときに限り、同型\eqref{eq:pg-fixed-stack-components}を得る。
 \end{proof}
 
