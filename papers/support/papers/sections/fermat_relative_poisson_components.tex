@@ -50,7 +50,7 @@ $N=n+2\ge5$、$V=\mathbb C^N$ とし、Fermat型3次超曲面を
 \begin{proof}[第1項の証明]
 証明は「(a) 任意のPoisson構造がいずれかの $Z_{\mathcal B}$ に含まれること」「(b) 各 $Z_{\mathcal B}$ が $\operatorname{Pois}(X_N)$ に含まれる閉既約部分集合であること」「(c) 異なる分割の間に包含関係がないこと」の3段階で進める。
 
-\paragraph{ステップ1：座標支持への分離}
+\par\medskip\noindent\textbf{ステップ1：座標支持への分離}\par\nobreak\smallskip
 Fermat3次式 $F_N=\sum_{i=1}^N z_i^3$ のHessianは対角行列 $6\operatorname{diag}(z_1,\ldots,z_N)$ である。補題\ref{lem:pg-linearize}により、$P\in\bigwedge^3V$ が $X_N$ 上のPoisson構造を定めることは、各座標 $z_i$ の係数行列 $\operatorname{diag}(0,\ldots,1,\ldots,0)$ が $K(P)$ に属することを含む。式\eqref{eq:pg-K}にこの階数1対称形式を代入すると、各 $1\le i\le N$ に対して
 \begin{equation}\label{eq:pg-fermat-contractions}
 (\iota_{dz_i}P)\wedge(\iota_{dz_i}P)=0
@@ -64,7 +64,7 @@ B_s=\{i\in\{1,\ldots,N\}:dz_i|_{W_s}\ne0\}
 \end{equation}
 とおくと、$B_1,\ldots,B_k$ は互いに素であり、$\dim W_s=3$ から $|B_s|\ge3$ および $W_s\subset V_{B_s}$ を満たす。どの $B_s$ にも属さない未使用の添字があれば、それらを任意の $B_s$ に合併することで、各部分の大きさが3以上の $\{1,\ldots,N\}$ の分割 $\mathcal B$ を得る。
 
-\paragraph{ステップ2：Pl\"ucker錐の和 $Z_{\mathcal B}$ の構成と次元}
+\par\medskip\noindent\textbf{ステップ2：Pl\"ucker錐の和 $Z_{\mathcal B}$ の構成と次元}\par\nobreak\smallskip
 逆に、各部分の大きさが3以上の任意の分割 $\mathcal B$ に対して、Pl\"ucker錐の和
 \begin{equation}
 Z_{\mathcal B}=\sum_{B\in\mathcal B}
@@ -78,7 +78,7 @@ Z_{\mathcal B}=\sum_{B\in\mathcal B}
 \end{equation}
 となる。
 
-\paragraph{ステップ3：包含関係の排除}
+\par\medskip\noindent\textbf{ステップ3：包含関係の排除}\par\nobreak\smallskip
 異なる2つの分割 $\mathcal B,\mathcal B'$ に対して $Z_{\mathcal B}\subset Z_{\mathcal B'}$ が起こり得ないことを示す。
 まず、縮約写像 $\bigwedge^2V^*\to V$（$\omega\mapsto\iota_\omega P$）の一般階数は $Z_{\mathcal B}$ 上でちょうど $3|\mathcal B|$ である。行列の階数が一定値以下となる条件は閉条件なので、$|\mathcal B'|<|\mathcal B|$ のとき $Z_{\mathcal B}\not\subset Z_{\mathcal B'}$ である。逆に $|\mathcal B'|>|\mathcal B|$ のときは、上の次元公式から $\dim Z_{\mathcal B}>\dim Z_{\mathcal B'}$ となるためやはり $Z_{\mathcal B}\subset Z_{\mathcal B'}$ は不可能である。
 
@@ -111,7 +111,7 @@ $X_N$ の自己同型は、線形変換 $A\in\mathrm{GL}(V)$ であって定数 
 \begin{proof}[第3項の証明]
 各 $1\le k\le\lfloor N/3\rfloor$ に対し、$\mathscr P_n$ 内で一般Poisson階数がちょうど $2k$ である点のなす被約局所閉部分スキーム（階数層）を $\mathscr P_{n,k}$ と書く。定理\ref{thm:pg-normal}により、これは縮約写像 $\bigwedge^2V^*\to V$ の階数がちょうど $3k$ になるという局所閉条件で切り出される。
 
-\paragraph{ステップ1：基準3重ベクトルの軌道と安定化子}
+\par\medskip\noindent\textbf{ステップ1：基準3重ベクトルの軌道と安定化子}\par\nobreak\smallskip
 3次式 $F$ の非零代表を選んだ空間上の被約階数層を $\widetilde{\mathscr P}_{N,k}$ と書き、基準となる $k$ ブロック3重ベクトルとその $\mathrm{GL}(V)$-軌道を
 \begin{equation}
 P_k=e_{123}+e_{456}+\cdots+e_{3k-2,3k-1,3k},\qquad
@@ -124,7 +124,7 @@ P_k=e_{123}+e_{456}+\cdots+e_{3k-2,3k-1,3k},\qquad
 \end{equation}
 を得る。
 
-\paragraph{ステップ2：許される3次式の空間と随伴束による記述}
+\par\medskip\noindent\textbf{ステップ2：許される3次式の空間と随伴束による記述}\par\nobreak\smallskip
 $P=P_k$ に対して、Hessian条件\eqref{eq:pg-K}は異なるブロック $W_s,W_t$（$s\ne t$）間の混合2階微分がすべて消えることと同値である。実際、異なる2ブロックから2本ずつの共変ベクトルを選んで式\eqref{eq:pg-K}に代入すると $H(W_s,W_t)=0$ が従い、逆にこの直交条件を満たす任意の対称形式 $H$ に対しては、式\eqref{eq:pg-K}の左辺が各 $W_s^*$ 上の交代4形式の和となって $\dim W_s=3$ より恒等的に消える。
 
 従って $P_k$ と両立する3次式の線形空間 $\mathcal F_{N,k}$ は
@@ -147,7 +147,7 @@ F=c(u)+\sum_{s=1}^k
 \end{equation}
 は、主束 $\mathrm{GL}(V)\to\mathcal O_{N,k}$ のエタール局所切断（持上げ）を取れば逆射が構成でき、2つの持上げの差は $H_k$ の作用で吸収されるため大域的に降下する。よってこれは上の核ベクトル束の開部分との同型であり、$\widetilde{\mathscr P}_{N,k}$ は既約で次元 $k(3N-8)+\ell_{N,k}$ を持つ。
 
-\paragraph{ステップ3：商の次元と既約成分の確定}
+\par\medskip\noindent\textbf{ステップ3：商の次元と既約成分の確定}\par\nobreak\smallskip
 3次式のスカラー代表の変更は自由な $\mathbb G_m$-作用
 \begin{equation}
 a\cdot(F,P)=(aF,a^{-1}P),\qquad a\in\mathbb G_m
