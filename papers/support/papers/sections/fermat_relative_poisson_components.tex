@@ -2,220 +2,175 @@
 \section{Fermat型と相対モジュライの既約成分}
 \label{sec:pg-fermat-relative-components}
 
-本節でいう既約成分は基礎位相空間の既約成分である。
-$N=n+2\ge5$、$V=\mathbb C^N$とし、
+前節で定義した固定モジュライと相対モジュライについて、本節ではその既約成分分解を明示的に決定する。なお、本節でいう「既約成分」とは基礎位相空間の既約成分を指す。
+
+$N=n+2\ge5$、$V=\mathbb C^N$ とし、Fermat型3次超曲面を
 \begin{equation}
- F_N=\sum_{i=1}^Nz_i^3,\qquad
- X_N=V(F_N)
+  F_N=\sum_{i=1}^Nz_i^3,\qquad
+  X_N=V(F_N)\subset\mathbb P(V)
 \end{equation}
-と置く。前節の相対Poissonスキームを$\mathscr P_n$、その非零部分を
-$\mathscr P_n^\times$と書く。
-$e_i$を座標$z_i$に双対な基底とし、$e_{ijk}=e_i\wedge e_j\wedge e_k$と略記する。
-$B\subset\{1,\ldots,N\}$に対して$V_B=\langle e_i:i\in B\rangle$と置く。
-以下の添字付けでは、分割の各部分$B$は座標支持を表し、
-正規形の3次元部分空間$W\subset V_B$が$\operatorname{Gr}(3,V_B)$を動く。
-$\left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}$は、
-$\{1,\ldots,N\}$を大きさ$3$以上の$k$個の部分に分ける非順序集合分割の数とする。
+とおく。前節の相対Poissonスキームを $\mathscr P_n$、その非零部分を $\mathscr P_n^\times$ と書く。座標 $z_i$ に双対な $V$ の基底を $e_i$ とし、外積を $e_{ijk}=e_i\wedge e_j\wedge e_k$ と略記する。部分集合 $B\subset\{1,\ldots,N\}$ に対し、座標部分空間を $V_B=\langle e_i:i\in B\rangle$ と定める。
+
+以下の分類では、集合分割の各部分 $B$ が座標の支持を表し、正規形における各3次元ブロック部分空間 $W\subset V_B$ がGrassmann多様体 $\operatorname{Gr}(3,V_B)$ の中を自由に動く。組合せ論の記号として、$\{1,\ldots,N\}$ を大きさがすべて $3$ 以上の $k$ 個の部分に分ける非順序集合分割の総数を $\left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}$ と書く。
 
 \begin{theorem}\label{thm:pg-fermat-relative-count}
-次が成り立つ。
+滑らかな $n$ 次元3次超曲面（$N=n+2\ge5$）のPoissonモジュライの既約成分について、次が成り立つ。
 \begin{enumerate}
-\item $\operatorname{Pois}(X_N)$の既約成分は、
-各部分の大きさが$3$以上の集合分割で添字付けられる。$k$個の部分を持つ成分は
-次元$3N-8k$、一般Poisson階数$2k$であり、
+\item 固定Fermat超曲面 $X_N$ のPoissonスキーム $\operatorname{Pois}(X_N)$ の既約成分は、$\{1,\ldots,N\}$ の各部分の大きさが $3$ 以上の非順序集合分割で一対一に添字付けられる。$k$ 個の部分を持つ分割に対応する既約成分は次元 $3N-8k$、一般Poisson階数 $2k$ を持ち、総成分数は
 \begin{equation}\label{eq:pg-fermat-count}
- \#\operatorname{Irr}(\operatorname{Pois}(X_N))
- =\sum_{k=1}^{\lfloor N/3\rfloor}
- \left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}.
-\end{equation}
-\item 固定モジュライスタック$\mathfrak{Pois}(X_N)$の既約成分は、
-$N$の各部分が$3$以上の整数分割で添字付けられる。従って
-\begin{equation}\label{eq:pg-fermat-stack-count}
- \#\operatorname{Irr}(\mathfrak{Pois}(X_N))
- =p_{\ge3}(N)=[q^N]\prod_{b\ge3}(1-q^b)^{-1}.
-\end{equation}
-\Needspace{12\baselineskip}
-\item 相対モジュライスタックには一般Poisson階数$2k$ごとに1つの既約成分があり、
-\begin{equation}\label{eq:pg-relative-count}
- \#\operatorname{Irr}(\mathfrak{Pois}^{\mathrm{rel}}_n)=\lfloor N/3\rfloor.
-\end{equation}
-その次元は、$m=N-3k$として
-\begin{equation}\label{eq:pg-relative-dim}
- d_{n,k}=k(3N-8)+\binom{m+2}{3}
- +k\left(10+6m+3\binom{m+1}{2}\right)-N^2
+\#\operatorname{Irr}(\operatorname{Pois}(X_N))
+=\sum_{k=1}^{\lfloor N/3\rfloor}
+\left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}
 \end{equation}
 である。
+\item 固定モジュライスタック $\mathfrak{Pois}(X_N)$ の既約成分は、$N$ の各部分が $3$ 以上の整数分割で一対一に添字付けられる。従って総成分数は
+\begin{equation}\label{eq:pg-fermat-stack-count}
+\#\operatorname{Irr}(\mathfrak{Pois}(X_N))
+=p_{\ge3}(N)=[q^N]\prod_{b\ge3}(1-q^b)^{-1}
+\end{equation}
+である。
+\Needspace{12\baselineskip}
+\item 相対モジュライスタック $\mathfrak{Pois}^{\mathrm{rel}}_n$ には、可能な各一般Poisson階数 $2k$（$1\le k\le\lfloor N/3\rfloor$）ごとに既約成分がちょうど1つ存在する。すなわち
+\begin{equation}\label{eq:pg-relative-count}
+\#\operatorname{Irr}(\mathfrak{Pois}^{\mathrm{rel}}_n)=\lfloor N/3\rfloor
+\end{equation}
+であり、一般階数 $2k$ の成分の次元は、$m=N-3k$ とおいて
+\begin{equation}\label{eq:pg-relative-dim}
+  d_{n,k}=k(3N-8)+\binom{m+2}{3}
+  +k\left(10+6m+3\binom{m+1}{2}\right)-N^2
+\end{equation}
+で与えられる。
 \end{enumerate}
-零Poisson構造を除いても、これらの成分数は変わらない。
+また、零Poisson構造を除いた非零部分に制限しても、いずれの成分数も変わらない。
 \end{theorem}
 
-例えば$N=6$（$n=4$）では、分割型$(6)$から階数$2$の1成分、
-分割型$(3,3)$から階数$4$の$\binom63/2=10$成分を得る。
-自己同型で割ると、これら2つの分割型に対応する2成分となる。
+具体例として $N=6$（3次四様体、$n=4$）を見ると、大きさ3以上の集合分割は分割型 $(6)$ の1通りと分割型 $(3,3)$ の $\binom{6}{3}/2=10$ 通りである。これらはそれぞれ一般階数2の1成分と一般階数4の10成分を与え、$\operatorname{Pois}(X_6)$ は計11個の既約成分を持つ。自己同型群 $\operatorname{Aut}(X_6)$ で割ると、同じ分割型に属する10成分が同一視され、固定スタック $\mathfrak{Pois}(X_6)$ はちょうど2つの既約成分を持つ。
 
-\subsection{固定Fermat超曲面}
+\subsection{固定Fermat超曲面の既約成分（第1項・第2項の証明）}
 \begin{proof}[第1項の証明]
-Fermat式のHessianは$6\operatorname{diag}(z_1,\ldots,z_N)$であるから、
-補題\ref{lem:pg-linearize}よりPoisson条件は
+証明は「(a) 任意のPoisson構造がいずれかの $Z_{\mathcal B}$ に含まれること」「(b) 各 $Z_{\mathcal B}$ が $\operatorname{Pois}(X_N)$ に含まれる閉既約部分集合であること」「(c) 異なる分割の間に包含関係がないこと」の3段階で進める。
+
+\paragraph{ステップ1：座標支持への分離}
+Fermat3次式 $F_N=\sum_{i=1}^N z_i^3$ のHessianは対角行列 $6\operatorname{diag}(z_1,\ldots,z_N)$ である。補題\ref{lem:pg-linearize}により、$P\in\bigwedge^3V$ が $X_N$ 上のPoisson構造を定めることは、各座標 $z_i$ の係数行列 $\operatorname{diag}(0,\ldots,1,\ldots,0)$ が $K(P)$ に属することを含む。式\eqref{eq:pg-K}にこの階数1対称形式を代入すると、各 $1\le i\le N$ に対して
 \begin{equation}\label{eq:pg-fermat-contractions}
- (\iota_{dz_i}P)\wedge(\iota_{dz_i}P)=0
+(\iota_{dz_i}P)\wedge(\iota_{dz_i}P)=0
  \qquad(1\le i\le N)
 \end{equation}
-を含む。定理\ref{thm:pg-normal}による分解
-$P=\sum_{s=1}^kP_s$、$0\ne P_s\in\bigwedge^3W_s$を取る。
-異なる$s,t$の積
-$(\iota_{dz_i}P_s)\wedge(\iota_{dz_i}P_t)$は
-$\bigwedge^2W_s\otimes\bigwedge^2W_t$という相異なる直和成分に属する。
-従って\eqref{eq:pg-fermat-contractions}から、
-各$dz_i$が非零となる$W_s$は高々1つである。
-集合
-\begin{equation}
- B_s=\{i:dz_i|_{W_s}\ne0\}
-\end{equation}
-は互いに素で、$|B_s|\ge3$、$W_s\subset V_{B_s}$を満たす。
-未使用の添字をいずれかの$B_s$に加えれば、$\{1,\ldots,N\}$の分割を得る。
+が成り立つことが分かる。
 
-逆に、そのような分割$\mathcal B$に対して
+ここで定理\ref{thm:pg-normal}の正規形分解 $P=\sum_{s=1}^k P_s$（$0\ne P_s\in\bigwedge^3W_s$、$W_s$ は直和をなす3次元部分空間）を取る。異なるブロック $s\ne t$ に対する外積 $(\iota_{dz_i}P_s)\wedge(\iota_{dz_i}P_t)$ は、互いに独立な直和成分 $\bigwedge^2W_s\otimes\bigwedge^2W_t$ に属するため相殺し得ない。従って\eqref{eq:pg-fermat-contractions}より、各 $i$ について制限 $dz_i|_{W_s}$ が非零となるブロック $W_s$ は高々1つである。そこで各ブロックの座標支持を
 \begin{equation}
- Z_{\mathcal B}=\sum_{B\in\mathcal B}
+B_s=\{i\in\{1,\ldots,N\}:dz_i|_{W_s}\ne0\}
+\end{equation}
+とおくと、$B_1,\ldots,B_k$ は互いに素であり、$\dim W_s=3$ から $|B_s|\ge3$ および $W_s\subset V_{B_s}$ を満たす。どの $B_s$ にも属さない未使用の添字があれば、それらを任意の $B_s$ に合併することで、各部分の大きさが3以上の $\{1,\ldots,N\}$ の分割 $\mathcal B$ を得る。
+
+\paragraph{ステップ2：Pl\"ucker錐の和 $Z_{\mathcal B}$ の構成と次元}
+逆に、各部分の大きさが3以上の任意の分割 $\mathcal B$ に対して、Pl\"ucker錐の和
+\begin{equation}
+Z_{\mathcal B}=\sum_{B\in\mathcal B}
  \widehat{\operatorname{Gr}}(3,V_B)\subset\bigwedge^3V
 \end{equation}
-と置く。各錐は独立な線形部分空間$\bigwedge^3V_B$に入るので、
-この和は錐の直積であり閉既約である。
-各点$P=\sum_BP_B$について、非零$P_B$の支持を$V_B$の基底に延長する。
-この座標では$F_N=\sum_B\sum_{i\in B}z_i^3$は異なるブロックを混ぜず、
-正規形定理の逆向きにより$P$はPoissonである。
-従って有限個の$Z_{\mathcal B}$が$\operatorname{Pois}(X_N)$の被約化を覆う。
-各錐の次元は$3(|B|-3)+1$なので
-\begin{equation}
- \dim Z_{\mathcal B}=3N-8|\mathcal B|.
-\end{equation}
+を定義する。各錐 $\widehat{\operatorname{Gr}}(3,V_B)$ は独立な線形部分空間 $\bigwedge^3V_B$ に含まれるため、この和は錐の直積にほかならず、閉かつ既約である。任意の点 $P=\sum_{B\in\mathcal B}P_B\in Z_{\mathcal B}$ について、非零な各 $P_B$ の3次元支持を $V_B$ の基底へ延長すれば、その座標系において $F_N=\sum_{B\in\mathcal B}\sum_{i\in B}z_i^3$ は異なるブロックの変数を一切混ぜない。よって定理\ref{thm:pg-normal}の逆向きにより $P$ はPoisson構造を与える。以上から、有限個の閉既約部分集合 $Z_{\mathcal B}$ が $\operatorname{Pois}(X_N)$ の被約化を覆う。
 
-これらの閉既約部分集合の間に真の包含がないことを示す。
-縮約写像$\bigwedge^2V^*\to V$の一般階数は
-$Z_{\mathcal B}$上で$3|\mathcal B|$である。
-階数が一定値以下となる条件は閉じているので、部分数が少ないものは多いものを含まない。
-逆向きの包含は上の次元式から不可能である。
-部分数が等しい2つの分割を比較するには、各支持$W_s$が
-$B_s$の全座標方向に非零射影を持つ一般点を取る。
-補題\ref{ne:blocks}により$P$から$W_s$の組が復元され、
-従ってその座標支持$B_s$も復元される。
-従って、その一般点が同じ部分数の分割$\mathcal B'$に対応する
-$Z_{\mathcal B'}$にも属するならば、$\mathcal B'=\mathcal B$である。
-これで各$Z_{\mathcal B}$が1つの既約成分であることが分かる。
-一般点のPoisson階数は正規形定理より$2|\mathcal B|$となる。
-全ての錐は原点を含むので、原点は追加の成分を与えない。
+各Pl\"ucker錐 $\widehat{\operatorname{Gr}}(3,V_B)$ の次元は $\dim\operatorname{Gr}(3,V_B)+1=3(|B|-3)+1$ であるから、和の次元は
+\begin{equation}
+ \dim Z_{\mathcal B}=\sum_{B\in\mathcal B}\bigl(3|B|-8\bigr)=3N-8|\mathcal B|
+\end{equation}
+となる。
+
+\paragraph{ステップ3：包含関係の排除}
+異なる2つの分割 $\mathcal B,\mathcal B'$ に対して $Z_{\mathcal B}\subset Z_{\mathcal B'}$ が起こり得ないことを示す。
+まず、縮約写像 $\bigwedge^2V^*\to V$（$\omega\mapsto\iota_\omega P$）の一般階数は $Z_{\mathcal B}$ 上でちょうど $3|\mathcal B|$ である。行列の階数が一定値以下となる条件は閉条件なので、$|\mathcal B'|<|\mathcal B|$ のとき $Z_{\mathcal B}\not\subset Z_{\mathcal B'}$ である。逆に $|\mathcal B'|>|\mathcal B|$ のときは、上の次元公式から $\dim Z_{\mathcal B}>\dim Z_{\mathcal B'}$ となるためやはり $Z_{\mathcal B}\subset Z_{\mathcal B'}$ は不可能である。
+
+残るのは $|\mathcal B|=|\mathcal B'|$ の場合である。$Z_{\mathcal B}$ の一般点 $P=\sum_s P_s$ として、各3次元支持 $W_s\subset V_{B_s}$ が $B_s$ の全ての座標方向に非零射影を持つものを取る。補題\ref{ne:blocks}（ブロックの内在性）により、$P$ から部分空間の組 $\{W_s\}$ が一意に復元され、従ってそれらの座標支持の組 $\{B_s\}=\mathcal B$ も一意に復元される。ゆえにこの一般点が同じ部分数の分割 $\mathcal B'$ に対応する $Z_{\mathcal B'}$ にも属するならば、必然的に $\mathcal B'=\mathcal B$ である。
+
+これで各 $Z_{\mathcal B}$ が $\operatorname{Pois}(X_N)$ の既約成分をなすことが証明された。一般点のPoisson階数は定理\ref{thm:pg-normal}により $2|\mathcal B|$ である。また全ての錐 $Z_{\mathcal B}$ が原点 $P=0$ を含むため、零構造は追加の既約成分を生まない。
 \end{proof}
 
 \begin{proof}[第2項の証明]
-命題\ref{prop:pg-fixed-stack-algebraic}により成分の自己同型群軌道を数えればよい。
-自己同型は$F_N(Az)=cF_N(z)$を満たす射影線形変換である。
-Hessian行列式と連鎖律から
+命題\ref{prop:pg-fixed-stack-algebraic}（式\eqref{eq:pg-fixed-stack-components}）より、$\operatorname{Pois}(X_N)$ の既約成分の集合に対する $\operatorname{Aut}(X_N)$ の軌道の個数を数えればよい。
+
+$X_N$ の自己同型は、線形変換 $A\in\mathrm{GL}(V)$ であって定数 $c\in\mathbb C^\times$ に対し $F_N(Az)=cF_N(z)$ を満たすものの射影類として与えられる。Fermat式のHessian行列式は
 \begin{equation}\label{eq:pg-fermat-hessian-discriminant}
- \det\operatorname{Hess}(F_N)=6^N\prod_i z_i,
+ \det\operatorname{Hess}(F_N)=6^N\prod_{i=1}^N z_i
 \end{equation}
+であるから、連鎖律 $\operatorname{Hess}(F_N\circ A)(z)=A^{\mathsf t}\operatorname{Hess}(F_N)(Az)A$ の行列式を取ると
 \begin{equation}\label{eq:pg-fermat-hessian-transform}
- \prod_i(Az)_i=c^N\det(A)^{-2}\prod_i z_i
+ \prod_{i=1}^N(Az)_i=c^N\det(A)^{-2}\prod_{i=1}^N z_i
 \end{equation}
-を得る。一意分解性から$A$はmonomial行列であり、
-$F_N(Az)=cF_N(z)$へ戻せば、スカラー行列を除いた対角成分は3乗根である。
-従って
+を得る。多項式環 $\mathbb C[z_1,\ldots,z_N]$ の一意分解性から、各1次式 $(Az)_i$ はいずれかの座標 $z_{\sigma(i)}$ の定数倍でなければならず、$A$ はmonomial行列である。これを $F_N(Az)=cF_N(z)$ に戻せば、全体のスカラー倍を除いて対角成分は1の3乗根に限る。従って
 \begin{equation}\label{eq:pg-fermat-automorphism-group}
- \operatorname{Aut}(X_N)\simeq(\mu_3^N/\mu_3)\rtimes\mathfrak S_N.
+ \operatorname{Aut}(X_N)\simeq(\mu_3^N/\mu_3)\rtimes\mathfrak S_N
 \end{equation}
-対角部分は各座標支持を保ち、$\mathfrak S_N$はその添字を置換する。
-よって2つの集合分割が同じ軌道に属する条件は、部分の大きさの多重集合が等しいことである。
-これは各部分が$3$以上の整数分割にほかならず、第2項を得る。
+となる。対角部分 $\mu_3^N/\mu_3$ は各座標支持 $B\in\mathcal B$ を保ち、対称群 $\mathfrak S_N$ は添字 $\{1,\ldots,N\}$ を置換する。よって2つの集合分割が同じ $\operatorname{Aut}(X_N)$-軌道に属するための必要十分条件は、部分の大きさの多重集合が等しいこと、すなわち同じ「各部分が3以上の整数分割」を定めることである。これにより式\eqref{eq:pg-fermat-stack-count}を得る。
 \end{proof}
 
-\subsection{相対モジュライ}
+\subsection{相対モジュライの既約成分（第3項の証明）}
+相対モジュライでは、3次式 $F$ と3重ベクトル $P$ を同時に動かせるため、Fermat超曲面の場合と違って座標支持の組合わせ的な分岐が消え、一般Poisson階数 $2k$ だけによって既約成分が決まる。
+
 \begin{proof}[第3項の証明]
-一般Poisson階数$2k$の被約層を$\mathscr P_{n,k}$と書く。
-正規形定理により、これは縮約写像$\bigwedge^2V^*\to V$の階数が$3k$となる
-局所閉条件で定まる。
-3次式$F$の非零代表を選んだ被約階数層を$\widetilde{\mathscr P}_{N,k}$とし、
+各 $1\le k\le\lfloor N/3\rfloor$ に対し、$\mathscr P_n$ 内で一般Poisson階数がちょうど $2k$ である点のなす被約局所閉部分スキーム（階数層）を $\mathscr P_{n,k}$ と書く。定理\ref{thm:pg-normal}により、これは縮約写像 $\bigwedge^2V^*\to V$ の階数がちょうど $3k$ になるという局所閉条件で切り出される。
+
+\paragraph{ステップ1：基準3重ベクトルの軌道と安定化子}
+3次式 $F$ の非零代表を選んだ空間上の被約階数層を $\widetilde{\mathscr P}_{N,k}$ と書き、基準となる $k$ ブロック3重ベクトルとその $\mathrm{GL}(V)$-軌道を
 \begin{equation}
- P_k=e_{123}+e_{456}+\cdots+e_{3k-2,3k-1,3k},\qquad
+P_k=e_{123}+e_{456}+\cdots+e_{3k-2,3k-1,3k},\qquad
  \mathcal O_{N,k}=\mathrm{GL}(V)\cdot P_k
 \end{equation}
-と置く。$P_k$の支持を$W=\bigoplus_sW_s$、$V=W\oplus U$、$\dim U=m$とする。
-補題\ref{ne:blocks}により、その安定化子$H_k$は$W_s$を置換する。
-単位成分の元は各$W_s$上で$\mathrm{SL}(W_s)$に属し、
-$U$上の可逆変換と$U\to W$の写像は任意である。
-従って
+とおく。$P_k$ の支持を $W=\bigoplus_{s=1}^k W_s$、補空間を $U$（$V=W\oplus U$、$\dim U=m=N-3k$）とする。補題\ref{ne:blocks}より、$P_k$ の安定化子 $H_k\subset\mathrm{GL}(V)$ はブロック $W_1,\ldots,W_k$ を置換する。その単位連結成分の元は、各 $W_s$ 上では体積形式 $e_{3s-2,3s-1,3s}$ を保つ $\mathrm{SL}(W_s)$ の元として作用し、$U\to U$ の可逆変換および $U\to W$ の線形写像は任意である。従って
 \begin{equation}
  \dim H_k=8k+m^2+3km,\qquad
- \dim\mathcal O_{N,k}=k(3N-8).
+ \dim\mathcal O_{N,k}=N^2-\dim H_k=k(3N-8)
 \end{equation}
+を得る。
 
-$P=P_k$に対するHessian条件\eqref{eq:pg-K}は、
-異なる$W_s,W_t$間の混合2階微分の消滅と同値である。
-実際、異なる2つのブロックからそれぞれ2つの共変ベクトルを選ぶと、
-式\eqref{eq:pg-K}はその混合成分の消滅を与える。
-逆に$H(W_s,W_t)=0$（$s\ne t$）を満たす対称形式$H$については、
-式\eqref{eq:pg-K}の左辺は各$W_s^*$上の交代4形式の和となり、
-$\dim W_s=3$なので零である。
-従って許される3次式の線形空間$\mathcal F_{N,k}$は
+\paragraph{ステップ2：許される3次式の空間と随伴束による記述}
+$P=P_k$ に対して、Hessian条件\eqref{eq:pg-K}は異なるブロック $W_s,W_t$（$s\ne t$）間の混合2階微分がすべて消えることと同値である。実際、異なる2ブロックから2本ずつの共変ベクトルを選んで式\eqref{eq:pg-K}に代入すると $H(W_s,W_t)=0$ が従い、逆にこの直交条件を満たす任意の対称形式 $H$ に対しては、式\eqref{eq:pg-K}の左辺が各 $W_s^*$ 上の交代4形式の和となって $\dim W_s=3$ より恒等的に消える。
+
+従って $P_k$ と両立する3次式の線形空間 $\mathcal F_{N,k}$ は
 \begin{equation}
- F=c(u)+\sum_{s=1}^k
+F=c(u)+\sum_{s=1}^k
  \bigl(f_{s,3}(x_s)+f_{s,2}(x_s,u)+f_{s,1}(x_s,u)\bigr)
 \end{equation}
-で与えられる。ここで$f_{s,j}$の$x_s$次数は$j$、$u$次数は$3-j$であり、
+で与えられる。ここで $f_{s,j}$ は $x_s$ について $j$ 次、$u$ について $3-j$ 次の斉次式である。単項式の個数を数えると、その次元は
 \begin{equation}
- \ell_{N,k}:=\dim\mathcal F_{N,k}
- =\binom{m+2}{3}+k\left(10+6m+3\binom{m+1}{2}\right).
+\ell_{N,k}:=\dim\mathcal F_{N,k}
+=\binom{m+2}{3}+k\left(10+6m+3\binom{m+1}{2}\right)
 \end{equation}
-滑らかな3次式の部分$\mathcal F_{N,k}^{\mathrm{sm}}$はFermat式を含む非空開集合である。
-軌道上でHessian条件の線形写像は一定階数を持つので、その核は
-$\mathcal O_{N,k}$上の階数$\ell_{N,k}$のベクトル束となる。
-ここで$g\cdot F=F\circ g^{-1}$、$g\cdot P=(\bigwedge^3g)P$とする。
-随伴束では$(gh,F_0)\sim(g,h\cdot F_0)$、$h\in H_k$と同一視する。
-3次代表を選んだ被約階数層との比較射は
-\begin{equation}
- \mathrm{GL}(V)\times^{H_k}\mathcal F_{N,k}^{\mathrm{sm}}
- \longrightarrow\widetilde{\mathscr P}_{N,k},\qquad
- [g,F_0]\longmapsto(g\cdot F_0,g\cdot P_k)
-\end{equation}
-である。$\mathrm{GL}(V)\to\mathcal O_{N,k}$のエタール局所での持上げを選べば逆射が得られ、
-2つの持上げの差は$H_k$の作用なので逆射は降下する。
-従ってこれは上の核ベクトル束の開部分との同型であり、
-階数層は既約で次元$k(3N-8)+\ell_{N,k}$を持つ。
+となる。滑らかな3次式の部分 $\mathcal F_{N,k}^{\mathrm{sm}}\subset\mathcal F_{N,k}$ はFermat式 $F_N$ を含むため非空開集合である。
 
-3次代表の変更は自由な作用
+軌道 $\mathcal O_{N,k}$ 上でHessian条件を定める線形写像は一定階数を持つため、その核は $\mathcal O_{N,k}$ 上の階数 $\ell_{N,k}$ のベクトル束をなす。$\mathrm{GL}(V)$ の作用を $g\cdot F=F\circ g^{-1}$、$g\cdot P=(\bigwedge^3g)P$ とし、随伴束では $(gh,F_0)\sim(g,h\cdot F_0)$（$h\in H_k$）と同一視する。比較射
 \begin{equation}
- a\cdot(F,P)=(aF,a^{-1}P),\qquad a\in\mathbb G_m,
+\mathrm{GL}(V)\times^{H_k}\mathcal F_{N,k}^{\mathrm{sm}}
+\longrightarrow\widetilde{\mathscr P}_{N,k},\qquad
+[g,F_0]\longmapsto(g\cdot F_0,g\cdot P_k)
 \end{equation}
-であり、$P\otimes F\in\bigwedge^3V\otimes L$を不変に保つ。
-従って$\mathscr P_{n,k}$は既約で
-$\dim\mathscr P_{n,k}=k(3N-8)+\ell_{N,k}-1$である。
-$\mathrm{PGL}(V)$による商で$N^2-1$を引くと
-\eqref{eq:pg-relative-dim}を得る。
+は、主束 $\mathrm{GL}(V)\to\mathcal O_{N,k}$ のエタール局所切断（持上げ）を取れば逆射が構成でき、2つの持上げの差は $H_k$ の作用で吸収されるため大域的に降下する。よってこれは上の核ベクトル束の開部分との同型であり、$\widetilde{\mathscr P}_{N,k}$ は既約で次元 $k(3N-8)+\ell_{N,k}$ を持つ。
 
-各階数層の閉包が成分であることを示す。
-縮約写像の階数条件から、小さい$k$の層の閉包は大きい$k$の層を含まない。
-一方、隣り合う層の次元差は
+\paragraph{ステップ3：商の次元と既約成分の確定}
+3次式のスカラー代表の変更は自由な $\mathbb G_m$-作用
 \begin{equation}
- \dim\mathscr P_{n,k}-\dim\mathscr P_{n,k+1}
- =3(3k-1)(N-3k)+8>0
+a\cdot(F,P)=(aF,a^{-1}P),\qquad a\in\mathbb G_m
 \end{equation}
-なので、逆向きの包含もない。
-零切断は、各$F$上の分解可能3重ベクトルをスカラー倍することで
-$\mathscr P_{n,1}$の閉包に含まれる。
-従って階数層の閉包が全ての既約成分を与え、その数は$\lfloor N/3\rfloor$である。
-連結群$\mathrm{PGL}(V)$の商でも成分数は変わらない。
+であり、$P\otimes F\in\bigwedge^3V\otimes L$ を不変に保つ。これで割ることで、階数層 $\mathscr P_{n,k}$ は既約で次元 $k(3N-8)+\ell_{N,k}-1$ を持つことが分かる。さらに $\mathrm{PGL}(V)$（次元 $N^2-1$）による商スタックの次元を取れば、式\eqref{eq:pg-relative-dim}を得る。
+
+最後に、各階数層の閉包 $\overline{\mathscr P_{n,k}}$ がちょうど既約成分全体を与えることを確認する。縮約写像の階数が閉条件で上から抑えられることから、小さい $k$ の層の閉包は大きい $k$ の層を含まない。一方、隣接する層の次元差を計算すると
+\begin{equation}
+\dim\mathscr P_{n,k}-\dim\mathscr P_{n,k+1}
+=3(3k-1)(N-3k)+8>0
+\end{equation}
+となるため、大きい $k$ の層の閉包が小さい $k$ の層を含むこともない。また零切断 $P=0$ は、各 $F$ 上の分解可能3重ベクトルをスカラー倍で $0$ へ近づけることにより $\overline{\mathscr P_{n,1}}$ に含まれる。従って $\overline{\mathscr P_{n,k}}$（$1\le k\le\lfloor N/3\rfloor$）が $\mathscr P_n$ の既約成分全体を与え、その個数は $\lfloor N/3\rfloor$ である。連結群 $\mathrm{PGL}(V)$ で割っても既約成分数は変わらない（注意\ref{rem:pg-stack-component-warning}）。
 \end{proof}
 
-\subsection{成分数の比較}
-集合分割の指数母関数は
+\subsection{低次元における成分数の比較}
+大きさ3以上の集合分割の指数母関数は
 \begin{equation}\label{eq:pg-fermat-egf}
- \sum_{N\ge0}\frac{t^N}{N!}
- \left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}
- =\frac{(e^t-1-t-t^2/2)^k}{k!}.
+\sum_{N\ge0}\frac{t^N}{N!}
+\left\{\begin{smallmatrix}N\\k\end{smallmatrix}\right\}_{\ge3}
+=\frac{(e^t-1-t-t^2/2)^k}{k!}
 \end{equation}
-これと\eqref{eq:pg-fermat-stack-count}から次表を得る。
-階数$2$から$8$までの4列は、固定Fermatスキーム$\operatorname{Pois}(X_N)$の
-階数別成分数である。右の3列は、その総成分数と、固定Fermatスタック
-$\mathfrak{Pois}(X_N)$、相対スタック$\mathfrak{Pois}^{\mathrm{rel}}_n$の成分数を比較する。
+で与えられる。これと式\eqref{eq:pg-fermat-stack-count}・\eqref{eq:pg-relative-count}から、$n=3$ から $10$ までの成分数を比較した次表を得る。左の4列は固定Fermatスキーム $\operatorname{Pois}(X_N)$ の一般階数別の成分数、右の3列は固定スキーム・固定スタック $\mathfrak{Pois}(X_N)$・相対スタック $\mathfrak{Pois}^{\mathrm{rel}}_n$ の総成分数である。
+
 \begin{center}
 \small
 \begin{tabular}{r|rrrr|rrr}
@@ -235,9 +190,5 @@ $n$ & \multicolumn{4}{c|}{固定Fermatスキーム} & \multicolumn{3}{c}{総成�
 \bottomrule
 \end{tabular}
 \end{center}
-同じ階数でも、固定スタックに複数の成分が残ることがある。
-例えば$N=9$では、階数$4$の$210$成分は$(3,6)$型の$84$個と
-$(4,5)$型の$126$個からなり、固定スタックでは2つの成分になる。
-一般の滑らかな3次超曲面の固定Poissonスキームと固定スタックは、
-系\ref{cor:pg-generic}によりともに既約である。
 
+表が示す通り、$n\ge6$ では同じ一般階数であっても、固定スタックの中に複数の既約成分が残ることがある。例えば $n=7$（$N=9$）では、階数4の210成分は分割型 $(3,6)$ の84個と分割型 $(4,5)$ の126個に分かれるため、固定スタック $\mathfrak{Pois}(X_9)$ には階数4の成分が2つ現れる。これに対し、一般の滑らかな3次超曲面の固定Poissonスキームと固定スタックは、系\ref{cor:pg-generic}によりいずれも既約（階数2の1成分のみ）である。
