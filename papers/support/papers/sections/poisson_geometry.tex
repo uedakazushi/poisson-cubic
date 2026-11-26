@@ -1,1214 +1,866 @@
-% !TeX root = ../../../poisson-cubic.tex
+% !TeX root = ../../poisson-cubic.tex
 \section{大域的双ベクトル場と射影空間への延長}\label{sec:pg-extension}
-$V$を次元$N=n+2\ge5$の複素ベクトル空間、
-$S=\operatorname{Sym}(V^*)$、$\mathbb P=\PP(V)$とする。
-$\PP(V)$は$V$の1次元部分空間をパラメータ化する。
-$F\in S_3$は滑らかな超曲面$X=V(F)$を定めるものとし、
-座標を$z_1,\ldots,z_N$、Euler場を$E=\sum_i z_i\partial_{z_i}$と書く。
-また$F_i=\partial_iF$、$F_{ij}=\partial_i\partial_jF$とする。
-縮約は
-\begin{equation}\label{eq:pg-contraction-convention}
- \iota_\eta(v_1\wedge\cdots\wedge v_r)
- =\sum_{a=1}^r(-1)^{a-1}\eta(v_a)
- v_1\wedge\cdots\wedge\widehat v_a\wedge\cdots\wedge v_r
-\end{equation}
-で定める。Poisson構造とは、Schouten括弧について
-$[\pi,\pi]=0$を満たす$\pi\in H^0(X,\bigwedge^2T_X)$である。
-錐上の2次係数の双ベクトルを$q$、その射影化を$\pi$、$X$への制限を$\pi_X$と書く。
 
-以下では、滑らかさから得られる勾配のKoszul完全性と
-Euler列を用いて、任意の$\pi_X$を定数3重ベクトルで表示する。
-次に、射影的なJacobi恒等式を錐上の恒等式へ持ち上げる。
-$F$は既約である。正次数の因子分解$F=GH$があれば、
-$V(G)\cap V(H)\subset\mathbb P$は非空であり、その各点で$dF=0$となるからである。
+本節では、滑らかな3次超曲面 $X=V(F)\subset\PP(V)$ 上のPoisson構造を線形代数と可換環論の土台に乗せるための2つの基本結果を示す。第一に、$X$ 上の任意の大域双ベクトル場が周囲の射影空間 $\PP(V)$ へ一意に延長され、さらに定数3重ベクトル $P\in\bigwedge^3V$ との縮約 $\iota_{dF}P$ として一意に表示されることを示す（命題\ref{prop:pg-represent}）。第二に、$X$ 上でのJacobi恒等式 $[\pi_P,\pi_P]=0$ がアフィン錐 $V$ 上でのJacobi恒等式 $[\iota_{dF}P,\iota_{dF}P]=0$ へそのまま持ち上がることを示す（命題\ref{prop:pg-jacobi-extension}）。
+
+\paragraph{記号と規約}
+$V$ を次元 $N=n+2\ge5$ の複素ベクトル空間とし、多項式環を $S=\operatorname{Sym}(V^*)$、射影空間を $\mathbb P=\PP(V)$（$V$ の1次元部分空間全体の空間）と書く。斉次3次式 $F\in S_3$ は滑らかな3次超曲面 $X=V(F)\subset\mathbb P$ を定めるものとし、$V^*$ の線形座標を $z_1,\ldots,z_N$、Eulerベクトル場を $E=\sum_{i=1}^N z_i\partial_{z_i}$ と書く。また偏微分を $F_i=\partial_i F$、$F_{ij}=\partial_i\partial_j F$ と略記する。
+
+1-形式 $\eta\in V^*$ による多重ベクトルの縮約は
+\begin{equation}\label{eq:pg-contraction-convention}
+\iota_\eta(v_1\wedge\cdots\wedge v_r)
+=\sum_{a=1}^r(-1)^{a-1}\eta(v_a)\,
+v_1\wedge\cdots\wedge\widehat v_a\wedge\cdots\wedge v_r
+\end{equation}
+で定める。Poisson構造とは、Schouten括弧について $[\pi,\pi]=0$ を満たす大域双ベクトル場 $\pi\in H^0(X,\bigwedge^2T_X)$ のことである。以下では、アフィン錐 $V$ 上の2次係数双ベクトル場を $q$、その $\mathbb P$ への射影化を $\pi$、さらに $X$ への制限を $\pi_X$ と区別して書く。
+
+なお、$X$ の滑らかさから $F$ は自動的に既約である。実際、もし正次数の因子分解 $F=GH$ があれば、$\dim\mathbb P=N-1\ge4$ より交叉 $V(G)\cap V(H)\subset\mathbb P$ は非空となり、その各点で $dF=GdH+HdG=0$ となって滑らかさに反する。
 
 \subsection{勾配のKoszul複体とEuler列}
+大域双ベクトル場の表示に必要となる2つの補題——勾配 $F_1,\ldots,F_N$ の正則列性および射影空間のEuler列からのコホモロジー計算——を準備する。
+
 \begin{lemma}\label{lem:pg-gradient}
-$F_1,\ldots,F_N$は$S$の正則列であり、縮約$\iota_{dF}$を微分とする
-Koszul複体は正次数で完全である。
-特に、$\sum_i a_iF_i=0$で各$a_i$が定数または1次式ならば、全ての$a_i$は零である。
+偏微分 $F_1,\ldots,F_N$ は多項式環 $S$ の正則列をなし、縮約 $\iota_{dF}$ を微分とするKoszul複体は正のホモロジー次数で完全である。特に、$\sum_{i=1}^N a_i F_i=0$ を満たす各 $a_i\in S$ が定数または1次斉次式ならば、すべての $a_i$ は零である。
 \end{lemma}
 \begin{proof}
-Euler等式$\sum_i z_iF_i=3F$と$X$の滑らかさから、
-$F_1,\ldots,F_N$の共通零点は原点だけである。
-従って$(F_1,\ldots,F_N)$は$\mathfrak m=(z_1,\ldots,z_N)$-準素であり、
-$F_1,\ldots,F_N$は$N$次元Cohen--Macaulay局所環$S_{\mathfrak m}$の
-パラメータ系、従って正則列である
-\cite[Tags~00ND, 02JN]{PStacks}。
-正則性は$S$上にも成り立つ。実際、
-$S/(F_1,\ldots,F_{i-1})$上の$F_i$倍写像の核は斉次加群である。
-その非零斉次元は、定数項が非零の多項式で消えることがないので、
-$\mathfrak m$での局所化で零にならない。
-局所化した核が零であることから、元の核も零である。
+Euler等式 $\sum_{i=1}^N z_i F_i=3F$ と $X$ の滑らかさから、$F_1,\ldots,F_N$ の共通零点はアフィン原点のみである。従ってイデアル $(F_1,\ldots,F_N)$ は極大イデアル $\mathfrak m=(z_1,\ldots,z_N)$-準素であり、$F_1,\ldots,F_N$ は $N$ 次元Cohen--Macaulay局所環 $S_{\mathfrak m}$ のパラメータ系、ゆえに正則列をなす \cite[Tags~00ND, 02JN]{PStacks}。
 
-正則列のKoszul複体は正次数で完全である
-\cite[Tag~062F]{PStacks}。
-各$F_i$の次数は2なので、第1 syzygyは
-$F_je_i-F_ie_j$という係数次数2の関係で生成される。
-従って係数次数が0または1の斉次syzygyはなく、最後の主張を得る。
+この正則性は多項式環 $S$ 全体でも成り立つ。実際、$S/(F_1,\ldots,F_{i-1})$ 上の $F_i$ 倍写像の核は斉次加群である。任意の非零斉次元は、定数項が非零の多項式を掛けても零にならないため、$\mathfrak m$ での局所化によって零にならない。局所化した核が零であることから、元の核も零である。
+
+正則列のKoszul複体は正の次数で完全である \cite[Tag~062F]{PStacks}。各 $F_i$ の次数は $2$ であるから、第1 syzygy は自明な関係式 $F_j e_i - F_i e_j$（係数次数 $2$）で生成される。従って係数次数 $0$ または $1$ の非自明な斉次syzygyは存在せず、最後の主張を得る。
 \end{proof}
 
 \begin{lemma}\label{lem:pg-euler}
-次が成り立つ：
+射影空間 $\mathbb P=\PP(V)$（$\dim\mathbb P=N-1\ge4$）について、次が成り立つ：
 \begin{equation}\label{eq:pg-euler-vanishing}
- H^0(\mathbb P,\textstyle\bigwedge^2T_{\mathbb P}(-3))
- =H^1(\mathbb P,\textstyle\bigwedge^2T_{\mathbb P}(-3))=0.
+H^0(\mathbb P,\textstyle\bigwedge^2T_{\mathbb P}(-3))
+=H^1(\mathbb P,\textstyle\bigwedge^2T_{\mathbb P}(-3))=0.
 \end{equation}
-また、射影化によって
+また、アフィン錐上の2次係数双ベクトル場の射影化によって、自然な同型
 \begin{equation}\label{eq:pg-quadratic-euler-quotient}
- H^0(\mathbb P,\textstyle\bigwedge^2T_{\mathbb P})
- \simeq
- \frac{S_2\otimes\bigwedge^2V}
- {E\wedge(S_1\otimes V)}
+H^0(\mathbb P,\textstyle\bigwedge^2T_{\mathbb P})
+\simeq
+\frac{S_2\otimes\bigwedge^2V}
+{E\wedge(S_1\otimes V)}
 \end{equation}
 を得る。
 \end{lemma}
 \begin{proof}
-Euler列とその外積から、完全列
+Euler列とその2次外積を $\OO(-3)$ で捻ると、2つの短完全列
 \begin{equation}\label{eq:pg-euler-sequences}
 \begin{aligned}
 0&\longrightarrow\OO(-3)\longrightarrow V\otimes\OO(-2)
- \longrightarrow T_{\mathbb P}(-3)\longrightarrow0,\\
+\longrightarrow T_{\mathbb P}(-3)\longrightarrow0,\\
 0&\longrightarrow T_{\mathbb P}(-3)
- \longrightarrow\bigwedge^2V\otimes\OO(-1)
- \longrightarrow\bigwedge^2T_{\mathbb P}(-3)\longrightarrow0
+\longrightarrow\bigwedge^2V\otimes\OO(-1)
+\longrightarrow\bigwedge^2T_{\mathbb P}(-3)\longrightarrow0
 \end{aligned}
 \end{equation}
-がある。$\dim\mathbb P=N-1\ge4$なので、線束の中間コホモロジーの消滅
-\cite[Tag~01XT]{PStacks}により
-$H^i(T_{\mathbb P}(-3))=0$、$i=0,1,2$である。
-第2列から\eqref{eq:pg-euler-vanishing}を得る。
+が得られる。$\dim\mathbb P=N-1\ge4$ であるため、射影空間の線束の中間コホモロジー消滅 \cite[Tag~01XT]{PStacks} により、第1列から $i=0,1,2$ に対して $H^i(\mathbb P,T_{\mathbb P}(-3))=0$ が従う。さらに第2列の長完全列から消滅\eqref{eq:pg-euler-vanishing}を得る。
 
-twistしないEuler列は$H^1(T_{\mathbb P})=0$と
-$S_1\otimes V\twoheadrightarrow H^0(T_{\mathbb P})$を与える。
-従って
-$0\to T_{\mathbb P}\to\bigwedge^2V\otimes\OO(2)
-\to\bigwedge^2T_{\mathbb P}\to0$
-の大域切断を取れば\eqref{eq:pg-quadratic-euler-quotient}となる。
-左の写像は錐上では$Z\mapsto E\wedge Z$である。
+同様に、捻らないEuler列からは $H^1(\mathbb P,T_{\mathbb P})=0$ および全射 $S_1\otimes V\twoheadrightarrow H^0(\mathbb P,T_{\mathbb P})$ が従う。よって外積Euler列
+\[
+  0\longrightarrow T_{\mathbb P}
+  \longrightarrow\bigwedge^2V\otimes\OO(2)
+  \longrightarrow\bigwedge^2T_{\mathbb P}\longrightarrow0
+\]
+の大域切断を取れば同型\eqref{eq:pg-quadratic-euler-quotient}を得る。ここで左側の単射は、アフィン錐上ではベクトル場 $Z\in S_1\otimes V$ に対する外積 $Z\mapsto E\wedge Z$ で与えられる。
 \end{proof}
+
+以上の2補題を組み合わせることで、$X$ 上の全ての大域双ベクトル場が定数3重ベクトルによって一意に表示されることが従う。
 
 \begin{proposition}\label{prop:pg-represent}
-$F$を固定すると、線形同型
+滑らかな3次式 $F$ を固定すると、自然な線形同型
 \begin{equation}\label{eq:pg-representation-isomorphism}
- \bigwedge^3V\xrightarrow{\sim}H^0(X,\bigwedge^2T_X),
- \qquad P\longmapsto\pi_P=(\iota_{dF}P)|_X
+\bigwedge^3V\xrightarrow{\sim}H^0(X,\bigwedge^2T_X),
+\qquad P\longmapsto\pi_P=(\iota_{dF}P)|_X
 \end{equation}
-がある。右辺は2次係数の場を射影化して定める。
-さらに、任意の$X$上の双ベクトル場は$\mathbb P$上に一意に延長される。
+が存在する。ここで右辺は、アフィン錐上の2次係数双ベクトル場 $q=\iota_{dF}P$ を $\mathbb P$ へ射影化して $X$ へ制限したものである。さらに、$X$ 上の任意の大域双ベクトル場は周囲の射影空間 $\mathbb P$ 上の大域双ベクトル場へ一意に延長される。
 \end{proposition}
 \begin{proof}
-補題\ref{lem:pg-euler}と超曲面の制限列により、制限写像
+\paragraph{ステップ1：$\mathbb P$ への一意な延長と接性条件}
+超曲面 $X=V(F)$ の制限短完全列に $\bigwedge^2T_{\mathbb P}$ をテンソルし、補題\ref{lem:pg-euler}の消滅\eqref{eq:pg-euler-vanishing}を適用すると、制限写像
 \begin{equation}\label{eq:pg-ambient-restriction-isomorphism}
- H^0(\mathbb P,\bigwedge^2T_{\mathbb P})
- \xrightarrow{\sim}
- H^0(X,(\bigwedge^2T_{\mathbb P})|_X)
+H^0(\mathbb P,\bigwedge^2T_{\mathbb P})
+\xrightarrow{\sim}
+H^0(X,(\bigwedge^2T_{\mathbb P})|_X)
 \end{equation}
-は同型である。接束の単射$T_X\hookrightarrow T_{\mathbb P}|_X$の外積を通して、
-$\pi_X$を右辺の元と見なす。その一意な延長を
-\eqref{eq:pg-quadratic-euler-quotient}によって
-$B\in S_2\otimes\bigwedge^2V$で代表する。
+が同型であることが分かる。接束の包含 $T_X\hookrightarrow T_{\mathbb P}|_X$ の外積により、与えられた $\pi_X\in H^0(X,\bigwedge^2T_X)$ を右辺の元と見なすと、その一意な延長 $\pi\in H^0(\mathbb P,\bigwedge^2T_{\mathbb P})$ が定まる。式\eqref{eq:pg-quadratic-euler-quotient}により、$\pi$ は2次係数双ベクトル場 $B\in S_2\otimes\bigwedge^2V$ で代表される。
 
-$v=\iota_{dF}B\in S_4\otimes V$とおく。
-$\pi_X$の接性は、$v|_X$が$T_{\mathbb P}(3)|_X$で零であることを意味する。
-実際、法線写像$T_{\mathbb P}|_X\to\OO_X(3)$は$dF$で与えられ、
-その外積に対する縮約の核は$\bigwedge^2T_X$である。
-制限したEuler列
+次に $v=\iota_{dF}B\in S_4\otimes V$ とおく。法線写像 $T_{\mathbb P}|_X\to\OO_X(3)$ は $dF$ との縮約で与えられ、その外積への縮約の核がちょうど $\bigwedge^2T_X$ である。従って $\pi_X$ が $X$ に接する条件は、$v|_X$ が $T_{\mathbb P}(3)|_X$ の切断として零になることと同値である。制限したEuler列
 \begin{equation}\label{eq:pg-twisted-euler-on-X}
- 0\longrightarrow\OO_X(3)
- \xrightarrow{\ E\ } V\otimes\OO_X(4)
- \longrightarrow T_{\mathbb P}(3)|_X\longrightarrow0
+0\longrightarrow\OO_X(3)
+\xrightarrow{\ E\ }V\otimes\OO_X(4)
+\longrightarrow T_{\mathbb P}(3)|_X\longrightarrow0
 \end{equation}
-から$v|_X=h_XE$となる$h_X\in H^0(X,\OO_X(3))$がある。
-$H^1(\mathbb P,\OO)=0$により$h_X$は$h\in S_3$へ持ち上がる。
-従って、ある$A\in S_1\otimes V$について
+より、$v|_X=h_X E$ を満たす $h_X\in H^0(X,\OO_X(3))$ が存在する。$H^1(\mathbb P,\OO)=0$ なので $h_X$ は $h\in S_3$ へ持ち上がり、ある1次係数ベクトル場 $A\in S_1\otimes V$ を用いて
 \begin{equation}\label{eq:pg-tangency-correction}
- \iota_{dF}B=FA+hE
+\iota_{dF}B=FA+hE
 \end{equation}
-となる。さらに$dF$で縮約すると
-$0=F A(F)+3Fh$であるから、$h=-A(F)/3$である。
-ゆえに
+と書ける。この両辺をさらに $dF$ で縮約すると、$\iota_{dF}^2=0$ とEuler等式 $\iota_{dF}E=3F$ から $0=FA(F)+3Fh$、ゆえに $h=-A(F)/3$ を得る。そこで代表元を
 \begin{equation}\label{eq:pg-horizontal-representative}
- q=B-\frac13E\wedge A,\qquad \iota_{dF}q=0
+q=B-\frac13E\wedge A,\qquad\iota_{dF}q=0
 \end{equation}
-となる。$E\wedge A$は射影化で消えるので、$q$は同じ延長を代表する。
+と取り替える。$E\wedge A$ は射影化で消えるため、$q$ は同じ延長 $\pi$ を代表し、かつアフィン錐上で厳密に水平（$\iota_{dF}q=0$）である。
 
-補題\ref{lem:pg-gradient}のKoszul複体の斉次部分
+\paragraph{ステップ2：Koszul完全性による全射性と単射性}
+補題\ref{lem:pg-gradient}のKoszul複体の適切な斉次部分を取り出すと、完全列
 \begin{equation}\label{eq:pg-graded-koszul-representation}
 0\longrightarrow S_0\otimes\bigwedge^3V
- \xrightarrow{\iota_{dF}}S_2\otimes\bigwedge^2V
- \xrightarrow{\iota_{dF}}S_4\otimes V
+\xrightarrow{\iota_{dF}}S_2\otimes\bigwedge^2V
+\xrightarrow{\iota_{dF}}S_4\otimes V
 \end{equation}
-は完全である。左側の直前の項は
-$S_{-2}\otimes\bigwedge^4V=0$なので、左の写像も単射である。
-従って$q=\iota_{dF}P$となる定数$P$が一意に存在し、表示の全射性を得る。
+を得る（左端の直前は $S_{-2}\otimes\bigwedge^4V=0$ なので、左の写像は単射である）。$\iota_{dF}q=0$ より $q=\iota_{dF}P$ を満たす定数3重ベクトル $P\in\bigwedge^3V$ が一意に存在し、写像\eqref{eq:pg-representation-isomorphism}の全射性が従う。
 
-逆に、任意の定数$P$に対して$q=\iota_{dF}P$は2次係数をもち、
-$\iota_{dF}q=0$なので、その射影化は$X$に接する。
-この構成は線形である。$\pi_P=0$なら、
-\eqref{eq:pg-ambient-restriction-isomorphism}により$q$の射影化は$\mathbb P$上で零であり、
-$E\wedge q=0$である。これを$dF$で縮約すると
-$0=3Fq-E\wedge\iota_{dF}q=3Fq$となり、$q=0$を得る。
-\eqref{eq:pg-graded-koszul-representation}の単射性から$P=0$である。
-これで単射性と、表示が全ての選択に依存しないことが従う。
+逆に、任意の定数 $P\in\bigwedge^3V$ に対して $q=\iota_{dF}P$ は2次係数を持ち $\iota_{dF}q=0$ を満たすため、その射影化は $X$ に接する双ベクトル場 $\pi_P$ を線形に定める。もし $\pi_P=0$ ならば、同型\eqref{eq:pg-ambient-restriction-isomorphism}により $q$ の射影化は $\mathbb P$ 上で零、すなわちアフィン錐上で $E\wedge q=0$ である。これを $dF$ で縮約すると $0=3Fq-E\wedge\iota_{dF}q=3Fq$ より $q=0$ となり、完全列\eqref{eq:pg-graded-koszul-representation}の単射性から $P=0$ を得る。これで同型性と延長の一意性が完全に証明された。
 \end{proof}
 
-$a\in\CC^\times$に対し、$F$を$aF$に替えると
-命題\ref{prop:pg-represent}の同型は$a$倍される。
+なお、$a\in\CC^\times$ に対して定義方程式を $F$ から $aF$ へスカラー倍すると、命題\ref{prop:pg-represent}の同型は $a$ 倍される。
 
-この表示から$X$の構造層の括弧を記述する。
-$q=\sum_{i<j}q^{ij}\partial_i\wedge\partial_j$に対し
-$\{a,b\}_q=\sum_{i,j}q^{ij}(\partial_i a)(\partial_j b)$と定める。
-2次斉次性により、この双導分は$S[z_i^{-1}]$の次数0部分を保つ。
-$U_i=D_+(z_i)$、$t_j=z_j/z_i$上では
+\paragraph{構造層上のPoisson括弧の明示式}
+アフィン錐上の2次係数双ベクトル場 $q=\sum_{i<j}q^{ij}\partial_i\wedge\partial_j$ に対し、多項式上の双導分を $\{a,b\}_q=\sum_{i,j}q^{ij}(\partial_i a)(\partial_j b)$ で定める。係数の2次斉次性により、この双導分は局所化環 $S[z_i^{-1}]$ の次数0部分（アフィンチャート $U_i=D_+(z_i)$ の座標環）を保つ。実際、アフィン座標 $t_j=z_j/z_i$ の間の括弧は
 \begin{equation}\label{eq:pg-projective-ratio-bracket}
- \{t_j,t_k\}_q
- =\frac{z_iq^{jk}-z_jq^{ik}+z_kq^{ij}}{z_i^3}.
+\{t_j,t_k\}_q
+=\frac{z_iq^{jk}-z_jq^{ik}+z_kq^{ij}}{z_i^3}
 \end{equation}
-重なり上の括弧は同じ局所化した双導分の制限なので一致する。
-また$\{F,-\}_q=0$から、$U_i$における$X$の方程式$F/z_i^3$が生成する
-イデアルは括弧で保たれる。従って括弧は$X$の構造層に降下し、
-\eqref{eq:pg-projective-ratio-bracket}は$\pi_P$から誘導される括弧を与える。
-特に、錐上でJacobi恒等式が成り立てば、射影化と$X$への制限後も成り立つ。
+で与えられる。重なり上の括弧は同一の局所化双導分の制限であるため自然に貼り合わさる。また $\{F,-\}_q=0$ より、$U_i$ 上で $X$ を定める方程式 $F/z_i^3$ が生成するイデアルは括弧で保たれるため、括弧は $X$ の構造層へ降下し、式\eqref{eq:pg-projective-ratio-bracket}が $\pi_P$ の誘導する括弧を与える。特に、アフィン錐上でJacobi恒等式 $[q,q]=0$ が成り立てば、射影化と $X$ への制限後もJacobi恒等式が成り立つ。
 
-\subsection{Jacobi恒等式の持上げ}
-固定した体積形式$dz_1\wedge\cdots\wedge dz_N$に関するdivergenceを
+\subsection{Jacobi恒等式のアフィン錐への持上げ}
+次に、逆向き——「$X$ 上で $\pi_P$ がPoissonならば、アフィン錐上で $q=\iota_{dF}P$ 自体がPoissonである」——を証明する。ここでBondal \cite[\S4, pp.~11--12]{PBondal93} に由来するEuler--divergence恒等式が鍵となる。
+
+固定した体積形式 $dz_1\wedge\cdots\wedge dz_N$ に関する多重ベクトル場のdivergence作用素 $\delta$ を
 \begin{equation}\label{eq:pg-divergence-definition}
- \delta(a\partial_{i_1}\wedge\cdots\wedge\partial_{i_r})
- =\sum_{b=1}^r(-1)^{b-1}\partial_{i_b}a\,
- \partial_{i_1}\wedge\cdots\wedge\widehat{\partial_{i_b}}\wedge\cdots
- \wedge\partial_{i_r}
+\delta(a\partial_{i_1}\wedge\cdots\wedge\partial_{i_r})
+=\sum_{b=1}^r(-1)^{b-1}(\partial_{i_b}a)\,
+\partial_{i_1}\wedge\cdots\wedge\widehat{\partial_{i_b}}\wedge\cdots
+\wedge\partial_{i_r}
 \end{equation}
-とする。係数次数$d$、外積次数$r$の斉次多重ベクトル$C$について、
-次の恒等式を用いる：
+と定める。係数次数 $d$、外積次数 $r$ の斉次多重ベクトル場 $C$ に対して、次の基本恒等式が成り立つ：
 \begin{equation}\label{eq:pg-divergence-identities}
 \begin{aligned}
- \delta(FC)&=\iota_{dF}C+F\delta C,\qquad \delta^2=0,\\
- \delta(E\wedge C)&=(N+d-r)C-E\wedge\delta C,\\
- \delta\iota_{dF}C&=-\iota_{dF}\delta C.
+\delta(FC)&=\iota_{dF}C+F\delta C,\qquad \delta^2=0,\\
+\delta(E\wedge C)&=(N+d-r)C-E\wedge\delta C,\\
+\delta\iota_{dF}C&=-\iota_{dF}\delta C.
 \end{aligned}
 \end{equation}
-第2行では、$E$の微分が$N-r$を、$C$の係数のEuler微分が$d$を与える。
-最後の等式では$F$の2階微分を含む項がHessianの対称性と
-$C$の交代性で相殺し、残りの項の符号が縮約の順序の交換で反転する。
-これらは射影Poisson構造の斉次持上げに用いられるEuler--divergence恒等式である
-\cite[\S4, pp.~11--12]{PBondal93}。
+第2式は、$E$ への微分が $N-r$ を、$C$ の係数へのEuler微分が $d$ を生じることから従う。第3式では、$F$ の2階偏微分を含む項がHessianの対称性と $C$ の交代性により相殺し、残りの項は縮約の順序交換により符号が反転する。
 
 \begin{proposition}\label{prop:pg-jacobi-extension}
-$q=\iota_{dF}P$について、$\pi_P$が$X$上のPoisson構造であることと
-$[q,q]=0$は同値である。
-従って$X$上のPoisson構造の$\mathbb P$への一意な延長もPoissonである。
+定数3重ベクトル $P\in\bigwedge^3V$ と $q=\iota_{dF}P$ について、$\pi_P$ が $X$ 上のPoisson構造であることと、アフィン錐上で $[q,q]=0$ が成り立つことは同値である。従って、$X$ 上の任意のPoisson構造の $\mathbb P$ への一意な延長もまたPoisson構造である。
 \end{proposition}
 \begin{proof}
-錐上のJacobiatorを$J=\tfrac12[q,q]$と書く。すなわち
-\begin{equation}\label{eq:pg-jacobiator-coefficients}
- J^{ijk}=\sum_a\left(
- q^{ia}\partial_aq^{jk}+q^{ja}\partial_aq^{ki}
- +q^{ka}\partial_aq^{ij}\right).
-\end{equation}
-$J$の係数は3次斉次である。
-$q^{ij}=\sum_aP^{ija}F_a$では$P^{ija}$の交代性と$F_{ai}$の対称性により
-$\delta q=0$となる。
-divergenceの積の微分則は
-$J=(\delta q)\wedge q-\tfrac12\delta(q\wedge q)$を与えるので、$\delta J=0$である。
-また$F$は$q$のCasimirであり、Jacobiatorに$F$を代入した全ての項が零となるため
-$\iota_{dF}J=0$である。
+逆向き（$[q,q]=0\Rightarrow[\pi_P,\pi_P]=0$）は上で確認した括弧の降下から直ちに従う。以下、$\pi_P$ が $X$ 上でPoissonであると仮定し、錐上のJacobiator $J=\tfrac12[q,q]$ が恒等的に零であることを示す。
 
-$\pi_P$がPoissonであると仮定する。
-Jacobiatorは交代3重導分であり、\eqref{eq:pg-projective-ratio-bracket}から
-\begin{equation}\label{eq:pg-projective-ratio-jacobi}
- J(t_j,t_k,t_l)=
- \frac{z_iJ^{jkl}-z_jJ^{ikl}+z_kJ^{ijl}-z_lJ^{ijk}}{z_i^4}
- =\frac{(E\wedge J)^{ijkl}}{z_i^4}
+\paragraph{ステップ1：$J$ の基本性質（divergence-freeかつ水平）}
+$J$ の成分表示は
+\begin{equation}\label{eq:pg-jacobiator-coefficients}
+J^{ijk}=\sum_a\left(
+q^{ia}\partial_aq^{jk}+q^{ja}\partial_aq^{ki}
++q^{ka}\partial_aq^{ij}\right)
 \end{equation}
-となる。左辺は射影化された$J$の全ての局所係数なので、
-その消滅は$(E\wedge J)|_X=0$を意味する。
-実際、$U_i$ではEuler直線は直和因子であり、商の外積からの
-$E\wedge-$は単射である。
-従って$E\wedge J$の各4次係数は、制限写像
-$S_4\to H^0(X,\OO_X(4))$の核$FS_1$に属する。
-次数を比べると、ある$Q\in S_1\otimes\bigwedge^4V$について
+であり、係数は3次斉次多項式である。$q^{ij}=\sum_a P^{ija}F_a$ に対して $P^{ija}$ の交代性と $F_{ai}$ の対称性から $\delta q=0$ が成り立つ。Schouten括弧とdivergenceの積の微分則より $J=(\delta q)\wedge q-\tfrac12\delta(q\wedge q)$ であるため、$\delta^2=0$ から $\delta J=0$ を得る。また $F$ は $q$ のCasimirなので、Jacobiatorに $F$ を代入した各項がすべて消え、$\iota_{dF}J=0$ が成り立つ。
+
+\paragraph{ステップ2：超曲面上の消滅から $E\wedge J=FQ$ を導く}
+Jacobiatorは交代3重導分であり、アフィンチャート $U_i=D_+(z_i)$ 上の座標 $t_j=z_j/z_i$ に式\eqref{eq:pg-projective-ratio-bracket}を適用すると
+\begin{equation}\label{eq:pg-projective-ratio-jacobi}
+J(t_j,t_k,t_l)=
+\frac{z_iJ^{jkl}-z_jJ^{ikl}+z_kJ^{ijl}-z_lJ^{ijk}}{z_i^4}
+=\frac{(E\wedge J)^{ijkl}}{z_i^4}
+\end{equation}
+を得る。左辺は射影化された $J$ の局所成分全体であるから、$[\pi_P,\pi_P]=0$ は $(E\wedge J)|_X=0$ を意味する（実際、$U_i$ 上ではEuler直線が局所直和因子をなすため、商の外積からの $E\wedge-$ は単射である）。従って $E\wedge J$ の各4次斉次係数は、制限写像 $S_4\to H^0(X,\OO_X(4))$ の核 $FS_1$ に属する。次数を比較すれば、ある1次係数の4重ベクトル場 $Q\in S_1\otimes\bigwedge^4V$ が存在して
 \begin{equation}\label{eq:pg-euler-jacobi-divisibility}
- E\wedge J=FQ
+E\wedge J=FQ
 \end{equation}
 と書ける。
 
-\eqref{eq:pg-euler-jacobi-divisibility}を$dF$で縮約し、
-$\iota_{dF}J=0$と$\iota_{dF}E=3F$を用いると
-$F\iota_{dF}Q=3FJ$となる。従って
+\paragraph{ステップ3：Euler--divergence恒等式による $J=0$ の導出}
+式\eqref{eq:pg-euler-jacobi-divisibility}の両辺を $dF$ で縮約し、$\iota_{dF}J=0$ と $\iota_{dF}E=3F$ を用いると $F\iota_{dF}Q=3FJ$ を得る。$S$ は整域なので $F$ で割って
 \begin{equation}\label{eq:pg-jacobi-quotient-horizontal}
- \iota_{dF}Q=3J,\qquad
- \iota_{dF}(\delta Q)=-\delta(\iota_{dF}Q)=-3\delta J=0.
+\iota_{dF}Q=3J,\qquad
+\iota_{dF}(\delta Q)=-\delta(\iota_{dF}Q)=-3\delta J=0
 \end{equation}
-$Q$は1次係数なので$\delta Q$は定数3重ベクトルである。
-補題\ref{lem:pg-gradient}の定数係数syzygyの消滅から$\delta Q=0$を得る。
-最後に\eqref{eq:pg-euler-jacobi-divisibility}へ$\delta$を作用させると、
-\eqref{eq:pg-divergence-identities}より
+が従う（ここで式\eqref{eq:pg-divergence-identities}の第3式と $\delta J=0$ を用いた）。$Q$ の係数は1次式なので $\delta Q$ は定数3重ベクトルであり、補題\ref{lem:pg-gradient}の定数係数syzygyの消滅から $\delta Q=0$ を得る。
+
+最後に式\eqref{eq:pg-euler-jacobi-divisibility}へ $\delta$ を作用させる。$J$ は係数次数 $d=3$、外積次数 $r=3$ かつ $\delta J=0$ なので、式\eqref{eq:pg-divergence-identities}より
 \begin{equation}
- NJ=\delta(E\wedge J)=\delta(FQ)
- =\iota_{dF}Q+F\delta Q=3J
+NJ=\delta(E\wedge J)=\delta(FQ)
+=\iota_{dF}Q+F\delta Q=3J
 \end{equation}
-となる。$N\ge5$なので$J=0$である。
-逆方向は局所化・次数0部分・超曲面商への括弧の降下から従う。
+となる。仮定 $N\ge5$ より $N-3\neq 0$ であり、ゆえに $J=0$ を得る。
 \end{proof}
 
 \section{Hessian による Poisson 構造の正規形}\label{sec:pg-normal}
+
+前節の結果により、滑らかな3次超曲面 $X=V(F)$ 上のPoisson構造の分類は、「定数3重ベクトル $P\in\bigwedge^3V$ に対し、アフィン錐上で $[\iota_{dF}P,\iota_{dF}P]=0$ が成り立つための条件を決定する」という純粋に代数的な問題へ帰着された。
+
+本節では、この非線形条件を $F$ のHessianに対する線形条件へと変換し（第\ref{sec:pg-normal}.1節）、$X$ の滑らかさから従う「2次形式の系の基点自由性」とLie代数の構造論を組み合わせて $P$ が3次元ブロックの直和に分解することを証明する（第\ref{sec:pg-normal}.2節）。最後に、$F$ 自体も同じブロック構造に沿って分離することを示し、本稿の主定理であるPoisson正規形（定理\ref{thm:pg-normal}）を完成させる。
+
 \subsection{Jacobi 条件の線形化}
-$P\in\bigwedge^3V$、$\alpha,\beta\in V^*$ に対し、
-$\gamma(P(\alpha,\beta))=P(\alpha,\beta,\gamma)$ により
-$P(\alpha,\beta)\in V$ を定める。次の線形空間を導入する：
+$P\in\bigwedge^3V$ と1-形式 $\alpha,\beta\in V^*$ に対し、任意の $\gamma\in V^*$ について $\gamma(P(\alpha,\beta))=P(\alpha,\beta,\gamma)$ となるベクトル $P(\alpha,\beta)\in V$ を定める。$P$ に付随する対称2次形式の線形空間 $K(P)\subset\operatorname{Sym}^2V^*$ を、次の4変数交代恒等式によって定義する：
 \begin{align}
 K(P)=\{H\in\operatorname{Sym}^2V^*\mid{}
-&H(P(\alpha,\beta),P(\gamma,\eta))
- +H(P(\beta,\gamma),P(\alpha,\eta))\notag\\
+&H(P(\alpha,\beta),P(\gamma,\eta))\\
++H(P(\beta,\gamma),P(\alpha,\eta))\notag\\
 &+H(P(\gamma,\alpha),P(\beta,\eta))=0
 \quad(\alpha,\beta,\gamma,\eta\in V^*)\}.\label{eq:pg-K}
 \end{align}
+
 \begin{lemma}\label{lem:pg-linearize}
-$q=\iota_{dF}P$ が Poisson であることと、全 $p\in V$ について
-$\operatorname{Hess}_F(p)\in K(P)$ であることは同値である。
-また $F$ の滑らかさの仮定の下で、Hessian の線形系は $\PP(V)$ 上基点をもたない。
+$q=\iota_{dF}P$ がPoisson構造であることと、全ての点 $p\in V$ について $F$ のHessian $\operatorname{Hess}_F(p)$ が $K(P)$ に属することは同値である。さらに $X=V(F)$ の滑らかさの仮定の下で、Hessianが張る2次形式の線形系 $\{\operatorname{Hess}_F(p):p\in V\}$ は $\PP(V)$ 上に基点を持たない。
 \end{lemma}
 \begin{proof}
-$P^{ija}=P(dz_i,dz_j,dz_a)$ とすれば $q^{ij}=\sum_aP^{ija}F_a$ である。
-式\eqref{eq:pg-jacobiator-coefficients}に代入すると
+$P^{ija}=P(dz_i,dz_j,dz_a)$ とおくと $q^{ij}=\sum_a P^{ija}F_a$ である。これをJacobiatorの成分表示\eqref{eq:pg-jacobiator-coefficients}に代入して整理すると、
 \begin{equation}
-J^{ijk}=\sum_aF_aL_a^{ijk},\qquad
-L_a^{ijk}=\sum_{r,b}(P^{ira}P^{jkb}+P^{jra}P^{kib}+P^{kra}P^{ijb})F_{br}.
+J^{ijk}=\sum_a F_a L_a^{ijk},\qquad
+L_a^{ijk}=\sum_{r,b}(P^{ira}P^{jkb}+P^{jra}P^{kib}+P^{kra}P^{ijb})F_{br}
 \end{equation}
-$L_a^{ijk}$ は1次式なので、補題\ref{lem:pg-gradient}より
-Jacobi 条件は全 $L_a^{ijk}=0$ と同値である。
-\eqref{eq:pg-K}の左辺を $\mathcal B_H(\alpha,\beta,\gamma,\eta)$ と書くと、
+となる。各 $L_a^{ijk}$ は座標の1次斉次式であるため、補題\ref{lem:pg-gradient}（1次syzygyの消滅）により、$J^{ijk}=0$ は全ての $a,i,j,k$ について $L_a^{ijk}=0$ であることと同値になる。式\eqref{eq:pg-K}の左辺を $\mathcal B_H(\alpha,\beta,\gamma,\eta)$ と書けば、$P$ の交代性から
 \begin{equation}
 L_a^{ijk}(p)=-\mathcal B_{\operatorname{Hess}_F(p)}(dz_i,dz_j,dz_k,dz_a)
 \end{equation}
-である。
-多重線形性が第1の主張を与える。
-3次微分の対称性により
-$\operatorname{Hess}_F(p)(w,w)=2dF_w(p)$。
-非零の $w$ が全 Hessian の零点なら $dF_w=0$、Euler 等式より $F(w)=0$ となり、
-$[w]$ が $X$ の特異点となるので矛盾する。
+が成り立つため、多重線形性より第1の主張を得る。
+
+第2の主張（基点自由性）を確認する。3次式の3階偏微分の対称性により、任意の $p,w\in V$ に対して $\operatorname{Hess}_F(p)(w,w)=2\,dF_w(p)$（ここで $dF_w$ は点 $w$ における $dF$ の値）が成り立つ。もし非零ベクトル $w\in V$ が全ての $p\in V$ に対して $\operatorname{Hess}_F(p)(w,w)=0$ を満たすならば、$dF_w=0$ かつEuler等式より $F(w)=0$ となり、$[w]$ が $X$ の特異点となって滑らかさに矛盾する。
 \end{proof}
 
 \subsection{基点をもたない2次形式と3重ベクトル}
-基点自由な2次形式の線形系から非退化形式を選び、それを用いて3重ベクトルからLie括弧を構成する。
-まず、この選択に必要な線形代数を示す。
+補題\ref{lem:pg-linearize}により、$q=\iota_{dF}P$ がPoissonならば線形空間 $K(P)$ は $\PP(V)$ 上に基点を持たない。本小節では、基点自由な2次形式の系から非退化形式 $B$ を1つ選び、$P$ と $B$ から $P$ の支持部分空間上にLie代数構造を誘導することで、$P$ が3次元ブロックの直和に分解することを証明する。
+
+まず、基点自由性から非退化形式の存在を導く初等的な線形代数の補題を示す。
 
 \begin{lemma}\label{lem:pg-nondegenerate-pencil}
-$W$を複素有限次元ベクトル空間とし、
-$\mathcal L\subset\operatorname{Sym}^2W^*$が$\PP(W)$上基点をもたないとする。
-このとき$\mathcal L$は非退化形式を含む。
+$W$ を有限次元複素ベクトル空間とし、線形部分空間 $\mathcal L\subset\operatorname{Sym}^2W^*$ が $\PP(W)$ 上に基点を持たない（すなわち任意の非零 $v\in W$ に対し $H(v,v)\ne0$ となる $H\in\mathcal L$ が存在する）とする。このとき $\mathcal L$ は非退化な2次形式を含む。
 \end{lemma}
 \begin{proof}
-$\mathcal L$の中で階数最大の$B$を取り、その階数を$r$とする。
-$B$が退化していると仮定し、$0\ne v\in\operatorname{rad}B$と
-$\operatorname{rad}B$の補空間$U$を選ぶ。
-$A=B|_U$は非退化で$\dim U=r$である。
-任意の$H\in\mathcal L$に対し、$U\oplus\CC v$上の行列は
+$\mathcal L$ の中で階数が最大となる元 $B$ を選び、その階数を $r$ とする。背理法により $B$ が退化している（$r<\dim W$）と仮定し、根基から非零ベクトル $0\ne v\in\operatorname{rad}B$ を取り、$\operatorname{rad}B$ の補空間 $U\subset W$ を選ぶ。このとき制限 $A=B|_U$ は非退化で $\dim U=r$ である。任意の $H\in\mathcal L$ とパラメータ $t\in\CC$ に対し、部分空間 $U\oplus\CC v$ 上の $B+tH$ の表現行列は
 \begin{equation}\label{eq:pg-bordered-pencil}
- (B+tH)|_{U\oplus\CC v}=
- \begin{pmatrix}A+tC&tb\\t b^{\mathsf T}&tH(v,v)\end{pmatrix}.
+(B+tH)|_{U\oplus\CC v}=
+\begin{pmatrix}A+tC&tb\\t b^{\mathsf T}&tH(v,v)\end{pmatrix}
 \end{equation}
-$B+tH$の階数は全ての$t\in\CC$で$r$以下なので、この行列式は恒等的に零である。
-その$t$の係数は$\det(A)H(v,v)$であり、従って$H(v,v)=0$となる。
-これは全ての$H\in\mathcal L$について成立し、基点自由性に反する。
+の形を取る。$B$ の階数最大性により、全ての $t\in\CC$ で $\operatorname{rank}(B+tH)\le r$ であるため、この $(r+1)\times(r+1)$ 行列の行列式は $t$ の多項式として恒等的に零である。その1次の係数は $\det(A)\,H(v,v)$ であり、$\det(A)\ne0$ から $H(v,v)=0$ を得る。これは全ての $H\in\mathcal L$ で成り立つため、$[v]$ が $\mathcal L$ の基点となり仮定に反する。
 \end{proof}
+
+次に、式\eqref{eq:pg-K}から誘導されるLie代数上の4変数恒等式が、基点自由性の下でLie代数を $\mathfrak{sl}_2$ の直和へと完全に制限することを示す。これが正規形定理の核心である。
 
 \begin{lemma}[基点自由性によるLie代数の制約]
 \label{lem:pg-basepoint-free-lie}
-$\mathfrak a$を
-$[\mathfrak a,\mathfrak a]=\mathfrak a$および$Z(\mathfrak a)=0$
-を満たす複素有限次元Lie代数とする。
-$\mathcal L\subset\operatorname{Sym}^2\mathfrak a^*$は、
-全$H\in\mathcal L$と$a,b,c,d\in\mathfrak a$について
+$\mathfrak a$ を完全（$[\mathfrak a,\mathfrak a]=\mathfrak a$）かつ中心が自明（$Z(\mathfrak a)=0$）な有限次元複素Lie代数とする。線形部分空間 $\mathcal L\subset\operatorname{Sym}^2\mathfrak a^*$ は、全ての $H\in\mathcal L$ と $a,b,c,d\in\mathfrak a$ に対して
 \begin{equation}
- H([a,b],[c,d])+H([b,c],[a,d])+H([c,a],[b,d])=0
- \label{eq:pg-lie-H}
+H([a,b],[c,d])+H([b,c],[a,d])+H([c,a],[b,d])=0
+\label{eq:pg-lie-H}
 \end{equation}
-を満たす線形空間とする。
-$\mathcal L$が$\PP(\mathfrak a)$上基点をもたなければ、
-$\mathfrak a\simeq\mathfrak{sl}_2^{\oplus k}$である。
-$\mathfrak a=0$では$k=0$とする。
+を満たすとする。もし $\mathcal L$ が $\PP(\mathfrak a)$ 上に基点を持たなければ、ある整数 $k\ge0$ に対して $\mathfrak a\simeq\mathfrak{sl}_2^{\oplus k}$ である（$\mathfrak a=0$ のとき $k=0$ とする）。
 \end{lemma}
 \begin{proof}
-可解根基が非零の場合と、階数2以上の単純因子がある場合に、
-式\eqref{eq:pg-lie-H}から全$H\in\mathcal L$の共通零点を構成する。
+証明は2段階で行う。可解根基が非零の場合と、半単純で階数2以上の単純因子を持つ場合のそれぞれについて、式\eqref{eq:pg-lie-H}を巧妙に適用して $\mathcal L$ の共通零点（基点）を明示的に構成し、矛盾を導く。
 
-$\mathfrak r=\operatorname{rad}(\mathfrak a)\ne0$と仮定する。
-$\mathfrak r$の導来列の最後の非零項の中に、極小非零$\mathfrak a$-イデアル$I$を取る。
-これは可換であり、随伴作用$\rho:\mathfrak a\to\operatorname{End}(I)$に関して既約である。
-複素数体上の有限次元既約表現では可解根基がスカラーで作用する
-\cite[Proposition~16.9]{PEtingofLie}。
-また$\mathfrak a=[\mathfrak a,\mathfrak a]$より
-$\operatorname{tr}\rho(x)=0$が全$x\in\mathfrak a$に対して成り立つ。
-従って$\mathfrak r$のスカラー作用は零であり、$I$は
-半単純Lie代数$\mathfrak a/\mathfrak r$の加群となる。
-その作用は非自明である。自明なら$I\subset Z(\mathfrak a)$となるからである。
+\paragraph{ステップ1：可解根基の排除（$\mathfrak a$ の半単純性）}
+背理法により、可解根基 $\mathfrak r=\operatorname{rad}(\mathfrak a)$ が非零であると仮定する。$\mathfrak r$ の導来列の最後の非零項の中に、極小な非零 $\mathfrak a$-イデアル $I$ を選ぶ。$I$ は可換イデアルであり、随伴表現 $\rho:\mathfrak a\to\operatorname{End}(I)$ に関して既約である。複素数体上の有限次元既約表現では可解根基はスカラーで作用する \cite[Proposition~16.9]{PEtingofLie}。一方、完全性 $\mathfrak a=[\mathfrak a,\mathfrak a]$ により全ての $x\in\mathfrak a$ で $\operatorname{tr}\rho(x)=0$ であるから、$\mathfrak r$ のスカラー作用は零でなければならない。よって $\rho$ は半単純Lie代数 $\mathfrak a/\mathfrak r$ の表現へ降下する。しかもこの作用は非自明である（自明ならば $I\subset Z(\mathfrak a)=0$ となり矛盾する）。
 
-半単純Lie代数は根に対応する$\mathfrak{sl}_2$部分代数で生成されるので、
-$I$に非自明に作用する一つを選べる
-\cite[Lemma~19.16, Theorem~19.19(i)]{PEtingofLie}。
-有限次元$\mathfrak{sl}_2$加群の分解
-\cite[Theorem~11.16(iii),(iv)]{PEtingofLie}により、
-この部分代数の三元$\bar h,\bar e,\bar f$と$0\ne v\in I$を
+半単純Lie代数 $\mathfrak a/\mathfrak r$ は根に対応する $\mathfrak{sl}_2$ 部分代数で生成されるため、$I$ に非自明に作用する $\mathfrak{sl}_2$ 部分代数を1つ選べる \cite[Lemma~19.16, Theorem~19.19(i)]{PEtingofLie}。有限次元 $\mathfrak{sl}_2$-加群の既約分解 \cite[Theorem~11.16(iii),(iv)]{PEtingofLie} により、この部分代数の標準三元 $\bar h,\bar e,\bar f$ と最高ウェイトベクトル $0\ne v\in I$ を
 \begin{equation}\label{eq:pg-primitive-vector}
- \bar h v=\ell v,\qquad \bar e v=0,\qquad
- \ell\in\mathbb Z_{>0}
+\bar h v=\ell v,\qquad \bar e v=0,\qquad
+\ell\in\mathbb Z_{>0}
 \end{equation}
-となるように選べる。
-$h,e,f\in\mathfrak a$をこれらの任意の持上げとし、
-$w=\ell^{-1}[f,v]\in I$とおく。
-商の$\mathfrak{sl}_2$関係を$I$上で使うと
+を満たすように取れる。$\bar h,\bar e,\bar f$ の $\mathfrak a$ への任意の持上げを $h,e,f\in\mathfrak a$ とし、$w=\ell^{-1}[f,v]\in I$ とおく。$\mathfrak r$ が $I$ に自明に作用するため商の $\mathfrak{sl}_2$ 関係式を $I$ 上で用いることができ、
 \begin{equation}\label{eq:pg-radical-witness}
- [h,v]=\ell v,\qquad [e,w]=v,\qquad [e,v]=0,
- \qquad [v,w]=0
+[h,v]=\ell v,\qquad [e,w]=v,\qquad [e,v]=0,
+\qquad [v,w]=0
 \end{equation}
-となる。第2式は$e(fv)=[e,f]v+f(ev)=\ell v$から、
-最後の式は$I$の可換性から従う。
-式\eqref{eq:pg-lie-H}に$(a,b,c,d)=(h,v,e,w)$を代入すると、
-第2項は$[v,e]=0$、第3項は$[v,w]=0$により消え、
-$\ell H(v,v)=0$を得る。
-従って$[v]$は$\mathcal L$の基点となり、矛盾する。
-よって$\mathfrak a$は半単純である。
+が成り立つ（第2式は $e(fv)=[e,f]v+f(ev)=\ell v$ から、最後の式は $I$ の可換性から従う）。ここで式\eqref{eq:pg-lie-H}に $(a,b,c,d)=(h,v,e,w)$ を代入すると、第2項は $[v,e]=0$ により、第3項は $[v,w]=0$ により消滅し、残る第1項から
+\[
+  \ell\,H(v,v)=H([h,v],[e,w])=0
+\]
+を得る。$\ell>0$ なので全ての $H\in\mathcal L$ で $H(v,v)=0$ となり、$[v]$ が $\mathcal L$ の基点となって矛盾する。従って $\mathfrak r=0$、すなわち $\mathfrak a$ は半単純である。
 
-次に、単純因子$\mathfrak s$の階数が2以上と仮定する。
-正根系を固定し、その最高根を$\theta$とする。
-$\theta$は単純根ではない。もし単純なら、既約な根系のDynkin図の連結性から
-$\theta$と隣接する単純根$\gamma$があり、根列の性質により
-$\theta+\gamma$も根となって最高根性に反する。
-従って$\theta=\alpha+\beta$となる正根$\alpha,\beta$が存在する
-\cite[Definition~21.13, \S32.2]{PEtingofLie}。
-根空間の交換子が非零であること
-\cite[Theorem~19.19(iv)]{PEtingofLie}により、
-$a\in\mathfrak s_\alpha$、$b\in\mathfrak s_\beta$を
-$v=[a,b]\ne0$となるように取る。
-$\theta+\alpha$と$\theta+\beta$は根ではないので
-$[a,v]=[b,v]=0$である。
-Cartan部分代数から$c=\theta(h)\ne0$となる$h$を選ぶと、
-$[h,v]=cv$である。
-式\eqref{eq:pg-lie-H}に$(a,b,h,v)$を代入して
-$cH(v,v)=0$を得る。これは再び基点自由性に反する。
-従って全単純因子の階数は1である。
-階数1の根系は$\{\alpha,-\alpha\}$であり、各根空間は1次元なので、
-各因子は$\CC h_\alpha\oplus\mathfrak s_\alpha\oplus\mathfrak s_{-\alpha}
-\simeq\mathfrak{sl}_2$である
-\cite[Lemma~19.16, Corollary~19.18]{PEtingofLie}。
+\paragraph{ステップ2：階数2以上の単純因子の排除}
+次に、半単純Lie代数 $\mathfrak a$ が階数2以上の単純因子 $\mathfrak s$ を持つと仮定する。$\mathfrak s$ の正根系を固定し、その最高根を $\theta$ とおく。$\theta$ は単純根ではあり得ない。実際、もし $\theta$ が単純根なら、階数2以上の既約根系のDynkin図の連結性より $\theta$ に隣接する単純根 $\gamma$ が存在し、根列の性質から $\theta+\gamma$ も根となって最高根性に反する。従って $\theta=\alpha+\beta$ を満たす正根 $\alpha,\beta$ が存在する \cite[Definition~21.13, \S32.2]{PEtingofLie}。
+
+根空間の交換子が非零であること \cite[Theorem~19.19(iv)]{PEtingofLie} より、$a\in\mathfrak s_\alpha$、$b\in\mathfrak s_\beta$ を $v=[a,b]\ne0$ となるように取れる。$\theta$ の最高根性から $\theta+\alpha$ と $\theta+\beta$ は根ではないため、$[a,v]=[b,v]=0$ である。またCartan部分代数から $c=\theta(h)\ne0$ となる元 $h$ を選べば $[h,v]=cv$ である。式\eqref{eq:pg-lie-H}に $(a,b,h,v)$ を代入すると、$[b,h]$ と $[a,v]=0$ および $[h,a]$ と $[b,v]=0$ の組が消え、
+\[
+  c\,H(v,v)=H([a,b],[h,v])=0
+\]
+を得る。$c\ne0$ より $[v]$ が再び $\mathcal L$ の基点となって矛盾する。
+
+以上より、$\mathfrak a$ の全ての単純因子の階数は $1$ である。階数1の根系は $\{\alpha,-\alpha\}$ であり各根空間は1次元なので、各単純因子は $\CC h_\alpha\oplus\mathfrak s_\alpha\oplus\mathfrak s_{-\alpha}\simeq\mathfrak{sl}_2$ に同型である \cite[Lemma~19.16, Corollary~19.18]{PEtingofLie}。よって $\mathfrak a\simeq\mathfrak{sl}_2^{\oplus k}$ を得る。
 \end{proof}
 
-半単純Lie代数上での式\eqref{eq:pg-lie-H}の解空間は、
-Derdzinski--Gal\cite[(1.4), Theorem~B]{PDerdzinskiGal}でも記述されている。
+なお、半単純Lie代数上における恒等式\eqref{eq:pg-lie-H}の解空間は、Derdzinski--Gal \cite[(1.4), Theorem~B]{PDerdzinskiGal} でも別の観点から記述されている。
 
 \begin{lemma}\label{lem:pg-quadratic-lie}
-$K(P)$が$\PP(V)$上基点をもたなければ、直和をなす3次元部分空間
-$W_1,\ldots,W_k\subset V$と$0\ne P_s\in\bigwedge^3W_s$が存在して
-$P=\sum_sP_s$と書ける。$P=0$では$k=0$とする。
+定数3重ベクトル $P\in\bigwedge^3V$ に対し、$K(P)$ が $\PP(V)$ 上に基点を持たなければ、互いに直和をなす3次元部分空間 $W_1,\ldots,W_k\subset V$ と非零元 $P_s\in\bigwedge^3W_s$ が存在して
+\[
+  P=\sum_{s=1}^k P_s
+\]
+と分解される（$P=0$ のときは $k=0$ とする）。
 \end{lemma}
 \begin{proof}
-$P\ne0$とし、その支持を
-$W=\operatorname{span}\{P(\alpha,\beta):\alpha,\beta\in V^*\}$とおく。
-$W$を消す共変ベクトル$\eta$に対し
-$P(\alpha,\beta,\eta)=\eta(P(\alpha,\beta))=0$なので、
-$P\in\bigwedge^3W$である。
-従って$P$の評価は共変ベクトルの$W$への制限のみに依存し、
-$\mathcal L=\{H|_{W\times W}:H\in K(P)\}$は
-$P\in\bigwedge^3W$に対する式\eqref{eq:pg-K}を満たす。
-この線形系は$\PP(W)$上基点をもたないので、
-補題\ref{lem:pg-nondegenerate-pencil}により非退化な$B\in\mathcal L$を取れる。
+$P\ne0$ とし、$P$ の最小支持部分空間を
+\[
+  W=\operatorname{span}\{P(\alpha,\beta):\alpha,\beta\in V^*\}\subset V
+\]
+とおく。$W$ 上で消える任意の共変ベクトル $\eta\in W^\perp$ に対し $P(\alpha,\beta,\eta)=\eta(P(\alpha,\beta))=0$ なので $P\in\bigwedge^3W$ である。従って $P$ の評価は共変ベクトルの $W$ への制限のみに依存し、制限系 $\mathcal L=\{H|_{W\times W}:H\in K(P)\}\subset\operatorname{Sym}^2W^*$ は $P\in\bigwedge^3W$ に対する式\eqref{eq:pg-K}を満たす。$\mathcal L$ は $\PP(W)$ 上に基点を持たないため、補題\ref{lem:pg-nondegenerate-pencil}により非退化な2次形式 $B\in\mathcal L$ が存在する。
 
-同型$B^\flat:W\to W^*$を$B^\flat(x)=B(x,-)$で定め、
-$W$上の括弧を
+$B$ が誘導する同型 $B^\flat:W\xrightarrow{\sim}W^*$（$B^\flat(x)=B(x,-)$）を用いて、$W$ 上に双線形交代括弧を
 \begin{equation}\label{eq:pg-support-bracket}
- [x,y]=P(B^\flat x,B^\flat y)
+[x,y]=P(B^\flat x,B^\flat y)
 \end{equation}
-とする。
-$B([x,y],z)=P(B^\flat x,B^\flat y,B^\flat z)$は交代的なので、
-$B([x,y],z)=B(x,[y,z])$である。
-従って
+で定める。$B([x,y],z)=P(B^\flat x,B^\flat y,B^\flat z)$ は $x,y,z$ に関して完全交代なので、不変性 $B([x,y],z)=B(x,[y,z])$ が成り立つ。これを用いると任意の $x,y,z,t\in W$ に対し
 \begin{equation}\label{eq:pg-support-jacobi}
- \begin{aligned}
- B([[x,y],z]+[[y,z],x]+[[z,x],y],t)
- &=B([x,y],[z,t])+B([y,z],[x,t])\\
- &\quad+B([z,x],[y,t])=0.
- \end{aligned}
+\begin{aligned}
+B([[x,y],z]+[[y,z],x]+[[z,x],y],t)
+&=B([x,y],[z,t])+B([y,z],[x,t])\\
+&\quad+B([z,x],[y,t])=0
+\end{aligned}
 \end{equation}
-最後の等式は$B\in\mathcal L$と式\eqref{eq:pg-K}による。
-非退化性からJacobi恒等式が従い、$W$はLie代数となる。
-$B^\flat$と制限$V^*\to W^*$が全射であるため、
-括弧の値は$W$を張り、$[W,W]=W$である。
-また中心元$z$について$B(z,[x,y])=B([z,x],y)=0$なので、
-非退化性から$Z(W)=0$である。
+となる（最後の等式は $B\in\mathcal L$ と式\eqref{eq:pg-K}による）。$B$ の非退化性からJacobi恒等式が従い、$W$ はLie代数となる。さらに、$B^\flat$ と制限 $V^*\to W^*$ が全射であるため括弧の値は $W$ 全体を張り $[W,W]=W$ であり、また中心元 $z\in Z(W)$ については $B(z,[x,y])=B([z,x],y)=0$ かつ $[W,W]=W$ より $B$ の非退化性から $Z(W)=0$ である。
 
-任意の$H\in\mathcal L$に対し、式\eqref{eq:pg-K}に
-$B^\flat a,B^\flat b,B^\flat c,B^\flat d$を代入すると
-式\eqref{eq:pg-lie-H}を得る。
-補題\ref{lem:pg-basepoint-free-lie}を適用して
-$W=W_1\oplus\cdots\oplus W_k$、$W_s\simeq\mathfrak{sl}_2$と分解する。
-異なる因子は$B$に関して直交する。実際、$x=[a,b]\in W_s$と
-$y\in W_t$、$s\ne t$に対して
-$B(x,y)=B(a,[b,y])=0$であり、$[W_s,W_s]=W_s$である。
-従って各$B_s=B|_{W_s}$は非退化で、Cartan3形式
-$C(x,y,z)=B([x,y],z)$は各因子上の3形式$C_s$の和となる。
-$B^\flat$の逆で3つの添字を上げれば
-$P=\sum_s P_s$、$P_s\in\bigwedge^3W_s$を得る。
-各因子の括弧は非零で$B_s$は非退化なので$C_s\ne0$、従って$P_s\ne0$である。
+任意の $H\in\mathcal L$ に対して式\eqref{eq:pg-K}に $B^\flat a,B^\flat b,B^\flat c,B^\flat d$ を代入すれば式\eqref{eq:pg-lie-H}を得るため、補題\ref{lem:pg-basepoint-free-lie}を適用して直和分解 $W=W_1\oplus\cdots\oplus W_k$（各 $W_s\simeq\mathfrak{sl}_2$、従って $\dim W_s=3$）を得る。異なる単純因子 $W_s,W_t$（$s\ne t$）は $B$ に関して直交する。実際、任意の $x=[a,b]\in W_s$ と $y\in W_t$ について $B(x,y)=B(a,[b,y])=0$ であり、$[W_s,W_s]=W_s$ だからである。従って各制限 $B_s=B|_{W_s}$ は非退化となり、Cartan 3-形式 $C(x,y,z)=B([x,y],z)$ は各因子上の3-形式 $C_s$ の直和に分解する。同型 $(B^\flat)^{-1}$ で3つの添字を上げれば $P=\sum_{s=1}^k P_s$（$P_s\in\bigwedge^3W_s$）を得る。各因子で括弧は非零かつ $B_s$ は非退化なので $C_s\ne0$、ゆえに $P_s\ne0$ である。
 \end{proof}
 
 \subsection{3次式の分解と一般階数}
+正規形定理の証明において、アフィン錐から射影空間・超曲面へ降りた際のPoisson階数の変化を正確に捉えるため、次の初等的な線形代数の補題を用意する。
+
 \begin{lemma}[直線による商と双ベクトルの階数]\label{lem:pg-projective-rank}
-$T$ を有限次元ベクトル空間、$b\in\bigwedge^2T$ を階数 $2r$ の双ベクトル、
-$L\subset T$ を1次元部分空間とする。
-$I_b=\operatorname{im}(b^\sharp:T^*\to T)$ とし、$\overline b$ を $T/L$ への像とすると
+$T$ を有限次元ベクトル空間、$b\in\bigwedge^2T$ を階数 $2r$ の双ベクトル、$L\subset T$ を1次元部分空間とする。$I_b=\operatorname{im}(b^\sharp:T^*\to T)$ とおき、商空間 $T/L$ における $b$ の像を $\overline b$ とすると、
 \begin{equation}
 \operatorname{rank}\overline b=
 \begin{cases}
 2r-2,&L\subset I_b,\\
-2r,&L\not\subset I_b.
+2r,&L\not\subset I_b
 \end{cases}
 \end{equation}
+が成り立つ。
 \end{lemma}
 \begin{proof}
-$L\not\subset I_b$ なら $I_b\to T/L$ は単射なので、双ベクトルの階数は変わらない。
-$L\subset I_b$ なら、$I_b$ の Darboux 基底を $L=\CC e_1$ および
-$b=e_1\wedge f_1+\cdots+e_r\wedge f_r$ となるように選べる。
-商では最初の項だけが消え、残る $2r-2$ 本の基底ベクトルは独立である。
+$L\not\subset I_b$ ならば射影 $I_b\to T/L$ は単射であるため、双ベクトルの階数は不変である。逆に $L\subset I_b$ ならば、$I_b$ のDarboux基底 $e_1,f_1,\ldots,e_r,f_r$ を $L=\CC e_1$ かつ $b=e_1\wedge f_1+\cdots+e_r\wedge f_r$ となるように取れる。商空間 $T/L$ へ移ると最初の項 $e_1\wedge f_1$ のみが消え、残る $2r-2$ 本の基底ベクトルは1次独立であるため階数は $2r-2$ となる。
 \end{proof}
 
+以上の準備がすべて揃ったので、本稿の主定理であるPoisson正規形を証明する。
+
 \begin{theorem}[Poisson 正規形]\label{thm:pg-normal}\label{pthm:normal-form}
-任意の非零 Poisson 構造に対して、$N=3k+m$ となる $k\geq1$ と線形座標
-$x_s=(x_{s1},x_{s2},x_{s3})$、$u=(u_1,\ldots,u_m)$ が存在し、
+滑らかな3次超曲面 $X=V(F)\subset\PP(V)$（$\dim V=N=n+2\ge5$）上の任意の非零Poisson構造 $\pi_X$ に対して、$N=3k+m$ を満たす整数 $k\ge1$、$m\ge0$ と、$V^*$ の適切な線形座標 $x_s=(x_{s1},x_{s2},x_{s3})$（$1\le s\le k$）および $u=(u_1,\ldots,u_m)$ が存在して、
 \begin{equation}
 P=\sum_{s=1}^k\partial_{x_{s1}}\wedge\partial_{x_{s2}}\wedge\partial_{x_{s3}},
 \qquad F=\sum_{s=1}^k f_s(x_s,u)\label{eq:pg-normal}
 \end{equation}
-となる。括弧は
+となる。このときアフィン錐上のPoisson括弧 $q=\iota_{dF}P$ は、各ブロック内の3変数Jacobian括弧
 \begin{equation}
 \{x_{s1},x_{s2}\}=(f_s)_{x_{s3}},\quad
 \{x_{s2},x_{s3}\}=(f_s)_{x_{s1}},\quad
 \{x_{s3},x_{s1}\}=(f_s)_{x_{s2}}\label{eq:pg-bracket}
 \end{equation}
-と、異なるブロック間および $\{u_\alpha,-\}$ が零であることで定まる。
-逆に\eqref{eq:pg-normal}を満たす滑らかな $F$ はこの括弧によって Poisson 構造を定める。
-$\pi$ と $\pi_X$ の一般階数はともに $2k$ である。
+および異なるブロック間と中心変数の括弧 $\{x_{si},x_{tj}\}=0$（$s\ne t$）、$\{u_\alpha,-\}=0$ によって定まる。
+
+逆に、式\eqref{eq:pg-normal}の形を持つ任意の滑らかな3次式 $F$ は、この括弧によって $\PP(V)$ および $X$ 上に非零Poisson構造 $\pi,\pi_X$ を定める。さらに、$\pi$ と $\pi_X$ の一般階数はいずれも $2k$ である。
 \end{theorem}
 \begin{proof}
-命題\ref{prop:pg-represent}、\ref{prop:pg-jacobi-extension}により、
-非零Poisson構造は$P\ne0$およびPoisson双ベクトル$q=\iota_{dF}P$を定める。
-補題\ref{lem:pg-linearize}、\ref{lem:pg-quadratic-lie}を適用し、
-$P=\sum_sP_s$、$0\ne P_s\in\bigwedge^3W_s$と分解する。
-各$W_s$の基底の一つを定数倍すれば$P_s$をその基底の外積にできる。
-$\bigoplus_sW_s$の補空間$U$の基底も選び、双対座標を$x_s,u$と書く。
-これで式\eqref{eq:pg-normal}の$P$の表示を得る。
+\paragraph{ステップ1：正規形\eqref{eq:pg-normal}の導出}
+命題\ref{prop:pg-represent}および命題\ref{prop:pg-jacobi-extension}により、非零Poisson構造 $\pi_X$ は非零定数3重ベクトル $P\in\bigwedge^3V$ と錐上のPoisson双ベクトル場 $q=\iota_{dF}P$ を一意に定める。補題\ref{lem:pg-linearize}および補題\ref{lem:pg-quadratic-lie}を適用して、直和分解 $P=\sum_{s=1}^k P_s$（$0\ne P_s\in\bigwedge^3W_s$、$\dim W_s=3$）を得る。各 $W_s$ の基底を1本スカラー倍して $P_s$ をその3本の外積に規格化し、さらに補空間 $U$（$V=(\bigoplus_{s=1}^k W_s)\oplus U$、$\dim U=m$）の基底を選んで双対座標を $x_s,u$ と書けば、式\eqref{eq:pg-normal}の $P$ の表示を得る。
 
-この分解に対して$F$も分解することを示す。
-補題\ref{lem:pg-quadratic-lie}で構成したLie括弧について、
-$a,b\in W_s$、$c,d\in W_t$、$s\ne t$を
-式\eqref{eq:pg-lie-H}に代入すると
-$H([a,b],[c,d])=0$となる。
-各因子は完全なので、任意の$H\in K(P)$に対して
-$H(W_s,W_t)=0$である。
-特に全てのHessianについてこの等式が成り立ち、
-$\partial_{x_{si}}\partial_{x_{tj}}F=0$を得る。
-標数0であるため、異なる2つの$x$-ブロックの変数を含む単項式の係数は零である。
-各単項式を、それが含む$x$-ブロックに割り当て、
-$u$のみからなる単項式を一つのブロックに加えれば、
-$F=\sum_s f_s(x_s,u)$となる。
+次に、3次式 $F$ もこのブロック構造に沿って分離することを示す。補題\ref{lem:pg-quadratic-lie}で構成したLie代数構造について、異なる単純因子から $a,b\in W_s$、$c,d\in W_t$（$s\ne t$）を選んで式\eqref{eq:pg-lie-H}に代入すると、$[b,c]=[c,a]=0$ より $H([a,b],[c,d])=0$ を得る。各因子は完全（$[W_s,W_s]=W_s$）なので、任意の $H\in K(P)$ に対して $H(W_s,W_t)=0$（$s\ne t$）が成り立つ。特に全ての点における $F$ のHessianについてこの直交性が成り立つため、異なるブロック間の混合2階偏微分 $\partial_{x_{si}}\partial_{x_{tj}}F$ は恒等的に零である。標数0なので、異なる2つの $x$-ブロックの変数を同時に含む単項式は $F$ に現れない。従って各単項式をそれが含む $x$-ブロックへ振り分け、中心変数 $u$ のみからなる単項式をいずれかのブロックへまとめれば、$F=\sum_{s=1}^k f_s(x_s,u)$ を得る。
 
-逆に式\eqref{eq:pg-normal}を仮定すると、縮約$q=\iota_{dF}P$は
-式\eqref{eq:pg-bracket}とその他の生成元間の括弧を与える。
-一つのブロックで$f=f_s$、$f_i=\partial_{x_{si}}f$と略記すれば、
-座標三元のJacobiatorは
+\paragraph{ステップ2：逆向きの確認}
+逆に式\eqref{eq:pg-normal}を仮定すると、縮約 $q=\iota_{dF}P$ は式\eqref{eq:pg-bracket}の括弧を与え、異なるブロック間および $u_\alpha$ との括弧はすべて零となる。単一ブロック内で $f=f_s$、$f_i=\partial_{x_{si}}f$ と略記すれば、3座標 $(x_{s1},x_{s2},x_{s3})$ のJacobiatorは
 \begin{equation}\label{eq:pg-block-jacobi-calculation}
- \{x_{s1},f_1\}+\{x_{s2},f_2\}+\{x_{s3},f_3\}
- =f_3(f_{12}-f_{21})+f_2(f_{31}-f_{13})
-   +f_1(f_{23}-f_{32})=0.
+\{x_{s1},f_1\}+\{x_{s2},f_2\}+\{x_{s3},f_3\}
+=f_3(f_{12}-f_{21})+f_2(f_{31}-f_{13})
+ +f_1(f_{23}-f_{32})=0
 \end{equation}
-異なるブロックに属する座標を含むJacobiatorも零である。
-各ブロックの係数は他の$x$-ブロックに依存せず、$u$の括弧は零だからである。
-Jacobiatorは各変数に関して導分なので、座標生成元上での消滅が全多項式上での消滅を与える。
-さらに$\iota_{dF}q=0$であり、2次斉次性により射影化できるから、
-$\PP(V)$および$X$上のPoisson構造を得る。
-$P\ne0$と命題\ref{prop:pg-represent}により$X$上の構造も非零である。
+である。異なるブロックや中心変数を含む組のJacobiatorも、各ブロックの係数が他ブロックの変数に依存せず $u$ がCasimirであることから直ちに零となる。Jacobiatorは各引数について導分なので、座標生成元上での消滅から多項式環全体でのJacobi恒等式 $[q,q]=0$ が従う。さらに $\iota_{dF}q=0$ かつ2次斉次なので $\PP(V)$ および $X$ へ降下し、$P\ne0$ と命題\ref{prop:pg-represent}の単射性から $X$ 上で非零なPoisson構造を得る。
 
-最後に一般階数を計算する。
-各$\nabla_{x_s}f_s$は恒等的に零ではない。
-零なら$F$は$W_s$の変数に依存せず、$\PP(W_s)$が$X$の特異点集合に含まれるからである。
-従ってアフィン空間の一般点では各3変数ブロックの階数が2で、
-$q$の階数は$2k$である。
-$F\ne0$の点では$dF(E)=3F\ne0$かつ$\operatorname{im}q^\sharp\subset\ker dF$なので、
-$E\notin\operatorname{im}q^\sharp$である。
-補題\ref{lem:pg-projective-rank}により、$\PP(V)$上の一般階数は$2k$となる。
+\paragraph{ステップ3：$\pi$ と $\pi_X$ の一般階数の計算}
+各ブロックの勾配 $\nabla_{x_s}f_s$ は恒等的に零ではない（もし零なら $F$ は $W_s$ の変数に依存せず、射影平面 $\PP(W_s)$ が丸ごと $X$ の特異点集合に含まれて滑らかさに反する）。従ってアフィン空間 $V$ の一般点では各3変数ブロックが階数 $2$ を持ち、直和である $q$ の階数は $2k$ となる。
 
-$X$上でも各ブロックは一般点で階数2である。
-実際、非零の$x_s$-偏微分は2次式なので、既約な3次式$F$で割り切れない。
-$m>0$なら$X$の一般点で$u\ne0$であり、
-中心方向の成分をもつ$E$は$\operatorname{im}q^\sharp\subset\bigoplus_sW_s$に属さない。
-$m=0$なら$N\ge5$より$k\ge2$であり、
-各ブロックの像は$\ker df_s$である。
-従って$E\in\operatorname{im}q^\sharp$となる条件は
-$df_s(E_s)=3f_s=0$が全$s$について成り立つことである。
-各$f_s$は非零で、異なるブロックの変数に依存するため$F$と比例しない。
-よって全$f_s=0$は$X$の真の閉集合である。
-いずれの場合も一般点で射影化による階数低下はなく、$\pi_X$の一般階数は$2k$である。
+$\PP(V)$ 上の一般点（$F\ne0$）では、$dF(E)=3F\ne0$ である一方 $\operatorname{im}q^\sharp\subset\ker dF$ なので、Euler方向 $E$ は $\operatorname{im}q^\sharp$ に属さない。ゆえに補題\ref{lem:pg-projective-rank}により射影化で階数は下がらず、$\pi$ の一般階数は $2k$ である。
+
+最後に $X$ 上の一般点を調べる。非零の2次式である各 $x_s$-偏微分は既約な3次式 $F$ で割り切れないため、$X$ の一般点でも各ブロックは階数 $2$ を持ち、錐上の階数は $2k$ である。ここで $E\notin\operatorname{im}q^\sharp$ が $X$ の一般点で成り立つことを $m>0$ と $m=0$ に分けて確認する：
+\begin{itemize}
+  \item $m>0$ のとき：$X$ の一般点では $u\ne0$ なので $E$ は中心方向 $U$ に非零成分を持つが、$\operatorname{im}q^\sharp\subset\bigoplus_{s=1}^k W_s$ なので $E\notin\operatorname{im}q^\sharp$ である。
+  \item $m=0$ のとき：$N=3k\ge5$ より $k\ge2$ である。各ブロックの像は $\ker df_s$ なので、$E=\sum_s E_s$ が $\operatorname{im}q^\sharp$ に属する条件は全ての $s$ について $df_s(E_s)=3f_s=0$ となることである。各 $f_s$ は非零で互いに異なる変数に依存するため $F$ に比例せず、共通零点 $\{f_1=\cdots=f_k=0\}$ は $X$ の真の閉部分集合である。
+\end{itemize}
+いずれの場合も $X$ の一般点で $E\notin\operatorname{im}q^\sharp$ が成り立ち、補題\ref{lem:pg-projective-rank}より $\pi_X$ の一般階数も $2k$ である。
 \end{proof}
 
-\subsection{ブロックの内在性}
-Cartan3形式からの単純因子の復元は
-Derdzinski--Gal\cite[Lemma~7.1(a)]{PDerdzinskiGal}でも述べられている。
-次の補題は、縮約の階数から3次元ブロックを復元する。
-\begin{lemma}[縮約双ベクトルによる復元]\label{ne:blocks}
-$W=\bigoplus_{s=1}^k W_s$、$\dim W_s=3$、
-$P=\sum_s P_s$、$0\ne P_s\in\Lambda^3 W_s$とする。
-$W^*$内のスキーム
+\subsection{ブロックの内在性と一般の3次超曲面}
+正規形\eqref{eq:pg-normal}に現れる3次元部分空間の組 $\{W_1,\ldots,W_k\}$ は座標の選び方によらない内在的な不変量である。なお、Cartan 3-形式からの単純因子の復元はDerdzinski--Gal \cite[Lemma~7.1(a)]{PDerdzinskiGal} でも述べられているが、次の補題は縮約双ベクトルの階数条件を用いてこれをスキーム論的に復元する。
+
+\begin{lemma}[縮約双ベクトルによるブロックの復元]\label{ne:blocks}
+$W=\bigoplus_{s=1}^k W_s$（各 $\dim W_s=3$）とし、$P=\sum_{s=1}^k P_s$（$0\ne P_s\in\Lambda^3 W_s$）とする。このとき $W^*$ 内の閉部分スキーム
 \begin{equation}
- D_P=\{\alpha:(\iota_\alpha P)\wedge(\iota_\alpha P)=0\}
+D_P=\{\alpha\in W^*:(\iota_\alpha P)\wedge(\iota_\alpha P)=0\}
 \end{equation}
-は$k$個の3次元線形部分空間$W_s^*$の被約な和である。
-従って$P$は順序を除き$\{W_1,\ldots,W_k\}$を決定する。
+は、$k$ 個の3次元線形部分空間 $W_1^*,\ldots,W_k^*$ の被約な和に一致する。従って $P$ は順序を除いてブロックの組 $\{W_1,\ldots,W_k\}$ を一意に決定する。
 \end{lemma}
 \begin{proof}
-$\alpha=(\alpha_s)$とし、$\beta_s=\iota_{\alpha_s}P_s$と書く。
-3次元なので$\beta_s^2=0$、異なる$s,t$の$\beta_s\wedge\beta_t$は
-互いに独立な$\Lambda^2W_s\otimes\Lambda^2W_t$成分に属する。
-$W_s^*\to\Lambda^2W_s$は同型なので、$D_P$のイデアルは異なるブロックの座標の積全てで生成される。
-これは各座標部分空間のイデアルの交叉、従って根基的である。
-その既約成分を復元すれば、他成分の和の零化空間として各$W_s$も復元できる。
+$\alpha=(\alpha_1,\ldots,\alpha_k)\in\bigoplus_s W_s^*$ に対して $\beta_s=\iota_{\alpha_s}P_s\in\Lambda^2 W_s$ とおく。$\dim W_s=3$ なので $\beta_s\wedge\beta_s=0$ であり、異なる $s\ne t$ の積 $\beta_s\wedge\beta_t$ は互いに独立な直和成分 $\Lambda^2 W_s\otimes\Lambda^2 W_t$ に属する。各 $W_s^*\to\Lambda^2 W_s$（$\alpha_s\mapsto\beta_s$）は線形同型であるため、$D_P$ の定義イデアルは異なるブロックの座標の積全体で生成される。これは各座標部分空間 $W_s^*$ の定義イデアルの交叉にほかならず、特に根基イデアルである。よって $D_P$ の既約成分として $\{W_1^*,\ldots,W_k^*\}$ が復元され、他の成分の和の零化空間として各 $W_s$ も一意に復元される。
 \end{proof}
-正規形では、この順序を除いたブロックの組に対して、補空間$U$と各空間の基底を選んでいる。
-固定した座標でも、$\sum_s h_s=0$を満たす中心変数のみの3次式$h_s(u)$を
-各$f_s$に加えれば、同じ$F=\sum_s f_s$を表す。
+
+正規形\eqref{eq:pg-normal}では、この内在的な組 $\{W_1,\ldots,W_k\}$ に対して補空間 $U$ と各空間の基底を選んでいる。また座標を固定した後でも、$\sum_{s=1}^k h_s(u)=0$ を満たす中心変数のみの3次式 $h_s(u)$ を各 $f_s$ に加える自由度が残る。
+
+正規形定理の直截な応用として、一般の滑らかな3次超曲面では一般階数2のPoisson構造しか存在しないことが分かる。
 
 \begin{corollary}\label{cor:pg-generic}
-固定した滑らかな $X$ 上の一般階数2の Poisson 構造の被約な射影パラメータ空間は
-$\operatorname{Gr}(3,V)\subset\PP(\bigwedge^3V)$ である。
-一般の滑らかな3次超曲面上では、全ての非零 Poisson 構造が一般階数2をもつ。
+固定した滑らかな3次超曲面 $X$ 上で一般階数 $2$ のPoisson構造が張る被約な射影パラメータ空間は、Pl\"ucker埋込みされたGrassmann多様体 $\operatorname{Gr}(3,V)\subset\PP(\bigwedge^3V)$ に一致する。また、一般の滑らかな3次超曲面においては、全ての非零Poisson構造が一般階数 $2$ を持つ。
 \end{corollary}
 \begin{proof}
-命題\ref{prop:pg-represent}の線形同型の下で、$k=1$と非零$P$の分解可能性が同値なので、
-対応する被約な部分多様体はPl\"ucker埋込みの像である。
-第2の主張には$k\geq2$の族の次元を評価する。
-直和をなす順序付き $W_1,\ldots,W_k$ の空間は
-$\operatorname{Gr}(3,V)^k$ の開部分で、次元 $3k(N-3)$。
-この組を固定したとき、許される3次式は、全ての$v\in V$について
-$\operatorname{Hess}F(v)(W_s,W_t)=0$（$s\ne t$）となる線形部分空間に属する。
-この条件は$W_s$だけに依存するので、補空間$U$は次元計算のために任意に選べる。
-その座標で単項式を数えると、この線形空間の次元は
+命題\ref{prop:pg-represent}の線形同型の下で、一般階数 $2$（すなわち $k=1$）であることは非零3重ベクトル $P$ が分解可能であることと同値なので、対応する射影パラメータ空間は $\operatorname{Gr}(3,V)$ に一致する。
+
+第2の主張を示すため、各 $k\ge2$ に対して一般階数 $2k$ のPoisson構造を許容する3次式の族の余次元を評価する。互いに直和をなす順序付き3次元部分空間の組 $(W_1,\ldots,W_k)$ の空間は $\operatorname{Gr}(3,V)^k$ の非空開集合であり、その次元は $3k(N-3)$ である。この組を固定したとき、許される3次式 $F$ は全ての $v\in V$ に対して $\operatorname{Hess}F(v)(W_s,W_t)=0$（$s\ne t$）を満たす線形部分空間に属する。この条件は $W_s$ のみに依存するため、次元を数えるために任意の補空間 $U$（$\dim U=m=N-3k$）を選んでよい。その座標で許される単項式を数えると、この線形空間の次元は
 \begin{equation}
-\binom{m+2}{3}+k\left(10+6m+3\binom{m+1}{2}\right).
+\binom{m+2}{3}+k\left(10+6m+3\binom{m+1}{2}\right)
 \end{equation}
-従って全3次式の空間における余次元は少なくとも
+である。従って3次式全体の空間 $\operatorname{Sym}^3V^*$ におけるこの族の余次元は少なくとも
 \begin{equation}
 \binom{N+2}{3}-\binom{m+2}{3}
 -k\left(10+6m+3\binom{m+1}{2}\right)-3k(N-3)
-=\frac{3k}{2}\bigl((3k-5)m+3k(k-1)\bigr)>0.\label{eq:pg-codim}
+=\frac{3k}{2}\bigl((3k-5)m+3k(k-1)\bigr)>0\label{eq:pg-codim}
 \end{equation}
-可能な $k$ は有限個なので一般の3次式はこれらを避ける。
+となる（$k\ge2$、$m\ge0$ より右辺は真に正である）。可能な $k\le\lfloor N/3\rfloor$ は有限個しかないので、一般の滑らかな3次式はこれらすべての族を避ける。
 \end{proof}
 
 
 \section{Casimir、対数形式および symplectic leaf}\label{sec:pg-leaves}
-以下、正規形\eqref{eq:pg-normal}を固定し、錐上の双ベクトル$q=\iota_{dF}P$、
-その射影化$\pi$（$\PP(V)$上）と制限$\pi_X$（$X$上）を用いる。
-多項式 $G$ が Casimir であるとは $\{G,S\}=0$ を意味する。
-射影超曲面が Poisson であるとは、そのイデアル層が括弧で保たれることをいう。
 
-\subsection{Poisson 超曲面}
+以下では定理\ref{thm:pg-normal}の正規形\eqref{eq:pg-normal}を固定し、アフィン錐上の双ベクトル場 $q=\iota_{dF}P$、その $\PP(V)$ への射影化 $\pi$、および $X$ への制限 $\pi_X$ の幾何学的構造を詳しく調べる。多項式 $G\in S$ が\emph{Casimir}であるとは $\{G,S\}_q=0$ を満たすことをいい、射影超曲面が\emph{Poisson超曲面}であるとはその定義イデアル層がPoisson括弧で保たれることをいう。
+
+\subsection{Poisson超曲面と1次Casimir}
 \begin{proposition}\label{prop:pg-casimir}
-既約な斉次式 $G\in S$ に対し、$V(G)\subset\PP(V)$ が Poisson であることと、
-$G$ がアフィン錐上の Casimir であることは同値である。
-1次 Casimir の空間は $\operatorname{span}(u_1,\ldots,u_m)$ である。
-従って Poisson 超平面のパラメータ空間は $m>0$ なら $\PP^{m-1}$、$m=0$ なら空である。
+既約な斉次多項式 $G\in S$ に対し、超曲面 $V(G)\subset\PP(V)$ がPoisson超曲面であることと、$G$ がアフィン錐上のCasimirであることは同値である。特に、1次Casimir全体の空間は中心変数が張る空間 $\operatorname{span}(u_1,\ldots,u_m)$ に一致し、Poisson超平面のパラメータ空間は $m>0$ ならば $\PP^{m-1}$、$m=0$ ならば空である。
 \end{proposition}
 \begin{proof}
-Casimir なら $(G)$ は括弧で保たれる。
-逆向きは $G$ が $F$ の定数倍の場合は既知なので、$\gcd(F,G)=1$ とする。
-$d=\deg G$、$Y=V(G)$とおく。射影的接性により、
-$\iota_{dG}q|_Y$は制限したEuler列の核$\OO_Y(d)E$に入る。
-$H^1(\PP(V),\OO)=0$から$H^0(Y,\OO_Y(d))$の切断は$S_d$へ持ち上がるので、
-\begin{equation}
-\iota_{dG}q=GA+hE,\qquad A\in S_1\otimes V,\quad h\in S_d.
-\end{equation}
-$dG$ で縮約すれば $h=-A(G)/d$。
-$dF$ で縮約し $\iota_{dF}q=0$ を使うと
-$GA(F)-(3/d)FA(G)=0$ である。
-互いに素であることと次数から $A(F)=cF$、$A(G)=cdG/3$。
-$A-(c/3)E$ は勾配の1次syzygyなので零である。
-従って $\iota_{dG}q=0$。
-1次式 $\ell$ については勾配の定数係数での独立性から
-$\iota_{d\ell}q=0\iff\iota_{d\ell}P=0$ であり、正規形では
-$\ell$ が全てのブロック変数に依存しないことと同値である。
-\end{proof}
-各 $u_\alpha,f_s,F$ とその多項式結合は Casimir である。
+$G$ がCasimirならばイデアル $(G)$ は括弧で保たれるため、$V(G)$ はPoisson超曲面である。
 
-\subsection{最高外積の対数表示}
+逆に $V(G)$ がPoisson超曲面であるとする。$G$ が $F$ の定数倍のときは既知なので、$\gcd(F,G)=1$ と仮定する。$d=\deg G$、$Y=V(G)$ とおく。$V(G)$ がPoissonであるという射影的接性条件により、$\iota_{dG}q|_Y$ は制限したEuler列の核 $\OO_Y(d)E$ に属する。$H^1(\PP(V),\OO)=0$ より $H^0(Y,\OO_Y(d))$ の切断は $S_d$ へ持ち上がるため、ある $A\in S_1\otimes V$ と $h\in S_d$ を用いて
+\begin{equation}
+\iota_{dG}q=GA+hE, \qquad A\in S_1\otimes V, \quad h\in S_d
+\end{equation}
+と書ける。この両辺を $dG$ で縮約すると $0=GA(G)+dhG$ より $h=-A(G)/d$ を得る。次に $dF$ で縮約し $\iota_{dF}q=0$ を用いると
+\[
+  GA(F)-\frac{3}{d}FA(G)=0
+\]
+が成り立つ。$F$ と $G$ は互いに素であり、$\deg A(F)=3$、$\deg A(G)=d$ なので、ある定数 $c\in\CC$ に対して $A(F)=cF$ かつ $A(G)=cdG/3$ となる。従って $A-(c/3)E$ は勾配 $dF$ の1次syzygyを与え、補題\ref{lem:pg-gradient}により $A=(c/3)E$ である。このとき $h=-A(G)/d=-(c/3)G$ となるため、$\iota_{dG}q=GA+hE=0$、すなわち $G$ はCasimirである。
+
+最後に1次式 $\ell\in S_1$ について考える。$\iota_{d\ell}q=\iota_{d\ell}\iota_{dF}P=-\iota_{dF}\iota_{d\ell}P$ であり、$\iota_{d\ell}P$ は定数双ベクトルなので、補題\ref{lem:pg-gradient}（定数係数syzygyの消滅）により $\iota_{d\ell}q=0\iff\iota_{d\ell}P=0$ である。正規形\eqref{eq:pg-normal}の下ではこれは $\ell$ がどのブロック変数 $x_{si}$ にも依存しないこと、すなわち $\ell\in\operatorname{span}(u_1,\ldots,u_m)$ と同値である。
+\end{proof}
+
+正規形\eqref{eq:pg-normal}からは、各中心変数 $u_\alpha$、各ブロックの3次式 $f_s$、および $F=\sum_s f_s$ とそれらの多項式結合がすべてCasimirであることが直ちに従う。
+
+\subsection{最高外積の対数微分形式表示}
+Poisson構造の一般階数が $2k$ であることから、最高次の非零外積 $\pi^k$ および $\pi_X^k$ は、余次元がそれぞれ $m+k-1$ および $n-2k=m+k-2$ の微分形式と対応する。正規形を用いると、これらがCasimirの対数微分で極めて簡潔に表される。
+
 \begin{proposition}\label{prop:pg-log}
-体積形式を固定すると、$\pi^k$ に対応する微分形式は非零定数倍を除き
+$V$ の体積形式を1つ固定すると、$\PP(V)$ 上の $\pi^k$ に対応する微分形式は非零定数倍を除いて
 \begin{equation}
 \beta=\iota_E(du_1\wedge\cdots\wedge du_m\wedge df_1\wedge\cdots\wedge df_k)
-\in H^0(\PP^{N-1},\Omega^{m+k-1}(N)).\label{eq:pg-log-main}
+\in H^0(\PP^{N-1},\Omega^{m+k-1}(N))\label{eq:pg-log-main}
 \end{equation}
-$m>0$ では
-\begin{equation}
-\beta=\left(\prod_{\alpha=1}^m u_\alpha\prod_{s=1}^kf_s\right)
+である。特に、分母が消えない開集合上では次のように対数形式で書ける：
+\begin{align}
+m>0:\quad &\beta=\left(\prod_{\alpha=1}^m u_\alpha\prod_{s=1}^kf_s\right)
 \bigwedge_{\alpha=2}^m d\log(u_\alpha/u_1)
-\wedge\bigwedge_{s=1}^k d\log(f_s/u_1^3),
-\end{equation}
-$m=0$ では
-\begin{equation}
-\beta=3\left(\prod_{s=1}^kf_s\right)
+\wedge\bigwedge_{s=1}^k d\log(f_s/u_1^3),\\
+m=0:\quad &\beta=3\left(\prod_{s=1}^kf_s\right)
 \bigwedge_{s=2}^k d\log(f_s/f_1).
-\end{equation}
-$X$ 上の $\pi_X^k$ に対応する形式は
+\end{align}
+さらに、$X$ 上の $\pi_X^k$ に対応する微分形式は
 \begin{equation}
 \alpha=\iota_E(du_1\wedge\cdots\wedge du_m\wedge df_1\wedge\cdots\wedge df_{k-1})|_X
-\in H^0(X,\Omega_X^{m+k-2}(N-3)).\label{eq:pg-log-X}
+\in H^0(X,\Omega_X^{m+k-2}(N-3))\label{eq:pg-log-X}
 \end{equation}
+で与えられる。
 \end{proposition}
 \begin{proof}
-第 $s$ ブロックの場を $q_s$ と書く。
-$q_s^2=0$ より $q^k=k!q_1\wedge\cdots\wedge q_k$。
-アフィン体積形式への縮約は、非零定数倍を除き
-$du_1\wedge\cdots\wedge du_m\wedge df_1\wedge\cdots\wedge df_k$ である。
-$df_s$ の中心方向成分は先頭の外積で消える。
-さらに $E$ で縮約すれば射影化に対応する水平形式となり、
-全スケーリングの重み $m+3k=N$ が twist を与える。
-$m>0$ では $\iota_Ed\log u_1=1$、各比の対数微分の縮約は零であり、外積を展開して所要の式を得る。
-$m=0$ では $\iota_Ed\log f_1=3$ を使う。
-計算は分母が消えない開集合で行うが、左辺が大域的正則なので大域表示として解釈できる。
+第 $s$ ブロックの双ベクトル場を $q_s$ と書く。各ブロックは3次元空間上の双ベクトルなので $q_s^2=0$ であり、従って $q^k=k!\,q_1\wedge\cdots\wedge q_k$ である。これをアフィン体積形式へ縮約すると、各 $q_s=\iota_{df_s}(\partial_{x_{s1}}\wedge\partial_{x_{s2}}\wedge\partial_{x_{s3}})$ の寄与により非零定数倍を除いて $du_1\wedge\cdots\wedge du_m\wedge df_1\wedge\cdots\wedge df_k$ を得る（ここで $df_s$ の中心方向 $du_\alpha$ 成分は先頭の $du_1\wedge\cdots\wedge du_m$ との外積で自動的に消える）。さらにEuler場 $E$ で縮約すれば射影空間上の水平形式が得られ、全スケーリング重み $m+3k=N$ がtwistを与える。
 
-最後に $f_k$ を $F=\sum_sf_s$ に替えても微分の外積は変わらない。
-$X$上で法線方向$dF$を除き随伴公式を適用すると\eqref{eq:pg-log-X}を得る。
-局所的に$dF$が座標微分となる表示で縮約を行えばよく、法線束$\OO_X(3)$の遷移関数によりtwistは$N-3$となる。
-形式次数は $m+k-2=n-2k$ となる。
+対数表示は、$m>0$ では $\iota_E d\log u_1=1$ および $\iota_E d\log(u_\alpha/u_1)=\iota_E d\log(f_s/u_1^3)=0$ を、$m=0$ では $\iota_E d\log f_1=3$ および $\iota_E d\log(f_s/f_1)=0$ を用いて外積を展開すれば得られる。計算は分母が非零の開集合で行うが、左辺 $\beta$ は大域的に正則であるため大域表示として意味を持つ。
+
+最後に $X$ 上への制限を考える。$F=\sum_{s=1}^k f_s$ なので外積の中で $df_k$ を $dF$ に置き換えても形式は変わらない。$X$ 上で法線方向 $dF$ を除いて随伴公式を適用すれば式\eqref{eq:pg-log-X}を得る（局所的に $dF$ が座標微分となる表示で縮約すればよく、法線束 $\OO_X(3)$ によりtwistは $N-3$、形式次数は $m+k-2=n-2k$ となる）。
 \end{proof}
-対数表示の因子の次数の総和は$m+3k=N$であり、
-$V(u_1\cdots u_mf_1\cdots f_{k-1}F)$は$\PP(V)$上の反標準因子を定める。
-退化スキームのイデアルは命題\ref{prop:pg-deg-ideal}で求める。
 
-\subsection{葉とその閉包}
+なお、上の対数表示に現れる因子の次数の総和は $m+3k=N$ であり、$V(u_1\cdots u_m f_1\cdots f_{k-1}F)$ は $\PP(V)$ の反標準因子を定める。
+
+\subsection{第一積分とsymplectic leafの閉包}
+Casimir $u_\alpha,f_s$ はそのまま $\pi$ および $\pi_X$ の第一積分を与え、一般のsymplectic leafの幾何学を完全に記述する。
+
 \begin{proposition}\label{prop:pg-first-integrals}
-有理写像
+重み付き射影空間への有理写像
 \begin{equation}
 \Phi:\PP^{N-1}\dashrightarrow\PP(1^m,3^k),\qquad
 [x,u]\longmapsto[u_1:\cdots:u_m:f_1:\cdots:f_k]
 \end{equation}
-は一般点で独立な第一積分を与える。
-一般ファイバーの滑らかな最大階数部分の連結成分はsymplectic leafである。
-$X$ 上の底は $m>0$ なら $\PP(1^m,3^{k-1})$、$m=0$ なら $\PP^{k-2}$ であり、次元は $n-2k$ である。
+は一般点で1次独立な第一積分を与え、一般ファイバーの滑らかな最大階数部分の連結成分が $\pi$ のsymplectic leafとなる。$X=V(F)$ へ制限したときの底空間は、$m>0$ ならば $\PP(1^m,3^{k-1})$、$m=0$ ならば $\PP^{k-2}$ であり、いずれの場合も底の次元は $n-2k$ である。
 \end{proposition}
 \begin{proof}
-全てのブロックの勾配が非零の開集合では、$du_\alpha$を法とした$df_s$は独立なブロックに非零成分をもつ。
-従って $(u,f_1,\ldots,f_k)$ の微分の階数は $m+k$。
-$F=0$ への制限と射影化は、それぞれ独立な条件 $\sum_sf_s=0$ とスケーリングを一つ除く。
-Casimir性からHamiltonベクトル場が張る分布は$\ker d\Phi$に含まれ、
-定理\ref{thm:pg-normal}によって両者の次元は $2k$ なので一致する。
-最大階数部分での逆2形式はJacobi恒等式により閉じている。
-よって滑らかなファイバーの連結成分が葉となる。
-不定点では $u=0$ かつ全 $f_s=0$。
-ブロックの勾配が一つでも零ならアフィン階数は高々$2k-2$、
-全て非零なら Euler 方向が像に入るため射影階数は $2k-2$ である。
-よって最大階数の葉はこの不定点集合を横切らない。
+全てのブロックの勾配 $\nabla_{x_s}f_s$ が非零となる開集合上では、$du_\alpha$ を法とした $df_s$ たちが互いに独立なブロック空間に非零成分を持つため、$(u_1,\ldots,u_m,f_1,\ldots,f_k)$ の微分の階数は $m+k$ である。$X$ への制限（条件 $\sum_s f_s=0$）と射影化（スケーリングの1方向）がそれぞれ独立な条件を1つずつ除くため、一般ファイバーの次元は $2k$ である。
+
+各 $u_\alpha,f_s$ はCasimirであるため、Hamiltonベクトル場が張る分布は $\ker d\Phi$ に含まれるが、定理\ref{thm:pg-normal}により両者の次元はいずれも $2k$ なので一致する。最大階数部分での逆2-形式はJacobi恒等式により閉形式であり、よって滑らかなファイバーの連結成分がsymplectic leafをなす。また $\Phi$ の不定点集合は $\{u=0,\ f_1=\cdots=f_k=0\}$ であるが、その上では、ブロック勾配が1つでも零ならアフィン階数が高々 $2k-2$、全て非零ならEuler方向が像に入るため補題\ref{lem:pg-projective-rank}より射影階数が $2k-2$ となる。ゆえに最大階数 $2k$ のsymplectic leafは不定点集合と交わらない。
 \end{proof}
+
+各ブロックの3変数制限 $f_s(x_s,0)$ が滑らかな平面3次曲線を定めるとき、一般のsymplectic leafのザリスキー閉包は美しい完全交叉となる。
+
 \begin{proposition}\label{prop:pg-leaf-closure}
-各 $f_{s,0}=f_s(x_s,0)$ が滑らかな平面3次曲線を定めるとする。
-$\PP(V)$上の$\pi$と$X$上の$\pi_X$の双方について、
-$m>0$ なら一般のsymplectic leafの閉包は $\PP^{3k}$ 内の型 $(3^k)$ の既約な完全交叉であり、
-$m=0$ なら $\PP^{3k-1}$ 内の型 $(3^{k-1})$ の既約な完全交叉である。
-いずれも次元は $2k$ である。
+各 $f_{s,0}(x_s):=f_s(x_s,0)$（$1\le s\le k$）が滑らかな平面3次曲線を定めると仮定する。このとき、$\PP(V)$ 上の $\pi$ と $X$ 上の $\pi_X$ の双方について、一般のsymplectic leafの閉包は
+\begin{itemize}
+  \item $m>0$ のとき：$\PP^{3k}$ 内の型 $(3^k)$ の既約な完全交叉、
+  \item $m=0$ のとき：$\PP^{3k-1}$ 内の型 $(3^{k-1})$ の既約な完全交叉
+\end{itemize}
+であり、いずれの場合も次元は $2k$ である。
 \end{proposition}
 \begin{proof}
-$m>0$とし、滑らかな開集合$U_{\PP}=\PP(V)\cap\{u_1\ne0\}$と
-$U_X=X\cap\{u_1\ne0\}$を取る。
-射$\psi_{\PP}:U_{\PP}\to\mathbb A^{m-1}\times\mathbb A^k$と
-$\psi_X:U_X\to\mathbb A^{m-1}\times\mathbb A^{k-1}$を
+$m>0$ の場合と $m=0$ の場合に分けて証明する。
+
+\paragraph{場合1：$m>0$}
+滑らかな開集合 $U_{\PP}=\PP(V)\cap\{u_1\ne0\}$ と $U_X=X\cap\{u_1\ne0\}$ 上で、第一積分が定める射 $\psi_{\PP}:U_{\PP}\to\mathbb A^{m-1}\times\mathbb A^k$ および $\psi_X:U_X\to\mathbb A^{m-1}\times\mathbb A^{k-1}$ を
 \begin{equation}\label{eq:pg-affine-first-integrals}
 \begin{aligned}
- \psi_{\PP}([x,u])&=
- \left(\frac{u_2}{u_1},\ldots,\frac{u_m}{u_1},
-       \frac{f_1}{u_1^3},\ldots,\frac{f_k}{u_1^3}\right),\\
- \psi_X([x,u])&=
- \left(\frac{u_2}{u_1},\ldots,\frac{u_m}{u_1},
-       \frac{f_1}{u_1^3},\ldots,\frac{f_{k-1}}{u_1^3}\right)
+\psi_{\PP}([x,u])&=
+\left(\frac{u_2}{u_1},\ldots,\frac{u_m}{u_1},
+  \frac{f_1}{u_1^3},\ldots,\frac{f_k}{u_1^3}\right),\\
+\psi_X([x,u])&=
+\left(\frac{u_2}{u_1},\ldots,\frac{u_m}{u_1},
+  \frac{f_1}{u_1^3},\ldots,\frac{f_{k-1}}{u_1^3}\right)
 \end{aligned}
 \end{equation}
-で定める。命題\ref{prop:pg-first-integrals}の微分の独立性から両射は支配的であり、
-標数0の一般的滑らかさの定理により、それぞれの一般ファイバーは滑らかである。
-一般の底点での値を$c_\alpha=u_\alpha/u_1$、$d_s=f_s/u_1^3$と書く。
-$c_1=1$であり、$\psi_X$では$d_k=-\sum_{s<k}d_s$である。
-特に$k=1$では$\psi_X$の後半の座標はなく、$d_1=0$となる。
-$c=(c_1,\ldots,c_m)$、$t=u_1$とおき、$u=ct$で定まる$\PP^{3k}$内の方程式
-\begin{equation}\label{eq:pg-leaf-closure-equations}
- f_s(x_s,ct)-d_st^3=0\qquad(1\leq s\leq k)
-\end{equation}
-が定める閉部分スキームを考える。
-$t=0$ の部分は独立な式 $f_{s,0}=0$ で定まり次元 $2k-1$。
-$t\neq0$ では $t=1$ と正規化すると $k$ 個のアフィン曲面の積となる。
-従ってこの閉部分スキームは純次元$2k$の完全交叉で、無限遠に含まれる成分をもたない。
-上で示した滑らかさから各アフィン因子も滑らかである。
-その射影閉包は無限遠でも $\nabla f_{s,0}\neq0$ により滑らかであり、
-連結な射影超曲面なので既約である。
-よってアフィンファイバーは既約である。
-完全交叉は Cohen--Macaulay で埋め込み成分をもたず、全最小成分がこの滑らかな開集合と交わる。
-従ってこの完全交叉は被約かつ既約で、葉の閉包である。
+とおく。命題\ref{prop:pg-first-integrals}の微分の独立性から両射は支配的であり、標数0における一般的滑らかさの定理により、一般の底点に対するファイバーは滑らかである。一般の底点の値を $c_\alpha=u_\alpha/u_1$（$c_1=1$）、$d_s=f_s/u_1^3$ と書く（$\psi_X$ では $d_k=-\sum_{s<k}d_s$ であり、特に $k=1$ では後半の座標がなく $d_1=0$ である）。
 
-$m=0$ では $f_1\neq0$ の一般底点に対して $c_1=1$、$f_s=c_sf_1$（$s\geq2$）と書ける。
-$X$上では$\sum_sc_s=0$を課す。
-$k\geq2$なので、この底でも全ての$c_s$が非零の開集合は空でない。
-$f_1=0$ の部分は全 $f_s=0$ で定まり次元 $2k-1$。
-開部分は $\{f_1=1\}\times\prod_{s=2}^k\{f_s=c_s\}$ の同時 $\mu_3$ 作用による像である。
-$c_s\neq0$ の一般点では、各因子は滑らかな3次曲面
-$f_s(x_s)=c_st^3$ のアフィン開集合なので既約である。
-全てのブロックの勾配が非零なので方程式の微分は独立であり、ファイバーは滑らかである。
-前段と同じ純次元性・Cohen--Macaulay 性により結論を得る。
+$c=(c_1,\ldots,c_m)$、$t=u_1$ とおき、部分射影空間 $\{u=ct\}\simeq\PP^{3k}$ の中で $k$ 本の3次方程式
+\begin{equation}\label{eq:pg-leaf-closure-equations}
+  f_s(x_s,ct)-d_st^3=0\qquad(1\leq s\leq k)
+\end{equation}
+が定める閉部分スキーム $Y$ を考える。無限遠超平面 $t=0$ との交わりは独立な式 $f_{s,0}(x_s)=0$ で定まるため次元 $2k-1$ であり、一方 $t\ne0$ のアフィン部分（$t=1$ と規格化）は $k$ 個のアフィン3次曲面 $\{f_s(x_s,c)=d_s\}\subset\mathbb A^3$ の直積である。従って $Y$ は純次元 $2k$ の型 $(3^k)$ 完全交叉であり、無限遠 $t=0$ に含まれる成分を持たない。一般の底点に対するアフィン部分の滑らかさから各アフィン因子も滑らかであり、さらに各因子の射影閉包 $\{f_s(x_s,ct)=d_st^3\}\subset\PP^3$ は無限遠 $t=0$ でも仮定 $\nabla f_{s,0}\ne0$ により滑らか（ゆえに連結かつ既約な3次曲面）である。従って各アフィン因子およびその直積は既約である。完全交叉 $Y$ はCohen--Macaulayで埋込み成分を持たず、全ての最小成分が既約かつ滑らかな開集合 $Y\cap\{t\ne0\}$ と交わるため、$Y$ は被約・既約であり、求める葉の閉包に一致する。
+
+\paragraph{場合2：$m=0$}
+$k\ge2$ である。$f_1\ne0$ の一般底点に対して $c_1=1$、$f_s=c_s f_1$（$s\ge2$）と書く（$X$ 上では $\sum_{s=1}^k c_s=0$ を課すが、$k\ge2$ より全ての $c_s$ が非零となる開集合は空でない）。これら $k-1$ 本の3次方程式が $\PP^{3k-1}$ 内に定める閉部分スキームを考える。$\{f_1=0\}$ の部分は全 $f_s=0$ で定まり次元 $2k-1$ である。一方 $\{f_1\ne0\}$ の開部分は、アフィン超曲面の直積 $\{f_1=1\}\times\prod_{s=2}^k\{f_s=c_s\}$ を $\mu_3$ の同時スカラー作用で割った像である。$c_s\ne0$ の一般点では各因子が滑らかな3次曲面 $\{f_s(x_s)=c_s t^3\}$ のアフィン開集合なので既約であり、全てのブロック勾配が非零なので方程式の微分は1次独立でファイバーは滑らかである。場合1と同じ純次元性・Cohen--Macaulay性により、この型 $(3^{k-1})$ の完全交叉が被約・既約な葉の閉包を与える。
 \end{proof}
+
 \begin{remark}\label{rem:pg-zero-restriction-leaf}
-平面3次制限の滑らかさを仮定しなくても命題\ref{prop:pg-first-integrals}は成立する。
-$m>0$で葉の閉包を得るには、上の方程式のイデアルを$t$に関して飽和し、
-必要に応じてファイバーの既約成分を選ぶ。
-例えば $k=1$、$f_{1,0}=0$ では $F(x,ct)=tQ_c(x,t)$ となる。
-$Q_\alpha(x)=F_{u_\alpha}(x,0)$ は $\PP_x^2$ 上共通零点をもたない。
-そうした点は $X$ の特異点となるからである。
-Bertini により一般の $\sum_\alpha c_\alpha Q_\alpha$ は滑らかな平面2次曲線を定める。
-従って$Q_c(x,t)$の階数は少なくとも3で、$t$で割り切れず既約である。
-葉の閉包は固定平面$t=0$に対する残余2次曲面$Q_c=0$となる。
+3変数制限 $f_{s,0}$ の滑らかさを仮定しなくても、命題\ref{prop:pg-first-integrals}はそのまま成り立つ。$m>0$ の場合に葉の閉包を得るには、方程式\eqref{eq:pg-leaf-closure-equations}のイデアルを $t$ に関して飽和させ、必要に応じてファイバーの既約成分を取ればよい。例えば $k=1$ かつ $f_{1,0}\equiv0$ のとき、$F(x,ct)=tQ_c(x,t)$ と分解する。ここで $Q_\alpha(x)=F_{u_\alpha}(x,0)$ は $\PP_x^2$ 上に共通零点を持たない（共通零点があれば $X$ の特異点になるため）。Bertiniの定理により一般の $\sum_\alpha c_\alpha Q_\alpha$ は滑らかな平面2次曲線を定めるため、$Q_c(x,t)$ の階数は少なくとも3で $t$ で割り切れず既約である。従って葉の閉包は、固定平面 $t=0$ を除いた残余2次曲面 $Q_c=0$ となる。
 \end{remark}
 
+
 \section{全退化スキームの方程式}\label{sec:pg-degeneracy}
-\subsection{任意のブロック表示に対する生成元}
-$q_s=\iota_{df_s}(\partial_{x_{s1}}\wedge\partial_{x_{s2}}\wedge\partial_{x_{s3}})$ とし、
+
+本節では、正規形\eqref{eq:pg-normal}を用いて、Poisson構造の階数が $2j-2$ 以下となる全ての退化スキーム $D_{2j-2}(\pi)=Z(\pi^j)$（$\PP(V)$ 上）および $D_{2j-2}(\pi_X)$（$X$ 上）の定義イデアルを明示的に求める。さらに、各3変数制限 $f_s(x_s,0)$ が滑らかな平面3次曲線 $E_s$ を定める場合には、退化集合が楕円曲線のjoinと臨界点の有限平坦被覆に分解し、特に零点スキーム $D_0(\pi_X)$ が $\coprod_s E_s$ と完全交叉 $Z$ の非交和となることを示す。
+
+\subsection{任意のブロック表示に対する定義イデアルの生成元}
+各ブロック $s\in\{1,\ldots,k\}$ について、$q_s=\iota_{df_s}(\partial_{x_{s1}}\wedge\partial_{x_{s2}}\wedge\partial_{x_{s3}})$ とし、ブロック方向の偏微分およびそのブロックEuler和を
 \begin{equation}
 A_{s,i}=\frac{\partial f_s}{\partial x_{si}},\qquad
-p_s=\sum_i x_{si}A_{s,i}=3f_s-\sum_\alpha u_\alpha\frac{\partial f_s}{\partial u_\alpha}
+p_s=\sum_{i=1}^3 x_{si}A_{s,i}=3f_s-\sum_{\alpha=1}^m u_\alpha\frac{\partial f_s}{\partial u_\alpha}
 \end{equation}
-とおく。$\PP(V)$上の退化スキーム$D_{2j-2}(\pi)=Z(\pi^j)$と、
-$X$上の退化スキーム$D_{2j-2}(\pi_X)$を考える。
+とおく。以下の命題は、3変数制限 $f_s(x_s,0)$ の滑らかさを一切仮定せずに成り立つ。
+
 \begin{proposition}\label{prop:pg-deg-ideal}
-$1\leq j\leq k$ に対し、$D_{2j-2}(\pi)$ のイデアル層は、全ての
-$I\subset\{1,\ldots,k\}$、$|I|=j$ について
+$1\leq j\leq k$ に対し、$\PP(V)$ 上の退化スキーム $D_{2j-2}(\pi)=Z(\pi^j)$ のイデアル層は、大きさ $j$ の全ての部分集合 $I\subset\{1,\ldots,k\}$ に対する次の3種類の斉次多項式
 \begin{equation}
- u_\alpha\prod_{s\in I}A_{s,i_s},\qquad
- p_t\prod_{s\in I\setminus\{t\}}A_{s,i_s}\ (t\in I),\qquad
- x_{t,l}\prod_{s\in I}A_{s,i_s}\ (t\notin I)\label{eq:pg-deg-generators}
+u_\alpha\prod_{s\in I}A_{s,i_s},\qquad
+p_t\prod_{s\in I\setminus\{t\}}A_{s,i_s}\ (t\in I),\qquad
+x_{t,l}\prod_{s\in I}A_{s,i_s}\ (t\notin I)\label{eq:pg-deg-generators}
 \end{equation}
-を生成元とする。各添字は可能な範囲を動く。
-$X$ 上のイデアルはさらに $F$ を加えて得られる。
-各生成元の次数は $2j+1$ である。
+（各添字 $\alpha,i_s,l$ は可能な範囲をすべて動く）によって生成される。また、$X$ 上の退化スキーム $D_{2j-2}(\pi_X)$ のイデアル層は、これらに $F$ を加えて得られる。各生成元の斉次次数はいずれも $2j+1$ である。
 \end{proposition}
 \begin{proof}
-錐の原点以外では $E$ の生成する直線を局所的な直和因子に選べる。
-その商束の外積から $E\wedge-$ は分裂単射となるので、
-射影化の零点イデアルは $E\wedge q^j$ の係数イデアルに等しい。
-$q_s^2=0$ より $q^j=j!\sum_{|I|=j}\bigwedge_{s\in I}q_s$。
-$E$の中心成分は第1の型を与える。
-$t\in I$ では $(\sum_lx_{tl}\partial_{x_{tl}})\wedge q_t
-=p_t\partial_{x_{t1}}\wedge\partial_{x_{t2}}\wedge\partial_{x_{t3}}$なので第2の型となる。
-$t\notin I$は第3の型を与える。
-ブロック別外積次数は、中心に1、選択したブロックに3、選択しないブロックに1、という異なる型をもつ。
-残りの選択ブロックは2であるため、異なる型の間に相殺はない。
-最後に $T_X\subset T_{\PP(V)}|_X$ は局所的に分裂するので、外積への包含は切断の零点イデアルを変えない。
+アフィン錐の原点以外では、Euler場 $E$ が張る直線を局所的な直和因子に選べるため、商束の外積からの写像 $E\wedge-$ は局所分裂単射となる。従って射影化された $\pi^j$ の零点イデアルは、アフィン錐上の多重ベクトル場 $E\wedge q^j$ の係数イデアルに等しい。
+
+$q_s^2=0$ より $q^j=j!\sum_{|I|=j}\bigwedge_{s\in I}q_s$ と展開される。ここにEuler場 $E=\sum_\alpha u_\alpha\partial_{u_\alpha}+\sum_{t,l}x_{tl}\partial_{x_{tl}}$ を外積すると、各項は次の3つの型に分かれる：
+\begin{itemize}
+  \item $E$ の中心方向成分 $\sum_\alpha u_\alpha\partial_{u_\alpha}$ は第1の型 $u_\alpha\prod_{s\in I}A_{s,i_s}$ を与える。
+  \item 選択したブロック $t\in I$ の成分は、恒等式 $(\sum_l x_{tl}\partial_{x_{tl}})\wedge q_t=p_t\,\partial_{x_{t1}}\wedge\partial_{x_{t2}}\wedge\partial_{x_{t3}}$ により第2の型 $p_t\prod_{s\in I\setminus\{t\}}A_{s,i_s}$ を与える。
+  \item 選択しなかったブロック $t\notin I$ の成分は第3の型 $x_{t,l}\prod_{s\in I}A_{s,i_s}$ を与える。
+\end{itemize}
+これら3つの型は、各空間（中心空間、選択ブロック、非選択ブロック）における外積次数がそれぞれ $(1,2,\ldots,2,0)$、$(0,3,2,\ldots,2,0)$、$(0,2,\ldots,2,1)$ と互いに異なるため、異なる型の間で相殺は起こらない。最後に $T_X\subset T_{\PP(V)}|_X$ は局所的に直和因子として分裂するため、外積束への包含は切断の零点イデアルを変えず、$X$ 上のイデアルは $F$ を加えるだけで得られる。
 \end{proof}
 
 \subsection{臨界点の有限平坦被覆}
-本小節および続く2小節では、次の条件を仮定する。
+本小節および続く2小節では、各ブロックの3変数制限について次の滑らかさの条件を仮定する：
 \begin{equation}
-f_{s,0}=f_s(x_s,0)\text{ が滑らかな平面3次曲線 }E_s\text{ を定める}\label{eq:pg-smooth-block}
+f_{s,0}=f_s(x_s,0)\text{ が滑らかな平面3次曲線 }E_s\text{ を定める}\quad(1\le s\le k).\label{eq:pg-smooth-block}
 \end{equation}
-$E_s$ は $u=0$、$x_t=0$（$t\neq s$）により $X$ 内に入り、互いに交わらない。
+各楕円曲線 $E_s$ は $\{u=0,\ x_t=0\ (t\neq s)\}$ によって $X$ に埋め込まれており、互いに交わらない。
+
 \begin{lemma}\label{lem:pg-critical-cover}
-$m>0$ なら
+条件\eqref{eq:pg-smooth-block}の下で、$m>0$ ならば各ブロックの臨界点スキームおよび共通臨界点スキーム
 \begin{equation}
-K_s=V(A_{s,1},A_{s,2},A_{s,3})\subset\PP(x_s,u)=\PP^{m+2},
-\qquad\Delta=V(A_{s,i}\mid s,i)
+K_s=V(A_{s,1},A_{s,2},A_{s,3})\subset\PP(x_s,u)=\PP^{m+2},\qquad
+\Delta=V(A_{s,i}\mid s,i)\subset\PP(V)
 \end{equation}
-は $u=0$ と交わらない。
-中心座標への射影は $K_s\to\PP_u^{m-1}$ を有限平坦8次被覆、
-$\Delta\to\PP_u^{m-1}$ を有限平坦 $8^k$ 次被覆とし、
-$\Delta\simeq K_1\times_{\PP_u^{m-1}}\cdots\times_{\PP_u^{m-1}}K_k$。
-$m\geq0$ の場合を含め、$\Gamma_I=V(A_{s,i}\mid s\in I,1\leq i\leq3)$ は
-非空なら型 $(2^{3|I|})$ の完全交叉で、
+は超平面族 $\{u=0\}$ と交わらない。中心座標への射影は $K_s\to\PP_u^{m-1}$ を次数 $8$ の有限平坦被覆、$\Delta\to\PP_u^{m-1}$ を次数 $8^k$ の有限平坦被覆とし、ファイバー積分解
+\[
+  \Delta\simeq K_1\times_{\PP_u^{m-1}}\cdots\times_{\PP_u^{m-1}}K_k
+\]
+が成り立つ。さらに $m\geq0$ の場合を含め、空でない部分集合 $I\subset\{1,\ldots,k\}$ に対する部分臨界点スキーム $\Gamma_I=V(A_{s,i}\mid s\in I,\ 1\leq i\leq3)$ は、非空である限り型 $(2^{3|I|})$ の完全交叉であり、
 \begin{equation}
-\dim\Gamma_I=N-1-3|I|,\qquad\deg\Gamma_I=8^{|I|}.
+\dim\Gamma_I=N-1-3|I|,\qquad\deg\Gamma_I=8^{|I|}
 \end{equation}
-特に $m>0$ では
-$\dim\Delta=m-1$、$\deg\Delta=8^k$、$\omega_\Delta\simeq\OO_\Delta(3k-m)$。
-$m=0$ では $\Delta=\varnothing$ とする。
+を満たす。特に $m>0$ では $\dim\Delta=m-1$、$\deg\Delta=8^k$、$\omega_\Delta\simeq\OO_\Delta(3k-m)$ である（$m=0$ では $\Delta=\varnothing$）。
 \end{lemma}
 \begin{proof}
-$R=\CC[u_1,\ldots,u_m]$、$Q_s=R[x_s]/(A_{s,1},A_{s,2},A_{s,3})$ とする。
-$Q_s/(u)$ は滑らかな3次式の Jacobian 環で、Hilbert 級数 $(1+t)^3$ をもつ。
-斉次基底をなす8個の元を持ち上げれば、次数による帰納法から$Q_s$は有限$R$-加群となる。
-3個の方程式による次元下界と有限性より$\dim Q_s=m$である。
-従って方程式は正則列で $Q_s$ は Cohen--Macaulay である。
-$u_1,\ldots,u_m$ は斉次パラメータ系なので $Q_s$-正則列である。
-持上げからの全射
+$R=\CC[u_1,\ldots,u_m]$、$Q_s=R[x_s]/(A_{s,1},A_{s,2},A_{s,3})$ とおく。$u=0$ でのファイバー $Q_s/(u)$ は滑らかな平面3次式 $f_{s,0}$ のJacobian環であり、そのHilbert級数は $(1+t)^3$ である。$Q_s/(u)$ の斉次基底をなす8個の元を $Q_s$ へ持ち上げれば、次数に関する帰納法から $Q_s$ は有限生成 $R$-加群となる。一方、$R[x_s]$ は次元 $m+3$ で方程式は3個なので $\dim Q_s\ge m$ であり、有限性と合わせて $\dim Q_s=m$ を得る。従って $A_{s,1},A_{s,2},A_{s,3}$ は正則列をなし、$Q_s$ はCohen--Macaulayである。
+
+さらに $u_1,\ldots,u_m$ は $Q_s$ の斉次パラメータ系であるため $Q_s$-正則列となり、Koszul複体の完全性から $\operatorname{Tor}_1^R(Q_s,R/(u))=0$ が従う。上の8個の持上げが定める全射
 \begin{equation}
 R\oplus R(-1)^{\oplus3}\oplus R(-2)^{\oplus3}\oplus R(-3)\longrightarrow Q_s
 \end{equation}
-は同型である。実際、$u$ の Koszul 完全性により
-$\operatorname{Tor}_1^R(Q_s,R/(u))=0$ であり、全射の核を $(u)$ で割ると零となる。
-次数付き Nakayama が核を零にする。
-複数ブロックの環は $R$ 上のテンソル積なので階数 $8^{|I|}$ の有限自由加群である。
-選ばなかったブロックの変数を加えれば、$\Gamma_I$の高さと完全交叉性が従う。
-$m=0$ かつ $I$ が全体のときだけ射影スキームは空である。
+の核を $(u)$ で割ると $\operatorname{Tor}_1^R(Q_s,R/(u))=0$ により零となるため、次数付きNakayamaの補題から核自体が零、すなわちこの全射は同型である。複数ブロック $s\in I$ を合わせた座標環は $R$ 上のテンソル積なので階数 $8^{|I|}$ の有限自由 $R$-加群となり、選ばなかったブロックの変数を付け加えることで $\Gamma_I$ の高さと完全交叉性が従う（$m=0$ かつ $I=\{1,\ldots,k\}$ のときのみ共通零点がアフィン原点に限られ、射影スキームは空となる）。
 
-$u=0$では各ブロックの勾配の共通零点は原点だけなので、$K_s$と$\Delta$は射影的にこの部分と交わらない。
-$u_\alpha\neq0$で全ブロックを同時に$u_\alpha=1$と正規化すれば、有限自由性が被覆の有限平坦性とファイバー積表示を与える。
-重なりでも同時正規化するため貼り合わさる。次数と双対化層は Hilbert 級数および随伴公式から従う。
+$u=0$ 上では仮定\eqref{eq:pg-smooth-block}より各ブロック勾配の共通零点は原点のみなので、$K_s$ と $\Delta$ は $\{u=0\}$ と交わらない。各アフィン開集合 $\{u_\alpha\ne0\}$ で全ブロックを同時に $u_\alpha=1$ と規格化すれば、上で示した $R$ 上の有限自由性から被覆の有限平坦性とファイバー積表示が従い、重なりでも同時規格化により自然に貼り合わさる。次数および双対化層 $\omega_\Delta$ は、型 $(2^{3k})$ 完全交叉のHilbert級数と随伴公式から直ちに得られる。
 \end{proof}
 
-\subsection{退化集合と零点スキーム}
-空でない $L\subset\{1,\ldots,k\}$ に対し
+\subsection{退化集合の台と零点スキームの分解}
+空でない部分集合 $L\subset\{1,\ldots,k\}$ に対し、楕円曲線 $E_s$（$s\in L$）の射影的joinを
 \begin{equation}
-J_L=V(u,x_t\ (t\notin L),f_{s,0}\ (s\in L))
+J_L=V\bigl(u,\ x_t\ (t\notin L),\ f_{s,0}\ (s\in L)\bigr)
 \end{equation}
-を $E_s$（$s\in L$）の射影的 join とする。
-独立な錐の積の射影化なので、被約既約で次元 $2|L|-1$ である。
+とおく。$J_L$ は独立なアフィン錐の直積の射影化なので被約・既約であり、次元は $2|L|-1$ である。
+
 \begin{proposition}\label{prop:pg-deg-support}
-$0\leq r<k$ について
+条件\eqref{eq:pg-smooth-block}の下で、$0\leq r<k$ を満たす各 $r$ について退化スキームの台は
 \begin{equation}
-|D_{2r}(\pi)|=\bigcup_{|I|=k-r}|\Gamma_I|\ \cup\ \bigcup_{|L|=r+1}J_L.
+|D_{2r}(\pi)|=\bigcup_{|I|=k-r}\Gamma_I\ \cup\ \bigcup_{|L|=r+1}J_L
 \end{equation}
-$X$ 上では右辺を $X$ と交わらせる。
-零点についてはスキームとして
+で与えられる（$X$ 上の台 $|D_{2r}(\pi_X)|$ は右辺と $X$ との交叉である）。特に零点スキーム（$r=0$）は、スキーム構造も含めて非交和
 \begin{equation}
-D_0(\pi)=\left(\coprod_sE_s\right)\sqcup\Delta,
-\qquad D_0(\pi_X)=\left(\coprod_sE_s\right)\sqcup Z,
-\qquad Z=\Delta\cap X.
+D_0(\pi)=\left(\coprod_{s=1}^k E_s\right)\sqcup\Delta,
+\qquad D_0(\pi_X)=\left(\coprod_{s=1}^k E_s\right)\sqcup Z,
+\qquad Z=\Delta\cap X
 \end{equation}
+に分解する。
 \end{proposition}
 \begin{proof}
-勾配が非零となるブロック数を$\ell$とすると、アフィン階数は$2\ell$である。
-$u\neq0$ では Euler 方向が像に入らず、射影化で階数は変わらない。
-$u=0$では\eqref{eq:pg-smooth-block}により、ブロックの勾配が零であることと$x_s=0$が同値である。
-非零ブロックの像は $\ker df_{s,0}$ なので、Euler 方向が像に入る条件は各 $3f_{s,0}=0$。
-この場合に限り射影階数は $2\ell-2$ となる。これが台の表示を与える。
+アフィン錐上の点で勾配 $\nabla_{x_s}f_s$ が非零となるブロックの個数を $\ell$ とすると、錐上の双ベクトル場 $q$ の階数は $2\ell$ である。
+\begin{itemize}
+  \item $u\neq0$ の点では、Euler場 $E$ が中心方向の非零成分を持つため像 $\operatorname{im}q^\sharp$ に入らず、補題\ref{lem:pg-projective-rank}より射影階数は $2\ell$ のままである。従って $\operatorname{rank}\pi\le 2r\iff \ell\le r$、すなわち少なくとも $k-r$ 個のブロックで勾配が消える点（$\bigcup_{|I|=k-r}\Gamma_I$）である。
+  \item $u=0$ の点では、滑らかさ\eqref{eq:pg-smooth-block}により $\nabla_{x_s}f_s=0\iff x_s=0$ である。また非零ブロックの像は $\ker df_{s,0}$ なので、$E\in\operatorname{im}q^\sharp$ となる条件は各非零ブロックで $3f_{s,0}=0$ が成り立つことである。従って射影階数が $2r$ 以下になるのは、$\ell\le r$（$\Gamma_I$ に属する）か、あるいは $\ell=r+1$ かつ全非零ブロックで $f_{s,0}=0$（すなわち $J_L$ に属する）のときにちょうど限る。
+\end{itemize}
+これにより退化集合の台の表示を得る。
 
-スキーム構造には命題\ref{prop:pg-deg-ideal}を用いる。
-$u_\alpha\neq0$ では $u_\alpha A_{s,i}$ が全てのブロック変数の偏微分を生成するので零点は $\Delta$ である。
-$E_s$ の点ではある $A_{s,i}$ が単元となり、生成元は局所的に $u,x_t$（$t\neq s$）および $p_s$ を生成する。
-これらを法として $p_s=3f_{s,0}$ で、他の生成元は消える。
-従って零点イデアルは厳密に $(u,x_t\ (t\neq s),f_{s,0})$。
-各 $E_s$ は被約であり、$\Delta$ と交わらないので所要の分解となる。
+次に零点スキームのスキーム構造を命題\ref{prop:pg-deg-ideal}（$j=1$）から確認する。開集合 $\{u_\alpha\ne0\}$ 上では、生成元 $u_\alpha A_{s,i}$ が全てのブロック偏微分 $A_{s,i}$ を生成し、残りの生成元も $(A_{s,i})$ に含まれるため、零点スキームは $\Delta$ に厳密に一致する。一方、$E_s$ の任意の点の近傍では、$E_s$ の滑らかさによりある $A_{s,i}$ が単元となる。すると式\eqref{eq:pg-deg-generators}の生成元は局所的に $u_\alpha$、$x_{t,l}$（$t\ne s$）、および $p_s$ を生成し、これらを法として $p_s\equiv 3f_{s,0}$ かつ他の生成元はすべて消える。従って零点イデアルは厳密に $(u,x_t\ (t\ne s),f_{s,0})$ に一致する。各 $E_s$ は被約であり、補題\ref{lem:pg-critical-cover}より $\Delta$ と交わらないため、求めるスキーム論的非交和分解を得る。
 \end{proof}
-$m=0$の$\Gamma_I$は座標線形空間を台とし、
-そのJacobianイデアルは一般に非被約な厚みを定める。
 
-\subsection{完全交叉性と一般の滑らかさ}
+なお、$m=0$ における $\Gamma_I$ は座標線形空間を台とするが、そのJacobianイデアルは一般に非被約な厚化を定める。
+
+\subsection{残余零点スキーム $Z$ の完全交叉性と一般の滑らかさ}
 \begin{proposition}\label{prop:pg-zero-ci}
-$m=1$ なら $Z=\varnothing$。
-$m\geq2$なら$Z$は型$(2^{3k},3)$の完全交叉で、
-\begin{equation}
-\dim Z=m-2,\qquad \deg Z=3\cdot8^k,\qquad
-\omega_Z\simeq\OO_Z(3k+3-m).
-\end{equation}
-滑らかな $f_{s,0}$ を固定して他の係数を一般に選ぶと、$K_s,\Delta$ および $m\geq2$ の場合の $Z$ は滑らかである。
-これらが正次元ならば、滑らかな場合には既約である。
+条件\eqref{eq:pg-smooth-block}の下で、残余零点スキーム $Z=\Delta\cap X$ について次が成り立つ：
+\begin{itemize}
+  \item $m=1$ ならば $Z=\varnothing$ である。
+  \item $m\geq2$ ならば $Z$ は型 $(2^{3k},3)$ の完全交叉であり、
+  \begin{equation}
+  \dim Z=m-2,\qquad \deg Z=3\cdot8^k,\qquad
+  \omega_Z\simeq\OO_Z(3k+3-m)
+  \end{equation}
+  を満たす。
+\end{itemize}
+さらに、滑らかな3変数制限 $f_{s,0}$ を固定して中心変数 $u$ を含む残りの係数を一般に選ぶと、$K_s,\Delta$ および（$m\geq2$ における）$Z$ はすべて滑らかである。またこれらが正次元ならば、滑らかな場合には自動的に既約である。
 \end{proposition}
 \begin{proof}
-$\Delta$ の斉次環を $Q$ とする。
-$Q$ は $R=\CC[u]$ 上有限自由な Cohen--Macaulay 環で、各最小素イデアルは $R$ の零イデアルに縮約する。
-実際、各成分は純次元性により次元 $m$ であり、有限性から像も次元 $m$ である。
-ある成分上 $F=0$ とし、その関数体を $L$ とする。
-$L/\CC(u)$ は有限分離拡大なので、$du_1,\ldots,du_m$ は $\Omega^1_{L/\CC}$ の基底である。
-全てのブロック変数の偏微分が零なので
-$0=dF=\sum_\alpha F_{u_\alpha}du_\alpha$、従って全中心偏微分も零となる。
-この成分は $u$-空間を支配し原点以外の点をもつため、$X$ の滑らかさに矛盾する。
-よって $F$ はどの最小素点にも入らず、Cohen--Macaulay 性により非零因子である。
-これが $m\geq2$ の完全交叉性と数値を与える。
-$m=1$ では交点があれば $u_1\neq0$ と $3F=u_1F_{u_1}$ により全偏微分が零となり矛盾する。
+\paragraph{ステップ1：完全交叉性と数値不変量}
+$\Delta$ の斉次座標環を $Q$ とする。補題\ref{lem:pg-critical-cover}の証明より、$Q$ は $R=\CC[u]$ 上有限自由なCohen--Macaulay環であり、各最小素イデアルは $R$ の零イデアル $(0)$ へ縮約する（各成分は純次元性より次元 $m$ であり、有限性から $R$ への像も次元 $m$ だからである）。
 
-$u$を含む係数を動かすパラメータ空間では、
-$u_\alpha\neq0$ の点で項 $x_{si}u_\alpha^2$ の係数が $A_{s,i}$ の値を独立に変える。
-従って臨界点の族の全空間は滑らかである。
-$u=0$には解がなく、この族はパラメータ空間と射影空間の積の閉部分なので、その射影は固有である。
-各ファイバーは非空な有限被覆なので射影は支配的であり、標数0の一般的滑らかさの定理から一般の$K_s,\Delta$は滑らかとなる。
-そのような$\Delta$を固定し$F$に中心3次式$c(u)$を加えても、ブロック変数の偏微分は変わらない。
-切断 $c(u)|_\Delta$ は基点をもたず、Bertini から一般の $Z$ は滑らかとなる。
-$X$ の滑らかさも非空開条件である。
-実際 $\sum_sf_{s,0}+\sum_\alpha u_\alpha^3$ が滑らかな例を与える。
-従ってこれらの開条件を同時に課せる。
-正次元の射影完全交叉のKoszul分解と線束の中間コホモロジー消滅から$H^0(\OO)=\CC$を得る。
-よって連結であり、滑らかならば既約である。
+背理法により、$F$ が $Q$ のある最小素イデアル $\mathfrak p$ に属すると仮定し、その関数体を $L=\operatorname{Frac}(Q/\mathfrak p)$ とおく。$L/\CC(u)$ は標数0の有限拡大ゆえ有限分離拡大であるため、$du_1,\ldots,du_m$ はK\"ahler微分加群 $\Omega^1_{L/\CC}$ の基底をなす。$\Delta$ 上では全てのブロック偏微分 $A_{s,i}$ が消えているため、$L$ 上で
+\[
+  0=dF=\sum_{\alpha=1}^m F_{u_\alpha}\,du_\alpha
+\]
+となり、全ての中心偏微分 $F_{u_\alpha}$ も $\mathfrak p$ 上で消える。ところがこの成分は $u$-空間を支配するためアフィン原点以外の点を持ち、そこで $F$ の全偏微分が消えて $X$ の滑らかさに反する。ゆえに $F$ は $Q$ のどの最小素イデアルにも属さず、Cohen--Macaulay性から $Q$ 上の非零因子である。これが $m\ge2$ での型 $(2^{3k},3)$ 完全交叉性と次元・次数・双対化層を与える。また $m=1$ のとき、もし $\Delta\cap X$ に点があれば $u_1\ne0$ かつ $3F=u_1 F_{u_1}=0$ より全偏微分が零となって $X$ の滑らかさに反するため、$Z=\varnothing$ である。
+
+\paragraph{ステップ2：一般の係数に対する滑らかさと既約性}
+$u$ を含む係数を動かすパラメータ空間を考える。$u_\alpha\ne0$ の任意の点において、単項式 $x_{si}u_\alpha^2$ の係数は偏微分 $A_{s,i}$ の値を互いに独立に動かすため、臨界点の族の全空間は滑らかである。$u=0$ には解がないため、この族はパラメータ空間と射影空間の積の閉部分多様体となり、パラメータ空間への射影は固有である。各ファイバーは非空な有限被覆ゆえ支配的であり、標数0における一般的滑らかさの定理から、一般の係数に対して $K_s$ および $\Delta$ は滑らかである。
+
+そのような滑らかな $\Delta$ を固定し、$F$ に中心変数のみの3次式 $c(u)$ を加えてもブロック偏微分 $A_{s,i}$ は一切変わらない。切断 $c(u)|_\Delta$ の線形系は（$\Delta\cap\{u=0\}=\varnothing$ より）基点を持たないため、Bertiniの定理から一般の $c(u)$ に対して $Z=\Delta\cap X$ は滑らかとなる。また $X$ の滑らかさもFermat型 $\sum_s f_{s,0}+\sum_\alpha u_\alpha^3$ を含む非空開条件なので、これらすべてを同時に満たす一般の係数が存在する。最後に、正次元の射影完全交叉に対してはKoszul分解と線束の中間コホモロジー消滅から $H^0(\OO)=\CC$ が従うため連結であり、滑らかならば既約である。
 \end{proof}
 
-\begin{example}[Fermat3次三様体の葉と零点]\label{ex:pg-fermat-threefold-leaves-zeros}
-$n=3$、$k=1$、$m=2$とし、
+\begin{example}[Fermat 3次三様体の葉と零点スキーム]\label{ex:pg-fermat-threefold-leaves-zeros}
+以上の結果を最も簡単な具体例 $n=3$、$k=1$、$m=2$ のFermat 3次三様体で確認しよう。
 \begin{equation}\label{eq:pg-fermat-threefold}
- F=\frac{x_1^3+x_2^3+x_3^3+u_1^3+u_2^3}{3},
- \qquad
- P=\partial_{x_1}\wedge\partial_{x_2}\wedge\partial_{x_3}
+F=\frac{x_1^3+x_2^3+x_3^3+u_1^3+u_2^3}{3},
+\qquad
+P=\partial_{x_1}\wedge\partial_{x_2}\wedge\partial_{x_3}
 \end{equation}
-が定める$X=V(F)\subset\PP^4$上のPoisson構造$\pi_X$を考える。
-第一積分は$[u_1:u_2]$であり、$u_2=cu_1$、$t=u_1$とすると、
-命題\ref{prop:pg-leaf-closure}により一般の葉の閉包は
+が定める $X=V(F)\subset\PP^4$ 上のPoisson構造 $\pi_X$ を考える。第一積分は $[u_1:u_2]\in\PP^1$ であり、$u_2=cu_1$、$t=u_1$ とおけば、命題\ref{prop:pg-leaf-closure}により一般のsymplectic leafの閉包は
 \begin{equation}\label{eq:pg-fermat-threefold-leaf}
- V\bigl(x_1^3+x_2^3+x_3^3+(1+c^3)t^3\bigr)\subset\PP^3
+V\bigl(x_1^3+x_2^3+x_3^3+(1+c^3)t^3\bigr)\subset\PP^3
 \end{equation}
-となる。$1+c^3\ne0$なら全偏微分の共通零点はアフィン原点だけなので、
-これは滑らかな3次曲面である。
+となる。$1+c^3\neq0$ ならば全偏微分の共通零点はアフィン原点だけなので、これは滑らかな3次曲面である。
 
-一方、ブロック変数の偏微分は$x_i^2$であるから、命題\ref{prop:pg-deg-support}より
+一方、ブロック変数の偏微分は $A_{1,i}=x_i^2$ であるから、命題\ref{prop:pg-deg-support}より零点スキームは
 \begin{equation}\label{eq:pg-fermat-threefold-zeros}
- \begin{aligned}
- D_0(\pi_X)&=E\sqcup Z,\\
- E&=V(u_1,u_2,x_1^3+x_2^3+x_3^3),\\
- Z&=V(x_1^2,x_2^2,x_3^2,u_1^3+u_2^3)\subset\PP^4
- \end{aligned}
+\begin{aligned}
+D_0(\pi_X)&=E\sqcup Z,\\
+E&=V(u_1,u_2,x_1^3+x_2^3+x_3^3),\\
+Z&=V(x_1^2,x_2^2,x_3^2,u_1^3+u_2^3)\subset\PP^4
+\end{aligned}
 \end{equation}
-である。$E$は平面楕円曲線で、$Z$の台は中心直線$\{x_1=x_2=x_3=0\}$上の3点である。
-各点で$u_1\ne0$であり、$1+(u_2/u_1)^3$の根は単純なので、
-$\xi_i=x_i/u_1$とおけば局所環は
+に分解する。$E$ は滑らかな平面楕円曲線であり、残余スキーム $Z$ の台は中心直線 $\{x_1=x_2=x_3=0\}$ 上の3点である。各点 $p\in|Z|$ では $u_1\neq0$ かつ $1+(u_2/u_1)^3$ の根は単純なので、局所座標 $\xi_i=x_i/u_1$ を取ると局所環は
 \begin{equation}\label{eq:pg-fermat-threefold-zero-ring}
- \OO_{Z,p}\simeq
- \CC[\xi_1,\xi_2,\xi_3]/(\xi_1^2,\xi_2^2,\xi_3^2)
- \qquad(p\in|Z|)
+\OO_{Z,p}\simeq
+\CC[\xi_1,\xi_2,\xi_3]/(\xi_1^2,\xi_2^2,\xi_3^2)
+\qquad(p\in|Z|)
 \end{equation}
-となる。従って各点の長さは$2^3=8$、$Z$の全長は$24$であり、
-命題\ref{prop:pg-zero-ci}の次数$3\cdot8^k$と一致する。
-一般のFermat型の厚みは命題\ref{prop:pg-fermat-thickening}で記述する。
+となる。従って各点の長さは $2^3=8$、$Z$ 全体の長さは $3\times8=24$ であり、命題\ref{prop:pg-zero-ci}の次数公式 $3\cdot8^k$ と厳密に一致する（一般のFermat型における厚化構造は命題\ref{prop:pg-fermat-thickening}で詳しく記述する）。
 \end{example}
 
 \section{3次四様体と持上げ障害}\label{sec:pg-fourfold}
-この節では、超曲面$X$上のPoisson構造を$\pi$と書く。
-\subsection{純楕円退化因子}
+
+本節では次元 $n=4$（$N=6$）の滑らかな3次四様体 $X\subset\PP^5$ に焦点を当て、一般点で非退化（一般階数 $4$）となるPoisson構造を完全に分類する。本節では記号を簡略化し、超曲面 $X$ 上のPoisson構造を単に $\pi$ と書く。
+
+ここでの主結果は以下の3点である：(1) 一般階数4のPoisson構造は $(3,3)$ 分離型の3次四様体に限られ、すべて purely elliptic log symplectic となること（命題\ref{prop:pg-split-elliptic}）、(2) この条件が周囲の $\PP^5$ のHessian階数軌跡が平面を含むことと同値であること（系\ref{cor:pg-cubic-fourfold-elliptic}）、および(3) 非連結な零点曲線 $E_f\sqcup E_g$ に沿う3重消失を保った持上げの障害類を計算し、PymのarXiv v1の非存在主張との不整合を明確に説明すること（命題\ref{prop:pg-triple-lifting-obstruction}、系\ref{cor:pg-split-lifting-obstruction}、注意\ref{rem:pg-split-elliptic-lift-obstruction}）。
+
+\subsection{分離型3次四様体の純楕円対数symplectic構造}
 \label{subsec:pg-split-elliptic}
-4次元の場合には、正規形から一般点で非退化な構造を完全に記述できる。
-一般点で非退化なPoisson構造のPfaffianが被約因子$D$を定めるとき、
-その逆形式を対数symplectic形式という。
-局所体積形式$\nu$に対するmodularベクトル場を$Z_\nu=\delta_\nu\pi$と書く。
-$\pi$の零点における$Z_\nu$の値は$\nu$の選択に依存しない。
-体積形式の変更による差がHamiltonベクトル場だからである。
-この次元では、$D$が正規で、$\operatorname{Sing}D$上で$\pi=0$かつ
-$Z_\nu\ne0$となることが、PymのarXiv初版\cite[Definition~4.2, Remark~4.4]{PPymElliptic}の
-purely elliptic条件である。以下では分離型の構造についてこれを直接確認する。
+偶数次元 $2k$ の多様体上で一般点非退化なPoisson構造 $\pi$ に対し、そのPfaffian（最高外積 $\frac{1}{k!}\pi^{\wedge k}$）の零因子 $D$ が被約であるとき、逆形式 $\omega=\pi^{-1}$ を\emph{対数symplectic形式}（log symplectic form）と呼ぶ。局所体積形式 $\nu$ に対するmodularベクトル場を $Z_\nu=\delta_\nu\pi$ と書くと、$\pi$ の零点上における $Z_\nu$ の値は $\nu$ の選び方に依存しない（体積形式の変更による差がHamiltonベクトル場となり、$\pi=0$ の点で消えるため）。
+
+4次元において、退化因子 $D$ が正規であり、かつ特異集合 $\operatorname{Sing}D$ 上の全ての点で $\pi=0$ および $Z_\nu\neq0$ が成り立つことが、PymのarXiv初版 \cite[Definition~4.2, Remark~4.4]{PPymElliptic} における \emph{purely elliptic} 条件である。以下では $(3,3)$ 分離型の3次四様体に対してこの条件を直接計算で確認する。
 
 \begin{proposition}[分離型3次四様体の対数symplectic構造]
 \label{prop:pg-split-elliptic}
-$f\in\CC[x_0,x_1,x_2]_3$と$g\in\CC[y_0,y_1,y_2]_3$が
-滑らかな平面3次曲線を定めるとし、
+$f\in\CC[x_0,x_1,x_2]_3$ および $g\in\CC[y_0,y_1,y_2]_3$ がともに滑らかな平面3次曲線を定めるとし、
 \begin{equation}
- \begin{aligned}
- X&=V(f+g)\subset\PP^5,\\
- E_f&=V(f,y_0,y_1,y_2),\qquad
- E_g=V(x_0,x_1,x_2,g)
- \end{aligned}
- \label{eq:pg-split-fourfold}
+\begin{aligned}
+X&=V(f+g)\subset\PP^5,\\
+E_f&=V(f,y_0,y_1,y_2),\qquad
+E_g=V(x_0,x_1,x_2,g)
+\end{aligned}
+\label{eq:pg-split-fourfold}
 \end{equation}
-とおく。$X$は滑らかであり、
-2つのJacobian双ベクトル
-$q_f=\iota_{df}(\partial_{x_0}\wedge\partial_{x_1}\wedge\partial_{x_2})$、
-$q_g=\iota_{dg}(\partial_{y_0}\wedge\partial_{y_1}\wedge\partial_{y_2})$
-の和は、$X$上の一般階数4のPoisson構造$\pi$へ降りる。
-その退化因子は
-\begin{equation}
- D=V(f,g)=\operatorname{Join}(E_f,E_g)\subset X,
- \qquad
- (\operatorname{Sing}D)_{\mathrm{red}}=E_f\sqcup E_g
- \label{eq:pg-split-elliptic-divisor}
-\end{equation}
-である。$D$は被約・既約・正規な反標準因子であり、
-各楕円曲線に沿って重複度3を持つ。
-Poisson零点スキームは被約な$E_f\sqcup E_g$で、
-各点でmodularベクトル場が零でない。
-従ってこの構造はPym\cite[Definition~4.2]{PPymElliptic}の意味で
-\emph{purely elliptic log symplectic}である。
+とおく。このとき $X$ は滑らかな3次四様体であり、2つの3変数Jacobian双ベクトル場
+\[
+  q_f=\iota_{df}(\partial_{x_0}\wedge\partial_{x_1}\wedge\partial_{x_2}),\qquad
+  q_g=\iota_{dg}(\partial_{y_0}\wedge\partial_{y_1}\wedge\partial_{y_2})
+\]
+の和 $q_f+q_g$ は $X$ 上の一般階数 $4$ のPoisson構造 $\pi$ へ降下する。さらに次が成り立つ：
+\begin{enumerate}
+  \item 退化因子は2つの楕円曲線のjoin
+  \begin{equation}
+  D=V(f,g)=\operatorname{Join}(E_f,E_g)\subset X,
+  \qquad
+  (\operatorname{Sing}D)_{\mathrm{red}}=E_f\sqcup E_g
+  \label{eq:pg-split-elliptic-divisor}
+  \end{equation}
+  であり、$D$ は被約・既約・正規な反標準因子で、各楕円曲線 $E_f,E_g$ に沿って重複度 $3$ を持つ。
+  \item Poisson零点スキームは被約な非交和 $E_f\sqcup E_g$ に一致し、その各点でmodularベクトル場は零でない。
+\end{enumerate}
+従って $\pi$ はPym \cite[Definition~4.2]{PPymElliptic} の意味で \emph{purely elliptic log symplectic} である。
 \end{proposition}
 \begin{proof}
-$f$と$g$の勾配はそれぞれ原点以外では同時に零とならないので、
-$f+g$の全偏微分の共通零点は原点だけであり、$X$は滑らかである。
-各Jacobian括弧はPoissonであり、変数が分離しているため互いに可換する。
-$f+g$はそのCasimirで、係数次数が2なのでEuler作用に関する重みは零である。
-従って$q_f+q_g$は$X$上へ降りる。
+\paragraph{ステップ1：滑らかさ・降下・退化因子の正規性}
+$f$ と $g$ の勾配はそれぞれ原点以外では同時に消えないため、$f+g$ の全偏微分の共通零点は原点のみであり、$X$ は滑らかである。$q_f$ と $q_g$ は変数が分離した2つのJacobian Poisson構造なので互いに可換であり、$f+g$ はそのCasimirかつ係数は2次斉次であるから、$q_f+q_g$ は $X$ 上のPoisson構造 $\pi$ へ降下する。
 
-$V(f,g)$のアフィン錐は2つの既約な平面3次錐の積である。
-従って$D$は既約被約な型$(3,3)$の完全交叉であり、Cohen--Macaulayである。
-$x,y$がともに非零の点では$(df,dg)$の階数は2である。
-$x=0$または$y=0$でのみ階数が1となるので、
-特異集合の被約構造は$E_f\sqcup E_g$であり、$D$内で余次元2である。
-Serreの$R_1$と$S_2$により$D$は正規である。
+$D=V(f,g)\subset\PP^5$ のアフィン錐は2つの既約な平面3次錐の直積であるため、$D$ は既約・被約な型 $(3,3)$ の完全交叉であり、特にCohen--Macaulay（従って $S_2$）である。$x\ne0$ かつ $y\ne0$ の点では $(df,dg)$ の階数は $2$ であり、階数が $1$ 以下に下がるのは $x=0$ または $y=0$ のとき、すなわち $E_f\sqcup E_g$ 上のみである。$(\operatorname{Sing}D)_{\mathrm{red}}=E_f\sqcup E_g$ は $D$（次元3）の中で余次元 $2$ であるため、Serreの正規性判定法（$R_1$ かつ $S_2$）により $D$ は正規である。
 
-$E_f$の任意の点の近傍で局所形を計算する。
-$x$側に行列式1の線形座標変換を行って
-$x_0\ne0$、$f_{x_2}\ne0$とできる。
-$x_0=1$のチャートで
-$w=x_1/x_0$、$b=x_2/x_0$、$v_i=y_i/x_0$とおき、
-$f(1,w,b)+g(v)=0$から$b=b(w,v)$を局所的に解く。
-$A=f_{x_2}(1,w,b(w,v))$は単元である。
-次数0の関数の括弧を直接計算すると
+\paragraph{ステップ2：$E_f$ 近傍での局所計算（Pfaffianとmodularベクトル場）}
+$E_f$ の任意の点の近傍で局所形を求める（$E_g$ については $x$ と $y$ の役割を交換すれば同じである）。$x$ 側に行列式 $1$ の線形変換を施して、考えている点で $x_0\ne0$ かつ $f_{x_2}\ne0$ となるように取る。アフィンチャート $x_0=1$ 上で局所座標 $w=x_1/x_0$、$b=x_2/x_0$、$v_i=y_i/x_0$（$i=0,1,2$）を導入し、$X$ の方程式 $f(1,w,b)+g(v)=0$ を陰関数定理で $b=b(w,v)$ と解く。このとき $A:=f_{x_2}(1,w,b(w,v))$ は局所単元である。
+
+次数0関数のPoisson括弧を式\eqref{eq:pg-projective-ratio-bracket}で直接計算すると、
 \begin{equation}
- \begin{aligned}
- \{w,v_i\}&=A v_i,&
- \{v_0,v_1\}&=g_{v_2},&
- \{v_1,v_2\}&=g_{v_0},&
- \{v_2,v_0\}&=g_{v_1},\\
- \pi&=A\,\partial_w\wedge E_v+q_g(v),&
- E_v&=\sum_{i=0}^2v_i\partial_{v_i}
- \end{aligned}
- \label{eq:pg-split-local-poisson}
+\begin{aligned}
+\{w,v_i\}&=A v_i,&
+\{v_0,v_1\}&=g_{v_2},&
+\{v_1,v_2\}&=g_{v_0},&
+\{v_2,v_0\}&=g_{v_1},\\
+\pi&=A\,\partial_w\wedge E_v+q_g(v),&
+E_v&=\sum_{i=0}^2v_i\partial_{v_i}
+\end{aligned}
+\label{eq:pg-split-local-poisson}
 \end{equation}
-となる。$\nu=dw\wedge dv_0\wedge dv_1\wedge dv_2$とすれば、
-Euler等式$\sum_i v_i g_{v_i}=3g$から
+を得る。局所体積形式を $\nu=dw\wedge dv_0\wedge dv_1\wedge dv_2$ とすれば、Euler等式 $\sum_{i=0}^2 v_i g_{v_i}=3g(v)$ によりPfaffianは
 \begin{equation}
- \frac12\pi^{\wedge2}=3A g(v)\,\nu^{-1}
- \label{eq:pg-split-pfaffian}
+\frac12\pi^{\wedge2}=3A\,g(v)\,\nu^{-1}
+\label{eq:pg-split-pfaffian}
 \end{equation}
-を得る。$E_g$では役割を交換した同じ計算を用いる。
-$x,y\ne0$では射影化の階数計算
-（補題\ref{lem:pg-projective-rank}）により、
-階数が4から2へ下がる条件は$f=g=0$である。
-したがって$D$が退化因子全体であり、
-\eqref{eq:pg-split-pfaffian}からその重複度は1である。
-随伴公式は$K_X^{-1}\simeq\OO_X(3)$を与え、
-$D$はその切断$g|_X$の零因子である。
+と求まる。一方、$x\ne0$ かつ $y\ne0$ の点では補題\ref{lem:pg-projective-rank}により階数が4から2へ下がる条件はちょうど $f=g=0$ である。従って $D=V(f,g)$ が退化因子全体であり、式\eqref{eq:pg-split-pfaffian}より $D$ は重複度 $1$（被約）である。随伴公式より $K_X^{-1}\simeq\OO_X(3)$ であり、$D$ はその切断 $g|_X$ の零因子なので反標準因子である。また $D$ の局所方程式は3次式 $g(v)=0$ なので、$E_f=(v_0,v_1,v_2)$ に沿う重複度は $3$ である。4次元の歪対称行列の逆行列公式から $\omega=\pi^{-1}$ の極は高々1位（単純極）であり、Jacobi恒等式より $d\omega=0$、かつ最高外積が $K_X(D)$ の非零切断を与えるため、$\omega$ は対数symplectic形式である。
 
-$D$の局所方程式は$g(v)=0$なので、
-$E_f=(v_0,v_1,v_2)$に沿う重複度は3である。
-4次元の歪行列の逆行列公式から$\omega=\pi^{-1}$の極は高々単純であり、
-Jacobi恒等式により$d\omega=0$である。
-また最高外積は$K_X(D)$の消えない切断を与えるので、
-$\omega$は対数symplectic形式である。
-
-$A$が単元なので\eqref{eq:pg-split-local-poisson}の成分が生成する
-零点イデアルは$(v_0,v_1,v_2)$であり、Poisson零点スキームはここで被約である。
-$A$の$v$依存は$b(w,v)$を介し、
-$d_vb=-d_vg/A$なので、$q_g$と$d_vA$の縮約は零である。
-これを用いて$\pi$の成分を微分すると、
-$\nu$に対するmodularベクトル場$Z_\nu=\delta_\nu\pi$は
+最後に零点スキームとmodularベクトル場を確認する。$A$ が単元であるため、式\eqref{eq:pg-split-local-poisson}の係数全体が生成するイデアルは $(v_0,v_1,v_2)$ に一致し、零点スキームは $E_f$ 上で被約である。また $A=f_{x_2}(1,w,b(w,v))$ の $v$ 依存性は $b(w,v)$ のみを経由し、$f(1,w,b)+g(v)=0$ の微分から $d_v b=-d_v g/A$ である。ゆえに $q_g$ と $d_v A$ の縮約は $\iota_{d_v g}q_g=0$ により消滅する。これを用いて $\pi$ の成分を微分すると、$\nu$ に関するmodularベクトル場 $Z_\nu=\delta_\nu\pi$ は
 \begin{equation}
- Z_\nu=\frac{\iota_{d(Ag)}\pi}{Ag}
-       =\iota_{d\log A}\pi-3A\,\partial_w,
- \qquad
- Z_\nu|_{E_f}=-3A(w,0)\partial_w\ne0.
- \label{eq:pg-split-modular}
+Z_\nu=\frac{\iota_{d(Ag)}\pi}{Ag}
+=\iota_{d\log A}\pi-3A\,\partial_w,
+\qquad
+Z_\nu|_{E_f}=-3A(w,0)\partial_w\ne0
+\label{eq:pg-split-modular}
 \end{equation}
-となる。
-$E_g$上でも同様に零でない。
-各特異点を通るsymplectic leafは点で$X$内の余次元が4であり、
-$D$の正規性と上記の非消滅からpurely ellipticの全条件が従う。
+となる。$E_g$ 上でも同様に非零である。各特異点を通るsymplectic leafは0次元（$X$ 内の余次元4）であり、$D$ の正規性と合わせて purely elliptic log symplectic の全条件が満たされる。
 \end{proof}
 
-\begin{remark}[退化因子の特異スキーム]
+\begin{remark}[退化因子の特異スキームの厚み]
 \label{rem:pg-split-singular-schemes}
-退化因子$D$の特異スキームは、$E_f$近傍では$(g_{v_0},g_{v_1},g_{v_2})$で定まり、
-横断方向の長さは$2^3=8$である。$E_g$でも同じである。
-これは滑らかな平面3次の3つの2次偏微分が正則列をなすことによる。
+退化因子 $D$ の特異スキーム（Jacobianイデアルが定めるスキーム）は、$E_f$ 近傍では $(g_{v_0},g_{v_1},g_{v_2})$ で定まり、滑らかな平面3次式の3つの2次偏微分が正則列をなすことから横断方向の長さは $2^3=8$ である（$E_g$ 側も同様）。これは被約であるPoisson零点スキームとは区別される。
 \end{remark}
 
 \Needspace{16\baselineskip}
-\subsection{一般階数4とHessian軌跡}\label{subsec:pg-fourfold-hessian}
+\subsection{一般階数4とHessian軌跡の同値性}\label{subsec:pg-fourfold-hessian}
+正規形定理とBricalli--Favale--Pirolaの結果を合わせると、滑らかな3次四様体が一般階数4のPoisson構造を持つ条件が完全に特徴づけられる。
+
 \begin{corollary}[3次四様体の一般階数4とHessian軌跡]
 \label{cor:pg-cubic-fourfold-elliptic}
-滑らかな3次四様体$X=V(F)\subset\PP(V)$、$\dim V=6$に対し、
-Hessianの階数軌跡を
+滑らかな3次四様体 $X=V(F)\subset\PP(V)$（$\dim V=6$）に対し、周囲の $\PP(V)$ におけるHessianの階数 $3$ 以下の軌跡を
 \begin{equation}\label{eq:pg-fourfold-hessian-rank-three}
- \mathscr H_{\le3}(F)=
- \{[v]\in\PP(V):\operatorname{rank}(\operatorname{Hess}F(v))\leq3\}
+\mathscr H_{\le3}(F)=
+\{[v]\in\PP(V):\operatorname{rank}(\operatorname{Hess}F(v))\le3\}
 \end{equation}
-と定める。次の3条件は同値である。
+とおく。このとき次の3条件は同値である：
 \begin{enumerate}
-\item $X$は一般階数4の正則Poisson構造を持つ。
-\item 射影座標を選んで
- $F=f(x_0,x_1,x_2)+g(y_0,y_1,y_2)$と書ける。
- ここで$f,g$はいずれも滑らかな平面3次を定める。
-\item $\mathscr H_{\le3}(F)$は線形平面$\PP^2$を含む。
+\item $X$ は一般階数 $4$ の正則Poisson構造を持つ。
+\item 適切な射影座標を選んで $F=f(x_0,x_1,x_2)+g(y_0,y_1,y_2)$ と分離型に書ける（ここで $f,g$ はいずれも滑らかな平面3次曲線を定める）。
+\item 軌跡 $\mathscr H_{\le3}(F)$ は線形平面 $\PP^2$ を含む。
 \end{enumerate}
-一般階数4の全ての構造は、適当な第2項の表示で
-命題\ref{prop:pg-split-elliptic}の形となり、
-purely elliptic log symplecticである。
+さらに、一般階数 $4$ の全てのPoisson構造は、適切な第2項の表示の下で命題\ref{prop:pg-split-elliptic}の形となり、例外なく purely elliptic log symplectic である。
 \end{corollary}
 \begin{proof}
-正規形定理\ref{thm:pg-normal}で$N=6$、$2k=4$とすると、
-$k=2$、$m=0$であり、$F=f+g$となる。
-一方の平面3次に特異点があれば、他方の座標を零とすることで
-$X$の特異点が得られるため、両方とも滑らかである。
-これで第1項から第2項が従う。
-逆向きと最後の主張は命題\ref{prop:pg-split-elliptic}による。
-第2項と第3項の同値は
-Bricalli--Favale--Pirola\cite[Theorem~3.4, pp.~10--12]{PBricalliFavalePirola}
-において、同論文の記法で$n=5$、$k=2$とした場合である。
+$(1)\Rightarrow(2)$：定理\ref{thm:pg-normal}において $N=6$、一般階数 $2k=4$ とすると $k=2$、$m=0$ であり、$F=f(x_0,x_1,x_2)+g(y_0,y_1,y_2)$ と分離する。もし一方の平面3次曲線に特異点があれば、他方のブロック座標を零と置くことで $X$ の特異点が得られるため、$f,g$ はともに滑らかでなければならない。
+
+$(2)\Rightarrow(1)$ および最後の主張は命題\ref{prop:pg-split-elliptic}そのものである。また $(2)\Leftrightarrow(3)$ は、Bricalli--Favale--Pirola \cite[Theorem~3.4, pp.~10--12]{PBricalliFavalePirola} において同論文の記法で $n=5$、$k=2$ とした場合の結果にほかならない。
 \end{proof}
 
 \begin{remark}\label{rem:pg-fourfold-ts-hessian-scope}
-第3項の平面は周囲の$\PP(V)$内にある。分離表示では$\PP^2_x$と$\PP^2_y$がこれに当たり、
-それらと$X$との交叉は$E_f$と$E_g$である。
-同じ文献のTheorem~Aは、滑らかな3次四様体について
-Hessian超曲面が既約かつ正規であることと、
-任意のサイズのThom--Sebastiani分解を持たないことを同値としている。
-従ってHessian超曲面の可約性または非正規性には、
-$(1,5)$型や$(2,4)$型の分解も対応する。
+第3項の線形平面 $\PP^2$ は周囲の $\PP(V)$ 内にあり、分離表示では座標平面 $\PP^2_x$ と $\PP^2_y$ がこれに当たる（それらと $X$ との交叉が楕円曲線 $E_f,E_g$ である）。なお同文献のTheorem~Aは、滑らかな3次四様体のHessian超曲面が既約かつ正規であることと、任意のサイズのThom--Sebastiani分解を持たないことが同値であることを示している。従ってHessian超曲面の可約性や非正規性は、$(3,3)$ 型だけでなく $(1,5)$ 型や $(2,4)$ 型の分離からも生じ得る。
 \end{remark}
+
+実際に、Hessian超曲面が可約であっても一般階数4のPoisson構造を持たない3次四様体が存在することを具体例で確認しておこう。
 
 \begin{example}[Hessianの可約性だけでは階数4を判定できない]
 \label{ex:pg-reducible-hessian-no-rank-four}
-$s=z_1+z_2+z_3+z_4$とし、
+$s=z_1+z_2+z_3+z_4$ とおき、$(1,1,4)$ 分離型の3次式
 \begin{equation}\label{eq:pg-hessian-counterexample-cubic}
- F=x_0^3+x_1^3+h(z),\qquad
- h(z)=\sum_{i=1}^4z_i^3-s^3
+F=x_0^3+x_1^3+h(z),\qquad
+h(z)=\sum_{i=1}^4z_i^3-s^3
 \end{equation}
-と置く。$X=V(F)\subset\PP^5$は滑らかで、そのHessian超曲面は可約だが、
-$X$上に一般階数4の正則Poisson構造は存在しない。
+を考える。このとき $X=V(F)\subset\PP^5$ は滑らかでHessian超曲面は可約であるが、$X$ 上には一般階数 $4$ の正則Poisson構造は存在しない。
 
-まず$h$の勾配が消えれば$z_i^2=s^2$である。
-$s=0$なら全ての$z_i$が零であり、$s\ne0$なら
-$z_i=\epsilon_i s$、$\epsilon_i\in\{1,-1\}$より
-$\sum_{i=1}^4\epsilon_i=1$を得るが、左辺は偶数なので矛盾する。
-従って$h=0$は滑らかな3次曲面であり、$F=0$も滑らかである。
-$J$を全成分が1の$4\times4$行列とすると、
+\paragraph{滑らかさとHessianの可約性}
+$h$ の勾配が消えるとすると $z_i^2=s^2$（$1\le i\le4$）である。$s=0$ ならすべての $z_i=0$ となり、$s\ne0$ なら $z_i=\epsilon_i s$（$\epsilon_i\in\{1,-1\}$）から和を取って $\sum_{i=1}^4\epsilon_i=1$ を得るが、左辺は偶数なので矛盾する。よって $V(h)\subset\PP^3$ は滑らかな3次曲面であり、$X=V(F)$ も滑らかである。全成分が $1$ の $4\times4$ 行列を $J$ とすると、
 \begin{equation}\label{eq:pg-hessian-counterexample-matrix}
- \frac16\operatorname{Hess}F
- =\operatorname{diag}\bigl(x_0,x_1,
-          \operatorname{diag}(z_1,z_2,z_3,z_4)-sJ\bigr).
+\frac16\operatorname{Hess}F
+=\operatorname{diag}\bigl(x_0,x_1,
+        \operatorname{diag}(z_1,z_2,z_3,z_4)-sJ\bigr)
 \end{equation}
-最後のブロックの行列式は恒等的に零でない
-（$z_1=\cdots=z_4=1$での値は$-15$）ので、
-$\det\operatorname{Hess}F$は$x_0x_1$を因子に持ち、可約である。
+である。右下の $4\times4$ ブロックの行列式は恒等的に零ではない（例えば $z_1=\cdots=z_4=1$ で値 $-15$ を取る）ため、$\det\operatorname{Hess}F$ は1次因子 $x_0 x_1$ を持ち可約である。
 
-$(3,3)$分解がないことを次の線形代数で確認する。
-全ての点$v$についてHessianに関して自己共役な定数行列の空間を
+\paragraph{$(3,3)$ 分離の不可能性}
+全ての点 $v\in\CC^6$ について $\operatorname{Hess}F(v)$ に関して自己共役となる定数行列の空間
 \begin{equation}\label{eq:pg-hessian-counterexample-symmetrizer}
- E_F=\{T\in\operatorname{Mat}_6(\CC):
-       \operatorname{Hess}F(v)T=T^{\mathsf t}\operatorname{Hess}F(v)
-       \text{ for all }v\}
+E_F=\{T\in\operatorname{Mat}_6(\CC):
+        \operatorname{Hess}F(v)T=T^{\mathsf t}\operatorname{Hess}F(v)
+        \text{ for all }v\}
 \end{equation}
-とする。$x_0,x_1$の係数を比較すると、$T$の最初の2行の非対角成分は零となる。
-残る係数行列$E_{ii}-J$、$1\le i\le4$の共通核は零なので、
-最初の2列の非対角成分も零である。
-実際、$(E_{ii}-J)v=0$なら$i$以外の成分から$\sum_jv_j=0$を得て、
-$i$成分から$v_i=0$となるので、全ての$i$について成り立てば$v=0$である。
-残る$4\times4$ブロックを$T_4$、その第$j$列の和を$c_j$とする。
-$(E_{ii}-J)T_4$の対称性を、$i$と異なる$k,l$で比較すると$c_k=c_l$である。
-任意の$k\ne l$に対してそのような$i$を選べるので全ての$c_j$は等しい。
-次に$(i,l)$成分と$(l,i)$成分を比較すると$(T_4)_{il}=0$、$l\ne i$を得る。
-従って$T_4$は対角で、その全対角成分も等しく、
+を計算する。$x_0,x_1$ の係数を比較すれば、$T$ の第1・第2行の非対角成分は零である。また $z_i$ の係数行列 $E_{ii}-J$（$1\le i\le4$）の共通核は零であるため（$(E_{ii}-J)v=0$ の $i$ 以外の成分から $\sum_j v_j=0$、さらに $i$ 成分から $v_i=0$ となる）、第1・第2列の非対角成分も零である。残る $4\times4$ ブロックを $T_4$、その第 $j$ 列の和を $c_j$ とおく。$(E_{ii}-J)T_4$ の対称性を $i$ と異なる添字 $k,l$ で比較すると $c_k=c_l$ を得るので、すべての $c_j$ は等しい。次に $(i,l)$ 成分と $(l,i)$ 成分を比較すると $(T_4)_{il}=0$（$l\ne i$）が従う。よって $T_4$ はスカラー行列であり、
 \begin{equation}\label{eq:pg-hessian-counterexample-algebra}
- E_F=\{\operatorname{diag}(a,b,cI_4):a,b,c\in\CC\},
- \qquad
- \{\operatorname{rank}T:T\in E_F,\ T^2=T\}
- =\{0,1,2,4,5,6\}.
+E_F=\{\operatorname{diag}(a,b,cI_4):a,b,c\in\CC\},
+\qquad
+\{\operatorname{rank}T:T\in E_F,\ T^2=T\}
+=\{0,1,2,4,5,6\}
 \end{equation}
-線形座標変換$x=Py$に対して
-$\operatorname{Hess}(F\circ P)(y)=P^{\mathsf t}\operatorname{Hess}F(Py)P$なので、
-$E_{F\circ P}=P^{-1}E_FP$であり、冪等元の階数は保存される。
-もし$F$が$(3,3)$型に分離すれば、一方のブロックへの射影は
-$E_F$の階数3の冪等元を与えるが、そのような元はない。
-従って系\ref{cor:pg-cubic-fourfold-elliptic}により一般階数4の構造は存在しない。
-
+となる。線形座標変換 $x=Py$ に対して $\operatorname{Hess}(F\circ P)(y)=P^{\mathsf t}\operatorname{Hess}F(Py)P$ より $E_{F\circ P}=P^{-1}E_FP$ であるため、$E_F$ 内の冪等元の階数集合は座標変換で不変である。もし $F$ が $(3,3)$ 分離型に書けるならば、一方の3変数ブロックへの射影が $E_F$ の階数 $3$ の冪等元を与えるはずであるが、上の集合に $3$ は含まれない。従って系\ref{cor:pg-cubic-fourfold-elliptic}により、$X$ には一般階数 $4$ のPoisson構造が存在しない。
 \end{example}
 
 \Needspace{10\baselineskip}
-\subsection{高次消失の持上げ障害}\label{subsec:pg-lifting-obstruction}
-分離型の零点曲線$C=E_f\sqcup E_g$は非連結であり、
-退化因子の方程式を$C$に沿う3重消失を保って$\PP^5$へ持ち上げる際に障害が生じる。
-この障害が、PymのarXiv v1の非存在記述と命題\ref{prop:pg-split-elliptic}の
-不整合を説明する（注意\ref{rem:pg-split-elliptic-lift-obstruction}）。
-まず一般の消失次数について障害群を求め、その後この例の障害類を計算する。
+\subsection{高次消失を保つ持上げの障害}\label{subsec:pg-lifting-obstruction}
+命題\ref{prop:pg-split-elliptic}で構成した分離型3次四様体の零点曲線 $C=E_f\sqcup E_g$ は2つの連結成分を持つ。退化因子の方程式 $s=g|_X$ は $C$ に沿って3重に消えるが、この3重消失を保ったまま周囲の $\PP^5$ 上の3次多項式へ持ち上げようとすると、$C$ の非連結性に由来するコホモロジー障害が生じる。この障害こそが、PymのarXiv v1における3次四様体上の非存在主張と命題\ref{prop:pg-split-elliptic}との不整合の正確な原因である（注意\ref{rem:pg-split-elliptic-lift-obstruction}）。
+
+まず一般の超曲面 $X\subset\PP^M$ と任意の消失次数 $r\ge2$ に対してこの持上げ障害群を決定し、続いて分離型3次四様体の障害類を具体的に計算する。
+
 \begin{proposition}[高次消失を保つ持上げと連結成分の障害]
 \label{prop:pg-triple-lifting-obstruction}
-$X=V(F)\subset\mathbb P^M_{\mathbb C}$を滑らかな次数$d$の超曲面とし、
-$i:X\hookrightarrow\mathbb P^M$を閉埋込みとする。
-$C\subset X$は空でない滑らかな閉部分多様体で、その全連結成分は正次元とする。
-$\mathcal I\subset\mathcal O_{\mathbb P^M}$と
-$\mathcal J\subset\mathcal O_X$をそれぞれ$C$のイデアル層とする。
-任意の整数$r\ge2$について自然な同型
+$X=V(F)\subset\mathbb P^M_{\mathbb C}$ を滑らかな次数 $d$ の超曲面とし、$i:X\hookrightarrow\mathbb P^M$ を閉埋込みとする。$C\subset X$ を空でない滑らかな閉部分多様体で、その全ての連結成分が正次元であるものとする。$\mathcal I\subset\mathcal O_{\mathbb P^M}$ および $\mathcal J\subset\mathcal O_X$ をそれぞれ $\mathbb P^M$ および $X$ における $C$ のイデアル層とする。このとき任意の整数 $r\ge2$ に対して、自然な同型
 \begin{equation}\label{eq:pg-split-disconnected-cohomology}
  H^1(\mathbb P^M,\mathcal I^{r-1})
  \simeq \mathbb C^{\pi_0(C)}/\mathbb C\mathbf1
@@ -1220,23 +872,12 @@ $\mathcal J\subset\mathcal O_X$をそれぞれ$C$のイデアル層とする。
  \xrightarrow{\ \delta_r\ }
  \mathbb C^{\pi_0(C)}/\mathbb C\mathbf1
 \end{equation}
-がある。したがって$s\in H^0(X,\mathcal J^r(d))$が
-$C$に沿う$r$重消失を保って周囲の次数$d$の多項式へ持ち上がることと
-$\delta_r(s)=0$は同値であり、持上げが存在すれば一意である。
-特に$C$が連結なら全ての$s$が一意に持ち上がる。
-以下、$r=3$では$\delta_3$を単に$\delta$と書く。
+が存在する。従って、切断 $s\in H^0(X,\mathcal J^r(d))$ が $C$ に沿う $r$ 重消失を保って周囲の次数 $d$ の斉次多項式へ持ち上がることと $\delta_r(s)=0$ は同値であり、持上げが存在すれば一意である。特に $C$ が連結ならば、すべての $s$ が一意に持ち上がる。以下、$r=3$ のとき $\delta_3$ を単に $\delta$ と書く。
 \end{proposition}
 
 \begin{proof}
-$C$と$X$の滑らかさから、$C$の各点の近傍では$F$の局所方程式を
-$\mathcal I$を生成する正則パラメータ系の一員に取れる。従って
-\begin{equation}
- (F)\cap\mathcal I^r=F\mathcal I^{r-1}.
-\end{equation}
-実際、$\operatorname{gr}_{\mathcal I}\mathcal O_{\mathbb P^M}
-\simeq\operatorname{Sym}_{\mathcal O_C}(\mathcal I/\mathcal I^2)$における
-$F$の次数1記号は局所的に自由生成元であり、その乗法は単射である。
-この局所等式と$\mathcal J=\mathcal I\mathcal O_X$により
+\paragraph{ステップ1：イデアル冪の短完全列}
+$C$ と $X$ はともに滑らかなので、$C$ の各点の近傍で $F$ の局所方程式を $\mathcal I$ を生成する正則パラメータ系の一部として選べる。すると随伴次数環 $\operatorname{gr}_{\mathcal I}\mathcal O_{\mathbb P^M}\simeq\operatorname{Sym}_{\mathcal O_C}(\mathcal I/\mathcal I^2)$ において $F$ の次数1記号は局所的に自由生成元となり、その乗法は単射である。従って $(F)\cap\mathcal I^r=F\mathcal I^{r-1}$ が局所的に成り立ち、$\mathcal J=\mathcal I\mathcal O_X$ と合わせて短完全列
 \begin{equation}\label{eq:pg-split-lifting-sequence}
  0\longrightarrow\mathcal I^{r-1}
  \xrightarrow{\ \cdot F\ }\mathcal I^r(d)
@@ -1244,101 +885,74 @@ $F$の次数1記号は局所的に自由生成元であり、その乗法は単�
 \end{equation}
 を得る。
 
-余法完全列と射影空間のEuler列により
+\paragraph{ステップ2：厚化上の大域関数と $H^1(\mathbb P^M,\mathcal I^{r-1})$ の計算}
+余法完全列と射影空間のEuler列を合成すると、ベクトル束の単射
 \begin{equation}
  \mathcal I/\mathcal I^2
  \hookrightarrow\Omega^1_{\mathbb P^M}|_C
  \hookrightarrow\mathcal O_C(-1)^{\oplus(M+1)}
 \end{equation}
-である。これらの商は局所自由なので合成も部分束の埋込みであり、
-任意の$j\ge1$について対称冪を取っても単射性が保たれる。
-各連結成分が正次元の射影多様体であることから、
+を得る。これらの商はいずれも局所自由なので合成も部分束の埋込みであり、任意の $j\ge1$ について対称冪を取っても単射性が保たれる。$C$ の各連結成分が正次元の射影多様体であることから $H^0(C,\mathcal O_C(-j))=0$ であり、従って
 \begin{equation}\label{eq:pg-conormal-powers-no-sections}
  \mathcal I^j/\mathcal I^{j+1}
  \simeq\operatorname{Sym}^j(\mathcal I/\mathcal I^2)
  \hookrightarrow\mathcal O_C(-j)^{\oplus\binom{M+j}{j}},
  \qquad H^0(C,\mathcal I^j/\mathcal I^{j+1})=0
 \end{equation}
-となる。$C_{(q)}=V(\mathcal I^{q+1})$、$q\ge0$と置くと、
-$q\ge1$での完全列
-$0\to\mathcal I^q/\mathcal I^{q+1}\to
-\mathcal O_{C_{(q)}}\to\mathcal O_{C_{(q-1)}}\to0$により、
-大域切断の制限写像は単射である。
-一方、全ての$C_{(q)}$の位相空間は$C$と同じであり、
-各連結成分上の定数はその厚みにも定数として延長する。
-従って帰納的に
+が成り立つ。
+
+$q\ge0$ に対して厚化スキーム $C_{(q)}=V(\mathcal I^{q+1})$ を考えると、各 $q\ge1$ に対する短完全列
+\[
+  0\longrightarrow\mathcal I^q/\mathcal I^{q+1}
+  \longrightarrow\mathcal O_{C_{(q)}}
+  \longrightarrow\mathcal O_{C_{(q-1)}}\longrightarrow0
+\]
+と式\eqref{eq:pg-conormal-powers-no-sections}から、大域切断の制限写像 $H^0(C_{(q)},\mathcal O_{C_{(q)}})\to H^0(C_{(q-1)},\mathcal O_{C_{(q-1)}})$ は単射である。一方、全ての $C_{(q)}$ の基礎位相空間は $C$ に一致するため、各連結成分上の定数関数はそのまま厚化 $C_{(q)}$ 上の定数関数として延長し、この制限写像は全射でもある。帰納的に、全ての $q\ge0$ に対して同型
 \begin{equation}\label{eq:pg-thickening-global-functions}
  H^0(C_{(q)},\mathcal O_{C_{(q)}})
  \xrightarrow{\sim} H^0(C,\mathcal O_C)
  =\mathbb C^{\pi_0(C)}\qquad(q\ge0)
 \end{equation}
-を得る。$q=r-2$として完全列
+を得る。
+
+$q=r-2$ として短完全列
 \begin{equation}
  0\longrightarrow\mathcal I^{r-1}\longrightarrow\mathcal O_{\mathbb P^M}
  \longrightarrow\mathcal O_{C_{(r-2)}}\longrightarrow0
 \end{equation}
-における境界写像は、$H^1(\mathbb P^M,\mathcal O_{\mathbb P^M})=0$により同型
+のコホモロジー長完全列を取れば、$H^1(\mathbb P^M,\mathcal O_{\mathbb P^M})=0$ により境界写像が同型
 \begin{equation}
  \partial:\mathbb C^{\pi_0(C)}/\mathbb C\mathbf1
  \xrightarrow{\sim}H^1(\mathbb P^M,\mathcal I^{r-1})
 \end{equation}
-を誘導する。\eqref{eq:pg-split-disconnected-cohomology}には$-\partial^{-1}$を用い、
-\eqref{eq:pg-split-lifting-sequence}の連結準同型との合成を$\delta_r$と定める。
-この規約では、大域持上げ$h\in H^0(\mathbb P^M,\mathcal O(d))$と
-局所持上げ$h_a\in\mathcal I^r(d)$に対し、
-$(h-h_a)/F\bmod\mathcal I^{r-1}$の各連結成分上の定数が$\delta_r(s)$を表す。
-大域持上げは$H^1(\mathbb P^M,\mathcal O)=0$により存在し、
-その変更は全ての成分定数に同じ定数を加える。
-$C\ne\varnothing$より$H^0(\mathbb P^M,\mathcal I^{r-1})=0$であるから、
-\eqref{eq:pg-split-lifting-sequence}のコホモロジー完全列は
-\eqref{eq:pg-triple-lifting-sections}を与える。
+を誘導する。同型\eqref{eq:pg-split-disconnected-cohomology}として $-\partial^{-1}$ を採用し、完全列\eqref{eq:pg-split-lifting-sequence}の連結準同型との合成を $\delta_r$ と定める。
+
+\paragraph{ステップ3：障害類 $\delta_r(s)$ の明示的記述}
+この符号規約の下では、$s\in H^0(X,\mathcal J^r(d))$ の周囲の $\PP^M$ への大域持上げ $h\in H^0(\mathbb P^M,\mathcal O(d))$（$H^1(\mathbb P^M,\mathcal O)=0$ により必ず存在する）と、$C$ の各連結成分近傍での局所持上げ $h_a\in\mathcal I^r(d)$ を取ったとき、商 $(h-h_a)/F\bmod\mathcal I^{r-1}$ が各連結成分上で取る定数値の組がちょうど $\delta_r(s)$ を表す（大域持上げ $h$ を $h+\lambda F$ に取り替えると全成分定数に同じ定数 $\lambda$ が加わるため、商空間 $\mathbb C^{\pi_0(C)}/\mathbb C\mathbf1$ の元としてwell-definedである）。最後に $C\ne\varnothing$ より $H^0(\mathbb P^M,\mathcal I^{r-1})=0$ なので、完全列\eqref{eq:pg-split-lifting-sequence}のコホモロジー長完全列から完全列\eqref{eq:pg-triple-lifting-sections}を得る。
 \end{proof}
 
 \begin{corollary}[分離型3次四様体の非零障害]
 \label{cor:pg-split-lifting-obstruction}
-$F=f(x_0,x_1,x_2)+g(y_0,y_1,y_2)$ とし、
-$E_f=V(f)\subset\mathbb P^2_x$ と
-$E_g=V(g)\subset\mathbb P^2_y$ は滑らかな平面3次曲線とする。
-$X=V(F)\subset\mathbb P^5$、$C=E_f\sqcup E_g\subset X$ と置くと、
-$s=g|_X\in H^0(X,\mathcal J^3(3))$ に対して
+$F=f(x_0,x_1,x_2)+g(y_0,y_1,y_2)$（$E_f=V(f)\subset\mathbb P^2_x$ および $E_g=V(g)\subset\mathbb P^2_y$ は滑らかな平面3次曲線）とし、$X=V(F)\subset\mathbb P^5$、$C=E_f\sqcup E_g\subset X$ とおく。このとき退化因子を定める切断 $s=g|_X\in H^0(X,\mathcal J^3(3))$ の障害類は
 \begin{equation}
- \label{eq:pg-split-obstruction-class}\delta(s)=[(0,1)]\ne0\quad\text{in }\mathbb C^2/\mathbb C(1,1)
+\label{eq:pg-split-obstruction-class}\delta(s)=[(0,1)]\ne0\quad\text{in }\mathbb C^2/\mathbb C(1,1)
 \end{equation}
-である。特に $s$ の3重消失を両連結成分で同時に保つ3次持上げは存在しない。
+である。特に、両連結成分 $E_f,E_g$ に沿う3重消失を同時に保つような $\PP^5$ 上の3次持上げは存在しない。
 \end{corollary}
 
 \begin{proof}
-$E_f$ の近傍では $s$ は $y$ の3次式 $g$ で表され、
-$E_g$ の近傍では $s=-f|_X$ と表されるので、$s\in H^0(X,\mathcal J^3(3))$ である。
-大域持上げ $h=g$ を固定すると、
-局所持上げ $h_a\in\mathcal I^3(3)$ に対する
-$(h-h_a)/F\bmod\mathcal I^2$ が $\delta(s)$ を表す。
-$E_f$ 側では $h_a=g$、$E_g$ 側では $h_a=-f$ を取れるから、
-この成分定数はそれぞれ $0$ と $1$ である。
-同じ障害は、全ての大域的持上げを
+$E_f$ の近傍では $s$ は $y$ の3次式 $g$ で表され、$E_g$ の近傍では $F=f+g=0$ より $s=-f|_X$（$x$ の3次式）と表されるため、$s\in H^0(X,\mathcal J^3(3))$ である。大域持上げとして $h=g$ を固定すると、$E_f$ 側では局所持上げ $h_a=g$、$E_g$ 側では局所持上げ $h_a=-f$ を取れる。従って $(h-h_a)/F$ の値は $E_f$ 上で $(g-g)/F=0$、$E_g$ 上で $(g-(-f))/F=F/F=1$ となり、$\delta(s)=[(0,1)]\ne0$ を得る。
+
+この障害は極めて初等的に見ることもできる。実際、$s=g|_X$ の $\PP^5$ への大域的な3次持上げ全体は1パラメータ族
 \begin{equation}\label{eq:pg-split-ambient-lift}
- H_\lambda=g+\lambda F=\lambda f+(1+\lambda)g
+ H_\lambda=g+\lambda F=\lambda f+(1+\lambda)g\qquad(\lambda\in\CC)
 \end{equation}
-と書くことでも分かる。
-$E_f$ に沿う3重消失は $\lambda=0$、$E_g$ に沿う3重消失は
-$\lambda=-1$ を要求するため、両立しない。
+で尽くされる。$E_f$ に沿う3重消失は $\lambda=0$ を要求し、$E_g$ に沿う3重消失は $1+\lambda=0$（すなわち $\lambda=-1$）を要求するため、両者は決して両立しない。
 \end{proof}
 
 \begin{remark}[PymのarXiv v1との比較]
 \label{rem:pg-split-elliptic-lift-obstruction}
-Pym~\cite{PPymElliptic}のarXiv:1507.05668v1の
-Definition~4.2, p.~17におけるpurely ellipticの条件には、
-零点曲線の連結性は含まれない。
-命題\ref{prop:pg-split-elliptic}で構成したPoisson構造はこの条件を満たし、
-同版Theorem~1.3, p.~4およびProposition~5.7, p.~30の
-3次四様体に関する非存在・非正規性の記述と両立しない。
+Pym~\cite{PPymElliptic} のarXiv:1507.05668v1 のDefinition~4.2, p.~17 における purely elliptic 条件には、零点曲線 $C$ の連結性は含まれていない。命題\ref{prop:pg-split-elliptic}で構成した分離型3次四様体のPoisson構造はこの条件をすべて満たしており、同版Theorem~1.3, p.~4 および Proposition~5.7, p.~30 に述べられた3次四様体に関する非存在・非正規性の記述とは両立しない。
 
-持上げに関する同版Lemma~5.5, pp.~28--29では、
-滑らかな中心$C$に連結性を仮定せず、
-$H^1(\PP^5,\mathcal I_C)=0$を用いる。
-しかし$C=E_f\sqcup E_g$ではこの群は$\CC$であり、
-命題\ref{prop:pg-triple-lifting-obstruction}と
-系\ref{cor:pg-split-lifting-obstruction}は
-$H^1(\PP^5,\mathcal I_C^2)$に属する非零の持上げ障害を与える。
-従って同補題をこの非連結な曲線に適用することはできない。
+持上げを扱う同版Lemma~5.5, pp.~28--29 では、滑らかな中心 $C$ に連結性を仮定せず、$H^1(\PP^5,\mathcal I_C)=0$ を用いている。しかし非連結曲線 $C=E_f\sqcup E_g$ に対してはこのコホモロジー群は $H^1(\PP^5,\mathcal I_C)\simeq\CC\ne0$ であり、さらに命題\ref{prop:pg-triple-lifting-obstruction}と系\ref{cor:pg-split-lifting-obstruction}が示す通り $H^1(\PP^5,\mathcal I_C^2)\simeq\CC$ に属する非零の持上げ障害が現れる。従って同版の持上げ補題をこの非連結曲線に適用することはできない。なお、刊行版本文および訂正文における該当部分の扱いについては本稿では未確認である。
 \end{remark}

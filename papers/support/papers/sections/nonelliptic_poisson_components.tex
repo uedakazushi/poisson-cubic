@@ -1,142 +1,100 @@
 % !TeX root = ../../../poisson-cubic.tex
 \section{非楕円型ブロックを持つ固定Poisson成分}\label{ne:examples}
-3変数制限が特異でも、中心変数との混合項により超曲面全体は滑らかになり得る。
-ここでは、節点型または尖点型の3変数制限を一般点に持つ固定Poisson成分を構成する。
-座標$(x,y,z,a,b,c,u)$に対応するベクトル基底を$(e_0,\ldots,e_6)$とする。
+
+定理\ref{thm:pg-normal}の正規形 $F=\sum_{s=1}^k f_s(x_s,u)$ において、中心変数 $u$ が存在する場合（$m>0$）には、個別の3変数制限 $f_s(x_s,0)$ が特異な平面3次曲線を定めていても、中心変数との混合項によって3次超曲面 $X=V(F)$ 全体は滑らかになり得る。しかし「そのような特異ブロックが、固定した滑らかな3次超曲面 $X$ のPoissonスキーム $\operatorname{Pois}(X)$ の既約成分の一般点として実際に現れるか（すなわち滑らかな楕円ブロックへ変形せずに独立した成分をなすか）」は非自明である。
+
+本節では、5次元（$N=7$、$k=2$、$m=1$）の滑らかな3次超曲面において、節点型（nodal）または尖点型（cuspidal）の平面3次曲線を一般点に持つ2次元の固定Poisson成分を明示的に構成する。
+
+座標 $(x,y,z,a,b,c,u)$ に対応する $\CC^7$ の双対基底を $(e_0,\ldots,e_6)$ とし、2つの3次超曲面 $X_{\mathrm N},X_{\mathrm C}\subset\PP^6$ を次式で定義する：
 \begin{equation}\label{ne:F}
 \begin{aligned}
- f_{\mathrm N}&=xyz+y^3+z^3,& f_{\mathrm C}&=xz^2+y^3,\\
- F_\epsilon&=f_\epsilon+a^3+b^3+c^3+u(x^2+a^2+b^2+c^2)+u^3,
- &X_\epsilon&=V(F_\epsilon)\subset\PP^6
- \quad(\epsilon\in\{\mathrm N,\mathrm C\}).
+f_{\mathrm N}&=xyz+y^3+z^3,& f_{\mathrm C}&=xz^2+y^3,\\
+F_\epsilon&=f_\epsilon+a^3+b^3+c^3+u(x^2+a^2+b^2+c^2)+u^3,\\
+&X_\epsilon&=V(F_\epsilon)\subset\PP^6
+\quad(\epsilon\in\{\mathrm N,\mathrm C\}).
 \end{aligned}
 \end{equation}
-$P_1=e_0\wedge e_1\wedge e_2$、$P_2=e_3\wedge e_4\wedge e_5$、
-$L=\CC P_1\oplus\CC P_2$とおく。
+また2つの3変数ブロックに対応する定数3重ベクトルを $P_1=e_0\wedge e_1\wedge e_2$、$P_2=e_3\wedge e_4\wedge e_5$ とおき、これらが張る2次元線形部分空間を $L=\CC P_1\oplus\CC P_2$ とする。
 
 \begin{theorem}[非楕円型を一般点に持つ既約成分]\label{ne:main}
-$X_{\mathrm N}$、$X_{\mathrm C}$は5次元の滑らかな3次超曲面である。
-$P\mapsto\pi_P=(\iota_{dF_\epsilon}P)|_{X_\epsilon}$の下で
-$L\simeq\mathbb A^2$は$\operatorname{Pois}(X_\epsilon)$の1つの既約成分の被約構造であり、
-$P_0=P_1+P_2$でPoissonスキームそのものは滑らかである。
-各成分の一般Poisson階数は4である。
+式\eqref{ne:F}で定まる $X_{\mathrm N}$ および $X_{\mathrm C}$ は、いずれも5次元の滑らかな3次超曲面である。同型 $P\mapsto\pi_P=(\iota_{dF_\epsilon}P)|_{X_\epsilon}$ の下で、2次元空間 $L\simeq\mathbb A^2$ は $\operatorname{Pois}(X_\epsilon)$ の1つの既約成分の被約構造を与え、さらに点 $P_0=P_1+P_2$ において $\operatorname{Pois}(X_\epsilon)$ はスキームとして滑らかである。各成分の一般Poisson階数は $4$ である。
 
-$\lambda\mu\ne0$の点$\lambda P_1+\mu P_2$の3変数ブロック分解は順序を除き内在的である。
-一方のブロックの平面3次曲線は、$X_{\mathrm N}$では節点型、$X_{\mathrm C}$では尖点型であり、
-他方は滑らかなFermat3次曲線である。
-特異なブロックを座標変換で滑らかな楕円ブロックへ取り替えることはできない。
+また、$\lambda\mu\ne0$ を満たす点 $\lambda P_1+\mu P_2\in L$ の3変数ブロック分解は順序を除いて内在的であり、一方のブロックの平面3次曲線は $X_{\mathrm N}$ では節点型、$X_{\mathrm C}$ では尖点型、他方は滑らかなFermat3次曲線である。従ってこの特異ブロックを座標変換によって滑らかな楕円ブロックへ取り替えることはできない。
 \end{theorem}
+
+定理の証明は、(1) $X_\epsilon$ の滑らかさの検証、(2) 点 $P_0$ における $\operatorname{Pois}(X_\epsilon)$ の接空間の次元が $2$ であること（すなわち線形化行列の階数が $35-2=33$ であること）の厳密な整数計算、(3) 成分性・一般階数・ブロックの内在性の確認、の3段階で行う。
 
 \subsection{超曲面の滑らかさ}
 \begin{lemma}\label{ne:smooth}
-\eqref{ne:F}の全偏微分の共通零点は原点だけである。
+式\eqref{ne:F}で定まる $F_{\mathrm N}$ および $F_{\mathrm C}$ の全偏微分の共通零点はアフィン原点のみである。従って $X_{\mathrm N}$、$X_{\mathrm C}$ は滑らかである。
 \end{lemma}
 \begin{proof}
-$u=0$では$F_a=F_b=F_c=0$より$a=b=c=0$。
-節点型の勾配$(yz,xz+3y^2,xy+3z^2)$が零なら$y=z=0$であり、
-尖点型の勾配$(z^2,3y^2,2xz)$が零でも同様である。
-残る$F_u=x^2$から$x=0$となる。
+$u=0$ の場合と $u\ne0$ の場合に分けて、全偏微分の共通零点を調べる。
 
-$u\ne0$では$u=1$に規格化する。
-$a,b,c$はそれぞれ$0$または$-2/3$であり、その非零個数を$r$とすると
-$a^2+b^2+c^2=4r/9$（$0\le r\le3$）。
-節点型の残る3式は
-\begin{equation}
- yz+2x=0,\qquad xz+3y^2=0,\qquad xy+3z^2=0.
-\end{equation}
-$yz=0$なら$x=y=z=0$。
-$yz\ne0$なら後二式を掛けて$x^2=9yz=-18x$、従って$x=-18$。
-よって$F_u=0$は、$3+4r/9=0$または$327+4r/9=0$を要求し、いずれも不可能である。
-尖点型では$z^2+2x=0$、$3y^2=0$、$2xz=0$から$x=y=z=0$で、
-$F_u=3+4r/9\ne0$となる。
+\paragraph{場合1：$u=0$}
+$F_a=3a^2=0$、$F_b=3b^2=0$、$F_c=3c^2=0$ より $a=b=c=0$ が直ちに従う。残る $(x,y,z)$ の偏微分について、節点型では $(yz,xz+3y^2,xy+3z^2)=0$ から、尖点型では $(z^2,3y^2,2xz)=0$ から、いずれも $y=z=0$ を得る。最後に $F_u=x^2=0$ より $x=0$ となり、原点のみが解である。
+
+\paragraph{場合2：$u\ne0$}
+斉次性により $u=1$ と規格化してよい。このとき $F_a=3a^2+2a=0$（$b,c$ も同様）より、$a,b,c$ はそれぞれ $0$ または $-2/3$ である。これらのうち非零の個数を $r\in\{0,1,2,3\}$ とすると、$a^2+b^2+c^2=4r/9$ である。
+\begin{itemize}
+  \item 節点型（$\epsilon=\mathrm N$）：$(x,y,z)$ の偏微分は
+  \begin{equation}
+    yz+2x=0,\qquad xz+3y^2=0,\qquad xy+3z^2=0
+  \end{equation}
+  である。$yz=0$ ならば直ちに $x=y=z=0$ となる。$yz\ne0$ ならば後ろの2式を掛けて $x^2yz=9y^2z^2$、すなわち $x^2=9yz=-18x$ を得るので、$x=-18$ である。いずれにせよ $F_u=x^2+(a^2+b^2+c^2)+3=0$ は $3+4r/9=0$ または $327+4r/9=0$ を要求するが、$r\ge0$ よりどちらも不可能である。
+  \item 尖点型（$\epsilon=\mathrm C$）：$(x,y,z)$ の偏微分は $z^2+2x=0$、$3y^2=0$、$2xz=0$ であり、これらから $x=y=z=0$ が従う。よって $F_u=3+4r/9\ne0$ となり矛盾する。
+\end{itemize}
+以上より、いずれの超曲面にも特異点は存在しない。
 \end{proof}
 
-\subsection{Poissonスキームの接空間}
-命題\ref{prop:pg-represent}により全双ベクトル空間は$\Lambda^3\CC^7$、次元35である。
-命題\ref{prop:pg-jacobi-extension}のJacobi持上げと、勾配の1次syzygyの消滅は、
-固定した$F_\epsilon$に対する線形写像と完全列を用いて示された。
-これらは双対数環へのテンソル後も成立するため、Jacobi条件の線形化は
-$\operatorname{Pois}(X_\epsilon)$の接空間を与える。
-$Q=\sum_{i<j<k}q_{ijk}e_i\wedge e_j\wedge e_k$とする。
-$Q^{ijk}$と$P_0^{ijk}$は、それぞれ$Q$と$P_0$の係数を添字の交代性で拡張したものとし、
-$(F_\epsilon)_{br\ell}=\partial_b\partial_r\partial_\ell F_\epsilon$とおく。
-Jacobi条件を$P_0$で線形化した整数行列$M_\epsilon$は
+\subsection{Poissonスキームの接空間と線形化行列の階数}
+命題\ref{prop:pg-represent}により、大域双ベクトル場全体の空間は $\Lambda^3\CC^7$ と同型であり、その次元は $\binom{7}{3}=35$ である。命題\ref{prop:pg-jacobi-extension}のJacobi持上げと勾配の1次syzygyの消滅は、固定した $F_\epsilon$ に対する線形写像と完全列のみを用いて示されているため、双対数環 $\CC[\varepsilon]/(\varepsilon^2)$ とのテンソル積を取ってもそのまま成り立つ。従って、$P_0=P_1+P_2$ におけるJacobi条件の線形化の核は、$\operatorname{Pois}(X_\epsilon)$ の $P_0$ でのZariski接空間に厳密に一致する。
+
+任意の変分 $Q=\sum_{i<j<k}q_{ijk}e_i\wedge e_j\wedge e_k\in\Lambda^3\CC^7$ を取る。$Q^{ijk}$ および $P_0^{ijk}$ はそれぞれ $Q$ と $P_0$ の係数を添字の交代性で拡張したものとし、3階偏微分を $(F_\epsilon)_{br\ell}=\partial_b\partial_r\partial_\ell F_\epsilon$ と書く。補題\ref{lem:pg-linearize}のJacobi条件を $P_0$ で線形化した整数行列 $M_\epsilon$ は、各 $i<j<k$ および $\alpha,\ell\in\{0,\ldots,6\}$ に対して
 \begin{equation}\label{ne:M}
 \begin{split}
- (M_\epsilon Q)_{ijk\alpha\ell}=\sum_{r,b}\bigl(&Q^{ir\alpha}P_0^{jkb}+P_0^{ir\alpha}Q^{jkb}
-  +Q^{jr\alpha}P_0^{kib}+P_0^{jr\alpha}Q^{kib}\\
- &+Q^{kr\alpha}P_0^{ijb}+P_0^{kr\alpha}Q^{ijb}\bigr)(F_\epsilon)_{br\ell}
+(M_\epsilon Q)_{ijk\alpha\ell}=\sum_{r,b}\bigl(&Q^{ir\alpha}P_0^{jkb}+P_0^{ir\alpha}Q^{jkb}\\
++Q^{jr\alpha}P_0^{kib}+P_0^{jr\alpha}Q^{kib}\\
++&Q^{kr\alpha}P_0^{ijb}+P_0^{kr\alpha}Q^{ijb}\bigr)(F_\epsilon)_{br\ell}
 \end{split}
 \end{equation}
-で与えられる。$i<j<k$、$\alpha,\ell\in\{0,\ldots,6\}$であり、
-行$(i,j,k,\alpha,\ell)$と列$(i,j,k)$を辞書式順で並べる。
-零行を除くと節点型408行、尖点型312行となる。
+で与えられる。行 $(i,j,k,\alpha,\ell)$ と列 $(i,j,k)$ を辞書式順に並べ、恒等的に零の行を除くと、$M_{\mathrm N}$ は408行、$M_{\mathrm C}$ は312行の整数行列となる。
 
 \begin{lemma}[Jacobi方程式の線形化の階数]\label{ne:rank}
-両行列の階数は33、核は$L$である。
-列$(012)$と$(345)$を除いた行列には、次の行列式を持つ33次小行列
-$M_{\mathrm N}'$、$M_{\mathrm C}'$が存在する：
+両行列 $M_{\mathrm N},M_{\mathrm C}$ の階数はいずれも $33$ であり、その核は $L=\CC P_1\oplus\CC P_2$ に一致する。具体的には、列 $(012)$ と $(345)$ を除いた行列には、次の非零な行列式を持つ33次小行列 $M_{\mathrm N}'$、$M_{\mathrm C}'$ が存在する：
 \begin{equation}
- \det M_{\mathrm N}'=2^{24}3^{12}=8916100448256,\qquad
- \det M_{\mathrm C}'=-2^{33}3^{12}=-4565043429507072.
+\det M_{\mathrm N}'=2^{24}3^{12}=8916100448256,\qquad
+\det M_{\mathrm C}'=-2^{33}3^{12}=-4565043429507072.
 \end{equation}
 \end{lemma}
 \begin{proof}
-$\lambda P_1+\mu P_2$は、中心変数$u$を共有する2つの3変数Jacobian括弧を与える。
-ブロック間の括弧は零で、各ブロックの係数は他方の変数に依存しない。
-よってJacobi恒等式が成り立ち、$(012)$、$(345)$の2列は零である。
-従って階数は高々33であり、$L$は核に含まれる。
+まず階数の上界と核の包含を確認する。任意の $\lambda,\mu\in\CC$ に対して $\lambda P_1+\mu P_2$ は、中心変数 $u$ を共有する2つの3変数Jacobian括弧の和を定める。ブロック間の括弧は零であり、各ブロックの係数は他方のブロック変数に依存しないため、$L$ の全ての点がJacobi恒等式を満たす。従って $M_\epsilon$ の列 $(012)$ と $(345)$ は零列であり、$L\subset\ker M_\epsilon$ および $\operatorname{rank} M_\epsilon\le 35-2=33$ が従う。
 
-下界は整数上の小行列式によって得られる。
-式\eqref{ne:M}から生成した$M_\epsilon$の転置を有理数上で行簡約し、
-そのピボット列に対応する$M_\epsilon$の33行を選ぶ。
-列$(012)$と$(345)$を除いた33次小行列の行列式を整数上で計算すると、
-表示した2つの値となる。いずれも非零なので、階数は33、核は$L$である。
+階数の下界は、整数環 $\ZZ$ 上の厳密な33次小行列式の計算によって得る。式\eqref{ne:M}から生成した行列 $M_\epsilon$ の転置を有理数体 $\mathbb Q$ 上で行簡約し、そのピボット列に対応する $M_\epsilon$ の33行を抽出する。さらに零列である $(012)$ と $(345)$ を除いて得られる33次正方小行列 $M_\epsilon'$ の行列式を整数上で計算すると、定理に掲げた2つの非零値を得る。従って $\operatorname{rank} M_\epsilon=33$、$\ker M_\epsilon=L$ である。
 \end{proof}
 
-選択した行・列の添字と小行列の全成分は、
-\href{https://github.com/uedakazushi/poisson-cubic/tree/1f8d4c305a9c5c4eff4c21657254255a1a6ebf51/computations}{補足計算資料}の
-\path{computations/nonelliptic_components_certificate.json}に収録している。
-検算コード\path{computations/verify_nonelliptic_components.py}は
-式\eqref{ne:M}から行列を再生成し、このデータと行列式の値を照合する。
-この整数計算はPythonとSymPyを用い、配布ソースのルートで次を実行すれば再現できる。
+選択した33行・33列の添字と小行列の全成分は、\href{https://github.com/uedakazushi/poisson-cubic/tree/1f8d4c305a9c5c4eff4c21657254255a1a6ebf51/computations}{補足計算資料}の \path{computations/nonelliptic_components_certificate.json} に証明書として収録している。また検算スクリプト \path{computations/verify_nonelliptic_components.py} は式\eqref{ne:M}から行列 $M_\epsilon$ を直接再生成し、証明書データおよび行列式の値を照合する。この整数計算はPythonとSymPyを用いており、配布ソースのルートディレクトリで
 \begin{quote}
 \small\verb|python3 computations/verify_nonelliptic_components.py|
 \end{quote}
+を実行することで完全に再現できる。
 
-\begin{proof}[定理\ref{ne:main}の成分性と階数]
-$L$は2次元の閉既約部分スキームであり、その全点がPoissonである。
-$P_0$での接空間は2次元なので、Poissonスキームの局所環はKrull次元2、
-埋込み次元2の正則局所環となる。
-これは$\CC$上有限型なので、$P_0$での滑らかさを意味する。
-同じ次元を持つ閉部分$L$はその唯一の局所既約成分であり、局所的にスキームとして一致する。
-従って$L$は大域的な既約成分で、一般点で被約である。
+\subsection{成分性・一般階数・ブロックの内在性}
+以上の準備から、定理\ref{ne:main}の残りの主張を直ちに証明できる。
 
-点$[0:1:0:-1:0:0:0]$は両$X_\epsilon$に属する。
-$\lambda\mu\ne0$のとき、そこでアフィン双ベクトルの像は
-$\langle e_0,e_2,e_4,e_5\rangle$で階数4。
-Eulerベクトル$e_1-e_3$はその像に含まれないため、射影化しても階数4である。
-ブロックの内在性には補題\ref{ne:blocks}を用いる。
+\begin{proof}[定理\ref{ne:main}の成分性と階数の証明]
+$L\simeq\mathbb A^2$ は2次元の閉既約部分スキームであり、その全ての点が $\operatorname{Pois}(X_\epsilon)$ に属する。一方、補題\ref{ne:rank}により点 $P_0\in L$ における $\operatorname{Pois}(X_\epsilon)$ のZariski接空間の次元も $2$ である。従って $P_0$ における $\operatorname{Pois}(X_\epsilon)$ の局所環は、Krull次元が少なくとも2、埋込み次元が高々2であるから、次元2の正則局所環となる。$\operatorname{Pois}(X_\epsilon)$ は $\CC$ 上有限型なので、これは $P_0$ におけるスキームとしての滑らかさを意味する。同じ次元2を持つ閉部分スキーム $L$ は $P_0$ を通る唯一の局所既約成分であり、$P_0$ の近傍でスキームとして $\operatorname{Pois}(X_\epsilon)$ と一致する。ゆえに $L$ は $\operatorname{Pois}(X_\epsilon)$ の大域的な既約成分の被約構造を与え、一般点で被約である。
+
+次に一般階数を調べる。点 $p=[0:1:0:-1:0:0:0]$ は $F_\epsilon(p)=1^3+(-1)^3=0$ を満たすため、両超曲面 $X_{\mathrm N},X_{\mathrm C}$ に属する。$\lambda\mu\ne0$ のとき、この点でのアフィン双ベクトルの像は $\langle e_0,e_2,e_4,e_5\rangle$ であり階数は $4$ である。一方、この点でのEulerベクトル $e_1-e_3$ はこの像に含まれないため、補題\ref{lem:pg-projective-rank}により射影化しても階数は下がらず $4$ のままである。従って各成分の一般Poisson階数は $4$ である。
 \end{proof}
 
-\begin{proof}[定理\ref{ne:main}のブロックに関する主張]
-$\lambda\mu\ne0$では支持は$\langle e_0,e_1,e_2\rangle\oplus\langle e_3,e_4,e_5\rangle$。
-補題\ref{ne:blocks}により2ブロックは一意である。
-$F_\epsilon$の対応する射影平面への制限は$f_\epsilon$および$a^3+b^3+c^3$である。
-$f_{\mathrm N}$は$[1:0:0]$近傍で$yz+y^3+z^3$となり節点、
-$f_{\mathrm C}$は$z^2+y^3$となり尖点を持つ。
-各式は$x$について1次で、その係数と定数項が互いに素なので既約である。
-この特異性は内在的ブロックへの制限であり、座標の選択では除去できない。
+\begin{proof}[定理\ref{ne:main}のブロックに関する主張の証明]
+$\lambda\mu\ne0$ を満たす点 $P=\lambda P_1+\mu P_2$ の支持は $\langle e_0,e_1,e_2\rangle\oplus\langle e_3,e_4,e_5\rangle$ である。補題\ref{ne:blocks}により、この2つの3次元ブロックは順序を除いて $P$ から一意かつ内在的に決まる。
+
+$F_\epsilon$ をこれら2つの射影平面へ制限すると、それぞれ $f_\epsilon(x,y,z)$ および滑らかなFermat3次式 $a^3+b^3+c^3$ を得る。前者の特異点を調べると、$x=1$ のアフィンチャート上で $f_{\mathrm N}(1,y,z)=yz+y^3+z^3$ は原点 $[1:0:0]$ に節点を持ち、$f_{\mathrm C}(1,y,z)=z^2+y^3$ は $[1:0:0]$ に尖点を持つ。また $f_{\mathrm N},f_{\mathrm C}$ はいずれも $x$ について1次であり、その係数と定数項が互いに素であるため既約である。この特異性は $P$ から内在的に定まるブロック部分空間への制限の性質であるため、周囲の線形座標の選択を変えても除去することはできない。
 \end{proof}
 
-\subsection{特異ブロックと相対成分}
-上の平面3次曲線の一般化Jacobianは次のようになる。
-節点3次曲線では$\Pic^0\simeq\mathbb G_m$、尖点型では$\Pic^0\simeq\mathbb G_a$。
-前者は正規化$\PP^1$上の2点のファイバーを非零スカラーで接着することで、
-後者は$\CC[[t^2,t^3]]\subset\CC[[t]]$の単元商の1次係数$t$により得られる。
+\subsection{特異ブロックの幾何学と相対成分内での位置づけ}
+上で現れた特異な平面3次曲線の一般化Jacobianは、節点3次曲線では $\Pic^0\simeq\mathbb G_m$、尖点3次曲線では $\Pic^0\simeq\mathbb G_a$ となる。前者は正規化 $\PP^1$ 上の2点のファイバーを非零スカラーで接着するパラメータから、後者は $\CC[[t^2,t^3]]\subset\CC[[t]]$ の単元商における1次係数 $t$ からそれぞれ得られる。
 
-定理\ref{thm:pg-fermat-relative-count}により、$\lambda\mu\ne0$の点は
-一般階数4の唯一の相対成分上にある。
-その階数層では、ブロック制限の滑らかさはFermat式を含む非空開条件である。
-従って本節の固定底の成分は、相対成分内の特異ブロックをもつ部分に位置する。
-これらのブロックの量子化と行列式曲線は\cite{CubicQuantization}で扱う。
+定理\ref{thm:pg-fermat-relative-count}により、$\lambda\mu\ne0$ に対応する点 $([F_\epsilon],\lambda P_1+\mu P_2)$ は、相対モジュライにおける一般階数4の唯一の既約成分上に乗っている。この階数層全体の中では、両ブロックの3変数制限が滑らかであることはFermat式を含む非空Zariski開条件である。従って本節で構成した固定底 $X_\epsilon$ 上の既約成分 $L$ は、相対成分の内部において特異ブロックを持つ真の閉部分集合のファイバーとして現れる現象を示している。なお、これら非楕円ブロックの代数的量子化と行列式曲線については \cite{CubicQuantization} で詳しく扱う。
